@@ -88,23 +88,26 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Sponsor <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="introducer_code" readonly>
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">Position <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <select class="form-control" id="">
-                                                                                <option>-- Select One --</option>
+                                                                        <select class="form-control" id="orientation">
+                                                                        <option value="">-- Select One --</option>
+                                                                                <option value="Auto">Auto</option>
+                                                                                <option value="Left">Left</option>
+                                                                                <option value="Right">Right</option>
                                                                               </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="associate_name">
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="address">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
@@ -120,45 +123,51 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="father_or_husband_name">
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="mothers_name">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Gender <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <select class="form-control" id="">
-                                                                                <option>-- Select One --</option>
+                                                                        <select class="form-control" id="gender">
+                                                                        <option value="">-- Select One --</option>
+                                                                                <option value="Male">Male</option>
+                                                                                <option value="Female">Female</option>
                                                                               </select>
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="dob">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="mobile_no">
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">Secondary Mobile #</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="secondary_mobile_no">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <select class="form-control" id="">
-                                                                                <option>-- Select One --</option>
+                                                                        <select class="form-control" id="marital_status">
+                                                                        <option value="">-- Select One --</option>
+                                                                                <option value="Single">Single</option>
+                                                                                <option value="Married">Married</option>
+                                                                                <option value="Widow">Widow</option>
+                                                                                <option value="Divorced">Divorced</option>
                                                                               </select>
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="occupation">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
@@ -167,7 +176,7 @@
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <select class="form-control" id="">
+                                                                        <select class="form-control" id="state">
                                                                                 <option>-- Select One --</option>
                                                                               </select>
                                                                     </div>
@@ -175,7 +184,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" placeholder="">
+                                                                        <input type="text" class="form-control" placeholder="" id="pin_code">
                                                                     </div>
                                                                     <label class="col-sm-2 col-form-label">City <span class="text-danger">*</span></label>
                                                                     <div class="col-sm-4">

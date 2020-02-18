@@ -32,8 +32,8 @@
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-          </button>
+                    <span class="mdi mdi-menu"></span>
+                </button>
                 <div class="search-field d-none d-md-block">
                     <form class="d-flex align-items-center h-100" action="#">
                         <div class="input-group">
@@ -52,7 +52,7 @@
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1">David Greymaax</p>
+                                <p class="mb-1" id="user_login"></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -168,8 +168,8 @@
                     </li>
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
+                    <span class="mdi mdi-menu"></span>
+                </button>
             </div>
         </nav>
         <!-- partial -->

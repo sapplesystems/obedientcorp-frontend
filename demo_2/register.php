@@ -28,30 +28,33 @@
                     <div class="col-lg-12">
                         <h4>New here?</h4>
                         <h6 class="font-weight-light mb-4">Join us today! It takes only few steps</h6>
-                        <form id="example-form" action="#">
+                        <form id="example-form" class="register_form" action="#">
                             <div>
                                 <h3>Personal Details</h3>
                                 <section>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Sponsor <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" name="sponsor" id="sponsor">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Position <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="">
-                                                    <option>-- Select One --</option>
+                                            <select class="form-control" id="position" name="position">
+                                            <option>-- Select One --</option>
+                                                <option value="Auto">Auto</option>
+                                                <option value="Left">Left</option>
+                                                <option value="Right">Right</option>
                                                   </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" name="name" id="name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" name="address" id="address">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -67,45 +70,52 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="father_name" name="father_name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="mother_name" name="mother_name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Gender <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="">
-                                                    <option>-- Select One --</option>
+                                            <select class="form-control"id="gender" name="gender">
+                                                <option>-- Select One --</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
                                                   </select>
                                         </div>
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="dob" name="dob">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Secondary Mobile #</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="secondary_mobile" name="secondary_mobile">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="">
-                                                    <option>-- Select One --</option>
+                                            <select class="form-control" id="marital_status" name="marital_status">
+                                            <option value="">-Select Marital Status-</option>
+                                                <option value="Single">Single</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Widowed">Widowed</option>
+                                                <option value="Separated">Separated</option>
+                                                <option value="Divorced">Divorced</option>
                                                   </select>
                                         </div>
                                         <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""  id="occupation" name="occupation">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -114,39 +124,38 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="">
-                                                    <option>-- Select One --</option>
-                                                  </select>
+                                            <select class="form-control states" id="states" name="states"> </select>     
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="pin_code" name="pin_code">
                                         </div>
-                                        <label class="col-sm-2 col-form-label">City <span class="text-danger">*</span></label>
+                                        <label class="col-sm-2 col-form-label">City <span
+                                                class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <select class="form-control " id="city" name="city"></select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="pan" name="pan">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="email" class="form-control" placeholder="">
+                                            <input type="email" class="form-control" placeholder="" id="email_id" name="email_id">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Username <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="username" name="username">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Password <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="password" class="form-control" placeholder="">
+                                            <input type="password" class="form-control" placeholder="" id="passowrd" name="password">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -155,7 +164,7 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Confirm Password <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="password" class="form-control" placeholder="">
+                                            <input type="password" class="form-control" placeholder="" id="confirm_passowrd" name="confirm_passowrd">
                                         </div>
                                     </div>
                                 </section>
@@ -164,27 +173,27 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Payee Name</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="payee_name" name="payee_name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Bank Name</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="bank_name" name="bank_name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Account Number</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="account_number" name="account_number">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Branch</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="branch" name="branch">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">IFSC Code</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="ifsc_code" name="ifsc_code">
                                         </div>
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-4">
@@ -196,19 +205,24 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="nominee_name" name="nominee_name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="">
-                                            <option>-- Select One --</option>
+                                            <select class="form-control" id="relation" name="relation">
+                                                <option value="Mother">Mother</option>
+                                                <option value="Father">Father</option>
+                                                <option value="Son">Son</option>
+                                                <option value="Daughter">Daughter</option>
+                                                <option value="Sister">Sister</option>
+                                                <option value="Brother">Brother</option>
                                           </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder=""  id="nominee_dob" name="nominee_dob">
                                         </div>
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-4">
@@ -340,6 +354,171 @@
     <!-- Custom js for this page -->
     <script src="../assets/js/wizard.js"></script>
     <!-- End custom js for this page -->
+    <!--script for jquery validation-->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <!-- Jquery JS-->
 </body>
 
 </html>
+<script type="text/javascript">
+    var state_list;
+    $(document).ready(function () {
+
+        
+        getStatesCities();
+        
+
+        //function for getCities
+        $(".states").change(function () {
+            var state_id = $(this).val();
+            var city_div = '<option value="">-- Select City--</option>';
+            var cities = state_list[state_id].cities;
+            console.log(cities);
+            $.each(cities, function (key, value) {
+                console.log(value);
+                city_div += '<option value="' + value.id + '">' + value.city + '</option>';
+            });
+            $("#city").html(city_div);
+        });
+
+        //
+
+        // console.log(url);
+
+        $("body").on("click", ".actions a[href$='#finish']", function (e) {
+            e.preventDefault();
+            //for validation
+            /*$("#example-form").validate({
+                rules: {
+                    sponsor: "required",
+                    position: "required",
+                    name: "required",
+                    address: "required",
+                    father_name: "required",
+                    mother_name: "required",
+                    gender: "required",
+                    dob: "required",
+                    mobile: "required",
+                    secondary_mobile: "required",
+                    marital_status: "required",
+                    occupation: "required",
+                    states: "required",
+                    city: "required",
+                    pin_code: "required",
+                    pan: "required",
+                    email_id: "required",
+                    username: "required",
+                    password: "required",
+                    confirm_passowrd: "required",
+                    payee_name: "required",
+                    bank_name: "required",
+                    account_number: "required",
+                    branch: "required",
+                    ifsc_code: "required",
+                    nominee_name: "required",
+                    relation: "required",
+                    nominee_dob: "required",
+                    terms_condition_1: "required",
+                    terms_condition_2: "required",
+                   
+                    //confirm_password: "required"
+                }
+
+                // Specify validation error messages
+
+            });*/
+
+                //alert($("#example-form").valid());
+            //if ($("#register_form").valid()) {
+                var params = {
+                    introducer_code: $('#sponsor').val(),
+                    orientation:$('#position').val(),
+                    associate_name: $('#name').val(),
+                    address:$('#address').val(),
+                    father_or_husband_name: $('#father_name').val(),
+                    mothers_name:$('#mother_name').val(),
+                    gender:$('#gender').val(),
+                    dob: $('#dob').val(),
+                    mobile_no: $('#mobile').val(),
+                    secondary_mobile_no:$('#secondary_mobile').val(),
+                    marital_status:$('#marital_status').val(),
+                    occupation:$('#occupation').val(),
+                    state:$('#states').val(),
+                    city:$('#city').val(),
+                    pin_code:$('#pin_code').val(),
+                    pan:$('#pan').val(),
+                    email: $('#email_id').val(),
+                    username:$('#username').val(),
+                    password: $('#passowrd').val(),
+                    confirm_password: $('#confirm_passowrd').val(),
+                    //bank details 
+                    payee_name:$('#payee_name').val(),
+                    bank_name:$('#bank_name').val(),
+                    account_number:$('#account_number').val(),
+                    branch:$('#branch').val(),
+                    ifsc_code:$('#ifsc_code').val(),
+                    //nominee details
+                    nominee_name:$('#nominee_name').val(),
+                    relation:$('#relation').val(),
+                    ndob:$('#nominee_dob').val(),
+                    //state:$('#terms_condition_1').val(),
+                    //state:$('#terms_condition_2').val(),
+                };
+                console.log(params);
+                var url = 'http://localhost/obedientcorp/public/api/register';
+                $.ajax({
+                    url: url,
+                    type: 'post',
+                    dataType: 'json',
+                    data: params,
+                    success: function (response) {
+                        console.log(response);
+                        if (response.status == "success") {
+
+                            alert("register successfully");
+                            //window.location.href = "index.html";
+                        }
+                        else {
+                            console.log(response.status);
+                        }
+
+                    }
+                });//ajax
+            //}//end if
+
+
+        })//click button
+
+
+    });//document
+
+    //get states ans cities onlaod page
+    function getStatesCities() {
+        var url = 'http://localhost/obedientcorp/public/api/state-city-list';
+
+        $.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            //data: params,
+            success: function (response) {
+                if (response.status == "success") {
+                    state_list = response.data.list;
+                    console.log(state_list);
+                    var states = '<option value="">-- Select State--</option>';
+                    if (response.data.username != '') {
+                        $("#username").val(response.data.username);
+                    }
+                    $.each(state_list, function (key, value) {
+                        states += '<option value="' + value.state.id + '">' + value.state.state + '</option>';
+                    });
+                    $("#states").html(states);
+                }
+                else {
+                    console.log(response.data);
+                }
+
+            }
+        });//ajax
+    }//end function for get states and cities
+</script>

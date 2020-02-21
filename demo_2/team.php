@@ -110,7 +110,19 @@
                     var team_data = response.data;
                    // console.log(team_data);
                     var team_html = '';
-                    var team_list_html = '';
+                    var team_list_html = '<div class="media">\n\
+                                        <div class="col-md-12 mb-3 border p-0">\n\
+                                            <table class="table table-striped">\n\
+                                                <thead>\n\
+                                                    <tr>\n\
+                                                        <th> User </th>\n\
+                                                        <th> First name </th>\n\
+                                                        <th> Progress </th>\n\
+                                                        <th> Left Balance </th>\n\
+                                                        <th> Right Balance </th>\n\
+                                                    </tr>\n\
+                                                </thead>\n\
+                                                <tbody>';
                     $.each(team_data, function (key, member) {
                         team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\
@@ -178,20 +190,7 @@
                                         </div>\n\
                                     </div>';
 
-                    team_list_html += '<div class="media">\n\
-                                        <div class="col-md-12 mb-3 border p-0">\n\
-                                            <table class="table table-striped">\n\
-                                                <thead>\n\
-                                                    <tr>\n\
-                                                        <th> User </th>\n\
-                                                        <th> First name </th>\n\
-                                                        <th> Progress </th>\n\
-                                                        <th> Left Balance </th>\n\
-                                                        <th> Right Balance </th>\n\
-                                                    </tr>\n\
-                                                </thead>\n\
-                                                <tbody>\n\
-                                                    <tr>\n\
+                    team_list_html += '<tr>\n\
                                                         <td class="py-1">\n\
                                                             <img src="../assets/images/faces-clipart/pic-1.png" alt="image" />\n\
                                                         </td>\n\
@@ -203,12 +202,11 @@
                                                         </td>\n\
                                                         <td> '+member.total_left_business+' </td>\n\
                                                         <td> '+member.total_right_business+' </td>\n\
-                                                    </tr>\n\
-                                                </tbody>\n\
+                                                    </tr>';
+                    });
+                    team_list_html += '</tbody>\n\
                                             </table>\n\
                                         </div></div>';
-                    });
-                    
                     $('#' + node).html(team_html);
                     $('#list-' + node).html(team_list_html);
                 } else {
@@ -230,7 +228,19 @@
                     var team_data = response.data;
                     console.log(team_data);
                     var team_html = '';
-                    var team_list_html = '';
+                    var team_list_html = '<div class="media">\n\
+                                        <div class="col-md-12 mb-3 border p-0">\n\
+                                            <table class="table table-striped">\n\
+                                                <thead>\n\
+                                                    <tr>\n\
+                                                        <th> User </th>\n\
+                                                        <th> First name </th>\n\
+                                                        <th> Progress </th>\n\
+                                                        <th> Left Balance </th>\n\
+                                                        <th> Right Balance </th>\n\
+                                                    </tr>\n\
+                                                </thead>\n\
+                                                <tbody>';
                     $.each(team_data, function (key, member) {
                         team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\
@@ -298,20 +308,7 @@
                                         </div>\n\
                                     </div>';
 
-                    team_list_html += '<div class="media">\n\
-                                        <div class="col-md-12 mb-3 border p-0">\n\
-                                            <table class="table table-striped">\n\
-                                                <thead>\n\
-                                                    <tr>\n\
-                                                        <th> User </th>\n\
-                                                        <th> First name </th>\n\
-                                                        <th> Progress </th>\n\
-                                                        <th> Left Balance </th>\n\
-                                                        <th> Right Balance </th>\n\
-                                                    </tr>\n\
-                                                </thead>\n\
-                                                <tbody>\n\
-                                                    <tr>\n\
+                    team_list_html += '<tr>\n\
                                                         <td class="py-1">\n\
                                                             <img src="../assets/images/faces-clipart/pic-1.png" alt="image" />\n\
                                                         </td>\n\
@@ -323,12 +320,11 @@
                                                         </td>\n\
                                                         <td> '+member.total_left_business+' </td>\n\
                                                         <td> '+member.total_right_business+' </td>\n\
-                                                    </tr>\n\
-                                                </tbody>\n\
+                                                    </tr>';
+                    });
+                    team_list_html += '</tbody>\n\
                                             </table>\n\
                                         </div></div>';
-                    });
-                    
                     $('#' + node).html(team_html);
                     $('#list-' + node).html(team_list_html);
                 } else {

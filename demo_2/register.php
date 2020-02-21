@@ -35,11 +35,11 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Sponsor <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" name="sponsor" id="sponsor">
+                                            <input type="text" class="form-control required" placeholder="" name="sponsor" id="sponsor">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Position <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="position" name="position">
+                                            <select class="form-control required" id="position" name="position">
                                             <option>-- Select One --</option>
                                                 <option value="Auto">Auto</option>
                                                 <option value="Left">Left</option>
@@ -50,11 +50,11 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" name="name" id="name">
+                                            <input type="text" class="form-control required" placeholder="" name="name" id="name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" name="address" id="address">
+                                            <input type="text" class="form-control required" placeholder="" name="address" id="address">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -70,17 +70,17 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="father_name" name="father_name">
+                                            <input type="text" class="form-control required" placeholder="" id="father_name" name="father_name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="mother_name" name="mother_name">
+                                            <input type="text" class="form-control required" placeholder="" id="mother_name" name="mother_name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Gender <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control"id="gender" name="gender">
+                                            <select class="form-control required"id="gender" name="gender">
                                                 <option>-- Select One --</option>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
@@ -88,23 +88,23 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="dob" name="dob">
+                                            <input type="text" class="form-control required" placeholder="" id="dob" name="dob">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
+                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Secondary Mobile #</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="secondary_mobile" name="secondary_mobile">
+                                            <input type="text" class="form-control required" placeholder="" id="secondary_mobile" name="secondary_mobile">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="marital_status" name="marital_status">
+                                            <select class="form-control required" id="marital_status" name="marital_status">
                                             <option value="">-Select Marital Status-</option>
                                                 <option value="Single">Single</option>
                                                 <option value="Married">Married</option>
@@ -115,7 +115,7 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder=""  id="occupation" name="occupation">
+                                            <input type="text" class="form-control required" placeholder=""  id="occupation" name="occupation">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -130,7 +130,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="pin_code" name="pin_code">
+                                            <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code">
                                         </div>
                                         <label class="col-sm-2 col-form-label">City <span
                                                 class="text-danger">*</span></label>
@@ -141,21 +141,21 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="pan" name="pan">
+                                            <input type="text" class="form-control required" placeholder="" id="pan" name="pan">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="email" class="form-control" placeholder="" id="email_id" name="email_id">
+                                            <input type="email" class="form-control required" placeholder="" id="email_id" name="email_id">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Username <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="username" name="username">
+                                            <input type="text" class="form-control required" placeholder="" id="username" name="username">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Password <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="password" class="form-control" placeholder="" id="passowrd" name="password">
+                                            <input type="password" class="form-control required" placeholder="" id="password" name="password">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -164,7 +164,7 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Confirm Password <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="password" class="form-control" placeholder="" id="confirm_passowrd" name="confirm_passowrd">
+                                            <input type="password" class="form-control required" placeholder="" id="confirm_passowrd" name="confirm_passowrd">
                                         </div>
                                     </div>
                                 </section>
@@ -173,27 +173,27 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Payee Name</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="payee_name" name="payee_name">
+                                            <input type="text" class="form-control required" placeholder="" id="payee_name" name="payee_name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Bank Name</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="bank_name" name="bank_name">
+                                            <input type="text" class="form-control required" placeholder="" id="bank_name" name="bank_name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Account Number</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="account_number" name="account_number">
+                                            <input type="text" class="form-control required" placeholder="" id="account_number" name="account_number">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Branch</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="branch" name="branch">
+                                            <input type="text" class="form-control required" placeholder="" id="branch" name="branch">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">IFSC Code</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="ifsc_code" name="ifsc_code">
+                                            <input type="text" class="form-control required" placeholder="" id="ifsc_code" name="ifsc_code">
                                         </div>
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-4">
@@ -205,11 +205,11 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder="" id="nominee_name" name="nominee_name">
+                                            <input type="text" class="form-control required" placeholder="" id="nominee_name" name="nominee_name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control" id="relation" name="relation">
+                                            <select class="form-control required" id="relation" name="relation">
                                                 <option value="Mother">Mother</option>
                                                 <option value="Father">Father</option>
                                                 <option value="Son">Son</option>
@@ -222,7 +222,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" placeholder=""  id="nominee_dob" name="nominee_dob">
+                                            <input type="text" class="form-control required" placeholder=""  id="nominee_dob" name="nominee_dob">
                                         </div>
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-4">
@@ -232,11 +232,11 @@
                                 <h3>Terms & Conditions</h3>
                                 <section>
                                     <div class="terms_condition">
-                                        MI LIFESTYLE MARKETING GLOBAL PRIVATE LIMITED, a company incorporated under the Companies Act, 1956 and having its Registered Office in Chennai, hereinafter referred to as "the Company“ or “Mi Lifestyle” or “we” which ever is appropriate. The Company
+                                        MI LIFESTYLE MARKETING GLOBAL PRIVATE LIMITED, a company incorporated under the Companies Act, 1956 and having its Registered Office in Chennai, hereinafter referred to as "the Company“ or “Mi Lifestyle�? or “we�? which ever is appropriate. The Company
                                         is inter-alia into the business of Direct Selling of various products such as White Goods, Consumer Durables, Cosmetics, FMCG, Health Products, etc., The Company exclusively uses website to display the details of
                                         the products, marketing methods, business monitoring, while uses the word of mouth publicity to promote and create awareness about the company and its products.<br><br> The
                                         Company does appoint freelance Independent Distributors across the country for marketing and sale of products. Interested individuals/body corporates can order the products upon they being satisfied with the quality
-                                        and services they can become a freelance Independent Distributor (herein after may be referred as “Distributor”) of the company, if they wish to by applying for the same in the prescribed form and thereby accepting
+                                        and services they can become a freelance Independent Distributor (herein after may be referred as “Distributor�?) of the company, if they wish to by applying for the same in the prescribed form and thereby accepting
                                         the Terms and Conditions mentioned. Mi Lifestyle doesn’t collect any Registration Charges and are absolutely FREE AND EASY to get enrolled as Customer/Registered Distributor.<br><br> Before filling the application
                                         form, the intending Distributor is advised to go through the terms and conditions mentioned herein below thoroughly along with those mentioned in the official website of the company during placing an online order
                                         and subject to such terms and conditions shall append their signature by way of marking tick in the column provided as a token of their acceptance of the terms and conditions mentioned therein.<br><br> I. Definitions<br><br>                                        The following words used in these presents shall have the meaning as defined hereunder;<br>a. Company – Means Mi Lifestyle Marketing Global Private Limited.
@@ -249,7 +249,7 @@
                                         website of the Company.<br> I. Website Means website of the Company www.milifestylemarketing.com, www.indiashoppe.com or any official website (including through mode of mobile app) communicated through official
                                         communication channels of the company. Mi Lifestyle has developed business brands within itself, each of which is a separate business identity in itself - MI LIFESTYLE – Direct Selling Business Opportunity (www.milifestylemarketing.com)
                                         INDIA SHOPPE – Product Development, Retailing and Distribution (www.indiashoppe.com) II. THE APPOINTMENT AND UNDERSTANDING a. The Company upon scrutiny and verification of the Application may consider the Applicant
-                                        as an "Independent Distributor” for the products marketed by the Company. Independent Distributor shall enjoy the following privileges after such recognition. i. No territorial restriction to market the products,
+                                        as an "Independent Distributor�? for the products marketed by the Company. Independent Distributor shall enjoy the following privileges after such recognition. i. No territorial restriction to market the products,
                                         but limited to India. ii. Company shall maintain sales account of the Independent Distributor and shall be made available for viewing through their website. iii. An Unique ID and password shall be awarded to facilitate
                                         viewing of their respective business account. iv. There shall be no specific targets; however earnings shall be in proportion to the volume of sales done by the Independent Distributor by self or through team as
                                         stipulated. v. Distributorship may be awarded as a privileged consumer with no deposit, but subject to accepting terms and other conditions. vi. Distributorship is awarded without any commitment/or promise from
@@ -286,7 +286,7 @@
                                         published through the official website of the company, and any such modification/amendment shall be applicable and binding upon the Distributor from the date of such publication. xvi. The Company does not collect
                                         any membership charges or Registration Fees. IV. PRICES / PAYMENT a. The Updated Products and their Price lists are available on the company's official website and the amount to be paid (only after complete satisfaction
                                         with the description/ features available on the website and if possible, the physical verification of the product can be had by the purchaser by visiting our authorized outlets) by way of Bank Demand Draft favoring
-                                        "MI LIFESTYLE MARKETING GLOBAL PRIVATE LIMITED” payable at “CHENNAI” or through online payment gateway or swiping machine option or E-Wallet while placing the order. b. It is mutually agreed between the parties
+                                        "MI LIFESTYLE MARKETING GLOBAL PRIVATE LIMITED�? payable at “CHENNAI�? or through online payment gateway or swiping machine option or E-Wallet while placing the order. b. It is mutually agreed between the parties
                                         that the Consumer/Independent Distributor if satisfied about the product package ensure that the amount towards such product should reach the company's branch/authorized outlets within 30 days from the date of ordering
                                         the same online. In case the Product Purchaser fails to make payment within the aforesaid 30 days period to the company, it is up to the company's discretion either to accept the payment on the norms prevailing
                                         at that point of time or that this Agreement stands terminated and will be deemed as null and void. c. It is mutually agreed between the parties hereto, that the company is at liberty to change / modify the quantum

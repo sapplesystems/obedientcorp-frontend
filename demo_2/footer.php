@@ -14,45 +14,43 @@
 <!-- container-scroller -->
 <!-- plugins:js -->
 <script src="../assets/vendors/js/vendor.bundle.base.js "></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
 <script src="../assets/vendors/chart.js/Chart.min.js "></script>
 <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js "></script>
 <script src="../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
 <script src="../assets/js/off-canvas.js "></script>
 <script src="../assets/js/hoverable-collapse.js "></script>
 <script src="../assets/js/misc.js "></script>
 <script src="../assets/js/settings.js "></script>
 <script src="../assets/js/todolist.js "></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
 <script src="../assets/js/dashboard.js "></script>
-<!-- End custom js for this page -->
-<!-- jquery validation-->
 <script type="text/javascript">
+    var user_id = 0;
+    var user_left_node_id = 0;
+    var user_right_node_id = 0;
+    var user_email = '';
     var UserCookieData;
     checkCookie();
-    //function for checkcookies
+
     function checkCookie() {
         var UserCookie = getCookie("UserCookie");
         if (UserCookie == "") {
-            //data = JSON.parse(user);
             console.log("cookie not set please login first");
             window.location.href = "login.php"
         } else {
             UserCookieData = JSON.parse(UserCookie);
-            //console.log(UserCookieData);
-
             if (UserCookieData) {
                 $("#user_login").html(UserCookieData.name);
             }
         }
+        console.log(UserCookieData);
+        if (UserCookieData.id != "" && UserCookieData.email != "") {
+            user_id = UserCookieData.id;
+            user_left_node_id = UserCookieData.left_node_id;
+            user_right_node_id = UserCookieData.right_node_id;
+            user_email = UserCookieData.email;
+        }
+    }
 
-    } //end function checkcookies
-
-    //function for get cookies
     function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -66,7 +64,7 @@
             }
         }
         return "";
-    } //end function getCookie
+    }
 </script>
 </body>
 

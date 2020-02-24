@@ -144,6 +144,8 @@
               customObject.email = response.data.email;
               customObject.token = response.data.token;
               customObject.user_type = response.data.user_type;
+              customObject.left_node_id = response.data.left_node_id;
+              customObject.right_node_id = response.data.right_node_id;
               var jsonString = JSON.stringify(customObject);
               console.log(jsonString);
               setCookie(jsonString);

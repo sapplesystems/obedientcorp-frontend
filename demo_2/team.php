@@ -89,13 +89,14 @@
     <?php include_once 'footer.php'; ?>
     <script type="text/javascript">
         $(document).ready(function() {
-            var user_id = '2';
-            var user_left_node_id = '3';
-            var user_right_node_id = '';
             getTeamMemberList(user_id, 'all-members');
             getReferralTeamMemberList(user_id, 'referral-members');
-            getTeamMemberList(user_left_node_id, 'members-in-left');
-            getTeamMemberList(user_right_node_id, 'members-in-right');
+            if (user_left_node_id && user_left_node_id != '' && user_left_node_id > 0) {
+                getTeamMemberList(user_left_node_id, 'members-in-left');
+            }
+            if (user_right_node_id && user_right_node_id != '' && user_right_node_id > 0) {
+                getTeamMemberList(user_right_node_id, 'members-in-right');
+            }
 
         });
 
@@ -108,10 +109,8 @@
                     node: node
                 },
                 success: function(response) {
-                    console.log(response);
                     if (response.status == 'success') {
                         var team_data = response.data;
-                        // console.log(team_data);
                         var team_html = '';
                         var team_list_html = '<div class="media">\n\
                                         <div class="col-md-12 mb-3 border p-0">\n\
@@ -184,7 +183,7 @@
                                                             </div>\n\
                                                             <div class="wrapper pl-3">\n\
                                                                 <p class="mb-0 font-weight-medium text-muted">INTRODUCER</p>\n\
-                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.introducer_code + '</h4>\n\
+                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.username + '</h4>\n\
                                                             </div>\n\
                                                         </div>\n\
                                                     </div>\n\
@@ -302,7 +301,7 @@
                                                             </div>\n\
                                                             <div class="wrapper pl-3">\n\
                                                                 <p class="mb-0 font-weight-medium text-muted">INTRODUCER</p>\n\
-                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.introducer_code + '</h4>\n\
+                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.username + '</h4>\n\
                                                             </div>\n\
                                                         </div>\n\
                                                     </div>\n\

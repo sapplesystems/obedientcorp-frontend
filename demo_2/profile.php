@@ -84,18 +84,18 @@
                                                 <a class="nav-link" id="activities-tab" data-toggle="tab" href="#activities-1" role="tab" aria-controls="activities" aria-selected="false"><i class="mdi mdi mdi-alarm"></i> Activities</a>
                                             </li>
                                         </ul>
-                                        <form id="profile_update" name="profile_update" method="post">
-                                            <div class="tab-content border-0">
-                                                <div class="tab-pane fade show active" id="info-1" role="tabpanel" aria-labelledby="info-tab">
+                                        <div class="tab-content border-0">
+                                            <div class="tab-pane fade show active" id="info-1" role="tabpanel" aria-labelledby="info-tab">
+                                                <form id="profile_update" name="profile_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Sponsor <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="introducer_code" name="introducer_code">
+                                                                <input type="text" class="form-control required" placeholder="" id="introducer_code" name="introducer_code">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Position <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="orientation" name="orientation">
+                                                                <select class="form-control required" id="orientation" name="orientation">
                                                                     <option value="">-- Select One --</option>
                                                                     <option value="Auto">Auto</option>
                                                                     <option value="Left">Left</option>
@@ -104,16 +104,56 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="associate_name" name="associate_name">
+                                                                <input type="file" class="form-control" placeholder="" name="signature" id="signature">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="address" name="address">
+                                                                <input type="file" class="form-control" placeholder="" name="photo" id="photo">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="associate_name" name="associate_name">
+                                                            </div>
+                                                            <!--<label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="address" name="address">
+                                                            </div>-->
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">House No<span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" name="house_no" id="house_no">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Block <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" name="block" id="block">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Sector<span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" name="sector" id="sector">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Street No<span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" name="street_no" id="street_no">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Village Colony<span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" name="village_colony" id="village_colony">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Post Office/Sub City<span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" name="post_office_or_sub_city" id="post_office_or_sub_city">
+                                                            </div>
+                                                        </div>
+                                                        <!--<div class="form-group row">
                                                             <label class="col-sm-2"></label>
                                                             <div class="col-sm-4">
                                                                 <label class="col-form-label text-danger p-0">Please enter the Name as given in your Bank Records</label>
@@ -122,21 +162,21 @@
                                                             <div class="col-sm-4">
                                                                 <label class="col-form-label text-danger p-0">Please enter Address as given in your Pan and GST Records</label>
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="father_or_husband_name" name="father_or_husband_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="father_or_husband_name" name="father_or_husband_name">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="mothers_name" name="mothers_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="mothers_name" name="mothers_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Gender <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="gender" name="gender">
+                                                                <select class="form-control required" id="gender" name="gender">
                                                                     <option value="">-- Select One --</option>
                                                                     <option value="Male">Male</option>
                                                                     <option value="Female">Female</option>
@@ -144,23 +184,23 @@
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="dob" name="dob">
+                                                                <input type="text" class="form-control required" placeholder="" id="dob" name="dob">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="mobile_no" name="mobile_no">
+                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Secondary Mobile #</label>
+                                                            <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="secondary_mobile_no" name="secondary_mobile_no">
+                                                                <input type="text" class="form-control required" placeholder="" id="land_line_phone" name="land_line_phone">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="marital_status" name="marital_status">
+                                                                <select class="form-control required" id="marital_status" name="marital_status">
                                                                     <option value="">-- Select One --</option>
                                                                     <option value="Single">Single</option>
                                                                     <option value="Married">Married</option>
@@ -170,7 +210,7 @@
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="occupation" name="occupation">
+                                                                <input type="text" class="form-control required" placeholder="" id="occupation" name="occupation">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -179,7 +219,7 @@
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="state" name="state">
+                                                                <select class="form-control required" id="state" name="state">
                                                                     <option>-- Select One --</option>
                                                                 </select>
                                                             </div>
@@ -187,11 +227,11 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="pin_code" name="pin_code">
+                                                                <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">City <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="city" name="city">
+                                                                <select class="form-control required" id="city" name="city">
                                                                     <option>-- Select One --</option>
                                                                 </select>
                                                             </div>
@@ -199,69 +239,77 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="pan" name="pan">
+                                                                <input type="text" class="form-control required" placeholder="" id="pan" name="pan">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="email" class="form-control" placeholder="" id="email" name="email" readonly>
+                                                                <input type="email" class="form-control required" placeholder="" id="email" name="email" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Username <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="username" name="username" readonly>
+                                                                <input type="text" class="form-control required" placeholder="" id="username" name="username" readonly>
                                                             </div>
-
                                                         </div>
-
                                                     </section>
-                                                    <input type="button" class="btn btn-primary save_profile" value="Save" />
-                                                </div>
-                                                <div class="tab-pane fade" id="bank-details-1" role="tabpanel" aria-labelledby="bank-details-tab">
+                                                    <input type="submit" class="btn btn-primary" id="profile_update_submit" value="Save" />
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="bank-details-1" role="tabpanel" aria-labelledby="bank-details-tab">
+                                                <form id="bank_update" name="bank_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Payee Name</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="payee_name" name="payee_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="payee_name" name="payee_name">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Bank Name</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="bank_name" name="bank_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="bank_name" name="bank_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Account Number</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="account_number" name="account_number">
+                                                                <input type="text" class="form-control required" placeholder="" id="account_number" name="account_number">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Branch</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="branch" name="branch">
+                                                                <input type="text" class="form-control required" placeholder="" id="branch" name="branch">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">IFSC Code</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="ifsc_code" name="ifsc_code">
+                                                                <input type="text" class="form-control required" placeholder="" id="ifsc_code" name="ifsc_code">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label"></label>
                                                             <div class="col-sm-4">
                                                             </div>
                                                         </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">CancelCheque <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">
+                                                            </div>
+                                                        </div>
                                                     </section>
                                                     <input type="hidden" id="bank_id" value="" />
-                                                    <input type="button" class="btn btn-primary save_profile" value="Save" />
-                                                </div>
-                                                <div class="tab-pane fade" id="nominee-1" role="tabpanel" aria-labelledby="nominee-tab">
+                                                    <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" />
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="nominee-1" role="tabpanel" aria-labelledby="nominee-tab">
+                                                <form id="nominee_update" name="nominee_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="nominee_name" name="nominee_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="nominee_name" name="nominee_name">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="relation" name="relation">
+                                                                <select class="form-control required" id="relation" name="relation">
                                                                     <option value="">-- Select One --</option>
                                                                     <option value="Father">Father</option>
                                                                     <option value="Mother">Mother</option>
@@ -272,154 +320,202 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="father_name" name="father_name">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="mother_name" name="mother_name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="ndob" name="ndob">
+                                                                <input type="text" class="form-control required" placeholder="" id="ndob" name="ndob">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label"></label>
+                                                            <label class="col-sm-2 col-form-label">Age <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="nominee_age" name="nominee_age">
                                                             </div>
                                                         </div>
                                                     </section>
                                                     <input type="hidden" id="nominee_id" value="" />
-                                                    <input type="hidden" id="kyc_id" value="" />
-                                                    <input type="button" class="btn btn-primary save_profile" value="Save" />
-                                                </div>
-                                                <div class="tab-pane fade" id="kyc-1" role="tabpanel" aria-labelledby="kyc-tab">
-                                                    <div class="d-flex align-items-start profile-feed-item">
-                                                        <img src="../assets/images/faces/face19.jpg" alt="profile" class="img-sm rounded-circle" />
-                                                        <div class="ml-4">
-                                                            <h6> Dylan Silva <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                                                            </h6>
-                                                            <p> When I first got into the online advertising business, I was looking for the magical combination that would put my website into the top search engine rankings </p>
-                                                            <img src="../assets/images/samples/1280x768/5.jpg" alt="sample" class="rounded mw-100" />
-                                                            <p class="small text-muted mt-2 mb-0">
-                                                                <span>
-                                                                    <i class="mdi mdi-star mr-1"></i>4 </span>
-                                                                <span class="ml-2">
-                                                                    <i class="mdi mdi-comment mr-1"></i>11 </span>
-                                                                <span class="ml-2">
-                                                                    <i class="mdi mdi-reply"></i>
-                                                                </span>
-                                                            </p>
+                                                    <input type="submit" class="btn btn-primary" id="nominee_update_submit" value="Save" />
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="kyc-1" role="tabpanel" aria-labelledby="kyc-tab">
+                                                <form id="kyc_update" name="kyc_update" method="post">
+                                                    <section>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="kyc_dob" name="kyc_dob">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Nationality <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="nationality" name="nationality">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="activities-1" role="tabpanel" aria-labelledby="activities">
-                                                    <div class="card">
-                                                        <div class="card-body p-0">
-                                                            <div class="mt-2">
-                                                                <div class="timeline">
-                                                                    <div class="timeline-wrapper timeline-wrapper-warning">
-                                                                        <div class="timeline-badge"></div>
-                                                                        <div class="timeline-panel">
-                                                                            <div class="timeline-heading">
-                                                                                <h6 class="timeline-title">Bootstrap 4 Beta 2</h6>
-                                                                            </div>
-                                                                            <div class="timeline-body">
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                            </div>
-                                                                            <div class="timeline-footer d-flex align-items-center">
-                                                                                <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                                <span>19</span>
-                                                                                <span class="ml-auto font-weight-bold">19 Oct 2017</span>
-                                                                            </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="koccupation" name="koccupation">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Qualification <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="qualification" name="qualification">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="pan_number" name="pan_number">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Passport <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" placeholder="" id="passport_number" name="passport_number">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Driving Licence <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" placeholder="" id="driving_licence_number" name="driving_licence_number">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Proposed Area of Work <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" placeholder="" id="proposed_area_of_work" name="proposed_area_of_work">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Voter Id <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" placeholder="" id="voter_id" name="voter_id">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Join Date <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" placeholder="" id="join_date" name="join_date">
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                    <input type="hidden" id="kyc_id" value="" />
+                                                    <input type="submit" class="btn btn-primary" id="kyc_update_submit" value="Save" />
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="activities-1" role="tabpanel" aria-labelledby="activities">
+                                                <div class="card">
+                                                    <div class="card-body p-0">
+                                                        <div class="mt-2">
+                                                            <div class="timeline">
+                                                                <div class="timeline-wrapper timeline-wrapper-warning">
+                                                                    <div class="timeline-badge"></div>
+                                                                    <div class="timeline-panel">
+                                                                        <div class="timeline-heading">
+                                                                            <h6 class="timeline-title">Bootstrap 4 Beta 2</h6>
+                                                                        </div>
+                                                                        <div class="timeline-body">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
+                                                                        </div>
+                                                                        <div class="timeline-footer d-flex align-items-center">
+                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
+                                                                            <span>19</span>
+                                                                            <span class="ml-auto font-weight-bold">19 Oct 2017</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="timeline-wrapper timeline-inverted timeline-wrapper-danger">
-                                                                        <div class="timeline-badge"></div>
-                                                                        <div class="timeline-panel">
-                                                                            <div class="timeline-heading">
-                                                                                <h6 class="timeline-title">Bootstrap 4 Beta 1</h6>
-                                                                            </div>
-                                                                            <div class="timeline-body">
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                            </div>
-                                                                            <div class="timeline-footer d-flex align-items-center">
-                                                                                <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                                <span>25</span>
-                                                                                <span class="ml-auto font-weight-bold">10th Aug 2017</span>
-                                                                            </div>
+                                                                </div>
+                                                                <div class="timeline-wrapper timeline-inverted timeline-wrapper-danger">
+                                                                    <div class="timeline-badge"></div>
+                                                                    <div class="timeline-panel">
+                                                                        <div class="timeline-heading">
+                                                                            <h6 class="timeline-title">Bootstrap 4 Beta 1</h6>
+                                                                        </div>
+                                                                        <div class="timeline-body">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
+                                                                        </div>
+                                                                        <div class="timeline-footer d-flex align-items-center">
+                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
+                                                                            <span>25</span>
+                                                                            <span class="ml-auto font-weight-bold">10th Aug 2017</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="timeline-wrapper timeline-wrapper-success">
-                                                                        <div class="timeline-badge"></div>
-                                                                        <div class="timeline-panel">
-                                                                            <div class="timeline-heading">
-                                                                                <h6 class="timeline-title">Bootstrap 4 alpha 6</h6>
-                                                                            </div>
-                                                                            <div class="timeline-body">
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                            </div>
-                                                                            <div class="timeline-footer d-flex align-items-center">
-                                                                                <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                                <span>19</span>
-                                                                                <span class="ml-auto font-weight-bold">5th Sep 2016</span>
-                                                                            </div>
+                                                                </div>
+                                                                <div class="timeline-wrapper timeline-wrapper-success">
+                                                                    <div class="timeline-badge"></div>
+                                                                    <div class="timeline-panel">
+                                                                        <div class="timeline-heading">
+                                                                            <h6 class="timeline-title">Bootstrap 4 alpha 6</h6>
+                                                                        </div>
+                                                                        <div class="timeline-body">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
+                                                                        </div>
+                                                                        <div class="timeline-footer d-flex align-items-center">
+                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
+                                                                            <span>19</span>
+                                                                            <span class="ml-auto font-weight-bold">5th Sep 2016</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="timeline-wrapper timeline-inverted timeline-wrapper-info">
-                                                                        <div class="timeline-badge"></div>
-                                                                        <div class="timeline-panel">
-                                                                            <div class="timeline-heading">
-                                                                                <h6 class="timeline-title">Bootstrap 4 alpha 3</h6>
-                                                                            </div>
-                                                                            <div class="timeline-body">
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                            </div>
-                                                                            <div class="timeline-footer d-flex align-items-center">
-                                                                                <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                                <span>19</span>
-                                                                                <span class="ml-auto font-weight-bold">27th July 2016</span>
-                                                                            </div>
+                                                                </div>
+                                                                <div class="timeline-wrapper timeline-inverted timeline-wrapper-info">
+                                                                    <div class="timeline-badge"></div>
+                                                                    <div class="timeline-panel">
+                                                                        <div class="timeline-heading">
+                                                                            <h6 class="timeline-title">Bootstrap 4 alpha 3</h6>
+                                                                        </div>
+                                                                        <div class="timeline-body">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
+                                                                        </div>
+                                                                        <div class="timeline-footer d-flex align-items-center">
+                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
+                                                                            <span>19</span>
+                                                                            <span class="ml-auto font-weight-bold">27th July 2016</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="timeline-wrapper timeline-wrapper-primary">
-                                                                        <div class="timeline-badge"></div>
-                                                                        <div class="timeline-panel">
-                                                                            <div class="timeline-heading">
-                                                                                <h6 class="timeline-title">Bootstrap 3.3.7</h6>
-                                                                            </div>
-                                                                            <div class="timeline-body">
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                            </div>
-                                                                            <div class="timeline-footer d-flex align-items-center">
-                                                                                <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                                <span>25</span>
-                                                                                <span class="ml-auto font-weight-bold">25th July 2016</span>
-                                                                            </div>
+                                                                </div>
+                                                                <div class="timeline-wrapper timeline-wrapper-primary">
+                                                                    <div class="timeline-badge"></div>
+                                                                    <div class="timeline-panel">
+                                                                        <div class="timeline-heading">
+                                                                            <h6 class="timeline-title">Bootstrap 3.3.7</h6>
+                                                                        </div>
+                                                                        <div class="timeline-body">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
+                                                                        </div>
+                                                                        <div class="timeline-footer d-flex align-items-center">
+                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
+                                                                            <span>25</span>
+                                                                            <span class="ml-auto font-weight-bold">25th July 2016</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="timeline-wrapper timeline-inverted timeline-wrapper-info">
-                                                                        <div class="timeline-badge"></div>
-                                                                        <div class="timeline-panel">
-                                                                            <div class="timeline-heading">
-                                                                                <h6 class="timeline-title">Bootstrap 4 Alpha 1</h6>
-                                                                            </div>
-                                                                            <div class="timeline-body">
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                            </div>
-                                                                            <div class="timeline-footer d-flex align-items-center">
-                                                                                <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                                <span>32</span>
-                                                                                <span class="ml-auto font-weight-bold">19th Aug 2015</span>
-                                                                            </div>
+                                                                </div>
+                                                                <div class="timeline-wrapper timeline-inverted timeline-wrapper-info">
+                                                                    <div class="timeline-badge"></div>
+                                                                    <div class="timeline-panel">
+                                                                        <div class="timeline-heading">
+                                                                            <h6 class="timeline-title">Bootstrap 4 Alpha 1</h6>
+                                                                        </div>
+                                                                        <div class="timeline-body">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
+                                                                        </div>
+                                                                        <div class="timeline-footer d-flex align-items-center">
+                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
+                                                                            <span>32</span>
+                                                                            <span class="ml-auto font-weight-bold">19th Aug 2015</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="timeline-wrapper timeline-wrapper-success">
-                                                                        <div class="timeline-badge"></div>
-                                                                        <div class="timeline-panel">
-                                                                            <div class="timeline-heading">
-                                                                                <h6 class="timeline-title">Bootstrap 3.3.5</h6>
-                                                                            </div>
-                                                                            <div class="timeline-body">
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                            </div>
-                                                                            <div class="timeline-footer d-flex align-items-center">
-                                                                                <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                                <span>26</span>
-                                                                                <span class="ml-auto font-weight-bold">15th Jun 2015</span>
-                                                                            </div>
+                                                                </div>
+                                                                <div class="timeline-wrapper timeline-wrapper-success">
+                                                                    <div class="timeline-badge"></div>
+                                                                    <div class="timeline-panel">
+                                                                        <div class="timeline-heading">
+                                                                            <h6 class="timeline-title">Bootstrap 3.3.5</h6>
+                                                                        </div>
+                                                                        <div class="timeline-body">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
+                                                                        </div>
+                                                                        <div class="timeline-footer d-flex align-items-center">
+                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
+                                                                            <span>26</span>
+                                                                            <span class="ml-auto font-weight-bold">15th Jun 2015</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -428,7 +524,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -440,246 +536,8 @@
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script type="text/javascript">
-        var error_html = '';
-        var state_list;
-        if (UserCookieData.id != "" && UserCookieData.email != "") {
-            var user_id = UserCookieData.id;
-            var user_email = UserCookieData.email;
-        }
-        $(document).ready(function() {
-            $.post('http://localhost/obedientcorp/public/api/state-city-list', {}, function(resp) {
-                if (resp.status == 'success') {
-                    state_list = resp.data.list;
-                    var state_list_html = '<option>-- Select One --</option>';
-                    $.each(state_list, function(key, val) {
-                        state_list_html += '<option value="' + val.state.id + '">' + val.state.state + '</option>';
-                    });
-                    $('#state').html(state_list_html);
-                    $.ajax({
-                        method: "POST",
-                        url: "http://localhost/obedientcorp/public/api/profile",
-                        data: {
-                            id: user_id,
-                            email: user_email
-                        },
-                        success: function(response) {
-                            if (response.status == 'success') {
-                                var profile = response.data.profile;
-                                var bank = response.data.bank_detail[0];
-                                var nominee = response.data.nominee_detail[0];
-                                var kyc = response.data.kyc_detail[0];
-                                $('#introducer_code').val(profile.introducer_code);
-                                $('#orientation').val(profile.orientation);
-                                $('#associate_name').val(profile.associate_name);
-                                $('#profile_user').html(profile.associate_name);
-                                $('#address').val(profile.address);
-                                $('#father_or_husband_name').val(profile.father_or_husband_name);
-                                $('#mothers_name').val(profile.mothers_name);
-                                $('#gender').val(profile.gender);
-                                $('#dob').val(profile.dob);
-                                $('#mobile_no').val(profile.mobile_no);
-                                $('#profile_phone').html(profile.mobile_no);
-                                $('#secondary_mobile_no').val(profile.secondary_mobile_no);
-                                $('#marital_status').val(profile.marital_status);
-                                $('#occupation').val(profile.occupation);
-                                $('#state').val(profile.state);
-                                $('#city').html(getCitiesList(profile.state));
-                                $('#city').val(profile.city);
-                                $('#pin_code').val(profile.pin_code);
-                                $('#pan').val(profile.pan);
-                                $('#email').val(profile.email);
-                                $('#profile_mail').html(profile.email);
-                                $('#username').val(profile.username);
-
-                                $('#bank_id').val(bank.id);
-                                $('#payee_name').val(bank.payee_name);
-                                $('#bank_name').val(bank.bank_name);
-                                $('#account_number').val(bank.account_number);
-                                $('#branch').val(bank.branch);
-                                $('#ifsc_code').val(bank.ifsc_code);
-
-                                $('#nominee_id').val(nominee.id);
-                                $('#nominee_name').val(nominee.nominee_name);
-                                $('#relation').val(nominee.relation);
-                                $('#ndob').val(nominee.ndob);
-
-                                $('#kyc_id').val(kyc.id);
-                            }
-                        },
-                        error: function(response) {
-                            alert('something went wrong - ' + response);
-                        }
-                    });
-                } else {
-                    alert('something went wrong');
-                }
-            });
-
-            $(document).on('change', '#state', function(e) {
-                e.preventDefault();
-                var state_id = $(this).val();
-                if (state_id) {
-                    $('#city').html(getCitiesList(state_id));
-                }
-            });
-
-            $(document).on('click', '.save_profile', function(e) {
-                e.preventDefault();
-                $("#profile_update").validate({
-                    rules: {
-                        introducer_code: {
-                            required: true,
-                        },
-                        orientation: {
-                            required: true,
-                        },
-                        associate_name: {
-                            required: true,
-                        },
-                        address: {
-                            required: true,
-                        },
-                        father_or_husband_name: {
-                            required: true,
-                        },
-                        mothers_name: {
-                            required: true,
-                        },
-                        gender: {
-                            required: true,
-                        },
-                        dob: {
-                            required: true,
-                        },
-                        mobile_no: {
-                            required: true,
-                        },
-                        secondary_mobile_no: {
-                            required: true,
-                        },
-                        marital_status: {
-                            required: true,
-                        },
-                        occupation: {
-                            required: true,
-                        },
-                        state: {
-                            required: true,
-                        },
-                        city: {
-                            required: true,
-                        },
-                        pin_code: {
-                            required: true,
-                        },
-                        email: {
-                            required: true,
-                        },
-                        username: {
-                            required: true,
-                        },
-                        payee_name: {
-                            required: true,
-                        },
-                        bank_name: {
-                            required: true,
-                        },
-                        account_number: {
-                            required: true,
-                        },
-                        branch: {
-                            required: true,
-                        },
-                        ifsc_code: {
-                            required: true,
-                        },
-                        bank_name: {
-                            required: true,
-                        },
-                        nominee_name: {
-                            required: true,
-                        },
-                        relation: {
-                            required: true,
-                        },
-                        ndob: {
-                            required: true,
-                        },
-                    },
-
-                    // Specify validation error messages
-
-                }); //validation
-
-                if ($("#profile_update").valid()) {
-
-                    var params = {
-                        id: user_id,
-                        bank_id: $('#bank_id').val(),
-                        nominee_id: $('#nominee_id').val(),
-                        kyc_id: $('#kyc_id').val(),
-                        introducer_code: $('#introducer_code').val(),
-                        orientation: $('#orientation').val(),
-                        associate_name: $('#associate_name').val(),
-                        address: $('#address').val(),
-                        father_or_husband_name: $('#father_or_husband_name').val(),
-                        mothers_name: $('#mothers_name').val(),
-                        gender: $('#gender').val(),
-                        dob: $('#dob').val(),
-                        mobile_no: $('#mobile_no').val(),
-                        secondary_mobile_no: $('#secondary_mobile_no').val(),
-                        marital_status: $('#marital_status').val(),
-                        occupation: $('#occupation').val(),
-                        state: $('#state').val(),
-                        city: $('#city').val(),
-                        pin_code: $('#pin_code').val(),
-                        pan: $('#pan').val(),
-                        email: $('#email').val(),
-                        username: $('#username').val(),
-                        payee_name: $('#payee_name').val(),
-                        bank_name: $('#bank_name').val(),
-                        account_number: $('#account_number').val(),
-                        branch: $('#branch').val(),
-                        ifsc_code: $('#ifsc_code').val(),
-                        nominee_name: $('#nominee_name').val(),
-                        relation: $('#relation').val(),
-                        ndob: $('#ndob').val(),
-                    };
-
-                    $.ajax({
-                        method: "POST",
-                        url: "http://localhost/obedientcorp/public/api/profile/update",
-                        data: params,
-                        success: function(response) {
-                            error_html = '';
-                            if (response.status == 'success') {
-                                error_html += '<div class="alert alert-primary" role="alert">Profile saved successfully</div>';
-                            } else {
-                                error_html += '<div class="alert alert-warning" role="alert">Profile could not be saved</div>';
-                            }
-                            $('#errors_div').html(error_html);
-                        },
-                        error: function(response) {
-                            error_html = '';
-                            var error_object = JSON.parse(response.responseText);
-                            var message = error_object.message;
-                            var errors = error_object.errors;
-                            $.each(errors, function(key, value) {
-                                error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
-                            });
-                            $('#errors_div').html(error_html);
-                        }
-                    }); //ajax 
-                } //if end
-            });
-        });
-
-        function getCitiesList(state_id) {
-            var cities_list_html = '<option>-- Select One --</option>';
-            $.each(state_list[state_id].cities, function(key, val) {
-                cities_list_html += '<option value="' + val.id + '">' + val.city + '</option>';
-            });
-            return cities_list_html;
-        }
-    </script>
+    <script src="../assets/javascript/common.js"></script>
+    <script src="../assets/javascript/profile_update.js"></script>
+    <script src="../assets/javascript/bank_update.js"></script>
+    <script src="../assets/javascript/nominee_update.js"></script>
+    <script src="../assets/javascript/kyc_update.js"></script>

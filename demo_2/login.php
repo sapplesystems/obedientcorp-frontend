@@ -41,7 +41,7 @@
                         <i class="mdi mdi-account-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" id="email_id" name="email_id" placeholder="Email-id">
+                    <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="UserName">
                   </div>
                 </div>
                 <div class="form-group">
@@ -107,9 +107,8 @@
       e.preventDefault();
       $("#login_form").validate({
         rules: {
-          email_id: {
+          username: {
             required: true,
-            email: true
           },
           password: {
             required: true,
@@ -128,9 +127,10 @@
 
         url = 'http://localhost/obedientcorp/public/api/login';
         var params = {
-          email: $("#email_id").val(),
+          username: $("#username").val(),
           password: $("#password").val(),
         };
+        console.log(params);
         $.ajax({
           url: url,
           type: 'post',

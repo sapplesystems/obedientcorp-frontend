@@ -18,6 +18,7 @@
 <!-- Plugin js for this page -->
 <script src="../assets/vendors/chart.js/Chart.min.js "></script>
 <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js "></script>
+<script src="../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <!-- End plugin js for this page -->
 <!-- inject:js -->
 <script src="../assets/js/off-canvas.js "></script>
@@ -30,7 +31,6 @@
 <script src="../assets/js/dashboard.js "></script>
 <!-- End custom js for this page -->
 <!-- jquery validation-->
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script type="text/javascript">
     var UserCookieData;
     checkCookie();

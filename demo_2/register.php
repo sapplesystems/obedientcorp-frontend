@@ -64,10 +64,10 @@
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control required" placeholder="" name="name" id="name">
                                         </div>
-                                        <label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
+                                        <!--<label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control required" placeholder="" name="address" id="address">
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">House No<span class="text-danger">*</span></label>
@@ -137,7 +137,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" maxlength="10">
+                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" >
                                         </div>
                                         <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                         <div class="col-sm-4">
@@ -369,11 +369,11 @@
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input class="checkbox" type="checkbox"> Yes I am 18 years and above </label>
+                                            <input class="checkbox" type="checkbox" id="18years" disabled> Yes I am 18 years and above </label>
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input class="checkbox" type="checkbox"> I have read and understood the terms and privacy policy of site</label>
+                                            <input class="checkbox" type="checkbox" id="privacy" disabled> I have read and understood the terms and privacy policy of site</label>
                                     </div>
                                 </section>
                             </div>
@@ -482,7 +482,7 @@
         var signature = $('#signature')[0].files[0];
         var photo = $('#photo')[0].files[0];
         var associate_name = $('#name').val();
-        var address = $('#address').val();
+        //var address = $('#address').val();
         var house_no = $('#house_no').val();
         var block = $('#block').val();
         var sector = $('#sector').val();
@@ -525,7 +525,7 @@
         params.append("signature", signature);
         params.append("photo", photo);
         params.append("associate_name", associate_name);
-        params.append("address", address);
+       //params.append("address", address);
         params.append("house_no", house_no);
         params.append("block", block);
         params.append("sector", sector);
@@ -637,5 +637,13 @@
             }
         }); //ajax
 
-    }
+    }//close function get_sponser_detail
+	$(".terms_condition").scroll(function()
+	{
+		var y = $('.terms_condition').scrollTop();
+		if (y > 1600) 
+		{
+			$('#18years,#privacy').removeAttr('disabled')
+		}
+	});
 </script>

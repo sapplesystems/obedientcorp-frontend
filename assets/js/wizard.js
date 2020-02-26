@@ -11,7 +11,18 @@
       },
       password: {
         minlength: 8
-      }
+      },
+	  payee_name:{
+		  equalTo: "#name"
+	  },
+	   mobile: {
+                phoneUS: true,
+            }
+		
+    },
+	messages: {
+        payee_name: "Payee name same as name",
+		confirm_passowrd: "Confirm password same as Password",
     }
     
     

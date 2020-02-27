@@ -28995,9 +28995,8 @@ footer h4 a {
 }
 
 .navbar .navbar-brand-wrapper .navbar-brand img {
-    width: calc(260px - 120px);
     max-width: 100%;
-    height: 28px;
+    height: 58px;
     margin: auto;
     vertical-align: middle;
 }
@@ -30000,6 +29999,7 @@ footer h4 a {
 }
 
 @media (max-width: 991px) {
+	.overflowAuto{overflow:auto;}
     .main-panel {
         margin-left: 0;
         width: 100%;
@@ -30069,3 +30069,25 @@ footer h4 a {
 .customTabs .nav.nav-tabs {
     float: right;
 }
+
+.custom_icon{
+	height: 40px;
+    width: 40px;
+    line-height: 50px;	
+}
+
+.custom_icon .mdi-star-circle:before {
+    content: "\20B9";
+}
+
+ul.total_indicator{list-style:none; padding:0px; margin:0px; float:right;}
+ul.total_indicator li{display:inline-block;}
+ul.total_indicator li:nth-child(2) span{width:10px; height:10px; background-color:#fe8096;display: block;margin-right: 15px;margin-left: 3px;}
+ul.total_indicator li:nth-child(4) span{width:10px; height:10px; background-color:#8aa9f4;display: block;margin-right: 15px;margin-left: 3px;}
+.file-upload-browse{height:2.875rem;}
+.custom_action i.mdi{font-size:22px; cursor:pointer;}
+#order-listing_paginate .pagination{overflow-x: hidden;}
+#project-form .error{color:#fe7c96;width: 100%;}
+table tr td{white-space: inherit !important;}
+#sub-project-form .error{color:#fe7c96;width: 100%;}
+

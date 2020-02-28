@@ -202,7 +202,7 @@ function deleteProject(e, project_id) {
         success: function (response) {
             if (response.status == "success") {
                 $("#tr_" + project_id).remove();
-                location.reload();
+                //location.reload();
             }
         }
         });

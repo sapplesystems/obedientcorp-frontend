@@ -7,7 +7,7 @@
         <div class="card">
           <div class="card-body p-3">
             <h4 class="card-title mb-4">Add Plot</h4>
-            <div id="error_html"></div>
+            <div id="errors_div"></div>
             <form class="forms-sample" method="post" action="" id="plot-form">
               <div class="row">
                 <div class="col-sm-3">

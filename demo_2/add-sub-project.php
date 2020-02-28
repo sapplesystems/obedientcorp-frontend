@@ -7,7 +7,7 @@
         <div class="card">
           <div class="card-body p-3">
             <h4 class="card-title mb-4">Add Sub-project</h4>
-            <div id="error_html"></div>
+            <div id="errors_div"></div>
             <form class="forms-sample" id="sub-project-form" name="sub-project-form" method="post" enctype="multipart/form-data">
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Projects</label>

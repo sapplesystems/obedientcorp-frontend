@@ -27,8 +27,7 @@ $(document).ready(function () {
                 params.append('id', plot_id);
                 url = 'http://localhost/obedientcorp/public/api/plot/update';
             }
-            alert(url);
-
+            
             params.append('project_master_id', project_id);
             params.append('name', plot_no);
             params.append('area', plot_area);
@@ -126,7 +125,7 @@ function getplotlist() {
         type: 'post',
         data: {},
         success: function (response) {
-            //console.log(response);
+            console.log(response);
             var html = ' <thead><tr>\n\
               <th> Sr No. </th>\n\
               <th> Project Name </th>\n\
@@ -142,7 +141,7 @@ function getplotlist() {
                 var sub_project = '';
                 var project = '';
                 $.each(response.data, function (key, value) {
-                    if (value.project.id == value.sub_project.id) {
+                    if(value.project.id == value.sub_project.id) {
                         project = value.project.name;
                     }
                     else {
@@ -239,7 +238,7 @@ function deletePlot(e, plot_id) {
             success: function (response) {
                 if (response.status == "success") {
                     $("#tr_" + plot_id).remove();
-                    location.reload();
+                    //location.reload();
                 }
             }
         });

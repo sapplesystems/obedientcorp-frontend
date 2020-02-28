@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#bank_update").submit(function (e) {
         e.preventDefault();
-        var bank_frm = $("#profile_update");
+        var bank_frm = $("#bank_update");
         bank_frm.validate({
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);

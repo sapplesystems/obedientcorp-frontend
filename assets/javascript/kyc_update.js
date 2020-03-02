@@ -25,7 +25,7 @@ $(document).ready(function () {
             };
             $.ajax({
                 method: "POST",
-                url: "http://localhost/obedientcorp/public/api/kyc/update",
+                url: base_url + 'kyc/update',
                 data: params,
                 success: function (response) {
                     console.log(response);

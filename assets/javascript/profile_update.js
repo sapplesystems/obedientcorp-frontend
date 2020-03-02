@@ -62,7 +62,7 @@ $(document).ready(function () {
             params.append("email", email);
             $.ajax({
                 method: "POST",
-                url: "http://localhost/obedientcorp/public/api/profile/update",
+                url: base_url + 'profile/update',
                 data: params,
                 processData: false,
                 contentType: false,

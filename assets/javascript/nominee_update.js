@@ -28,7 +28,7 @@ $(document).ready(function () {
             params.append("ndob", ndob);
             $.ajax({
                 method: "POST",
-                url: "http://localhost/obedientcorp/public/api/nominee/update",
+                url: base_url + 'nominee/update',
                 data: params,
                 processData: false,
                 contentType: false,

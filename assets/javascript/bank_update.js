@@ -26,7 +26,7 @@ $(document).ready(function () {
             params.append("cancel_cheque", cancel_cheque);
             $.ajax({
                 method: "POST",
-                url: "http://localhost/obedientcorp/public/api/bank/update",
+                url: base_url + 'bank/update',
                 data: params,
                 processData: false,
                 contentType: false,

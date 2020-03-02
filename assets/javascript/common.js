@@ -7,7 +7,7 @@ if (UserCookieData.id != "" && UserCookieData.email != "") {
     var user_email = UserCookieData.email;
 }
 $(document).ready(function () {
-    $.post('http://localhost/obedientcorp/public/api/state-city-list', {}, function (resp) {
+    $.post(base_url + 'state-city-list', {}, function (resp) {
         if (resp.status == 'success') {
             state_list = resp.data.list;
             var state_list_html = '<option value="">-- Select One --</option>';
@@ -17,7 +17,7 @@ $(document).ready(function () {
             $('#state').html(state_list_html);
             $.ajax({
                 method: "POST",
-                url: "http://localhost/obedientcorp/public/api/profile",
+                url: base_url + 'profile',
                 data: {
                     id: user_id,
                     email: user_email

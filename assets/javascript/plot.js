@@ -21,11 +21,11 @@ $(document).ready(function () {
             var plot_no = $('#plot_no').val();
             var plot_area = $('#plot_area').val();
             var plot_id = $('#plot_id').val();
-            url = 'http://localhost/obedientcorp/public/api/plot/add';
+            url = base_url + 'plot/add';
 
             if (plot_id) {
                 params.append('id', plot_id);
-                url = 'http://localhost/obedientcorp/public/api/plot/update';
+                url = base_url + 'plot/update';
             }
             
             params.append('project_master_id', project_id);
@@ -75,7 +75,7 @@ $(document).ready(function () {
 //function for get project list
 function getProjectList() {
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/project/childern',
+        url: base_url + 'project/childern',
         type: 'post',
         data: {},
         success: function (response) {
@@ -121,7 +121,7 @@ $("#projects").change(function () {
 //function for get all plot
 function getplotlist() {
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/plots',
+        url: base_url + 'plots',
         type: 'post',
         data: {},
         success: function (response) {
@@ -198,7 +198,7 @@ function getplotlist() {
 function updatePlot(e, plot_id) {
     e.preventDefault();
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/plots',
+        url: base_url + 'plots',
         type: 'post',
         data: { id: plot_id },
         success: function (response) {
@@ -232,7 +232,7 @@ function deletePlot(e, plot_id) {
     console.log(result);
     if (result == true) {
         $.ajax({
-            url: 'http://localhost/obedientcorp/public/api/plot/delete',
+            url: base_url + 'plot/delete',
             type: 'post',
             data: { id: plot_id },
             success: function (response) {
@@ -249,7 +249,7 @@ function updateAvailability(plot_id) {
     var availability = $("#availability_" + plot_id).val();
     console.log(availability);
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/plot/update',
+        url: base_url + 'plot/update',
         type: 'post',
         data: { id: plot_id, availability: availability },
         success: function (response) {

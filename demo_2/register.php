@@ -137,7 +137,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" >
+                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                         <div class="col-sm-4">
@@ -421,6 +421,7 @@
 
 </html>
 <script type="text/javascript">
+    var base_url = 'http://localhost/obedientcorp/public/api/';
     var state_list;
     $(document).ready(function() {
         checkCookie();
@@ -434,10 +435,9 @@
         if (UserCookie != "") {
             var data = JSON.parse(UserCookie);
             //alert("Welcome again " + data.name);
-           // window.location.href = "index.php";
+            // window.location.href = "index.php";
         } else {
             getStatesCities();
-            console.log("cookie not set please login first");
         }
     } //end function checkcookies
 
@@ -462,17 +462,11 @@
         var state_id = $(this).val();
         var city_div = '<option value="">-- Select City--</option>';
         var cities = state_list[state_id].cities;
-        console.log(cities);
         $.each(cities, function(key, value) {
-            console.log(value);
             city_div += '<option value="' + value.id + '">' + value.city + '</option>';
         });
         $("#city").html(city_div);
     });
-
-    //
-
-    // console.log(url);
 
     $("body").on("click", ".actions a[href$='#finish']", function(e) {
         e.preventDefault();
@@ -525,7 +519,7 @@
         params.append("signature", signature);
         params.append("photo", photo);
         params.append("associate_name", associate_name);
-       //params.append("address", address);
+        //params.append("address", address);
         params.append("house_no", house_no);
         params.append("block", block);
         params.append("sector", sector);
@@ -559,8 +553,7 @@
         params.append("relation", relation);
         params.append("ndob", ndob);
 
-        console.log(params);
-        var url = 'http://localhost/obedientcorp/public/api/register';
+        var url = base_url + 'register';
         $.ajax({
             url: url,
             type: 'post',
@@ -569,14 +562,10 @@
             processData: false,
             contentType: false,
             success: function(response) {
-                console.log(response);
                 if (response.status == "success") {
-
                     alert("register successfully");
                     //window.location.href = "index.html";
-                } else {
-                    console.log(response.status);
-                }
+                } else {}
 
             }
         }); //ajax
@@ -587,7 +576,7 @@
 
     //get states ans cities onlaod page
     function getStatesCities() {
-        var url = 'http://localhost/obedientcorp/public/api/state-city-list';
+        var url = base_url + 'state-city-list';
 
         $.ajax({
             url: url,
@@ -597,7 +586,6 @@
             success: function(response) {
                 if (response.status == "success") {
                     state_list = response.data.list;
-                    console.log(state_list);
                     var states = '<option value="">-- Select State--</option>';
                     if (response.data.username != '') {
                         $("#username").val(response.data.username);
@@ -606,8 +594,6 @@
                         states += '<option value="' + value.state.id + '">' + value.state.state + '</option>';
                     });
                     $("#states").html(states);
-                } else {
-                    console.log(response.data);
                 }
 
             }
@@ -618,7 +604,7 @@
     //function for get sponsor details
     function get_sponser_detail() {
         var introducer_code = $('#sponsor').val();
-        var url = 'http://localhost/obedientcorp/public/api/introducer-info';
+        var url = base_url + 'introducer-info';
         $.ajax({
             url: url,
             type: 'post',
@@ -637,13 +623,11 @@
             }
         }); //ajax
 
-    }//close function get_sponser_detail
-	$(".terms_condition").scroll(function()
-	{
-		var y = $('.terms_condition').scrollTop();
-		if (y > 1600) 
-		{
-			$('#18years,#privacy').removeAttr('disabled')
-		}
-	});
+    } //close function get_sponser_detail
+    $(".terms_condition").scroll(function() {
+        var y = $('.terms_condition').scrollTop();
+        if (y > 1600) {
+            $('#18years,#privacy').removeAttr('disabled')
+        }
+    });
 </script>

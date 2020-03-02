@@ -19,11 +19,11 @@ $(document).ready(function () {
             var photo = $('#photo')[0].files[0];
             var mapphoto = $('#mapphoto')[0].files[0];
             var project_id = $('#project_id').val();
-            url = 'http://localhost/obedientcorp/public/api/project/add';
+            url = base_url + 'project/add';
 
             if (project_id) {
                 params.append('id', project_id);
-                url = 'http://localhost/obedientcorp/public/api/project/update';
+                url = base_url + 'project/update';
             }
 
             params.append('name', name);
@@ -73,7 +73,7 @@ $(document).ready(function () {
 //get all project list
 function getProjectList() {
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/projects',
+        url: base_url + 'projects',
         type: 'post',
         data: {},
         success: function (response) {
@@ -118,7 +118,7 @@ function getProjectList() {
 function updateProject(e, project_id) {
     e.preventDefault();
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/project',
+        url: base_url + 'project',
         type: 'post',
         data: { id: project_id },
         success: function (response) {
@@ -153,7 +153,7 @@ function deleteProject(e, project_id) {
     if(result == true)
     {
         $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/project/delete',
+        url: base_url + 'project/delete',
         type: 'post',
         data: { id: project_id },
         success: function (response) {

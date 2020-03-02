@@ -22,11 +22,11 @@ $(document).ready(function () {
             var projects_id = $('#projects').val();
 
 
-            url = 'http://localhost/obedientcorp/public/api/project/add';
+            url = base_url + 'project/add';
 
             if (project_id) {
                 params.append('id', project_id);
-                url = 'http://localhost/obedientcorp/public/api/project/update';
+                url = base_url + 'project/update';
             }
 
             params.append('project_master_id', projects_id);
@@ -81,7 +81,7 @@ $(document).ready(function () {
 //function for get project list
 function getProjectList() {
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/projects',
+        url: base_url + 'projects',
         type: 'post',
         data: {},
         success: function (response) {
@@ -107,7 +107,7 @@ function getProjectList() {
 //function for get all subproject list
 function getSubProjectList() {
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/project/childern',
+        url: base_url + 'project/childern',
         type: 'post',
         data: {},
         success: function (response) {
@@ -159,7 +159,7 @@ function getSubProjectList() {
 function updateProject(e, project_id) {
     e.preventDefault();
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/project',
+        url: base_url + 'project',
         type: 'post',
         data: { id: project_id },
         success: function (response) {
@@ -196,7 +196,7 @@ function deleteProject(e, project_id) {
     if(result == true)
     {
         $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/project/delete',
+        url: base_url + 'project/delete',
         type: 'post',
         data: { id: project_id },
         success: function (response) {

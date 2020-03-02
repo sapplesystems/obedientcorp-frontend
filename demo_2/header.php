@@ -134,7 +134,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">
+                        <a class="nav-link" href="#" id="logout" onclick="logout()">
                             <span class="menu-title">Logout</span>
                             <i class="mdi mdi-logout menu-icon"></i>
                         </a>

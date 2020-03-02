@@ -99,6 +99,7 @@
 
 </html>
 <script>
+  var base_url = 'http://localhost/obedientcorp/public/api/';
   //function for login
   $(function() {
 
@@ -125,18 +126,16 @@
       });
       if ($("#login_form").valid()) {
 
-        url = 'http://localhost/obedientcorp/public/api/login';
+        url = base_url + 'login';
         var params = {
           username: $("#username").val(),
           password: $("#password").val(),
         };
-        console.log(params);
         $.ajax({
           url: url,
           type: 'post',
           data: params,
           success: function(response) {
-            console.log(response);
             if (response.status == "success") {
               var customObject = {};
               customObject.id = response.data.id;
@@ -147,7 +146,6 @@
               customObject.left_node_id = response.data.left_node_id;
               customObject.right_node_id = response.data.right_node_id;
               var jsonString = JSON.stringify(customObject);
-              console.log(jsonString);
               setCookie(jsonString);
             }
           }, //success function
@@ -170,7 +168,7 @@
     function setCookie(jsonString) {
       var d = new Date();
       var cname = "UserCookie";
-      d.setTime(d.getTime() + (1 * 60 * 60 * 1000));
+      d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
       var expires = "expires=" + d.toGMTString();
       document.cookie = cname + "=" + jsonString + ";" + expires + ";path=/";
       checkCookie();
@@ -184,8 +182,6 @@
         var data = JSON.parse(UserCookie);
         //alert("Welcome again " + data.name);
         window.location.href = "index.php";
-      } else {
-        console.log("cookie not set please login first");
       }
     } //end function checkcookies
 
@@ -204,13 +200,7 @@
         }
       }
       return "";
-    } //end function getCookie
-    /* function readcookie()
-     {
-       var allcookies = document.cookie;
-       cookiearray  = allcookies.split(';');
-       console.log("All Cookies : " + cookiearray );
-     }*/
+    }
 
   });
 </script>

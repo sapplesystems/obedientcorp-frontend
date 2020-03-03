@@ -91,7 +91,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Sponsor <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="introducer_code" name="introducer_code">
+                                                                <input type="text" class="form-control required" placeholder="" id="introducer_code" name="introducer_code" readonly>
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Position <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -184,13 +184,18 @@
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="dob" name="dob">
+                                                                <div class="input-group date datepicker">
+                                                                    <input type="text" class="form-control required" placeholder="" id="dob" name="dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                                    <span class="input-group-addon input-group-append border-left">
+                                                                        <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                                    </span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no">
+                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" data-inputmask-alias="9999999999" im-insert="true" >
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                                             <div class="col-sm-4">
@@ -334,7 +339,13 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="ndob" name="ndob">
+                                                                <div class="input-group date datepicker">
+                                                                    <input type="text" class="form-control required" placeholder="" id="ndob" name="ndob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                                    <span class="input-group-addon input-group-append border-left">
+                                                                        <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                                    </span>
+                                                                </div>
+
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Age <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -396,7 +407,13 @@
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Join Date <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="join_date" name="join_date">
+                                                            <div class="input-group date datepicker">
+                                                                    <input type="text" class="form-control required" placeholder="" id="join_date" name="join_date" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                                    <span class="input-group-addon input-group-append border-left">
+                                                                        <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                                    </span>
+                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </section>

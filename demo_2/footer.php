@@ -37,6 +37,7 @@
 <script src="../assets/js/data-table.js"></script>
 <script src="../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="../assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script type="text/javascript">
     var base_url = 'http://localhost/obedientcorp/public/api/';
     var user_id = 0;
@@ -49,7 +50,7 @@
     function checkCookie() {
         var UserCookie = getCookie("UserCookie");
         if (UserCookie == "") {
-            console.log("cookie not set please login first");
+            //console.log("cookie not set please login first");
             window.location.href = "login.php"
         } else {
             UserCookieData = JSON.parse(UserCookie);
@@ -57,7 +58,7 @@
                 $("#user_login").html(UserCookieData.name);
             }
         }
-        console.log(UserCookieData);
+        //console.log(UserCookieData);
         if (UserCookieData.id != "" && UserCookieData.email != "") {
             user_id = UserCookieData.id;
             user_left_node_id = UserCookieData.left_node_id;

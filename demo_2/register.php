@@ -132,7 +132,7 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <div id="datepicker-popup" class="input-group date datepicker">
+                                            <div class="input-group date datepicker">
                                                 <input type="text" class="form-control required" placeholder="" id="dob" name="dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
                                                 <span class="input-group-addon input-group-append border-left">
                                                     <span class="mdi mdi-calendar input-group-text bg-dark"></span>
@@ -279,7 +279,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <div id="nominee-datepicker-popup" class="input-group date datepicker">
+                                            <div class="input-group date datepicker">
                                                 <input type="text" class="form-control required" placeholder="" id="nominee_dob" name="nominee_dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
                                                 <span class="input-group-addon input-group-append border-left">
                                                     <span class="mdi mdi-calendar input-group-text bg-dark"></span>
@@ -441,18 +441,12 @@
         $(":input").inputmask();
         checkCookie();
 
-        if ($("#datepicker-popup").length) {
-            $('#datepicker-popup').datepicker({
+        if ($(".datepicker").length) {
+            $('.datepicker').datepicker({
                 enableOnReadonly: true,
                 todayHighlight: true,
-                format: 'dd-mm-yyyy'
-            });
-        }
-        if ($("#nominee-datepicker-popup").length) {
-            $('#nominee-datepicker-popup').datepicker({
-                enableOnReadonly: true,
-                todayHighlight: true,
-                format: 'dd-mm-yyyy'
+                format: 'dd-mm-yyyy',
+                autoclose: true
             });
         }
 

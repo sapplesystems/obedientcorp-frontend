@@ -103,7 +103,7 @@
         function getTeamMemberList(user_id, node) {
             $.ajax({
                 method: "POST",
-                url: "http://localhost/obedientcorp/public/api/team",
+                url: base_url + 'team',
                 data: {
                     id: user_id,
                     node: node
@@ -220,7 +220,7 @@
         function getReferralTeamMemberList(user_id, node) {
             $.ajax({
                 method: "POST",
-                url: "http://localhost/obedientcorp/public/api/team/referral",
+                url: base_url + 'team/referral',
                 data: {
                     id: user_id
                 },

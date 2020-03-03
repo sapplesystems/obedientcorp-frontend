@@ -63,7 +63,7 @@
                   <a href="#" class="auth-link">Forgot password?</a>
                 </div>
                 <div class="my-3">
-                  <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login" href="index.html">LOGIN</a>
+                  <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login" >LOGIN</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.php" class="text-primary">Create</a>
                 </div>

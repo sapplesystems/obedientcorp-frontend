@@ -7,6 +7,16 @@ if (UserCookieData.id != "" && UserCookieData.email != "") {
     var user_email = UserCookieData.email;
 }
 $(document).ready(function () {
+    $(":input").inputmask();
+    if ($(".datepicker").length) {
+        $('.datepicker').datepicker({
+            enableOnReadonly: true,
+            todayHighlight: true,
+            format: 'dd-mm-yyyy',
+            autoclose: true
+        });
+    }
+
     $.post(base_url + 'state-city-list', {}, function (resp) {
         if (resp.status == 'success') {
             state_list = resp.data.list;
@@ -23,7 +33,7 @@ $(document).ready(function () {
                     email: user_email
                 },
                 success: function (response) {
-                    console.log(response);
+                    //console.log(response);
                     if (response.status == 'success') {
                         var profile = response.data.profile;
                         var bank = response.data.bank_detail[0];
@@ -45,8 +55,16 @@ $(document).ready(function () {
                         $('#father_or_husband_name').val(profile.father_or_husband_name);
                         $('#mothers_name').val(profile.mothers_name);
                         $('#gender').val(profile.gender);
-                        $('#dob').val(profile.dob);
-                        $('#kyc_dob').val(profile.dob);
+                        var dob = profile.dob;
+                        var datetime = new Date(dob);
+                        var day = datetime.getDate();
+                        day = (day < 10) ? '0' + day : day;
+                        var month = datetime.getMonth() + 1;
+                        month = (month < 10) ? '0' + month : month
+                        var year = datetime.getFullYear();
+                        var formatted_date = day + "-" + month + "-" + year;
+                        $('#dob').val(formatted_date);
+                        $('#kyc_dob').val(formatted_date);
                         $('#mobile_no').val(profile.mobile_no);
                         $('#profile_phone').html(profile.mobile_no);
                         //$('#secondary_mobile_no').val(profile.secondary_mobile_no);
@@ -77,9 +95,43 @@ $(document).ready(function () {
                         $('#mother_name').val(nominee.mothers_name);
                         $('#nominee_age').val(nominee.nominee_age);
                         $('#relation').val(nominee.relation);
-                        $('#ndob').val(nominee.ndob);
+                        var ndob = nominee.ndob;
+                        var ndatetime = new Date(ndob);
+                        var nday = ndatetime.getDate();
+                        nday = (nday < 10) ? '0' + nday : nday;
+                        var nmonth = ndatetime.getMonth() + 1;
+                        nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
+                        var nyear = ndatetime.getFullYear();
+                        var ndate = nday + "-" + nmonth + "-" + nyear;
+                        $('#ndob').val(ndate);
 
                         $('#kyc_id').val(kyc.id);
+                        var kyc_dob = kyc.dob;
+                        var datetime = new Date(kyc_dob);
+                        var day = datetime.getDate();
+                        day = (day < 10) ? '0' + day : day;
+                        var month = datetime.getMonth() + 1;
+                        month = (month < 10) ? '0' + month : month
+                        var year = datetime.getFullYear();
+                        var formatted_date = day + "-" + month + "-" + year;
+                        $('#kyc_dob').val(formatted_date);
+                        $('#nationality').val(kyc.nationality);
+                        $('#occupation').val(kyc.occupation);
+                        $('#qualification').val(kyc.qualification);
+                        $('#pan_number').val(kyc.pan_number);
+                        $('#passport_number').val(kyc.passport_number);
+                        $('#driving_licence_number').val(kyc.driving_licence_number);
+                        $('#proposed_area_of_work').val(kyc.proposed_area_of_work);
+                        $('#voter_id').val(kyc.voter_id);
+                        var kyc_join_date = kyc.join_date;
+                        var datetime = new Date(kyc_join_date);
+                        var day = datetime.getDate();
+                        day = (day < 10) ? '0' + day : day;
+                        var month = datetime.getMonth() + 1;
+                        month = (month < 10) ? '0' + month : month
+                        var year = datetime.getFullYear();
+                        var formatted_date = day + "-" + month + "-" + year;
+                        $('#join_date').val(formatted_date);
                     }
                 },
                 error: function (response) {

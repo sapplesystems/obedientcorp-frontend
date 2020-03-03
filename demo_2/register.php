@@ -437,6 +437,8 @@
 <script type="text/javascript">
     var base_url = 'http://localhost/obedientcorp/public/api/';
     var state_list;
+    var today = new Date();
+    var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     $(document).ready(function() {
         $(":input").inputmask();
         checkCookie();
@@ -446,7 +448,8 @@
                 enableOnReadonly: true,
                 todayHighlight: true,
                 format: 'dd-mm-yyyy',
-                autoclose: true
+                autoclose: true,
+                endDate: todays_date
             });
         }
 

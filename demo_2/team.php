@@ -228,7 +228,7 @@
                     //console.log(response);
                     if (response.status == 'success') {
                         var team_data = response.data;
-                        console.log(team_data);
+                        //console.log(team_data);
                         var team_html = '';
                         var team_list_html = '<div class="media">\n\
                                         <div class="col-md-12 mb-3 border p-0">\n\

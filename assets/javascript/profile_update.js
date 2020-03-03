@@ -12,7 +12,6 @@ $(document).ready(function () {
             var params = new FormData();
             var id = user_id;
             var introducer_code = $('#sponsor').val();
-            var orientation = $('#position').val();
             var signature = $('#signature')[0].files[0];
             var photo = $('#photo')[0].files[0];
             var associate_name = $('#associate_name').val();
@@ -37,7 +36,6 @@ $(document).ready(function () {
             var email = $('#email').val();
             params.append("id", id);
             params.append("introducer_code", introducer_code);
-            params.append("orientation", orientation);
             params.append("signature", signature);
             params.append("photo", photo);
             params.append("associate_name", associate_name);

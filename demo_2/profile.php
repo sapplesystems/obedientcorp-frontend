@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="border-bottom text-center pb-4">
-                                    <img src="../assets/images/faces/face12.jpg" alt="profile" class="img-lg rounded-circle mb-3" />
+                                    <img src="" alt="profile" id="profile_image" class="img-lg rounded-circle mb-3" />
                                     <h3 class="text-center" id="profile_user"></h3>
                                 </div>
                                 <div class="border-bottom py-4">
@@ -95,7 +95,7 @@
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Position <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control required" id="orientation" name="orientation">
+                                                                <select class="form-control required" id="orientation" name="orientation" disabled>
                                                                     <option value="">-- Select One --</option>
                                                                     <option value="Auto">Auto</option>
                                                                     <option value="Left">Left</option>
@@ -111,6 +111,7 @@
                                                             <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="file" class="form-control" placeholder="" name="photo" id="photo">
+                                                               <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />-->
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -294,7 +295,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">CancelCheque <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Cancel Cheque <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">
                                                             </div>

@@ -126,7 +126,7 @@
       });
       if ($("#login_form").valid()) {
 
-        url = base_url + 'login';
+        var url = base_url + 'login';
         var params = {
           username: $("#username").val(),
           password: $("#password").val(),

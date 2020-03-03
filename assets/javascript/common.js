@@ -33,7 +33,7 @@ $(document).ready(function () {
                     email: user_email
                 },
                 success: function (response) {
-                    //console.log(response);
+                    console.log(response);
                     if (response.status == 'success') {
                         var profile = response.data.profile;
                         var bank = response.data.bank_detail[0];
@@ -81,6 +81,12 @@ $(document).ready(function () {
                         $('#email').val(profile.email);
                         $('#profile_mail').html(profile.email);
                         $('#username').val(profile.username);
+                        if (profile.photo) {
+                            var photo_src = 'http://localhost/obedientcorp/public/uploads/profile_photo/' + profile.photo;
+                            $('#profile_image').attr('src', photo_src);
+                            //$('#application_photo').attr('src',photo_src);
+                            //$('#application_photo').css('display', 'block');
+                        }
 
                         $('#bank_id').val(bank.id);
                         $('#payee_name').val(bank.payee_name);

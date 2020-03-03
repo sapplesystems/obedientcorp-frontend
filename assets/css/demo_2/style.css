@@ -26901,7 +26901,8 @@ div.tagsinput span.tag a {
 .wizard>.content>.body label.error {
     color: #fe7c96;
     display: inline-block;
-    margin-left: 1.5em;
+    margin-left: 0;
+    width:100%;
 }
 
 .wizard>.actions {
@@ -30090,4 +30091,5 @@ ul.total_indicator li:nth-child(4) span{width:10px; height:10px; background-colo
 #project-form .error{color:#fe7c96;width: 100%;}
 table tr td{white-space: inherit !important;}
 #sub-project-form .error{color:#fe7c96;width: 100%;}
+select option{background-color:#999999;}
 

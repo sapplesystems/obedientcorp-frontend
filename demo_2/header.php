@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../assets/css/demo_2/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
 </head>
 
 <body>

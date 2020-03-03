@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../assets/css/demo_2/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
 </head>
 
 <body>
@@ -131,13 +132,18 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="dob" name="dob">
+                                            <div id="datepicker-popup" class="input-group date datepicker">
+                                                <input type="text" class="form-control required" placeholder="" id="dob" name="dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                <span class="input-group-addon input-group-append border-left">
+                                                    <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile">
+                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" data-inputmask-alias="9999999999" im-insert="true" />
                                         </div>
                                         <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                         <div class="col-sm-4">
@@ -185,7 +191,7 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="email" class="form-control required" placeholder="" id="email_id" name="email_id">
+                                            <input type="text" class="form-control required" placeholder="" id="email_id" name="email_id" data-inputmask="'alias': 'email'" im-insert="true" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -263,17 +269,22 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="father_name" name="father_name">
+                                            <input type="text" class="form-control required" placeholder="" id="nominee_father_name" name="nominee_father_name">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="mother_name" name="mother_name">
+                                            <input type="text" class="form-control required" placeholder="" id="nominee_mother_name" name="nominee_mother_name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="nominee_dob" name="nominee_dob">
+                                            <div id="nominee-datepicker-popup" class="input-group date datepicker">
+                                                <input type="text" class="form-control required" placeholder="" id="nominee_dob" name="nominee_dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                <span class="input-group-addon input-group-append border-left">
+                                                    <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                         <label class="col-sm-2 col-form-label">Age <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
@@ -375,10 +386,11 @@
                                         <label class="form-check-label">
                                             <input class="checkbox" type="checkbox" id="privacy" disabled> I have read and understood the terms and privacy policy of site</label>
                                     </div>
+                                    <div id="errors_div"></div>
                                 </section>
                             </div>
                         </form>
-                        <div class="text-right mt-4 font-weight-light mr-2"> Already have an account? <a href="login.html" class="text-primary">Login</a>
+                        <div class="text-right mt-4 font-weight-light mr-2"> Already have an account? <a href="login.php" class="text-primary">Login</a>
                         </div>
                     </div>
                 </div>
@@ -408,6 +420,8 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="../assets/js/wizard.js"></script>
+    <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="../assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
     <!-- End custom js for this page -->
     <!--script for jquery validation-->
 
@@ -424,7 +438,27 @@
     var base_url = 'http://localhost/obedientcorp/public/api/';
     var state_list;
     $(document).ready(function() {
+        $(":input").inputmask();
         checkCookie();
+
+        if ($("#datepicker-popup").length) {
+            $('#datepicker-popup').datepicker({
+                enableOnReadonly: true,
+                todayHighlight: true,
+                format: 'dd-mm-yyyy'
+            });
+        }
+        if ($("#nominee-datepicker-popup").length) {
+            $('#nominee-datepicker-popup').datepicker({
+                enableOnReadonly: true,
+                todayHighlight: true,
+                format: 'dd-mm-yyyy'
+            });
+        }
+
+        $('#name').blur(function() {
+            $('#payee_name').val($(this).val());
+        });
 
     }); //document
 
@@ -509,8 +543,8 @@
         var nominee_name = $('#nominee_name').val();
         var relation = $('#relation').val();
         var ndob = $('#nominee_dob').val();
-        var father_husband_name = $('#father_name').val();
-        var mothers_name = $('#mother_name').val();
+        var father_husband_name = $('#nominee_father_name').val();
+        var mothers_name = $('#nominee_mother_name').val();
         var nominee_age = $('#nominee_age').val();
 
 
@@ -564,9 +598,22 @@
             success: function(response) {
                 if (response.status == "success") {
                     alert("register successfully");
-                    //window.location.href = "index.html";
+                    window.location.href = "index.html";
                 } else {}
 
+            },
+            error: function(response) {
+                console.log(response);
+                error_html = '';
+                var error_object = JSON.parse(response.responseText);
+                var message = error_object.message;
+                var errors = error_object.errors;
+
+
+                $.each(errors, function(key, value) {
+                    error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
+                });
+                $('#errors_div').html(error_html);
             }
         }); //ajax
         //}//end if
@@ -604,29 +651,36 @@
     //function for get sponsor details
     function get_sponser_detail() {
         var introducer_code = $('#sponsor').val();
-        var url = base_url + 'introducer-info';
-        $.ajax({
-            url: url,
-            type: 'post',
-            dataType: 'json',
-            data: {
-                introducer_code: introducer_code
-            },
-            success: function(response) {
-                if (response.status == "success") {
-                    $('#sponsor_detail').html(response.data.associate_name);
-                } else {
-                    $('#register_error').html(response.data);
+        if (introducer_code != '') {
+            var url = base_url + 'introducer-info';
+            $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    introducer_code: introducer_code
+                },
+                success: function(response) {
+                    if (response.status == "success") {
+                        $('#sponsor_detail').html(response.data.associate_name);
+                    } else {
+                        $('#register_error').css('display', 'block');
+                        $('#register_error').html(response.data);
+
+                    }
 
                 }
+            }); //ajax
+        } //if
+        else {
+            $('#register_error').css('display', 'none');
+        }
 
-            }
-        }); //ajax
 
     } //close function get_sponser_detail
     $(".terms_condition").scroll(function() {
         var y = $('.terms_condition').scrollTop();
-        if (y > 1600) {
+        if (y > 1400) {
             $('#18years,#privacy').removeAttr('disabled')
         }
     });

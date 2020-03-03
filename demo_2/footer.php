@@ -36,6 +36,7 @@
 <!-- Custom js for this page -->
 <script src="../assets/js/data-table.js"></script>
 <script src="../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+<script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
     var base_url = 'http://localhost/obedientcorp/public/api/';
     var user_id = 0;

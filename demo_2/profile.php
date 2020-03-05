@@ -11,7 +11,17 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="border-bottom text-center pb-4">
-                                    <img src="" alt="profile" id="profile_image" class="img-lg rounded-circle mb-3" />
+                                                <!--<img src="../assets/images/default-img.png" alt="profile" class="img-lg rounded-circle mb-3" />-->
+												  <div class="avatar-upload">
+															<div class="avatar-edit">
+																<input type='file' id="imageUpload" class="imageUpload" accept=".png, .jpg, .jpeg" />
+																<label for="imageUpload"></label>
+															</div>
+															<div class="avatar-preview">
+																<div id="imagePreview">
+																</div>
+															</div>
+														</div>
                                     <h3 class="text-center" id="profile_user"></h3>
                                 </div>
                                 <div class="border-bottom py-4">
@@ -66,7 +76,7 @@
                             </div>
                             <div class="col-lg-8">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body p-0">
                                         <ul class="nav nav-tabs customTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info-1" role="tab" aria-controls="info" aria-selected="true"><i class="mdi mdi-account-outline"></i> Info</a>
@@ -561,3 +571,20 @@
     <script src="../assets/javascript/bank_update.js"></script>
     <script src="../assets/javascript/nominee_update.js"></script>
     <script src="../assets/javascript/kyc_update.js"></script>
+	<script src="../assets/js/file-upload.js"></script>
+	<script>
+	function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		$("#imageUpload").change(function() {
+			readURL(this);
+		});
+	</script>

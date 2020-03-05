@@ -13,7 +13,7 @@
                                         <a class="p-1 border-0 bg-transparent nav-link active" id="home-tab" data-toggle="tab" href="#home-1" role="tab" aria-controls="home" aria-selected="true"><i class="mdi mdi-format-list-bulleted icon-sm my-0 "></i></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="p-1 border-0 bg-transparent nav-link" id="profile-tab" data-toggle="tab" href="#profile-1" role="tab" aria-controls="profile" aria-selected="false"><i class="mdi mdi-menu icon-sm my-0 "></i></a>
+                                        <a class="p-1 border-0 bg-transparent nav-link" id="profile-tab" data-toggle="tab" href="#profile-1" role="tab" aria-controls="profile" aria-selected="false"><i class="mdi mdi-view-headline icon-sm my-0 "></i></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="p-1 border-0 bg-transparent nav-link" id="contact-tab" data-toggle="tab" href="#contact-1" role="tab" aria-controls="contact" aria-selected="false"><i class="mdi mdi-file-tree icon-sm my-0 "></i></a>
@@ -110,6 +110,7 @@
                 },
                 success: function(response) {
                     if (response.status == 'success') {
+                        //console.log(response.data)
                         var team_data = response.data;
                         var team_html = '';
                         var team_list_html = '<div class="media">\n\
@@ -126,13 +127,17 @@
                                                 </thead>\n\
                                                 <tbody>';
                         $.each(team_data, function(key, member) {
+                            if(member.photo)
+                            {
+                                var photo_src = 'http://localhost/obedientcorp/public/uploads/profile_photo/' + member.photo;
+                            }
                             team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\
                                             <div class="card-body pt-3 pb-3">\n\
                                                 <div class="row">\n\
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
-                                                            <img src="../assets/images/faces/face1.jpg" alt="profile image" class="profile-img img-lg rounded-circle">\n\
+                                                            <img src='+photo_src+' alt="profile image" class="profile-img img-lg rounded-circle">\n\
                                                             <span class="edit-avatar-icon bg-success"></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
@@ -157,7 +162,7 @@
                                                         </div>\n\
                                                         <div class="row mt-3">\n\
                                                             <div class="col d-flex">\n\
-                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted">\n\
+                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted custom_icon">\n\
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
@@ -166,7 +171,7 @@
                                                                 </div>\n\
                                                             </div>\n\
                                                             <div class="col d-flex">\n\
-                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted">\n\
+                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted custom_icon">\n\
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
@@ -183,7 +188,7 @@
                                                             </div>\n\
                                                             <div class="wrapper pl-3">\n\
                                                                 <p class="mb-0 font-weight-medium text-muted">INTRODUCER</p>\n\
-                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.username + '</h4>\n\
+                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.introducer_code + '</h4>\n\
                                                             </div>\n\
                                                         </div>\n\
                                                     </div>\n\
@@ -244,13 +249,17 @@
                                                 </thead>\n\
                                                 <tbody>';
                         $.each(team_data, function(key, member) {
+                            if(member.photo)
+                            {
+                                var photo_src = 'http://localhost/obedientcorp/public/uploads/profile_photo/' + member.photo;
+                            }
                             team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\
                                             <div class="card-body pt-3 pb-3">\n\
                                                 <div class="row">\n\
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
-                                                            <img src="../assets/images/faces/face1.jpg" alt="profile image" class="profile-img img-lg rounded-circle">\n\
+                                                            <img src='+photo_src+' alt="profile image" class="profile-img img-lg rounded-circle">\n\
                                                             <span class="edit-avatar-icon bg-success"></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
@@ -275,7 +284,7 @@
                                                         </div>\n\
                                                         <div class="row mt-3">\n\
                                                             <div class="col d-flex">\n\
-                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted">\n\
+                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted custom_icon">\n\
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
@@ -284,7 +293,7 @@
                                                                 </div>\n\
                                                             </div>\n\
                                                             <div class="col d-flex">\n\
-                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted">\n\
+                                                                <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted custom_icon">\n\
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
@@ -301,7 +310,7 @@
                                                             </div>\n\
                                                             <div class="wrapper pl-3">\n\
                                                                 <p class="mb-0 font-weight-medium text-muted">INTRODUCER</p>\n\
-                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.username + '</h4>\n\
+                                                                <h4 class="font-weight-semibold mb-0 text-primary">' + member.introducer_code + '</h4>\n\
                                                             </div>\n\
                                                         </div>\n\
                                                     </div>\n\

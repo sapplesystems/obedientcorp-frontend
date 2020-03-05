@@ -131,12 +131,12 @@ function updateProject(e, project_id) {
                 $('#description').val(data.description);
                 $('#unit_price').val(data.unit_price);
                 if (data.photo) {
-                    var photo_src = 'http://localhost/obedientcorp/public/uploads/project_photo/' + data.photo;
+                    var photo_src =  media_url +'project_photo/' + data.photo;
                     $('#photo_id').attr('src',photo_src);
                     $('#photo_id').css('display','block');
                 }
                 if (data.map) {
-                    var map_src = 'http://localhost/obedientcorp/public/uploads/project_photo/' + data.map;
+                    var map_src =  media_url +'project_photo/' + data.map;
                     $('#mapphoto_id').attr('src',map_src);
                     $('#mapphoto_id').css('display','block');
                 }

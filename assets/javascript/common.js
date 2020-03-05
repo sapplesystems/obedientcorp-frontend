@@ -16,7 +16,8 @@ $(document).ready(function () {
             todayHighlight: true,
             format: 'dd-mm-yyyy',
             autoclose: true,
-            endDate: todays_date
+            endDate: todays_date,
+            //defaultViewDate: new Date()
         });
     }
 
@@ -84,12 +85,11 @@ $(document).ready(function () {
                         $('#email').val(profile.email);
                         $('#profile_mail').html(profile.email);
                         $('#username').val(profile.username);
+                        var photo_src = "../assets/images/default-img.png"
                         if (profile.photo) {
-                            var photo_src = 'http://localhost/obedientcorp/public/uploads/profile_photo/' + profile.photo;
-                            $('#profile_image').attr('src', photo_src);
-                            //$('#application_photo').attr('src',photo_src);
-                            //$('#application_photo').css('display', 'block');
+                            photo_src = media_url + 'profile_photo/' + profile.photo;
                         }
+                        $("#imagePreview").css("background-image", "url(" + photo_src + ")");
 
                         $('#bank_id').val(bank.id);
                         $('#payee_name').val(bank.payee_name);
@@ -159,7 +159,45 @@ $(document).ready(function () {
             $('#city').html(getCitiesList(state_id));
         }
     });
-});
+
+    $(".imageUpload").change(function (){
+        var fileName = document.getElementById("imageUpload").files[0];
+        var id = user_id;
+        var params = new FormData();
+        if(fileName)
+        {
+            params.append("photo", fileName);
+            params.append("id", id);
+            $.ajax({
+                method: "POST",
+                url: base_url + 'profile/update',
+                data: params,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    error_html = '';
+                    if (response.status == 'success') {
+                        error_html += '<div class="alert alert-primary" role="alert">Photo Uploaded successfully</div>';
+                    } else {
+                        error_html += '<div class="alert alert-warning" role="alert">Photo could not be saved</div>';
+                    }
+                    $('#errors_div').html(error_html);
+                },
+                error: function (response) {
+                    error_html = '';
+                    var error_object = JSON.parse(response.responseText);
+                    var message = error_object.message;
+                    var errors = error_object.errors;
+                    $.each(errors, function (key, value) {
+                        error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
+                    });
+                    $('#errors_div').html(error_html);
+                }
+            });
+        }
+      });
+
+});//document ready
 
 function getCitiesList(state_id) {
     var cities_list_html = '<option>-- Select One --</option>';
@@ -168,3 +206,4 @@ function getCitiesList(state_id) {
     });
     return cities_list_html;
 }
+

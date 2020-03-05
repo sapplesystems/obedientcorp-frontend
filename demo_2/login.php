@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Purple Admin</title>
+  <title>Obedient</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
@@ -28,7 +28,7 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="../assets/images/logo.svg" alt="logo">
+                <a href="http://design.sappleserve.com/Obedient-Infra/athena/demo-athena.html"><img src="../assets/images/logo.png" alt="logo"></a>
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
@@ -136,6 +136,7 @@
           type: 'post',
           data: params,
           success: function(response) {
+            console.log(response);
             if (response.status == "success") {
               var customObject = {};
               customObject.id = response.data.id;
@@ -145,6 +146,10 @@
               customObject.user_type = response.data.user_type;
               customObject.left_node_id = response.data.left_node_id;
               customObject.right_node_id = response.data.right_node_id;
+              if(response.data.photo)
+              {
+                customObject.photo = response.data.photo;
+              }
               var jsonString = JSON.stringify(customObject);
               setCookie(jsonString);
             }

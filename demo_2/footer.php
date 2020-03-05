@@ -21,6 +21,8 @@
 <!-- Plugin js for this page -->
 <script src="../assets/vendors/chart.js/Chart.min.js "></script>
 <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js "></script>
+<script src="../assets/vendors/sweetalert/sweetalert.min.js "></script>
+<script src="../assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
 <!-- End plugin js for this page -->
 <!-- inject:js -->
 <script src="../assets/js/off-canvas.js "></script>
@@ -31,6 +33,8 @@
 <!-- endinject -->
 <script src="../assets/js/file-upload.js"></script>
 <!-- Custom js for this page -->
+<script src="../assets/js/alerts.js "></script>
+<script src="../assets/js/avgrund.js "></script>
 <script src="../assets/js/dashboard.js "></script>
 <!-- End custom js for this page -->
 <!-- Custom js for this page -->
@@ -40,11 +44,13 @@
 <script src="../assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script type="text/javascript">
     var base_url = 'http://localhost/obedientcorp/public/api/';
+    var media_url = 'http://localhost/obedientcorp/public/uploads/';
     var user_id = 0;
     var user_left_node_id = 0;
     var user_right_node_id = 0;
     var user_email = '';
     var UserCookieData;
+    var photo_src = '../assets/images/default-img.png';
     checkCookie();
 
     function checkCookie() {
@@ -64,6 +70,11 @@
             user_left_node_id = UserCookieData.left_node_id;
             user_right_node_id = UserCookieData.right_node_id;
             user_email = UserCookieData.email;
+            if (UserCookieData.photo) {
+                photo_src = media_url + 'profile_photo/' + UserCookieData.photo;
+            }
+            $('#user_photo').attr('src', photo_src);
+
         }
     }
 

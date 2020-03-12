@@ -38,12 +38,14 @@
 <script src="../assets/js/dashboard.js "></script>
 <!-- End custom js for this page -->
 <!-- Custom js for this page -->
+
 <script src="../assets/js/data-table.js"></script>
 <script src="../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="../assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script type="text/javascript">
-    var base_url = 'http://localhost/obedientcorp/public/api/';
+    //var base_url = 'http://localhost/obedientcorp/public/api/';
+    var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
     var media_url = 'http://localhost/obedientcorp/public/uploads/';
     var user_id = 0;
     var user_left_node_id = 0;

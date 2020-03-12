@@ -26,11 +26,19 @@
 
     } else if (type === 'success-message') {
       swal({
-        title: 'Congratulations!',
-        text: 'You entered the correct answer',
+        title: 'Approve Payment!',
+        text: 'Once Approved it can not be cancelled',
         icon: 'success',
+		content: {
+          element: "textarea",
+          attributes: {
+            placeholder: "Type your reason",
+            class: 'form-control',
+			rows:5
+          },
+        },
         button: {
-          text: "Continue",
+          text: "Approve",
           value: true,
           visible: true,
           className: "btn btn-primary"
@@ -61,6 +69,14 @@
         confirmButtonColor: '#3f51b5',
         cancelButtonColor: '#ff4081',
         confirmButtonText: 'Great ',
+		 content: {
+          element: "textarea",
+          attributes: {
+            placeholder: "Type your reason",
+            class: 'form-control',
+			rows:5
+          },
+        },
         buttons: {
           cancel: {
             text: "Cancel",

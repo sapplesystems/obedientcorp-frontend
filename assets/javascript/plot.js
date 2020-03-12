@@ -45,12 +45,12 @@ $(document).ready(function () {
                     console.log(response);
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Project details saved successfully</div>';
+                        showSwal('success', 'Plot Added', 'Plot added successfully');
                         document.getElementById('plot-form').reset();
                         getplotlist();
 
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Project details could not be saved</div>';
+                        showSwal('error', 'Plot Not Added', 'Plot not added successfully');
                     }
 
                     $('#errors_div').html(error_html);

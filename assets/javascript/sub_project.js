@@ -46,14 +46,14 @@ $(document).ready(function () {
                 success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Sub Project details saved successfully</div>';
+                        showSwal('success', 'Sub Project Added', 'Sub Project added successfully');
                         document.getElementById('sub-project-form').reset();
                         $('#mapphoto_id,#photo_id').attr('src', '');
                         $('#mapphoto_id,#photo_id').css('display', 'none');
                         getSubProjectList();
 
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Sub Project details could not be saved</div>';
+                        showSwal('error', 'Sub Project Not Added', 'Sub Project not added successfully');
                     }
 
                     $('#errors_div').html(error_html);

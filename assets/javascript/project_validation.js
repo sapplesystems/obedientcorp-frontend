@@ -42,14 +42,14 @@ $(document).ready(function () {
                 success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Project details saved successfully</div>';
+                        showSwal('success', 'Project Added', 'Project added successfully');
                         document.getElementById('project-form').reset();
                         $('#mapphoto_id,#photo_id').attr('src','');
                         $('#mapphoto_id,#photo_id').css('display','none');
                         getProjectList();
 
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Project details could not be saved</div>';
+                        showSwal('error', 'Project Not Added', 'Project not added successfully');
                     }
 
                     $('#errors_div').html(error_html);

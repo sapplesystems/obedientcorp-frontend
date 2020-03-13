@@ -40,7 +40,7 @@ $photo = $_SESSION['login_resp']['photo'];
 
 <body>
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
+        <!-- partial:partials/_navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="login.php"><img src="../assets/images/logo.png" alt="logo" /></a>
@@ -81,7 +81,7 @@ $photo = $_SESSION['login_resp']['photo'];
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
+            <!-- partial:partials/_sidebar.php -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
@@ -104,13 +104,13 @@ $photo = $_SESSION['login_resp']['photo'];
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+					<li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);">
                             <span class="menu-title">Manage Customer</span>
                             <i class="mdi mdi-settings menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+					<li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#project" aria-expanded="false" aria-controls="project">
                             <span class="menu-title">Manage Project</span>
                             <i class="menu-arrow"></i>
@@ -131,25 +131,37 @@ $photo = $_SESSION['login_resp']['photo'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="wallet.php">
+                       <a class="nav-link" href="wallet.php">
                             <span class="menu-title">Wallet</span>
                             <i class="mdi mdi-wallet menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+					<li class="nav-item">
+                        <a class="nav-link" href="manage-coupon.php">
+                            <span class="menu-title">E-Wallet</span>
+                            <i class="mdi mdi-wallet-giftcard menu-icon"></i>
+                        </a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="payments-admin.php">
+                            <span class="menu-title">Payments</span>
+                            <i class="mdi mdi-currency-inr menu-icon"></i>
+                        </a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="make-payment-request-admin.php">
+                            <span class="menu-title">Approvals</span>
+                            <i class="mdi mdi-checkbox-marked-circle-outline menu-icon"></i>
+                        </a>
+                    </li>
+					<li class="nav-item">
                         <a class="nav-link" href="make-payment-request-agent.php">
                             <span class="menu-title">Make Request</span>
                             <i class="mdi mdi-repeat menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="approval.html">
-                            <span class="menu-title">Approvals</span>
-                            <i class="mdi mdi-checkbox-marked-circle-outline menu-icon"></i>
-                        </a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="logout" onclick="logout()">
+                        <a class="nav-link" href="login.php">
                             <span class="menu-title">Logout</span>
                             <i class="mdi mdi-logout menu-icon"></i>
                         </a>

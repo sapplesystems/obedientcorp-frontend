@@ -51,7 +51,7 @@
 																			</td>
 																			<td></td>
                                                                             <td> <i class="mdi mdi-check-circle" onclick="showSwal('success-message')"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="showSwal('warning-message-and-cancel')"></i> </td>
-																			<td><a class="btn btn-link p-0" href="approval-details.html">Details</a></td>
+																			<td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php">Details</a></td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -64,7 +64,7 @@
                                                                             <td> </td>
 																			<td></td>
                                                                             <td> <i class="mdi mdi-check-circle" onclick="showSwal('success-message')"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="showSwal('warning-message-and-cancel')"></i> </td>
-																			<td><a class="btn btn-link p-0" href="approval-details.html">Details</a></td>
+																			<td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php">Details</a></td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -77,7 +77,7 @@
                                                                             <td> </td>
 																			<td></td>
                                                                             <td> <i class="mdi mdi-check-circle" onclick="showSwal('success-message')"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="showSwal('warning-message-and-cancel')"></i> </td>
-																			<td><a class="btn btn-link p-0" href="approval-details.html">Details</a></td>
+																			<td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php">Details</a></td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -90,7 +90,7 @@
                                                                             <td> </td>
 																			<td></td>
                                                                            <td> <i class="mdi mdi-check-circle" onclick="showSwal('success-message')"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="showSwal('warning-message-and-cancel')"></i> </td>
-																		   <td><a class="btn btn-link p-0" href="approval-details.html">Details</a></td>
+																		   <td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php">Details</a></td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -103,7 +103,7 @@
                                                                             <td>  </td>
 																			<td></td>
                                                                            <td> <i class="mdi mdi-check-circle" onclick="showSwal('success-message')"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="showSwal('warning-message-and-cancel')"></i> </td>
-																		   <td><a class="btn btn-link p-0" href="approval-details.html">Details</a></td>
+																		   <td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php">Details</a></td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -116,7 +116,7 @@
                                                                             <td>  </td>
 																			<td></td>
                                                                             <td> <i class="mdi mdi-check-circle" onclick="showSwal('success-message')"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="showSwal('warning-message-and-cancel')"></i> </td>
-																			<td><a class="btn btn-link p-0" href="approval-details.html">Details</a></td>
+																			<td><a class="btn btn-link p-0" href="approval-details.php">Details</a></td>
                                                                         </tr>
                                                                         
                                                                     </tbody>

@@ -92,7 +92,8 @@
   <script src="../assets/js/settings.js"></script>
   <script src="../assets/js/todolist.js"></script>
   <!-- endinject -->
-
+  <script src="../assets/vendors/sweetalert/sweetalert.min.js "></script>
+  <script src="../assets/js/alerts.js "></script>
   <!--Validate jquery-->
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 </body>
@@ -157,6 +158,11 @@
                 var jsonString = JSON.stringify(customObject);
                 setCookie(jsonString);
               });
+            }
+            else
+            {
+              var error = response.data;
+              showSwal('error', 'Login Failed', error);
             }
           }, //success function
           error: function(response) {

@@ -418,6 +418,8 @@
     <script src="../assets/js/settings.js"></script>
     <script src="../assets/js/todolist.js"></script>
     <!-- endinject -->
+    <script src="../assets/vendors/sweetalert/sweetalert.min.js "></script>
+    <script src="../assets/js/alerts.js "></script>
     <!-- Custom js for this page -->
     <script src="../assets/js/wizard.js"></script>
     <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>

@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
-                                        <div class="col-sm-4">
+                                        <div class=" input-group col-sm-4">
                                             <input type="file" class="form-control required" placeholder="" name="signature" id="signature">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
@@ -594,9 +594,11 @@
             contentType: false,
             success: function(response) {
                 if (response.status == "success") {
-                    alert("register successfully");
+                    showSwal('success', 'Register Successfully', 'Agent register successfully');
                     window.location.href = "index.html";
-                } else {}
+                } else {
+                    showSwal('error', 'Registration Failed', 'Agent registration failed');
+                }
 
             },
             error: function(response) {

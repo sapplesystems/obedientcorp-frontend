@@ -1,13 +1,22 @@
 
 var amount = '';
 var type = '';
-get_payament_details();
+get_agent_list();
 //function for get all coupons
 $(function () {
+    $(document).on('click', '#make_request', function () {
+        if (checkChecked() == false) {
+            document.getElementById('payment-form').reset();
+            $('#makeRequest').modal('hide');
+            showSwal('error', 'Select Checkbox', 'No EMI selected')
+            return false;
+        }
+        $('#makeRequest').modal();
+    });
+
     $("#payment-form").submit(function (e) {
         e.preventDefault();
         var payment_frm = $("#payment-form");
-        console.log(payment_frm);
         payment_frm.validate({
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
@@ -18,25 +27,25 @@ $(function () {
             var params = new FormData();
             var payment_mode = $('#payment_mode').val();
             var payment_number = $('#payment_number').val();
-            if ($('#bank_name').val())
-            {
+            if ($('#bank_name').val()) {
                 var bank_name = $('#bank_name').val();
             }
             var photo = $('#upload-image')[0].files[0];
             var comment = $('#comment').val();
+            var created_for = $('#agent-list').val();
             var url = base_url + 'customer-payment-select';
             var emi_ids = [];
-            var payment_amount = [];
             $('.emi_payment:checked').each(function () {
                 emi_ids.push($(this).val());
-                var id = $(this).val();
-                payment_amount.push($("#payment-amount_"+id).text());
             });
-            var user_id = 2;
-            var date = new Date();
-            var coupon_type_id = 2;
-            
-            
+            emi_ids = emi_ids.join();
+            if (emi_ids == '' || !emi_ids) {
+                document.getElementById('payment-form').reset();
+                $('#makeRequest').modal('hide');
+                showSwal('error', 'Select Checkbox', 'No EMI selected')
+                return false;
+            }
+            var amount = $('#amount').val();
             params.append('payment_mode', payment_mode);
             params.append('payment_number', payment_number);
             params.append('bank_name', bank_name);
@@ -44,10 +53,8 @@ $(function () {
             params.append('comment', comment);
             params.append('emi_ids', emi_ids);
             params.append('created_by', user_id);
-            params.append('date_of_payment', date);
-            params.append('coupon_type_id', coupon_type_id);
-            params.append('amount', payment_amount);
-
+            params.append('created_for', created_for);
+            params.append('amount', amount);
             $.ajax({
                 url: url,
                 type: 'post',
@@ -55,25 +62,13 @@ $(function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    console.log(response);
-                    error_html = '';
                     if (response.status == 'success') {
-
-                        error_html += '<div class="alert alert-primary" role="alert">Project details saved successfully</div>';
-                        document.getElementById('project-form').reset();
-                        $('#mapphoto_id,#photo_id').attr('src', '');
-                        $('#mapphoto_id,#photo_id').css('display', 'none');
-                        getProjectList();
-
-                    } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Project details could not be saved</div>';
+                        document.getElementById('payment-form').reset();
+                        $('#makeRequest').modal('hide');
+                        showSwal('success', 'Payment accepted', 'Payment accepted successfully')
                     }
-
-                    $('#errors_div').html(error_html);
-
                 },
                 error: function (response) {
-                    console.log(response);
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;
@@ -90,8 +85,7 @@ $(function () {
     //onchange payment_mode
     $('#payment_mode').change(function () {
 
-        if ($(this).val() == 'Cash')
-        {
+        if ($(this).val() == 'Cash') {
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Invoice Number:</label>\n\
                    <div class="col-sm-8">\n\
                      <input type="text" class="form-control required" id="payment_number" name="payment_number">\n\
@@ -100,8 +94,7 @@ $(function () {
             $('.bank-name').css('display', 'none');
 
         }
-        else if ($(this).val() == 'Online')
-        {
+        else if ($(this).val() == 'Online') {
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Online Transaction Number:</label>\n\
                    <div class="col-sm-8">\n\
                      <input type="text" class="form-control required" id="payment_number" name="payment_number">\n\
@@ -110,8 +103,7 @@ $(function () {
             $('.bank-name').css('display', 'block');
 
         }
-        else if ($(this).val() == 'Cheque')
-        {
+        else if ($(this).val() == 'Cheque') {
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Cheque Number:</label>\n\
                    <div class="col-sm-8">\n\
                      <input type="text" class="form-control required" id="payment_number" name="payment_number">\n\
@@ -122,16 +114,18 @@ $(function () {
     });
 }); //end ready function
 
-function get_payament_details() {
+function get_payament_details(customer_id) {
     var params = {
-        user_id: 2
+        user_id: $('#agent-list').val(),
+        customer_id: customer_id
     };
+    $("#customer_payment").html('');
     $.ajax({
         url: base_url + 'customer-payment-detail',
         type: 'post',
         data: params,
         success: function (response) {
-            if (response.status) {
+            if (response.status == 'success') {
                 var table_data = '<thead>\n\
                                         <tr>\n\
                                             <th></th>\n\
@@ -141,6 +135,7 @@ function get_payament_details() {
                                             <th>Project</th>\n\\n\
                                             <th>Sub Project</th>\n\
                                             <th>Plot ID</th>\n\
+                                            <th>Status</th>\n\
                                         </tr>\n\
                                     </thead>';
                 var checkbox = '';
@@ -149,25 +144,97 @@ function get_payament_details() {
                     if (value.payment_status == 'Due' || value.payment_status == 'Rejected') {
                         //checkbox = '<input type="checkbox" class="emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">';
                         checkbox = '<div class="form-check m-0">\n\
-<input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">\n\
-</div>';
+                        <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">\n\
+                        <i class="input-helper"></i></label></div>';
                     }
+                    var dd = new Date(value.due_date);
+                    var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
                     table_data += '<tbody>\n\
                                         <tr >\n\
-                                        <td>' + checkbox + '</td>\n\
+                                            <td>' + checkbox + '</td>\n\
                                             <td>' + value.name + '</td>\n\
-                                            <td id="payment-amount_'+value.customer_plot_booking_payment_detail_id+'">' + value.amount + '</td>\n\
-                                            <td>' + value.due_date + '</td>\n\
+                                            <td id="payment-amount_'+ value.customer_plot_booking_payment_detail_id + '">' + value.amount + '</td>\n\
+                                            <td>' + duedate + '</td>\n\
                                             <td>' + value.project_master_name + '</td>\n\
                                             <td>' + value.sub_project_master_name + '</td>\n\
                                             <td>' + value.plot_master_name + '</td>\n\
+                                            <td>' + value.payment_status + '</td>\n\
                                         </tr></tbody>';
                 });
-                console.log(table_data);
                 $("#customer_payment").html(table_data);
+
+            }
+            else {
+                $("#customer_payment").html(response.data);
+            }
+
+        }
+    });
+}//end function get-payment-details
+
+//function for get customer list
+function get_customer_list(user_id) {
+    //login user id
+    var url = base_url + 'customers';
+    $.ajax({
+        url: url,
+        type: 'post',
+        dataType: 'json',
+        data: {
+            user_id: user_id
+        },
+        success: function (response) {
+            if (response.status) {
+                var customer_list = '<option value="">--select--</option>';
+                $.each(response.data, function (key, value) {
+                    customer_list += '<option value="' + value.id + '">' + value.username + '</option>';
+                });
+                $("#customer-list").html(customer_list);
 
             }
 
         }
     });
+}//end function customer list
+
+//function for get agent list
+function get_agent_list() {
+    //login user id
+    var url = base_url + 'down-the-line-members';
+    var agent_id = 0;
+    $.ajax({
+        url: url,
+        type: 'post',
+        dataType: 'json',
+        data: {
+            user_id: user_id
+        },
+        success: function (response) {
+            if (response.status) {
+                var customer_list;
+                var i = 0;
+                $.each(response.data, function (key, value) {
+                    if (i == 0) {
+                        agent_id = value.id;
+                        i = 1;
+                    }
+                    customer_list += '<option value="' + value.id + '">' + value.username + ' ' + value.associate_name + '</option>';
+                });
+                get_customer_list(agent_id);
+                $("#agent-list").html(customer_list);
+
+            }
+
+        }
+    });
+}//end function agent list
+
+function checkChecked() {
+    var x = false;
+    $('.emi_payment').each(function () {
+        if ($(this).is(":checked")) {
+            x = true;
+        }
+    });
+    return x;
 }

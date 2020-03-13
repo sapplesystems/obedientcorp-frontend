@@ -54,7 +54,7 @@
 																			<td></td>
 																			<td></td>
 																			<td></td>
-																			<td><a class="btn btn-link p-0" href="payments-details.html">Details</a></td>
+																			<td><a class="btn btn-link p-0" href="payments-details.php">Details</a></td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -69,7 +69,7 @@
 																			<td></td>
 																			<td></td>
 																			<td></td>
-																			 <td> <a class="btn btn-link p-0" href="payments-details.html">Details</a> </td>
+																			 <td> <a class="btn btn-link p-0" href="payments-details.php">Details</a> </td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -84,7 +84,7 @@
 																			<td></td>
 																			<td></td>
 																			<td></td>
-																			 <td> <a class="btn btn-link p-0" href="payments-details.html">Details</a> </td>
+																			 <td> <a class="btn btn-link p-0" href="payments-details.php">Details</a> </td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -99,7 +99,7 @@
 																			<td></td>
 																			<td></td>
 																			<td></td>
-																			<td><a class="btn btn-link p-0" href="payments-details.html">Details</a> </td>
+																			<td><a class="btn btn-link p-0" href="payments-details.php">Details</a> </td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -114,7 +114,7 @@
 																			<td></td>
 																			<td></td>
 																			<td></td>
-																			<td><a class="btn btn-link p-0" href="payments-details.html">Details</a></td>
+																			<td><a class="btn btn-link p-0" href="payments-details.php">Details</a></td>
                                                                         </tr>
 																		<tr>
                                                                             <td class="py-1">
@@ -129,7 +129,7 @@
 																			<td></td>
 																			<td></td>
 																			<td></td>
-																			<td> <a class="btn btn-link p-0" href="payments-details.html">Details</a></td>
+																			<td> <a class="btn btn-link p-0" href="payments-details.php">Details</a></td>
                                                                         </tr>
                                                                         
                                                                     </tbody>

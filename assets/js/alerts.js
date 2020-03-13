@@ -1,9 +1,11 @@
 (function($) {
-  showSwal = function(type) {
+  showSwal = function(type, title, message) {
     'use strict';
-    if (type === 'basic') {
+    if (type === 'error') {
       swal({
-        text: 'Any fool can use a computer',
+        title: title,
+        text: message,
+		icon: 'warning',
         button: {
           text: "OK",
           value: true,
@@ -12,10 +14,11 @@
         }
       })
 
-    } else if (type === 'title-and-text') {
+    } else if (type === 'success') {
       swal({
-        title: 'Read the alert!',
-        text: 'Click OK to close this alert',
+        title: title,
+        text: message,
+		icon: 'success',
         button: {
           text: "OK",
           value: true,

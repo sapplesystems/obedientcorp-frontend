@@ -63,7 +63,7 @@
                   <a href="#" class="auth-link">Forgot password?</a>
                 </div>
                 <div class="my-3">
-                  <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login" >LOGIN</button>
+                  <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login">LOGIN</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.php" class="text-primary">Create</a>
                 </div>
@@ -99,8 +99,8 @@
 
 </html>
 <script>
-  //var base_url = 'http://localhost/obedientcorp/public/api/';
-  var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
+  var base_url = 'http://localhost/obedientcorp/public/api/';
+  //var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
   //function for login
   $(function() {
 
@@ -139,20 +139,24 @@
           success: function(response) {
             console.log(response);
             if (response.status == "success") {
-              var customObject = {};
-              customObject.id = response.data.id;
-              customObject.name = response.data.associate_name;
-              customObject.email = response.data.email;
-              customObject.token = response.data.token;
-              customObject.user_type = response.data.user_type;
-              customObject.left_node_id = response.data.left_node_id;
-              customObject.right_node_id = response.data.right_node_id;
-              if(response.data.photo)
-              {
-                customObject.photo = response.data.photo;
-              }
-              var jsonString = JSON.stringify(customObject);
-              setCookie(jsonString);
+              $.post('localapi.php', {
+                create_session: 1,
+                login_resp: response.data
+              }, function(resp) {
+                var customObject = {};
+                customObject.id = response.data.id;
+                customObject.name = response.data.associate_name;
+                customObject.email = response.data.email;
+                customObject.token = response.data.token;
+                customObject.user_type = response.data.user_type;
+                customObject.left_node_id = response.data.left_node_id;
+                customObject.right_node_id = response.data.right_node_id;
+                if (response.data.photo) {
+                  customObject.photo = response.data.photo;
+                }
+                var jsonString = JSON.stringify(customObject);
+                setCookie(jsonString);
+              });
             }
           }, //success function
           error: function(response) {

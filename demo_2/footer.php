@@ -44,8 +44,8 @@
 <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="../assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script type="text/javascript">
-    //var base_url = 'http://localhost/obedientcorp/public/api/';
-    var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
+    var base_url = 'http://localhost/obedientcorp/public/api/';
+    //var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
     var media_url = 'http://localhost/obedientcorp/public/uploads/';
     var user_id = 0;
     var user_left_node_id = 0;
@@ -53,6 +53,9 @@
     var user_email = '';
     var UserCookieData;
     var photo_src = '../assets/images/default-img.png';
+
+    var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
     checkCookie();
 
     function checkCookie() {
@@ -63,7 +66,7 @@
         } else {
             UserCookieData = JSON.parse(UserCookie);
             if (UserCookieData) {
-                $("#user_login").html(UserCookieData.name);
+                //$("#user_login").html(UserCookieData.name);
             }
         }
         //console.log(UserCookieData);
@@ -75,7 +78,7 @@
             if (UserCookieData.photo) {
                 photo_src = media_url + 'profile_photo/' + UserCookieData.photo;
             }
-            $('#user_photo').attr('src', photo_src);
+            //$('#user_photo').attr('src', photo_src);
 
         }
     }
@@ -96,8 +99,12 @@
     }
 
     function logout() {
-        document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        window.location.href = 'login.php';
+        $.post('localapi.php', {
+            destroy_session: 1
+        }, function(resp) {
+            document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            window.location.href = 'login.php';
+        });
     }
 </script>
 </body>

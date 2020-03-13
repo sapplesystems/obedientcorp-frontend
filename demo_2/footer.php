@@ -44,9 +44,9 @@
 <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="../assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script type="text/javascript">
-    var base_url = 'http://localhost/obedientcorp/public/api/';
+    var base_url = "<?php echo $base_url; ?>";
     //var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
-    var media_url = 'http://localhost/obedientcorp/public/uploads/';
+    var media_url = "<?php echo $media_url; ?>";
     var user_id = 0;
     var user_left_node_id = 0;
     var user_right_node_id = 0;

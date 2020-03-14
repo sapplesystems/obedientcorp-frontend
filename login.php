@@ -100,7 +100,7 @@
 
 </html>
 <script>
-  var base_url = 'http://localhost/obedientcorp/public/api/';
+  var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
   //var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
   //function for login
   $(function() {

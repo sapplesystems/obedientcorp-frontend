@@ -437,7 +437,7 @@
 
 </html>
 <script type="text/javascript">
-    var base_url = 'http://localhost/obedientcorp/public/api/';
+    var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
     var state_list;
     var today = new Date();
     var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();

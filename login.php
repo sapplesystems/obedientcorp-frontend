@@ -28,7 +28,7 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <a href="http://design.sappleserve.com/Obedient-Infra/athena/demo-athena.html"><img src="assets/images/logo.png" alt="logo"></a>
+                <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
@@ -100,7 +100,7 @@
 
 </html>
 <script>
-  var base_url = 'http://localhost/obedientcorp/public/api/';
+  var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
   //var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
   //function for login
   $(function() {
@@ -197,7 +197,7 @@
       if (UserCookie != "") {
         var data = JSON.parse(UserCookie);
         //alert("Welcome again " + data.name);
-        window.location.href = "index.php";
+        window.location.href = "dashboard.php";
       }
     } //end function checkcookies
 

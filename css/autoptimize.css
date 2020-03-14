@@ -1,0 +1,245 @@
+.StevenCarousel:after {
+    z-index: 500;
+    width: 0px;
+    height: 60px;
+    background: #fff;
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    content: ' ';
+    transform-origin: 50% 100%;
+    transform: scaleY(0)
+}
+
+.StevenCarousel.Interval:after {
+    transform: scaleY(1);
+    transition: 7s transform linear
+}
+
+.StevenCarousel.Intervaled:after {
+    transform: scaleY(1);
+    transition: .3s transform ease-in-out
+}
+
+.StevenCarousel {
+    background: #040406;
+    position: relative;
+    padding-bottom: 60%
+}
+
+.StevenCarousel .CarouselItem {
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh !important;
+}
+
+.StevenCarousel .CarouselItem.Animated {
+    transition: 2s all ease-in-out
+}
+
+.StevenCarousel .CarouselNav {
+    z-index: 500;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 70px;
+    display: block;
+    text-align: center;
+    left: 0;
+    width: 100%
+}
+
+.StevenCarousel .CarouselNav li {
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0
+}
+
+.StevenCarousel .CarouselNav button {
+    position: relative;
+    outline: 0!important;
+    text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
+    display: block;
+    border: 0;
+    background: 0 0;
+    padding: 0;
+    margin: 0;
+    font-size: 16px
+}
+
+.StevenCarousel .CarouselNav button:after {
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    left: -5px;
+    width: calc(100% + 10px);
+    background: #a8894c;
+    content: ' ';
+    display: block;
+    transition: .3s transform ease-in-out;
+    transform: scaleX(0);
+    transform-origin: 0 50%
+}
+
+.StevenCarousel .CarouselNav button:before {
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    right: calc(100% + 5px);
+    width: calc(10px);
+    background: #fff;
+    content: ' ';
+    display: block;
+    transition: .3s transform ease-in-out;
+    transform: scaleX(0);
+    transform-origin: 100% 50%
+}
+
+@media (min-width:768px) {
+    .StevenCarousel .CarouselNav button:hover:after {
+        transform: scaleX(1)
+    }
+}
+
+.StevenCarousel .CarouselNav button.Current:before {
+    transform: scaleX(1)
+}
+
+.StevenCarousel .CarouselNav button.Next {
+    width: 20px;
+    position: relative;
+    right: 5px
+}
+
+.StevenCarousel .CarouselNav button.Next:before {
+    top: 0;
+    right: auto;
+    transform: translate3d(0, 0, 0);
+    transform-origin: 50% 50%;
+    left: 5px;
+    bottom: auto;
+    position: absolute;
+    width: 14px;
+    height: 30px;
+    display: block;
+    content: ' ';
+    transition: .3s transform ease-in-out;
+    background: url(//www.stevenbaker.de/wp-content/themes/stevenbaker/_css/../_pics/arrow.svg) center center no-repeat;
+    background-size: auto 12px;
+    content: ' '
+}
+
+.StevenCarousel .CarouselNav button.Next:after {
+    display: none
+}
+
+.StevenCarousel .CarouselNav button.Next span {
+    opacity: 0
+}
+
+@media (min-width:768px) {
+    .StevenCarousel .CarouselNav button.Next:hover:before {
+        transform: translate3d(50%, 0, 0)
+    }
+}
+
+.StevenCarousel .CarouselCopy {
+    overflow: hidden;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0)
+}
+
+.StevenCarousel .CarouselCopy .Header-2 {
+    transform: translate3d(0, 0, 0);
+    white-space: nowrap;
+    opacity: 0;
+    transition: 1s opacity ease-in-out;
+    margin: .5em 0 .5em 20px
+}
+
+.StevenCarousel .CarouselCopy .Header-3 {
+    transform: translate3d(0, 0, 0);
+    white-space: nowrap;
+    opacity: 0;
+    transition: 1s opacity ease-in-out;
+    margin: 0
+}
+
+.StevenCarousel .CarouselCopy .Header-4 {
+    transform: translate3d(0, 0, 0);
+    white-space: nowrap;
+    opacity: 0;
+    transition: 1s opacity ease-in-out;
+    margin: 0;
+    padding-left: 50px
+}
+
+.StevenCarousel .CarouselItem.Current .CarouselCopy .Header-2 {
+    opacity: 1;
+    transition-delay: .6s
+}
+
+.StevenCarousel .CarouselItem.Current .CarouselCopy .Header-3 {
+    opacity: 1;
+    transition-delay: .4s
+}
+
+.StevenCarousel .CarouselItem.Current .CarouselCopy .Header-4 {
+    opacity: 1;
+    transition-delay: .8s
+}
+
+.StevenCarousel .CarouselItem.Current .CarouselCopy .Header-4 span:nth-child(1):before {
+    transform: scaleX(1);
+    transition-delay: 1.2s
+}
+
+@media (max-width:767px) {
+    .StevenCarousel .CarouselCopy {
+        transform: scale(.7) translate3d(-50%, 0, 0);
+        left: 33%!important;
+        bottom: 120px!important;
+        top: auto!important
+    }
+    .StevenCarousel .CarouselCopy[data-position-mobile=center] {
+        bottom: 40%!important;
+        transform: scale(.7) translate3d(-50%, 50%, 0)
+    }
+    .StevenCarousel .CarouselCopy[data-position-mobile=top] {
+        bottom: auto!important;
+        top: 10px!important
+    }
+    .StevenCarousel .CarouselNav {
+        bottom: 70px
+    }
+    .StevenCarousel .CarouselNav button:after {
+        top: 6px
+    }
+    .StevenCarousel .CarouselNav button:before {
+        top: 6px
+    }
+    .StevenCarousel .CarouselNav button {
+        font-size: 16px;
+        line-height: 16px
+    }
+    .StevenCarousel .CarouselNav button.Next {
+        bottom: 9.5px
+    }
+}
+
+.Intro .StevenCarousel {
+    height: 100vh;
+    min-height: 100%;
+    padding-bottom: 0
+}
+
+@media (max-width:767px) {
+    .Intro .StevenCarousel {
+        height: calc(100vh - 55px)
+    }
+}

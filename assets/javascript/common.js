@@ -85,7 +85,7 @@ $(document).ready(function () {
                         $('#email').val(profile.email);
                         $('#profile_mail').html(profile.email);
                         $('#username').val(profile.username);
-                        var photo_src = "../assets/images/default-img.png"
+                        var photo_src = "assets/images/default-img.png"
                         if (profile.photo) {
                             photo_src = media_url + 'profile_photo/' + profile.photo;
                         }

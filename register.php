@@ -437,7 +437,7 @@
 
 </html>
 <script type="text/javascript">
-    var base_url = 'http://localhost/obedientcorp/public/api/';
+    var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
     var state_list;
     var today = new Date();
     var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
@@ -597,7 +597,7 @@
             success: function(response) {
                 if (response.status == "success") {
                     showSwal('success', 'Register Successfully', 'Agent register successfully');
-                    window.location.href = "index.html";
+                    window.location.href = "index.php";
                 } else {
                     showSwal('error', 'Registration Failed', 'Agent registration failed');
                 }

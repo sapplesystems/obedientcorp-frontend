@@ -597,7 +597,7 @@
             success: function(response) {
                 if (response.status == "success") {
                     showSwal('success', 'Register Successfully', 'Agent register successfully');
-                    window.location.href = "index.html";
+                    window.location.href = "index.php";
                 } else {
                     showSwal('error', 'Registration Failed', 'Agent registration failed');
                 }

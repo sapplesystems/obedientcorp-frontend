@@ -18,7 +18,7 @@ $(document).ready(function () {
             params.append('created_by', user_id);
 
             $.ajax({
-                url: 'http://localhost/obedientcorp/public/api/category/add',
+                url: base_url + 'category/add',
                 type: 'post',
                 data: params,
                 contentType: false,
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 function getCategoryList() {
     $.ajax({
-        url: 'http://localhost/obedientcorp/public/api/categories',
+        url: base_url + 'categories',
         type: 'post',
         data: {},
         success: function (response) {

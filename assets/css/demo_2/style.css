@@ -6315,7 +6315,7 @@ fieldset:disabled .wizard>.actions a,
 .swal2-modal .swal2-buttonswrapper .btn-group-sm>.swal2-styled,
 .wizard>.actions .btn-group-sm>a,
 .fc button {
-    padding: 0.5rem 0.81rem;
+    padding: 0.5rem 0.81rem !important;
     font-size: 0.875rem;
     line-height: 1.5;
     border-radius: 0.1875rem;
@@ -30346,42 +30346,45 @@ ul.top_row_members li:nth-child(3){text-align:right;}
 	}
 /* Tree css end here */
 
+.image_uploaded{
+	margin-bottom:1.5rem;
+	float: left;
+    width: 100%;
+	margin-top: -7px;
+}
+
+.image_uploaded ul{
+	list-style:none;
+	padding:0px;
+	margin:0px 0 0 0;
+}
+
+.image_uploaded ul li{
+	float:left;
+	margin-left:15px;
+	position:relative;
+}
+.image_uploaded ul li:first-child{
+	margin-left:0px;
+}
+
+.image_uploaded ul li img{
+	height:75px;
+	width:75px;
+	border:1px solid #555555;
+}
+
+.image_uploaded ul li .icon_cancel{
+position: absolute;
+    right: -8px;
+    top: -8px;
+    font-size: 16px;
+    line-height: 14px;
+    cursor: pointer;
+}
+
 
 @media (max-width: 991px) {
 	.payment-dialog label.text-right{text-align:left !important;}
 	
 }
-
-.blackOption option {
-            color: #000;
-        }
-        
-        .multiplyFont {
-            font-size: 0.7rem;
-        }
-        
-        .div-total h5 {
-            padding: 16px;
-            padding-left: 5px;
-        }
-        
-        .div-price p {
-            padding: 16px;
-            padding-right: 100px;
-        }
-        
-        .hrDiv {
-            height: 1px;
-            background-color: #ffffff;
-        }
-        
-        .modal-dialog {
-            max-width: 100%;
-            margin: 0
-        }
-        
-        @media only screen and (min-width: 1200px) and (max-width: 1599px) {
-            .div-price p {
-                padding-right: 16px;
-            }
-        }

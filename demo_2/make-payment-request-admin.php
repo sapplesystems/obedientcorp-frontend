@@ -27,21 +27,25 @@
 								<div class="form-group">
 									<label class="col-form-label float-left mr-3">Agent ID</label>
 									<div class="float-left">
-										<select class="form-control" id="agent-list" onchange="get_agent_payment_list(this.value);">
+										<select class="form-control" id="agent-list" onchange="getAgentPaymentList(this.value);">
 										</select>
 									</div>
 								</div>
 								<div class="tab-content tab-content-custom-pill" id="pills-tabContent">
 									<div class="tab-pane fade show active" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">
-										<table class="table table-striped payment_request" id="agent_payment_list">
+										<table class="table table-striped payment_request" id="pending_payment_list">
 
 										</table>
 									</div>
 									<div class="tab-pane fade" id="pills-approve" role="tabpanel" aria-labelledby="pills-approve-tab">
-										dsd
+										<table class="table table-striped payment_request" id="approved_payment_list">
+
+										</table>
 									</div>
 									<div class="tab-pane fade" id="pills-reject" role="tabpanel" aria-labelledby="pills-reject-tab">
-										hhh
+										<table class="table table-striped payment_request" id="reject_payment_list">
+
+										</table>
 									</div>
 								</div>
 							</div>

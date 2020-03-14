@@ -1,11 +1,11 @@
-(function($) {
-  showSwal = function(type, title, message) {
+(function ($) {
+  showSwal = function (type, title, message) {
     'use strict';
     if (type === 'error') {
       swal({
         title: title,
         text: message,
-		icon: 'warning',
+        icon: 'warning',
         button: {
           text: "OK",
           value: true,
@@ -18,7 +18,7 @@
       swal({
         title: title,
         text: message,
-		icon: 'success',
+        icon: 'success',
         button: {
           text: "OK",
           value: true,
@@ -32,19 +32,21 @@
         title: 'Approve Payment!',
         text: 'Once Approved it can not be cancelled',
         icon: 'success',
-		content: {
+        content: {
           element: "textarea",
           attributes: {
             placeholder: "Type your reason",
             class: 'form-control',
-			rows:5
+            rows: 5,
+            id: 'payment_comment'
           },
         },
         button: {
           text: "Approve",
           value: true,
           visible: true,
-          className: "btn btn-primary"
+          className: "btn btn-primary payment_action",
+          closeModal: false,
         }
       })
 
@@ -55,9 +57,9 @@
         timer: 2000,
         button: false
       }).then(
-        function() {},
+        function () { },
         // handling the promise rejection
-        function(dismiss) {
+        function (dismiss) {
           if (dismiss === 'timer') {
             console.log('I was closed by the timer')
           }
@@ -72,12 +74,13 @@
         confirmButtonColor: '#3f51b5',
         cancelButtonColor: '#ff4081',
         confirmButtonText: 'Great ',
-		 content: {
+        content: {
           element: "textarea",
           attributes: {
             placeholder: "Type your reason",
             class: 'form-control',
-			rows:5
+            rows: 5,
+            id: 'payment_comment',
           },
         },
         buttons: {
@@ -85,15 +88,17 @@
             text: "Cancel",
             value: null,
             visible: true,
-            className: "btn btn-danger",
+            className: "btn btn-danger payment_reject",
             closeModal: true,
+
           },
           confirm: {
             text: "OK",
             value: true,
             visible: true,
-            className: "btn btn-primary",
-            closeModal: true
+            className: "btn btn-primary payment_action",
+            closeModal: false,
+
           }
         }
       })

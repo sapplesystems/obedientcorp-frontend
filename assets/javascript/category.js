@@ -27,6 +27,7 @@ $(document).ready(function () {
                     if (response.status == "success") {
                         getCategoryList();
                         showSwal('success', 'Category Added', 'Category added successfully.');
+                        document.getElementById('create_category').reset();
                     }
                     else {
                         showSwal('error', 'Failed', 'Category could not be added.');

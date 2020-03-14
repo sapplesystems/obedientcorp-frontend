@@ -14,6 +14,10 @@ $(function () {
         $('#makeRequest').modal();
     });
 
+    $(document).on('click','#pills-pending-tab,#pills-approve-tab,#pills-reject-tab',function(){
+        $('#make_request').css('display','none');
+    })
+
     $("#payment-form").submit(function (e) {
         e.preventDefault();
         var payment_frm = $("#payment-form");
@@ -27,6 +31,7 @@ $(function () {
             var params = new FormData();
             var payment_mode = $('#payment_mode').val();
             var payment_number = $('#payment_number').val();
+
             if ($('#bank_name').val()) {
                 var bank_name = $('#bank_name').val();
             }
@@ -47,7 +52,7 @@ $(function () {
             }
             var amount = $('#amount').val();
             params.append('payment_mode', payment_mode);
-            params.append('payment_number', payment_number);
+            params.append('cheque_number', payment_number);
             params.append('bank_name', bank_name);
             params.append('photo', photo);
             params.append('comment', comment);
@@ -114,21 +119,36 @@ $(function () {
     });
 }); //end ready function
 
-function get_payament_details(customer_id) {
+function getCustomerPaymentList(customer_id) {
+    get_customer_payament_details(customer_id, 'Due');
+    get_customer_payament_details(customer_id, 'Pending');
+    get_customer_payament_details(customer_id, 'Approved');
+    get_customer_payament_details(customer_id, 'Rejected');
+    
+}
+function get_customer_payament_details(customer_id, status) {
     var params = {
         user_id: $('#agent-list').val(),
-        customer_id: customer_id
+        customer_id: customer_id,
+        status: status
     };
+    console.log(params);
     $("#customer_payment").html('');
     $.ajax({
-        url: base_url + 'customer-payment-detail',
+        url: base_url + 'customer-payment-list',
         type: 'post',
         data: params,
         success: function (response) {
+            console.log(response);
             if (response.status == 'success') {
+                var action_th = '';
+                if (status == 'Due')
+                {
+                    action_th = '<th></th>';
+                }
                 var table_data = '<thead>\n\
                                         <tr>\n\
-                                            <th></th>\n\
+                                            '+action_th+'\n\
                                             <th> Customer </th>\n\
                                             <th> Amount </th>\n\
                                             <th> EMI Due Date </th>\n\
@@ -141,17 +161,21 @@ function get_payament_details(customer_id) {
                 var checkbox = '';
                 $.each(response.data, function (key, value) {
                     checkbox = '';
-                    if (value.payment_status == 'Due' || value.payment_status == 'Rejected') {
-                        //checkbox = '<input type="checkbox" class="emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">';
-                        checkbox = '<div class="form-check m-0">\n\
-                        <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">\n\
-                        <i class="input-helper"></i></label></div>';
+                    var action_tr = '';
+                    if (status == 'Due') {
+                        if (value.payment_status == 'Due') {
+                            checkbox = '<div class="form-check m-0">\n\
+                            <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">\n\
+                            <i class="input-helper"></i></label></div>';
+                             action_tr = '<td>' + checkbox + '</td>';
+
+                        }
                     }
                     var dd = new Date(value.due_date);
                     var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
                     table_data += '<tbody>\n\
                                         <tr >\n\
-                                            <td>' + checkbox + '</td>\n\
+                                        '+ action_tr + '\n\
                                             <td>' + value.name + '</td>\n\
                                             <td id="payment-amount_'+ value.customer_plot_booking_payment_detail_id + '">' + value.amount + '</td>\n\
                                             <td>' + duedate + '</td>\n\
@@ -161,11 +185,33 @@ function get_payament_details(customer_id) {
                                             <td>' + value.payment_status + '</td>\n\
                                         </tr></tbody>';
                 });
-                $("#customer_payment").html(table_data);
+                if (status == 'Due') {
+                    $("#due_payment_list").html(table_data);
+                }
+                if (status == 'Pending') {
+                    $("#pending_payment_list").html(table_data);
+                }
+                if (status == 'Approved') {
+                    $("#approved_payment_list").html(table_data);
+                }
+                if (status == 'Rejected') {
+                    $("#reject_payment_list").html(table_data);
+                }
 
             }
             else {
-                $("#customer_payment").html(response.data);
+                if (status == 'Due') {
+                    $("#due_payment_list").html(response.data);
+                }
+                if (status == 'Pending') {
+                    $("#pending_payment_list").html(response.data);
+                }
+                if (status == 'Approved') {
+                    $("#approved_payment_list").html(response.data);
+                }
+                if (status == 'Rejected') {
+                    $("#reject_payment_list").html(response.data);
+                }
             }
 
         }

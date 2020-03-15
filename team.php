@@ -73,11 +73,6 @@
                                             <i class="mdi mdi-email-outline text-success"></i> contactus@example.com </p>
                                     </div>
                                 </div>
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -88,7 +83,7 @@
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             getTeamMemberList(user_id, 'all-members');
             getReferralTeamMemberList(user_id, 'referral-members');
             if (user_left_node_id && user_left_node_id != '' && user_left_node_id > 0) {
@@ -108,7 +103,7 @@
                     id: user_id,
                     node: node
                 },
-                success: function(response) {
+                success: function (response) {
                     if (response.status == 'success') {
                         //console.log(response.data)
                         var team_data = response.data;
@@ -126,8 +121,8 @@
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
-                        $.each(team_data, function(key, member) {
-                            if(member.photo)
+                        $.each(team_data, function (key, member) {
+                            if (member.photo)
                             {
                                 var photo_src = media_url + 'profile_photo/' + member.photo;
                             }
@@ -137,7 +132,7 @@
                                                 <div class="row">\n\
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
-                                                            <img src='+photo_src+' alt="profile image" class="profile-img img-lg rounded-circle">\n\
+                                                            <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\
                                                             <span class="edit-avatar-icon bg-success"></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
@@ -199,7 +194,7 @@
 
                             team_list_html += '<tr>\n\
                                                         <td class="py-1">\n\
-                                                            <img src="assets/images/faces-clipart/pic-1.png" alt="image" />\n\
+                                                            <img src="' + photo_src + '" alt="image" />\n\
                                                         </td>\n\
                                                         <td> ' + member.associate_name + '</td>\n\
                                                         <td>\n\
@@ -216,9 +211,11 @@
                                         </div></div>';
                         $('#' + node).html(team_html);
                         $('#list-' + node).html(team_list_html);
-                    } else {}
+                    } else {
+                    }
                 },
-                error: function(response) {}
+                error: function (response) {
+                }
             });
         }
 
@@ -229,7 +226,7 @@
                 data: {
                     id: user_id
                 },
-                success: function(response) {
+                success: function (response) {
                     //console.log(response);
                     if (response.status == 'success') {
                         var team_data = response.data;
@@ -248,8 +245,8 @@
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
-                        $.each(team_data, function(key, member) {
-                            if(member.photo)
+                        $.each(team_data, function (key, member) {
+                            if (member.photo)
                             {
                                 var photo_src = media_url + 'profile_photo/' + member.photo;
                             }
@@ -259,7 +256,7 @@
                                                 <div class="row">\n\
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
-                                                            <img src='+photo_src+' alt="profile image" class="profile-img img-lg rounded-circle">\n\
+                                                            <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\
                                                             <span class="edit-avatar-icon bg-success"></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
@@ -321,7 +318,7 @@
 
                             team_list_html += '<tr>\n\
                                                         <td class="py-1">\n\
-                                                            <img src="assets/images/faces-clipart/pic-1.png" alt="image" />\n\
+                                                            <img src="' + photo_src + '" alt="image" />\n\
                                                         </td>\n\
                                                         <td> ' + member.associate_name + '</td>\n\
                                                         <td>\n\
@@ -338,9 +335,11 @@
                                         </div></div>';
                         $('#' + node).html(team_html);
                         $('#list-' + node).html(team_list_html);
-                    } else {}
+                    } else {
+                    }
                 },
-                error: function(response) {}
+                error: function (response) {
+                }
             });
         }
     </script>

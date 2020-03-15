@@ -255,15 +255,7 @@
                                         </div>
                                         <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <select class="form-control required" id="relation" name="relation">
-                                                <option value="">--Select One Relation--</option>
-                                                <option value="Mother">Mother</option>
-                                                <option value="Father">Father</option>
-                                                <option value="Son">Son</option>
-                                                <option value="Daughter">Daughter</option>
-                                                <option value="Sister">Sister</option>
-                                                <option value="Brother">Brother</option>
-                                            </select>
+                                            <select class="form-control required" id="relation" name="relation"></select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -468,9 +460,10 @@
         if (UserCookie != "") {
             var data = JSON.parse(UserCookie);
             //alert("Welcome again " + data.name);
-            // window.location.href = "index.php";
+             window.location.href = "dashboard.php";
         } else {
             getStatesCities();
+            getRelationships();
         }
     } //end function checkcookies
 
@@ -597,7 +590,7 @@
             success: function(response) {
                 if (response.status == "success") {
                     showSwal('success', 'Register Successfully', 'Agent register successfully');
-                    window.location.href = "index.php";
+                    window.location.href = "login.php";
                 } else {
                     showSwal('error', 'Registration Failed', 'Agent registration failed');
                 }
@@ -625,7 +618,6 @@
     //get states ans cities onlaod page
     function getStatesCities() {
         var url = base_url + 'state-city-list';
-
         $.ajax({
             url: url,
             type: 'post',
@@ -647,6 +639,26 @@
             }
         }); //ajax
     } //end function for get states and cities
+    
+    function getRelationships(){
+        var url = base_url + 'relationships';
+        $.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            //data: params,
+            success: function(response) {
+                if (response.status == "success") {
+                    var relation = '<option value="">--Select One Relation--</option>';
+                    $.each(response.data, function(key, value) {
+                        relation += '<option value="' + value.id + '">' + value.name + '</option>';
+                    });
+                    $("#relation").html(relation);
+                }
+
+            }
+        });
+    }
 
 
     //function for get sponsor details

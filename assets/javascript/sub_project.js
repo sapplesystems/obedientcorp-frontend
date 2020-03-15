@@ -5,6 +5,15 @@ $(document).ready(function () {
         e.preventDefault();
         var sub_project_frm = $("#sub-project-form");
         sub_project_frm.validate({
+            rules: {
+                projects: "required",
+                sub_project_name: "required",
+                unit_price: {
+                    required: true,
+                    number: true
+                },
+                area: "required",
+            },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
             }
@@ -60,7 +69,6 @@ $(document).ready(function () {
 
                 },
                 error: function (response) {
-                    console.log(response);
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;
@@ -96,10 +104,6 @@ function getProjectList() {
 
                 $('#projects').html(option)
             }
-            else {
-                console.log(response.data);
-            }
-
         }
     });
 }//end function project list
@@ -111,7 +115,6 @@ function getSubProjectList() {
         type: 'post',
         data: {},
         success: function (response) {
-            //console.log(response);
             var html = ' <thead><tr>\n\
             <th>Sr No.</th>\n\
             <th>Project Name</th>\n\
@@ -125,11 +128,10 @@ function getSubProjectList() {
                 var photo_link;
                 var map_link;
                 var i = 1;
+                console.log(response.data);
                 $.each(response.data, function (key, value) {
-                    console.log(value);
                     if (value.children.length > 0) {
                         $.each(value.children, function (key1, subproject) {
-                            console.log(subproject);
                             html += '<tbody>\n\
                                 <tr id="tr_' + subproject.id + '">\n\
                                 <td>'+ i + '</td>\n\
@@ -147,10 +149,6 @@ function getSubProjectList() {
                 });
                 $('.sub_project_list').html(html)
             }
-            else {
-                console.log(response.data);
-            }
-
         }
     });
 }//end function for get all sub project
@@ -165,7 +163,6 @@ function updateProject(e, project_id) {
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
-                console.log(data);
                 $('#sub_project_id').val(data.id);
                 $('#projects').val(data.parent_id);
                 $('#project_master_list').val(data.parent_id);
@@ -192,7 +189,6 @@ function updateProject(e, project_id) {
 function deleteProject(e, project_id) {
     e.preventDefault();
     var result = confirm("Are you sure you want to delete this project?");
-    console.log(result);
     if(result == true)
     {
         $.ajax({

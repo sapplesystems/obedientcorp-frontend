@@ -17,7 +17,6 @@ $(document).ready(function () {
             if ($('#sub_projects').val()) {
                 project_id = $('#sub_projects').val();
             }
-            console.log(project_id);
             var plot_no = $('#plot_no').val();
             var plot_area = $('#plot_area').val();
             var plot_id = $('#plot_id').val();
@@ -42,7 +41,6 @@ $(document).ready(function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    console.log(response);
                     error_html = '';
                     if (response.status == 'success') {
                         showSwal('success', 'Plot Added', 'Plot added successfully');
@@ -57,7 +55,6 @@ $(document).ready(function () {
 
                 },
                 error: function (response) {
-                    console.log(response);
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;
@@ -80,7 +77,6 @@ function getProjectList() {
         data: {},
         success: function (response) {
             sub_project_list = response.data;
-            //console.log(response.data);
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
@@ -92,10 +88,6 @@ function getProjectList() {
 
                 $('#projects').html(option)
             }
-            else {
-                console.log(response.data);
-            }
-
         }
     });
 }//end function project list
@@ -108,7 +100,6 @@ $("#projects").change(function () {
             if (value.children.length > 0) {
                 $("#sub_pro_div").css('display', 'block');
                 $.each(value.children, function (key1, subproject) {
-                    console.log(subproject);
                     sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
                 });
             }
@@ -125,7 +116,6 @@ function getplotlist() {
         type: 'post',
         data: {},
         success: function (response) {
-            console.log(response);
             var html = ' <thead><tr>\n\
               <th> Sr No. </th>\n\
               <th> Project Name </th>\n\
@@ -141,10 +131,12 @@ function getplotlist() {
                 var sub_project = '';
                 var project = '';
                 $.each(response.data, function (key, value) {
+                    console.log(value);
                     if(value.project.id == value.sub_project.id) {
                         project = value.project.name;
                     }
                     else {
+                        project = value.project.name;
                         sub_project = value.sub_project.name;
                     }
                     var Free_Selected = '';
@@ -186,10 +178,6 @@ function getplotlist() {
                 });
                 $('.plot_list').html(html)
             }
-            else {
-                console.log(response.data);
-            }
-
         }
     });
 }//end function for get all plot listing
@@ -204,10 +192,8 @@ function updatePlot(e, plot_id) {
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
-                console.log(data);
                 $("#sub_pro_div").css('display', 'none');
                 if (data[0].project.id == data[0].sub_project.id) {
-                    console.log(data[0].project.id);
                     $('#projects').val(data[0].project.id);
                 } else {
                     $("#sub_pro_div").css('display', 'block');
@@ -229,7 +215,6 @@ function updatePlot(e, plot_id) {
 function deletePlot(e, plot_id) {
     e.preventDefault();
     var result = confirm("Are you sure you want to delete this plot?");
-    console.log(result);
     if (result == true) {
         $.ajax({
             url: base_url + 'plot/delete',
@@ -247,7 +232,6 @@ function deletePlot(e, plot_id) {
 
 function updateAvailability(plot_id) {
     var availability = $("#availability_" + plot_id).val();
-    console.log(availability);
     $.ajax({
         url: base_url + 'plot/update',
         type: 'post',

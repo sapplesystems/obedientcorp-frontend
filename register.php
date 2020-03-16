@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['login_resp']['id'] || $_SESSION['login_resp']['id'] != '' || !empty($_SESSION['login_resp']['id'])) {
+if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id'])) {
     echo '<script type="text/javascript">window.location.href = "dashboard.php";</script>';
     exit;
 }

@@ -30770,6 +30770,15 @@ CSS ANIMATION FOR TREE
     transform: translate(-50%, -50%);
 }
 
+   #customer_add_form_submit .input-group-append, .input-group-prepend{
+       position: absolute;
+        top: 1px;
+        right: 21px;
+    }
+    #customer_add_form_submit .datepicker{
+        padding: 0 20px;
+    }
+
 @media (max-width: 991px) {
     .payment-dialog label.text-right {
         text-align: left !important;

@@ -115,25 +115,25 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
+															<input type="file" class="file-upload-default" name="signature" id="signature">
                                                             <div class="input-group">
-                                                                    <input type="file" name="photo" class="file-upload-default" id="photo">
                                                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="photo_id" />
+                                                                    <img src="" style="display:none;width:100px;" id="signature" />
                                                                     </div>
                                                                 <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
+															<input type="file" class="file-upload-default" name="photo" id="photo">
                                                                 <div class="input-group">
-                                                                    <input type="file" name="photo" class="file-upload-default" id="photo">
                                                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="photo_id" />
+                                                                    <img src="" style="display:none;width:100px;" id="photo" />
                                                                     </div>
                                                                     <!--<input type="file" class="form-control" placeholder="" name="photo" id="photo">-->
                                                                <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />-->
@@ -322,7 +322,14 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Cancel Cheque <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">
+                                                                <div class="input-group">
+                                                                    <input type="file" name="img[]" class="file-upload-default" name="cancel_cheque" id="cancel_cheque">
+                                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                <span class="input-group-append">
+                                                                    <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
+                                                                </span>
+                                                                </div>
+                                                                <!--<input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">-->
                                                             </div>
                                                         </div>
                                                     </section>
@@ -341,14 +348,6 @@
                                                             <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <select class="form-control required" id="relation" name="relation">
-                                                                    <option value="">--Select One Relation--</option>
-                                                                    <option value="Mother">Mother</option>
-                                                                    <option value="Father">Father</option>
-                                                                    <option value="Son">Son</option>
-                                                                    <option value="Daughter">Daughter</option>
-                                                                    <option value="Sister">Sister</option>
-                                                                    <option value="Brother">Brother</option>
-
                                                                 </select>
                                                             </div>
                                                         </div>

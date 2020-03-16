@@ -60,11 +60,25 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
                                         <div class=" input-group col-sm-4">
-                                            <input type="file" class="form-control required" placeholder="" name="signature" id="signature">
+                                            <!--<input type="file" class="form-control required" placeholder="" name="signature" id="signature">-->
+                                            <input type="file" name="img[]" class="file-upload-default required" name="signature" id="signature">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                <span class="input-group-append">
+                                                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                </span>
+                                            </div>
                                         </div>
                                         <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="file" class="form-control required" placeholder="" name="photo" id="photo">
+                                            <!--<input type="file" class="form-control required" placeholder="" name="photo" id="photo">-->
+                                            <input type="file" name="img[]" class="file-upload-default required" name="photo" id="photo">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                <span class="input-group-append">
+                                                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -419,10 +433,12 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     <!-- endinject -->
     <script src="assets/vendors/sweetalert/sweetalert.min.js "></script>
     <script src="assets/js/alerts.js "></script>
+
     <!-- Custom js for this page -->
     <script src="assets/js/wizard.js"></script>
     <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="assets/js/file-upload.js"></script>
     <!-- End custom js for this page -->
     <!--script for jquery validation-->
 

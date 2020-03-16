@@ -84,12 +84,12 @@ function getProjectList() {
         data: {},
         success: function (response) {
             var html = ' <thead><tr>\n\
-                    <th>Sr No.</th>\n\
-                    <th>Project Name</th>\n\
-                    <th>Unit Price</th>\n\
-                    <th>Area</th>\n\
-                    <th>Desc</th>\n\
-                    <th>Action</th>\n\
+                    <th width="10%">Sr No.</th>\n\
+                    <th width="20%">Project Name</th>\n\
+                    <th width="10%">Unit Price</th>\n\
+                    <th width="10%">Area</th>\n\
+                    <th width="30%">Desc</th>\n\
+                    <th width="10%">Action</th>\n\
                     </tr></thead>';
             if (response.status == "success") {
                 var i = 1;

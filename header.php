@@ -43,6 +43,9 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
 </head>
 
 <body>
+<div id="loader_bg" style="display:none;">
+<div class="flip-square-loader mx-auto" id="loader_div"></div>
+</div>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">

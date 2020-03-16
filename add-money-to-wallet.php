@@ -14,6 +14,7 @@
                                 <div class="col-sm-4">
                                     <select class="form-control required" id="agents" name="agents"></select>
                                 </div>
+                                <label class="col-sm-6 col-form-label">Your Wallet Balance: &#8377; <span id="e-wallet">0</span></label>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Amount</label>
@@ -28,19 +29,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <h4 class="card-title mb-4">List</h4>
-                        <div class="overflowAuto">
-                            <table class="table table-bordered custom_action sub_project_list" id="order-listing">
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>

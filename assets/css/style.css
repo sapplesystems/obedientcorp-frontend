@@ -4831,7 +4831,7 @@ pre code {
 .typeahead[readonly],
 .tt-query[readonly],
 .tt-hint[readonly] {
-    background-color: #e9ecef;
+    background-color: #333333;
     opacity: 1;
 }
 
@@ -19800,7 +19800,7 @@ select.asColorPicker-input:focus,
 select.typeahead:focus,
 select.tt-query:focus,
 select.tt-hint:focus {
-    outline: 1px solid #322f2f;
+    outline: 1px solid #555555;
 }
 
 select.form-control.border-primary,

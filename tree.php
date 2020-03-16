@@ -72,7 +72,6 @@
             getTree(user_id);
 
             $(document).ready(function () {
-                $('.hv-item').addClass("animated fadeInDown1").css("opacity", "0");
                 $(document).on('click', '.info_click', function () {
                     $('.info_click label').hide()
                     $(this).find('label').show();
@@ -102,6 +101,7 @@
             }
 
             function getTree(user_id) {
+                $('.hv-item').removeClass("animated fadeInDown1").css("opacity", "0");
                 setEmptyNode('node1');
                 setEmptyNode('node2');
                 setEmptyNode('node3');
@@ -146,6 +146,7 @@
                             if (node7 && node7.id) {
                                 setNode(node7, 'node7', '1');
                             }
+                            $('.hv-item').addClass("animated fadeInDown1").css("opacity", "0");
                         }
                         else {
                             showSwal('error', 'Failed', 'Something went wrong.');

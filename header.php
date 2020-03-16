@@ -98,18 +98,10 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#profile" aria-expanded="false" aria-controls="profile">
+                        <a class="nav-link" href="profile.php">
                             <span class="menu-title">Profile</span>
-                            <i class="menu-arrow"></i>
                             <i class="mdi mdi-account menu-icon"></i>
                         </a>
-                        <div class="collapse" id="profile">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="profile.php">Edit Profile</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="javascript:void(0);">Edit Bank Account</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="javascript:void(0);">Change Password</a></li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="manage-customer.php">
@@ -151,12 +143,14 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                             <i class="mdi mdi-format-title menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="add-money-to-wallet.php">
-                            <span class="menu-title">Add Money to Wallet</span>
-                            <i class="mdi mdi-wallet menu-icon"></i>
-                        </a>
-                    </li>
+                    <?php if ($user_type == 'ADMIN') { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="add-money-to-wallet.php">
+                                <span class="menu-title">Add Money to Wallet</span>
+                                <i class="mdi mdi-wallet menu-icon"></i>
+                            </a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="wallet.php">
                             <span class="menu-title">Wallet</span>
@@ -175,12 +169,14 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                             <i class="mdi mdi-currency-inr menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="make-payment-request-admin.php">
-                            <span class="menu-title">Approvals</span>
-                            <i class="mdi mdi-checkbox-marked-circle-outline menu-icon"></i>
-                        </a>
-                    </li>
+                    <?php if ($user_type == 'ADMIN') { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="make-payment-request-admin.php">
+                                <span class="menu-title">Approve EMI Payments</span>
+                                <i class="mdi mdi-checkbox-marked-circle-outline menu-icon"></i>
+                            </a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="make-payment-request-agent.php">
                             <span class="menu-title">Make Request</span>

@@ -11,16 +11,16 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="border-bottom text-center pb-4">
-												  <div class="avatar-upload">
-															<div class="avatar-edit">
-																<input type='file' id="imageUpload" class="imageUpload" accept=".png, .jpg, .jpeg" />
-																<label for="imageUpload"></label>
-															</div>
-															<div class="avatar-preview">
-																<div id="imagePreview">
-																</div>
-															</div>
-														</div>
+                                    <div class="avatar-upload">
+                                        <div class="avatar-edit">
+                                            <input type='file' id="imageUpload" class="imageUpload" accept=".png, .jpg, .jpeg" />
+                                            <label for="imageUpload"></label>
+                                        </div>
+                                        <div class="avatar-preview">
+                                            <div id="imagePreview">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <h3 class="text-center" id="profile_user"></h3>
                                 </div>
                                 <div class="border-bottom py-4">
@@ -115,28 +115,28 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-															<input type="file" class="file-upload-default" name="signature" id="signature">
-                                                            <div class="input-group">
+                                                                <input type="file" class="file-upload-default" name="signature" id="signature">
+                                                                <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
                                                                     <img src="" style="display:none;width:100px;" id="signature" />
-                                                                    </div>
-                                                                <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
+                                                                </div>
+                                                            <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-															<input type="file" class="file-upload-default" name="photo" id="photo">
+                                                                <input type="file" class="file-upload-default" name="photo" id="photo">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
                                                                     <img src="" style="display:none;width:100px;" id="photo" />
-                                                                    </div>
-                                                                    <!--<input type="file" class="form-control" placeholder="" name="photo" id="photo">-->
-                                                               <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />-->
+                                                                </div>
+                                                                <!--<input type="file" class="form-control" placeholder="" name="photo" id="photo">-->
+                                                           <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />-->
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -324,10 +324,10 @@
                                                             <div class="col-sm-4">
                                                                 <div class="input-group">
                                                                     <input type="file" name="img[]" class="file-upload-default" name="cancel_cheque" id="cancel_cheque">
-                                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
-                                                                <span class="input-group-append">
-                                                                    <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
-                                                                </span>
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
+                                                                    </span>
                                                                 </div>
                                                                 <!--<input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">-->
                                                             </div>
@@ -432,13 +432,13 @@
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Join Date <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                            <div class="input-group date datepicker">
+                                                                <div class="input-group date datepicker">
                                                                     <input type="text" class="form-control required" placeholder="" id="join_date" name="join_date" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
                                                                     <span class="input-group-addon input-group-append border-left">
                                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                                     </span>
                                                                 </div>
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </section>
@@ -580,25 +580,24 @@
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script src="assets/javascript/common.js"></script>
-    <script src="assets/javascript/profile_update.js"></script>
-    <script src="assets/javascript/bank_update.js"></script>
-    <script src="assets/javascript/nominee_update.js"></script>
-    <script src="assets/javascript/kyc_update.js"></script>
-	<script src="assets/js/file-upload.js"></script>
-	<script>
-	function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-            $('#imagePreview').hide();
-            $('#imagePreview').fadeIn(650);
+    <script type="text/javascript" src="assets/javascript/common.js"></script>
+    <script type="text/javascript" src="assets/javascript/profile_update.js"></script>
+    <script type="text/javascript" src="assets/javascript/bank_update.js"></script>
+    <script type="text/javascript" src="assets/javascript/nominee_update.js"></script>
+    <script type="text/javascript" src="assets/javascript/kyc_update.js"></script>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
         }
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
-		$("#imageUpload").change(function() {
-			readURL(this);
-		});
-	</script>
+        $("#imageUpload").change(function () {
+            readURL(this);
+        });
+    </script>

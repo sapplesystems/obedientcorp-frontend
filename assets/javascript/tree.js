@@ -2,8 +2,7 @@ getTree(user_id);
 
 $(document).ready(function () {
     $(document).on('click', '.info_click', function () {
-        $('.info_click label').hide()
-        $(this).find('label').show();
+        $(this).find('label').toggle();
     });
 });
 

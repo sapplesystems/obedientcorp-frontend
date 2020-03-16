@@ -9,6 +9,10 @@ $user_type = $_SESSION['login_resp']['user_type'];
 $left_node_id = $_SESSION['login_resp']['left_node_id'];
 $right_node_id = $_SESSION['login_resp']['right_node_id'];
 $photo = $_SESSION['login_resp']['photo'];
+if (!$user_id || $user_id == '' || empty($user_id)) {
+    echo '<script type="text/javascript">window.location.href = "login.php";</script>';
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -175,7 +179,7 @@ $photo = $_SESSION['login_resp']['photo'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">
+                        <a class="nav-link" href="#" onclick="logout();">
                             <span class="menu-title">Logout</span>
                             <i class="mdi mdi-logout menu-icon"></i>
                         </a>

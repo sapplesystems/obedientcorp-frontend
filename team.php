@@ -65,6 +65,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="tree-view-1" role="tabpanel" aria-labelledby="tree-view">
+                                        <div class="clearfix"></div>
                                         <?php include_once 'tree_view.php'; ?>
                                     </div>
                                 </div>

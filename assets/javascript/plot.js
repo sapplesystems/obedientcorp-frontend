@@ -110,6 +110,38 @@ $("#projects").change(function () {
 });//end function getsubproject
 
 //function for get all plot
+
+
+//function for update plot
+function updatePlot(e, plot_id) {
+    e.preventDefault();
+    $.ajax({
+        url: base_url + 'plots',
+        type: 'post',
+        data: { id: plot_id },
+        success: function (response) {
+            if (response.status == "success") {
+                var data = response.data;
+                $("#sub_pro_div").css('display', 'none');
+                if (data[0].project.id == data[0].sub_project.id) {
+                    $('#projects').val(data[0].project.id);
+                } else {
+                    $("#sub_pro_div").css('display', 'block');
+                    $('#projects').val(data[0].project.id).trigger('change');
+                    $('#sub_projects').val(data[0].sub_project.id);
+
+                }
+                $('#plot_no').val(data[0].name);
+                $('#plot_area').val(data[0].area);
+                $('#plot_id').val(data[0].id);
+
+
+            }
+        }
+    });
+}//end function for update plot
+
+
 function getplotlist() {
     $.ajax({
         url: base_url + 'plots',
@@ -181,35 +213,6 @@ function getplotlist() {
         }
     });
 }//end function for get all plot listing
-
-//function for update plot
-function updatePlot(e, plot_id) {
-    e.preventDefault();
-    $.ajax({
-        url: base_url + 'plots',
-        type: 'post',
-        data: { id: plot_id },
-        success: function (response) {
-            if (response.status == "success") {
-                var data = response.data;
-                $("#sub_pro_div").css('display', 'none');
-                if (data[0].project.id == data[0].sub_project.id) {
-                    $('#projects').val(data[0].project.id);
-                } else {
-                    $("#sub_pro_div").css('display', 'block');
-                    $('#projects').val(data[0].project.id).trigger('change');
-                    $('#sub_projects').val(data[0].sub_project.id);
-
-                }
-                $('#plot_no').val(data[0].name);
-                $('#plot_area').val(data[0].area);
-                $('#plot_id').val(data[0].id);
-
-
-            }
-        }
-    });
-}//end function for update plot
 
 //function for delete plot
 function deletePlot(e, plot_id) {

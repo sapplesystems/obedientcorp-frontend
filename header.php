@@ -43,6 +43,9 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
 </head>
 
 <body>
+<div id="loader_bg" style="display:none;">
+<div class="flip-square-loader mx-auto" id="loader_div"></div>
+</div>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -51,6 +54,9 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                 <a class="navbar-brand brand-logo-mini" href="dashboard.php"><img src="assets/images/logo.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                </button>
 
 
                 <ul class="navbar-nav navbar-nav-right">
@@ -61,7 +67,7 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1" id="user_login"><?php echo $associate_name;  ?></p>
+                                <p class="mb-1" id="user_login"><?php echo $associate_name; ?></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -108,13 +114,13 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                             </ul>
                         </div>
                     </li>
-					<li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);">
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage-customer.php">
                             <span class="menu-title">Manage Customer</span>
                             <i class="mdi mdi-settings menu-icon"></i>
                         </a>
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#project" aria-expanded="false" aria-controls="project">
                             <span class="menu-title">Manage Project</span>
                             <i class="menu-arrow"></i>
@@ -128,7 +134,7 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                             </ul>
                         </div>
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category">
                             <span class="menu-title">Products</span>
                             <i class="menu-arrow"></i>
@@ -149,30 +155,36 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                         </a>
                     </li>
                     <li class="nav-item">
-                       <a class="nav-link" href="wallet.php">
+                        <a class="nav-link" href="add-money-to-wallet.php">
+                            <span class="menu-title">Add Money to Wallet</span>
+                            <i class="mdi mdi-wallet menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wallet.php">
                             <span class="menu-title">Wallet</span>
                             <i class="mdi mdi-wallet menu-icon"></i>
                         </a>
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="manage-coupon.php">
                             <span class="menu-title">E-Wallet</span>
                             <i class="mdi mdi-wallet-giftcard menu-icon"></i>
                         </a>
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="payments-admin.php">
                             <span class="menu-title">Payments</span>
                             <i class="mdi mdi-currency-inr menu-icon"></i>
                         </a>
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="make-payment-request-admin.php">
                             <span class="menu-title">Approvals</span>
                             <i class="mdi mdi-checkbox-marked-circle-outline menu-icon"></i>
                         </a>
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="make-payment-request-agent.php">
                             <span class="menu-title">Make Request</span>
                             <i class="mdi mdi-repeat menu-icon"></i>

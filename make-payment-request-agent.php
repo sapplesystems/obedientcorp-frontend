@@ -23,7 +23,7 @@
                             </ul>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                     <label class="col-form-label float-left mr-3">Agent ID</label>
                                     <div class="float-left">
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                     <label class="col-form-label float-left mr-3">Customer ID</label>
                                     <div class="float-left">

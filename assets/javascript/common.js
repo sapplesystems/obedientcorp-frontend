@@ -9,6 +9,7 @@ if (UserCookieData.id != "" && UserCookieData.email != "") {
     var user_email = UserCookieData.email;
 }
 $(document).ready(function () {
+    getRelationships();
     $(":input").inputmask();
     if ($(".datepicker").length) {
         $('.datepicker').datepicker({
@@ -207,3 +208,24 @@ function getCitiesList(state_id) {
     return cities_list_html;
 }
 
+
+function getRelationships() {
+    var url = base_url + 'relationships';
+    $.ajax({
+        url: url,
+        type: 'post',
+        //dataType: 'json',
+        //data: params,
+        success: function(response) {
+            console.log(response);
+            if (response.status == "success") {
+                var relation = '<option value="">--Select One Relation--</option>';
+                $.each(response.data, function(key, value) {
+                    relation += '<option value="' + value.id + '">' + value.name + '</option>';
+                });
+                $("#relation").html(relation);
+            }
+
+        }
+    });
+}

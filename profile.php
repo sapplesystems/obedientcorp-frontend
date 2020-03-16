@@ -325,14 +325,6 @@
                                                             <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <select class="form-control required" id="relation" name="relation">
-                                                                    <option value="">--Select One Relation--</option>
-                                                                    <option value="Mother">Mother</option>
-                                                                    <option value="Father">Father</option>
-                                                                    <option value="Son">Son</option>
-                                                                    <option value="Daughter">Daughter</option>
-                                                                    <option value="Sister">Sister</option>
-                                                                    <option value="Brother">Brother</option>
-
                                                                 </select>
                                                             </div>
                                                         </div>

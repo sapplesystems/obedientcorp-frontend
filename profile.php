@@ -115,11 +115,27 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="file" class="form-control" placeholder="" name="signature" id="signature">
+                                                            <div class="input-group">
+                                                                    <input type="file" name="photo" class="file-upload-default" id="photo">
+                                                                    <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
+                                                                    </span>
+                                                                    <img src="" style="display:none;width:100px;" id="photo_id" />
+                                                                    </div>
+                                                                <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="file" class="form-control" placeholder="" name="photo" id="photo">
+                                                                <div class="input-group">
+                                                                    <input type="file" name="photo" class="file-upload-default" id="photo">
+                                                                    <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
+                                                                    </span>
+                                                                    <img src="" style="display:none;width:100px;" id="photo_id" />
+                                                                    </div>
+                                                                    <!--<input type="file" class="form-control" placeholder="" name="photo" id="photo">-->
                                                                <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />-->
                                                             </div>
                                                         </div>

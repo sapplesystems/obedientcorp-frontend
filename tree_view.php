@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-append">
-                            <button class="btn btn-sm btn-gradient-primary" type="button">Back to me</button>
+                            <button class="btn btn-sm btn-gradient-primary" type="button" onclick="getTree(user_id);">Back to me</button>
                         </div>
                     </div>
                 </div>

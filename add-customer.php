@@ -33,7 +33,7 @@ if(isset($_REQUEST['customer_id'])){
                   <div class="form-group">
                     <div class="form-check d-inline-block">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input required  " name="payment_mode" id="payment_dd" value="DD"> DD : <i class="input-helper"></i></label>
+                        <input type="radio" class="form-check-input required  " name="payment_mode" id="payment_dd" value="online">Online Transaction : <i class="input-helper"></i></label>
                     </div>
                     <div class="form-check d-inline-block ml-3 mr-3">
                       <label class="form-check-label">
@@ -83,11 +83,13 @@ if(isset($_REQUEST['customer_id'])){
               </div>
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Date Of Birth :</label>
-                <div class="col-sm-4 date datepicker">
+                <div class="col-sm-4">
+				<div class="input-group date datepicker">
                   <input type="text" class="form-control required" id="dateofbirth" name="dateofbirth" placeholder="Enter Date Of Birth" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy">
                   <span class="input-group-addon input-group-append border-left">
                     <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                   </span>
+				  </div>
                 </div>
                 <label class="col-sm-2 col-form-label">Age :</label>
                 <div class="col-sm-4">
@@ -153,11 +155,13 @@ if(isset($_REQUEST['customer_id'])){
               </div>
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Date of birth :</label>
-                <div class="col-sm-4 date datepicker">
+                <div class="col-sm-4">
+				<div class="input-group date datepicker">
                   <input type="text" class="form-control required" id="date_of_birth_nominee" name="date_of_birth_nominee" placeholder="Enter Age" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy">
                   <span class="input-group-addon input-group-append border-left">
                     <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                   </span>
+				  </div>
                 </div>
                 <label class="col-sm-2 col-form-label">Relationship With Customer :</label>
                 <div class="col-sm-4">
@@ -188,7 +192,7 @@ if(isset($_REQUEST['customer_id'])){
               <div class="row">
                 <div class="col-sm-12 text-right">
                   <input type="hidden" id="customer_id" value="<?php echo $customer_id; ?>" />
-                  <input type="submit" class="btn btn-info btn-sm" id="customer_add_submit_button" name="customer_add_submit_button" value="Add Customer" />&nbsp;
+                  <input type="submit" class="btn btn-info btn-sm" id="customer_add_submit_button" name="customer_add_submit_button" value="Submit" />&nbsp;
                   <a class="btn btn-primary btn-sm" href="add-new-booking.php">Add New Bookings</a>
                 </div>
               </div>

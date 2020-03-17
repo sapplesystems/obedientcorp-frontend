@@ -283,6 +283,7 @@ function getCustomersList(user_id) {
                                   <td>' + val.age + '</td>\n\
                                   <td>' + val.email + '</td>\n\
                                   <td>\n\
+                                        <a href="add-new-booking.php?customer_id='+ val.id + '"><i class="mdi mdi-launch text-success"></i></a> &nbsp \n\
                                         <a href="add-customer.php?customer_id='+ val.id + '"><i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
                                         <i class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>\n\
                                   </td>\n\

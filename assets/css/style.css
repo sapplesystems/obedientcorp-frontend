@@ -30144,6 +30144,26 @@ ul.total_indicator li:nth-child(4) span {
 	 left: 0px !important;
 }
 
+#plotbooking_form label.error {
+	color: #fe7c96;
+    width: 100%;
+    position: absolute;
+    white-space: nowrap;
+    margin: 0px !important;
+    font-size: 13px;
+    top: -17px;
+    left: 20px;
+}
+
+#plotbooking_form .datepicker{padding:0px !important;}
+
+#plotbooking_form .datepicker label.error {
+	 left: 0px !important;
+}
+#plotbooking_form .form-check-label label.error {
+	 left: 0px !important;
+}
+
 table tr td {
     white-space: inherit !important;
 }

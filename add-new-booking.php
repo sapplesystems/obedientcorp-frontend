@@ -29,7 +29,7 @@ if (!empty($_REQUEST['customer_id']) && !empty($_REQUEST['agent'])) {
                                 <div class="col-sm-4">
                                     <input type="hidden" name="customer_id" id="customer_id" value="<?php echo $customer_id; ?>" />
                                     <input type="hidden" name="created_for" id="created_for" value="<?php echo $agent_id; ?>" />
-                                    <span id="customer_name"></span>
+                                    <label class="col-form-label" id="customer_name"></label>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Project Name :</label>
                                 <div class="col-sm-4">
@@ -52,11 +52,13 @@ if (!empty($_REQUEST['customer_id']) && !empty($_REQUEST['agent'])) {
                                     <input class="form-control" type="text" id="reference" name="reference" placeholder="Enter reference">
                                 </div>
                                 <label class="col-sm-2 col-form-label">Date Of Payment :</label>
-                                <div class="col-sm-4 date datepicker">
+                                <div class="col-sm-4">
+                                    <div class="input-group date datepicker">
                                     <input class="form-control" type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy">
                                     <span class="input-group-addon input-group-append border-left">
                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                     </span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -113,13 +115,13 @@ if (!empty($_REQUEST['customer_id']) && !empty($_REQUEST['agent'])) {
                                             <label class="form-check-label">
                                                 <input type="radio" class="form-check-input payment_mode" id="payment_cheque" name="payment_mode" value="Cheque"> Cheque/UTR <i class="input-helper"></i></label>
                                         </div>
-                                        <div class="form-check d-inline-block ">
+                                        <div class="form-check d-inline-block ml-3 mr-3">
                                             <label class="form-check-label">
                                                 <input type="radio" class="form-check-input payment_mode" id="payment_cash" name="payment_mode" value="Cash"> Cash <i class="input-helper"></i></label>
                                         </div>
                                         <div class="form-check d-inline-block ">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input payment_mode" id="payment_online" name="payment_mode" value="Online">Online Transaction <i class="input-helper"></i></label>
+                                                <input type="radio" class="form-check-input payment_mode" id="payment_online" name="payment_mode" value="Online">Online <i class="input-helper"></i></label>
                                         </div>
                                     </div>
                                 </div>
@@ -136,11 +138,13 @@ if (!empty($_REQUEST['customer_id']) && !empty($_REQUEST['agent'])) {
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Dated :</label>
-                                <div class="col-sm-4 date datepicker">
+                                <div class="col-sm-4">
+                                    <div class="input-group date datepicker">
                                     <input class="form-control" type="text" id="dated" name="dated" placeholder="Enter date" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy">
                                     <span class="input-group-addon input-group-append border-left">
                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                     </span>
+                                </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label bank_name">Bank Name :</label>
                                 <div class="col-sm-4 bank_name">

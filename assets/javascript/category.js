@@ -11,6 +11,7 @@ $(document).ready(function () {
             }
         });
         if ($("#create_category").valid()) {
+            showLoader();
             var params = new FormData();
             params.append('name', $('#title').val());
             params.append('description', $('#description').val());
@@ -28,9 +29,11 @@ $(document).ready(function () {
                         getCategoryList();
                         showSwal('success', 'Category Added', 'Category added successfully.');
                         document.getElementById('create_category').reset();
+                        hideLoader();
                     }
                     else {
                         showSwal('error', 'Failed', 'Category could not be added.');
+                        hideLoader();
                     }
 
                 }
@@ -58,8 +61,8 @@ function getCategoryList() {
                 var tr_html = '';
                 $.each(data, function (key, val) {
                     tr_html += '<tr>\n\
-                                    <td>'+ val.name + '</td>\n\
-                                    <td>'+ val.description + '</td>\n\
+                                    <td>' + val.name + '</td>\n\
+                                    <td>' + val.description + '</td>\n\
                                 </tr>';
                 });
                 $('#category_list').html(tr_html);

@@ -14,8 +14,8 @@ $(function () {
         $('#makeRequest').modal();
     });
 
-    $(document).on('click','#pills-pending-tab,#pills-approve-tab,#pills-reject-tab',function(){
-        $('#make_request').css('display','none');
+    $(document).on('click', '#pills-pending-tab,#pills-approve-tab,#pills-reject-tab', function () {
+        $('#make_request').css('display', 'none');
     })
 
     $("#payment-form").submit(function (e) {
@@ -124,7 +124,7 @@ function getCustomerPaymentList(customer_id) {
     get_customer_payament_details(customer_id, 'Pending');
     get_customer_payament_details(customer_id, 'Approved');
     get_customer_payament_details(customer_id, 'Rejected');
-    
+
 }
 function get_customer_payament_details(customer_id, status) {
     var params = {
@@ -148,7 +148,7 @@ function get_customer_payament_details(customer_id, status) {
                 }
                 var table_data = '<thead>\n\
                                         <tr>\n\
-                                            '+action_th+'\n\
+                                            ' + action_th + '\n\
                                             <th> Customer </th>\n\
                                             <th> Amount </th>\n\
                                             <th> EMI Due Date </th>\n\
@@ -167,7 +167,7 @@ function get_customer_payament_details(customer_id, status) {
                             checkbox = '<div class="form-check m-0">\n\
                             <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">\n\
                             <i class="input-helper"></i></label></div>';
-                             action_tr = '<td>' + checkbox + '</td>';
+                            action_tr = '<td>' + checkbox + '</td>';
 
                         }
                     }
@@ -175,9 +175,9 @@ function get_customer_payament_details(customer_id, status) {
                     var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
                     table_data += '<tbody>\n\
                                         <tr >\n\
-                                        '+ action_tr + '\n\
+                                        ' + action_tr + '\n\
                                             <td>' + value.name + '</td>\n\
-                                            <td id="payment-amount_'+ value.customer_plot_booking_payment_detail_id + '">' + value.amount + '</td>\n\
+                                            <td id="payment-amount_' + value.customer_plot_booking_payment_detail_id + '">' + value.amount + '</td>\n\
                                             <td>' + duedate + '</td>\n\
                                             <td>' + value.project_master_name + '</td>\n\
                                             <td>' + value.sub_project_master_name + '</td>\n\

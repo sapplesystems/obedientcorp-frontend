@@ -100,11 +100,21 @@
     function logout() {
         $.post('localapi.php', {
             destroy_session: 1
-        }, function(resp) {
+        }, function (resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             window.location.href = 'login.php';
         });
     }
+
+    function showLoader() {
+        $('#loader_bg').css('display', 'block');
+    }
+
+    function hideLoader() {
+        $('#loader_bg').css('display', 'none');
+    }
+    
+    hideLoader();
 </script>
 </body>
 

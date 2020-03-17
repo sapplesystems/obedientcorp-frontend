@@ -9,6 +9,7 @@ $(document).ready(function () {
         });
 
         if ($("#profile_update").valid()) {
+            showLoader();
             var params = new FormData();
             var id = user_id;
             var introducer_code = $('#sponsor').val();
@@ -72,6 +73,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-warning" role="alert">Profile could not be saved</div>';
                     }
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 },
                 error: function (response) {
                     error_html = '';
@@ -82,6 +84,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 }
             });
         }

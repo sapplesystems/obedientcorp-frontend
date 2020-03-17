@@ -30124,9 +30124,24 @@ ul.total_indicator li:nth-child(4) span {
     overflow-x: hidden;
 }
 
-.error {
-    color: #fe7c96;
+#customer_add_form_submit label.error {
+	color: #fe7c96;
     width: 100%;
+    position: absolute;
+    white-space: nowrap;
+    margin: 0px !important;
+    font-size: 13px;
+    top: -17px;
+    left: 20px;
+}
+
+#customer_add_form_submit .datepicker{padding:0px !important;}
+
+#customer_add_form_submit .datepicker label.error {
+	 left: 0px !important;
+}
+#customer_add_form_submit .form-check-label label.error {
+	 left: 0px !important;
 }
 
 table tr td {
@@ -30769,6 +30784,7 @@ CSS ANIMATION FOR TREE
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 
 @media (max-width: 991px) {
     .payment-dialog label.text-right {

@@ -9,6 +9,7 @@ $(document).ready(function () {
         });
 
         if ($("#kyc_update").valid()) {
+            showLoader();
             var params = {
                 kyc_id: $('#kyc_id').val(),
                 user_id: user_id,
@@ -28,17 +29,16 @@ $(document).ready(function () {
                 url: base_url + 'kyc/update',
                 data: params,
                 success: function (response) {
-                    console.log(response);
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Nominee details saved successfully</div>';
+                        error_html += '<div class="alert alert-primary" role="alert">KYC details saved successfully</div>';
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Nominee details could not be saved</div>';
+                        error_html += '<div class="alert alert-warning" role="alert">KYC details could not be saved</div>';
                     }
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 },
                 error: function (response) {
-                    console.log(response);
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;
@@ -49,6 +49,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 }
             }); //ajax 
         }

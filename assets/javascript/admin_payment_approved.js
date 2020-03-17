@@ -6,6 +6,7 @@ $(function () {
 
 //function for get agent list
 function get_agent_list() {
+    showLoader();
     //login user id
     var url = base_url + 'down-the-line-members';
     var agent_id = 0;
@@ -29,9 +30,9 @@ function get_agent_list() {
                 });
                 // get_customer_list(agent_id);
                 $("#agent-list").html(customer_list);
-
+                hideLoader();
             }
-
+            hideLoader();
         }
     });
 }//end function agent list
@@ -44,12 +45,12 @@ function getAgentPaymentList(agent_id) {
 }
 
 function get_agent_payment_list(agent_id, status) {
+    showLoader();
     var params = {
         user_id: agent_id,
         status: status
     };
 
-    console.log(params);
     $("#customer_payment").html('');
     $.ajax({
         url: base_url + 'agent-payment-list',
@@ -86,8 +87,8 @@ function get_agent_payment_list(agent_id, status) {
                                             <td >' + value.associate_name + ' (' + value.username + ')</td>\n\
                                             <td>' + date_of_payment + '</td>\n\
                                             <td>' + value.payment_mode + '</td>\n\
-                                            '+ action_tr + '\n\
-                                            <td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php?pid='+ value.id + '&uid=' + agent_id + '">Details</a></td>\n\
+                                            ' + action_tr + '\n\
+                                            <td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php?pid=' + value.id + '&uid=' + agent_id + '">Details</a></td>\n\
                                         </tr></tbody>';
                 });
                 if (status == 'Pending') {
@@ -99,10 +100,11 @@ function get_agent_payment_list(agent_id, status) {
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
                 }
+                hideLoader();
             }
             else {
                 if (status == 'Pending') {
-                $("#pending_payment_list").html(response.data);
+                    $("#pending_payment_list").html(response.data);
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(response.data);
@@ -110,6 +112,7 @@ function get_agent_payment_list(agent_id, status) {
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(response.data);
                 }
+                hideLoader();
             }
 
         }
@@ -141,6 +144,7 @@ function paymentReject(pid, agent_id) {
 }
 //function for approvedadmin pament
 function paymentAction(pid, agent_id, status_emi) {
+    showLoader();
     var url = base_url + 'agent-payment-detail ';
     var emis = [];
     var comment = '';
@@ -181,9 +185,14 @@ function paymentAction(pid, agent_id, status_emi) {
                     success: function (response) {
                         if (response.status == "success") {
                             showSwal('success', 'Payment Approved', 'Payment is approved.');
+                            hideLoader();
+                        } else {
+                            hideLoader();
                         }
                     }
                 });
+            } else {
+                hideLoader();
             }
         }
     });

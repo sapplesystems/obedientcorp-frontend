@@ -11,6 +11,7 @@ $(document).ready(function () {
 });
 
 function getTeamMemberList(user_id, node) {
+    showLoader();
     $.ajax({
         method: "POST",
         url: base_url + 'team',
@@ -126,15 +127,19 @@ function getTeamMemberList(user_id, node) {
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
+                hideLoader();
             } else {
+                hideLoader();
             }
         },
         error: function (response) {
+            hideLoader();
         }
     });
 }
 
 function getReferralTeamMemberList(user_id, node) {
+    showLoader();
     $.ajax({
         method: "POST",
         url: base_url + 'team/referral',
@@ -250,10 +255,13 @@ function getReferralTeamMemberList(user_id, node) {
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
+                hideLoader();
             } else {
+                hideLoader();
             }
         },
         error: function (response) {
+            hideLoader();
         }
     });
 }

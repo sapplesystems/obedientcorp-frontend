@@ -8,7 +8,7 @@
                     <div class="card-body p-3">
                         <div class="col-md-12 customTabs">
                             <ul class="nav nav-pills nav-pills-custom" id="pills-tab" role="tablist">
-                            <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link active" id="pills-due-tab" data-toggle="pill" href="#pills-due" role="tab" aria-controls="pills-due" aria-selected="true">Due </a>
                                 </li>
                                 <li class="nav-item">
@@ -43,30 +43,30 @@
                             </div>
                         </div>
                         <div class="row">
-                        <div class="col-md-12 tab-content tab-content-custom-pill" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-due" role="tabpanel" aria-labelledby="pills-pending-tab">
-										<table class="table table-striped payment_request" id="due_payment_list">
+                            <div class="col-md-12 tab-content tab-content-custom-pill" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-due" role="tabpanel" aria-labelledby="pills-pending-tab">
+                                    <table class="table table-striped payment_request" id="due_payment_list">
 
-										</table>
-									</div>
-									<div class="tab-pane fade " id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">
-										<table class="table table-striped payment_request" id="pending_payment_list">
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade " id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">
+                                    <table class="table table-striped payment_request" id="pending_payment_list">
 
-										</table>
-									</div>
-									<div class="tab-pane fade" id="pills-approve" role="tabpanel" aria-labelledby="pills-approve-tab">
-										<table class="table table-striped payment_request" id="approved_payment_list">
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="pills-approve" role="tabpanel" aria-labelledby="pills-approve-tab">
+                                    <table class="table table-striped payment_request" id="approved_payment_list">
 
-										</table>
-									</div>
-									<div class="tab-pane fade" id="pills-reject" role="tabpanel" aria-labelledby="pills-reject-tab">
-										<table class="table table-striped payment_request" id="reject_payment_list">
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="pills-reject" role="tabpanel" aria-labelledby="pills-reject-tab">
+                                    <table class="table table-striped payment_request" id="reject_payment_list">
 
-										</table>
-									</div>
-								</div>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                       
+
                         <div class="row mt-4">
                             <div class="modal fade" id="makeRequest" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                 <div class="modal-dialog payment-dialog" role="document">

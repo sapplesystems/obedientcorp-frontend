@@ -117,7 +117,6 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 
         checkCookie();
         $("#login").click(function (e) {
-            showLoader();
             e.preventDefault();
             $("#login_form").validate({
                 rules: {
@@ -138,7 +137,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                 },
             });
             if ($("#login_form").valid()) {
-
+				showLoader();
                 var url = base_url + 'login';
                 var params = {
                     username: $("#username").val(),

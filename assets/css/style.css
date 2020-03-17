@@ -30124,8 +30124,8 @@ ul.total_indicator li:nth-child(4) span {
     overflow-x: hidden;
 }
 
-#customer_add_form_submit label.error {
-	color: #fe7c96;
+#project-form label.error, #sub-project-form label.error, #customer_add_form_submit label.error {
+    color: #fe7c96;
     width: 100%;
     position: absolute;
     white-space: nowrap;
@@ -30135,17 +30135,18 @@ ul.total_indicator li:nth-child(4) span {
     left: 20px;
 }
 
+
 #customer_add_form_submit .datepicker{padding:0px !important;}
 
 #customer_add_form_submit .datepicker label.error {
-	 left: 0px !important;
+    left: 0px !important;
 }
 #customer_add_form_submit .form-check-label label.error {
-	 left: 0px !important;
+    left: 0px !important;
 }
 
 #plotbooking_form label.error {
-	color: #fe7c96;
+    color: #fe7c96;
     width: 100%;
     position: absolute;
     white-space: nowrap;
@@ -30158,10 +30159,10 @@ ul.total_indicator li:nth-child(4) span {
 #plotbooking_form .datepicker{padding:0px !important;}
 
 #plotbooking_form .datepicker label.error {
-	 left: 0px !important;
+    left: 0px !important;
 }
 #plotbooking_form .form-check-label label.error {
-	 left: 0px !important;
+    left: 0px !important;
 }
 
 table tr td {
@@ -30783,9 +30784,9 @@ CSS ANIMATION FOR TREE
 .fadeInDown1 {
     -webkit-animation-name: fadeInDown5x;
     animation-name: fadeInDown5x;
-    webkit-animation-duration: 5s;
-    -webkit-animation-duration: 5s;
-    animation-duration: 5s;
+    webkit-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
 }
 
 #loader_bg {

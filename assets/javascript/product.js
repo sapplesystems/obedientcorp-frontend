@@ -50,18 +50,18 @@ $(document).ready(function () {
             if ($('#subcategory').val()) {
                 category_id = $('#subcategory').val();
             }
-            params.append('category_id ', category_id);
+            params.append('category_id', category_id);
             params.append('name', $('#title').val());
-            params.append('dealer_price ', $('#dealer_price').val());
+            params.append('dealer_price', $('#dealer_price').val());
             params.append('market_price', $('#market_price').val());
-            params.append('bar_code ', $('#bar_code').val());
-            params.append('sku ', $('#sku').val());
+            params.append('bar_code', $('#bar_code').val());
+            params.append('sku', $('#sku').val());
             params.append('created_date', $('#entry_date').val());
-            params.append('expiry_date ', $('#expiry_date').val());
-            params.append('quantity ', $('#quantity').val());
+            params.append('expiry_date', $('#expiry_date').val());
+            params.append('quantity', $('#quantity').val());
             //params.append('short_description', $('#nomineesname').val());
-            params.append('description ', $('#description').val());
-            params.append('created_by ', user_id);
+            params.append('description', $('#description').val());
+            params.append('created_by', user_id);
             console.log(base_url + 'product/add');
             $.ajax({
                 url: base_url + 'product/add',

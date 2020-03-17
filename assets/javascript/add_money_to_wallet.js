@@ -23,6 +23,7 @@ $(document).ready(function () {
             }
         });
         if ($("#add-money-to-wallet-form").valid()) {
+            showLoader();
             var params = {
                 user_id: $('#agents').val(),
                 amount: $('#amount').val()
@@ -38,8 +39,10 @@ $(document).ready(function () {
                         updated_amount = Number(updated_amount);
                         $('#e-wallet').html(updated_amount.toFixed(2));
                         $('#amount').val('');
+                        hideLoader();
+                    } else {
+                        hideLoader();
                     }
-
                 }
             });//ajax
         }//end if
@@ -49,7 +52,7 @@ $(document).ready(function () {
 });//document ready
 
 function get_agent_list() {
-
+    showLoader();
     var url = base_url + 'down-the-line-members';
 
     $.ajax({
@@ -61,7 +64,7 @@ function get_agent_list() {
         },
         success: function (response) {
             console.log(response);
-            if (response.status) {
+            if (response.status == 'success') {
                 var table_data = '';
                 $.each(response.data, function (key, value) {
                     table_data += '<option value="' + value.id + '">' + value.associate_name + '</option>';
@@ -69,7 +72,9 @@ function get_agent_list() {
                 //console.log(table_data);
                 $("#agents").html(table_data);
 
-
+                hideLoader();
+            }else{
+                hideLoader();
             }
 
         }
@@ -77,6 +82,7 @@ function get_agent_list() {
 }
 
 function getWalletAmount(user_id) {
+    showLoader();
     var amount = '';
     $.ajax({
         url: base_url + 'check-ewallet-amount',
@@ -89,7 +95,7 @@ function getWalletAmount(user_id) {
             amount = response.data.amount;
             if (response.status) {
                 $('#e-wallet').html(amount);
-                get_goods_coupon_listing();
+                hideLoader();
             }
 
         }

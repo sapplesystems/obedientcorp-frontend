@@ -18,6 +18,7 @@ $(document).ready(function () {
         });
 
         if ($("#project-form").valid()) {
+            showLoader();
             var params = new FormData();
             var name = $('#project_name').val();
             var area = $('#area').val();
@@ -54,9 +55,10 @@ $(document).ready(function () {
                         $('#mapphoto_id,#photo_id').attr('src', '');
                         $('#mapphoto_id,#photo_id').css('display', 'none');
                         getProjectList();
-
+                        hideLoader();
                     } else {
                         showSwal('error', 'Project Not Added', 'Project not added successfully');
+                        hideLoader();
                     }
 
                     $('#errors_div').html(error_html);
@@ -71,6 +73,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 }
             });//ajax
         }//end if
@@ -78,6 +81,7 @@ $(document).ready(function () {
 });
 //get all project list
 function getProjectList() {
+    showLoader();
     $.ajax({
         url: base_url + 'projects',
         type: 'post',
@@ -109,7 +113,8 @@ function getProjectList() {
                     }
                 });
 
-                $('.project_list').html(html)
+                $('.project_list').html(html);
+                hideLoader();
             }
         }
     });
@@ -118,6 +123,7 @@ function getProjectList() {
 //function for edit project details
 function updateProject(e, project_id) {
     e.preventDefault();
+    showLoader();
     $.ajax({
         url: base_url + 'project',
         type: 'post',
@@ -140,6 +146,7 @@ function updateProject(e, project_id) {
                     $('#mapphoto_id').attr('src', map_src);
                     $('#mapphoto_id').css('display', 'block');
                 }
+                hideLoader();
             }
         }
     });
@@ -148,6 +155,7 @@ function updateProject(e, project_id) {
 //function for delete project 
 function deleteProject(e, project_id) {
     e.preventDefault();
+    showLoader();
     var result = confirm("Are you sure you want to delete this project?");
     if (result == true)
     {
@@ -160,6 +168,7 @@ function deleteProject(e, project_id) {
                     $("#tr_" + project_id).remove();
 
                 }
+                hideLoader();
             }
         });
     }

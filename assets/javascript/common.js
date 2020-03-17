@@ -23,6 +23,7 @@ $(document).ready(function () {
     }
 
     $.post(base_url + 'state-city-list', {}, function (resp) {
+        showLoader();
         if (resp.status == 'success') {
             state_list = resp.data.list;
             var state_list_html = '<option value="">-- Select One --</option>';
@@ -38,7 +39,6 @@ $(document).ready(function () {
                     email: user_email
                 },
                 success: function (response) {
-                    console.log(response);
                     if (response.status == 'success') {
                         var profile = response.data.profile;
                         var bank = response.data.bank_detail[0];
@@ -142,14 +142,17 @@ $(document).ready(function () {
                         var year = datetime.getFullYear();
                         var formatted_date = day + "-" + month + "-" + year;
                         $('#join_date').val(formatted_date);
+                        hideLoader();
                     }
                 },
                 error: function (response) {
                     alert('something went wrong - ' + response);
+                    hideLoader();
                 }
             });
         } else {
             alert('something went wrong');
+            hideLoader();
         }
     });
 
@@ -161,11 +164,12 @@ $(document).ready(function () {
         }
     });
 
-    $(".imageUpload").change(function (){
+    $(".imageUpload").change(function () {
+        showLoader();
         var fileName = document.getElementById("imageUpload").files[0];
         var id = user_id;
         var params = new FormData();
-        if(fileName)
+        if (fileName)
         {
             params.append("photo", fileName);
             params.append("id", id);
@@ -183,6 +187,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-warning" role="alert">Photo could not be saved</div>';
                     }
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 },
                 error: function (response) {
                     error_html = '';
@@ -193,10 +198,11 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 }
             });
         }
-      });
+    });
 
 });//document ready
 
@@ -216,11 +222,10 @@ function getRelationships() {
         type: 'post',
         //dataType: 'json',
         //data: params,
-        success: function(response) {
-            console.log(response);
+        success: function (response) {
             if (response.status == "success") {
                 var relation = '<option value="">--Select One Relation--</option>';
-                $.each(response.data, function(key, value) {
+                $.each(response.data, function (key, value) {
                     relation += '<option value="' + value.id + '">' + value.name + '</option>';
                 });
                 $("#relation").html(relation);

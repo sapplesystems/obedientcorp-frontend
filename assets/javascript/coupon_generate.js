@@ -11,6 +11,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#coupon_generate', function (e) {
         e.preventDefault();
+        showLoader();
         var is_denomination_quantity = false;
         $('.denomination_quantity').each(function () {
             var denomination_quantity = $(this).val();
@@ -52,17 +53,20 @@ $(document).ready(function () {
                         $('#rupee_sign').html('&#8377;');
                         $('#e-wallet').html(response.data.amount);
                         showSwal('success', 'Coupon Generated', 'Coupon generated for goods');
+                        hideLoader();
                     }
 
                 }
             });
         } else {
             showSwal('error', 'Select Quantity', 'Please select quantity');
+            hideLoader();
         }
     });
 });
 
 function getWalletAmount(user_id) {
+    showLoader();
     var amount = '';
     $.ajax({
         url: base_url + 'check-ewallet-amount',
@@ -73,19 +77,20 @@ function getWalletAmount(user_id) {
         },
         success: function (response) {
             amount = response.data.amount;
-            console.log(amount);
-            if (response.status) {
+            if (response.status == 'success') {
                 $('#e_wallet_label').css('display', 'block');
                 $('#rupee_sign').html('&#8377;');
                 $('#e-wallet').html(amount);
                 get_goods_coupon_listing();
+                hideLoader();
             }
-
+            hideLoader();
         }
     });
 }
 
 function get_listing() {
+    showLoader();
     var url = base_url + 'coupon/denominations';
     $.ajax({
         url: url,
@@ -94,7 +99,7 @@ function get_listing() {
         //data: params,
         success: function (response) {
             console.log(response);
-            if (response.status) {
+            if (response.status == 'success') {
                 var table_data = '';
                 $.each(response.data, function (key, value) {
                     console.log(value);
@@ -118,7 +123,7 @@ function get_listing() {
                 });
                 //console.log(table_data);
                 $("#denomination").html(table_data);
-
+                hideLoader();
             }
 
         }
@@ -194,6 +199,7 @@ function resetValue(id) {
 }
 
 function get_goods_coupon_listing() {
+    showLoader();
     var url = base_url + 'coupons';
     var agent = '';
     //console.log($("#agent").val());return false;
@@ -203,7 +209,6 @@ function get_goods_coupon_listing() {
     else {
         agent_id = user_id;
     }
-    console.log(agent_id);
     $.ajax({
         url: url,
         type: 'post',
@@ -212,7 +217,6 @@ function get_goods_coupon_listing() {
             user_id: agent_id
         },
         success: function (response) {
-            console.log(response);
             var i = 1;
             if (response.status) {
                 var goods_coupon_list = '';
@@ -222,19 +226,17 @@ function get_goods_coupon_listing() {
                         classname = 'even';
                     }
                     goods_coupon_list += ' <tr role="row" class="' + classname + '">\n\
-                    <td class="sorting_1">'+ i + '</td>\n\
-                    <td> '+ value.coupon_code + ' </td>\n\
-                    <td> '+ value.coupon_amount + ' </td>\n\
+                    <td class="sorting_1">' + i + '</td>\n\
+                    <td> ' + value.coupon_code + ' </td>\n\
+                    <td> ' + value.coupon_amount + ' </td>\n\
                     <td> <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Change coupon status</a> &nbsp &nbsp <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Extend Coupon availability</a></td>\n\
                 </tr>';
 
                     i++;
                 });
                 $("#agent_coupon_listing").html(goods_coupon_list);
-
-
+                hideLoader();
             }
-
         }
     });
 

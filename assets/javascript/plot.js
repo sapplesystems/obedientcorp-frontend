@@ -12,6 +12,7 @@ $(document).ready(function () {
         });
 
         if ($("#plot-form").valid()) {
+            showLoader();
             var params = new FormData();
             var project_id = $('#projects').val();
             if ($('#sub_projects').val()) {
@@ -26,7 +27,7 @@ $(document).ready(function () {
                 params.append('id', plot_id);
                 url = base_url + 'plot/update';
             }
-            
+
             params.append('project_master_id', project_id);
             params.append('name', plot_no);
             params.append('area', plot_area);
@@ -46,9 +47,10 @@ $(document).ready(function () {
                         showSwal('success', 'Plot Added', 'Plot added successfully');
                         document.getElementById('plot-form').reset();
                         getplotlist();
-
+                        hideLoader();
                     } else {
                         showSwal('error', 'Plot Not Added', 'Plot not added successfully');
+                        hideLoader();
                     }
 
                     $('#errors_div').html(error_html);
@@ -63,6 +65,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 }
             });//ajax
         }//end if
@@ -115,10 +118,11 @@ $("#projects").change(function () {
 //function for update plot
 function updatePlot(e, plot_id) {
     e.preventDefault();
+    showLoader();
     $.ajax({
         url: base_url + 'plots',
         type: 'post',
-        data: { id: plot_id },
+        data: {id: plot_id},
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
@@ -134,8 +138,7 @@ function updatePlot(e, plot_id) {
                 $('#plot_no').val(data[0].name);
                 $('#plot_area').val(data[0].area);
                 $('#plot_id').val(data[0].id);
-
-
+                hideLoader();
             }
         }
     });
@@ -143,6 +146,7 @@ function updatePlot(e, plot_id) {
 
 
 function getplotlist() {
+    showLoader();
     $.ajax({
         url: base_url + 'plots',
         type: 'post',
@@ -164,7 +168,7 @@ function getplotlist() {
                 var project = '';
                 $.each(response.data, function (key, value) {
                     console.log(value);
-                    if(value.project.id == value.sub_project.id) {
+                    if (value.project.id == value.sub_project.id) {
                         project = value.project.name;
                     }
                     else {
@@ -176,39 +180,50 @@ function getplotlist() {
                     var Alloted_Selected = '';
                     var Registry_Selected = '';
                     var Hold_Selected = '';
-                    if (value.availability == 'Free') { Free_Selected = 'selected'; }
-                    if (value.availability == 'Booked') { Booked_Selected = 'selected'; }
-                    if (value.availability == 'Alloted') { Alloted_Selected = 'selected'; }
-                    if (value.availability == 'Registry') { Registry_Selected = 'selected'; }
-                    if (value.availability == 'Hold') { Hold_Selected = 'selected'; }
+                    if (value.availability == 'Free') {
+                        Free_Selected = 'selected';
+                    }
+                    if (value.availability == 'Booked') {
+                        Booked_Selected = 'selected';
+                    }
+                    if (value.availability == 'Alloted') {
+                        Alloted_Selected = 'selected';
+                    }
+                    if (value.availability == 'Registry') {
+                        Registry_Selected = 'selected';
+                    }
+                    if (value.availability == 'Hold') {
+                        Hold_Selected = 'selected';
+                    }
                     html += '<tbody>\n\
                                 <tr id="tr_' + value.id + '">\n\
-                                <td>'+ i + '</td>\n\
-                                <td>'+ project + '</td>\n\
-                                <td>'+ sub_project + '</td>\n\
-                                <td>'+ value.name + '</td>\n\
-                                <td>'+ value.area + '</td>\n\
+                                <td>' + i + '</td>\n\
+                                <td>' + project + '</td>\n\
+                                <td>' + sub_project + '</td>\n\
+                                <td>' + value.name + '</td>\n\
+                                <td>' + value.area + '</td>\n\
                                 <td>\n\
                                     <div class="d-flex">\n\
                                     <div class="input-group mr-sm-2 mb-sm-0">\n\
-                                        <select class="form-control" id="availability_'+ value.id + '">\n\
+                                        <select class="form-control" id="availability_' + value.id + '">\n\
                                             <option value="">--Select--</option>\n\
-                                            <option value="Free" '+ Free_Selected + '>Free</option>\n\
-                                            <option value="Booked" '+ Booked_Selected + '>Booked</option>\n\
-                                            <option value="Alloted" '+ Alloted_Selected + '>Alloted</option>\n\
-                                            <option value="Registry" '+ Registry_Selected + '>Registry</option>\n\
-                                            <option value="Hold" '+ Hold_Selected + '>Hold</option>\n\
+                                            <option value="Free" ' + Free_Selected + '>Free</option>\n\
+                                            <option value="Booked" ' + Booked_Selected + '>Booked</option>\n\
+                                            <option value="Alloted" ' + Alloted_Selected + '>Alloted</option>\n\
+                                            <option value="Registry" ' + Registry_Selected + '>Registry</option>\n\
+                                            <option value="Hold" ' + Hold_Selected + '>Hold</option>\n\
                                         </select>\n\
                                     </div>\n\
-                                    <button type="submit" class="btn btn-gradient-success btn-sm" onclick="updateAvailability('+ value.id + ')">Go</button>\n\
+                                    <button type="submit" class="btn btn-gradient-success btn-sm" onclick="updateAvailability(' + value.id + ')">Go</button>\n\
                                     </div>\n\
                                      </td>\n\
-                                <td><a href="javascript:void(0);" onclick="updatePlot(event, '+ value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deletePlot(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                <td><a href="javascript:void(0);" onclick="updatePlot(event, ' + value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deletePlot(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr></tbody>';
                     i = i + 1;
 
                 });
-                $('.plot_list').html(html)
+                $('.plot_list').html(html);
+                hideLoader();
             }
         }
     });
@@ -219,14 +234,15 @@ function deletePlot(e, plot_id) {
     e.preventDefault();
     var result = confirm("Are you sure you want to delete this plot?");
     if (result == true) {
+        showLoader();
         $.ajax({
             url: base_url + 'plot/delete',
             type: 'post',
-            data: { id: plot_id },
+            data: {id: plot_id},
             success: function (response) {
                 if (response.status == "success") {
                     $("#tr_" + plot_id).remove();
-                    //location.reload();
+                    hideLoader();
                 }
             }
         });
@@ -238,7 +254,7 @@ function updateAvailability(plot_id) {
     $.ajax({
         url: base_url + 'plot/update',
         type: 'post',
-        data: { id: plot_id, availability: availability },
+        data: {id: plot_id, availability: availability},
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;

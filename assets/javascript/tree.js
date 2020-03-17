@@ -29,6 +29,7 @@ function associateId() {
 }
 
 function getTree(user_id) {
+    showLoader();
     $('.hv-item').removeClass("animated fadeInDown1").css("opacity", "0");
     setEmptyNode('node1');
     setEmptyNode('node2');
@@ -75,9 +76,11 @@ function getTree(user_id) {
                     setNode(node7, 'node7', '1');
                 }
                 $('.hv-item').addClass("animated fadeInDown1").css("opacity", "0");
+                hideLoader();
             }
             else {
                 showSwal('error', 'Failed', 'Something went wrong.');
+                hideLoader();
             }
 
         }

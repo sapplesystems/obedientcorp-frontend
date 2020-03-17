@@ -82,6 +82,7 @@ $(document).ready(function () {
         });
 
         if ($("#customer_add_form_submit").valid()) {
+            showLoader();
             var params = new FormData();
             params.append('user_id', user_id);
             params.append('agent_id', $('#agent_id').val());
@@ -124,6 +125,7 @@ $(document).ready(function () {
 
             var url = base_url + 'customer/add';
             if ($('#customer_id').val()) {
+                params.append('id', $('#customer_id').val());
                 url = base_url + 'customer/update';
             }
             $.ajax({
@@ -141,8 +143,10 @@ $(document).ready(function () {
                         $('#photo').attr('src', '');
                         $('#photo').css('display', 'none');
                         window.location.href = 'manage-customer.php';
+                        hideLoader();
                     } else {
                         console.log(response.data);
+                        hideLoader();
                     }
                 }
             });
@@ -152,6 +156,7 @@ $(document).ready(function () {
 });//end document ready
 
 function updateCustomerDetail(customer_id) {
+    showLoader();
     $.ajax({
         url: base_url + 'customer/detail',
         type: 'post',
@@ -225,14 +230,16 @@ function updateCustomerDetail(customer_id) {
                 $('#ifsc_code').val(data.ifsc_code);
                 $('#accountholdername').val(data.account_holder_name);
                 $('#bankname').val(data.bank_name);
-
+                hideLoader();
             }
+            hideLoader();
         }
     });
 }
 
 function deleteCustomerList(e, customer_id) {
     e.preventDefault();
+    showLoader();
     $.ajax({
         url: base_url + 'customer/delete',
         type: 'post',
@@ -244,12 +251,14 @@ function deleteCustomerList(e, customer_id) {
             if (response.status == "success") {
                 $("#tr_" + customer_id).remove();
             }
+            hideLoader();
         }
     });
 }
 
 //cutomer list
 function getCustomersList(user_id) {
+    showLoader();
     $.ajax({
         url: base_url + 'customers',
         type: 'post',
@@ -274,15 +283,17 @@ function getCustomersList(user_id) {
                                   <td>' + val.age + '</td>\n\
                                   <td>' + val.email + '</td>\n\
                                   <td>\n\
-                                        <i class="mdi mdi-pencil text-info" onclick="window.location.href=\'add-customer.php?customer_id='+ val.id + '\'"></i> &nbsp \n\
+                                        <a href="add-customer.php?customer_id='+ val.id + '"><i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
                                         <i class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>\n\
                                   </td>\n\
                               </tr>';
                 });
 
                 $('#customers_list').html(html)
+                hideLoader();
             } else {
                 console.log(response.data);
+                hideLoader();
             }
 
         }

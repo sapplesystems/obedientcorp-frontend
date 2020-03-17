@@ -28,6 +28,9 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     </head>
 
     <body>
+        <div id="loader_bg">
+            <div class="flip-square-loader mx-auto" id="loader_div"></div>
+        </div>
         <div class="container-scroller">
             <div class="container-fluid page-body-wrapper full-page-wrapper">
                 <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
@@ -114,6 +117,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 
         checkCookie();
         $("#login").click(function (e) {
+            showLoader();
             e.preventDefault();
             $("#login_form").validate({
                 rules: {
@@ -164,12 +168,14 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                 }
                                 var jsonString = JSON.stringify(customObject);
                                 setCookie(jsonString);
+                                hideLoader();
                             });
                         }
                         else
                         {
                             var error = response.data;
                             showSwal('error', 'Login Failed', error);
+                            hideLoader();
                         }
                     }, //success function
                     error: function (response) {
@@ -181,6 +187,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                             error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                         });
                         $('#errors_div').html(error_html);
+                        hideLoader();
                     }
 
                 }); //ajax 
@@ -226,4 +233,14 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
         }
 
     });
+
+    function showLoader() {
+        $('#loader_bg').css('display', 'block');
+    }
+
+    function hideLoader() {
+        $('#loader_bg').css('display', 'none');
+    }
+
+    hideLoader();
 </script>

@@ -12,6 +12,7 @@ $(document).ready(function () {
             }
         });
         if ($("#create-sub-category").valid()) {
+            showLoader();
             var params = new FormData();
             params.append('parent_id', $('#categories').val());
             params.append('name', $('#sub_category_title').val());
@@ -30,9 +31,11 @@ $(document).ready(function () {
                         getSubCategoryList();
                         showSwal('success', 'SubCategory Added', 'SubCategory added successfully.');
                         document.getElementById('create-sub-category').reset();
+                        hideLoader();
                     }
                     else {
                         showSwal('error', 'Failed', 'SubCategory could not be added.');
+                        hideLoader();
                     }
 
                 }

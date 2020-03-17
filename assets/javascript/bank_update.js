@@ -9,6 +9,7 @@ $(document).ready(function () {
         });
 
         if ($("#bank_update").valid()) {
+            showLoader();
             var params = new FormData();
             var id = user_id;
             var payee_name = $('#payee_name').val();
@@ -38,6 +39,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-warning" role="alert">Bank details could not be saved</div>';
                     }
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 },
                 error: function (response) {
                     console.log(response);
@@ -51,6 +53,7 @@ $(document).ready(function () {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
+                    hideLoader();
                 }
             });
         }

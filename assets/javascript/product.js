@@ -1,4 +1,5 @@
 getCategoryList();
+getProductList();
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 $(document).ready(function () {
@@ -27,7 +28,6 @@ $(document).ready(function () {
         var product_frm = $("#create_product");
         product_frm.validate({
             rules: {
-
             },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
@@ -56,24 +56,33 @@ $(document).ready(function () {
             params.append('market_price', $('#market_price').val());
             params.append('bar_code', $('#bar_code').val());
             params.append('sku', $('#sku').val());
-            params.append('created_date', $('#entry_date').val());
             params.append('expiry_date', $('#expiry_date').val());
             params.append('quantity', $('#quantity').val());
             //params.append('short_description', $('#nomineesname').val());
             params.append('description', $('#description').val());
             params.append('created_by', user_id);
-            console.log(base_url + 'product/add');
+
+            var url = base_url + 'product/add';
+            if ($('#product_id').val()) {
+                url = base_url + 'product/update';
+                params.append('updated_by', user_id);
+                params.append('id', $('#product_id').val());
+            }
+
             $.ajax({
-                url: base_url + 'product/add',
+                url: url,
                 type: 'post',
                 data: params,
                 contentType: false,
                 processData: false,
                 success: function (response) {
                     if (response.status == "success") {
+                        resetForm();
                         console.log(response.data);
                         hideLoader();
+                        getProductList();
                     } else {
+                        resetForm();
                         console.log(response.data);
                         hideLoader();
                     }
@@ -127,3 +136,84 @@ function getSubCategoryList(category_id) {
         }
     });
 } //endsubcategorylist
+
+function getProductList() {
+    var url = base_url + 'products';
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {},
+        success: function (response) {
+            if (response.status == "success") {
+                if (response.data) {
+                    var data = response.data;
+                    var tbody = '';
+                    $.each(data, function (key, val) {
+                        tbody += '<tr id="prod_tr_' + val.id + '">\n\
+                                        <td>' + val.name + '</td>\n\
+                                        <td>' + val.description + '</td>\n\
+                                        <td>\n\
+                                            <i class="mdi mdi-pencil text-info" onclick="editProduct(event, ' + val.id + ');"></i> &nbsp \n\
+                                            <i class="mdi mdi-delete text-danger" onclick="deleteProduct(event, ' + val.id + ');"></i>\n\
+                                        </td>\n\
+                                    </tr>';
+                    });
+                    $('#product_list').html(tbody);
+                }
+
+            }
+
+        }
+    });
+}
+
+function deleteProduct(e, product_id) {
+    showLoader();
+    var url = base_url + 'product/delete';
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {id: product_id},
+        success: function (response) {
+            if (response.status == "success") {
+                $('#prod_tr_' + product_id).remove();
+                hideLoader();
+            } else {
+                hideLoader();
+            }
+        }
+    });
+}
+
+function editProduct(e, product_id) {
+    showLoader();
+    var url = base_url + 'product';
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {id: product_id},
+        success: function (response) {
+            if (response.status == "success") {
+                var product = response.data;
+                $('#product_id').val(product_id);
+                $('#category_id').val(product.category_id);
+                $('#title').val(product.name);
+                $('#dealer_price').val(product.dealer_price);
+                $('#market_price').val(product.market_price);
+                $('#bar_code').val(product.bar_code);
+                $('#sku').val(product.sku);
+                $('#expiry_date').val(product.expiry_date);
+                $('#description').val(product.description);
+                $('#updated_by').val(user_id);
+                hideLoader();
+            } else {
+                hideLoader();
+            }
+        }
+    });
+}
+
+function resetForm() {
+    document.getElementById('create_product').reset();
+    $('#product_id').val('');
+}

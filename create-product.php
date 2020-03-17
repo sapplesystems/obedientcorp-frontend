@@ -40,17 +40,6 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Entry Date</label>
-                                                <div id="datepicker-popup" class="input-group date datepicker">
-                                                    <input type="text" class="form-control required" placeholder="Entry Date" id="entry_date" name="entry_date">
-                                                    <span class="input-group-addon input-group-append border-left">
-                                                        <span class="mdi mdi-calendar input-group-text bg-dark"></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
                                                 <label>Quantity</label>
                                                 <input type="text" class="form-control required" placeholder="Quantity" id="quantity" name="quantity">
                                             </div>
@@ -92,12 +81,6 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Details</label>
-                                                <input type="text" class="form-control required" placeholder="Details" id="details" name="details">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
                                                 <label>Expiry Date</label>
                                                 <div id="datepicker-popup" class="input-group date datepicker">
                                                     <input type="text" class="form-control required" placeholder="Expiry Date" id="expiry_date" name="expiry_date">
@@ -111,7 +94,7 @@
                                             <div class="form-group">
                                                 <label>Image</label>
                                                 <div class="input-group">
-                                                    <input type="file" name="files[]" id="files" class="file-upload-default required" multiple />
+                                                    <input type="file" name="files[]" id="files" class="file-upload-default" multiple />
                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File" id="image" name="image">
                                                     <span class="input-group-append">
                                                         <!--<button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>-->
@@ -145,7 +128,7 @@
                                             <div class="form-group">
                                                 <label>Documents</label>
                                                 <div class="input-group">
-                                                    <input type="file" name="document[]" id="document" class="file-upload-default required" multiple>
+                                                    <input type="file" name="document[]" id="document" class="file-upload-default" multiple>
                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose Document" id="documents" name="documents">
                                                     <span class="input-group-append">
                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
@@ -172,7 +155,7 @@
                                             <div class="form-group">
                                                 <label>Videos</label>
                                                 <div class="input-group">
-                                                    <input type="file" name="video[]" class="file-upload-default required">
+                                                    <input type="file" name="video[]" class="file-upload-default">
                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose Video" id="video" name="video">
                                                     <span class="input-group-append">
                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
@@ -203,6 +186,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <input type="hidden" name="product_id" id="product_id" />
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_project" value="submitproject">Submit</button>
                                 </div>
                             </div>
@@ -220,42 +204,12 @@
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
                                     <tr>
-                                        <th width="15%"> Title </th>
+                                        <th> Title </th>
                                         <th> Description </th>
                                         <th> Action </th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td> Sapple Systems 1</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1 </td>
-                                        <td><a href="edit-product.php" class="btn btn-gradient-primary btn-sm">View/Edit</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 2</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 2 </td>
-                                        <td><a href="edit-product.php" class="btn btn-gradient-primary btn-sm">View/Edit</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 3</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 3 </td>
-                                        <td><a href="edit-product.php" class="btn btn-gradient-primary btn-sm">View/Edit</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 4</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 4 </td>
-                                        <td><a href="edit-product.php" class="btn btn-gradient-primary btn-sm">View/Edit</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 5</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 5 </td>
-                                        <td><a href="edit-product.php" class="btn btn-gradient-primary btn-sm">View/Edit</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 6</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 6 </td>
-                                        <td><a href="edit-product.php" class="btn btn-gradient-primary btn-sm">View/Edit</a></td>
-                                    </tr>
+                                <tbody id="product_list">
                                 </tbody>
                             </table>
                         </div>

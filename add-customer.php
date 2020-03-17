@@ -193,7 +193,6 @@ if(isset($_REQUEST['customer_id'])){
                 <div class="col-sm-12 text-right">
                   <input type="hidden" id="customer_id" value="<?php echo $customer_id; ?>" />
                   <input type="submit" class="btn btn-info btn-sm" id="customer_add_submit_button" name="customer_add_submit_button" value="Submit" />&nbsp;
-                  <a class="btn btn-primary btn-sm" href="add-new-booking.php">Add New Bookings</a>
                 </div>
               </div>
             </form>

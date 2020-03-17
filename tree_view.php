@@ -17,6 +17,15 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <button class="btn btn-sm btn-gradient-primary" type="button" onclick="getTree(user_id);">Back to me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <ul class="top_row_members">
                     <li id="total_left_member"><span><strong>Left Members</strong><br><img src="assets/images/members.png" /> 0</span></li>
                     <li id="all_member"><span><strong>Total Members</strong><br><img src="assets/images/members.png" /> 0</span></li>

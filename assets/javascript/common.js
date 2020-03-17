@@ -126,7 +126,7 @@ $(document).ready(function () {
                         var formatted_date = day + "-" + month + "-" + year;
                         $('#kyc_dob').val(formatted_date);
                         $('#nationality').val(kyc.nationality);
-                        $('#occupation').val(kyc.occupation);
+                        $('#koccupation').val(kyc.occupation);
                         $('#qualification').val(kyc.qualification);
                         $('#pan_number').val(kyc.pan_number);
                         $('#passport_number').val(kyc.passport_number);

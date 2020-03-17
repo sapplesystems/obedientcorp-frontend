@@ -33,7 +33,7 @@ if(isset($_REQUEST['customer_id'])){
                   <div class="form-group">
                     <div class="form-check d-inline-block">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input required  " name="payment_mode" id="payment_dd" value="online">Online Transaction : <i class="input-helper"></i></label>
+                        <input type="radio" class="form-check-input required  " name="payment_mode" id="payment_dd" value="online">Online : <i class="input-helper"></i></label>
                     </div>
                     <div class="form-check d-inline-block ml-3 mr-3">
                       <label class="form-check-label">
@@ -193,7 +193,6 @@ if(isset($_REQUEST['customer_id'])){
                 <div class="col-sm-12 text-right">
                   <input type="hidden" id="customer_id" value="<?php echo $customer_id; ?>" />
                   <input type="submit" class="btn btn-info btn-sm" id="customer_add_submit_button" name="customer_add_submit_button" value="Submit" />&nbsp;
-                  <a class="btn btn-primary btn-sm" href="add-new-booking.php">Add New Bookings</a>
                 </div>
               </div>
             </form>

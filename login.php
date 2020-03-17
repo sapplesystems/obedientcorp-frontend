@@ -44,7 +44,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                 <h6 class="font-weight-light">Happy to see you again!</h6>
                                 <form class="pt-3" id="login_form">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail">Username</label>
+                                        <label for="exampleInputEmail"></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend bg-transparent">
                                                 <span class="input-group-text bg-transparent border-right-0">
@@ -55,7 +55,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword">Password</label>
+                                        <label for="exampleInputPassword"></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend bg-transparent">
                                                 <span class="input-group-text bg-transparent border-right-0">

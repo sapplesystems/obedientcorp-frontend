@@ -13,29 +13,29 @@
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label>Project Name</label>
-                    <select class="form-control" id="projects" name="projects">
-                      <option>--Select--</option>
+                    <select class="form-control required" id="projects" name="projects">
+                      <option value="">--Select--</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-sm-3" style="display:none;" id="sub_pro_div">
                   <div class="form-group">
                     <label>Sub Project Name</label>
-                    <select class="form-control" id="sub_projects" name="sub_projects">
-                      s
+                    <select class="form-control required" id="sub_projects" name="sub_projects">
+                      
                     </select>
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label>Plot No.</label>
-                    <input type="text" class="form-control" placeholder="Plot No"id="plot_no" name="plot_no">
+                    <input type="text" class="form-control required" placeholder="Plot No"id="plot_no" name="plot_no">
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label>Plot Area</label>
-                    <input type="text" class="form-control" placeholder="Plot Area" id="plot_area" name="plot_area">
+                    <input type="text" class="form-control required" placeholder="Plot Area" id="plot_area" name="plot_area">
                   </div>
                 </div>
               </div>

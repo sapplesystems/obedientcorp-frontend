@@ -18,7 +18,7 @@ $(document).ready(function () {
         });
     }
     $("#project_name").change(function () {
-        $(".sub_project_div").css('display', 'none');
+        $(".sub_project_div,.plot_name_div").css('display', 'none');
         var id = $(this).val();
         var sub_option = '<option value="">Select Sub Project</option>';
         $.each(sub_project_list, function (key, value) {
@@ -39,12 +39,13 @@ $(document).ready(function () {
     });
 
     $('#sub_projects').change(function () {
+        $('.plot_name_div').css('display', 'none');
         var id = $(this).val();
         getplotlist(id);
     })
 
     $('.payment_mode').click(function () {
-        if ($(this).val() == 'Cash') 
+        if ($(this).val() == 'Cash')
         {
             var append_div = '<label class="col-sm-2 col-form-label" >Invoice Number :</label>\n\
                                 <div class="col-sm-4 payment_number_div">\n\
@@ -55,10 +56,10 @@ $(document).ready(function () {
                             <input class="form-control" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
                             </div>';
 
-                $('.bank_name').css('display','none');
-            
+            $('.bank_name').css('display', 'none');
+
         }
-        else if($(this).val() == 'Cheque')
+        else if ($(this).val() == 'Cheque')
         {
             var append_div = '<label class="col-sm-2 col-form-label" >Cheque/UTR No :</label>\n\
                                 <div class="col-sm-4 payment_number_div">\n\
@@ -68,9 +69,9 @@ $(document).ready(function () {
                             <div class="col-sm-4">\n\
                             <input class="form-control" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name " >\n\
                             </div>';
-                            $('.bank_name').css('display','block');
+            $('.bank_name').css('display', 'block');
         }
-        else if($(this).val() == 'Online')
+        else if ($(this).val() == 'Online')
         {
             var append_div = '<label class="col-sm-2 col-form-label" >Online Transaction No :</label>\n\
                                 <div class="col-sm-4 payment_number_div">\n\
@@ -80,7 +81,7 @@ $(document).ready(function () {
                             <div class="col-sm-4">\n\
                             <input class="form-control" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
                             </div>';
-                            $('.bank_name').css('display','block');
+            $('.bank_name').css('display', 'block');
         }
 
         $('#payment_number_div').html(append_div);
@@ -91,8 +92,6 @@ $(document).ready(function () {
         var plotbooking_frm = $("#plotbooking_form");
         plotbooking_frm.validate({
             rules: {
-
-
             },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
@@ -116,16 +115,23 @@ $(document).ready(function () {
             params.append('received_booking_amount', $('#received_booking_amount').val());
             params.append('date_of_payment', $('#date_of_payment').val());
             params.append('installment', $('#installment').val());
-            var payment_mode = $('#payment_cash').val();
+            var payment_mode = '';
+            if ($('#payment_cash').is(':checked') == true) {
+                payment_mode = $('#payment_cash').val();
+            }
             if ($('#payment_cheque').is(':checked') == true) {
                 payment_mode = $('#payment_cheque').val();
             }
+            if ($('#payment_online').is(':checked') == true) {
+                payment_mode = $('#payment_online').val();
+            }
             params.append('payment_mode', payment_mode);
-            params.append('cheque_number', $('#cheque_no').val());
+            params.append('cheque_number', $('#payment_number').val());
             params.append('cheque_date', $('#dated').val());
             params.append('account_holder_name', $('#account_holder_name').val());
             params.append('bank_name', $('#bank_name').val());
-            params.append('created_by', 1);
+            params.append('created_by', user_id);
+            params.append('created_for', $('#created_for').val());
 
             var url = base_url + 'customer/new-booking';
 
@@ -142,8 +148,7 @@ $(document).ready(function () {
                         // getCustomersList();
                         document.getElementById('plotbooking_form').reset();
                         hideLoader();
-                        // $('#photo').attr('src', '');
-                        //$('#photo').css('display', 'none');
+                        window.location.href = 'manage-customer.php';
                     } else {
                         console.log(response.data);
                         hideLoader();
@@ -162,7 +167,7 @@ function getCustomersName(customer_id) {
     $.ajax({
         url: base_url + 'customer/detail',
         type: 'post',
-        data: { id: customer_id },
+        data: {id: customer_id},
         success: function (response) {
             if (response.status == "success") {
                 $('#customer_name').html(response.data.name);
@@ -210,7 +215,7 @@ function getplotlist(project_id) {
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: { project_master_id: project_id },
+        data: {project_master_id: project_id},
         success: function (response) {
             console.log(response);
             var option = '<option value="">Select plots</option>';
@@ -219,10 +224,11 @@ function getplotlist(project_id) {
                     //console.log(key, value)
                     option += '<option value="' + value.id + '">' + value.name + '</option>';
                 });
-
+                $('.plot_name_div').css('display', 'block');
                 $('#plot_name').html(option);
                 hideLoader();
             } else {
+                $('.plot_name_div').css('display', 'none');
                 console.log(response.data);
                 hideLoader();
             }

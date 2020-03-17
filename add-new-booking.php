@@ -1,8 +1,11 @@
 <?php
 include_once 'header.php';
 $customer_id = 0;
-if (isset($_REQUEST['customer_id'])) {
+if (!empty($_REQUEST['customer_id']) && !empty($_REQUEST['agent'])) {
     $customer_id = $_REQUEST['customer_id'];
+    $agent_id = $_REQUEST['agent'];
+} else {
+    echo '<script type="text/javascript">window.location.href="manage-customer.php";</script>';
 }
 ?>
 <style>
@@ -25,6 +28,7 @@ if (isset($_REQUEST['customer_id'])) {
                                 <label class="col-sm-2 col-form-label">Customers :</label>
                                 <div class="col-sm-4">
                                     <input type="hidden" name="customer_id" id="customer_id" value="<?php echo $customer_id; ?>" />
+                                    <input type="hidden" name="created_for" id="created_for" value="<?php echo $agent_id; ?>" />
                                     <span id="customer_name"></span>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Project Name :</label>
@@ -37,8 +41,8 @@ if (isset($_REQUEST['customer_id'])) {
                                 <div class="col-sm-4 sub_project_div" style="display:none;">
                                     <select class="form-control" id="sub_projects" name="sub_projects "></select>
                                 </div>
-                                <label class="col-sm-2 col-form-label">Plot Name :</label>
-                                <div class="col-sm-4">
+                                <label class="col-sm-2 col-form-label plot_name_div" style="display:none;">Plot Name :</label>
+                                <div class="col-sm-4 plot_name_div" style="display:none;">
                                     <select class="form-control" id="plot_name" name="plot_name"></select>
                                 </div>
                             </div>

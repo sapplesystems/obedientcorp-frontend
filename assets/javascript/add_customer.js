@@ -9,11 +9,11 @@ function getDownTheLineMembers(user_id) {
         data: {
             user_id: user_id
         },
-        success: function (response) {
+        success: function(response) {
             if (response.status == "success") {
                 var data = response.data;
                 var option = '<option value="">Select Agent</option>';
-                $.each(data, function (key, val) {
+                $.each(data, function(key, val) {
                     option += '<option value="' + val.id + '">' + val.username + ' - ' + val.associate_name + '</option>';
                 });
                 $('#agent_id,#agent_listing').html(option);
@@ -28,11 +28,11 @@ function getRelationship() {
         url: base_url + 'relationships',
         type: 'post',
         data: {},
-        success: function (response) {
+        success: function(response) {
             if (response.status == "success") {
                 var data = response.data;
                 var option = '<option value="">Select Relation</option>';
-                $.each(data, function (key, val) {
+                $.each(data, function(key, val) {
                     option += '<option value="' + val.name + '">' + val.name + '</option>';
                 });
                 $('#relationship').html(option);
@@ -45,9 +45,9 @@ function getRelationship() {
 
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $(document).on('change', '#agent_listing', function () {
+    $(document).on('change', '#agent_listing', function() {
         if ($(this).val()) {
             getCustomersList($(this).val());
         }
@@ -68,7 +68,7 @@ $(document).ready(function () {
             endDate: todays_date
         });
     }
-    $("#customer_add_form_submit").submit(function (e) {
+    $("#customer_add_form_submit").submit(function(e) {
         e.preventDefault();
         var customer_frm = $("#customer_add_form_submit");
         customer_frm.validate({
@@ -132,7 +132,7 @@ $(document).ready(function () {
                 data: params,
                 contentType: false,
                 processData: false,
-                success: function (response) {
+                success: function(response) {
                     if (response.status == "success") {
                         console.log(response.data);
                         $('#customer_id').val('');
@@ -149,9 +149,9 @@ $(document).ready(function () {
                 }
             });
         }
-    });//end form submit
+    }); //end form submit
 
-});//end document ready
+}); //end document ready
 
 function updateCustomerDetail(customer_id) {
     showLoader();
@@ -161,7 +161,7 @@ function updateCustomerDetail(customer_id) {
         data: {
             id: customer_id
         },
-        success: function (response) {
+        success: function(response) {
             if (response.status == "success") {
                 var data = response.data;
                 console.log(data);
@@ -245,7 +245,7 @@ function deleteCustomerList(e, customer_id) {
             id: customer_id,
             user_id: user_id
         },
-        success: function (response) {
+        success: function(response) {
             if (response.status == "success") {
                 $("#tr_" + customer_id).remove();
             }
@@ -263,12 +263,12 @@ function getCustomersList(user_id) {
         data: {
             user_id: user_id
         },
-        success: function (response) {
+        success: function(response) {
             console.log(response);
             var html = '';
             if (response.status == "success") {
                 var data = response.data;
-                $.each(data, function (key, val) {
+                $.each(data, function(key, val) {
                     photo_link = '';
                     if (val.photo) {
                         photo_link = 'http://localhost/obedientcorp/public/uploads/customers/' + val.photo;

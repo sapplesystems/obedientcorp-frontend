@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var sub_project_list = '';
     getProjectList();
     getplotlist();
-    $("#plot-form").submit(function (e) {
+    $("#plot-form").submit(function(e) {
         e.preventDefault();
         var plot_form = $("plot-form");
         plot_form.validate({
@@ -41,7 +41,7 @@ $(document).ready(function () {
                 data: params,
                 contentType: false,
                 processData: false,
-                success: function (response) {
+                success: function(response) {
                     error_html = '';
                     if (response.status == 'success') {
                         showSwal('success', 'Plot Added', 'Plot added successfully');
@@ -56,21 +56,21 @@ $(document).ready(function () {
                     $('#errors_div').html(error_html);
 
                 },
-                error: function (response) {
+                error: function(response) {
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;
                     var errors = error_object.errors;
-                    $.each(errors, function (key, value) {
+                    $.each(errors, function(key, value) {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
                     hideLoader();
                 }
-            });//ajax
-        }//end if
+            }); //ajax
+        } //end if
     });
-});//documents
+}); //documents
 
 //function for get project list
 function getProjectList() {
@@ -78,11 +78,11 @@ function getProjectList() {
         url: base_url + 'project/childern',
         type: 'post',
         data: {},
-        success: function (response) {
+        success: function(response) {
             sub_project_list = response.data;
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
-                $.each(response.data, function (key, value) {
+                $.each(response.data, function(key, value) {
                     if (value.parent_id == 0) {
                         option += '<option value="' + value.id + '">' + value.name + '</option>';
                     }
@@ -93,16 +93,16 @@ function getProjectList() {
             }
         }
     });
-}//end function project list
+} //end function project list
 //function for getsubproject 
-$("#projects").change(function () {
+$("#projects").change(function() {
     var id = $(this).val();
     var sub_option = '<option value="">Select Sub Project</option>';
-    $.each(sub_project_list, function (key, value) {
+    $.each(sub_project_list, function(key, value) {
         if (value.id == id) {
             if (value.children.length > 0) {
                 $("#sub_pro_div").css('display', 'block');
-                $.each(value.children, function (key1, subproject) {
+                $.each(value.children, function(key1, subproject) {
                     sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
                 });
             }
@@ -110,7 +110,7 @@ $("#projects").change(function () {
     });
     $('#sub_projects').html(sub_option)
 
-});//end function getsubproject
+}); //end function getsubproject
 
 //function for get all plot
 
@@ -122,8 +122,8 @@ function updatePlot(e, plot_id) {
     $.ajax({
         url: base_url + 'plots',
         type: 'post',
-        data: {id: plot_id},
-        success: function (response) {
+        data: { id: plot_id },
+        success: function(response) {
             if (response.status == "success") {
                 var data = response.data;
                 $("#sub_pro_div").css('display', 'none');
@@ -142,7 +142,7 @@ function updatePlot(e, plot_id) {
             }
         }
     });
-}//end function for update plot
+} //end function for update plot
 
 
 function getplotlist() {
@@ -151,7 +151,7 @@ function getplotlist() {
         url: base_url + 'plots',
         type: 'post',
         data: {},
-        success: function (response) {
+        success: function(response) {
             var html = ' <thead><tr>\n\
               <th> Sr No. </th>\n\
               <th> Project Name </th>\n\
@@ -166,12 +166,11 @@ function getplotlist() {
                 var i = 1;
                 var sub_project = '';
                 var project = '';
-                $.each(response.data, function (key, value) {
+                $.each(response.data, function(key, value) {
                     console.log(value);
                     if (value.project.id == value.sub_project.id) {
                         project = value.project.name;
-                    }
-                    else {
+                    } else {
                         project = value.project.name;
                         sub_project = value.sub_project.name;
                     }
@@ -227,7 +226,7 @@ function getplotlist() {
             }
         }
     });
-}//end function for get all plot listing
+} //end function for get all plot listing
 
 //function for delete plot
 function deletePlot(e, plot_id) {
@@ -238,8 +237,8 @@ function deletePlot(e, plot_id) {
         $.ajax({
             url: base_url + 'plot/delete',
             type: 'post',
-            data: {id: plot_id},
-            success: function (response) {
+            data: { id: plot_id },
+            success: function(response) {
                 if (response.status == "success") {
                     $("#tr_" + plot_id).remove();
                     hideLoader();
@@ -247,15 +246,15 @@ function deletePlot(e, plot_id) {
             }
         });
     }
-}//end function for plot
+} //end function for plot
 
 function updateAvailability(plot_id) {
     var availability = $("#availability_" + plot_id).val();
     $.ajax({
         url: base_url + 'plot/update',
         type: 'post',
-        data: {id: plot_id, availability: availability},
-        success: function (response) {
+        data: { id: plot_id, availability: availability },
+        success: function(response) {
             if (response.status == "success") {
                 var data = response.data;
                 getplotlist();
@@ -263,4 +262,3 @@ function updateAvailability(plot_id) {
         }
     });
 }
-

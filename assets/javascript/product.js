@@ -1,7 +1,7 @@
 getCategoryList();
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-$(document).ready(function() {
+$(document).ready(function () {
     $(":input").inputmask();
     if ($(".datepicker").length) {
         $('.datepicker').datepicker({
@@ -13,7 +13,7 @@ $(document).ready(function() {
         });
     }
 
-    $(document).on('change', '#categories', function() {
+    $(document).on('change', '#categories', function () {
         $('#subcategory_div').css('display', 'none');
         if ($(this).val()) {
             getSubCategoryList($(this).val());
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 
     //form submit
-    $("#create_product").submit(function(e) {
+    $("#create_product").submit(function (e) {
         e.preventDefault();
         var product_frm = $("#create_product");
         product_frm.validate({
@@ -36,6 +36,7 @@ $(document).ready(function() {
 
 
         if ($("#create_product").valid()) {
+            showLoader();
             var params = new FormData();
             var totalfiles = document.getElementById('files').files.length;
             var docfiles = document.getElementById('document').files.length;
@@ -68,14 +69,13 @@ $(document).ready(function() {
                 data: params,
                 contentType: false,
                 processData: false,
-                success: function(response) {
+                success: function (response) {
                     if (response.status == "success") {
                         console.log(response.data);
-
-                        //hideLoader();
+                        hideLoader();
                     } else {
                         console.log(response.data);
-                        //hideLoader();
+                        hideLoader();
                     }
                 }
             });
@@ -89,10 +89,10 @@ function getCategoryList() {
         url: base_url + 'categories',
         type: 'post',
         data: {},
-        success: function(response) {
+        success: function (response) {
             var option = '<option value="">Select Category</option>';
             if (response.status == "success") {
-                $.each(response.data, function(key, value) {
+                $.each(response.data, function (key, value) {
                     option += '<option value="' + value.id + '">' + value.name + '</option>';
                 });
 
@@ -108,13 +108,13 @@ function getSubCategoryList(category_id) {
         url: url,
         type: 'post',
         dataType: 'json',
-        data: { id: category_id },
-        success: function(response) {
+        data: {id: category_id},
+        success: function (response) {
             if (response.status == "success") {
                 if (response.data) {
                     var data = response.data;
                     var option = '<option value="">Select Subcategory</option>';
-                    $.each(data, function(key, value) {
+                    $.each(data, function (key, value) {
                         option += '<option value="' + value.id + '">' + value.name + '</option>';
 
                     });

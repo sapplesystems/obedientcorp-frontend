@@ -132,7 +132,6 @@ function get_customer_payament_details(customer_id, status) {
         customer_id: customer_id,
         status: status
     };
-    console.log(params);
     $("#customer_payment").html('');
     $.ajax({
         url: base_url + 'customer-payment-list',
@@ -159,9 +158,11 @@ function get_customer_payament_details(customer_id, status) {
                                         </tr>\n\
                                     </thead>';
                 var checkbox = '';
+               
                 $.each(response.data, function (key, value) {
                     checkbox = '';
                     var action_tr = '';
+                    //var sub_project ='<td></td>';
                     if (status == 'Due') {
                         if (value.payment_status == 'Due') {
                             checkbox = '<div class="form-check m-0">\n\
@@ -173,6 +174,8 @@ function get_customer_payament_details(customer_id, status) {
                     }
                     var dd = new Date(value.due_date);
                     var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+                    
+                    ///console.log(sub_project);
                     table_data += '<tbody>\n\
                                         <tr >\n\
                                         ' + action_tr + '\n\

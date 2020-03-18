@@ -34,6 +34,7 @@
                                         <th>Email</th>
                                         <th>Action</th>
                                     </tr>
+
                                 </thead>
                                 <tbody id="customers_list"></tbody>
                             </table>

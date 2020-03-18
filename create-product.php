@@ -42,7 +42,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Quantity</label>
-                                                <input type="text" class="form-control required" placeholder="Quantity" id="quantity" name="quantity">
+                                                <input type="text" class="form-control" placeholder="Quantity" id="quantity" name="quantity">
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -84,7 +84,7 @@
                                             <div class="form-group">
                                                 <label>Expiry Date</label>
                                                 <div id="datepicker-popup" class="input-group date datepicker">
-                                                    <input type="text" class="form-control required" placeholder="Expiry Date" id="expiry_date" name="expiry_date">
+                                                    <input type="text" class="form-control required" readonly placeholder="Expiry Date" id="expiry_date" name="expiry_date">
                                                     <span class="input-group-addon input-group-append border-left">
                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                     </span>
@@ -94,13 +94,13 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Image</label>
-                                                <div class="input-images-1"></div>
+                                                <div class="input-images-1" id="product_images"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Documents</label>
-                                                <div class="input-images-2"></div>
+                                                <div class="input-images-2" id="product_docs"></div>
                                             </div>
                                         </div>
                                         <!--<div class="col-sm-12">
@@ -156,6 +156,3 @@
     <?php include_once 'footer.php'; ?>
     <script src="assets/javascript/product.js"></script>
     <script src="assets/javascript/image-uploader.min.js"></script>
-    <script>
-        $('.input-images-1,.input-images-2').imageUploader();
-    </script>

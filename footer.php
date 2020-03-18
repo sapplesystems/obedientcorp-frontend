@@ -41,7 +41,6 @@
 
 <script src="assets/js/data-table.js"></script>
 <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
-<script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script type="text/javascript">
     var base_url = "<?php echo $base_url; ?>";

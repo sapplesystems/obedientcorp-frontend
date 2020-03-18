@@ -3,6 +3,9 @@ getProductList();
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 $(document).ready(function () {
+    $('#product_images').imageUploader();
+    $('#product_docs').imageUploader();
+
     $(":input").inputmask();
     if ($(".datepicker").length) {
         $('.datepicker').datepicker({
@@ -10,7 +13,7 @@ $(document).ready(function () {
             todayHighlight: true,
             format: 'dd-mm-yyyy',
             autoclose: true,
-            endDate: todays_date
+            //endDate: todays_date
         });
     }
 
@@ -38,8 +41,8 @@ $(document).ready(function () {
         if ($("#create_product").valid()) {
             showLoader();
             var params = new FormData();
-            var image_file = document.getElementsByClassName('input-images-1')[0];
-            var doc_file = document.getElementsByClassName('input-images-2')[0];
+            var image_file = document.getElementById('product_images');
+            var doc_file = document.getElementById('product_docs');
             var totalfiles = image_file.children[0].children[0].files.length;
             var docfiles = doc_file.children[0].children[0].files.length;
             for (var index = 0; index < totalfiles; index++) {
@@ -197,6 +200,36 @@ function editProduct(e, product_id) {
         success: function (response) {
             if (response.status == "success") {
                 var product = response.data;
+                var attachment = product.images;
+                var attachment_length = attachment.length;
+                var img = '';
+                var doc = '';
+                if (attachment_length) {
+                    var img_index = 0;
+                    var doc_index = 0;
+                    for (var i = 0; i < attachment_length; i++) {
+                        if (attachment[i].file_type == 'image') {
+                            img += '<div class="uploaded-image" id="attachment_' + attachment[i].id + '">\n\
+                                        <img src="' + media_url + 'product_images/' + attachment[i].file_name + '">\n\
+                                        <button class="delete-image" onclick="deleteProductAttachment(' + attachment[i].id + ');">\n\
+                                            <i class="mdi mdi-close-circle icon_cancel"></i>\n\
+                                        </button>\n\
+                                    </div>';
+                            img_index++;
+                            $('.input-images-1 .upload-text').css('display', 'none');
+                        }
+                        if (attachment[i].file_type == 'file') {
+                            doc += '<div class="uploaded-image" id="attachment_' + attachment[i].id + '">\n\
+                                        <img src="' + media_url + 'product_images/' + attachment[i].file_name + '">\n\
+                                        <button class="delete-image" onclick="deleteProductAttachment(' + attachment[i].id + ');">\n\
+                                            <i class="mdi mdi-close-circle icon_cancel"></i>\n\
+                                        </button>\n\
+                                    </div>';
+                            doc_index++;
+                            $('.input-images-2 .upload-text').css('display', 'none');
+                        }
+                    }
+                }
                 $('#product_id').val(product_id);
                 $('#category_id').val(product.category_id);
                 $('#title').val(product.name);
@@ -207,6 +240,26 @@ function editProduct(e, product_id) {
                 $('#expiry_date').val(product.expiry_date);
                 $('#description').val(product.description);
                 $('#updated_by').val(user_id);
+                $('.input-images-1 .uploaded').html(img);
+                $('.input-images-2 .uploaded').html(doc);
+                hideLoader();
+            } else {
+                hideLoader();
+            }
+        }
+    });
+}
+
+function deleteProductAttachment(attachment_id) {
+    showLoader();
+    var url = base_url + 'product/image/delete';
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {id: attachment_id},
+        success: function (response) {
+            if (response.status == "success") {
+                $('#attachment_' + attachment_id).remove();
                 hideLoader();
             } else {
                 hideLoader();

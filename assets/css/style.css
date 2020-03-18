@@ -30811,4 +30811,7 @@ CSS ANIMATION FOR TREE
     .payment-dialog label.text-right {
         text-align: left !important;
     }
+	
+	.brand-logo{text-align:center;}
+	.bgImageNone{background:none !important;}
 }

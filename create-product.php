@@ -1,4 +1,5 @@
 <?php include_once 'header.php'; ?>
+<link rel="stylesheet" href="assets/css/image-uploader.min.css">
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper ">
@@ -7,7 +8,7 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
-                            <h4 class="card-title mb-4 col-md-6">Create Product</h4>
+                            <h4 class="card-title mb-4 col-md-5">Create Product</h4>
                             <div class="col-md-3">
                                 <div class="form-group float-right">
                                     <label class="col-form-label float-left mr-3">Category</label>
@@ -17,7 +18,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3" id="subcategory_div" style="display:none">
+                            <div class="col-md-4" id="subcategory_div" style="display:none">
                                 <div class="form-group float-right">
                                     <label class="col-form-label float-left mr-3">Sub-Category</label>
                                     <div class="float-left">
@@ -28,7 +29,7 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <form class="forms-sample" id="create_product" name="create_product" method="post" action='' enctype="multipart/form-data">
+                        <form class="forms-sample" id="create_product" name="create_product" method="post" action="" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="row">
@@ -93,65 +94,16 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Image</label>
-                                                <div class="input-group">
-                                                    <input type="file" name="files[]" id="files" class="file-upload-default" multiple />
-                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File" id="image" name="image">
-                                                    <span class="input-group-append">
-                                                        <!--<button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>-->
-                                                        <input type="button" class="file-upload-browse btn btn-gradient-primary" id="submit" value='Upload'>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="image_uploaded">
-                                                <ul>
-                                                    <li><img src="assets/images/product_images_2/thumb_image1.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/product_images_2/thumb_image2.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/product_images_2/thumb_image3.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/product_images_2/thumb_image4.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/product_images_2/thumb_image5.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                </ul>
+                                                <div class="input-images-1"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Documents</label>
-                                                <div class="input-group">
-                                                    <input type="file" name="document[]" id="document" class="file-upload-default" multiple>
-                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose Document" id="documents" name="documents">
-                                                    <span class="input-group-append">
-                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                                                    </span>
-                                                </div>
+                                                <div class="input-images-2"></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12">
-                                            <div class="image_uploaded">
-                                                <ul>
-                                                    <li><img src="assets/images/samples/angular-4.png" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/samples/bootstrap-stack.png" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/samples/html5.png" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
+                                        <!--<div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Videos</label>
                                                 <div class="input-group">
@@ -162,25 +114,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="image_uploaded">
-                                                <ul>
-                                                    <li><img src="assets/images/samples/300x300/1.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/samples/300x300/2.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/samples/300x300/3.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                    <li><img src="assets/images/samples/300x300/4.jpg" />
-                                                        <i class="mdi mdi-close-circle icon_cancel"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -221,3 +155,7 @@
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
     <script src="assets/javascript/product.js"></script>
+    <script src="assets/javascript/image-uploader.min.js"></script>
+    <script>
+        $('.input-images-1,.input-images-2').imageUploader();
+    </script>

@@ -38,13 +38,15 @@ $(document).ready(function () {
         if ($("#create_product").valid()) {
             showLoader();
             var params = new FormData();
-            var totalfiles = document.getElementById('files').files.length;
-            var docfiles = document.getElementById('document').files.length;
+            var image_file = document.getElementsByClassName('input-images-1')[0];
+            var doc_file = document.getElementsByClassName('input-images-2')[0];
+            var totalfiles = image_file.children[0].children[0].files.length;
+            var docfiles = doc_file.children[0].children[0].files.length;
             for (var index = 0; index < totalfiles; index++) {
-                params.append("image[]", document.getElementById('files').files[index]);
+                params.append("image[]", image_file.children[0].children[0].files[index]);
             }
             for (var index = 0; index < docfiles; index++) {
-                params.append("document[]", document.getElementById('files').files[index]);
+                params.append("document[]", doc_file.children[0].children[0].files[index]);
             }
             var category_id = $('#categories').val();
             if ($('#subcategory').val()) {

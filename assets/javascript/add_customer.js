@@ -131,80 +131,15 @@ $(document).ready(function () {
 
     //onchange payment mode
     $('.payment_mode').click(function () {
-        if ($(this).val() == 'Cash') {
-            var append_div = '<label class="col-sm-2 col-form-label" >Invoice Number :</label>\n\
-                                <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter number.">\n\
-                                </div>\n\
-                             <label class="col-sm-2 col-form-label">Name :</label>\n\
-                            <div class="col-sm-4">\n\
-                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
-                            </div>';
-
-            $('.bank_name').css('display', 'none');
-            $('.account_label').css('display', 'none');
-            $('.ifsc_code_label').css('display', 'none');
-            $('.branch').css('display', 'none');
-
-        }
-        else if ($(this).val() == 'Cheque') {
-            var append_div = '<label class="col-sm-2 col-form-label" >Cheque/UTR No :</label>\n\
-                                <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
-                                </div>\n\
-                             <label class="col-sm-2 col-form-label">Account Holder Name :</label>\n\
-                            <div class="col-sm-4">\n\
-                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name " >\n\
-                            </div>';
-            $('.bank_name').css('display', 'block');
-            $('.account_label').css('display', 'block');
-            $('.ifsc_code_label').css('display', 'block');
-            $('.branch').css('display', 'block');
-        }
-        else if ($(this).val() == 'Online') {
-            var append_div = '<label class="col-sm-2 col-form-label" >Online Transaction No :</label>\n\
-                                <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter online transaction number.">\n\
-                                </div>\n\
-                             <label class="col-sm-2 col-form-label">Name :</label>\n\
-                            <div class="col-sm-4">\n\
-                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
-                            </div>';
-            $('.bank_name').css('display', 'none');
-            $('.account_label').css('display', 'block');
-            $('.ifsc_code_label').css('display', 'block');
-            $('.branch').css('display', 'none');
-        }
-
-        $('#payment_number_div').html(append_div);
+        payment_mode_change($(this).val());
     })//end payment mode change
 
+    
     $("#project_name").change(function () {
         
         var id = $(this).val();
         sub_project_listing(id);
     });
-
-    function sub_project_listing(id)
-    {
-        $(".sub_project_div,.plot_name_div").css('display', 'none');
-        var sub_option = '<option value="">Select Sub Project</option>';
-        $.each(sub_project_list, function (key, value) {
-            if (value.id == id) {
-                if (value.children.length > 0) {
-                    $(".sub_project_div").css('display', 'block');
-                    $.each(value.children, function (key1, subproject) {
-                        console.log(subproject);
-                        sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
-                    });
-                }
-                else {
-                    getplotlist(id);
-                }
-            }
-        });
-        $('#sub_projects').html(sub_option)
-    }
 
     $('#sub_projects').change(function () {
         $('.plot_name_div').css('display', 'none');
@@ -358,11 +293,11 @@ function updateCustomerDetail(customer_id) {
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
-                console.log(data);
                 var plot_details = response.data.PlotBooking;
-                console.log(plot_details);
+                //console.log(data);return false;
                 $('#customer_id').val(data.customer.id);
                 $('#agent_id').val(data.customer.user_id);
+                $('#agent_id').prop('disabled',true);
                 $('#customername').val(data.customer.name);
                 $('#fatherhusbandwife').val(data.customer.fathers_name);
                 var dob = data.customer.dob;
@@ -424,9 +359,11 @@ function updateCustomerDetail(customer_id) {
                 } else {
                     $('#payment_cash').prop('checked', true);
                 }
+                payment_mode_change(data.customer.payment_mode);
                 $('#payment_mode').val(data.customer.payment_mode);
                 $('.payment_mode').prop('disabled',true);
-                //$('#payment_number').val(data.customer.)
+                $('#payment_number').val(data.PaymentMaster.cheque_number)
+                $('#payment_number').prop('disabled',true);
                 $('#accountnumber').val(data.customer.account_number);
                 $('#accountnumber').prop('disabled',true);
                 $('#branch').val(data.customer.branch_name);
@@ -437,29 +374,50 @@ function updateCustomerDetail(customer_id) {
                 $('#account_holder_name').prop('disabled',true);
                 $('#bank_name').val(data.customer.bank_name);
                 $('#bank_name').prop('disabled',true);
+                var cdate = data.PaymentMaster.cheque_date;
+                var ndatetime = new Date(cdate);
+                var nday = ndatetime.getDate();
+                nday = (nday < 10) ? '0' + nday : nday;
+                var nmonth = ndatetime.getMonth() + 1;
+                nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
+                var nyear = ndatetime.getFullYear();
+                var cheque_date = nday + "-" + nmonth + "-" + nyear;
+                $('#dated').val(cheque_date);
+                $('#dated').prop('disabled',true);
 
                 //Plan Details
-                console.log(plot_details[0].registration_number);
-                $('#registration_num').val(plot_details[0].registration_number);
+                console.log(plot_details.registration_number);
+                $('#registration_num').val(plot_details.registration_number);
                 $('#registration_num').prop('disabled',true);
-                $('#project_name').val(plot_details[0].project_master_id);
+                $('#project_name').val(plot_details.project_master_id);
                 $('#project_name').prop('disabled',true);
-                getplotlist(plot_details[0].project_master_id);
-                setTimeout(function () { $('#plot_name').val(plot_details[0].plot_master_id); }, 2000);
+                if(plot_details.sub_project_id)
+                {
+                    sub_project_listing(plot_details.project_master_id);
+                    setTimeout(function () { $('#sub_projects').val(plot_details.sub_project_id); }, 2000);
+                    getplotlist(plot_details.sub_project_id);
+                    setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
+                    $('#sub_projects').prop('disabled',true);
+                }
+                else{
+                    getplotlist(plot_details.project_master_id);
+                    setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
+                }
+                
                 $('#plot_name').prop('disabled',true);
-                $('#plot_area').val(plot_details[0].plot_area);
+                $('#plot_area').val(plot_details.plot_area);
                 $('#plot_area').prop('disabled',true);
-                $('#reference').val(plot_details[0].reference);
+                $('#reference').val(plot_details.reference);
                 $('#reference').prop('disabled',true);
-                $('#unit_rate').val(plot_details[0].unit_rate);
+                $('#unit_rate').val(plot_details.unit_rate);
                 $('#unit_rate').prop('disabled',true);
-                $('#discount_rate').val(plot_details[0].discount_rate);
+                $('#discount_rate').val(plot_details.discount_rate);
                 $('#discount_rate').prop('disabled',true);
-                $('#total_amount').val(plot_details[0].total_amount);
+                $('#total_amount').val(plot_details.total_amount);
                 $('#total_amount').prop('disabled',true);
-                $('#received_booking_amount').val(plot_details[0].received_booking_amount);
+                $('#received_booking_amount').val(plot_details.received_booking_amount);
                 $('#received_booking_amount').prop('disabled',true);
-                var date_of_payment = plot_details[0].date_of_payment;
+                var date_of_payment = plot_details.date_of_payment;
                 var ndatetime = new Date(date_of_payment);
                 var nday = ndatetime.getDate();
                 nday = (nday < 10) ? '0' + nday : nday;
@@ -469,7 +427,7 @@ function updateCustomerDetail(customer_id) {
                 var plot_date_of_payment = nday + "-" + nmonth + "-" + nyear;
                 $('#date_of_payment').val(plot_date_of_payment);
                 $('#date_of_payment').prop('disabled',true);
-                $('#installment').val(plot_details[0].installment);
+                $('#installment').val(plot_details.installment);
                 $('#installment').prop('disabled',true);
                 hideLoader();
             }
@@ -496,6 +454,77 @@ function deleteCustomerList(e, customer_id) {
         }
     });
 }
+function payment_mode_change(value)
+    {
+        if (value == 'Cash') {
+            var append_div = '<label class="col-sm-2 col-form-label" >Invoice Number :</label>\n\
+                                <div class="col-sm-4 payment_number_div">\n\
+                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter number.">\n\
+                                </div>\n\
+                             <label class="col-sm-2 col-form-label">Name :</label>\n\
+                            <div class="col-sm-4">\n\
+                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
+                            </div>';
+
+            $('.bank_name').css('display', 'none');
+            $('.account_label').css('display', 'none');
+            $('.ifsc_code_label').css('display', 'none');
+            $('.branch').css('display', 'none');
+
+        }
+        else if (value == 'Cheque') {
+            var append_div = '<label class="col-sm-2 col-form-label" >Cheque/UTR No :</label>\n\
+                                <div class="col-sm-4 payment_number_div">\n\
+                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                                </div>\n\
+                             <label class="col-sm-2 col-form-label">Account Holder Name :</label>\n\
+                            <div class="col-sm-4">\n\
+                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name " >\n\
+                            </div>';
+            $('.bank_name').css('display', 'block');
+            $('.account_label').css('display', 'block');
+            $('.ifsc_code_label').css('display', 'block');
+            $('.branch').css('display', 'block');
+        }
+        else if (value == 'Online') {
+            var append_div = '<label class="col-sm-2 col-form-label" >Online Transaction No :</label>\n\
+                                <div class="col-sm-4 payment_number_div">\n\
+                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter online transaction number.">\n\
+                                </div>\n\
+                             <label class="col-sm-2 col-form-label">Name :</label>\n\
+                            <div class="col-sm-4">\n\
+                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
+                            </div>';
+            $('.bank_name').css('display', 'none');
+            $('.account_label').css('display', 'block');
+            $('.ifsc_code_label').css('display', 'block');
+            $('.branch').css('display', 'none');
+        }
+
+        $('#payment_number_div').html(append_div);
+    }
+
+//sub listing
+    function sub_project_listing(id)
+    {
+        $(".sub_project_div,.plot_name_div").css('display', 'none');
+        var sub_option = '<option value="">Select Sub Project</option>';
+        $.each(sub_project_list, function (key, value) {
+            if (value.id == id) {
+                if (value.children.length > 0) {
+                    $(".sub_project_div").css('display', 'block');
+                    $.each(value.children, function (key1, subproject) {
+                        console.log(subproject);
+                        sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
+                    });
+                }
+                else {
+                    getplotlist(id);
+                }
+            }
+        });
+        $('#sub_projects').html(sub_option)
+    }
 
 //cutomer list
 function getCustomersList(user_id) {

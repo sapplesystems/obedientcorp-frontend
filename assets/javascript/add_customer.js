@@ -559,7 +559,8 @@ function getCustomersList(user_id) {
                               </tr>';
                 });
 
-                $('#customers_list').html(html)
+                $('#customers_list').html(html);
+                initDataTable();
                 hideLoader();
             } else {
                 console.log(response.data);

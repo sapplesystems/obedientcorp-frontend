@@ -164,6 +164,7 @@ function getProductList() {
                                     </tr>';
                     });
                     $('#product_list').html(tbody);
+                    initDataTable();
                 }
 
             }

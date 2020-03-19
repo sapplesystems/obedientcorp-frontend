@@ -105,6 +105,7 @@ function getProjectList() {
                     }
                 });
                 $('#projects').html(option);
+                initDataTable();
                 hideLoader();
             }
         }

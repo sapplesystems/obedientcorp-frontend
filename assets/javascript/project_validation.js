@@ -112,6 +112,7 @@ function getProjectList() {
                 });
 
                 $('#project_list').html(html);
+                initDataTable();
                 hideLoader();
             }
         }

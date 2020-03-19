@@ -219,6 +219,7 @@ function getplotlist() {
 
                 });
                 $('#plot_list').html(html);
+                initDataTable();
                 hideLoader();
             }
         }

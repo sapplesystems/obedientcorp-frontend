@@ -128,7 +128,7 @@ function getSubCategoryList(category_id) {
 
                 });
                 $('#sub_category_list').html(tr_html);
-
+                initDataTable();
 
             }
 

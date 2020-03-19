@@ -84,6 +84,7 @@ function getCategoryList() {
                                 x++;
                 });
                 $('#category_list').html(tr_html);
+                initDataTable();
 
             }
 

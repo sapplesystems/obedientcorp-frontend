@@ -16,8 +16,9 @@
 <script src="assets/vendors/js/vendor.bundle.base.js "></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
-<script src="assets/vendors/datatables.net/jquery.dataTables.js"></script>
-<script src="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<!--script src="assets/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script-->
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <!-- Plugin js for this page -->
 <script src="assets/vendors/chart.js/Chart.min.js "></script>
 <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js "></script>
@@ -39,7 +40,7 @@
 <!-- End custom js for this page -->
 <!-- Custom js for this page -->
 
-<script src="assets/js/data-table.js"></script>
+<!--script src="assets/js/data-table.js"></script-->
 <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script type="text/javascript">
@@ -113,7 +114,20 @@
     function hideLoader() {
         $('#loader_bg').css('display', 'none');
     }
-    
+
+    function initDataTable(){
+        $('#order-listing').DataTable({
+            "aLengthMenu": [
+                [5, 10, 15, -1],
+                [5, 10, 15, "All"]
+            ],
+            "iDisplayLength": 10,
+            "language": {
+                search: ""
+            }
+        });
+    }
+
     hideLoader();
 </script>
 </body>

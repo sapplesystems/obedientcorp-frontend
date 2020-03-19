@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var sub_project_list = '';
     getProjectList();
     getplotlist();
-    $("#plot-form").submit(function(e) {
+    $("#plot-form").submit(function (e) {
         e.preventDefault();
         var plot_form = $("plot-form");
         plot_form.validate({
@@ -41,7 +41,7 @@ $(document).ready(function() {
                 data: params,
                 contentType: false,
                 processData: false,
-                success: function(response) {
+                success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
                         showSwal('success', 'Plot Added', 'Plot added successfully');
@@ -56,12 +56,12 @@ $(document).ready(function() {
                     $('#errors_div').html(error_html);
 
                 },
-                error: function(response) {
+                error: function (response) {
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;
                     var errors = error_object.errors;
-                    $.each(errors, function(key, value) {
+                    $.each(errors, function (key, value) {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
@@ -78,11 +78,11 @@ function getProjectList() {
         url: base_url + 'project/childern',
         type: 'post',
         data: {},
-        success: function(response) {
+        success: function (response) {
             sub_project_list = response.data;
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
-                $.each(response.data, function(key, value) {
+                $.each(response.data, function (key, value) {
                     if (value.parent_id == 0) {
                         option += '<option value="' + value.id + '">' + value.name + '</option>';
                     }
@@ -95,14 +95,14 @@ function getProjectList() {
     });
 } //end function project list
 //function for getsubproject 
-$("#projects").change(function() {
+$("#projects").change(function () {
     var id = $(this).val();
     var sub_option = '<option value="">Select Sub Project</option>';
-    $.each(sub_project_list, function(key, value) {
+    $.each(sub_project_list, function (key, value) {
         if (value.id == id) {
             if (value.children.length > 0) {
                 $("#sub_pro_div").css('display', 'block');
-                $.each(value.children, function(key1, subproject) {
+                $.each(value.children, function (key1, subproject) {
                     sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
                 });
             }
@@ -122,8 +122,8 @@ function updatePlot(e, plot_id) {
     $.ajax({
         url: base_url + 'plots',
         type: 'post',
-        data: { id: plot_id },
-        success: function(response) {
+        data: {id: plot_id},
+        success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
                 $("#sub_pro_div").css('display', 'none');
@@ -151,28 +151,20 @@ function getplotlist() {
         url: base_url + 'plots',
         type: 'post',
         data: {},
-        success: function(response) {
-            var html = ' <thead><tr>\n\
-              <th> Sr No. </th>\n\
-              <th> Project Name </th>\n\
-              <th> Sub Project Name </th>\n\
-              <th> Plot No. </th>\n\
-              <th> Plot Area </th>\n\
-              <th> Availability </th>\n\
-              <th> Action </th>\n\
-            </tr>\n\
-          </thead>';
+        success: function (response) {
+            var html = '';
             if (response.status == "success") {
                 var i = 1;
                 var sub_project = '';
                 var project = '';
-                $.each(response.data, function(key, value) {
-                    console.log(value);
-                    if (value.project.id == value.sub_project.id) {
+                var x = 1;
+                $.each(response.data, function (key, value) {
+                    if (value.project && value.project.id) {
                         project = value.project.name;
-                    } else {
+                    }
+                    if (value.subProject && value.subProject.id) {
                         project = value.project.name;
-                        sub_project = value.sub_project.name;
+                        sub_project = value.subProject.name;
                     }
                     var Free_Selected = '';
                     var Booked_Selected = '';
@@ -194,9 +186,12 @@ function getplotlist() {
                     if (value.availability == 'Hold') {
                         Hold_Selected = 'selected';
                     }
-                    html += '<tbody>\n\
-                                <tr id="tr_' + value.id + '">\n\
-                                <td>' + i + '</td>\n\
+                    var class_name = 'odd';
+                    if (x % 2 == 0) {
+                        class_name = 'even';
+                    }
+                    html += '<tr id="tr_' + value.id + '" role="row" class="' + class_name + '">\n\
+                                <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + project + '</td>\n\
                                 <td>' + sub_project + '</td>\n\
                                 <td>' + value.name + '</td>\n\
@@ -217,11 +212,11 @@ function getplotlist() {
                                     </div>\n\
                                      </td>\n\
                                 <td><a href="javascript:void(0);" onclick="updatePlot(event, ' + value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deletePlot(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
-                            </tr></tbody>';
+                            </tr>';
                     i = i + 1;
 
                 });
-                $('.plot_list').html(html);
+                $('#plot_list').html(html);
                 hideLoader();
             }
         }
@@ -237,8 +232,8 @@ function deletePlot(e, plot_id) {
         $.ajax({
             url: base_url + 'plot/delete',
             type: 'post',
-            data: { id: plot_id },
-            success: function(response) {
+            data: {id: plot_id},
+            success: function (response) {
                 if (response.status == "success") {
                     $("#tr_" + plot_id).remove();
                     hideLoader();
@@ -253,8 +248,8 @@ function updateAvailability(plot_id) {
     $.ajax({
         url: base_url + 'plot/update',
         type: 'post',
-        data: { id: plot_id, availability: availability },
-        success: function(response) {
+        data: {id: plot_id, availability: availability},
+        success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
                 getplotlist();

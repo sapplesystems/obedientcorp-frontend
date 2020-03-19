@@ -22,14 +22,14 @@
                   <div class="form-group">
                     <label>Sub Project Name</label>
                     <select class="form-control required" id="sub_projects" name="sub_projects">
-                      
+
                     </select>
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label>Plot No.</label>
-                    <input type="text" class="form-control required" placeholder="Plot No"id="plot_no" name="plot_no">
+                    <input type="text" class="form-control required" placeholder="Plot No" id="plot_no" name="plot_no">
                   </div>
                 </div>
                 <div class="col-sm-3">
@@ -57,6 +57,18 @@
             <h4 class="card-title mb-4">Edit/View Plot</h4>
             <div class="overflowAuto">
               <table class="table table-bordered custom_action plot_list" id="order-listing">
+                <thead>
+                  <tr>
+                    <th> Sr No. </th>
+                    <th> Project Name </th>
+                    <th> Sub Project Name </th>
+                    <th> Plot No. </th>
+                    <th> Plot Area </th>
+                    <th> Availability </th>
+                    <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody id="plot_list"></tbody>
 
               </table>
             </div>

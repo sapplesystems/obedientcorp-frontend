@@ -17,7 +17,7 @@
                 <label class="col-sm-2 col-form-label">Project Image</label>
                 <div class="input-group col-sm-4">
                   <input type="file" name="photo" class="file-upload-default" id="photo">
-                  <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
+                  <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">
                   <span class="input-group-append">
                     <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                   </span>
@@ -28,7 +28,7 @@
                 <label class="col-sm-2 col-form-label">Project Map</label>
                 <div class="input-group col-sm-4">
                   <input type="file" name="mapphoto" class="file-upload-default" id="mapphoto">
-                  <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
+                  <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">
                   <span class="input-group-append">
                     <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                   </span>
@@ -69,7 +69,17 @@
           <div class="card-body p-3">
             <h4 class="card-title mb-4">Edit/View Project</h4>
             <div class="overflowAuto">
-              <table class="table table-bordered custom_action project_list" id="order-listing">
+              <table class="table table-bordered custom_action " id="order-listing">
+              <thead><tr>
+                    <th width="10%">Sr No.</th>
+                    <th width="20%">Project Name</th>
+                    <th width="10%">Unit Price</th>
+                    <th width="10%">Area</th>
+                    <th width="30%">Desc</th>
+                    <th width="10%">Action</th>
+                    </tr></thead>
+                <tbody id="project_list">
+                </tbody>
               </table>
             </div>
           </div>

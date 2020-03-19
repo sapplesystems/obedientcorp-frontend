@@ -36,6 +36,7 @@ function get_payment_details() {
                                 </tr>\n\
                                 </thead>';
                 $.each(response.data.detail, function (key, value) {
+                    console.log(value);
                     var dd = new Date(value.emi_due_date);
                     var emi_date = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
                     emi_list += '<tbody>\n\
@@ -54,6 +55,21 @@ function get_payment_details() {
                 if (response.data.payment.payment_mode)
                 {
                     payment_mode = response.data.payment.payment_mode;
+                    if(payment_mode == 'Cash')
+                    {
+                        $(".bank-name").css('display','none');
+                        $('.cheque-number').html('Invoice Number:');
+                    }
+                    else if(payment_mode == 'Cheque')
+                    {
+                        $(".bank-name").css('display','block');
+                        $('.cheque-number').html('Cheque Number:');
+                    }
+                    else if(payment_mode == 'Online')
+                    {
+                        //$(".bank-name").css('display','block');
+                        $('.cheque-number').html('Online Transaction Number:');
+                    }
 
                 }
                 if (response.data.payment.cheque_number)

@@ -39,7 +39,7 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['uid'])) {
 										</div>
 										<div class="col-md-6">
 											<div class="form-group row mb-0">
-												<label class="col-form-label col-sm-4 text-right">Cheque Number:</label>
+												<label class="col-form-label col-sm-4 text-right cheque-number">Cheque Number:</label>
 												<div class="col-sm-8">
 													<label class="col-form-label card-description mb-0" id="cheque_number"></label>
 												</div>
@@ -47,9 +47,9 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['uid'])) {
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group row mb-0">
-												<label class="col-form-label col-sm-4 text-right">Bank Name:</label>
+										<div class="col-md-6 bank-name">
+											<div class="form-group row mb-0 ">
+												<label class="col-form-label col-sm-4 text-right ">Bank Name:</label>
 												<div class="col-sm-8">
 													<label class="col-form-label card-description mb-0" id="bank_name">Lorem Ipsum 3:</label>
 												</div>

@@ -74,12 +74,12 @@ function getProjectList() {
 
 //function for get plot list
 
-function getplotlist(project_id) {
+function getplotlist(project_id, sub_project_id) {
     showLoader();
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: { project_master_id: project_id },
+        data: { project_master_id: project_id, sub_project_id: sub_project_id },
         success: function (response) {
             console.log(response);
             var option = '<option value="">Select plots</option>';
@@ -125,7 +125,7 @@ $(document).ready(function () {
             todayHighlight: true,
             format: 'dd-mm-yyyy',
             autoclose: true,
-            endDate: todays_date
+            //endDate: todays_date
         });
     }
 
@@ -134,17 +134,18 @@ $(document).ready(function () {
         payment_mode_change($(this).val());
     })//end payment mode change
 
-    
+
     $("#project_name").change(function () {
-        
+
         var id = $(this).val();
         sub_project_listing(id);
     });
 
     $('#sub_projects').change(function () {
         $('.plot_name_div').css('display', 'none');
-        var id = $(this).val();
-        getplotlist(id);
+        var sub_project_id = $(this).val();
+        var project_id = $('#project_name').val();
+        getplotlist(project_id, sub_project_id);
     })
     $("#customer_add_form_submit").submit(function (e) {
         e.preventDefault();
@@ -191,8 +192,7 @@ $(document).ready(function () {
             params.append('registration_number', $('#registration_num').val());
             params.append('project_master_id', $('#project_name').val());
             var sub_project = 0;
-            if($('#sub_projects').val())
-            {
+            if ($('#sub_projects').val()) {
                 sub_project = $('#sub_projects').val();
             }
             params.append('sub_project_id', sub_project);
@@ -284,156 +284,161 @@ $(document).ready(function () {
 
 function updateCustomerDetail(customer_id) {
     showLoader();
-    $.ajax({
-        url: base_url + 'customer/detail',
-        type: 'post',
-        data: {
-            id: customer_id
-        },
-        success: function (response) {
-            if (response.status == "success") {
-                var data = response.data;
-                var plot_details = response.data.PlotBooking;
-                //console.log(data);return false;
-                $('#customer_id').val(data.customer.id);
-                $('#agent_id').val(data.customer.user_id);
-                $('#agent_id').prop('disabled',true);
-                $('#customername').val(data.customer.name);
-                $('#fatherhusbandwife').val(data.customer.fathers_name);
-                var dob = data.customer.dob;
-                var datetime = new Date(dob);
-                var day = datetime.getDate();
-                day = (day < 10) ? '0' + day : day;
-                var month = datetime.getMonth() + 1;
-                month = (month < 10) ? '0' + month : month
-                var year = datetime.getFullYear();
-                var formatted_date = day + "-" + month + "-" + year;
-                $('#dateofbirth').val(formatted_date);
-                $('#age').val(data.customer.age);
-                if (data.customer.sex == 'Male') {
-                    $('#customer_male').prop('checked', true);
-                } else if (data.customer.sex == 'Female') {
-                    $('#customer_female').prop('checked', true);
-                }
+    getProjectList();
+    setTimeout(function () {
+        $.ajax({
+            url: base_url + 'customer/detail',
+            type: 'post',
+            data: {
+                id: customer_id
+            },
+            success: function (response) {
+                if (response.status == "success") {
+                    var data = response.data;
+                    var plot_details = response.data.PlotBooking;
+                    //console.log(data);return false;
+                    $('#customer_id').val(data.customer.id);
+                    $('#agent_id').val(data.customer.user_id);
+                    $('#agent_id').prop('disabled', true);
+                    $('#customername').val(data.customer.name);
+                    $('#fatherhusbandwife').val(data.customer.fathers_name);
+                    var dob = data.customer.dob;
+                    var datetime = new Date(dob);
+                    var day = datetime.getDate();
+                    day = (day < 10) ? '0' + day : day;
+                    var month = datetime.getMonth() + 1;
+                    month = (month < 10) ? '0' + month : month
+                    var year = datetime.getFullYear();
+                    var formatted_date = day + "-" + month + "-" + year;
+                    $('#dateofbirth').val(formatted_date);
+                    $('#age').val(data.customer.age);
+                    if (data.customer.sex == 'Male') {
+                        $('#customer_male').prop('checked', true);
+                    } else if (data.customer.sex == 'Female') {
+                        $('#customer_female').prop('checked', true);
+                    }
 
-                $('#nationality').val(data.customer.nationality);
-                $('#mobile').val(data.customer.mobile);
-                $('#email').val(data.customer.email);
-                if (data.customer.photo) {
-                    var photo_src = media_url + 'customers/' + data.customer.photo;
-                    $('#upload_photo').attr('src', photo_src);
-                    $('#upload_photo').css('display', 'block');
-                }
-                $('#customer_address').val(data.customer.address);
-                //nominee details
-                $('#nomineesname').val(data.customer.nominee_name);
-                //$('#nomineesname').prop('disabled',true);
-                $('#ageN').val(data.customer.nominee_age);
-               // $('#ageN').prop('disabled',true);
-                var ndob = data.customer.nominee_dob;
-                var ndatetime = new Date(ndob);
-                var nday = ndatetime.getDate();
-                nday = (nday < 10) ? '0' + nday : nday;
-                var nmonth = ndatetime.getMonth() + 1;
-                nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
-                var nyear = ndatetime.getFullYear();
-                var ndate = nday + "-" + nmonth + "-" + nyear;
-                $('#date_of_birth_nominee').val(ndate);
-                //$('#date_of_birth_nominee').prop('disabled',true);
-                $('#relationship').val(data.customer.nominee_relation);
-                //$('#relationship').prop('disabled',true);
-                if (data.customer.nominee_sex == 'Male') {
-                    $('#nominee_male').prop('checked', true);
-                } else {
-                    $('#nominee_female').prop('checked', true);
+                    $('#nationality').val(data.customer.nationality);
+                    $('#mobile').val(data.customer.mobile);
+                    $('#email').val(data.customer.email);
+                    if (data.customer.photo) {
+                        var photo_src = media_url + 'customers/' + data.customer.photo;
+                        $('#upload_photo').attr('src', photo_src);
+                        $('#upload_photo').css('display', 'block');
+                    }
+                    $('#customer_address').val(data.customer.address);
+                    //nominee details
+                    $('#nomineesname').val(data.customer.nominee_name);
+                    //$('#nomineesname').prop('disabled',true);
+                    $('#ageN').val(data.customer.nominee_age);
+                    // $('#ageN').prop('disabled',true);
+                    var ndob = data.customer.nominee_dob;
+                    var ndatetime = new Date(ndob);
+                    var nday = ndatetime.getDate();
+                    nday = (nday < 10) ? '0' + nday : nday;
+                    var nmonth = ndatetime.getMonth() + 1;
+                    nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
+                    var nyear = ndatetime.getFullYear();
+                    var ndate = nday + "-" + nmonth + "-" + nyear;
+                    $('#date_of_birth_nominee').val(ndate);
+                    //$('#date_of_birth_nominee').prop('disabled',true);
+                    $('#relationship').val(data.customer.nominee_relation);
+                    //$('#relationship').prop('disabled',true);
+                    if (data.customer.nominee_sex == 'Male') {
+                        $('#nominee_male').prop('checked', true);
+                    } else {
+                        $('#nominee_female').prop('checked', true);
 
-                }
-                //$('#nominee_sex').val(data.customer.nominee_sex);
-                //$('#nominee_sex').prop('disabled',true);
-                $('#addressnominee').val(data.customer.nominee_address);
-                //$('#addressnominee').prop('disabled',true);
-                if (data.customer.payment_mode == 'Online') {
-                    $('#payment_online').prop('checked', true);
-                } else if (data.customer.payment_mode == 'Cheque') {
-                    $('#payment_cheque').prop('checked', true);
-                } else {
-                    $('#payment_cash').prop('checked', true);
-                }
-                payment_mode_change(data.customer.payment_mode);
-                $('#payment_mode').val(data.customer.payment_mode);
-                $('.payment_mode').prop('disabled',true);
-                $('#payment_number').val(data.PaymentMaster.cheque_number)
-                $('#payment_number').prop('disabled',true);
-                $('#accountnumber').val(data.customer.account_number);
-                $('#accountnumber').prop('disabled',true);
-                $('#branch').val(data.customer.branch_name);
-                $('#branch').prop('disabled',true);
-                $('#ifsc_code').val(data.customer.ifsc_code);
-                $('#ifsc_code').prop('disabled',true);
-                $('#account_holder_name').val(data.customer.account_holder_name);
-                $('#account_holder_name').prop('disabled',true);
-                $('#bank_name').val(data.customer.bank_name);
-                $('#bank_name').prop('disabled',true);
-                var cdate = data.PaymentMaster.cheque_date;
-                var ndatetime = new Date(cdate);
-                var nday = ndatetime.getDate();
-                nday = (nday < 10) ? '0' + nday : nday;
-                var nmonth = ndatetime.getMonth() + 1;
-                nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
-                var nyear = ndatetime.getFullYear();
-                var cheque_date = nday + "-" + nmonth + "-" + nyear;
-                $('#dated').val(cheque_date);
-                $('#dated').prop('disabled',true);
+                    }
+                    //$('#nominee_sex').val(data.customer.nominee_sex);
+                    //$('#nominee_sex').prop('disabled',true);
+                    $('#addressnominee').val(data.customer.nominee_address);
+                    //$('#addressnominee').prop('disabled',true);
+                    if (data.customer.payment_mode == 'Online') {
+                        $('#payment_online').prop('checked', true);
+                    } else if (data.customer.payment_mode == 'Cheque') {
+                        $('#payment_cheque').prop('checked', true);
+                    } else {
+                        $('#payment_cash').prop('checked', true);
+                    }
+                    payment_mode_change(data.customer.payment_mode);
+                    $('#payment_mode').val(data.customer.payment_mode);
+                    $('.payment_mode').prop('disabled', true);
+                    $('#payment_number').val(data.PaymentMaster.cheque_number)
+                    $('#payment_number').prop('disabled', true);
+                    $('#accountnumber').val(data.customer.account_number);
+                    $('#accountnumber').prop('disabled', true);
+                    $('#branch').val(data.customer.branch_name);
+                    $('#branch').prop('disabled', true);
+                    $('#ifsc_code').val(data.customer.ifsc_code);
+                    $('#ifsc_code').prop('disabled', true);
+                    $('#account_holder_name').val(data.customer.account_holder_name);
+                    $('#account_holder_name').prop('disabled', true);
+                    $('#bank_name').val(data.customer.bank_name);
+                    $('#bank_name').prop('disabled', true);
+                    var cdate = data.PaymentMaster.cheque_date;
+                    var ndatetime = new Date(cdate);
+                    var nday = ndatetime.getDate();
+                    nday = (nday < 10) ? '0' + nday : nday;
+                    var nmonth = ndatetime.getMonth() + 1;
+                    nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
+                    var nyear = ndatetime.getFullYear();
+                    var cheque_date = nday + "-" + nmonth + "-" + nyear;
+                    $('#dated').val(cheque_date);
+                    $('#dated').prop('disabled', true);
 
-                //Plan Details
-                console.log(plot_details.registration_number);
-                $('#registration_num').val(plot_details.registration_number);
-                $('#registration_num').prop('disabled',true);
-                $('#project_name').val(plot_details.project_master_id);
-                $('#project_name').prop('disabled',true);
-                if(plot_details.sub_project_id)
-                {
-                    sub_project_listing(plot_details.project_master_id);
-                    setTimeout(function () { $('#sub_projects').val(plot_details.sub_project_id); }, 2000);
-                    getplotlist(plot_details.sub_project_id);
-                    setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
-                    $('#sub_projects').prop('disabled',true);
+                    //Plan Details
+                    console.log(plot_details.registration_number);
+                    $('#registration_num').val(plot_details.registration_number);
+                    $('#registration_num').prop('disabled', true);
+                    $('#project_name').val(plot_details.project_master_id);
+                    $('#project_name').prop('disabled', true);
+                    console.log('here  --'  + plot_details.plot_master_id);
+                    if (plot_details.sub_project_id) {
+
+                        sub_project_listing(plot_details.project_master_id);
+                        setTimeout(function () { $('#sub_projects').val(plot_details.sub_project_id); }, 2000);
+                        getplotlist(plot_details.project_master_id, plot_details.sub_project_id);
+                        setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
+                        $('#sub_projects').prop('disabled', true);
+                    }
+                    else {
+                        var sub_id = 0;
+                        getplotlist(plot_details.project_master_id, sub_id);
+                        setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
+                    }
+
+                    $('#plot_name').prop('disabled', true);
+                    $('#plot_area').val(plot_details.plot_area);
+                    $('#plot_area').prop('disabled', true);
+                    $('#reference').val(plot_details.reference);
+                    $('#reference').prop('disabled', true);
+                    $('#unit_rate').val(plot_details.unit_rate);
+                    $('#unit_rate').prop('disabled', true);
+                    $('#discount_rate').val(plot_details.discount_rate);
+                    $('#discount_rate').prop('disabled', true);
+                    $('#total_amount').val(plot_details.total_amount);
+                    $('#total_amount').prop('disabled', true);
+                    $('#received_booking_amount').val(plot_details.received_booking_amount);
+                    $('#received_booking_amount').prop('disabled', true);
+                    var date_of_payment = plot_details.date_of_payment;
+                    var ndatetime = new Date(date_of_payment);
+                    var nday = ndatetime.getDate();
+                    nday = (nday < 10) ? '0' + nday : nday;
+                    var nmonth = ndatetime.getMonth() + 1;
+                    nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
+                    var nyear = ndatetime.getFullYear();
+                    var plot_date_of_payment = nday + "-" + nmonth + "-" + nyear;
+                    $('#date_of_payment').val(plot_date_of_payment);
+                    $('#date_of_payment').prop('disabled', true);
+                    $('#installment').val(plot_details.installment);
+                    $('#installment').prop('disabled', true);
+                    hideLoader();
                 }
-                else{
-                    getplotlist(plot_details.project_master_id);
-                    setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
-                }
-                
-                $('#plot_name').prop('disabled',true);
-                $('#plot_area').val(plot_details.plot_area);
-                $('#plot_area').prop('disabled',true);
-                $('#reference').val(plot_details.reference);
-                $('#reference').prop('disabled',true);
-                $('#unit_rate').val(plot_details.unit_rate);
-                $('#unit_rate').prop('disabled',true);
-                $('#discount_rate').val(plot_details.discount_rate);
-                $('#discount_rate').prop('disabled',true);
-                $('#total_amount').val(plot_details.total_amount);
-                $('#total_amount').prop('disabled',true);
-                $('#received_booking_amount').val(plot_details.received_booking_amount);
-                $('#received_booking_amount').prop('disabled',true);
-                var date_of_payment = plot_details.date_of_payment;
-                var ndatetime = new Date(date_of_payment);
-                var nday = ndatetime.getDate();
-                nday = (nday < 10) ? '0' + nday : nday;
-                var nmonth = ndatetime.getMonth() + 1;
-                nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
-                var nyear = ndatetime.getFullYear();
-                var plot_date_of_payment = nday + "-" + nmonth + "-" + nyear;
-                $('#date_of_payment').val(plot_date_of_payment);
-                $('#date_of_payment').prop('disabled',true);
-                $('#installment').val(plot_details.installment);
-                $('#installment').prop('disabled',true);
                 hideLoader();
             }
-            hideLoader();
-        }
-    });
+        });
+    }, 1000);
 }
 
 function deleteCustomerList(e, customer_id) {
@@ -454,10 +459,9 @@ function deleteCustomerList(e, customer_id) {
         }
     });
 }
-function payment_mode_change(value)
-    {
-        if (value == 'Cash') {
-            var append_div = '<label class="col-sm-2 col-form-label" >Invoice Number :</label>\n\
+function payment_mode_change(value) {
+    if (value == 'Cash') {
+        var append_div = '<label class="col-sm-2 col-form-label" >Invoice Number :</label>\n\
                                 <div class="col-sm-4 payment_number_div">\n\
                                 <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter number.">\n\
                                 </div>\n\
@@ -466,14 +470,14 @@ function payment_mode_change(value)
                             <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
                             </div>';
 
-            $('.bank_name').css('display', 'none');
-            $('.account_label').css('display', 'none');
-            $('.ifsc_code_label').css('display', 'none');
-            $('.branch').css('display', 'none');
+        $('.bank_name').css('display', 'none');
+        $('.account_label').css('display', 'none');
+        $('.ifsc_code_label').css('display', 'none');
+        $('.branch').css('display', 'none');
 
-        }
-        else if (value == 'Cheque') {
-            var append_div = '<label class="col-sm-2 col-form-label" >Cheque/UTR No :</label>\n\
+    }
+    else if (value == 'Cheque') {
+        var append_div = '<label class="col-sm-2 col-form-label" >Cheque/UTR No :</label>\n\
                                 <div class="col-sm-4 payment_number_div">\n\
                                 <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
                                 </div>\n\
@@ -481,13 +485,13 @@ function payment_mode_change(value)
                             <div class="col-sm-4">\n\
                             <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name " >\n\
                             </div>';
-            $('.bank_name').css('display', 'block');
-            $('.account_label').css('display', 'block');
-            $('.ifsc_code_label').css('display', 'block');
-            $('.branch').css('display', 'block');
-        }
-        else if (value == 'Online') {
-            var append_div = '<label class="col-sm-2 col-form-label" >Online Transaction No :</label>\n\
+        $('.bank_name').css('display', 'block');
+        $('.account_label').css('display', 'block');
+        $('.ifsc_code_label').css('display', 'block');
+        $('.branch').css('display', 'block');
+    }
+    else if (value == 'Online') {
+        var append_div = '<label class="col-sm-2 col-form-label" >Online Transaction No :</label>\n\
                                 <div class="col-sm-4 payment_number_div">\n\
                                 <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter online transaction number.">\n\
                                 </div>\n\
@@ -495,36 +499,37 @@ function payment_mode_change(value)
                             <div class="col-sm-4">\n\
                             <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
                             </div>';
-            $('.bank_name').css('display', 'none');
-            $('.account_label').css('display', 'block');
-            $('.ifsc_code_label').css('display', 'block');
-            $('.branch').css('display', 'none');
-        }
-
-        $('#payment_number_div').html(append_div);
+        $('.bank_name').css('display', 'none');
+        $('.account_label').css('display', 'block');
+        $('.ifsc_code_label').css('display', 'block');
+        $('.branch').css('display', 'none');
     }
+
+    $('#payment_number_div').html(append_div);
+}
 
 //sub listing
-    function sub_project_listing(id)
-    {
-        $(".sub_project_div,.plot_name_div").css('display', 'none');
-        var sub_option = '<option value="">Select Sub Project</option>';
-        $.each(sub_project_list, function (key, value) {
-            if (value.id == id) {
-                if (value.children.length > 0) {
-                    $(".sub_project_div").css('display', 'block');
-                    $.each(value.children, function (key1, subproject) {
-                        console.log(subproject);
-                        sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
-                    });
-                }
-                else {
-                    getplotlist(id);
-                }
+function sub_project_listing(id) {
+    $(".sub_project_div,.plot_name_div").css('display', 'none');
+    var sub_option = '<option value="">Select Sub Project</option>';
+    console.log(sub_project_list);
+    $.each(sub_project_list, function (key, value) {
+        if (value.id == id) {
+            if (value.children.length > 0) {
+                $(".sub_project_div").css('display', 'block');
+                $.each(value.children, function (key1, subproject) {
+                    console.log(subproject);
+                    sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
+                });
             }
-        });
-        $('#sub_projects').html(sub_option)
-    }
+            else {
+                var sub_id = 0;
+                getplotlist(id, sub_id);
+            }
+        }
+    });
+    $('#sub_projects').html(sub_option)
+}
 
 //cutomer list
 function getCustomersList(user_id) {

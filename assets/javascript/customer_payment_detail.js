@@ -47,7 +47,7 @@ $(function () {
             if (emi_ids == '' || !emi_ids) {
                 document.getElementById('payment-form').reset();
                 $('#makeRequest').modal('hide');
-                showSwal('error', 'Select Checkbox', 'No EMI selected')
+                showSwal('error', 'Select EMI', 'No EMI selected')
                 return false;
             }
             var amount = $('#amount').val();
@@ -68,9 +68,11 @@ $(function () {
                 processData: false,
                 success: function (response) {
                     if (response.status == 'success') {
+                        get_customer_payament_details($('#customer-list').val(), 'Due');
+                        get_customer_payament_details($('#customer-list').val(), 'Pending');
                         document.getElementById('payment-form').reset();
                         $('#makeRequest').modal('hide');
-                        showSwal('success', 'Payment accepted', 'Payment accepted successfully')
+                        showSwal('success', 'Payment accepted', 'Payment accepted successfully');
                     }
                 },
                 error: function (response) {
@@ -141,8 +143,7 @@ function get_customer_payament_details(customer_id, status) {
             console.log(response);
             if (response.status == 'success') {
                 var action_th = '';
-                if (status == 'Due')
-                {
+                if (status == 'Due') {
                     action_th = '<th></th>';
                 }
                 var table_data = '<thead>\n\
@@ -158,7 +159,7 @@ function get_customer_payament_details(customer_id, status) {
                                         </tr>\n\
                                     </thead>';
                 var checkbox = '';
-               
+
                 $.each(response.data, function (key, value) {
                     checkbox = '';
                     var action_tr = '';
@@ -174,7 +175,7 @@ function get_customer_payament_details(customer_id, status) {
                     }
                     var dd = new Date(value.due_date);
                     var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
-                    
+
                     ///console.log(sub_project);
                     table_data += '<tbody>\n\
                                         <tr >\n\

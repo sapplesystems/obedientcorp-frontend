@@ -30806,12 +30806,77 @@ CSS ANIMATION FOR TREE
     transform: translate(-50%, -50%);
 }
 
+#order-listing_filter input[type="search"]{
+    border: 1px solid #322f2f;
+    font-family: "ubuntu-regular", sans-serif;
+    font-size: 0.8125rem;
+    height: 2.875rem;
+    padding: 0.94rem 1.375rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #495057;
+    background-color: #151519;
+    border-radius: 2px;
+}
+
+#order-listing_wrapper #order-listing_length{
+    float: left;
+    margin-bottom: 10px;
+}
+
+#order-listing_wrapper #order-listing_filter{
+    float: right;
+    margin-bottom: 10px;
+}
+
+#order-listing_wrapper #order-listing_paginate{
+    float: right;
+    margin-top:10px;
+}
+
+#order-listing_wrapper #order-listing_paginate > a:first-child{
+    padding: 10px;
+    border: 1px solid #322f2f;
+    border-radius: 5px 0 0 5px;
+    cursor:pointer;
+}
+
+#order-listing_wrapper #order-listing_paginate > a:last-child{
+    padding: 10px;
+    border: 1px solid #322f2f;
+    border-radius: 0px 5px 5px 0;
+    cursor:pointer;
+}
+
+#order-listing_wrapper #order-listing_paginate span a{
+    padding: 10px;
+    border: 1px solid #322f2f;
+    display:inline-block;
+    cursor:pointer;
+}
+
+#order-listing_wrapper #order-listing_paginate span a:first-child{ 
+    border-right:1px solid #322f2f;
+}
+
+#order-listing_wrapper #order-listing_paginate a{
+    border-color: #b66dff;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+#order-listing_wrapper #order-listing_paginate span a.current{
+    border-color: #b66dff;
+} 
+
+#order-listing_info{float:left;margin-top:5px;}    
 
 @media (max-width: 991px) {
     .payment-dialog label.text-right {
         text-align: left !important;
     }
-	
-	.brand-logo{text-align:center;}
-	.bgImageNone{background:none !important;}
+
+    .brand-logo{text-align:center;}
+    .bgImageNone{background:none !important;}
 }

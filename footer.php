@@ -126,6 +126,7 @@
                 search: ""
             }
         });
+        $('#order-listing_filter [type=search]').attr('placeholder','Search');
     }
 
     hideLoader();

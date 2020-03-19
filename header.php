@@ -155,21 +155,9 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="wallet.php">
-                                <span class="menu-title">Wallet</span>
-                                <i class="mdi mdi-wallet menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="manage-coupon.php">
-                                <span class="menu-title">E-Wallet</span>
+                                <span class="menu-title">Manage Coupons</span>
                                 <i class="mdi mdi-wallet-giftcard menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="payments-admin.php">
-                                <span class="menu-title">Payments</span>
-                                <i class="mdi mdi-currency-inr menu-icon"></i>
                             </a>
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>

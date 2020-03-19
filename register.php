@@ -522,6 +522,16 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 
                                                     $("body").on("click", ".actions a[href$='#finish']", function (e) {
                                                         e.preventDefault();
+                                                        if($('#18years').is(':checked') == false){
+                                                            $('#18years').focus();
+                                                            showSwal('error', '18 Years Confirm', 'Please confirm you are 18 years or above');
+                                                            return false;
+                                                        }
+                                                        if($('#privacy').is(':checked') == false){
+                                                            $('#privacy').focus();
+                                                            showSwal('error', 'Accept Privacy', 'Please accept the terms and condition.');
+                                                            return false;
+                                                        }
                                                         showLoader();
                                                         var params = new FormData();
                                                         var introducer_code = $('#sponsor').val();
@@ -642,7 +652,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                                         //}//end if
 
 
-                                                    }) //click button
+                                                    }); //click button
 
                                                     //get states ans cities onlaod page
                                                     function getStatesCities() {

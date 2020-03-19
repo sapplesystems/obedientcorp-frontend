@@ -188,7 +188,7 @@ function agentTotal(id) {
         }
     } else {
         document.getElementById('quantity_' + id).value = 0;
-        showSwal('error', 'Wallet Empty', 'Agent wallet is empty.Please select agent');
+        showSwal('error', 'Insufficient Balance', 'Insufficient balance in your wallet.');
         return false;
     }
 } //end function agentTolal

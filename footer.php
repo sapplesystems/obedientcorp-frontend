@@ -59,8 +59,9 @@
     function checkCookie() {
         var UserCookie = getCookie("UserCookie");
         if (UserCookie == "") {
+            logout();
             //console.log("cookie not set please login first");
-            window.location.href = "login.php"
+            //window.location.href = "login.php"
         } else {
             UserCookieData = JSON.parse(UserCookie);
             if (UserCookieData) {

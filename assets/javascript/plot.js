@@ -15,8 +15,9 @@ $(document).ready(function () {
             showLoader();
             var params = new FormData();
             var project_id = $('#projects').val();
+            var sub_project_id = 0;
             if ($('#sub_projects').val()) {
-                project_id = $('#sub_projects').val();
+                sub_project_id = $('#sub_projects').val();
             }
             var plot_no = $('#plot_no').val();
             var plot_area = $('#plot_area').val();
@@ -29,6 +30,7 @@ $(document).ready(function () {
             }
 
             params.append('project_master_id', project_id);
+            params.append('sub_project_id', sub_project_id);
             params.append('name', plot_no);
             params.append('area', plot_area);
             //params.append('description', area);
@@ -54,7 +56,6 @@ $(document).ready(function () {
                     }
 
                     $('#errors_div').html(error_html);
-
                 },
                 error: function (response) {
                     error_html = '';
@@ -122,17 +123,18 @@ function updatePlot(e, plot_id) {
     $.ajax({
         url: base_url + 'plots',
         type: 'post',
-        data: {id: plot_id},
+        data: { id: plot_id },
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
                 $("#sub_pro_div").css('display', 'none');
-                if (data[0].project.id == data[0].sub_project.id) {
+                if (data[0].project && data[0].project.id) {
                     $('#projects').val(data[0].project.id);
-                } else {
+                }
+                if (data[0].subProject && data[0].subProject.id) {
                     $("#sub_pro_div").css('display', 'block');
                     $('#projects').val(data[0].project.id).trigger('change');
-                    $('#sub_projects').val(data[0].sub_project.id);
+                    $('#sub_projects').val(data[0].subProject.id);
 
                 }
                 $('#plot_no').val(data[0].name);
@@ -155,10 +157,10 @@ function getplotlist() {
             var html = '';
             if (response.status == "success") {
                 var i = 1;
-                var sub_project = '';
-                var project = '';
                 var x = 1;
                 $.each(response.data, function (key, value) {
+                    var sub_project = '';
+                    var project = '';
                     if (value.project && value.project.id) {
                         project = value.project.name;
                     }
@@ -232,7 +234,7 @@ function deletePlot(e, plot_id) {
         $.ajax({
             url: base_url + 'plot/delete',
             type: 'post',
-            data: {id: plot_id},
+            data: { id: plot_id },
             success: function (response) {
                 if (response.status == "success") {
                     $("#tr_" + plot_id).remove();
@@ -248,7 +250,7 @@ function updateAvailability(plot_id) {
     $.ajax({
         url: base_url + 'plot/update',
         type: 'post',
-        data: {id: plot_id, availability: availability},
+        data: { id: plot_id, availability: availability },
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;

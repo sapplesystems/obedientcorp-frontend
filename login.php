@@ -197,7 +197,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
         function setCookie(jsonString) {
             var d = new Date();
             var cname = "UserCookie";
-            d.setTime(d.getTime() + (1 * 60 * 60 * 1000));
+            d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toGMTString();
             document.cookie = cname + "=" + jsonString + ";" + expires + ";path=/";
             checkCookie();

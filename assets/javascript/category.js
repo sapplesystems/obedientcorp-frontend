@@ -17,11 +17,13 @@ $(document).ready(function () {
             params.append('name', $('#title').val());
             params.append('description', $('#description').val());
             params.append('image', $('#image')[0].files[0]);
-            params.append('created_by', user_id);
             if($('#category_id').val())
             {
                 url = base_url + 'category/update';
-                params.append('parent_id', $('#category-id').val());
+                params.append('updated_by', user_id);
+                params.append('id', $('#category_id').val());
+            }else{
+                params.append('created_by', user_id);
             }
             //console.log(url);return false;
             $.ajax({
@@ -118,17 +120,18 @@ function updateCategory(e, category_id) {
 //function for delete category
 function deleteCategory(e, category_id) {
     e.preventDefault();
-    console.log(category_id);return false;
-    var result = confirm("Are you sure you want to delete this project?");
+    var result = confirm("Are you sure you want to delete this category?");
     if (result == true) {
         showLoader();
         $.ajax({
-            url: base_url + 'project/delete',
+            url: base_url + 'category/delete',
             type: 'post',
             data: { id: category_id },
             success: function (response) {
-                if (response.status == "success") {
-                    $("#tr_" + project_id).remove();
+                console.log(response);
+                if (response.status == "error") {
+                    console.log("remove");
+                    $("#tr_" + category_id).remove();
                     hideLoader();
                 }
             }

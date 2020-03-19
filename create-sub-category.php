@@ -36,6 +36,7 @@
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                             </span>
+                                            <img src="" style="display:none;width:100px;" id="photo_id" />
                                         </div>
                                     </div>
                                 </div>
@@ -51,6 +52,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_sub_category" value="submitsubcategory">Submit</button>
+                                    <input type="hidden" id="subcategory_id" value="">
                                 </div>
                             </div>
                         </form>
@@ -67,8 +69,10 @@
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
                                     <tr>
+                                        <th width="15%">Sr No.</th>
                                         <th width="15%"> Title </th>
                                         <th> Description </th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="sub_category_list">

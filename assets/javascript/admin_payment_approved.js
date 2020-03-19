@@ -184,7 +184,12 @@ function paymentAction(pid, agent_id, status_emi) {
                     data: params,
                     success: function (response) {
                         if (response.status == "success") {
-                            showSwal('success', 'Payment Approved', 'Payment is approved.');
+                            if (status_emi == '1') {
+                                showSwal('success', 'Payment Approved', 'Payment is approved.');
+                            }
+                            if (status_emi == '0') {
+                                showSwal('success', 'Payment Approved', 'Payment is approved.');
+                            }
                             hideLoader();
                         } else {
                             hideLoader();

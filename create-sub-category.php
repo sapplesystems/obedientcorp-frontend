@@ -72,30 +72,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="sub_category_list">
-                                    <tr>
-                                        <td> Sapple Systems 1</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 2</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 2 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 3</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 3 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 4</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 4 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 5</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 5 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Sapple Systems 6</td>
-                                        <td> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 6 </td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>

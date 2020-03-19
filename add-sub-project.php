@@ -76,7 +76,17 @@
           <div class="card-body p-3">
             <h4 class="card-title mb-4">Edit/View Sub-project</h4>
             <div class="overflowAuto">
-              <table class="table table-bordered custom_action sub_project_list" id="order-listing">
+              <table class="table table-bordered custom_action" id="order-listing">
+              <thead><tr>
+            <th width="10%">Sr No.</th>
+            <th width="20%">Project Name</th>
+            <th width="20%">Sub Project Name</th>
+            <th width="10%">Unit Price</th>
+            <th width="10%">Area</th>
+            <th width="20%">Desc</th>
+            <th width="10%">Action</th>
+            </tr></thead>
+            <tbody id="sub_project_list"></tbody>
               </table>
             </div>
           </div>

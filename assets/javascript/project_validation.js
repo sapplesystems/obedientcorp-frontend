@@ -87,33 +87,31 @@ function getProjectList() {
         type: 'post',
         data: {},
         success: function (response) {
-            var html = ' <thead><tr>\n\
-                    <th width="10%">Sr No.</th>\n\
-                    <th width="20%">Project Name</th>\n\
-                    <th width="10%">Unit Price</th>\n\
-                    <th width="10%">Area</th>\n\
-                    <th width="30%">Desc</th>\n\
-                    <th width="10%">Action</th>\n\
-                    </tr></thead>';
+            var html = '';
             if (response.status == "success") {
                 var i = 1;
+                var x = 1;
                 $.each(response.data, function (key, value) {
                     if (value.parent_id == 0)
                     {
-                        html += '<tbody>\n\
-                                <tr id="tr_' + value.id + '">\n\
-                                <td>' + i + '</td>\n\
+                        var class_name = 'odd';
+                        if (x % 2 == 0) {
+                            class_name = 'even';
+                        }
+                        html += '<tr id="tr_' + value.id + '" role="row" class="' + class_name + '">\n\
+                                <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.name + '</td>\n\
                                 <td>' + value.unit_price + '</td>\n\
                                 <td>' + value.area + '</td>\n\
                                 <td>' + value.description + '</td>\n\
                                 <td><a href="javascript:void(0);" onclick="updateProject(event, ' + value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
-                            </tr></tbody>';
+                            </tr>';
                         i = i + 1;
+                        x++;
                     }
                 });
 
-                $('.project_list').html(html);
+                $('#project_list').html(html);
                 hideLoader();
             }
         }

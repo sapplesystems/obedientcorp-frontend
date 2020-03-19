@@ -100,8 +100,7 @@ function getProjectList() {
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
-                    if (value.parent_id == 0)
-                    {
+                    if (value.parent_id == 0) {
                         option += '<option value="' + value.id + '">' + value.name + '</option>';
                     }
                 });
@@ -120,38 +119,35 @@ function getSubProjectList() {
         type: 'post',
         data: {},
         success: function (response) {
-            var html = ' <thead><tr>\n\
-            <th width="10%">Sr No.</th>\n\
-            <th width="20%">Project Name</th>\n\
-            <th width="20%">Sub Project Name</th>\n\
-            <th width="10%">Unit Price</th>\n\
-            <th width="10%">Area</th>\n\
-            <th width="20%">Desc</th>\n\
-            <th width="10%">Action</th>\n\
-            </tr></thead>';
+            var html = '';
             if (response.status == "success") {
                 var photo_link;
                 var map_link;
                 var i = 1;
+                var x = 1;
                 $.each(response.data, function (key, value) {
                     if (value.children.length > 0) {
                         $.each(value.children, function (key1, subproject) {
-                            html += '<tbody>\n\
-                                <tr id="tr_' + subproject.id + '">\n\
-                                <td>' + i + '</td>\n\
+                            var class_name = 'odd';
+                            if (x % 2 == 0) {
+                                class_name = 'even';
+                            }
+                            html += '<tr id="tr_' + subproject.id + '" role="row" class="' + class_name + '">\n\
+                                <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.name + '</td>\n\
                                 <td>' + subproject.name + '</td>\n\
                                 <td>' + subproject.area + '</td>\n\
                                 <td>' + subproject.unit_price + '</td>\n\
                                 <td>' + subproject.description + '</td>\n\
                                 <td><a href="javascript:void(0);" onclick="updateProject(event, ' + subproject.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + subproject.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
-                            </tr></tbody>';
+                            </tr>';
                             i = i + 1;
+                            x++;
                         })
 
                     }
                 });
-                $('.sub_project_list').html(html)
+                $('#sub_project_list').html(html)
                 hideLoader();
             }
         }
@@ -165,7 +161,7 @@ function updateProject(e, project_id) {
     $.ajax({
         url: base_url + 'project',
         type: 'post',
-        data: {id: project_id},
+        data: { id: project_id },
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
@@ -196,13 +192,12 @@ function updateProject(e, project_id) {
 function deleteProject(e, project_id) {
     e.preventDefault();
     var result = confirm("Are you sure you want to delete this project?");
-    if (result == true)
-    {
+    if (result == true) {
         showLoader();
         $.ajax({
             url: base_url + 'project/delete',
             type: 'post',
-            data: {id: project_id},
+            data: { id: project_id },
             success: function (response) {
                 if (response.status == "success") {
                     $("#tr_" + project_id).remove();

@@ -17,8 +17,13 @@ function get_all_goods_products() {
         success: function (response) {
             if (response.status == "success") {
                 var goods_products = '';
+                var image_name = '';
                 var active_class = 'cbp-slider-item--active';
                 $.each(response.data, function (key, val) {
+                    if(val.images[0])
+                    {
+                        image_name = val.images[0].file_name;
+                    }
                     /*var product_images = '';
                     if (val.images.length && val.images.length > 0) {
                         for (var x = 0; x < val.images.length; x++) {
@@ -36,16 +41,14 @@ function get_all_goods_products() {
                                                 <div class="cbp-slider-inline">\n\
                                                     <div class="cbp-slider-wrapper">\n\
                                                         <div class="cbp-slider-item cbp-slider-item--active">\n\
-                                                            <a href="images/works_04_b.jpg" class="lightbox_item" data-title="Festival Time">\n\
-                                                                <img src="images/03.jpg" alt="">\n\
+                                                            <a href="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/'+image_name+'" class="lightbox_item" data-title="Festival Time">\n\
+                                                                <img src="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/'+image_name+'" alt="">\n\
                                                             </a>\n\
                                                         </div>\n\
                                                     </div>\n\
                                                 </div>\n\
-                                                <a href="https://themeforest.net/item/quadra-creative-multipurpose-template/21409528" class="cbp-l-grid-masonry-projects-title" rel="nofollow">\n\
-                                                    Product 4\n\
-                                                </a>\n\
-                                                <div class="cbp-l-grid-masonry-projects-desc">Healthcare</div>\n\
+                                                <a href="#" class="cbp-l-grid-masonry-projects-title" rel="nofollow">'+val.name+'</a>\n\
+                                                <div class="cbp-l-grid-masonry-projects-desc">'+val.description+'</div>\n\
                                             </div>';
 
                 });
@@ -89,7 +92,7 @@ function get_all_real_state_products() {
                                             </div>\n\
                                             <!-- Titles and links -->\n\
                                             <a href="#" class="cbp-l-grid-masonry-projects-title" rel="nofollow">' + value.name + '</a>\n\
-                                            <div class="cbp-l-grid-masonry-projects-desc">realstate</div>\n\
+                                            <div class="cbp-l-grid-masonry-projects-desc">'+value.description+'</div>\n\
                                         </div>';
                     });
                 });

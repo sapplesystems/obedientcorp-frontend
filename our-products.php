@@ -570,6 +570,7 @@
     <!-- MAIN SCRIPTS - Classic scripts for all theme -->
     <script src="js/scripts.js?v=2.3.1"></script>
     <!-- END JS FILES -->
+    <script src="assets/javascript/our_products.js"></script>
 
 
 <script type='text/javascript' src='js/site.js'></script>

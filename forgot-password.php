@@ -101,17 +101,13 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
             }
         });
         if ($("#enter_email").valid()) {
-            var params = new FormData();
-            params.append('email', $('#enter_email').val())
             $.ajax({
                 url: base_url + 'forget-password',
                 type: 'post',
-                data: params,
-                contentType: false,
-                processData: false,
+                data: {email: $('#enter_email').val()},
                 success: function (response) {
                     if (response.status == "success") {
-                        showSwal('success', 'Email Added', 'Correct Email Enetered.');
+                        showSwal('success', 'Success', 'Mail sent successfully.');
                         document.getElementById('forgetpassword_form').reset();
                     }
                     else {
@@ -123,4 +119,4 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 
         }
     });
-    </script>
+</script>

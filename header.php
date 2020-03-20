@@ -126,20 +126,22 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category">
-                                <span class="menu-title">Products</span>
-                                <i class="menu-arrow"></i>
-                                <i class="mdi mdi-view-grid menu-icon"></i>
-                            </a>
-                            <div class="collapse" id="category">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="create-category.php">Create Category</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="create-sub-category.php">Create Sub Category</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="create-product.php">Create Product</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                        <?php if ($user_type == 'ADMIN') { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category">
+                                    <span class="menu-title">Products</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-view-grid menu-icon"></i>
+                                </a>
+                                <div class="collapse" id="category">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item"> <a class="nav-link" href="create-category.php">Create Category</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="create-sub-category.php">Create Sub Category</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="create-product.php">Create Product</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        <?php } ?>
                         <li class="nav-item">
                             <a class="nav-link" href="team.php">
                                 <span class="menu-title">Your Team</span>

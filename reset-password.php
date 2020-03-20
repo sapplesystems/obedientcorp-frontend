@@ -50,17 +50,27 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                                     <i class="mdi mdi-lock-outline menu-icon text-primary"></i>
                                                 </span>
                                             </div>
-                                            <input type="password" class="form-control form-control-lg border-left-0" id="new_password" name="new_password" placeholder="New password">
+                                            <input type="text" class="form-control form-control-lg border-left-0" id="email" name="email" placeholder="Your Email">
                                         </div>
                                     </div>
-									<div class="form-group">
+                                    <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend bg-transparent">
                                                 <span class="input-group-text bg-transparent border-right-0">
                                                     <i class="mdi mdi-lock-outline menu-icon text-primary"></i>
                                                 </span>
                                             </div>
-                                            <input type="password" class="form-control form-control-lg border-left-0" id="confirm_password" name="confirm_password" placeholder="Confirm password">
+                                            <input type="password" class="form-control form-control-lg border-left-0" id="password" name="password" placeholder="New password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-transparent">
+                                                <span class="input-group-text bg-transparent border-right-0">
+                                                    <i class="mdi mdi-lock-outline menu-icon text-primary"></i>
+                                                </span>
+                                            </div>
+                                            <input type="password" class="form-control form-control-lg border-left-0" id="password_confirmation" name="password_confirmation" placeholder="Confirm password">
                                         </div>
                                     </div>
                                     <div class="my-3">
@@ -100,43 +110,54 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 </html>
 <script>
     var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
-
-
+    var token = '<?php echo $_REQUEST['token']; ?>';
     $(document).on("click", "#submitPassword", function (e) {
         e.preventDefault();
-        $("#resetpassword_form").validate({
-            rules: {
-                new_password: "required",
-                confirm_password: "required",
-
+        if (token == '') {
+            showSwal('error', 'Token Error!', 'Something went wrong, please try again.');
+            return false;
+        } else if ($('#email').val() == '') {
+            showSwal('error', 'Email', 'Provide your email.');
+            $('#password').focus();
+            return false;
+        } else if ($('#password').val() == '') {
+            showSwal('error', 'Password', 'Provide your password.');
+            $('#password').focus();
+            return false;
+        } else if ($('#password_confirmation').val() == '') {
+            showSwal('error', 'Confirm Password', 'Provide your confirm password.');
+            $('#password_confirmation').focus();
+            return false;
+        } else
+        if ($('#password').val() != $('#password_confirmation').val()) {
+            $('#password_confirmation').focus();
+            showSwal('error', 'Password Not Same', 'Confirm password is not same.');
+            return false;
+        } else {
+            var params = {
+                token: token,
+                email: $('#email').val(),
+                password: $('#password').val(),
+                password_confirmation: $('#password_confirmation').val()
             }
-        });
-        if ($("#resetpassword_form").valid()) {
-            var params = new FormData();
-            params.append('password', $('#new_password').val());
-            params.append('password_confirmation', $('#confirm_password').val());
-            params.append("token",'0619717e7bab2d98a5a980538a64d8c51976d7fa06e979ec48a304664bd5aa8d')
             $.ajax({
                 url: base_url + 'reset-password',
                 type: 'post',
-                headers: {"token":'0619717e7bab2d98a5a980538a64d8c51976d7fa06e979ec48a304664bd5aa8d'},
                 data: params,
-                contentType: false,
-                processData: false,
                 success: function (response) {
-                    debugger
+                    console.log(response);
                     if (response.status == "success") {
-                        //showSwal('success', 'Email Added', 'Correct Email Enetered.');
-                        //document.getElementById('forgetpassword_form').reset();
+                        showSwal('success', 'Password Reset', 'Password reset successfully.');
+                        document.getElementById('resetpassword_form').reset();
+                        window.location.href = 'login.php';
                     }
                     else {
-                        //showSwal('error', 'Failed', 'Wrong Email.');
+                        showSwal('error', 'Failed', 'Something went wrong, please try again.');
                     }
 
                 }
             });
-
         }
     });
-    
+
 </script>

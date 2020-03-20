@@ -70,7 +70,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                             <label class="form-check-label text-muted">
                                                 <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                                         </div>
-                                        <a href="#" class="auth-link">Forgot password?</a>
+                                        <a href="forgot-password.php" class="auth-link">Forgot password?</a>
                                     </div>
                                     <div class="my-3">
                                         <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login">LOGIN</button>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 
     <meta charset="utf-8" />
@@ -11,20 +12,20 @@
     <meta name="author" content="GoldEyes" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
     <!--Favicon -->
-	<link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
     <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 
-	<!-- CSS Files -->
-    <link rel="stylesheet" href="css/plugins.css?v=2.3.1"/>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/plugins.css?v=2.3.1" />
     <!-- Main Styles -->
-	<!-- Page Styles -->
+    <!-- Page Styles -->
     <link rel="stylesheet" href="css/athena.css" />
 
-    <link rel="stylesheet" href="css/theme.css?v=2.3.1"/>
-	<!-- End Page Styles -->
-	<link rel="stylesheet" href="css/main.css" />
-	<link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/theme.css?v=2.3.1" />
+    <!-- End Page Styles -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
@@ -32,59 +33,60 @@
 </head>
 
 <!-- BODY START -->
+
 <body>
 
-<div id="main_container" class="container-fluid" style="position:absolute; z-index:99;padding: 0;">
-<div class="topBar padd5" style="display:none;z-index:3">
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="col-md-2 col-xs-2 text-left m-left paddLeftNone">
-        <div class="logo" style="display:none;"> <a href="index"><img style="height:100px;" src="images/obedient-logo.png"></a> </div>
-      </div>
-      <div class="col-md-1 col-xs-2 text-right navCWrap pull-right paddRightNone"></div>
-      <div class="col-md-10 col-menu pull-left text-right paddLeftNone">
-        <ul class="topMenu" style="opacity:1;">
-          <li id="project" class="" style="opacity:0"><a class="add-opacity" href="index.html">Home</a></li>
-          <!--<li id="offices" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">About us</a></li>-->
-          <li id="offices" class="" style="opacity:0"><a class="add-opacity" href="shop-styled-column-4.html">Products</a></li>
-          <li id="about" class="" style="opacity:0"><a class="add-opacity" href="elements-lightboxes.html">Legal</a></li>
-          <li id="serviceNav" class="" style="opacity:0"><a class="add-opacity" href="elements-infoboxes.html">Bankers</a></li>
-          <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Achievers</a></li>-->
-		  <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Winners</a></li>-->
-          <li id="news" class="" style="opacity:0"><a class="add-opacity" href="gallery-grid-with-texts.html">Gallery</a></li>
-          <li id="career" class="" style="opacity:0"><a class="add-opacity" href="elements-clients.html">Amenities</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row-fluid">
-<div style="overflow: hidden;">
-<div class="col-md-12 home-bg-img home-bg-img-animate-new" style="background-color:transparent">
-    <div class="row topHeader">
-        <div class="col-md-6 main-logo" style="opacity: 0;z-index:3" id="main-logo">
-            <a href="index.html"><img style="height:100px;" class="hbalogo" src="images/obedient-logo.png"></a>
-        </div>
-
-        <div class="col-md-6 nav-bar" style="padding:0;z-index:3" >
-        	<div id="burgernavbar">
-            <div class="nav-bar1 hamburger1" style=" opacity: 0;"></div>
-            <div class="nav-bar2 hamburger2"  style=" opacity: 0;"></div>
-            <div class="nav-bar3 hamburger3" style="opacity: 0;"></div>
+    <div id="main_container" class="container-fluid" style="position:absolute; z-index:99;padding: 0;">
+        <div class="topBar padd5" style="display:none;z-index:3">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="col-md-2 col-xs-2 text-left m-left paddLeftNone">
+                        <div class="logo" style="display:none;"> <a href="index"><img style="height:100px;" src="images/obedient-logo.png"></a> </div>
+                    </div>
+                    <div class="col-md-1 col-xs-2 text-right navCWrap pull-right paddRightNone"></div>
+                    <div class="col-md-10 col-menu pull-left text-right paddLeftNone">
+                        <ul class="topMenu" style="opacity:1;">
+                            <li id="project" class="" style="opacity:0"><a class="add-opacity" href="index.html">Home</a></li>
+                            <!--<li id="offices" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">About us</a></li>-->
+                            <li id="offices" class="" style="opacity:0"><a class="add-opacity" href="shop-styled-column-4.html">Products</a></li>
+                            <li id="about" class="" style="opacity:0"><a class="add-opacity" href="elements-lightboxes.html">Legal</a></li>
+                            <li id="serviceNav" class="" style="opacity:0"><a class="add-opacity" href="elements-infoboxes.html">Bankers</a></li>
+                            <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Achievers</a></li>-->
+                            <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Winners</a></li>-->
+                            <li id="news" class="" style="opacity:0"><a class="add-opacity" href="gallery-grid-with-texts.html">Gallery</a></li>
+                            <li id="career" class="" style="opacity:0"><a class="add-opacity" href="elements-clients.html">Amenities</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div id="burgernavbarcancel" style="display:none;z-index:3;top: -20px; position: absolute;" class="navCanel"><a href="Javascript:void(0);" class="iconCancel"></a></div>
         </div>
+
+
+        <div class="row-fluid">
+            <div style="overflow: hidden;">
+                <div class="col-md-12 home-bg-img home-bg-img-animate-new" style="background-color:transparent">
+                    <div class="row topHeader">
+                        <div class="col-md-6 main-logo" style="opacity: 0;z-index:3" id="main-logo">
+                            <a href="index.html"><img style="height:100px;" class="hbalogo" src="images/obedient-logo.png"></a>
+                        </div>
+
+                        <div class="col-md-6 nav-bar" style="padding:0;z-index:3">
+                            <div id="burgernavbar">
+                                <div class="nav-bar1 hamburger1" style=" opacity: 0;"></div>
+                                <div class="nav-bar2 hamburger2" style=" opacity: 0;"></div>
+                                <div class="nav-bar3 hamburger3" style="opacity: 0;"></div>
+                            </div>
+                            <div id="burgernavbarcancel" style="display:none;z-index:3;top: -20px; position: absolute;" class="navCanel"><a href="Javascript:void(0);" class="iconCancel"></a></div>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div> <!-- ROW-->
     </div>
-    <div></div>    
-</div>
-</div>
-</div> <!-- ROW-->
-</div>
 
 
-     <!-- Dotted Navigation -->
+    <!-- Dotted Navigation -->
     <div id="dotted-navigation" class="hide-on-home nav-menu">
         <ul id="side-dotted-navigation" class="spy font-11 extrabold nav uppercase">
             <li><a href="index.html"><span>Home</span></a></li>
@@ -95,7 +97,7 @@
             <!--<li><a href="javascript:void(0);"><span>Achievers</span></a></li>
             <li><a href="javascript:void(0);"><span>Winners</span></a></li>-->
             <li><a href="gallery-grid-with-texts.html"><span>Gallery</span></a></li>
-			<li><a href="elements-clients.html"><span>Amenities</span></a></li>
+            <li><a href="elements-clients.html"><span>Amenities</span></a></li>
         </ul>
     </div>
     <!-- End Dotted Navigation -->
@@ -107,7 +109,7 @@
     <section id="home" class="xl-py t-center white fullwidth">
         <!-- Background image - you can choose parallax ratio and offset -->
         <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 200px, 0px);" data-background="images/product_bg.jpg" style="background-position: center 90%;"></div>
-       
+
     </section>
     <!-- End Page Title -->
 
@@ -125,12 +127,16 @@
                     Select Category
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu font-12 extrabold uppercase" aria-labelledby="dropdownMenu1">
-                    <li data-filter="*" class="cbp-filter-item-active cbp-filter-item" ><div class="link">All</div></li>
-                    <li data-filter=".filter-computing" class="cbp-filter-item" ><div class="link">Type 1</div></li>
-                    <li data-filter=".filter-mobile" class="cbp-filter-item" ><div class="link">Type 2</div></li>
-                    <li data-filter=".filter-accessory" class="cbp-filter-item" ><div class="link">Type 3</div></li>
-                    <li data-filter=".filter-creative" class="cbp-filter-item" ><div class="link">Type 4</div></li>
+                <ul class="dropdown-menu font-12 extrabold uppercase" id="categories" aria-labelledby="dropdownMenu1">
+                </ul>
+            </div>
+
+            <div id="filter2" class="dropdown drop-effect xxs-mt sub-category">
+                <button class="dropdown-toggle uppercase extrabold radius font-12 bg-gray bg-colored-hover border-colored-hover white-hover slow" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Sub Category
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu font-12 extrabold uppercase" id="subcategory" aria-labelledby="dropdownMenu1">
                 </ul>
             </div>
 
@@ -138,238 +144,10 @@
         </div>
 
         <!-- Items -->
-        <div id="products" class="cbp t-center sm-mt">
+        <div id="products" class="cbp t-center sm-mt products">
 
-            <!-- item -->
-            <div class="cbp-item item filter-computing filter-gray filter-black">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                        <img src="images/01.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 1</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
 
-            <!-- item -->
-            <div class="cbp-item item filter-computing filter-creative filter-white">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                        <img src="images/02.jpg" alt="">
-                    </div>
-                     <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 2</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
 
-            <!-- item -->
-            <div class="cbp-item item filter-white filter-mobile">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                       <img src="images/03.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 3</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-white filter-mobile">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                       <img src="images/04.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 4</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-accessory filter-gray filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                       <img src="images/05.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 5</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-black filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                       <img src="images/06.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 6</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-black filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                        <img src="images/01.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 7</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-accessory filter-white filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                       <img src="images/02.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 8</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-accessory filter-white filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                       <img src="images/03.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 9</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-accessory filter-white filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                       <img src="images/04.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 10</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-accessory filter-gray filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                        <img src="images/05.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 11</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-            <!-- item -->
-            <div class="cbp-item item filter-black filter-creative">
-                <!-- Mark -->
-                <div class="basic-mark to-left bold uppercase font-10 radius bg-danger white">Hot!</div>
-                <a href="shop-single.html" class="cbp-caption">
-                    <div class="cbp-caption-defaultWrap product-image">
-                        <img src="images/06.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap details">
-                        <div class="title">Product 12</div>
-                        <div class="price">
-                            <span class="old">2.699&#8377</span>
-                            <span class="new">2.299&#8377</span>
-                        </div>
-                        <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-        <!-- End Items -->
     </section>
     <!-- END GALLERY -->
 
@@ -426,7 +204,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
                     <h6 class="uppercase white extrabold sm-mb">Latest News</h6>
                     <!-- You can edit footer-news.html file in js/ajax folder. Will be changed on all website -->
-                    <div data-ajax-load="js/ajax/footer-news.html"><i class="fa fa-refresh fa-2x fa-spin"></i></div> 
+                    <div data-ajax-load="js/ajax/footer-news.html"><i class="fa fa-refresh fa-2x fa-spin"></i></div>
                 </div>
                 <!-- End Column -->
                 <!-- Column -->
@@ -478,9 +256,9 @@
                     <!-- Bottom Note -->
                     <div class="col-sm-6 col-xs-12 table-im t-right height-auto-mobile t-center-xs xxs-mt-mobile">
                         <p class="v-middle">
-                            <a href="#" target="_blank" class="gray6-hover underline-hover">Term and Condition</a> | 
+                            <a href="#" target="_blank" class="gray6-hover underline-hover">Term and Condition</a> |
                             <a href="#" target="_blank" class="gray6-hover underline-hover">Privacy Policy</a> <br class="hidden-xs">
-                            © 2018. Powered By 
+                            © 2018. Powered By
                             <a href="https://themeforest.net/item/quadra-creative-multipurpose-template/21409528" target="_blank" class="colored-hover underline-hover">Elite Themeforest Author</a>.
                         </p>
                     </div>
@@ -564,8 +342,8 @@
         <span>Thank You ! Your email has been delivered.</span>
     </div>
 
-<script type='text/javascript' src='js/jquery.js'></script>
-	<!-- jQuery -->
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <!-- jQuery -->
     <script src="js/jquery.min.js?v=2.3"></script>
     <!-- MAIN SCRIPTS - Classic scripts for all theme -->
     <script src="js/scripts.js?v=2.3.1"></script>
@@ -573,74 +351,11 @@
     <script src="assets/javascript/our_products.js"></script>
 
 
-<script type='text/javascript' src='js/site.js'></script>
-    <script type="text/javascript">
-        // init cubeportfolio
-        $('#products').cubeportfolio({
-            filters: '#filter1, #filter2',
-            loadMoreAction: 'click',
-            layoutMode: 'grid',
-            mediaQueries: [{
-                width: 920,
-                cols: 4,
-            }, {
-                width: 800,
-                cols: 3,
-            }, {
-                width: 480,
-                cols: 2,
-            }, {
-                width: 320,
-                cols: 1,
-                options: {
-                    caption: '',
-                }
-            }],
-            defaultFilter: '*',
-            animationType: 'rotateSides',
-            gapHorizontal: 10,
-            gapVertical: 10,
-            gridAdjustment: 'responsive',
-            caption: '',
-            displayType: 'sequentially',
-            displayTypeSpeed: 100,
-
-            // lightbox
-            lightboxDelegate: '.cbp-lightbox',
-            lightboxGallery: true,
-            lightboxTitleSrc: 'data-title',
-            lightboxCounter: '<div class="cbp-popup-lightbox-counter">{{current}} of {{total}}</div>',
-
-            // singlePageInline
-            singlePageInlineDelegate: '.cbp-singlePageInline',
-            singlePageInlinePosition: 'top',
-            singlePageInlineInFocus: true,
-            singlePageInlineCallback: function(url, element) {
-                // to update singlePageInline content use the following method: this.updateSinglePageInline(yourContent)
-                var t = this;
-
-                $.ajax({
-                        url: url,
-                        type: 'GET',
-                        dataType: 'html',
-                        timeout: 30000
-                    })
-                    .done(function(result) {
-
-                        t.updateSinglePageInline(result);
-
-                    })
-                    .fail(function() {
-                        t.updateSinglePageInline('AJAX Error! Please refresh the page!');
-                    });
-            },
-        });
-
-
-    </script>
+    <script type='text/javascript' src='js/site.js'></script>
 
 
 
 </body>
 <!-- Body End -->
+
 </html>

@@ -144,7 +144,7 @@ function get_agent_list() {
             if (response.status) {
                 var table_data = '';
                 $.each(response.data, function (key, value) {
-                    table_data += '<option value="' + value.id + '">' + value.associate_name + '</option>';
+                    table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });
                 //console.log(table_data);
                 $("#agent").html(table_data);

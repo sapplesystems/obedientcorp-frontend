@@ -268,7 +268,7 @@ function get_agent_list() {
                         agent_id = value.id;
                         i = 1;
                     }
-                    customer_list += '<option value="' + value.id + '">' + value.username + ' ' + value.associate_name + '</option>';
+                    customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });
                 get_customer_list(agent_id);
                 $("#agent-list").html(customer_list);

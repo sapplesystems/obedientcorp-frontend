@@ -15,7 +15,7 @@ function getDownTheLineMembers(user_id) {
                 var data = response.data;
                 var option = '<option value="">Select Agent</option>';
                 $.each(data, function (key, val) {
-                    option += '<option value="' + val.id + '">' + val.username + ' - ' + val.associate_name + '</option>';
+                    option += '<option value="' + val.id + '">' + val.display_name + '</option>';
                 });
                 $('#agent_id,#agent_listing').html(option);
 

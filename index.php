@@ -243,7 +243,7 @@
                                                                  data-paddingbottom="[10,10,10,10]"
                                                                  data-paddingleft="[30,30,30,30]"
 
-                                                                 style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="shop-styled-column-4.html">OUR PRODUCTS<a/> </div>
+                                                                 style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="our-products.php">OUR PRODUCTS<a/> </div>
 
                                                             <!-- LAYER NR. 4 - 2 -->
                                                             <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -1167,7 +1167,7 @@
                                         </div>
                                         <!-- End container for works -->
                                         <!-- Load more button -->
-                                        <div id="more-projects" class="cbp-l-loadMore-button">
+                                        <div id="more-projects" class="cbp-l-loadMore-button" style="display:none;">
                                             <a href="content/nyks/ajax/loadmore.html" class="cbp-l-loadMore-link" rel="nofollow">
                                                 <!--<span class="cbp-l-loadMore-defaultText">LOAD MORE</span>-->
                                                 <span class="cbp-l-loadMore-loadingText">LOADING...</span>

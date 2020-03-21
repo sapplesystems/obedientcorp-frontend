@@ -42,6 +42,9 @@ function getAgentPaymentList(agent_id) {
     get_agent_payment_list(agent_id, 'Pending');
     get_agent_payment_list(agent_id, 'Approved');
     get_agent_payment_list(agent_id, 'Rejected');
+    setTimeout(function () {
+        initDataTable();
+    }, 2000);
 }
 
 function get_agent_payment_list(agent_id, status) {
@@ -73,6 +76,7 @@ function get_agent_payment_list(agent_id, status) {
                                         <th></th>\n\
                                     </tr>\n\
                                 </thead>';
+                table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
                     var action_tr = '';
                     if (status == 'Pending') {
@@ -80,8 +84,7 @@ function get_agent_payment_list(agent_id, status) {
                     }
                     var dd = new Date(value.date_of_payment);
                     var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
-                    table_data += '<tbody>\n\
-                                        <tr >\n\
+                    table_data += '<tr >\n\
                                         <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                                             <td>' + value.amount + '</td>\n\
                                             <td >' + value.associate_name + ' (' + value.username + ')</td>\n\
@@ -89,8 +92,9 @@ function get_agent_payment_list(agent_id, status) {
                                             <td>' + value.payment_mode + '</td>\n\
                                             ' + action_tr + '\n\
                                             <td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php?pid=' + value.id + '&uid=' + agent_id + '">Details</a></td>\n\
-                                        </tr></tbody>';
+                                        </tr>';
                 });
+                table_data += '</tbody>';
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
                 }

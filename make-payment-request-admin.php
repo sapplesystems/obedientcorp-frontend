@@ -38,19 +38,13 @@ if ($user_type != 'ADMIN') {
                                 </div>
                                 <div class="tab-content tab-content-custom-pill" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">
-                                        <table class="table table-striped payment_request" id="pending_payment_list">
-
-                                        </table>
+                                        <table class="table table-striped payment_request" id="pending_payment_list"></table>
                                     </div>
                                     <div class="tab-pane fade" id="pills-approve" role="tabpanel" aria-labelledby="pills-approve-tab">
-                                        <table class="table table-striped payment_request" id="approved_payment_list">
-
-                                        </table>
+                                        <table class="table table-striped payment_request" id="approved_payment_list"></table>
                                     </div>
                                     <div class="tab-pane fade" id="pills-reject" role="tabpanel" aria-labelledby="pills-reject-tab">
-                                        <table class="table table-striped payment_request" id="reject_payment_list">
-
-                                        </table>
+                                        <table class="table table-striped payment_request" id="reject_payment_list"></table>
                                     </div>
                                 </div>
                             </div>

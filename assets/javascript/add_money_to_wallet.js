@@ -84,6 +84,7 @@ function addMoneyToWallet(params) {
                 $('#e-wallet').html(updated_amount.toFixed(2));
                 $('#amount').val('');
                 if (EMI_Or_Money_Request == 1) {
+                    EMI_Or_Money_Request = 0;
                     updateMoneyRequestStatus(params.payment_id, params.user_id, 'Approved');
                 } else {
                     hideLoader();
@@ -150,6 +151,9 @@ function getAgentPaymentList(agent_id) {
     get_agent_payment_list(agent_id, 'Pending');
     get_agent_payment_list(agent_id, 'Approved');
     get_agent_payment_list(agent_id, 'Rejected');
+    setTimeout(function () {
+        initDataTable();
+    }, 2000);
 }
 
 function get_agent_payment_list(agent_id, status) {
@@ -181,6 +185,7 @@ function get_agent_payment_list(agent_id, status) {
                                         <th></th>\n\
                                     </tr>\n\
                                 </thead>';
+                table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
                     var action_tr = '';
                     if (status == 'Pending') {
@@ -188,16 +193,16 @@ function get_agent_payment_list(agent_id, status) {
                     }
                     var dd = new Date(value.date_requested);
                     var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
-                    table_data += '<tbody>\n\
-                                        <tr >\n\
+                    table_data += '<tr >\n\
                                         <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                                             <td>' + value.amount + '</td>\n\
                                             <td >' + value.display_name + '</td>\n\
                                             <td>' + date_of_payment + '</td>\n\
                                             <td>' + value.payment_mode + '</td>\n\
                                             ' + action_tr + '\n\
-                                        </tr></tbody>';
+                                        </tr>';
                 });
+                table_data += '</tbody>';
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
                 }

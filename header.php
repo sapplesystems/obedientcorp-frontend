@@ -107,6 +107,12 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="change-password.php">
+                                <span class="menu-title">Change Password</span>
+                                <i class="mdi mdi-account menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="manage-customer.php">
                                 <span class="menu-title">Manage Customer</span>
                                 <i class="mdi mdi-settings menu-icon"></i>

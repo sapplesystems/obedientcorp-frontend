@@ -116,7 +116,7 @@ $(function () {
             var created_for = $('#agent-list').val();
             var url = base_url + 'request-money';
             var walletamount = $('#amount_wallet').val();
-            
+
             params.append('amount', walletamount);
             params.append('payment_mode', payment_mode);
             params.append('cheque_number', payment_number);
@@ -126,7 +126,7 @@ $(function () {
             params.append('created_by', user_id);
             params.append('created_for', created_for);
             params.append('payment_type', '2');
-            
+
             $.ajax({
                 url: url,
                 type: 'post',
@@ -234,6 +234,9 @@ function getCustomerPaymentList(customer_id) {
     get_customer_payament_details(customer_id, 'Pending');
     get_customer_payament_details(customer_id, 'Approved');
     get_customer_payament_details(customer_id, 'Rejected');
+    setTimeout(function () {
+        initDataTable();
+    }, 2000);
 
 }
 function get_customer_payament_details(customer_id, status) {
@@ -266,7 +269,7 @@ function get_customer_payament_details(customer_id, status) {
                                         </tr>\n\
                                     </thead>';
                 var checkbox = '';
-
+                table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
                     checkbox = '';
                     var action_tr = '';
@@ -283,8 +286,7 @@ function get_customer_payament_details(customer_id, status) {
                     var dd = new Date(value.due_date);
                     var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
 
-                    table_data += '<tbody>\n\
-                                        <tr >\n\
+                    table_data += '<tr >\n\
                                         ' + action_tr + '\n\
                                             <td>' + value.name + '</td>\n\
                                             <td id="payment-amount_' + value.customer_plot_booking_payment_detail_id + '">' + value.amount + '</td>\n\
@@ -295,6 +297,7 @@ function get_customer_payament_details(customer_id, status) {
                                             <td>' + value.payment_status + '</td>\n\
                                         </tr></tbody>';
                 });
+                table_data += '</tbody>';
                 if (status == 'Due') {
                     $("#due_payment_list").html(table_data);
                 }
@@ -307,7 +310,6 @@ function get_customer_payament_details(customer_id, status) {
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
                 }
-
             }
             else {
                 if (status == 'Due') {

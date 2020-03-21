@@ -115,18 +115,19 @@
         $('#loader_bg').css('display', 'none');
     }
 
-    function initDataTable(){
-        $('#order-listing').DataTable({
-            "aLengthMenu": [
-                [5, 10, 15, -1],
-                [5, 10, 15, "All"]
-            ],
-            "iDisplayLength": 10,
-            "language": {
-                search: ""
-            }
-        });
-        $('#order-listing_filter [type=search]').attr('placeholder','Search');
+    function initDataTable() {
+        $('.table').DataTable();
+        /*$('#order-listing').DataTable({
+         "aLengthMenu": [
+         [5, 10, 15, -1],
+         [5, 10, 15, "All"]
+         ],
+         "iDisplayLength": 10,
+         "language": {
+         search: ""
+         }
+         });
+         $('#order-listing_filter [type=search]').attr('placeholder','Search');*/
     }
 
     hideLoader();

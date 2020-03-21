@@ -35,37 +35,38 @@ function get_payment_details() {
                                 <th>Plot ID</th>\n\
                                 </tr>\n\
                                 </thead>';
+                emi_list += '<tbody>';
                 $.each(response.data.detail, function (key, value) {
                     console.log(value);
                     var dd = new Date(value.emi_due_date);
                     var emi_date = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
-                    emi_list += '<tbody>\n\
-                    <tr>\n\
-                        <td>' + value.customer_display_name + '</td>\n\
-                        <td> ' + value.emi_amount + ' </td>\n\
-                        <td>' + emi_date + ' </td>\n\
-                        <td>' + value.project_name + ' </td>\n\
-                        <td>' + value.sub_project_name + '</td>\n\
-                        <td>' + value.plot_name + '</td>\n\
-                    </tr>\n\
-                </tbody>';
+                    emi_list += '<tr>\n\
+                                    <td>' + value.customer_display_name + '</td>\n\
+                                    <td> ' + value.emi_amount + ' </td>\n\
+                                    <td>' + emi_date + ' </td>\n\
+                                    <td>' + value.project_name + ' </td>\n\
+                                    <td>' + value.sub_project_name + '</td>\n\
+                                    <td>' + value.plot_name + '</td>\n\
+                                </tr>';
                 });
+                emi_list += '</tbody>';
                 // get_customer_list(agent_id);
                 $("#admin-payment-detail").html(emi_list);
+                initDataTable();
                 if (response.data.payment.payment_mode)
                 {
                     payment_mode = response.data.payment.payment_mode;
-                    if(payment_mode == 'Cash')
+                    if (payment_mode == 'Cash')
                     {
-                        $(".bank-name").css('display','none');
+                        $(".bank-name").css('display', 'none');
                         $('.cheque-number').html('Invoice Number:');
                     }
-                    else if(payment_mode == 'Cheque')
+                    else if (payment_mode == 'Cheque')
                     {
-                        $(".bank-name").css('display','block');
+                        $(".bank-name").css('display', 'block');
                         $('.cheque-number').html('Cheque Number:');
                     }
-                    else if(payment_mode == 'Online')
+                    else if (payment_mode == 'Online')
                     {
                         //$(".bank-name").css('display','block');
                         $('.cheque-number').html('Online Transaction Number:');

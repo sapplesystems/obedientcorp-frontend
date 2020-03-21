@@ -105,7 +105,6 @@ function getProjectList() {
                     }
                 });
                 $('#projects').html(option);
-                initDataTable();
                 hideLoader();
             }
         }
@@ -148,7 +147,8 @@ function getSubProjectList() {
 
                     }
                 });
-                $('#sub_project_list').html(html)
+                $('#sub_project_list').html(html);
+                initDataTable();
                 hideLoader();
             }
         }

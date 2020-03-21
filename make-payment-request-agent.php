@@ -43,6 +43,10 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request">Make Request</button>
+                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request_to_wallet">Make Request To Wallet</button>
+                            </div>
                             <div class="col-md-12 tab-content tab-content-custom-pill" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-due" role="tabpanel" aria-labelledby="pills-pending-tab">
                                     <table class="table table-striped payment_request" id="due_payment_list">
@@ -242,12 +246,6 @@
                                 </div>
                             </div>
                             <!--end wallet request-->
-
-                            <div class="col-md-12 text-right">
-                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request">Make Request</button>
-                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request_to_wallet">Make Request To Wallet</button>
-                            </div>
-                            
                         </div>
                     </div>
                 </div>

@@ -197,7 +197,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
         function setCookie(jsonString) {
             var d = new Date();
             var cname = "UserCookie";
-            d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+            d.setTime(d.getTime() + (1 * 60 * 60 * 1000));
             var expires = "expires=" + d.toGMTString();
             document.cookie = cname + "=" + jsonString + ";" + expires + ";path=/";
             checkCookie();
@@ -239,6 +239,15 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 
     function hideLoader() {
         $('#loader_bg').css('display', 'none');
+    }
+    
+    function logout() {
+        $.post('localapi.php', {
+            destroy_session: 1
+        }, function (resp) {
+            document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            window.location.href = 'login.php';
+        });
     }
 
     hideLoader();

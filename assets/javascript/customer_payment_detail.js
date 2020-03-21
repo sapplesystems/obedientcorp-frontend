@@ -8,7 +8,7 @@ $(function () {
         if (checkChecked() == false) {
             document.getElementById('payment-form').reset();
             $('#makeRequest').modal('hide');
-            showSwal('error', 'Select Checkbox', 'No EMI selected')
+            showSwal('error', 'Select Checkbox', 'No EMI selected');
             return false;
         }
         $('#makeRequest').modal();
@@ -134,7 +134,6 @@ $(function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    console.log(response);
                     if (response.status == 'success') {
                         document.getElementById('payment-form-wallet').reset();
                         $('#makeRequestWallet').modal('hide');
@@ -249,7 +248,6 @@ function get_customer_payament_details(customer_id, status) {
         type: 'post',
         data: params,
         success: function (response) {
-            console.log(response);
             if (response.status == 'success') {
                 var action_th = '';
                 if (status == 'Due') {
@@ -285,7 +283,6 @@ function get_customer_payament_details(customer_id, status) {
                     var dd = new Date(value.due_date);
                     var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
 
-                    ///console.log(sub_project);
                     table_data += '<tbody>\n\
                                         <tr >\n\
                                         ' + action_tr + '\n\

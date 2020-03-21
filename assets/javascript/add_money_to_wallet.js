@@ -1,5 +1,6 @@
 get_agent_list();
 getWalletAmount(user_id);
+var EMI_Or_Money_Request = 0;
 
 $(document).ready(function () {
     $("#agents").change(function () {
@@ -23,7 +24,6 @@ $(document).ready(function () {
             }
         });
         if ($("#add-money-to-wallet-form").valid()) {
-            showLoader();
             var params = {
                 user_id: $('#agents').val(),
                 amount: $('#amount').val()
@@ -35,21 +35,58 @@ $(document).ready(function () {
     });//form submit
 });//document ready
 
+function approveRequest(payment_id, agent_id, amount) {
+    var params = {
+        payment_id: payment_id,
+        user_id: agent_id,
+        amount: amount
+    };
+    EMI_Or_Money_Request = 1;
+    addMoneyToWallet(params);
+}
 
+function rejectRequest(payment_id) {
+    updateMoneyRequestStatus(payment_id, 'Rejected');
+}
+
+function updateMoneyRequestStatus(payment_id, status) {
+    showLoader();
+    $.ajax({
+        url: base_url + 'update-request-money-status',
+        type: 'post',
+        data: {id: payment_id, status: status},
+        success: function (response) {
+            if (response.status == 'success') {
+                showSwal('success', 'Payment ' + status, 'Payment ' + status + ' successfully.')
+                hideLoader();
+            } else {
+                showSwal('error', 'Failed', 'Something went wrong');
+                hideLoader();
+            }
+        }
+    });
+}
 
 function addMoneyToWallet(params) {
+    showLoader();
     $.ajax({
         url: base_url + 'add-money-to-wallet',
         type: 'post',
-        data: params,
+        data: {
+            user_id: params.user_id,
+            amount: params.amount
+        },
         success: function (response) {
-            console.log(response);
             if (response.status == 'success') {
                 var updated_amount = response.data.amount;
                 updated_amount = Number(updated_amount);
                 $('#e-wallet').html(updated_amount.toFixed(2));
                 $('#amount').val('');
-                hideLoader();
+                if (EMI_Or_Money_Request == 1) {
+                    updateMoneyRequestStatus(params.payment_id, 'Approved');
+                } else {
+                    hideLoader();
+                }
             } else {
                 hideLoader();
             }
@@ -74,7 +111,6 @@ function get_agent_list() {
                 $.each(response.data, function (key, value) {
                     table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });
-                //console.log(table_data);
                 $("#agents").html(table_data);
                 $('#agent-list').html(table_data);
 
@@ -116,7 +152,6 @@ function getAgentPaymentList(agent_id) {
 }
 
 function get_agent_payment_list(agent_id, status) {
-    console.log(status);
     showLoader();
     var params = {
         user_id: agent_id,
@@ -129,7 +164,6 @@ function get_agent_payment_list(agent_id, status) {
         type: 'post',
         data: params,
         success: function (response) {
-            console.log(response);
             if (response.status == 'success') {
                 var action_th = '';
                 if (status == 'Pending') {
@@ -149,7 +183,7 @@ function get_agent_payment_list(agent_id, status) {
                 $.each(response.data, function (key, value) {
                     var action_tr = '';
                     if (status == 'Pending') {
-                        action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.created_for + ',' + value.amount + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.created_for + ');"></i> </td>';
+                        action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.id + ', ' + value.created_for + ',' + value.amount + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.id + ');"></i> </td>';
                     }
                     var dd = new Date(value.date_requested);
                     var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();

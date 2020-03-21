@@ -43,6 +43,7 @@
 <!--script src="assets/js/data-table.js"></script-->
 <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+<script src="assets/javascript/datataable.js"></script>
 <script type="text/javascript">
     var base_url = "<?php echo $base_url; ?>";
     var media_url = "<?php echo $media_url; ?>";
@@ -113,20 +114,6 @@
 
     function hideLoader() {
         $('#loader_bg').css('display', 'none');
-    }
-
-    function initDataTable(){
-        $('#order-listing').DataTable({
-            "aLengthMenu": [
-                [5, 10, 15, -1],
-                [5, 10, 15, "All"]
-            ],
-            "iDisplayLength": 10,
-            "language": {
-                search: ""
-            }
-        });
-        $('#order-listing_filter [type=search]').attr('placeholder','Search');
     }
 
     hideLoader();

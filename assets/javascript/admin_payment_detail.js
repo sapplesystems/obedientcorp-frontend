@@ -112,6 +112,7 @@ function get_payment_details() {
             else
             {
                 $("#admin-payment-detail").html(response.data);
+                initAdminPaymetListDataTable();
                 hideLoader();
             }
 

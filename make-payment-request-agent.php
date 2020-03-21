@@ -153,10 +153,101 @@
 
                                     </div>
                                 </div>
+                            </div><!--end div-->
+                            <!--model wallet request-->
+                            <div class="modal fade" id="makeRequestWallet" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                                <div class="modal-dialog payment-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Make Request To Wallet</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="payment-form-wallet" name="payment-form-wallet" method="post" enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label col-sm-4 text-right">Payment Mode:</label>
+                                                            <div class="col-sm-8">
+                                                                <select class="form-control required" id="payment_mode_wallet" name="payment_mode_wallet">
+                                                                    <option value="">Select</option>
+                                                                    <option value="Cheque">Cheque</option>
+                                                                    <option value="Cash">Cash</option>
+                                                                    <option value="Online">Online</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row payment-number-div-wallet">
+                                                            <label class="col-form-label col-sm-4 text-right " id="payment-number-div-wallet">Cheque Number:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 bank-name-wallet">
+                                                        <div class="form-group row ">
+                                                            <label class="col-form-label col-sm-4 text-right">Bank Name:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control required" id="bank_name_wallet" name="bank_name_wallet">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label col-sm-4 text-right">Upload Image:</label>
+                                                            <div class="input-group col-sm-8">
+                                                                <input type="file" name="upload_image_wallet" id="upload-image-wallet" class="file-upload-default required">
+                                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                                                <span class="input-group-append">
+                                                                    <button class="file-upload-browse btn btn-gradient-primary pl-3 pr-3" type="button">Upload</button>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row ">
+                                                            <label class="col-form-label col-sm-4 text-right">Amount:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control required" id="amount_wallet" name="amount_wallet">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group row mb-0">
+                                                            <label for="message-text" class="col-form-label col-sm-2 text-right">Comment:</label>
+                                                            <div class="col-sm-10">
+                                                                <textarea rows="6" class="form-control required" id="comment_wallet" name="comment_wallet"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer text-center">
+                                                    <button type="submit" class="btn btn-success" id="save_value_wallet">Submit</button>
+                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
+                            <!--end wallet request-->
+
                             <div class="col-md-12 text-right">
                                 <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request">Make Request</button>
+                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request_to_wallet">Make Request To Wallet</button>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

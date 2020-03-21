@@ -45,11 +45,11 @@ function approveRequest(payment_id, agent_id, amount) {
     addMoneyToWallet(params);
 }
 
-function rejectRequest(payment_id) {
-    updateMoneyRequestStatus(payment_id, 'Rejected');
+function rejectRequest(payment_id, agent_id) {
+    updateMoneyRequestStatus(payment_id, agent_id, 'Rejected');
 }
 
-function updateMoneyRequestStatus(payment_id, status) {
+function updateMoneyRequestStatus(payment_id, agent_id, status) {
     showLoader();
     $.ajax({
         url: base_url + 'update-request-money-status',
@@ -57,7 +57,8 @@ function updateMoneyRequestStatus(payment_id, status) {
         data: {id: payment_id, status: status},
         success: function (response) {
             if (response.status == 'success') {
-                showSwal('success', 'Payment ' + status, 'Payment ' + status + ' successfully.')
+                showSwal('success', 'Payment ' + status, 'Payment ' + status + ' successfully.');
+                getAgentPaymentList(agent_id);
                 hideLoader();
             } else {
                 showSwal('error', 'Failed', 'Something went wrong');
@@ -83,7 +84,7 @@ function addMoneyToWallet(params) {
                 $('#e-wallet').html(updated_amount.toFixed(2));
                 $('#amount').val('');
                 if (EMI_Or_Money_Request == 1) {
-                    updateMoneyRequestStatus(params.payment_id, 'Approved');
+                    updateMoneyRequestStatus(params.payment_id, params.user_id, 'Approved');
                 } else {
                     hideLoader();
                 }
@@ -183,7 +184,7 @@ function get_agent_payment_list(agent_id, status) {
                 $.each(response.data, function (key, value) {
                     var action_tr = '';
                     if (status == 'Pending') {
-                        action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.id + ', ' + value.created_for + ',' + value.amount + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.id + ');"></i> </td>';
+                        action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.id + ', ' + value.created_for + ',' + value.amount + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.id + ', ' + value.created_for + ');"></i> </td>';
                     }
                     var dd = new Date(value.date_requested);
                     var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();

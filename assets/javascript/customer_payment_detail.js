@@ -297,19 +297,15 @@ function get_customer_payament_details(customer_id, status) {
                 });
                 if (status == 'Due') {
                     $("#due_payment_list").html(table_data);
-                    initDuePaymetListDataTable();
                 }
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
-                    initPendingPaymetListDataTable();
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(table_data);
-                    initApprovedPaymetListDataTable();
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
-                    initRejectedPaymetListDataTable();
                 }
 
             }

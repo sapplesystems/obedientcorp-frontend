@@ -22710,7 +22710,7 @@ dl li {
 
 .tab-content.tab-content-custom-pill {
     border: 0;
-    padding-left: 0;
+    /*padding-left: 0;*/
 }
 
 
@@ -30806,7 +30806,7 @@ CSS ANIMATION FOR TREE
     transform: translate(-50%, -50%);
 }
 
-#order-listing_filter input[type="search"]{
+.dataTables_wrapper input[type="search"]{
     border: 1px solid #322f2f;
     font-family: "ubuntu-regular", sans-serif;
     font-size: 0.8125rem;
@@ -30820,57 +30820,57 @@ CSS ANIMATION FOR TREE
     border-radius: 2px;
 }
 
-#order-listing_wrapper #order-listing_length{
+.dataTables_wrapper #order-listing_length, .dataTables_wrapper .dataTables_length{
     float: left;
     margin-bottom: 10px;
 }
 
-#order-listing_wrapper #order-listing_filter{
+.dataTables_wrapper #order-listing_filter{
     float: right;
     margin-bottom: 10px;
 }
 
-#order-listing_wrapper #order-listing_paginate{
+.dataTables_wrapper #order-listing_paginate, .dataTables_wrapper .dataTables_paginate{
     float: right;
     margin-top:10px;
 }
 
-#order-listing_wrapper #order-listing_paginate > a:first-child{
+.dataTables_wrapper #order-listing_paginate > a:first-child, .dataTables_wrapper .dataTables_paginate > a:first-child{
     padding: 10px;
     border: 1px solid #322f2f;
     border-radius: 5px 0 0 5px;
     cursor:pointer;
 }
 
-#order-listing_wrapper #order-listing_paginate > a:last-child{
+.dataTables_wrapper #order-listing_paginate > a:last-child, .dataTables_wrapper .dataTables_paginate > a:last-child{
     padding: 10px;
     border: 1px solid #322f2f;
     border-radius: 0px 5px 5px 0;
     cursor:pointer;
 }
 
-#order-listing_wrapper #order-listing_paginate span a{
+.dataTables_wrapper #order-listing_paginate span a, .dataTables_wrapper .dataTables_paginate span a{
     padding: 10px;
     border: 1px solid #322f2f;
     display:inline-block;
     cursor:pointer;
 }
 
-#order-listing_wrapper #order-listing_paginate span a:first-child{ 
+.dataTables_wrapper #order-listing_paginate span a:first-child, .dataTables_wrapper .dataTables_paginate span a:first-child{ 
     border-right:1px solid #322f2f;
 }
 
-#order-listing_wrapper #order-listing_paginate a{
+.dataTables_wrapper #order-listing_paginate a, .dataTables_wrapper .dataTables_paginate a{
     border-color: #b66dff;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
 
-#order-listing_wrapper #order-listing_paginate span a.current{
+.dataTables_wrapper #order-listing_paginate span a.current, .dataTables_wrapper .dataTables_paginate span a.current{
     border-color: #b66dff;
-} 
+}
 
-#order-listing_info{float:left;margin-top:5px;}    
+#order-listing_info, .dataTables_info{float:left;margin-top:5px;}    
 
 @media (max-width: 991px) {
     .payment-dialog label.text-right {

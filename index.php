@@ -1,7 +1,7 @@
+<?php include_once 'common_html.php'; ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Obedient</title>
@@ -63,74 +63,11 @@
                      </div> -->
 
                     <!-- Wrapper -->
-
-                    <div id="main_container" class="container-fluid" style="position:absolute; z-index:99;padding: 0;">
-                        <div class="topBar padd5" style="display:none;z-index:3">
-                            <div class="container-fluid">
-                                <div class="row-fluid">
-                                    <div class="col-md-2 col-xs-2 text-left m-left paddLeftNone">
-                                        <div class="logo" style="display:none;"> <a href="index"><img style="height:100px;" src="images/obedient-logo.png"></a> </div>
-                                    </div>
-                                    <div class="col-md-1 col-xs-2 text-right navCWrap pull-right paddRightNone"></div>
-                                    <div class="col-md-10 col-menu pull-left text-right paddLeftNone">
-                                        <ul class="topMenu" style="opacity:1;">
-                                            <li id="project" class="" style="opacity:0"><a class="add-opacity" href="index.html">Home</a></li>
-                                            <!--<li id="offices" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">About us</a></li>-->
-                                            <li id="offices" class="" style="opacity:0"><a class="add-opacity" href="shop-styled-column-4.html">Products</a></li>
-                                            <li id="about" class="" style="opacity:0"><a class="add-opacity" href="elements-lightboxes.html">Legal</a></li>
-                                            <li id="serviceNav" class="" style="opacity:0"><a class="add-opacity" href="elements-infoboxes.html">Bankers</a></li>
-                                            <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Achievers</a></li>-->
-                                            <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Winners</a></li>-->
-                                            <li id="news" class="" style="opacity:0"><a class="add-opacity" href="gallery-grid-with-texts.html">Gallery</a></li>
-                                            <li id="career" class="" style="opacity:0"><a class="add-opacity" href="elements-clients.html">Amenities</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row-fluid">
-                            <div style="overflow: hidden;">
-                                <div class="col-md-12 home-bg-img home-bg-img-animate-new" style="background-color:transparent">
-                                    <div class="row topHeader">
-                                        <div class="col-md-6 main-logo" style="opacity: 0;z-index:3" id="main-logo">
-                                            <a href="index.html"><img style="height:100px;" class="hbalogo" src="images/obedient-logo.png"></a>
-                                        </div>
-
-                                        <div class="col-md-6 nav-bar" style="padding:0;z-index:3" >
-                                            <div id="burgernavbar">
-                                                <div class="nav-bar1 hamburger1" style=" opacity: 0;"></div>
-                                                <div class="nav-bar2 hamburger2"  style=" opacity: 0;"></div>
-                                                <div class="nav-bar3 hamburger3" style="opacity: 0;"></div>
-                                            </div>
-                                            <div id="burgernavbarcancel" style="display:none;z-index:3;top: -20px; position: absolute;" class="navCanel"><a href="Javascript:void(0);" class="iconCancel"></a></div>
-                                        </div>
-                                    </div>
-                                    <div></div>    
-                                </div>
-                            </div>
-                        </div> <!-- ROW-->
-                    </div>
-
+                    <?php echo $common['main_container_navigation']; ?>
 
 
                     <section id="wrapper">
-
-                        <!-- Dotted Navigation -->
-                        <div id="dotted-navigation" class="hide-on-home nav-menu">
-                            <ul id="side-dotted-navigation" class="spy font-11 extrabold nav uppercase">
-                                <li><a href="index.html"><span>Home</span></a></li>
-                                <!--<li><a href="javascript:void(0);"><span>About us</span></a></li>-->
-                                <li><a href="shop-styled-column-4.html"><span>Products</span></a></li>
-                                <li><a href="elements-lightboxes.html"><span>Legal</span></a></li>
-                                <li><a href="elements-infoboxes.html"><span>Bankers</span></a></li>
-                                <!--<li><a href="javascript:void(0);"><span>Achievers</span></a></li>
-                                <li><a href="javascript:void(0);"><span>Winners</span></a></li>-->
-                                <li><a href="gallery-grid-with-texts.html"><span>Gallery</span></a></li>
-                                <li><a href="elements-clients.html"><span>Amenities</span></a></li>
-                            </ul>
-                        </div>
+                        <?php echo $common['dotted_navigation']; ?>
                         <!-- End Dotted Navigation -->
 
 
@@ -143,7 +80,7 @@
                             <!-- HOME SECTION -->
 
 
-<!--<a href="index.html" class="logoHeaderMain"><img style="height:120px;" src="images/obedient-logo.png" alt="" /></a>-->
+<!--<a href="index.php" class="logoHeaderMain"><img style="height:120px;" src="images/obedient-logo.png" alt="" /></a>-->
                             <!-- CONTENT -->
                             <section id="home" class="Intro" id="intro">
                                 <div class="StevenCarousel">
@@ -1154,16 +1091,7 @@
 
                                         <!-- Container for portfolio items -->
                                         <div id="projects" class="lightbox_selected cbp cbp-l-grid-masonry-projects">
-
-                                            <!-- Item -->
-                                            <div id="reat_state_products">
-
-                                            </div>
-                                            <!-- End Item -->
-                                            <!-- Item -->
-                                            <div id="good_products_div"></div>
-
-
+                                            <div class="cbp-wrapper"></div>
                                         </div>
                                         <!-- End container for works -->
                                         <!-- Load more button -->
@@ -1468,38 +1396,7 @@
 
 
                                                                             <!-- SEARCH FORM FOR NAV -->
-                                                                            <div class="fs-searchform">
-                                                                                <form id="fs-searchform" class="v-center container" action="pages-search-results.html" method="get">
-                                                                                    <!-- Input -->
-                                                                                    <input type="search" name="q" id="q" placeholder="Search on website.com" autocomplete="off">
-                                                                                        <!-- Search Button -->
-                                                                                        <button type="submit">
-                                                                                            <i class="fa fa-search"></i>
-                                                                                        </button>
-                                                                                        <div class="recommended font-13 normal">
-                                                                                            <h5 class="rcm-title">Recommend Links;</h5>
-                                                                                            <a href="demo-antares.html">Quadra, Antares version</a>
-                                                                                            <a href="index.html">Beautiful Athena demo</a>
-                                                                                            <a href="elements-all.html">Awesome Quadra Elements</a>
-                                                                                            <a href="demo-feronia.html">Why i will use the Quadra?</a>
-                                                                                            <a href="demo-sun.html">Checkout the Sun demo</a>
-                                                                                            <a href="index.html">See 700+ templates</a>
-                                                                                        </div>
-                                                                                </form>
-                                                                                <div class="form-bg"></div>
-                                                                            </div>
-                                                                            <!-- END SEARCH FORM -->
-
-                                                                            <!-- Messages for contact form -->
-                                                                            <div id="error_message" class="clearfix">
-                                                                                <i class="fa fa-warning"></i>
-                                                                                <span>Validation error occured. Please enter the fields and submit it again.</span>
-                                                                            </div>
-                                                                            <!-- Submit Message -->
-                                                                            <div id="submit_message" class="clearfix">
-                                                                                <i class="fa fa-check"></i>
-                                                                                <span>Thank You ! Your email has been delivered.</span>
-                                                                            </div>
+                                                                            <?php echo $common['search_form']; ?>
 
                                                                             <!-- Modal 11 -->
                                                                             <div id="modal-11" class="modal middle-modal fade" tabindex="-1" role="dialog">

@@ -345,7 +345,7 @@ function get_customer_list(user_id) {
             if (response.status) {
                 var customer_list = '<option value="">--select--</option>';
                 $.each(response.data, function (key, value) {
-                    customer_list += '<option value="' + value.id + '">' + value.username + '</option>';
+                    customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });
                 $("#customer-list").html(customer_list);
 

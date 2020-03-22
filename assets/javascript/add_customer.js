@@ -551,7 +551,7 @@ function getCustomersList(user_id) {
                         photo_link = 'http://localhost/obedientcorp/public/uploads/customers/' + val.photo;
                     }
                     html += '<tr id="tr_' + val.id + '">\n\
-                                  <td>' + val.name + '</td>\n\
+                                  <td>' + val.display_name + '</td>\n\
                                   <td>' + val.sex + '</td>\n\
                                   <td>' + val.mobile + '</td>\n\
                                   <td>' + val.address + '</td>\n\

@@ -1096,7 +1096,7 @@
                                         <!-- End container for works -->
                                         <!-- Load more button -->
                                         <div id="more-projects" class="cbp-l-loadMore-button" style="display:none;">
-                                            <a href="content/nyks/ajax/loadmore.html" class="cbp-l-loadMore-link" rel="nofollow">
+                                            <a href="#" class="cbp-l-loadMore-link" rel="nofollow">
                                                 <!--<span class="cbp-l-loadMore-defaultText">LOAD MORE</span>-->
                                                 <span class="cbp-l-loadMore-loadingText">LOADING...</span>
                                                 <span class="cbp-l-loadMore-noMoreLoading">NO MORE WORKS</span>

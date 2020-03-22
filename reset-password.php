@@ -38,7 +38,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                         <div class="col-lg-6 d-flex align-items-center justify-content-center">
                             <div class="auth-form-transparent text-left p-3">
                                 <div class="brand-logo">
-                                    <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                                    <a href="index"><img src="assets/images/logo.png" alt="logo"></a>
                                 </div>
                                 <h4>Reset Password</h4>
                                 <h6 class="font-weight-light">Enter your new password.</h6>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id'])) {
-    echo '<script type="text/javascript">window.location.href = "dashboard.php";</script>';
+    echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
     exit;
 }
 ?>
@@ -406,7 +406,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                     </section>
                                 </div>
                             </form>
-                            <div class="text-right mt-4 font-weight-light mr-2"> Already have an account? <a href="login.php" class="text-primary">Login</a>
+                            <div class="text-right mt-4 font-weight-light mr-2"> Already have an account? <a href="login" class="text-primary">Login</a>
                             </div>
                         </div>
                     </div>
@@ -486,7 +486,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                                         if (UserCookie != "") {
                                                             var data = JSON.parse(UserCookie);
                                                             //alert("Welcome again " + data.name);
-                                                            window.location.href = "dashboard.php";
+                                                            window.location.href = "dashboard";
                                                         } else {
                                                             getStatesCities();
                                                             getRelationships();
@@ -627,7 +627,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                                             success: function (response) {
                                                                 if (response.status == "success") {
                                                                     showSwal('success', 'Register Successfully', 'Agent register successfully');
-                                                                    window.location.href = "login.php";
+                                                                    window.location.href = "login";
                                                                 } else {
                                                                     showSwal('error', 'Registration Failed', 'Agent registration failed');
                                                                     hideLoader();

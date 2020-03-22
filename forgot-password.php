@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id'])) {
-    echo '<script type="text/javascript">window.location.href = "dashboard.php";</script>';
+    echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
     exit;
 }
 ?>

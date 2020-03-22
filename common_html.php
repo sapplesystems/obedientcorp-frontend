@@ -11,15 +11,12 @@ $common = array(
                                                     <div class="col-md-1 col-xs-2 text-right navCWrap pull-right paddRightNone"></div>
                                                     <div class="col-md-10 col-menu pull-left text-right paddLeftNone">
                                                         <ul class="topMenu" style="opacity:1;">
-                                                            <li id="project" class="" style="opacity:0"><a class="add-opacity" href="index.php">Home</a></li>
-                                                            <!--<li id="offices" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">About us</a></li>-->
-                                                            <li id="offices" class="" style="opacity:0"><a class="add-opacity" href="products.php">Products</a></li>
-                                                            <li id="about" class="" style="opacity:0"><a class="add-opacity" href="legal.php">Legal</a></li>
-                                                            <li id="serviceNav" class="" style="opacity:0"><a class="add-opacity" href="bankers.php">Bankers</a></li>
-                                                            <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Achievers</a></li>-->
-                                                            <!--<li id="news" class="" style="opacity:0"><a class="add-opacity" href="javascript:void(0);">Winners</a></li>-->
-                                                            <li id="news" class="" style="opacity:0"><a class="add-opacity" href="gallery.php">Gallery</a></li>
-                                                            <li id="career" class="" style="opacity:0"><a class="add-opacity" href="amenities.php">Amenities</a></li>
+                                                            <li id="project" class="" style="opacity:0"><a class="add-opacity" href="index">Home</a></li>
+                                                            <li id="offices" class="" style="opacity:0"><a class="add-opacity" href="products">Products</a></li>
+                                                            <li id="about" class="" style="opacity:0"><a class="add-opacity" href="legal">Legal</a></li>
+                                                            <li id="serviceNav" class="" style="opacity:0"><a class="add-opacity" href="bankers">Bankers</a></li>
+                                                            <li id="news" class="" style="opacity:0"><a class="add-opacity" href="gallery">Gallery</a></li>
+                                                            <li id="career" class="" style="opacity:0"><a class="add-opacity" href="amenities">Amenities</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -30,7 +27,7 @@ $common = array(
                                                 <div class="col-md-12 home-bg-img home-bg-img-animate-new" style="background-color:transparent">
                                                     <div class="row topHeader">
                                                         <div class="col-md-6 main-logo" style="opacity: 0;z-index:3" id="main-logo">
-                                                            <a href="index.php"><img style="height:100px;" class="hbalogo" src="images/obedient-logo.png"></a>
+                                                            <a href="index"><img style="height:100px;" class="hbalogo" src="images/obedient-logo.png"></a>
                                                         </div>
                                                         <div class="col-md-6 nav-bar" style="padding:0;z-index:3" >
                                                             <div id="burgernavbar">
@@ -48,12 +45,12 @@ $common = array(
                                     </div>',
     'dotted_navigation' => '<div id="dotted-navigation" class="hide-on-home nav-menu">
                                 <ul id="side-dotted-navigation" class="spy font-11 extrabold nav uppercase">
-                                    <li><a href="index.php"><span>Home</span></a></li>
-                                    <li><a href="products.php"><span>Products</span></a></li>
-                                    <li><a href="legal.php"><span>Legal</span></a></li>
-                                    <li><a href="bankers.php"><span>Bankers</span></a></li>
-                                    <li><a href="gallery.php"><span>Gallery</span></a></li>
-                                    <li><a href="amenities.php"><span>Amenities</span></a></li>
+                                    <li><a href="index"><span>Home</span></a></li>
+                                    <li><a href="products"><span>Products</span></a></li>
+                                    <li><a href="legal"><span>Legal</span></a></li>
+                                    <li><a href="bankers"><span>Bankers</span></a></li>
+                                    <li><a href="gallery"><span>Gallery</span></a></li>
+                                    <li><a href="amenities"><span>Amenities</span></a></li>
                                 </ul>
                             </div>',
     'search_form' => '<div class="fs-searchform">
@@ -65,11 +62,11 @@ $common = array(
                                     <div class="recommended font-13 normal">
                                         <h5 class="rcm-title">Recommend Links;</h5>
                                         <a href="demo-antares.html">Quadra, Antares version</a>
-                                        <a href="index.php">Beautiful Athena demo</a>
+                                        <a href="index">Beautiful Athena demo</a>
                                         <a href="elements-all.html">Awesome Quadra Elements</a>
                                         <a href="demo-feronia.html">Why i will use the Quadra?</a>
                                         <a href="demo-sun.html">Checkout the Sun demo</a>
-                                        <a href="index.php">See 700+ templates</a>
+                                        <a href="index">See 700+ templates</a>
                                     </div>
                             </form>
                             <div class="form-bg"></div>

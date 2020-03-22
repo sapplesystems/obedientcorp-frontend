@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id'])) {
-    echo '<script type="text/javascript">window.location.href = "dashboard.php";</script>';
+    echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
     exit;
 }
 ?>
@@ -149,7 +149,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                     if (response.status == "success") {
                         showSwal('success', 'Password Reset', 'Password reset successfully.');
                         document.getElementById('resetpassword_form').reset();
-                        window.location.href = 'login.php';
+                        window.location.href = 'login';
                     }
                     else {
                         showSwal('error', 'Failed', 'Something went wrong, please try again.');

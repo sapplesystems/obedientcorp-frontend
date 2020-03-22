@@ -62,7 +62,7 @@
         if (UserCookie == "") {
             logout();
             //console.log("cookie not set please login first");
-            //window.location.href = "login.php"
+            //window.location.href = "login"
         } else {
             UserCookieData = JSON.parse(UserCookie);
             if (UserCookieData) {
@@ -103,7 +103,7 @@
             destroy_session: 1
         }, function (resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            window.location.href = 'login.php';
+            window.location.href = 'login';
         });
     }
 

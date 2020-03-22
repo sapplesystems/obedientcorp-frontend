@@ -202,7 +202,7 @@
                                                                  data-paddingbottom="[10,10,10,10]"
                                                                  data-paddingleft="[30,30,30,30]"
 
-                                                                 style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login.php">LOGIN</a> </div>
+                                                                 style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
 
                                                             <!-- LAYER NR. 5 -->
                                                             <div class="tp-caption rev-scroll-btn "
@@ -1260,7 +1260,7 @@
                                     <!-- Form -->
                                     <div id="form" class="xxs-mt">
                                         <!-- Contact Form -->
-                                        <form id="contact_form" name="contact_form" class="mt-40" method="post" action="php/mail.php">
+                                        <form id="contact_form" name="contact_form" class="mt-40" method="post" action="#">
                                             <!-- Half Inputs -->
                                             <div class="half clearfix">
                                                 <input type="text" name="name" id="name" required placeholder="Name">
@@ -1327,7 +1327,7 @@
                                                                             <h6 class="sm-mt bold gray8">GET UPDATED</h6>
                                                                             <p class="mini-mt">The standard chunk of Lorem Ipsum used.</p>
                                                                             <div id="newsletter-form" class="footer-newsletter clearfix xs-mt">
-                                                                                <form id="newsletter_form" name="newsletter_form" method="post" action="php/newsletter.php">
+                                                                                <form id="newsletter_form" name="newsletter_form" method="post" action="#">
                                                                                     <input type="email" name="n-email" id="n-email" required placeholder="Add your E-Mail address" class="font-12 radius-lg form-control">
                                                                                         <button type="submit" id="n-submit" name="submit" class="btn-lg fullwidth radius-lg bg-colored1 white qdr-hover-6 click-effect bold font-12">SUBSCRIBE</button>
                                                                                 </form>
@@ -1379,7 +1379,7 @@
                                                                 <h5 class="uppercase t-center extrabold">Drop us a message</h5>
                                                                 <p class="t-center normal">You're in the right place! Just drop us a message. How can we help?</p>
                                                                 <!-- Contact Form -->
-                                                                <form class="quick_form" name="quick_form" method="post" action="php/quick-contact-form.php">
+                                                                <form class="quick_form" name="quick_form" method="post" action="#">
                                                                     <input type="text" name="name" id="name_id" required placeholder="Name" class="no-mt">
                                                                         <input type="email" name="emailid" id="emailid" required placeholder="E-Mail">
                                                                             <textarea name="message" id="message_id" required placeholder="Message"></textarea>

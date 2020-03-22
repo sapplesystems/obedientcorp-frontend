@@ -10,7 +10,7 @@ $left_node_id = $_SESSION['login_resp']['left_node_id'];
 $right_node_id = $_SESSION['login_resp']['right_node_id'];
 $photo = $_SESSION['login_resp']['photo'];
 if (!$user_id || $user_id == '' || empty($user_id)) {
-    echo '<script type="text/javascript">window.location.href = "login.php";</script>';
+    echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
 }
 ?>
@@ -47,11 +47,10 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
             <div class="flip-square-loader mx-auto" id="loader_div"></div>
         </div>
         <div class="container-scroller">
-            <!-- partial:partials/_navbar.php -->
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="dashboard.php"><img src="assets/images/logo.png" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="dashboard.php"><img src="assets/images/logo.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="dashboard"><img src="assets/images/logo.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="dashboard"><img src="assets/images/logo.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -91,29 +90,28 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
             </nav>
             <!-- partial -->
             <div class="container-fluid page-body-wrapper">
-                <!-- partial:partials/_sidebar.php -->
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">
+                            <a class="nav-link" href="dashboard">
                                 <span class="menu-title">Dashboard</span>
                                 <i class="mdi mdi-home menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">
+                            <a class="nav-link" href="profile">
                                 <span class="menu-title">Profile</span>
                                 <i class="mdi mdi-account menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="change-password.php">
+                            <a class="nav-link" href="change-password">
                                 <span class="menu-title">Change Password</span>
                                 <i class="mdi mdi-account menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-customer.php">
+                            <a class="nav-link" href="manage-customer">
                                 <span class="menu-title">Manage Customer</span>
                                 <i class="mdi mdi-settings menu-icon"></i>
                             </a>
@@ -126,9 +124,9 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                             </a>
                             <div class="collapse" id="project">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="add-project.php">Add/View Project</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="add-sub-project.php">Add/View Sub-Project</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="add-plot.php">Add/View Plot</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="add-project">Add/View Project</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="add-sub-project">Add/View Sub-Project</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="add-plot">Add/View Plot</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -141,43 +139,43 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                                 </a>
                                 <div class="collapse" id="category">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="create-category.php">Create Category</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="create-sub-category.php">Create Sub Category</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="create-product.php">Create Product</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="create-category">Create Category</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="create-sub-category">Create Sub Category</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="create-product">Create Product</a></li>
                                     </ul>
                                 </div>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="team.php">
+                            <a class="nav-link" href="team">
                                 <span class="menu-title">Your Team</span>
                                 <i class="mdi mdi-format-title menu-icon"></i>
                             </a>
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="add-money-to-wallet.php">
+                                <a class="nav-link" href="add-money-to-wallet">
                                     <span class="menu-title">Add Money to Wallet</span>
                                     <i class="mdi mdi-wallet menu-icon"></i>
                                 </a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="manage-coupon.php">
+                            <a class="nav-link" href="manage-coupon">
                                 <span class="menu-title">Manage Coupons</span>
                                 <i class="mdi mdi-wallet-giftcard menu-icon"></i>
                             </a>
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="make-payment-request-admin.php">
+                                <a class="nav-link" href="make-payment-request-admin">
                                     <span class="menu-title">Approve EMI Payments</span>
                                     <i class="mdi mdi-checkbox-marked-circle-outline menu-icon"></i>
                                 </a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="make-payment-request-agent.php">
+                            <a class="nav-link" href="make-payment-request-agent">
                                 <span class="menu-title">Make Request</span>
                                 <i class="mdi mdi-repeat menu-icon"></i>
                             </a>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id'])) {
-    echo '<script type="text/javascript">window.location.href = "dashboard.php";</script>';
+    echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
     exit;
 }
 ?>
@@ -70,12 +70,12 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                             <label class="form-check-label text-muted">
                                                 <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                                         </div>
-                                        <a href="forgot-password.php" class="auth-link">Forgot password?</a>
+                                        <a href="forgot-password" class="auth-link">Forgot password?</a>
                                     </div>
                                     <div class="my-3">
                                         <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login">LOGIN</button>
                                     </div>
-                                    <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.php" class="text-primary">Create</a>
+                                    <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register" class="text-primary">Create</a>
                                     </div>
                                 </form>
                             </div>
@@ -210,7 +210,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
             if (UserCookie != "") {
                 var data = JSON.parse(UserCookie);
                 //alert("Welcome again " + data.name);
-                window.location.href = "dashboard.php";
+                window.location.href = "dashboard";
             }
         } //end function checkcookies
 
@@ -246,7 +246,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
             destroy_session: 1
         }, function (resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            window.location.href = 'login.php';
+            window.location.href = 'login';
         });
     }
 

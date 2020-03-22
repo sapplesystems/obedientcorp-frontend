@@ -75,7 +75,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
-                                    <select id="sub_categories" class="form-control sub_categories" style="display: none;">
+                                    <select id="sub_categories" class="form-control" style="display: none;">
                                         <option value="">Select Sub-Category</option>
                                     </select>
                                 </div>

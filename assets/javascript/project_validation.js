@@ -102,7 +102,6 @@ function getProjectList() {
                                 <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.name + '</td>\n\
                                 <td>' + value.unit_price + '</td>\n\
-                                <td>' + value.area + '</td>\n\
                                 <td>' + value.description + '</td>\n\
                                 <td><a href="javascript:void(0);" onclick="updateProject(event, ' + value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr>';

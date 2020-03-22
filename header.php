@@ -13,6 +13,7 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
     echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
 }
+include_once 'common_html.php';
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +50,8 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
         <div class="container-scroller">
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="dashboard"><img src="assets/images/logo.png" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="dashboard"><img src="assets/images/logo.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="<?php echo $home_url; ?>"><img src="assets/images/logo.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="<?php echo $home_url; ?>"><img src="assets/images/logo.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -174,12 +175,14 @@ if (!$user_id || $user_id == '' || empty($user_id)) {
                                 </a>
                             </li>
                         <?php } ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="make-payment-request-agent">
-                                <span class="menu-title">Make Request</span>
-                                <i class="mdi mdi-repeat menu-icon"></i>
-                            </a>
-                        </li>
+                        <?php if ($user_type != 'ADMIN') { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="make-payment-request-agent">
+                                    <span class="menu-title">Make Request</span>
+                                    <i class="mdi mdi-repeat menu-icon"></i>
+                                </a>
+                            </li>
+                        <?php } ?>
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="logout();">
                                 <span class="menu-title">Logout</span>

@@ -140,7 +140,7 @@
                                         <h6 class="sm-mt bold gray8">GET UPDATED</h6>
                                         <p class="mini-mt">The standard chunk of Lorem Ipsum used.</p>
                                         <div id="newsletter-form" class="footer-newsletter clearfix xs-mt">
-                                            <form id="newsletter_form" name="newsletter_form" method="post" action="php/newsletter.php">
+                                            <form id="newsletter_form" name="newsletter_form" method="post" action="#">
                                                 <input type="email" name="n-email" id="n-email" required placeholder="Add your E-Mail address" class="font-12 radius-lg form-control">
                                                     <button type="submit" id="n-submit" name="submit" class="btn-lg fullwidth radius-lg bg-colored2 gray4 qdr-hover-6 click-effect bold font-12">SUBSCRIBE</button>
                                             </form>
@@ -184,7 +184,7 @@
                             <h5 class="uppercase t-center extrabold">Drop us a message</h5>
                             <p class="t-center normal">You're in the right place! Just drop us a message. How can we help?</p>
                             <!-- Contact Form -->
-                            <form class="quick_form" name="quick_form" method="post" action="php/quick-contact-form.php">
+                            <form class="quick_form" name="quick_form" method="post" action="#">
                                 <!-- Name -->
                                 <input type="text" name="qname" id="qname" required placeholder="Name" class="no-mt">
                                     <!-- Email -->

@@ -180,7 +180,7 @@
                                                                  data-paddingbottom="[10,10,10,10]"
                                                                  data-paddingleft="[30,30,30,30]"
 
-                                                                 style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="our-products.php">OUR PRODUCTS<a/> </div>
+                                                                 style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
 
                                                             <!-- LAYER NR. 4 - 2 -->
                                                             <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"

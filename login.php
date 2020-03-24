@@ -138,7 +138,7 @@ include_once 'common_html.php';
                 },
             });
             if ($("#login_form").valid()) {
-				showLoader();
+                showLoader();
                 var url = base_url + 'login';
                 var params = {
                     username: $("#username").val(),
@@ -208,9 +208,12 @@ include_once 'common_html.php';
         function checkCookie() {
 
             var UserCookie = getCookie("UserCookie");
-            if (UserCookie != "") {
+            if (typeof UserCookie === 'undefined' || typeof UserCookie === undefined || typeof UserCookie === 'string' || UserCookie === null) {
+                console.log('in if');
+                logout();
+            } else {
+                console.log('in else');
                 var data = JSON.parse(UserCookie);
-                //alert("Welcome again " + data.name);
                 window.location.href = "dashboard";
             }
         } //end function checkcookies
@@ -241,13 +244,13 @@ include_once 'common_html.php';
     function hideLoader() {
         $('#loader_bg').css('display', 'none');
     }
-    
+
     function logout() {
         $.post('localapi.php', {
             destroy_session: 1
         }, function (resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            window.location.href = 'login';
+            //window.location.href = 'login';
         });
     }
 

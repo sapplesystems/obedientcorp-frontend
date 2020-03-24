@@ -208,13 +208,13 @@ include_once 'common_html.php';
         function checkCookie() {
 
             var UserCookie = getCookie("UserCookie");
-            if (typeof UserCookie === 'undefined' || typeof UserCookie === undefined || typeof UserCookie === 'string' || UserCookie === null) {
+            if (UserCookie !== '') {
                 console.log('in if');
-                logout();
-            } else {
-                console.log('in else');
                 var data = JSON.parse(UserCookie);
                 window.location.href = "dashboard";
+            } else {
+                console.log('in else');
+                logout();
             }
         } //end function checkcookies
 

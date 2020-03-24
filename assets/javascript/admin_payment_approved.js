@@ -97,7 +97,7 @@ function get_agent_payment_list(agent_id, status) {
                                             <td>' + value.payment_mode + '</td>\n\
                                             <td>' + payment_type + '</td>\n\
                                             ' + action_tr + '\n\
-                                            <td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php?pid=' + value.id + '&uid=' + agent_id + '">Details</a></td>\n\
+                                            <td><a class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + agent_id + '">Details</a></td>\n\
                                         </tr>';
                 });
                 table_data += '</tbody>';

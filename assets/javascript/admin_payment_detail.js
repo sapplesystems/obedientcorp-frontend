@@ -40,12 +40,16 @@ function get_payment_details() {
                     console.log(value);
                     var dd = new Date(value.emi_due_date);
                     var emi_date = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+                    var sub_project_name = value.sub_project_name;
+                    if(value.sub_project_name == undefined){
+                        sub_project_name = '';
+                    }
                     emi_list += '<tr>\n\
                                     <td>' + value.customer_display_name + '</td>\n\
                                     <td> ' + value.emi_amount + ' </td>\n\
                                     <td>' + emi_date + ' </td>\n\
                                     <td>' + value.project_name + ' </td>\n\
-                                    <td>' + value.sub_project_name + '</td>\n\
+                                    <td>' + sub_project_name + '</td>\n\
                                     <td>' + value.plot_name + '</td>\n\
                                 </tr>';
                 });

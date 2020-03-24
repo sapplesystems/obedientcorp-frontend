@@ -209,6 +209,10 @@ function get_goods_coupon_listing() {
     else {
         agent_id = user_id;
     }
+    var action = '';
+    if (user_type == 'ADMIN') {
+        action = '<a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Change coupon status</a> &nbsp &nbsp <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Extend Coupon availability</a>';
+    }
     $.ajax({
         url: url,
         type: 'post',
@@ -229,7 +233,7 @@ function get_goods_coupon_listing() {
                     <td class="sorting_1">' + i + '</td>\n\
                     <td> ' + value.coupon_code + ' </td>\n\
                     <td> ' + value.coupon_amount + ' </td>\n\
-                    <td> <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Change coupon status</a> &nbsp &nbsp <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Extend Coupon availability</a></td>\n\
+                    <td>' + action + '</td>\n\
                 </tr>';
 
                     i++;

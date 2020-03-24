@@ -234,9 +234,6 @@ function getCustomerPaymentList(customer_id) {
     get_customer_payament_details(customer_id, 'Pending');
     get_customer_payament_details(customer_id, 'Approved');
     get_customer_payament_details(customer_id, 'Rejected');
-    setTimeout(function () {
-        initDataTable();
-    }, 2000);
 
 }
 function get_customer_payament_details(customer_id, status) {
@@ -294,21 +291,25 @@ function get_customer_payament_details(customer_id, status) {
                                             <td>' + value.project_master_name + '</td>\n\
                                             <td>' + value.sub_project_master_name + '</td>\n\
                                             <td>' + value.plot_master_name + '</td>\n\
-                                            <td>' + value.payment_status + '</td>\n\
-                                        </tr></tbody>';
+                                            <td>' + value.payment_status + ' &nbsp; <a href="payment-detail.php?pid=' + value.payment_master_id + '&uid=' + $('#agent-list').val() + '">Detail</a></td>\n\
+                                        </tr>';
                 });
                 table_data += '</tbody>';
                 if (status == 'Due') {
                     $("#due_payment_list").html(table_data);
+                    $("#due_payment_list").DataTable();
                 }
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
+                    $("#pending_payment_list").DataTable();
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(table_data);
+                    $("#approved_payment_list").DataTable();
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
+                    $("#reject_payment_list").DataTable();
                 }
             }
             else {

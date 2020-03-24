@@ -47,6 +47,7 @@
     var base_url = "<?php echo $base_url; ?>";
     var media_url = "<?php echo $media_url; ?>";
     var user_id = 0;
+    var user_type = 'AGENT';
     var user_left_node_id = 0;
     var user_right_node_id = 0;
     var user_email = '';
@@ -75,6 +76,7 @@
             user_left_node_id = UserCookieData.left_node_id;
             user_right_node_id = UserCookieData.right_node_id;
             user_email = UserCookieData.email;
+            user_type = UserCookieData.user_type;
             if (UserCookieData.photo) {
                 photo_src = media_url + 'profile_photo/' + UserCookieData.photo;
             }

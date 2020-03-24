@@ -30,10 +30,9 @@ function getTeamMemberList(user_id, node) {
                                                 <thead>\n\
                                                     <tr>\n\
                                                         <th> User </th>\n\
-                                                        <th> First name </th>\n\
-                                                        <th> Progress </th>\n\
-                                                        <th> Left Balance </th>\n\
-                                                        <th> Right Balance </th>\n\
+                                                        <th> Name </th>\n\
+                                                        <th> Left Business </th>\n\
+                                                        <th> Right Business </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
@@ -56,15 +55,15 @@ function getTeamMemberList(user_id, node) {
                                                                 <h4 class="mb-0 font-weight-medium">' + member.associate_name + '</h4>\n\
                                                             </div>\n\
                                                             <div class="wrapper d-flex align-items-center mt-1">\n\
-                                                                <h6 class="mb-0 font-weight-light">' + member.associate_name + '</h6>\n\
+                                                                <h6 class="mb-0 font-weight-light">' + member.username + '</h6>\n\
                                                             </div>\n\
                                                             <div class="wrapper d-flex align-items-center mt-1">\n\
-                                                                <h6 class="mb-0 font-weight-light">' + member.associate_name + '</h6>\n\
+                                                                <h6 class="mb-0 font-weight-light"></h6>\n\
                                                             </div>\n\
                                                         </div>\n\
                                                     </div>\n\
                                                     <div class="col-sm-6 col-lg-5">\n\
-                                                        <div class="d-flex align-items-center w-100">\n\
+                                                        <div class="d-flex align-items-center w-100" style="display: none !important;">\n\
                                                             <p class="mb-0 mr-3 font-weight-semibold">Progress</p>\n\
                                                             <div class="progress progress-md w-100">\n\
                                                                 <div class="progress-bar bg-success" role="progressbar" style="width: 67%" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>\n\
@@ -77,7 +76,7 @@ function getTeamMemberList(user_id, node) {
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
-                                                                    <p class="mb-0 font-weight-medium text-muted">TOTAL LEFT</p>\n\
+                                                                    <p class="mb-0 font-weight-medium text-muted">LEFT BUSINESS</p>\n\
                                                                     <h4 class="font-weight-semibold mb-0">' + member.total_left_business + '</h4>\n\
                                                                 </div>\n\
                                                             </div>\n\
@@ -86,7 +85,7 @@ function getTeamMemberList(user_id, node) {
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
-                                                                    <p class="mb-0 font-weight-medium text-muted">TOTAL RIGHT</p>\n\
+                                                                    <p class="mb-0 font-weight-medium text-muted">RIGHT BUSINESS</p>\n\
                                                                     <h4 class="font-weight-semibold mb-0">' + member.total_right_business + '</h4>\n\
                                                                 </div>\n\
                                                             </div>\n\
@@ -113,11 +112,6 @@ function getTeamMemberList(user_id, node) {
                                                             <img src="' + photo_src + '" alt="image" />\n\
                                                         </td>\n\
                                                         <td> ' + member.associate_name + '</td>\n\
-                                                        <td>\n\
-                                                            <div class="progress">\n\
-                                                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>\n\
-                                                            </div>\n\
-                                                        </td>\n\
                                                         <td> ' + member.total_left_business + ' </td>\n\
                                                         <td> ' + member.total_right_business + ' </td>\n\
                                                     </tr>';
@@ -160,8 +154,8 @@ function getReferralTeamMemberList(user_id, node) {
                                                         <th> User </th>\n\
                                                         <th> First name </th>\n\
                                                         <th> Progress </th>\n\
-                                                        <th> Left Balance </th>\n\
-                                                        <th> Right Balance </th>\n\
+                                                        <th> Left Business </th>\n\
+                                                        <th> Right Business </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';

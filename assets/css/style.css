@@ -30870,7 +30870,21 @@ CSS ANIMATION FOR TREE
     border-color: #b66dff;
 }
 
-#order-listing_info, .dataTables_info{float:left;margin-top:5px;}    
+#order-listing_info, .dataTables_info{float:left;margin-top:5px;} 
+
+.signature_img{margin-top:10px;} 
+.back_to_me{position: absolute;left: 0px; z-index:1;}
+.hv-item-div{position:relative; margin:0px !important;}
+
+.cal_amount { 
+    -moz-column-count: 2; 
+    column-count: 2; 
+    width: 100%; 
+} 
+
+.cal_amount li { 
+    -webkit-column-break-inside: avoid; 
+} 
 
 @media (max-width: 991px) {
     .payment-dialog label.text-right {

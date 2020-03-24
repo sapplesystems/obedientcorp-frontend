@@ -127,8 +127,8 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="signature_upload" />
                                                                 </div>
+                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="signature_upload" /></div>
                                                                 <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
                                                             </div>
                                                             <!--<label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>

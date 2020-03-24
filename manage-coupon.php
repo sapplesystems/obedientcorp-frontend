@@ -35,7 +35,7 @@
                     </ul>
                 </div> -->
                             <!-- <div class="col-sm-1"></div> -->
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <h4 class="card-title mb-4">Amount Calculation</h4>
                                 <ul class="cal_amount" id="denomination">
                                 </ul>
@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
                                         <div class="div-total float-left">
                                             <h5>Total</h5>
                                         </div>

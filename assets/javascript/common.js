@@ -54,10 +54,10 @@ $(document).ready(function () {
                         $('#user_code').html(profile.username);
                         if(response.data.kyc_status == 1)
                         {
-                            $('#kyc_status').html('Approved');
+                            $('#kyc_status').html('KYC Done');
                         }
                         else{
-                            $('#kyc_status').html('Approved');
+                            $('#kyc_status').html('KYC Pending');
                         }
                         //$('#address').val(profile.address);
                         $('#house_no').val(profile.house_no);

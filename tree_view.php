@@ -17,15 +17,6 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-append">
-                            <button class="btn btn-sm btn-gradient-primary" type="button" onclick="getTree(user_id);">Back to me</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
                 <ul class="top_row_members">
                     <li id="total_left_member"><span><strong>Left Members</strong><br><img src="assets/images/members.png" /> 0</span></li>
                     <li id="all_member"><span><strong>Total Members</strong><br><img src="assets/images/members.png" /> 0</span></li>
@@ -37,7 +28,8 @@
             <div class="col-md-12">
                 <!-- Main component -->
                 <div class="hv-wrapper paddTB">
-                    <div class="hv-item">
+                    <div class="hv-item hv-item-div">
+                        <button class="btn btn-sm btn-gradient-primary back_to_me" type="button" onclick="getTree(user_id);">Back to me</button>
                         <div class="hv-item-parent" id="node1"></div>
                         <div class="hv-item-children">
                             <div class="hv-item-child">

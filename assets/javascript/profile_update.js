@@ -14,7 +14,7 @@ $(document).ready(function () {
             var id = user_id;
             var introducer_code = $('#sponsor').val();
             var signature = $('#signature')[0].files[0];
-            var photo = $('#photo')[0].files[0];
+            //var photo = $('#photo')[0].files[0];
             var associate_name = $('#associate_name').val();
             var house_no = $('#house_no').val();
             var block = $('#block').val();
@@ -33,12 +33,12 @@ $(document).ready(function () {
             var state = $('#state').val();
             var city = $('#city').val();
             var pin_code = $('#pin_code').val();
-            var pan = $('#pan').val();
+            var adhar = $('#adhar').val();
             var email = $('#email').val();
             params.append("id", id);
             params.append("introducer_code", introducer_code);
             params.append("signature", signature);
-            params.append("photo", photo);
+            //params.append("photo", photo);
             params.append("associate_name", associate_name);
             params.append("house_no", house_no);
             params.append("block", block);
@@ -57,7 +57,7 @@ $(document).ready(function () {
             params.append("state", state);
             params.append("city", city);
             params.append("pin_code", pin_code);
-            params.append("pan", pan);
+            params.append("adhar", adhar);
             params.append("email", email);
             $.ajax({
                 method: "POST",

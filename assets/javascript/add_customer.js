@@ -668,10 +668,6 @@ function getCustomersList(user_id) {
             if (response.status == "success") {
                 var data = response.data;
                 $.each(data, function (key, val) {
-                    photo_link = '';
-                    if (val.photo) {
-                        photo_link = 'http://localhost/obedientcorp/public/uploads/customers/' + val.photo;
-                    }
                     html += '<tr id="tr_' + val.id + '">\n\
                                   <td>' + val.display_name + '</td>\n\
                                   <td>' + val.sex + '</td>\n\

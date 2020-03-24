@@ -14,16 +14,16 @@ $(document).ready(function () {
             var id = user_id;
             var nominee_name = $('#nominee_name').val();
             var relation = $('#relation').val();
-            var father_husband_name = $('#father_name').val();
-            var mothers_name = $('#mother_name').val();
+            //var father_husband_name = $('#father_name').val();
+            //var mothers_name = $('#mother_name').val();
             var ndob = $('#ndob').val();
             var nominee_age = $('#nominee_age').val();
 
             params.append("user_id", id);
             params.append('nominee_id', $('#nominee_id').val());
             params.append("nominee_name", nominee_name);
-            params.append("father_or_husband_name", father_husband_name);
-            params.append("mothers_name", mothers_name);
+            //params.append("father_or_husband_name", father_husband_name);
+            //params.append("mothers_name", mothers_name);
             params.append("nominee_age", nominee_age);
             params.append("relation", relation);
             params.append("ndob", ndob);

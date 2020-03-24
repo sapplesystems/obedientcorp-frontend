@@ -22,6 +22,8 @@
                                         </div>
                                     </div>
                                     <h3 class="text-center" id="profile_user"></h3>
+                                    <h4 class="text-center" id="user_code"></h4>
+                                    <h5 class="text-center" id="kyc_status"></h5>
                                 </div>
                                 <div class="border-bottom py-4">
                                     <p>Skills</p>
@@ -113,19 +115,23 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="associate_name" name="associate_name">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Signature Upload<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="file" class="file-upload-default" name="signature" id="signature">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
+                                                                    <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="signature" />
+                                                                    <img src="" style="display:none;width:100px;" id="signature_upload" />
                                                                 </div>
-                                                            <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
+                                                                <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
+                                                            <!--<label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="file" class="file-upload-default" name="photo" id="photo">
                                                                 <div class="input-group">
@@ -135,49 +141,70 @@
                                                                     </span>
                                                                     <img src="" style="display:none;width:100px;" id="photo" />
                                                                 </div>
-                                                                <!--<input type="file" class="form-control" placeholder="" name="photo" id="photo">-->
-                                                           <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />-->
-                                                            </div>
+                                                                <!--<input type="file" class="form-control" placeholder="" name="photo" id="photo">
+                                                           <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />
+                                                            </div>-->
                                                         </div>
-                                                        <div class="form-group row">
+                                                        <!--<div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="associate_name" name="associate_name">
                                                             </div>
-                                                            <!--<label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
+                                                           <label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="address" name="address">
-                                                            </div>-->
-                                                        </div>
+                                                            </div>
+                                                        </div>-->
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">House No<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">House No<span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" name="house_no" id="house_no">
+                                                                <input type="text" class="form-control" placeholder="" name="house_no" id="house_no">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Block <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Block <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" name="block" id="block">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Sector<span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" name="sector" id="sector">
-                                                            </div>
-                                                            <label class="col-sm-2 col-form-label">Street No<span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" name="street_no" id="street_no">
+                                                                <input type="text" class="form-control" placeholder="" name="block" id="block">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Village Colony<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Sector<span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" name="village_colony" id="village_colony">
+                                                                <input type="text" class="form-control " placeholder="" name="sector" id="sector">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Post Office/Sub City<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Street No<span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" name="post_office_or_sub_city" id="post_office_or_sub_city">
+                                                                <input type="text" class="form-control" placeholder="" name="street_no" id="street_no">
                                                             </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Village Colony<span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control " placeholder="" name="village_colony" id="village_colony">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Post Office/Sub City<span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control " placeholder="" name="post_office_or_sub_city" id="post_office_or_sub_city">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-control required" id="state" name="state">
+                                                                    <option>-- Select One --</option>
+                                                                </select>
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-control required" id="city" name="city">
+                                                                    <option>-- Select One --</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code">
+                                                            </div>
+
                                                         </div>
                                                         <!--<div class="form-group row">
                                                             <label class="col-sm-2"></label>
@@ -221,7 +248,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" data-inputmask-alias="9999999999" im-insert="true" >
+                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" data-inputmask-alias="9999999999" im-insert="true">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                                             <div class="col-sm-4">
@@ -245,32 +272,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label"></label>
+                                                            <label class="col-sm-2 col-form-label">Adhar Number <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                            </div>
-                                                            <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <select class="form-control required" id="state" name="state">
-                                                                    <option>-- Select One --</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code">
-                                                            </div>
-                                                            <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <select class="form-control required" id="city" name="city">
-                                                                    <option>-- Select One --</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="pan" name="pan">
+                                                                <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -328,7 +332,9 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
+                                                                    <img src="" id="cancel_cheque_uploded" class="img-lg rounded-circle mb-3" style="display:none;" />
                                                                 </div>
+
                                                                 <!--<input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">-->
                                                             </div>
                                                         </div>
@@ -351,7 +357,7 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row">
+                                                        <!--<div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="father_name" name="father_name">
@@ -360,7 +366,7 @@
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="mother_name" name="mother_name">
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -383,42 +389,26 @@
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="kyc-1" role="tabpanel" aria-labelledby="kyc-tab">
-                                                <form id="kyc_update" name="kyc_update" method="post">
+                                                <form id="kyc_update" name="kyc_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
+                                                            <!--<label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="kyc_dob" name="kyc_dob">
-                                                            </div>
+                                                            </div>-->
                                                             <label class="col-sm-2 col-form-label">Nationality <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="nationality" name="nationality">
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="koccupation" name="koccupation">
                                                             </div>
+                                                        </div>
+                                                        <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Qualification <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="qualification" name="qualification">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="pan_number" name="pan_number">
-                                                            </div>
-                                                            <label class="col-sm-2 col-form-label">Passport <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="passport_number" name="passport_number">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Driving Licence <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="driving_licence_number" name="driving_licence_number">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Proposed Area of Work <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -426,19 +416,99 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Voter Id <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="pan_number" name="pan_number">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Pan Upload <span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" name="img" class="file-upload-default required" name="pan_image" id="pan_image">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                                    </span>
+                                                                    <img src="" style="display:none;width:100px;" id="pan_upload" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Passport <span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" placeholder="" id="passport_number" name="passport_number">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Passport Upload <span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" name="img" class="file-upload-default required" name="passport_image" id="passport_image">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                                    </span>
+                                                                    <img src="" style="display:none;width:100px;" id="passport_upload" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Driving Licence <span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" placeholder="" id="driving_licence_number" name="driving_licence_number">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence Upload <span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" name="img" class="file-upload-default required" name="driving_licence_image" id="driving_licence_image">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                                    </span>
+                                                                    <img src="" style="display:none;width:100px;" id="driving_upload" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Voter Id <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="voter_id" name="voter_id">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Join Date <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <div class="input-group date datepicker">
-                                                                    <input type="text" class="form-control required" placeholder="" id="join_date" name="join_date" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
-                                                                    <span class="input-group-addon input-group-append border-left">
-                                                                        <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                            <label class="col-sm-2 col-form-label">Voter Id Upload <span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" name="img" class="file-upload-default required" name="voter_image" id="voter_image">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
+                                                                    <img src="" style="display:none;width:100px;" id="voter_upload" />
                                                                 </div>
-
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Adhar Number<span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="adhar_number" name="adhar_number">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Adhar Upload <span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" name="img" class="file-upload-default required" name="adhar_image" id="adhar_image">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                                    </span>
+                                                                    <img src="" style="display:none;width:100px;" id="adhar_upload" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Join Date <span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <div class="input-group ">
+                                                                    <input type="text" class="form-control" placeholder="" id="join_date" name="join_date"  />
+                                                                    <!--<span class="input-group-addon input-group-append border-left">
+                                                                        <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                                    </span>-->
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </section>
@@ -589,7 +659,7 @@
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
                     $('#imagePreview').hide();
                     $('#imagePreview').fadeIn(650);
@@ -597,7 +667,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        $("#imageUpload").change(function () {
+        $("#imageUpload").change(function() {
             readURL(this);
         });
     </script>

@@ -72,6 +72,7 @@ function get_agent_payment_list(agent_id, status) {
                                         <th> Agent </th>\n\
                                         <th> Date Requested </th>\n\
                                         <th> Payment Mode </th>\n\
+                                        <th> Payment Type </th>\n\
                                         ' + action_th + '\n\
                                         <th></th>\n\
                                     </tr>\n\
@@ -84,12 +85,17 @@ function get_agent_payment_list(agent_id, status) {
                     }
                     var dd = new Date(value.date_of_payment);
                     var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+                    var payment_type = 'EMI';
+                    if (value.coupon_type_id == '3') {
+                        payment_type = 'Advance';
+                    }
                     table_data += '<tr >\n\
                                         <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                                             <td>' + value.amount + '</td>\n\
                                             <td >' + value.associate_name + ' (' + value.username + ')</td>\n\
                                             <td>' + date_of_payment + '</td>\n\
                                             <td>' + value.payment_mode + '</td>\n\
+                                            <td>' + payment_type + '</td>\n\
                                             ' + action_tr + '\n\
                                             <td><a class="btn btn-link p-0" href="make-payment-request-admin-detail.php?pid=' + value.id + '&uid=' + agent_id + '">Details</a></td>\n\
                                         </tr>';

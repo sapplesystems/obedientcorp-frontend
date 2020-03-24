@@ -40,7 +40,6 @@ include_once 'common_html.php';
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- End layout styles -->
         <link rel="shortcut icon" href="assets/images/favicon.png" />
-        <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     </head>
 
     <body>
@@ -112,6 +111,12 @@ include_once 'common_html.php';
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="customer-list">
+                                <span class="menu-title">Customer List</span>
+                                <i class="mdi mdi-settings menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="manage-customer">
                                 <span class="menu-title">Manage Customer</span>
                                 <i class="mdi mdi-settings menu-icon"></i>
@@ -155,6 +160,12 @@ include_once 'common_html.php';
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
+                                <a class="nav-link" href="agent-business">
+                                    <span class="menu-title">Agent Business</span>
+                                    <i class="mdi mdi-wallet menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="add-money-to-wallet">
                                     <span class="menu-title">Add Money to Wallet</span>
                                     <i class="mdi mdi-wallet menu-icon"></i>
@@ -169,11 +180,24 @@ include_once 'common_html.php';
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#approve_request" aria-expanded="false" aria-controls="category">
+                                    <span class="menu-title">Approve Requests</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-view-grid menu-icon"></i>
+                                </a>
+                                <div class="collapse" id="approve_request">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item"> <a class="nav-link" href="real-state-request">Real State Requests</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="fmcg-request">FMCG Requests</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!--li class="nav-item">
                                 <a class="nav-link" href="make-payment-request-admin">
                                     <span class="menu-title">Approve EMI Payments</span>
                                     <i class="mdi mdi-checkbox-marked-circle-outline menu-icon"></i>
                                 </a>
-                            </li>
+                            </li-->
                         <?php } ?>
                         <?php if ($user_type != 'ADMIN') { ?>
                             <li class="nav-item">
@@ -183,12 +207,12 @@ include_once 'common_html.php';
                                 </a>
                             </li>
                         <?php } ?>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a class="nav-link" href="#" onclick="logout();">
                                 <span class="menu-title">Logout</span>
                                 <i class="mdi mdi-logout menu-icon"></i>
                             </a>
-                        </li>
+                        </li-->
 
                     </ul>
                 </nav>

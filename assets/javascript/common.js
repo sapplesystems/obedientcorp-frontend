@@ -39,6 +39,7 @@ $(document).ready(function () {
                     email: user_email
                 },
                 success: function (response) {
+                    console.log(response);
                     if (response.status == 'success') {
                         var profile = response.data.profile;
                         var bank = response.data.bank_detail[0];
@@ -50,6 +51,14 @@ $(document).ready(function () {
                         //$('#photo').val(profile.photo);
                         $('#associate_name').val(profile.associate_name);
                         $('#profile_user').html(profile.associate_name);
+                        $('#user_code').html(profile.username);
+                        if(response.data.kyc_status == 1)
+                        {
+                            $('#kyc_status').html('Approved');
+                        }
+                        else{
+                            $('#kyc_status').html('Approved');
+                        }
                         //$('#address').val(profile.address);
                         $('#house_no').val(profile.house_no);
                         $('#block').val(profile.block);
@@ -81,8 +90,11 @@ $(document).ready(function () {
                         $('#city').html(getCitiesList(profile.state));
                         $('#city').val(profile.city);
                         $('#pin_code').val(profile.pin_code);
-                        $('#pan').val(profile.pan);
-                        $('#pan_number').val(profile.pan);
+                        if(kyc.adhar)
+                        {
+                            $('#adhar').val(kyc.adhar);
+                        }
+                        //$('#pan_number').val(profile.pan);
                         $('#email').val(profile.email);
                         $('#profile_mail').html(profile.email);
                         $('#username').val(profile.username);
@@ -91,20 +103,49 @@ $(document).ready(function () {
                             photo_src = media_url + 'profile_photo/' + profile.photo;
                         }
                         $("#imagePreview").css("background-image", "url(" + photo_src + ")");
+                        if(profile.signature)
+                        {
+                            var signature = media_url + 'profile_photo/' + profile.signature;
+                            $('#signature_upload').attr('src', signature);
+                            $('#signature_upload').css('display', 'block'); 
 
+                        }
+                        //bank detalis
                         $('#bank_id').val(bank.id);
+                        $('#bank_id').prop('disabled', true);
                         $('#payee_name').val(bank.payee_name);
+                        $('#payee_name').prop('disabled', true);
                         $('#bank_name').val(bank.bank_name);
+                        $('#bank_name').prop('disabled', true);
                         $('#account_number').val(bank.account_number);
+                        $('#account_number').prop('disabled', true);
                         $('#branch').val(bank.branch);
+                        $('#branch').prop('disabled', true);
                         $('#ifsc_code').val(bank.ifsc_code);
-
+                        $('#ifsc_code').prop('disabled', true);
+                        console.log(bank.cancel_cheque);
+                        if(bank.cancel_cheque!= null)
+                        {
+                            console.log("shJSK");
+                            var bank_cheque = media_url + 'cancel_cheque/' + bank.cancel_cheque;  
+                            $('#cancel_cheque_uploded').attr('src', bank_cheque);
+                            $('#cancel_cheque_uploded').css('display', 'block');  
+                            $('#cancel_cheque').prop('disabled', true);
+                        }
+                      
+                        //nominee
                         $('#nominee_id').val(nominee.id);
+                        $('#nominee_id').prop('disabled', true);
                         $('#nominee_name').val(nominee.nominee_name);
-                        $('#father_name').val(nominee.father_husband_name);
-                        $('#mother_name').val(nominee.mothers_name);
+                        $('#nominee_name').prop('disabled', true);
+                        //$('#father_name').val(nominee.father_husband_name);
+                        //$('#father_name').prop('disabled', true);
+                        //$('#mother_name').val(nominee.mothers_name);
+                        //$('#mother_name').prop('disabled', true);
                         $('#nominee_age').val(nominee.nominee_age);
+                        $('#nominee_age').prop('disabled', true);
                         $('#relation').val(nominee.relation);
+                        $('#relation').prop('disabled', true);
                         var ndob = nominee.ndob;
                         var ndatetime = new Date(ndob);
                         var nday = ndatetime.getDate();
@@ -114,9 +155,10 @@ $(document).ready(function () {
                         var nyear = ndatetime.getFullYear();
                         var ndate = nday + "-" + nmonth + "-" + nyear;
                         $('#ndob').val(ndate);
-
+                        $('#ndob').prop('disabled', true);
+                        //kyc
                         $('#kyc_id').val(kyc.id);
-                        var kyc_dob = kyc.dob;
+                       /* var kyc_dob = kyc.dob;
                         var datetime = new Date(kyc_dob);
                         var day = datetime.getDate();
                         day = (day < 10) ? '0' + day : day;
@@ -125,23 +167,94 @@ $(document).ready(function () {
                         var year = datetime.getFullYear();
                         var formatted_date = day + "-" + month + "-" + year;
                         $('#kyc_dob').val(formatted_date);
-                        $('#nationality').val(kyc.nationality);
-                        $('#koccupation').val(kyc.occupation);
-                        $('#qualification').val(kyc.qualification);
-                        $('#pan_number').val(kyc.pan_number);
-                        $('#passport_number').val(kyc.passport_number);
-                        $('#driving_licence_number').val(kyc.driving_licence_number);
-                        $('#proposed_area_of_work').val(kyc.proposed_area_of_work);
-                        $('#voter_id').val(kyc.voter_id);
-                        var kyc_join_date = kyc.join_date;
-                        var datetime = new Date(kyc_join_date);
-                        var day = datetime.getDate();
-                        day = (day < 10) ? '0' + day : day;
-                        var month = datetime.getMonth() + 1;
-                        month = (month < 10) ? '0' + month : month
-                        var year = datetime.getFullYear();
-                        var formatted_date = day + "-" + month + "-" + year;
-                        $('#join_date').val(formatted_date);
+                        $('#kyc_dob').prop('disabled', true);*/
+                        if(kyc.nationality)
+                        {
+                            $('#nationality').val(kyc.nationality);
+                            $('#nationality').prop('disabled', true);
+                        }
+                        if(kyc.occupation)
+                        {
+                            $('#koccupation').val(kyc.occupation);
+                            $('#koccupation').prop('disabled', true);
+                        }
+                        if(kyc.qualification)
+                        {
+                            $('#qualification').val(kyc.qualification);
+                            $('#qualification').prop('disabled',true);
+                        }
+                        if(kyc.pan_number)
+                        {
+                            $('#pan_number').val(kyc.pan_number);
+                            $('#pan_number').prop('disabled', true);
+                        }
+                        if(kyc.passport_number)
+                        {
+                            $('#passport_number').val(kyc.passport_number);
+                            $('#passport_number').prop('disabled', true);
+                        }
+                        if(kyc.driving_licence_number)
+                        {
+                            $('#driving_licence_number').val(kyc.driving_licence_number);
+                            $('#driving_licence_number').prop('disabled',true);
+                        }
+                        if(kyc.proposed_area_of_work)
+                        {
+                            $('#proposed_area_of_work').val(kyc.proposed_area_of_work);
+                            $('#proposed_area_of_work').prop('disabled',true);
+                        }
+                        if(kyc.voter_id)
+                        {
+                            $('#voter_id').val(kyc.voter_id);
+                            $('#voter_id').prop('disabled',true);
+                        }
+                        if(kyc.join_date)
+                        {
+                            $('#join_date').val(kyc.join_date);
+                            $('#join_date').prop('disabled', true);
+                        }
+                    
+                        if(kyc.adhar)
+                        {
+                            $('#adhar_number').val(kyc.adhar);
+                            $('#adhar_number').prop('disabled', true);
+                        }
+                        if(kyc.adhar_image)
+                        {
+                            var image = media_url + 'id_proof/' + kyc.adhar_image;  
+                            $('#adhar_upload').attr('src', image);
+                            $('#adhar_upload').css('display', 'block'); 
+                            $('#adhar_image').prop('disabled', true);
+                        }
+                        if(kyc.pan_image)
+                        {
+                            var image = media_url + 'id_proof/' + kyc.pan_image;  
+                            $('#pan_upload').attr('src', image);
+                            $('#pan_upload').css('display', 'block'); 
+                            $('#pan_image').prop('disabled', true);
+                        }
+                        if(kyc.passport_image)
+                        {
+                            var image = media_url + 'id_proof/' + kyc.passport_image;  
+                            $('#passport_upload').attr('src', image);
+                            $('#passport_upload').css('display', 'block'); 
+                            $('#passport_image').prop('disabled', true);
+                        }
+                        if(kyc.driving_licence_image)
+                        {
+                            var image = media_url + 'id_proof/' + kyc.driving_licence_image;  
+                            $('#driving_upload').attr('src', image);
+                            $('#driving_upload').css('display', 'block'); 
+                            $('#driving_licence_image').prop('disabled', true);
+                        }
+                        if(kyc.voter_image)
+                        {
+                            var image = media_url + 'id_proof/' + kyc.voter_image;  
+                            $('#voter_upload').attr('src', image);
+                            $('#voter_upload').css('display', 'block'); 
+                            $('#voter_image').prop('disabled', true);
+                        }
+
                         hideLoader();
                     }
                 },
@@ -226,7 +339,7 @@ function getRelationships() {
             if (response.status == "success") {
                 var relation = '<option value="">--Select One Relation--</option>';
                 $.each(response.data, function (key, value) {
-                    relation += '<option value="' + value.id + '">' + value.name + '</option>';
+                    relation += '<option value="' + value.name + '">' + value.name + '</option>';
                 });
                 $("#relation").html(relation);
             }

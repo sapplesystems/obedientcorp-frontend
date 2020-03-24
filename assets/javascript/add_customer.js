@@ -2,7 +2,6 @@ getDownTheLineMembers(user_id);
 getRelationship();
 getProjectList();
 
-
 function getDownTheLineMembers(user_id) {
     $.ajax({
         url: base_url + 'down-the-line-members',
@@ -13,11 +12,12 @@ function getDownTheLineMembers(user_id) {
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
-                var option = '<option value="">Select Agent</option>';
+                var option = '';
                 $.each(data, function (key, val) {
                     option += '<option value="' + val.id + '">' + val.display_name + '</option>';
                 });
                 $('#agent_id,#agent_listing').html(option);
+                getCustomersList(user_id);
 
             }
         }
@@ -114,25 +114,29 @@ $(document).ready(function () {
     });
 
     var update_customer_id = $('#customer_id').val();
-    if (update_customer_id && update_customer_id != '') {
-        updateCustomerDetail(update_customer_id);
+    var update_agent_id = $('#agent-id').val();
+    var status = $('#status').val();
+    if (status == 2) {
+        setIdofForm('add_new_booking_form');
     }
+    updateCustomerDetail(update_customer_id, update_agent_id, status);
 
-    $(":input").inputmask();
-    if ($(".datepicker").length) {
-        $('.datepicker').datepicker({
-            enableOnReadonly: true,
-            todayHighlight: true,
-            format: 'dd-mm-yyyy',
-            autoclose: true,
-            //endDate: todays_date
-        });
-    }
+    //onchange customer list
+    $('#customer-list-select').change(function () {
+
+        var update_customer_id = $('#customer-list-select').val();
+        var update_agent_id = $('#agent_id').val();
+        var status = 2;
+        setIdofForm('add_new_booking_form');
+        updateCustomerDetail(update_customer_id, update_agent_id, status);
+
+    });
 
     //onchange payment mode
     $('.payment_mode').click(function () {
         payment_mode_change($(this).val());
-    })//end payment mode change
+        initDatepicker();
+    });//end payment mode change
 
 
     $("#project_name").change(function () {
@@ -146,7 +150,92 @@ $(document).ready(function () {
         var sub_project_id = $(this).val();
         var project_id = $('#project_name').val();
         getplotlist(project_id, sub_project_id);
-    })
+    });
+
+    $(document).on('submit', '#add_new_booking_form', function (e) {//$("#add_new_booking_form").submit(function (e) {
+        e.preventDefault();
+        var customer_frm = $("#add_new_booking_form");
+        customer_frm.validate({
+            rules: {
+            },
+            errorPlacement: function errorPlacement(error, element) {
+                element.before(error);
+            }
+        });
+        if ($("#add_new_booking_form").valid()) {
+            var params = new FormData();
+            params.append('new_booking', 1);
+            params.append('user_id', user_id);
+            params.append('agent_id', $('#agent_id').val());
+            //plan details
+            params.append('registration_number', $('#registration_num').val());
+            params.append('project_master_id', $('#project_name').val());
+            var sub_project = 0;
+            if ($('#sub_projects').val()) {
+                sub_project = $('#sub_projects').val();
+            }
+            params.append('sub_project_id', sub_project);
+            params.append('plot_master_id', $('#plot_name').val());
+            params.append('plot_area', $('#plot_area').val());
+            params.append('reference', $('#reference').val());
+            params.append('unit_rate', $('#unit_rate').val());
+            params.append('discount_rate', $('#discount_rate').val());
+            params.append('total_amount', $('#total_amount').val());
+            params.append('amount', $('#received_booking_amount').val());
+            params.append('received_booking_amount', $('#received_booking_amount').val());
+            params.append('date_of_payment', $('#date_of_payment').val());
+            params.append('installment', $('#installment').val());
+            //payment details
+            var payment_mode = '';
+            if ($('#payment_cash').is(':checked') == true) {
+                payment_mode = $('#payment_cash').val();
+            }
+            if ($('#payment_cheque').is(':checked') == true) {
+                payment_mode = $('#payment_cheque').val();
+            }
+            if ($('#payment_online').is(':checked') == true) {
+                payment_mode = $('#payment_online').val();
+            }
+            params.append('payment_mode', payment_mode);
+            params.append('cheque_number', $('#payment_number').val());
+            params.append('cheque_date', $('#date_of_payment').val());
+            params.append('account_holder_name', $('#account_holder_name').val());
+            params.append('account_number', $('#accountnumber').val());
+            params.append('bank_name', $('#bank_name').val());
+            params.append('branch_name', $('#branch').val());
+            params.append('ifsc_code', $('#ifsc_code').val());
+            params.append('created_by', user_id);
+            params.append('created_for', $('#agent_id').val());
+            params.append('customer_id', $('#customer_id').val());
+            $.ajax({
+                url: base_url + 'customer/new-booking',
+                type: 'post',
+                data: params,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+
+                    if (response.status == "success") {
+                        console.log(response);
+                        $('#customer_id').val('');
+                        getCustomersList();
+                        document.getElementById('add_new_booking_form').reset();
+                        $('#photo').attr('src', '');
+                        $('#photo').css('display', 'none');
+                        location.href = 'manage-customer.php';
+                        hideLoader();
+                    } else {
+                        console.log('else ' + response);
+                    }
+                }
+            });
+
+        }
+
+
+    });//add-new booking-form end
+
+
     $("#customer_add_form_submit").submit(function (e) {
         e.preventDefault();
         var customer_frm = $("#customer_add_form_submit");
@@ -206,7 +295,6 @@ $(document).ready(function () {
             params.append('received_booking_amount', $('#received_booking_amount').val());
             params.append('date_of_payment', $('#date_of_payment').val());
             params.append('installment', $('#installment').val());
-
             //payment details
             var payment_mode = '';
             if ($('#payment_cash').is(':checked') == true) {
@@ -220,7 +308,7 @@ $(document).ready(function () {
             }
             params.append('payment_mode', payment_mode);
             params.append('cheque_number', $('#payment_number').val());
-            params.append('cheque_date', $('#dated').val());
+            params.append('cheque_date', $('#date_of_payment').val());
             params.append('account_holder_name', $('#account_holder_name').val());
             params.append('account_number', $('#accountnumber').val());
             params.append('bank_name', $('#bank_name').val());
@@ -244,10 +332,8 @@ $(document).ready(function () {
                 processData: false,
                 success: function (response) {
                     if (response.status == "success") {
-                        console.log(response.data);
                         var customer_id = response.data.id;
-                        console.log(customer_id);
-                        if (customer_id && customer_id != '' && $('#customer_id').val() == '') {
+                        if (customer_id != '' && $('#customer_id').val() == '') {
                             params.append('customer_id', customer_id);
                             $.ajax({
                                 url: base_url + 'customer/new-booking',
@@ -269,8 +355,9 @@ $(document).ready(function () {
                         document.getElementById('customer_add_form_submit').reset();
                         $('#photo').attr('src', '');
                         $('#photo').css('display', 'none');
-                        window.location.href = 'manage-customer.php';
+                        location.href = 'manage-customer.php';
                         hideLoader();
+
                     } else {
                         console.log(response.data);
                         hideLoader();
@@ -282,7 +369,7 @@ $(document).ready(function () {
 
 }); //end document ready
 
-function updateCustomerDetail(customer_id) {
+function updateCustomerDetail(customer_id, agent_id, status) {
     showLoader();
     getProjectList();
     setTimeout(function () {
@@ -293,146 +380,123 @@ function updateCustomerDetail(customer_id) {
                 id: customer_id
             },
             success: function (response) {
+                console.log(response);
                 if (response.status == "success") {
+
                     var data = response.data;
-                    var plot_details = response.data.PlotBooking;
-                    //console.log(data);return false;
-                    $('#customer_id').val(data.customer.id);
-                    $('#agent_id').val(data.customer.user_id);
-                    $('#agent_id').prop('disabled', true);
-                    $('#customername').val(data.customer.name);
-                    $('#fatherhusbandwife').val(data.customer.fathers_name);
-                    var dob = data.customer.dob;
-                    var datetime = new Date(dob);
-                    var day = datetime.getDate();
-                    day = (day < 10) ? '0' + day : day;
-                    var month = datetime.getMonth() + 1;
-                    month = (month < 10) ? '0' + month : month
-                    var year = datetime.getFullYear();
-                    var formatted_date = day + "-" + month + "-" + year;
-                    $('#dateofbirth').val(formatted_date);
-                    $('#age').val(data.customer.age);
-                    if (data.customer.sex == 'Male') {
-                        $('#customer_male').prop('checked', true);
-                    } else if (data.customer.sex == 'Female') {
-                        $('#customer_female').prop('checked', true);
-                    }
-
-                    $('#nationality').val(data.customer.nationality);
-                    $('#mobile').val(data.customer.mobile);
-                    $('#email').val(data.customer.email);
-                    if (data.customer.photo) {
-                        var photo_src = media_url + 'customers/' + data.customer.photo;
-                        $('#upload_photo').attr('src', photo_src);
-                        $('#upload_photo').css('display', 'block');
-                    }
-                    $('#customer_address').val(data.customer.address);
-                    //nominee details
-                    $('#nomineesname').val(data.customer.nominee_name);
-                    //$('#nomineesname').prop('disabled',true);
-                    $('#ageN').val(data.customer.nominee_age);
-                    // $('#ageN').prop('disabled',true);
-                    var ndob = data.customer.nominee_dob;
-                    var ndatetime = new Date(ndob);
-                    var nday = ndatetime.getDate();
-                    nday = (nday < 10) ? '0' + nday : nday;
-                    var nmonth = ndatetime.getMonth() + 1;
-                    nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
-                    var nyear = ndatetime.getFullYear();
-                    var ndate = nday + "-" + nmonth + "-" + nyear;
-                    $('#date_of_birth_nominee').val(ndate);
-                    //$('#date_of_birth_nominee').prop('disabled',true);
-                    $('#relationship').val(data.customer.nominee_relation);
-                    //$('#relationship').prop('disabled',true);
-                    if (data.customer.nominee_sex == 'Male') {
-                        $('#nominee_male').prop('checked', true);
-                    } else {
-                        $('#nominee_female').prop('checked', true);
-
-                    }
-                    //$('#nominee_sex').val(data.customer.nominee_sex);
-                    //$('#nominee_sex').prop('disabled',true);
-                    $('#addressnominee').val(data.customer.nominee_address);
-                    //$('#addressnominee').prop('disabled',true);
-                    if (data.customer.payment_mode == 'Online') {
-                        $('#payment_online').prop('checked', true);
-                    } else if (data.customer.payment_mode == 'Cheque') {
-                        $('#payment_cheque').prop('checked', true);
-                    } else {
-                        $('#payment_cash').prop('checked', true);
-                    }
-                    payment_mode_change(data.customer.payment_mode);
-                    $('#payment_mode').val(data.customer.payment_mode);
-                    $('.payment_mode').prop('disabled', true);
-                    $('#payment_number').val(data.PaymentMaster.cheque_number)
-                    $('#payment_number').prop('disabled', true);
-                    $('#accountnumber').val(data.customer.account_number);
-                    $('#accountnumber').prop('disabled', true);
-                    $('#branch').val(data.customer.branch_name);
-                    $('#branch').prop('disabled', true);
-                    $('#ifsc_code').val(data.customer.ifsc_code);
-                    $('#ifsc_code').prop('disabled', true);
-                    $('#account_holder_name').val(data.customer.account_holder_name);
-                    $('#account_holder_name').prop('disabled', true);
-                    $('#bank_name').val(data.customer.bank_name);
-                    $('#bank_name').prop('disabled', true);
-                    var cdate = data.PaymentMaster.cheque_date;
-                    var ndatetime = new Date(cdate);
-                    var nday = ndatetime.getDate();
-                    nday = (nday < 10) ? '0' + nday : nday;
-                    var nmonth = ndatetime.getMonth() + 1;
-                    nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
-                    var nyear = ndatetime.getFullYear();
-                    var cheque_date = nday + "-" + nmonth + "-" + nyear;
-                    $('#dated').val(cheque_date);
-                    $('#dated').prop('disabled', true);
-
-                    //Plan Details
-                    console.log(plot_details.registration_number);
-                    $('#registration_num').val(plot_details.registration_number);
-                    $('#registration_num').prop('disabled', true);
-                    $('#project_name').val(plot_details.project_master_id);
-                    $('#project_name').prop('disabled', true);
-                    console.log('here  --'  + plot_details.plot_master_id);
-                    if (plot_details.sub_project_id) {
-
-                        sub_project_listing(plot_details.project_master_id);
-                        setTimeout(function () { $('#sub_projects').val(plot_details.sub_project_id); }, 2000);
-                        getplotlist(plot_details.project_master_id, plot_details.sub_project_id);
-                        setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
-                        $('#sub_projects').prop('disabled', true);
+                    if (status == 1) {
+                        $('.nominee').css('display', 'none');
+                        $('.plan_details').css('display', 'none');
+                        $('.payment_details').css('display', 'none');
+                        $('#customer_id').val(data.customer.id);
+                        $('#agent_id').val(data.customer.user_id);
+                        $('#agent_id').prop('disabled', true);
+                        $('#customername').val(data.customer.name);
+                        $('#fatherhusbandwife').val(data.customer.fathers_name);
+                        var dob = data.customer.dob;
+                        var datetime = new Date(dob);
+                        var day = datetime.getDate();
+                        day = (day < 10) ? '0' + day : day;
+                        var month = datetime.getMonth() + 1;
+                        month = (month < 10) ? '0' + month : month
+                        var year = datetime.getFullYear();
+                        var formatted_date = day + "-" + month + "-" + year;
+                        $('#dateofbirth').val(formatted_date);
+                        $('#age').val(data.customer.age);
+                        if (data.customer.sex == 'Male') {
+                            $('#customer_male').prop('checked', true);
+                        } else if (data.customer.sex == 'Female') {
+                            $('#customer_female').prop('checked', true);
+                        }
+                        $('.disable-elm').prop('disabled',true);
+                        $('#nationality').val(data.customer.nationality);
+                        $('#mobile').val(data.customer.mobile);
+                        $('#email').val(data.customer.email);
+                        if (data.customer.photo) {
+                            var photo_src = media_url + 'customers/' + data.customer.photo;
+                            $('#upload_photo').attr('src', photo_src);
+                            $('#upload_photo').css('display', 'block');
+                        }
+                        $('#customer_address').val(data.customer.address);
                     }
                     else {
-                        var sub_id = 0;
-                        getplotlist(plot_details.project_master_id, sub_id);
-                        setTimeout(function () { $('#plot_name').val(plot_details.plot_master_id); }, 2000);
-                    }
+                        $('.nominee').css('display', 'block');
+                        $('.plan_details').css('display', 'block');
+                        $('.payment_details').css('display', 'block');
+                        //customer details
+                        $('#customer_id').val(data.customer.id);
+                        $('#customer-list-select').val(data.customer.id)
+                        $('#customer-list-select').prop('disabled', true);
+                        $('#agent_id').val(data.customer.user_id);
+                        $('#agent_id').prop('disabled', true);
+                        $('#customername').val(data.customer.name);
+                        $('#customername').prop('disabled', true);
+                        $('#fatherhusbandwife').val(data.customer.fathers_name);
+                        $('#fatherhusbandwife').prop('disabled', true);
+                        var dob = data.customer.dob;
+                        var datetime = new Date(dob);
+                        var day = datetime.getDate();
+                        day = (day < 10) ? '0' + day : day;
+                        var month = datetime.getMonth() + 1;
+                        month = (month < 10) ? '0' + month : month
+                        var year = datetime.getFullYear();
+                        var formatted_date = day + "-" + month + "-" + year;
+                        $('#dateofbirth').val(formatted_date);
+                        $('#dateofbirth').prop('disabled', true);
+                        $('#age').val(data.customer.age);
+                        $('#age').prop('disabled', true);
+                        if (data.customer.sex == 'Male') {
+                            $('#customer_male').prop('checked', true);
+                        } else if (data.customer.sex == 'Female') {
+                            $('#customer_female').prop('checked', true);
+                        }
 
-                    $('#plot_name').prop('disabled', true);
-                    $('#plot_area').val(plot_details.plot_area);
-                    $('#plot_area').prop('disabled', true);
-                    $('#reference').val(plot_details.reference);
-                    $('#reference').prop('disabled', true);
-                    $('#unit_rate').val(plot_details.unit_rate);
-                    $('#unit_rate').prop('disabled', true);
-                    $('#discount_rate').val(plot_details.discount_rate);
-                    $('#discount_rate').prop('disabled', true);
-                    $('#total_amount').val(plot_details.total_amount);
-                    $('#total_amount').prop('disabled', true);
-                    $('#received_booking_amount').val(plot_details.received_booking_amount);
-                    $('#received_booking_amount').prop('disabled', true);
-                    var date_of_payment = plot_details.date_of_payment;
-                    var ndatetime = new Date(date_of_payment);
-                    var nday = ndatetime.getDate();
-                    nday = (nday < 10) ? '0' + nday : nday;
-                    var nmonth = ndatetime.getMonth() + 1;
-                    nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
-                    var nyear = ndatetime.getFullYear();
-                    var plot_date_of_payment = nday + "-" + nmonth + "-" + nyear;
-                    $('#date_of_payment').val(plot_date_of_payment);
-                    $('#date_of_payment').prop('disabled', true);
-                    $('#installment').val(plot_details.installment);
-                    $('#installment').prop('disabled', true);
+                        $('.disable-elm').prop('disabled',true);
+
+                        $('#nationality').val(data.customer.nationality);
+                        $('#nationality').prop('disabled', true);
+                        $('#mobile').val(data.customer.mobile);
+                        $('#mobile').prop('disabled', true);
+                        $('#email').val(data.customer.email);
+                        $('#email').prop('disabled', true);
+                        if (data.customer.photo) {
+                            var photo_src = media_url + 'customers/' + data.customer.photo;
+                            $('#upload_photo').attr('src', photo_src);
+                            $('#upload_photo').css('display', 'block');
+                        }
+                        $('#photo').prop('disabled', true);
+                        $('#customer_address').val(data.customer.address);
+                        $('#customer_address').prop('disabled', true);
+                        //nominee details
+                        $('#nomineesname').val(data.customer.nominee_name);
+                        $('#nomineesname').prop('disabled', true);
+                        $('#ageN').val(data.customer.nominee_age);
+                        $('#ageN').prop('disabled', true);
+                        var ndob = data.customer.nominee_dob;
+                        var ndatetime = new Date(ndob);
+                        var nday = ndatetime.getDate();
+                        nday = (nday < 10) ? '0' + nday : nday;
+                        var nmonth = ndatetime.getMonth() + 1;
+                        nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
+                        var nyear = ndatetime.getFullYear();
+                        var ndate = nday + "-" + nmonth + "-" + nyear;
+                        $('#date_of_birth_nominee').val(ndate);
+                        $('#date_of_birth_nominee').prop('disabled', true);
+                        $('#relationship').val(data.customer.nominee_relation);
+                        $('#relationship').prop('disabled', true);
+                        if (data.customer.nominee_sex == 'Male') {
+                            $('#nominee_male').prop('checked', true);
+
+                        } else {
+                            $('#nominee_female').prop('checked', true);
+
+                        }
+                        $('#addressnominee').val(data.customer.nominee_address);
+                        $('#addressnominee').prop('disabled', true);
+
+                        //nominee details
+                    }//else
+
                     hideLoader();
                 }
                 hideLoader();
@@ -461,51 +525,108 @@ function deleteCustomerList(e, customer_id) {
 }
 function payment_mode_change(value) {
     if (value == 'Cash') {
-        var append_div = '<label class="col-sm-2 col-form-label" >Invoice Number :</label>\n\
-                                <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter number.">\n\
-                                </div>\n\
-                             <label class="col-sm-2 col-form-label">Name :</label>\n\
+        var append_div = '<div class="form-group row" id="payment_number_div">\n\
+                            <label class="col-sm-2 col-form-label">Invoice Number :</label>\n\
+                            <div class="col-sm-4 payment_number_div">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label">Name :</label>\n\
                             <div class="col-sm-4">\n\
-                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
-                            </div>';
-
-        $('.bank_name').css('display', 'none');
-        $('.account_label').css('display', 'none');
-        $('.ifsc_code_label').css('display', 'none');
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name ">\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="form-group row" id="bank-date-div">\n\
+                            <label class="col-sm-2 col-form-label">Date Of Payment :</label>\n\
+                            <div class="col-sm-4">\n\
+                            <div class="input-group date datepicker">\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment" data-inputmask-inputformat="dd-mm-yyyy" readonly>\n\
+                              <span class="input-group-addon input-group-append border-left">\n\
+                                 <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
+                              </span>\n\
+                            </div>\n\
+                            </div>\n\
+                     </div>';
+        $("#branch").val('');
         $('.branch').css('display', 'none');
-
     }
     else if (value == 'Cheque') {
-        var append_div = '<label class="col-sm-2 col-form-label" >Cheque/UTR No :</label>\n\
-                                <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
-                                </div>\n\
-                             <label class="col-sm-2 col-form-label">Account Holder Name :</label>\n\
+        var append_div = '<div class="form-group row" id="payment_number_div">\n\
+                            <label class="col-sm-2 col-form-label">Cheque/UTR No :</label>\n\
+                            <div class="col-sm-4 payment_number_div">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label">Account Holder Name :</label>\n\
                             <div class="col-sm-4">\n\
-                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name " >\n\
-                            </div>';
-        $('.bank_name').css('display', 'block');
-        $('.account_label').css('display', 'block');
-        $('.ifsc_code_label').css('display', 'block');
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name ">\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="form-group row" id="acount-ifsc-div">\n\
+                            <label class="col-sm-2 col-form-label account_label">Account Number :</label>\n\
+                            <div class="col-sm-4 account_label">\n\
+                                 <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number">\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :</label>\n\
+                            <div class="col-sm-4 ifsc_code_label">\n\
+                                 <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter your ifsc code">\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="form-group row" id="bank-date-div">\n\
+                            <label class="col-sm-2 col-form-label">Date Of Payment :</label>\n\
+                            <div class="col-sm-4">\n\
+                            <div class="input-group date datepicker">\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment" data-inputmask-inputformat="dd-mm-yyyy" readonly>\n\
+                              <span class="input-group-addon input-group-append border-left">\n\
+                                 <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
+                              </span>\n\
+                            </div>\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label bank_name">Bank Name :</label>\n\
+                            <div class="col-sm-4 bank_name">\n\
+                                <input class="form-control required" type="text" id="bank_name" name="bank_name" placeholder="Enter bank name">\n\
+                            </div>\n\
+                     </div>';
+
         $('.branch').css('display', 'block');
+
+
     }
     else if (value == 'Online') {
-        var append_div = '<label class="col-sm-2 col-form-label" >Online Transaction No :</label>\n\
-                                <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required" type="text" id="payment_number" name="payment_number" placeholder="Enter online transaction number.">\n\
-                                </div>\n\
-                             <label class="col-sm-2 col-form-label">Name :</label>\n\
+        var append_div = '<div class="form-group row" id="payment_number_div">\n\
+                            <label class="col-sm-2 col-form-label">Online Transaction No :</label>\n\
+                            <div class="col-sm-4 payment_number_div">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label">Name :</label>\n\
                             <div class="col-sm-4">\n\
-                            <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " >\n\
-                            </div>';
-        $('.bank_name').css('display', 'none');
-        $('.account_label').css('display', 'block');
-        $('.ifsc_code_label').css('display', 'block');
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name ">\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="form-group row" id="acount-ifsc-div">\n\
+                        <label class="col-sm-2 col-form-label account_label">Account Number :</label>\n\
+                        <div class="col-sm-4 account_label">\n\
+                             <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number">\n\
+                        </div>\n\
+                        <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :</label>\n\
+                        <div class="col-sm-4 ifsc_code_label">\n\
+                             <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter your ifsc code">\n\
+                        </div>\n\
+                    </div>\n\
+                    <div class="form-group row" id="bank-date-div">\n\
+                            <label class="col-sm-2 col-form-label">Date Of Payment :</label>\n\
+                            <div class="col-sm-4">\n\
+                            <div class="input-group date datepicker">\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  data-inputmask-inputformat="dd-mm-yyyy" readonly>\n\
+                              <span class="input-group-addon input-group-append border-left">\n\
+                                 <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
+                              </span>\n\
+                            </div>\n\
+                            </div>\n\
+                     </div>';
+        $("#branch").val('');
         $('.branch').css('display', 'none');
     }
 
-    $('#payment_number_div').html(append_div);
+    $('#payment_details').html(append_div);
 }
 
 //sub listing
@@ -541,8 +662,9 @@ function getCustomersList(user_id) {
             user_id: user_id
         },
         success: function (response) {
-            console.log(response);
+            var agent_id = $('#agent_listing').val();
             var html = '';
+            var customer_list = '<option value="">New</option>';
             if (response.status == "success") {
                 var data = response.data;
                 $.each(data, function (key, val) {
@@ -558,13 +680,17 @@ function getCustomersList(user_id) {
                                   <td>' + val.age + '</td>\n\
                                   <td>' + val.email + '</td>\n\
                                   <td>\n\
-                                        <a href="add-customer.php?customer_id=' + val.id + '"><i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
+                                        <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=1"><i class="mdi mdi-pencil text-info"></i>/</a> &nbsp \n\
+                                        <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=2" id="add_new_booking">Add New Booking/</a> &nbsp \n\
+                                        <a href="view-booking.php?customer_id=' + val.id + '" id="view_booking">View Booking</a> &nbsp \n\
                                         <!--<i class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>-->\n\
                                   </td>\n\
                               </tr>';
+                    customer_list += '<option value="' + val.id + '">' + val.display_name + '</option>';
                 });
 
                 $('#customers_list').html(html);
+                $("#customer-list-select").html(customer_list);
                 initDataTable();
                 hideLoader();
             } else {
@@ -582,3 +708,48 @@ function isNumberKey(evt) {
         return false;
     return true;
 }
+
+//function for get customer list
+function get_customer_list(user_id) {
+    //login user id
+    var url = base_url + 'customers';
+    $.ajax({
+        url: url,
+        type: 'post',
+        dataType: 'json',
+        data: {
+            user_id: user_id
+        },
+        success: function (response) {
+            if (response.status) {
+                var customer_list = '<option value="">New</option>';
+                $.each(response.data, function (key, value) {
+                    customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
+                });
+                $("#customer-list").html(customer_list);
+
+            }
+
+        }
+    });
+}//end function customer list
+
+function setIdofForm(form_id) {
+    $('.customer-booking-form').removeAttr('id');
+    $('.customer-booking-form').attr('id', form_id);
+}
+
+function initDatepicker() {
+    $(":input").inputmask();
+    if ($(".datepicker").length) {
+        $('.datepicker').datepicker({
+            enableOnReadonly: true,
+            todayHighlight: true,
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            //endDate: todays_date
+        });
+    }
+}
+
+initDatepicker();

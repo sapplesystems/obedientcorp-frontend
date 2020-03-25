@@ -126,15 +126,7 @@ include_once 'common_html.php';
                     },
                     password: {
                         required: true,
-                        minlength: 8
                     },
-                },
-                // Specify validation error messages
-                messages: {
-                    password: {
-                        minlength: "Your password must be at least 8 characters long"
-                    },
-                    email: "Please enter a valid email address"
                 },
             });
             if ($("#login_form").valid()) {

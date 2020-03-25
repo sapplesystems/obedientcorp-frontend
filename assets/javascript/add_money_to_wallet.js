@@ -151,9 +151,6 @@ function getAgentPaymentList(agent_id) {
     get_agent_payment_list(agent_id, 'Pending');
     get_agent_payment_list(agent_id, 'Approved');
     get_agent_payment_list(agent_id, 'Rejected');
-    setTimeout(function () {
-        initDataTable();
-    }, 2000);
 }
 
 function get_agent_payment_list(agent_id, status) {
@@ -205,12 +202,15 @@ function get_agent_payment_list(agent_id, status) {
                 table_data += '</tbody>';
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
+                    //$("#pending_payment_list").DataTable();
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(table_data);
+                    //$("#approved_payment_list").DataTable();
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
+                    //$("#reject_payment_list").DataTable();
                 }
                 hideLoader();
             }

@@ -30124,24 +30124,36 @@ ul.total_indicator li:nth-child(4) span {
     overflow-x: hidden;
 }
 
-#change_password_form label.error, #plot-form label.error, #login_form label.error, #project-form label.error, #sub-project-form label.error, #customer_add_form_submit label.error {
+#change_password_form label.error, 
+#plot-form label.error, 
+#login_form label.error, 
+#project-form label.error, 
+#sub-project-form label.error, 
+#customer_add_form_submit label.error, 
+#create_category label.error, 
+#create-sub-category label.error, 
+#create_product label.error, 
+#agent-buisness-form label.error, 
+#add-money-to-wallet-form label.error, 
+#payment-form label.error,
+#payment-form-wallet label.error {
     color: #fe7c96;
     width: 100%;
     position: absolute;
     white-space: nowrap;
     margin: 0px !important;
     font-size: 13px;
-    top: -17px;
+    bottom: 8px;
     left: 20px;
 }
 
 
-#customer_add_form_submit .datepicker{padding:0px !important;}
+#customer_add_form_submit .datepicker, #create_product .datepicker{padding:0px !important;}
 
-#customer_add_form_submit .datepicker label.error {
+#customer_add_form_submit .datepicker label.error, #create_product .datepicker label.error {
     left: 0px !important;
 }
-#customer_add_form_submit .form-check-label label.error {
+#customer_add_form_submit .form-check-label label.error, #create_product .form-check-label label.error {
     left: 0px !important;
 }
 
@@ -30152,8 +30164,25 @@ ul.total_indicator li:nth-child(4) span {
     white-space: nowrap;
     margin: 0px !important;
     font-size: 13px;
-    top: -17px;
+    bottom: 8px;
     left: 20px;
+}
+
+#customer_add_form_submit label.error, 
+#project-form label.error, 
+#sub-project-form label.error, 
+#add-money-to-wallet-form label.error, 
+#payment-form label.error,
+#payment-form-wallet label.error{
+    bottom:-8px !important;
+}
+
+#payment-form .col-sm-10 label.error, #payment-form-wallet .col-sm-10 label.error{
+    bottom:-16px !important;
+}
+
+#agent-buisness-form label.error{
+    bottom:-16px !important;
 }
 
 #plotbooking_form .datepicker{padding:0px !important;}
@@ -30267,7 +30296,7 @@ select option {
 }
 
 .payment-dialog {
-    max-width: 850px;
+    max-width: 900px;
 }
 
 .upload_img {
@@ -30894,3 +30923,146 @@ CSS ANIMATION FOR TREE
     .brand-logo{text-align:center;}
     .bgImageNone{background:none !important;}
 }
+
+/*Manage couopn css*/
+
+.tgl {
+        display: none;
+    }
+
+    .tgl,
+    .tgl:after,
+    .tgl:before,
+    .tgl *,
+    .tgl *:after,
+    .tgl *:before,
+    .tgl+.tgl-btn {
+        box-sizing: border-box;
+    }
+
+    .tgl::-moz-selection,
+    .tgl:after::-moz-selection,
+    .tgl:before::-moz-selection,
+    .tgl *::-moz-selection,
+    .tgl *:after::-moz-selection,
+    .tgl *:before::-moz-selection,
+    .tgl+.tgl-btn::-moz-selection {
+        background: none;
+    }
+
+    .tgl::selection,
+    .tgl:after::selection,
+    .tgl:before::selection,
+    .tgl *::selection,
+    .tgl *:after::selection,
+    .tgl *:before::selection,
+    .tgl+.tgl-btn::selection {
+        background: none;
+    }
+
+    .tgl+.tgl-btn {
+        outline: 0;
+        display: block;
+        width: 4em;
+        height: 2em;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .tgl+.tgl-btn:after,
+    .tgl+.tgl-btn:before {
+        position: relative;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+    }
+
+    .tgl+.tgl-btn:after {
+        left: 0;
+    }
+
+    .tgl+.tgl-btn:before {
+        display: none;
+    }
+
+    .tgl:checked+.tgl-btn:after {
+        left: 50%;
+    }
+
+
+    .tgl-skewed+.tgl-btn {
+        overflow: hidden;
+        -webkit-transform: skew(-10deg);
+        transform: skew(-10deg);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        font-family: sans-serif;
+        background: #888;
+    }
+
+    .tgl-skewed+.tgl-btn:after,
+    .tgl-skewed+.tgl-btn:before {
+        -webkit-transform: skew(10deg);
+        transform: skew(10deg);
+        display: inline-block;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        line-height: 2em;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .tgl-skewed+.tgl-btn:after {
+        left: 100%;
+        content: attr(data-tg-on);
+    }
+
+    .tgl-skewed+.tgl-btn:before {
+        left: 0;
+        content: attr(data-tg-off);
+    }
+
+    .tgl-skewed+.tgl-btn:active {
+        background: #888;
+    }
+
+    .tgl-skewed+.tgl-btn:active:before {
+        left: -10%;
+    }
+
+    .tgl-skewed:checked+.tgl-btn {
+        background: #86d993;
+    }
+
+    .tgl-skewed:checked+.tgl-btn:before {
+        left: -100%;
+    }
+
+    .tgl-skewed:checked+.tgl-btn:after {
+        left: 0;
+    }
+
+    .tgl-skewed:checked+.tgl-btn:active:after {
+        left: 10%;
+    }
+
+    .number_of_days {
+        padding: 5px;
+        height: 30px;
+        width: 100px !important;
+        line-height: 30px;
+        margin: 0;
+    }
+	
+	/*manage coupon css end here*/

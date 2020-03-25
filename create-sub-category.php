@@ -9,25 +9,22 @@
                         <form class="forms-sample" id="create-sub-category" name="create-sub-category" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <h4 class="card-title mb-4 col-md-6">Create Sub-Category</h4>
-                                <div class="col-md-6">
-                                    <div class="form-group float-right">
-                                        <label class="col-form-label float-left mr-3">Category</label>
-                                        <div class="float-left">
-                                            <select class="form-control" id="categories" name="categories">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <select class="form-control" id="categories" name="categories"></select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" class="form-control" placeholder="Title" id="sub_category_title" name="sub_category_title">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Image</label>
                                         <div class="input-group">

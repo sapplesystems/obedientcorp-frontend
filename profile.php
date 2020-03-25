@@ -324,7 +324,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Cancel Cheque <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Cancel Cheque</label>
                                                             <div class="col-sm-4">
                                                                 <div class="input-group">
                                                                     <input type="file" name="img[]" class="file-upload-default" name="cancel_cheque" id="cancel_cheque">
@@ -332,8 +332,8 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" id="cancel_cheque_uploded" class="img-lg rounded-circle mb-3" style="display:none;" />
                                                                 </div>
+                                                                <div class="signature_img"><img src="" id="cancel_cheque_uploded" class="img-lg rounded-circle mb-3" style="display:none;" /></div>
 
                                                                 <!--<input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">-->
                                                             </div>
@@ -428,8 +428,8 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="pan_upload" />
                                                                 </div>
+                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="pan_upload" /></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -445,8 +445,8 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="passport_upload" />
                                                                 </div>
+                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="passport_upload" /></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -462,8 +462,8 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="driving_upload" />
                                                                 </div>
+                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="driving_upload" /></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -479,8 +479,8 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="voter_upload" />
                                                                 </div>
+                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="voter_upload" /></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -496,8 +496,8 @@
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
-                                                                    <img src="" style="display:none;width:100px;" id="adhar_upload" />
                                                                 </div>
+                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="adhar_upload" /></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -659,7 +659,7 @@
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
                     $('#imagePreview').hide();
                     $('#imagePreview').fadeIn(650);
@@ -667,7 +667,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        $("#imageUpload").change(function() {
+        $("#imageUpload").change(function () {
             readURL(this);
         });
     </script>

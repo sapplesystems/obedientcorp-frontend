@@ -85,7 +85,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Sex :</label>
                                     <div class="col-sm-4">
-                                        <div class="form-group">
+                                        <div class="form-group mb-0">
                                             <div class="form-check d-inline-block">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input disable-elm required" name="customer_sex" id="customer_male" value="Male"> Male <i class="input-helper"></i></label>
@@ -162,7 +162,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Sex :</label>
                                     <div class="col-sm-4">
-                                        <div class="form-group">
+                                        <div class="form-group mb-0">
                                             <div class="form-check d-inline-block">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input disable-elm required" name="nominee_sex" id="nominee_male" value="Male"> Male <i class="input-helper"></i></label>

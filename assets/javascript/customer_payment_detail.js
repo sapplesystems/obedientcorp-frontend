@@ -30,6 +30,12 @@ $(function () {
         e.preventDefault();
         var payment_frm = $("#payment-form");
         payment_frm.validate({
+            rules: {
+                amount: {
+                    required: true,
+                    number: true
+                },
+            },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
             }
@@ -102,6 +108,12 @@ $(function () {
         e.preventDefault();
         var payment_frm_wallet = $("#payment-form-wallet");
         payment_frm_wallet.validate({
+            rules: {
+                amount_wallet: {
+                    required: true,
+                    number: true
+                },
+            },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
             }
@@ -187,7 +199,6 @@ $(function () {
 
         }
         else if ($(this).val() == 'Cheque') {
-
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Cheque Number:</label>\n\
                    <div class="col-sm-8">\n\
                      <input type="text" class="form-control required" id="payment_number" name="payment_number">\n\

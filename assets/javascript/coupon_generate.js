@@ -8,6 +8,12 @@ $(document).ready(function () {
         var user_id = $(this).val();
         getWalletAmount(user_id);
     });
+    $(document).on('click', '#cancel-coupon', function (e) {
+        $('.denomination_quantity').val(0);
+        $('.denomination_total').html('0');
+        $('#denomination_amount_sum').html('0');
+
+    });
 
     $(document).on('click', '#coupon_generate', function (e) {
         e.preventDefault();
@@ -54,6 +60,11 @@ $(document).ready(function () {
                         $('#e-wallet').html(response.data.amount);
                         showSwal('success', 'Coupon Generated', 'Coupon generated for goods');
                         hideLoader();
+                        $('.denomination_quantity').val(0);
+                        $('.denomination_total').html('0');
+                        $('#denomination_amount_sum').html('0');
+                        getWalletAmount($('#agent').val());
+
                     }
 
                 }
@@ -209,10 +220,9 @@ function get_goods_coupon_listing() {
     else {
         agent_id = user_id;
     }
-    var action = '';
-    if (user_type == 'ADMIN') {
-        action = '<a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Change coupon status</a> &nbsp &nbsp <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm">Extend Coupon availability</a>';
-    }
+    var action_td = '';
+    var expiry_date;
+    var generated_date;
     $.ajax({
         url: url,
         type: 'post',
@@ -221,19 +231,52 @@ function get_goods_coupon_listing() {
             user_id: agent_id
         },
         success: function (response) {
+            console.log(response);
             var i = 1;
             if (response.status) {
                 var goods_coupon_list = '';
+                var cb_status = '';
                 $.each(response.data, function (key, value) {
                     var classname = 'odd';
                     if (i % 2 == 0) {
                         classname = 'even';
                     }
+
+                    expiry_date = new Date(value.expiry_date);
+                    expiry_date = expiry_date.getDate() + '-' + (expiry_date.getMonth() + 1) + '-' + expiry_date.getFullYear();
+
+                    generated_date = new Date(value.generated_date);
+                    generated_date = generated_date.getDate() + '-' + (generated_date.getMonth() + 1) + '-' + generated_date.getFullYear();
+
+                    action_td = '';
+                    cb_status = '';
+                    if (user_type == 'ADMIN') {
+                        if (value.status == 'Active') {
+                            cb_status = 'checked';
+                        }
+                        action_td = '<td>\n\
+                                        <div class="float-left">\n\
+                                            <input class="tgl tgl-skewed" id="cb' + value.id + '" type="checkbox" ' + cb_status + ' onclick="changeCouponStatus(' + value.id + ');"/>\n\
+                                            <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb' + value.id + '"></label>\n\
+                                        </div>\n\
+                                        <div class="float-left ml-4">\n\
+                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(' + value.id + ');">Extend Coupon availability</a>\n\
+                                            <form class="form-inline" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
+                                                <input type="number" class="form-control mr-sm-2 number_of_days" id="number_of_days_' + value.id + '" placeholder="Enter Number Of Days">\n\
+                                                <button type="submit" class="btn btn-gradient-success btn-sm" onclick="extendCouponAvailabilitySubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
+                                                <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="extendCouponAvailabilityCancel(event, ' + value.id + ');">Cancel</button>\n\
+                                            </form>\n\
+                                        </div>\n\
+                                    </td>';
+                    }
+
                     goods_coupon_list += ' <tr role="row" class="' + classname + '">\n\
                     <td class="sorting_1">' + i + '</td>\n\
                     <td> ' + value.coupon_code + ' </td>\n\
                     <td> ' + value.coupon_amount + ' </td>\n\
-                    <td>' + action + '</td>\n\
+                    <td> ' + generated_date + ' </td>\n\
+                    <td id="coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
+                    '+ action_td + '\n\
                 </tr>';
 
                     i++;
@@ -244,4 +287,69 @@ function get_goods_coupon_listing() {
         }
     });
 
+}
+
+function changeCouponStatus(coupon_id) {
+    console.log('changeCouponStatus - ' + coupon_id);
+    var url = base_url + 'change-coupon-status';
+    $.ajax({
+        url: url,
+        type: 'post',
+        //dataType: 'json',
+        data: {
+            coupon_id: coupon_id
+        },
+        success: function (response) {
+            if (response.status == 'success') {
+                showSwal('success', 'Coupon ' + response.chk_status, response.data);
+            }
+        }
+    });
+
+}
+
+function extendCouponAvailability(coupon_id) {
+    console.log('extendCouponAvailability - ' + coupon_id);
+    $('#extend_coupon_availability_' + coupon_id).css('display', 'none');
+    $('#extend_coupon_availability_form_' + coupon_id).css('display', 'block');
+}
+
+function extendCouponAvailabilitySubmit(e, coupon_id) {
+    e.preventDefault();
+    console.log('extendCouponAvailabilitySubmit - ' + coupon_id);
+    var days = document.getElementById('number_of_days_' + coupon_id);
+    if (days.value == '') {
+        days.focus();
+        return false;
+    }
+    var url = base_url + 'extend-coupon-availability';
+    $.ajax({
+        url: url,
+        type: 'post',
+        //dataType: 'json',
+        data: {
+            coupon_id: coupon_id,
+            days:days.value
+        },
+        success: function (response) {
+            if (response.status == 'success') {
+                showSwal('success', 'Coupon Extended ' , response.data);
+                $('#coupon_updated_date_'  +coupon_id).html(response.updated_date);
+                extendCouponAvailabilityCancel(e, coupon_id);
+            }
+            else
+            {
+                showSwal('error', 'Coupon Not Extended ' , 'Coupon not extended');
+
+            }
+        }
+    });
+}
+
+function extendCouponAvailabilityCancel(e, coupon_id) {
+    e.preventDefault();
+    console.log('extendCouponAvailabilityCancel - ' + coupon_id);
+    $('#extend_coupon_availability_' + coupon_id).css('display', '');
+    $('#extend_coupon_availability_form_' + coupon_id).css('display', 'none');
+    document.getElementById('extend_coupon_availability_form_' + coupon_id).reset();
 }

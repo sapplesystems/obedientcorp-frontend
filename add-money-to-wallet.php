@@ -26,8 +26,9 @@ if ($user_type != 'ADMIN') {
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Amount</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" id="amount" name="amount" placeholder="Coupon Amount">
+                                            <input type="text" class="form-control required" id="amount" name="amount" placeholder="Coupon Amount" >
                                         </div>
+
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2"></label>

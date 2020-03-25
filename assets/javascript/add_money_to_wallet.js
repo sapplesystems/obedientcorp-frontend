@@ -166,6 +166,7 @@ function get_agent_payment_list(agent_id, status) {
         type: 'post',
         data: params,
         success: function (response) {
+            console.log(response);
             if (response.status == 'success') {
                 var action_th = '';
                 if (status == 'Pending') {
@@ -178,6 +179,7 @@ function get_agent_payment_list(agent_id, status) {
                                         <th> Agent </th>\n\
                                         <th> Date Requested </th>\n\
                                         <th> Payment Mode </th>\n\
+                                        <th> Payment Number </th>\n\
                                         ' + action_th + '\n\
                                         <th></th>\n\
                                     </tr>\n\
@@ -196,6 +198,7 @@ function get_agent_payment_list(agent_id, status) {
                                             <td >' + value.display_name + '</td>\n\
                                             <td>' + date_of_payment + '</td>\n\
                                             <td>' + value.payment_mode + '</td>\n\
+                                            <td>' + value.cheque_number + '</td>\n\
                                             ' + action_tr + '\n\
                                         </tr>';
                 });

@@ -89,7 +89,6 @@
                                                             <label class="col-form-label col-sm-4 text-right">Payment Mode:</label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control required" id="payment_mode" name="payment_mode">
-                                                                    <option value="">Select</option>
                                                                     <option value="Cheque">Cheque</option>
                                                                     <option value="Cash">Cash</option>
                                                                     <option value="Online">Online</option>
@@ -176,7 +175,6 @@
                                                             <label class="col-form-label col-sm-4 text-right">Payment Mode:</label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control required" id="payment_mode_wallet" name="payment_mode_wallet">
-                                                                    <option value="">Select</option>
                                                                     <option value="Cheque">Cheque</option>
                                                                     <option value="Cash">Cash</option>
                                                                     <option value="Online">Online</option>
@@ -184,7 +182,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6" id="cheque-number">
                                                         <div class="form-group row payment-number-div-wallet">
                                                             <label class="col-form-label col-sm-4 text-right " id="payment-number-div-wallet">Cheque Number:</label>
                                                             <div class="col-sm-8">

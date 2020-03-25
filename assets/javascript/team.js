@@ -249,6 +249,7 @@ function getReferralTeamMemberList(user_id, node) {
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
+                initDataTable();
                 hideLoader();
             } else {
                 hideLoader();

@@ -160,6 +160,10 @@ $(document).ready(function () {
         var customer_frm = $("#add_new_booking_form");
         customer_frm.validate({
             rules: {
+                accountnumber: {
+                    required: true,
+                    number: true
+                },
             },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
@@ -244,6 +248,11 @@ $(document).ready(function () {
         var customer_frm = $("#customer_add_form_submit");
         customer_frm.validate({
             rules: {
+                accountnumber: {
+                    required: true,
+                    number: true
+                },
+
             },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);

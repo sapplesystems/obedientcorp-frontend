@@ -26,7 +26,7 @@
                                                 <a class="nav-link active" id="all_members" data-toggle="pill" href="#all-members" role="tab" aria-controls="pills-detail-view" aria-selected="true"> All Members List </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="referral_members" data-toggle="pill" href="#referral-members" role="tab" aria-controls="pills-compact-view" aria-selected="false"> Referal Members List </a>
+                                                <a class="nav-link" id="referral_members" data-toggle="pill" href="#referral-members" role="tab" aria-controls="pills-compact-view" aria-selected="false"> Referral Members List </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="members_in_left" data-toggle="pill" href="#members-in-left" role="tab" aria-controls="pills-tree-view" aria-selected="false"> Members in Left </a>
@@ -48,7 +48,7 @@
                                                 <a class="nav-link active" id="list-all-members-tab" data-toggle="pill" href="#list-all-members" role="tab" aria-controls="pills-detail-view-2" aria-selected="true"> All Members List </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="list-referral-members-tab" data-toggle="pill" href="#list-referral-members" role="tab" aria-controls="pills-compact-view-2" aria-selected="false"> Referal Members List </a>
+                                                <a class="nav-link" id="list-referral-members-tab" data-toggle="pill" href="#list-referral-members" role="tab" aria-controls="pills-compact-view-2" aria-selected="false"> Referral Members List </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="list-members-in-left-tab" data-toggle="pill" href="#list-members-in-left" role="tab" aria-controls="pills-tree-view-2" aria-selected="false"> Members in Left </a>

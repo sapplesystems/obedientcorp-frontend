@@ -141,15 +141,14 @@ include_once 'common_html.php';
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category">
-                                    <span class="menu-title">Products</span>
+                                    <span class="menu-title">Manage Products</span>
                                     <i class="menu-arrow"></i>
                                     <i class="mdi mdi-view-grid menu-icon"></i>
                                 </a>
                                 <div class="collapse" id="category">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="create-category">Create Category</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="create-sub-category">Create Sub Category</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="create-product">Create Product</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="category-list">Category List</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="product-list">Product List</a></li>
                                     </ul>
                                 </div>
                             </li>

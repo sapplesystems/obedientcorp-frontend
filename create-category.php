@@ -1,4 +1,10 @@
-<?php include_once 'header.php'; ?>
+<?php 
+include_once 'header.php'; 
+$cid = '';
+if(isset($_REQUEST['cid'])){
+    $cid = $_REQUEST['cid'];
+}
+?>
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper ">
@@ -40,32 +46,10 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_category" value="submitcategory">Submit</button>
-                                    <input type="hidden" id="category_id" value="">
+                                    <input type="hidden" id="category_id" value="<?php echo $cid; ?>">
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Categories</h4>
-                        <div class="overflowAuto">
-                            <table class="table table-bordered custom_action" id="order-listing">
-                                <thead>
-                                    <tr>
-                                        <th width="15%">Sr No.</th>
-                                        <th width="15%"> Title </th>
-                                        <th> Description </th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="category_list"></tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>

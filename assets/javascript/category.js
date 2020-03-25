@@ -1,5 +1,9 @@
 $(document).ready(function () {
     getCategoryList();
+    
+    if($('#category_id').val() && $('#category_id').val() != ''){
+        updateCategory($('#category_id').val());
+    }
 
     $(document).on("click", "#submit_category", function (e) {
         e.preventDefault();
@@ -78,7 +82,7 @@ function getCategoryList() {
                                     <td class="sorting_1">' + i + '</td>\n\
                                     <td>' + val.name + '</td>\n\
                                     <td>' + val.description + '</td>\n\
-                                    <td><a href="javascript:void(0);" onclick="updateCategory(event, ' + val.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteCategory(event, ' + val.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                    <td><a href="create-category.php?cid=' + val.id + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteCategory(event, ' + val.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                                 </tr>';
                                 i = i + 1;
                                 x++;
@@ -93,8 +97,8 @@ function getCategoryList() {
 }//get category listing function
 
 //function for update category
-function updateCategory(e, category_id) {
-    e.preventDefault();
+function updateCategory(category_id) {
+    //e.preventDefault();
     showLoader();
     $.ajax({
         url: base_url + 'category',

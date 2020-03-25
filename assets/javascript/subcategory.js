@@ -1,11 +1,10 @@
 $(document).ready(function() {
     getCategoryList();
-    $(document).on('change', '#categories', function() {
-
+    /*$(document).on('change', '#categories', function() {
         if ($(this).val()) {
             getSubCategoryList($(this).val());
         }
-    });
+    });*/
 
 
     $(document).on("click", "#submit_sub_category", function(e) {
@@ -44,7 +43,7 @@ $(document).ready(function() {
                 processData: false,
                 success: function(response) {
                     if (response.status == "success") {
-                        getSubCategoryList(category_id);
+                        //getSubCategoryList(category_id);
                         showSwal('success', 'SubCategory Added', 'SubCategory added successfully.');
                         document.getElementById('create-sub-category').reset();
                         $('#photo_id').attr('src', '');

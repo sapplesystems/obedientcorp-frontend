@@ -1,4 +1,10 @@
-<?php include_once 'header.php'; ?>
+<?php 
+include_once 'header.php'; 
+$pid = '';
+if(isset($_REQUEST['pid'])){
+    $pid = $_REQUEST['pid'];
+}
+?>
 <link rel="stylesheet" href="assets/css/image-uploader.min.css">
 <!-- partial -->
 <div class="main-panel">
@@ -103,50 +109,16 @@
                                                 <div class="input-images-2" id="product_docs"></div>
                                             </div>
                                         </div>
-                                        <!--<div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Videos</label>
-                                                <div class="input-group">
-                                                    <input type="file" name="video[]" class="file-upload-default">
-                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose Video" id="video" name="video">
-                                                    <span class="input-group-append">
-                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>-->
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <input type="hidden" name="product_id" id="product_id" />
+                                    <input type="hidden" name="product_id" id="product_id" value="<?php echo $pid; ?>" />
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_project" value="submitproject">Submit</button>
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Categories</h4>
-                        <div class="overflowAuto">
-                            <table class="table table-bordered custom_action" id="order-listing">
-                                <thead>
-                                    <tr>
-                                        <th> Title </th>
-                                        <th> Description </th>
-                                        <th> Action </th>
-                                    </tr>
-                                </thead>
-                                <tbody id="product_list">
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>

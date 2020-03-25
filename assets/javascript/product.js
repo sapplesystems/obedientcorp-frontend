@@ -3,6 +3,10 @@ getProductList();
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 $(document).ready(function () {
+    if ($('#product_id').val() && $('#product_id').val() != '') {
+        editProduct($('#product_id').val());
+    }
+
     $('#product_images').imageUploader();
     $('#product_docs').imageUploader();
 
@@ -52,10 +56,12 @@ $(document).ready(function () {
                 params.append("document[]", doc_file.children[0].children[0].files[index]);
             }
             var category_id = $('#categories').val();
+            var sub_category_id = 0;
             if ($('#subcategory').val()) {
-                category_id = $('#subcategory').val();
+                sub_category_id = $('#subcategory').val();
             }
             params.append('category_id', category_id);
+            params.append('sub_category_id', sub_category_id);
             params.append('name', $('#title').val());
             params.append('dealer_price', $('#dealer_price').val());
             params.append('market_price', $('#market_price').val());
@@ -83,12 +89,12 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.status == "success") {
                         resetForm();
-                        console.log(response.data);
+                        showSwal('success', 'Product Added', 'Product added successfully.');
                         hideLoader();
                         getProductList();
                     } else {
                         resetForm();
-                        console.log(response.data);
+                        showSwal('error', 'Failed', 'Product could not be added.');
                         hideLoader();
                     }
                 }
@@ -102,6 +108,7 @@ function getCategoryList() {
     $.ajax({
         url: base_url + 'categories',
         type: 'post',
+        async: false,
         data: {},
         success: function (response) {
             var option = '<option value="">Select Category</option>';
@@ -121,7 +128,7 @@ function getSubCategoryList(category_id) {
     $.ajax({
         url: url,
         type: 'post',
-        dataType: 'json',
+        async: false,
         data: {id: category_id},
         success: function (response) {
             if (response.status == "success") {
@@ -158,7 +165,7 @@ function getProductList() {
                                         <td>' + val.name + '</td>\n\
                                         <td>' + val.description + '</td>\n\
                                         <td>\n\
-                                            <i class="mdi mdi-pencil text-info" onclick="editProduct(event, ' + val.id + ');"></i> &nbsp \n\
+                                            <a href="create-product.php?pid=' + val.id + '"<i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
                                             <i class="mdi mdi-delete text-danger" onclick="deleteProduct(event, ' + val.id + ');"></i>\n\
                                         </td>\n\
                                     </tr>';
@@ -182,16 +189,18 @@ function deleteProduct(e, product_id) {
         data: {id: product_id},
         success: function (response) {
             if (response.status == "success") {
+                showSwal('success', 'Product Removed', 'Product removed successfully.');
                 $('#prod_tr_' + product_id).remove();
                 hideLoader();
             } else {
+                showSwal('error', 'Failed', 'Product couold not be removed.');
                 hideLoader();
             }
         }
     });
 }
 
-function editProduct(e, product_id) {
+function editProduct(product_id) {
     showLoader();
     var url = base_url + 'product';
     $.ajax({
@@ -232,7 +241,14 @@ function editProduct(e, product_id) {
                     }
                 }
                 $('#product_id').val(product_id);
-                $('#category_id').val(product.category_id);
+                $('#categories').val(product.category_id);
+
+                if (product.sub_category_id && product.sub_category_id != '') {
+                    getSubCategoryList(product.category_id);
+                    $('#subcategory_div').css('display', '');
+                    $('#subcategory').val(product.sub_category_id);
+                }
+
                 $('#title').val(product.name);
                 $('#dealer_price').val(product.dealer_price);
                 $('#market_price').val(product.market_price);

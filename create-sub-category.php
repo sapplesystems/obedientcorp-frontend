@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!--div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div-->
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>

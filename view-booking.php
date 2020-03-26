@@ -1,8 +1,9 @@
 <?php include_once 'header.php'; 
 $customer_id = '';
-
-if (isset($_REQUEST['customer_id']) ) {
+$agent_id = '';
+if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
    $customer_id = $_REQUEST['customer_id'];
+   $agent_id = $_REQUEST['agent_id'];
 }
 
 ?>
@@ -16,6 +17,7 @@ if (isset($_REQUEST['customer_id']) ) {
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">View Plot Booking</h4>
+                        <h5 class="card-title mb-4">Agent Name:-  <span id="agent-name"></span></h5>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
@@ -33,6 +35,7 @@ if (isset($_REQUEST['customer_id']) ) {
                                 <tbody id="plot_booking_list"></tbody>
                             </table>
                             <input type="hidden" id="customer_id" value="<?php echo $customer_id; ?>" />
+                            <input type="hidden" id="agent_id" value="<?php echo $agent_id; ?>" />
                         </div>
                     </div>
                 </div>

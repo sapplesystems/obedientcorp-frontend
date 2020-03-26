@@ -3,11 +3,15 @@ include_once 'header.php';
 $customer_id = '';
 $agent_id = '';
 $status = '';
+$style = '';
 
 if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_REQUEST['f'])) {
     $customer_id = $_REQUEST['customer_id'];
     $agent_id = $_REQUEST['agent_id'];
     $status = $_REQUEST['f'];
+    if ($status == 2) {
+        $style = 'style="display: none;"';
+    }
 }
 ?>
 <style>
@@ -43,8 +47,8 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                     <div class="card-body p-3">
                         <h4 class="card-title mb-2"><i class="mdi mdi-account customer-details-icon"></i> Customer Details</h4>
                         <form class="forms-sample customer-booking-form" id="customer_add_form_submit" name="customer_add_form_submit" method="post" enctype="multipart/form-data">
-                            <h5 class="add-customer_heading">Personal Details</h5>
-                            <div class="border-div">
+                            <h5 class="add-customer_heading" <?php echo $style ?>>Personal Details</h5>
+                            <div class="border-div" <?php echo $style ?>>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Select Agent :</label>
                                     <div class="col-sm-4">
@@ -130,8 +134,8 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                 </div>
                             </div>
                             <!--personal details end-->
-                            <h5 class="add-customer_heading nominee">Nomination</h5>
-                            <div class="border-div nominee">
+                            <h5 class="add-customer_heading nominee" <?php echo $style ?>>Nomination</h5>
+                            <div class="border-div nominee" <?php echo $style ?>>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Nominee's Name :</label>
                                     <div class="col-sm-4">
@@ -217,16 +221,20 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Unit :</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control required" type="text" id="plot_unit" name="plot_unit" placeholder="Enter unit">
+                                    </div>
                                     <label class="col-sm-2 col-form-label">Unit Rate :</label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="unit_rate" name="unit_rate" placeholder="Enter unit rate" onkeypress="return isNumberKey(event);">
                                     </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Discount Rate :</label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="discount_rate" name="discount_rate" placeholder="Enter discount rate" onkeypress="return isNumberKey(event);">
                                     </div>
-                                </div>
-                                <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Installment :</label>
                                     <div class="col-sm-4">
                                         <select class="form-control required" id="installment" name="installment">
@@ -240,12 +248,12 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                             <option value="120">EMI-10 YEAR</option>
                                         </select>
                                     </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Received Booking Amount :</label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="received_booking_amount" name="received_booking_amount" placeholder="Enter received booking amount" onkeypress="return isNumberKey(event);">
                                     </div>
-                                </div>
-                                <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Total Amount :</label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="total_amount" name="total_amount" placeholder="Enter total amount" onkeypress="return isNumberKey(event);">
@@ -287,8 +295,8 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                             <div class="row">
                                 <div class="col-sm-12 text-right">
                                     <input type="hidden" id="customer_id" value="<?php echo $customer_id; ?>" />
-                                    <input type="hidden" id="agent-id" value="<?php echo $agent_id; ?>"/>
-                                    <input type="hidden" id="status" value="<?php echo $status; ?>"/>
+                                    <input type="hidden" id="agent-id" value="<?php echo $agent_id; ?>" />
+                                    <input type="hidden" id="status" value="<?php echo $status; ?>" />
                                     <input type="submit" class="btn btn-info btn-sm" id="customer_add_submit_button" name="customer_add_submit_button" value="Submit" />&nbsp;
                                 </div>
                             </div>

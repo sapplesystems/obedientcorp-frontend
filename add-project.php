@@ -1,4 +1,10 @@
-<?php include_once 'header.php'; ?>
+<?php 
+include_once 'header.php'; 
+$pid = '';
+if(isset($_REQUEST['pid'])){
+    $pid = $_REQUEST['pid'];
+}
+?>
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -55,7 +61,7 @@
                                 <label class="col-sm-2"></label>
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="project_form">Submit</button>
-                                    <input type="hidden" id="project_id" />
+                                    <input type="hidden" id="project_id" value="<?php echo $pid; ?>">
                                 </div>
                             </div>
                         </form>
@@ -63,28 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Edit/View Project</h4>
-                        <div class="overflowAuto">
-                            <table class="table table-bordered custom_action " id="order-listing">
-                                <thead><tr>
-                                        <th width="10%">Sr No.</th>
-                                        <th width="20%">Project Name</th>
-                                        <th width="10%">Unit Price</th>
-                                        <th width="10%">Description</th>
-                                        <th width="10%">Action</th>
-                                    </tr></thead>
-                                <tbody id="project_list">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>

@@ -1,4 +1,5 @@
 get_plot_booking_listing();
+get_agent_name();
 
 function get_plot_booking_listing()
 {
@@ -39,4 +40,22 @@ function get_plot_booking_listing()
         }
     });
 
+}
+
+function get_agent_name()
+{
+    var agent_id = $('#agent_id').val();
+    $.ajax({
+        url:base_url + 'agent-name',
+        type:'post',
+        data:{user_id:agent_id},
+        success:function(response){
+            if(response.status == 'success')
+            {
+                $('#agent-name').html(response.data);
+            }
+        }
+
+
+    });
 }

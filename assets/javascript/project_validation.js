@@ -1,5 +1,8 @@
 $(document).ready(function () {
     getProjectList();
+    if($('#project_id').val() && $('#project_id').val() != ''){
+        updateProject($('#project_id').val());
+    }
     $("#project-form").submit(function (e) {
         e.preventDefault();
         var project_frm = $("#project-form");
@@ -54,7 +57,8 @@ $(document).ready(function () {
                         document.getElementById('project-form').reset();
                         $('#mapphoto_id,#photo_id').attr('src', '');
                         $('#mapphoto_id,#photo_id').css('display', 'none');
-                        getProjectList();
+                        location.href = 'project-list.php';
+                        //getProjectList();
                         hideLoader();
                     } else {
                         showSwal('error', 'Project Not Added', 'Project not added successfully');
@@ -87,27 +91,23 @@ function getProjectList() {
         type: 'post',
         data: {},
         success: function (response) {
+            console.log(response);
             var html = '';
             if (response.status == "success") {
                 var i = 1;
                 var x = 1;
                 $.each(response.data, function (key, value) {
-                    if (value.parent_id == 0)
-                    {
-                        var class_name = 'odd';
-                        if (x % 2 == 0) {
-                            class_name = 'even';
-                        }
-                        html += '<tr id="tr_' + value.id + '" role="row" class="' + class_name + '">\n\
+                        html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.name + '</td>\n\
+                                <td>' + value.parent_project_name + '</td>\n\
                                 <td>' + value.unit_price + '</td>\n\
                                 <td>' + value.description + '</td>\n\
-                                <td><a href="javascript:void(0);" onclick="updateProject(event, ' + value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                <td><a href="add-project.php?pid=' + value.id + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr>';
                         i = i + 1;
                         x++;
-                    }
+                   
                 });
 
                 $('#project_list').html(html);
@@ -119,8 +119,8 @@ function getProjectList() {
 }//function end all project list
 
 //function for edit project details
-function updateProject(e, project_id) {
-    e.preventDefault();
+function updateProject(project_id) {
+    //e.preventDefault();
     showLoader();
     $.ajax({
         url: base_url + 'project',
@@ -128,6 +128,7 @@ function updateProject(e, project_id) {
         data: {id: project_id},
         success: function (response) {
             if (response.status == "success") {
+                console.log(response);
                 var data = response.data;
                 $('#project_id').val(project_id);
                 $('#project_name').val(data.name);
@@ -139,10 +140,19 @@ function updateProject(e, project_id) {
                     $('#photo_id').attr('src', photo_src);
                     $('#photo_id').css('display', 'block');
                 }
+                else{
+                    $('#photo_id').attr('src', '');
+                    $('#photo_id').css('display', 'none');
+                }
                 if (data.map) {
                     var map_src = media_url + 'project_photo/' + data.map;
                     $('#mapphoto_id').attr('src', map_src);
                     $('#mapphoto_id').css('display', 'block');
+                }
+                else
+                {
+                    $('#mapphoto_id').attr('src', '');
+                    $('#mapphoto_id').css('display', 'none');
                 }
                 hideLoader();
             }
@@ -163,7 +173,8 @@ function deleteProject(e, project_id) {
             data: {id: project_id},
             success: function (response) {
                 if (response.status == "success") {
-                    $("#tr_" + project_id).remove();
+                    getProjectList();
+                    //$("#tr_" + project_id).remove();
 
                 }
                 hideLoader();

@@ -172,7 +172,7 @@ function deleteSubCategory(e, category_id) {
             data: { id: category_id },
             success: function (response) {
                 if (response.status == "error") {
-                    $("#tr_" + category_id).remove();
+                    getCategoryList();
                     hideLoader();
                 }
             }

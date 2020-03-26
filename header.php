@@ -132,9 +132,8 @@ include_once 'common_html.php';
                             </a>
                             <div class="collapse" id="project">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="add-project">Add/View Project</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="add-sub-project">Add/View Sub-Project</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="add-plot">Add/View Plot</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="project-list">Project List</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="plot-list">Plot List</a></li>
                                 </ul>
                             </div>
                         </li>

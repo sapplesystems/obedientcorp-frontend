@@ -60,7 +60,8 @@ $(document).ready(function () {
                         document.getElementById('sub-project-form').reset();
                         $('#mapphoto_id,#photo_id').attr('src', '');
                         $('#mapphoto_id,#photo_id').css('display', 'none');
-                        getSubProjectList();
+                        location.href = 'project-list.php';
+                        //getSubProjectList();
                         hideLoader();
                     } else {
                         showSwal('error', 'Sub Project Not Added', 'Sub Project not added successfully');
@@ -177,10 +178,19 @@ function updateProject(e, project_id) {
                     $('#photo_id').attr('src', photo_src);
                     $('#photo_id').css('display', 'block');
                 }
+                else{
+                    $('#photo_id').attr('src', '');
+                    $('#photo_id').css('display', 'none');
+                }
                 if (data.map) {
                     var map_src = media_url + 'project_photo/' + data.map;
                     $('#mapphoto_id').attr('src', map_src);
                     $('#mapphoto_id').css('display', 'block');
+                }
+                else
+                {
+                    $('#mapphoto_id').attr('src', '');
+                    $('#mapphoto_id').css('display', 'none');
                 }
             }
             hideLoader();
@@ -200,7 +210,7 @@ function deleteProject(e, project_id) {
             data: { id: project_id },
             success: function (response) {
                 if (response.status == "success") {
-                    $("#tr_" + project_id).remove();
+                    getSubProjectList();
                     hideLoader();
                 }
             }

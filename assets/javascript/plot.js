@@ -1,11 +1,20 @@
+var sub_project_list;
 $(document).ready(function () {
-    var sub_project_list = '';
     getProjectList();
     getplotlist();
+    getPlotUnit();
+    if($('#plot_id').val() && $('#plot_id').val() != ''){
+        updatePlot($('#plot_id').val());
+    }
     $("#plot-form").submit(function (e) {
         e.preventDefault();
-        var plot_form = $("plot-form");
+        var plot_form = $("#plot-form");
         plot_form.validate({
+            rules: {
+                plot_area: {
+                    number: true
+                },
+            },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
             }
@@ -21,7 +30,9 @@ $(document).ready(function () {
             }
             var plot_no = $('#plot_no').val();
             var plot_area = $('#plot_area').val();
+            var plot_unit = $('#plot_unit').val();
             var plot_id = $('#plot_id').val();
+
             url = base_url + 'plot/add';
 
             if (plot_id) {
@@ -33,7 +44,7 @@ $(document).ready(function () {
             params.append('sub_project_id', sub_project_id);
             params.append('name', plot_no);
             params.append('area', plot_area);
-            //params.append('description', area);
+            params.append('unit', plot_unit);
             //params.append('photo', photo);
             //params.append('map', mapphoto);
 
@@ -48,7 +59,8 @@ $(document).ready(function () {
                     if (response.status == 'success') {
                         showSwal('success', 'Plot Added', 'Plot added successfully');
                         document.getElementById('plot-form').reset();
-                        getplotlist();
+                        location.href = 'plot-list.php';
+                        //getplotlist();
                         hideLoader();
                     } else {
                         showSwal('error', 'Plot Not Added', 'Plot not added successfully');
@@ -79,8 +91,10 @@ function getProjectList() {
         url: base_url + 'project/childern',
         type: 'post',
         data: {},
+        async: false,
         success: function (response) {
             sub_project_list = response.data;
+            console.log(sub_project_list);
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
@@ -98,6 +112,7 @@ function getProjectList() {
 //function for getsubproject 
 $("#projects").change(function () {
     var id = $(this).val();
+    console.log(sub_project_list);
     var sub_option = '<option value="">Select Sub Project</option>';
     $.each(sub_project_list, function (key, value) {
         if (value.id == id) {
@@ -117,14 +132,15 @@ $("#projects").change(function () {
 
 
 //function for update plot
-function updatePlot(e, plot_id) {
-    e.preventDefault();
+function updatePlot(plot_id) {
+    //e.preventDefault();
     showLoader();
     $.ajax({
         url: base_url + 'plots',
         type: 'post',
         data: { id: plot_id },
         success: function (response) {
+            console.log(response);
             if (response.status == "success") {
                 var data = response.data;
                 $("#sub_pro_div").css('display', 'none');
@@ -139,6 +155,7 @@ function updatePlot(e, plot_id) {
                 }
                 $('#plot_no').val(data[0].name);
                 $('#plot_area').val(data[0].area);
+                $('#plot_unit').val(data[0].unit);
                 $('#plot_id').val(data[0].id);
                 hideLoader();
             }
@@ -213,7 +230,7 @@ function getplotlist() {
                                     <button type="submit" class="btn btn-gradient-success btn-sm" onclick="updateAvailability(' + value.id + ')">Go</button>\n\
                                     </div>\n\
                                      </td>\n\
-                                <td><a href="javascript:void(0);" onclick="updatePlot(event, ' + value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deletePlot(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                <td><a href="add-plot.php?plotid=' + value.id + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deletePlot(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr>';
                     i = i + 1;
 
@@ -238,7 +255,7 @@ function deletePlot(e, plot_id) {
             data: { id: plot_id },
             success: function (response) {
                 if (response.status == "success") {
-                    $("#tr_" + plot_id).remove();
+                    getplotlist();
                     hideLoader();
                 }
             }
@@ -259,4 +276,27 @@ function updateAvailability(plot_id) {
             }
         }
     });
+}
+
+function getPlotUnit()
+{
+    $.ajax({
+        url: base_url + 'units',
+        type: 'post',
+        data: {},
+        async: true,
+        success: function (response) {
+            console.log(response);
+            var option = '<option value="">Select Unit</option>';
+            if (response.status == "success") {
+                $.each(response.data, function (key, value) {
+                        option += '<option value="' + value.unit + '">' + value.unit + '</option>';
+                
+                });
+
+                $('#plot_unit').html(option)
+            }
+        }
+    });
+
 }

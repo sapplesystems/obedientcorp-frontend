@@ -61,12 +61,6 @@ function getCategoryList() {
         type: 'post',
         data: {},
         success: function (response) {
-            console.log(response);
-            var html = '<tr>\n\
-            <th>Title</th>\n\
-            <th>Description</th>\n\
-            </tr>';
-
             if (response.status == "success") {
                 //console.log(response.data);
                 var data = response.data;
@@ -74,13 +68,10 @@ function getCategoryList() {
                 var i = 1;
                 var x = 1;
                 $.each(data, function (key, val) {
-                    var class_name = 'odd';
-                    if (x % 2 == 0) {
-                        class_name = 'even';
-                    }
-                    tr_html += '<tr id="tr_' + val.id + '" role="row" class="' + class_name + '">\n\
+                    tr_html += '<tr id="tr_' + val.id + '" role="row" >\n\
                                     <td class="sorting_1">' + i + '</td>\n\
                                     <td>' + val.name + '</td>\n\
+                                    <td>' + val.parent_category_name + '</td>\n\
                                     <td>' + val.description + '</td>\n\
                                     <td><a href="create-category.php?cid=' + val.id + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteCategory(event, ' + val.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                                 </tr>';
@@ -136,7 +127,7 @@ function deleteCategory(e, category_id) {
                 console.log(response);
                 if (response.status == "error") {
                     console.log("remove");
-                    $("#tr_" + category_id).remove();
+                    getCategoryList();
                     hideLoader();
                 }
             }

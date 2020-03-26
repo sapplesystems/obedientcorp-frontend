@@ -103,7 +103,7 @@
     function logout() {
         $.post('localapi.php', {
             destroy_session: 1
-        }, function (resp) {
+        }, function(resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             window.location.href = 'login';
         });
@@ -130,6 +130,13 @@
          }
          });
          $('#order-listing_filter [type=search]').attr('placeholder','Search');*/
+    }
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
     }
 
     hideLoader();

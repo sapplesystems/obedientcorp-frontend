@@ -82,7 +82,6 @@ function getplotlist(project_id, sub_project_id) {
         type: 'post',
         data: { project_master_id: project_id, sub_project_id: sub_project_id },
         success: function (response) {
-            console.log(response);
             var option = '<option value="">Select plots</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
@@ -94,7 +93,6 @@ function getplotlist(project_id, sub_project_id) {
                 hideLoader();
             } else {
                 $('.plot_name_div').css('display', 'none');
-                console.log(response.data);
                 hideLoader();
             }
 
@@ -102,15 +100,70 @@ function getplotlist(project_id, sub_project_id) {
     });
 }//end plot listing
 
+//get plotunitarea
+function getPlotAreaUnit(plot_id) {
+    $.ajax({
+        url: base_url + 'plot-area-unit ',
+        type: 'post',
+        data: { id: plot_id, },
+        success: function (response) {
+            console.log(response);
+            if (response.status == "success") {
+                if (response.data.plot_area) {
+                    $('#plot_area').val(response.data.plot_area);
+                    $('#plot_area').prop('readOnly', true);
+                }
+                if (response.data.plot_unit) {
+                    $('#plot_unit').val(response.data.plot_unit);
+                    $('#plot_unit').prop('readOnly', true);
+                }
+                if (response.data.plot_unit_price) {
+                    $('#unit_rate').val(response.data.plot_unit_price);
+                    $('#unit_rate').prop('readOnly', true);
+                }
+
+                if (response.data.plot_area && response.data.plot_unit_price) {
+                    calculatePlotAmount(response.data.plot_area, response.data.plot_unit_price);
+                }
+                hideLoader();
+            }
+            else {
+                console.log(response.datat);
+                hideLoader();
+            }
+
+        }
+    });
+
+}//end plot unit area
+
 
 
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 $(document).ready(function () {
 
+    $(document).on('blur', '#discount_rate', function (e) {
+        e.preventDefault();
+        var discount_rate = $(this).val();
+        var plot_area = $('#plot_area').val();
+        var unit_rate = $('#unit_rate').val();
+        if (discount_rate && discount_rate != '' && discount_rate > 0) {
+            calculatePlotAmount(plot_area, discount_rate);
+        } else if (unit_rate && unit_rate != '' && unit_rate > 0) {
+            calculatePlotAmount(plot_area, unit_rate);
+        }
+    });
+
     $(document).on('change', '#agent_listing', function () {
         if ($(this).val()) {
             getCustomersList($(this).val());
+        }
+    });
+
+    $(document).on('change', '#plot_name', function () {
+        if ($(this).val()) {
+            getPlotAreaUnit($(this).val());
         }
     });
 
@@ -120,7 +173,7 @@ $(document).ready(function () {
     if (status == 2) {
         setIdofForm('add_new_booking_form');
     }
-    if(status && status != ''){
+    if (status && status != '') {
         updateCustomerDetail(update_customer_id, update_agent_id, status);
     }
 
@@ -173,7 +226,7 @@ $(document).ready(function () {
             var params = new FormData();
             params.append('new_booking', 1);
             params.append('user_id', user_id);
-            params.append('agent_id', $('#agent_id').val());
+            params.append('agent_id', $('#agent-id').val());
             //plan details
             params.append('registration_number', $('#registration_num').val());
             params.append('project_master_id', $('#project_name').val());
@@ -212,7 +265,7 @@ $(document).ready(function () {
             params.append('branch_name', $('#branch').val());
             params.append('ifsc_code', $('#ifsc_code').val());
             params.append('created_by', user_id);
-            params.append('created_for', $('#agent_id').val());
+            params.append('created_for', $('#agent-id').val());
             params.append('customer_id', $('#customer_id').val());
             $.ajax({
                 url: base_url + 'customer/new-booking',
@@ -223,7 +276,6 @@ $(document).ready(function () {
                 success: function (response) {
 
                     if (response.status == "success") {
-                        console.log(response);
                         $('#customer_id').val('');
                         getCustomersList();
                         document.getElementById('add_new_booking_form').reset();
@@ -385,135 +437,61 @@ function updateCustomerDetail(customer_id, agent_id, status) {
     showLoader();
     getProjectList();
     //setTimeout(function () {
-        $.ajax({
-            url: base_url + 'customer/detail',
-            type: 'post',
-            data: {
-                id: customer_id
-            },
-            success: function (response) {
-                console.log(response);
-                if (response.status == "success") {
+    $.ajax({
+        url: base_url + 'customer/detail',
+        type: 'post',
+        data: {
+            id: customer_id
+        },
+        success: function (response) {
+            console.log(response);
+            if (response.status == "success") {
 
-                    var data = response.data;
-                    if (status == 1) {
-                        $('.nominee').css('display', 'none');
-                        $('.plan_details').css('display', 'none');
-                        $('.payment_details').css('display', 'none');
-                        $('#customer_id').val(data.customer.id);
-                        $('#agent_id').val(data.customer.user_id);
-                        $('#agent_id').prop('disabled', true);
-                        $('#customername').val(data.customer.name);
-                        $('#fatherhusbandwife').val(data.customer.fathers_name);
-                        var dob = data.customer.dob;
-                        var datetime = new Date(dob);
-                        var day = datetime.getDate();
-                        day = (day < 10) ? '0' + day : day;
-                        var month = datetime.getMonth() + 1;
-                        month = (month < 10) ? '0' + month : month
-                        var year = datetime.getFullYear();
-                        var formatted_date = day + "-" + month + "-" + year;
-                        $('#dateofbirth').val(formatted_date);
-                        $('#age').val(data.customer.age);
-                        if (data.customer.sex == 'Male') {
-                            $('#customer_male').prop('checked', true);
-                        } else if (data.customer.sex == 'Female') {
-                            $('#customer_female').prop('checked', true);
-                        }
-                        $('.disable-elm').prop('disabled',true);
-                        $('#nationality').val(data.customer.nationality);
-                        $('#mobile').val(data.customer.mobile);
-                        $('#email').val(data.customer.email);
-                        if (data.customer.photo) {
-                            var photo_src = media_url + 'customers/' + data.customer.photo;
-                            $('#upload_photo').attr('src', photo_src);
-                            $('#upload_photo').css('display', 'block');
-                        }
-                        $('#customer_address').val(data.customer.address);
+                var data = response.data;
+                if (status == 1) {
+                    $('.nominee').css('display', 'none');
+                    $('.plan_details').css('display', 'none');
+                    $('.payment_details').css('display', 'none');
+                    $('#customer_id').val(data.customer.id);
+                    $('#agent_id').val(data.customer.user_id);
+                    $('#agent_id').prop('disabled', true);
+                    $('#customer-list-select').val(data.customer.id)
+                    $('#customer-list-select').prop('disabled', true);
+                    $('#customername').val(data.customer.name);
+                    $('#fatherhusbandwife').val(data.customer.fathers_name);
+                    var dob = data.customer.dob;
+                    var datetime = new Date(dob);
+                    var day = datetime.getDate();
+                    day = (day < 10) ? '0' + day : day;
+                    var month = datetime.getMonth() + 1;
+                    month = (month < 10) ? '0' + month : month
+                    var year = datetime.getFullYear();
+                    var formatted_date = day + "-" + month + "-" + year;
+                    $('#dateofbirth').val(formatted_date);
+                    $('#age').val(data.customer.age);
+                    if (data.customer.sex == 'Male') {
+                        $('#customer_male').prop('checked', true);
+                    } else if (data.customer.sex == 'Female') {
+                        $('#customer_female').prop('checked', true);
                     }
-                    else {
-                        $('.nominee').css('display', 'block');
-                        $('.plan_details').css('display', 'block');
-                        $('.payment_details').css('display', 'block');
-                        //customer details
-                        $('#customer_id').val(data.customer.id);
-                        $('#customer-list-select').val(data.customer.id)
-                        $('#customer-list-select').prop('disabled', true);
-                        $('#agent_id').val(data.customer.user_id);
-                        $('#agent_id').prop('disabled', true);
-                        $('#customername').val(data.customer.name);
-                        $('#customername').prop('disabled', true);
-                        $('#fatherhusbandwife').val(data.customer.fathers_name);
-                        $('#fatherhusbandwife').prop('disabled', true);
-                        var dob = data.customer.dob;
-                        var datetime = new Date(dob);
-                        var day = datetime.getDate();
-                        day = (day < 10) ? '0' + day : day;
-                        var month = datetime.getMonth() + 1;
-                        month = (month < 10) ? '0' + month : month
-                        var year = datetime.getFullYear();
-                        var formatted_date = day + "-" + month + "-" + year;
-                        $('#dateofbirth').val(formatted_date);
-                        $('#dateofbirth').prop('disabled', true);
-                        $('#age').val(data.customer.age);
-                        $('#age').prop('disabled', true);
-                        if (data.customer.sex == 'Male') {
-                            $('#customer_male').prop('checked', true);
-                        } else if (data.customer.sex == 'Female') {
-                            $('#customer_female').prop('checked', true);
-                        }
+                    $('.disable-elm').prop('disabled', true);
+                    $('#nationality').val(data.customer.nationality);
+                    $('#mobile').val(data.customer.mobile);
+                    $('#email').val(data.customer.email);
+                    if (data.customer.photo) {
+                        var photo_src = media_url + 'customers/' + data.customer.photo;
+                        $('#upload_photo').attr('src', photo_src);
+                        $('#upload_photo').css('display', 'block');
+                    }
+                    $('#customer_address').val(data.customer.address);
+                }//status 1 if
 
-                        $('.disable-elm').prop('disabled',true);
 
-                        $('#nationality').val(data.customer.nationality);
-                        $('#nationality').prop('disabled', true);
-                        $('#mobile').val(data.customer.mobile);
-                        $('#mobile').prop('disabled', true);
-                        $('#email').val(data.customer.email);
-                        $('#email').prop('disabled', true);
-                        if (data.customer.photo) {
-                            var photo_src = media_url + 'customers/' + data.customer.photo;
-                            $('#upload_photo').attr('src', photo_src);
-                            $('#upload_photo').css('display', 'block');
-                        }
-                        $('#photo').prop('disabled', true);
-                        $('#customer_address').val(data.customer.address);
-                        $('#customer_address').prop('disabled', true);
-                        //nominee details
-                        $('#nomineesname').val(data.customer.nominee_name);
-                        $('#nomineesname').prop('disabled', true);
-                        $('#ageN').val(data.customer.nominee_age);
-                        $('#ageN').prop('disabled', true);
-                        var ndob = data.customer.nominee_dob;
-                        var ndatetime = new Date(ndob);
-                        var nday = ndatetime.getDate();
-                        nday = (nday < 10) ? '0' + nday : nday;
-                        var nmonth = ndatetime.getMonth() + 1;
-                        nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
-                        var nyear = ndatetime.getFullYear();
-                        var ndate = nday + "-" + nmonth + "-" + nyear;
-                        $('#date_of_birth_nominee').val(ndate);
-                        $('#date_of_birth_nominee').prop('disabled', true);
-                        $('#relationship').val(data.customer.nominee_relation);
-                        $('#relationship').prop('disabled', true);
-                        if (data.customer.nominee_sex == 'Male') {
-                            $('#nominee_male').prop('checked', true);
-
-                        } else {
-                            $('#nominee_female').prop('checked', true);
-
-                        }
-                        $('#addressnominee').val(data.customer.nominee_address);
-                        $('#addressnominee').prop('disabled', true);
-
-                        //nominee details
-                    }//else
-
-                    hideLoader();
-                }
                 hideLoader();
             }
-        });
+            hideLoader();
+        }
+    });
     //}, 1000);
 }
 
@@ -645,13 +623,11 @@ function payment_mode_change(value) {
 function sub_project_listing(id) {
     $(".sub_project_div,.plot_name_div").css('display', 'none');
     var sub_option = '<option value="">Select Sub Project</option>';
-    console.log(sub_project_list);
     $.each(sub_project_list, function (key, value) {
         if (value.id == id) {
             if (value.children.length > 0) {
                 $(".sub_project_div").css('display', 'block');
                 $.each(value.children, function (key1, subproject) {
-                    console.log(subproject);
                     sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
                 });
             }
@@ -673,6 +649,7 @@ function getCustomersList(user_id) {
         data: {
             user_id: user_id
         },
+        async: false,
         success: function (response) {
             var agent_id = $('#agent_listing').val();
             var html = '';
@@ -690,7 +667,7 @@ function getCustomersList(user_id) {
                                   <td>\n\
                                         <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=1" title="Edit Customer Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
                                         <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=2" id="add_new_booking" title="Add New Booking"><i class="mdi mdi-open-in-new"></i></a> &nbsp \n\
-                                        <a href="view-booking.php?customer_id=' + val.id + '" id="view_booking" title="View Bookings"><i class="mdi mdi-view-list"></i></a> &nbsp \n\
+                                        <a href="view-booking.php?customer_id=' + val.id + '&agent_id='+agent_id+'" id="view_booking" title="View Bookings"><i class="mdi mdi-view-list"></i></a> &nbsp \n\
                                         <!--<i class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>-->\n\
                                   </td>\n\
                               </tr>';
@@ -708,13 +685,6 @@ function getCustomersList(user_id) {
 
         }
     });
-}
-
-function isNumberKey(evt) {
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
 }
 
 //function for get customer list
@@ -758,6 +728,14 @@ function initDatepicker() {
             //endDate: todays_date
         });
     }
+}
+
+function calculatePlotAmount(area, price) {
+    var totla_amount = (Number(area) * Number(price));
+    var received_booking_amount = (totla_amount * 0.10);
+
+    $('#received_booking_amount').val(received_booking_amount.toFixed(2));
+    $('#total_amount').val(totla_amount.toFixed(2));
 }
 
 initDatepicker();

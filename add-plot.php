@@ -1,4 +1,10 @@
-<?php include_once 'header.php'; ?>
+<?php 
+include_once 'header.php';
+$plotid = '';
+if(isset($_REQUEST['plotid'])){
+    $plotid = $_REQUEST['plotid'];
+}
+?>
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper ">
@@ -22,7 +28,6 @@
                   <div class="form-group">
                     <label>Sub Project Name</label>
                     <select class="form-control required" id="sub_projects" name="sub_projects">
-
                     </select>
                   </div>
                 </div>
@@ -38,11 +43,18 @@
                     <input type="text" class="form-control required" placeholder="Plot Area" id="plot_area" name="plot_area">
                   </div>
                 </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <label>Plot Unit</label>
+                    <select class="form-control required" id="plot_unit" name="plot_unit">
+                    </select>
+                  </div>
+                </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
                   <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                  <input type="hidden" id="plot_id" />
+                  <input type="hidden" id="plot_id" value="<?php echo $plotid ?>" />
                 </div>
               </div>
             </form>
@@ -50,32 +62,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body p-3">
-            <h4 class="card-title mb-4">Edit/View Plot</h4>
-            <div class="overflowAuto">
-              <table class="table table-bordered custom_action plot_list" id="order-listing">
-                <thead>
-                  <tr>
-                    <th> Sr No. </th>
-                    <th> Project Name </th>
-                    <th> Sub Project Name </th>
-                    <th> Plot No. </th>
-                    <th> Plot Area </th>
-                    <th> Availability </th>
-                    <th> Action </th>
-                  </tr>
-                </thead>
-                <tbody id="plot_list"></tbody>
-
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
   <!-- content-wrapper ends -->
   <?php include_once 'footer.php'; ?>

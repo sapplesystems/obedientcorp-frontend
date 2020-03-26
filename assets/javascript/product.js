@@ -156,6 +156,7 @@ function getProductList() {
         type: 'post',
         data: {},
         success: function (response) {
+            //console.log(response);
             if (response.status == "success") {
                 if (response.data) {
                     var data = response.data;
@@ -163,6 +164,8 @@ function getProductList() {
                     $.each(data, function (key, val) {
                         tbody += '<tr id="prod_tr_' + val.id + '">\n\
                                         <td>' + val.name + '</td>\n\
+                                        <td>' + val.category_name + '</td>\n\
+                                        <td>' + val.sub_category_name + '</td>\n\
                                         <td>' + val.description + '</td>\n\
                                         <td>\n\
                                             <a href="create-product.php?pid=' + val.id + '"<i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
@@ -190,7 +193,7 @@ function deleteProduct(e, product_id) {
         success: function (response) {
             if (response.status == "success") {
                 showSwal('success', 'Product Removed', 'Product removed successfully.');
-                $('#prod_tr_' + product_id).remove();
+                getProductList();
                 hideLoader();
             } else {
                 showSwal('error', 'Failed', 'Product couold not be removed.');

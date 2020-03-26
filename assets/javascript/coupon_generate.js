@@ -7,11 +7,10 @@ $(document).ready(function () {
     $("#agent").change(function () {
         var user_id = $(this).val();
         getWalletAmount(user_id);
+        resetDenominations();
     });
     $(document).on('click', '#cancel-coupon', function (e) {
-        $('.denomination_quantity').val(0);
-        $('.denomination_total').html('0');
-        $('#denomination_amount_sum').html('0');
+        resetDenominations();
 
     });
 
@@ -190,7 +189,7 @@ function agentTotal(id) {
         console.log(e_wallet_amount);
         console.log(denomination_amount_sum);
         if (e_wallet_amount >= denomination_amount_sum) {
-            $('#denomination_amount_sum').html(denomination_amount_sum);
+            $('#denomination_amount_sum').html(denomination_amount_sum.toFixed(2));
         } else {
             document.getElementById('quantity_' + id).value = 0;
             document.getElementById('denomination_total_' + id).innerHTML = '0';
@@ -271,17 +270,18 @@ function get_goods_coupon_listing() {
                     }
 
                     goods_coupon_list += ' <tr role="row" class="' + classname + '">\n\
-                    <td class="sorting_1">' + i + '</td>\n\
-                    <td> ' + value.coupon_code + ' </td>\n\
-                    <td> ' + value.coupon_amount + ' </td>\n\
-                    <td> ' + generated_date + ' </td>\n\
-                    <td id="coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
-                    '+ action_td + '\n\
-                </tr>';
+                                                <td class="sorting_1">' + i + '</td>\n\
+                                                <td> ' + value.coupon_code + ' </td>\n\
+                                                <td> ' + value.coupon_amount + ' </td>\n\
+                                                <td> ' + generated_date + ' </td>\n\
+                                                <td id="coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
+                                                ' + action_td + '\n\
+                                            </tr>';
 
                     i++;
                 });
                 $("#agent_coupon_listing").html(goods_coupon_list);
+                initDataTable();
                 hideLoader();
             }
         }
@@ -329,17 +329,17 @@ function extendCouponAvailabilitySubmit(e, coupon_id) {
         //dataType: 'json',
         data: {
             coupon_id: coupon_id,
-            days:days.value
+            days: days.value
         },
         success: function (response) {
             if (response.status == 'success') {
-                showSwal('success', 'Coupon Extended ' , response.data);
-                $('#coupon_updated_date_'  +coupon_id).html(response.updated_date);
+                showSwal('success', 'Coupon Extended ', response.data);
+                $('#coupon_updated_date_' + coupon_id).html(response.updated_date);
                 extendCouponAvailabilityCancel(e, coupon_id);
             }
             else
             {
-                showSwal('error', 'Coupon Not Extended ' , 'Coupon not extended');
+                showSwal('error', 'Coupon Not Extended ', 'Coupon not extended');
 
             }
         }
@@ -352,4 +352,10 @@ function extendCouponAvailabilityCancel(e, coupon_id) {
     $('#extend_coupon_availability_' + coupon_id).css('display', '');
     $('#extend_coupon_availability_form_' + coupon_id).css('display', 'none');
     document.getElementById('extend_coupon_availability_form_' + coupon_id).reset();
+}
+
+function resetDenominations() {
+    $('.denomination_quantity').val(0);
+    $('.denomination_total').html('0');
+    $('#denomination_amount_sum').html('0');
 }

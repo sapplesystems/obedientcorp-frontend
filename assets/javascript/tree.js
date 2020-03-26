@@ -28,7 +28,11 @@ function associateId() {
     });
 }
 
-function getTree(user_id) {
+function getTree(uid) {
+    $('.back_to_me').css('display', 'none');
+    if (user_id != uid) {
+        $('.back_to_me').css('display', '');
+    }
     showLoader();
     $('.hv-item').removeClass("animated fadeInDown1").css("opacity", "0");
     setEmptyNode('node1');
@@ -41,7 +45,7 @@ function getTree(user_id) {
     $.ajax({
         url: base_url + 'tree',
         type: 'post',
-        data: {id: user_id},
+        data: {id: uid},
         success: function (response) {
             if (response.status == "success") {
                 $('#total_left_member').html('<span><strong>Left Members</strong><br><img src="assets/images/members.png" /> ' + response.data.total_left_member + '</span>');

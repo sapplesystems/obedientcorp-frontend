@@ -12,8 +12,9 @@
                                 <thead>
                                     <tr>
                                         <th>Customer Name</th>
-                                        <th>Mobile</th>
-                                        <th>Email</th>
+                                        <th>Agent Name</th>
+                                        <th>Customer Mobile</th>
+                                        <th>Customer Email</th>
                                     </tr>
                                 </thead>
                                 <tbody id="customers_list"></tbody>

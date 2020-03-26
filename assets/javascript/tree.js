@@ -12,18 +12,29 @@ function associateId() {
         code.focus();
         return false;
     }
-    $.ajax({
-        url: base_url + 'associate-id',
-        type: 'post',
-        data: {introducer_code: code.value},
-        success: function (response) {
-            if (response.status == "success") {
-                getTree(response.data.id);
-            }
-            else {
-                showSwal('error', 'Failed', 'Something went wrong.');
-            }
+    $.post('localapi.php', {
+        check_down_the_lline_members: 1,
+        code: code.value
+    }, function (resp) {
+        resp = resp.trim();
+        if (resp && resp == '1') {
+            $.ajax({
+                url: base_url + 'associate-id',
+                type: 'post',
+                data: {introducer_code: code.value},
+                success: function (response) {
+                    if (response.status == "success") {
+                        getTree(response.data.id);
+                        code.value = '';
+                    }
+                    else {
+                        showSwal('error', 'Failed', 'Something went wrong.');
+                    }
 
+                }
+            });
+        } else {
+            showSwal('error', 'Not Authorized', 'This member is not in your tree.');
         }
     });
 }

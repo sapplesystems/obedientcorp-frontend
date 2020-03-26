@@ -15,6 +15,7 @@ function getCustomersList(user_id) {
                 $.each(response.data, function (key, value) {
                     html += '<tr id="tr_' + value.id + '">\n\
                                     <td>'+ value.name + '(' + value.username + ')</td>\n\
+                                    <td>'+ value.agent_display_name + '</td>\n\
                                     <td>'+ value.mobile + '</td>\n\
                                     <td>'+ value.email + '</td>\n\
                                 </tr>';

@@ -110,14 +110,12 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-account menu-icon"></i>
                             </a>
                         </li>
-                        <?php if ($user_type != 'ADMIN') { ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="customer-list">
-                                    <span class="menu-title">Customer List</span>
-                                    <i class="mdi mdi-settings menu-icon"></i>
-                                </a>
-                            </li>
-                        <?php } ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="customer-list">
+                                <span class="menu-title">Customer List</span>
+                                <i class="mdi mdi-settings menu-icon"></i>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="manage-customer">
                                 <span class="menu-title">Manage Customer</span>

@@ -8,7 +8,7 @@
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">E-Wallet History</h4>
                         
-                        <h7 class="card-title mb-4">Available Balance: <span id="available_wallet_balance" name="available_wallet_balance"></span></h7>
+                        <h3 class="mb-4">Available Balance: <span id="available_wallet_balance" name="available_wallet_balance"></span></h3>
                         <br/><br/>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="order-listing">

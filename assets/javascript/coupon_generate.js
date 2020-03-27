@@ -210,6 +210,7 @@ function resetValue(id) {
 
 function get_goods_coupon_listing() {
     showLoader();
+    destroyDataTable();
     var url = base_url + 'coupons';
     var agent = '';
     //console.log($("#agent").val());return false;

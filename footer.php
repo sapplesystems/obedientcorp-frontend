@@ -116,6 +116,11 @@
     function hideLoader() {
         $('#loader_bg').css('display', 'none');
     }
+    
+    function destroyDataTable(){
+        var table = $('.table').DataTable();
+        table.destroy();
+    }
 
     function initDataTable() {
         $('.table').DataTable();

@@ -643,6 +643,7 @@ function sub_project_listing(id) {
 //cutomer list
 function getCustomersList(user_id) {
     showLoader();
+    destroyDataTable();
     $.ajax({
         url: base_url + 'customers',
         type: 'post',

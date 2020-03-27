@@ -39,6 +39,7 @@ $(document).on("click", "#agent_form", function (e) {
             data: params,
             success: function (response) {
                 if (response.status == "success") {
+                    destroyDataTable();
                     var html = ""
                     $.each(response.data.agent_business, function (key, value) {
                         html += '<tr id="tr_' + value.id + '">\n\

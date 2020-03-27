@@ -80,11 +80,11 @@
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
                                     <tr>
-                                        <th> Sr No. </th>
-                                        <th> Coupon ID</th>
-                                        <th> Coupon Price </th>
-                                        <th> Generated Date </th>
-                                        <th> Expiry Date </th>
+                                        <th width="5%"> Sr No. </th>
+                                        <th width="10%"> Coupon ID</th>
+                                        <th width="10%"> Coupon Price </th>
+                                        <th width="10%"> Generated Date </th>
+                                        <th width="10%"> Expiry Date </th>
                                         <?php if ($user_type == 'ADMIN') { ?>
                                             <th> Action </th>
                                         <?php } ?>

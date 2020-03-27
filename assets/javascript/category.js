@@ -125,8 +125,8 @@ function deleteCategory(e, category_id) {
             data: { id: category_id },
             success: function (response) {
                 console.log(response);
-                if (response.status == "error") {
-                    console.log("remove");
+                if (response.status == "success") {
+                    showSwal('success', 'Category Deleted', response.data);
                     getCategoryList();
                     hideLoader();
                 }

@@ -20,8 +20,7 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">PinBonus <i class="mdi mdi-chart-line mdi-24px float-right "></i>
                         </h4>
-                        <h2 class="mb-5 ">&#x20b9; 15,0000</h2>
-                        <h6 class="card-text ">Increased by 60%</h6>
+                        <h2 class="mb-5">&#x20b9; <span id="pin_bonus">0.00</span></h2>
                     </div>
                 </div>
             </div>
@@ -31,8 +30,7 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-bookmark-outline mdi-24px float-right "></i>
                         </h4>
-                        <h2 class="mb-5 ">45,6334</h2>
-                        <h6 class="card-text ">Decreased by 10%</h6>
+                        <h2 class="mb-5">&#x20b9; <span id="matching_income">0.00</span></h2>
                     </div>
                 </div>
             </div>
@@ -42,8 +40,7 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Total Earning <i class="mdi mdi-diamond mdi-24px float-right "></i>
                         </h4>
-                        <h2 class="mb-5 ">95,5741</h2>
-                        <h6 class="card-text ">Increased by 5%</h6>
+                        <h2 class="mb-5">&#x20b9; <span id="total_earning">0.00</span></h2>
                     </div>
                 </div>
             </div>
@@ -231,3 +228,4 @@
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
+    <script src="assets/javascript/dashboard.js"></script>

@@ -161,8 +161,10 @@ function getProductList() {
                 if (response.data) {
                     var data = response.data;
                     var tbody = '';
+                    var x=1;
                     $.each(data, function (key, val) {
                         tbody += '<tr id="prod_tr_' + val.id + '">\n\
+                                        <td>' + x+ '</td>\n\
                                         <td>' + val.name + '</td>\n\
                                         <td>' + val.category_name + '</td>\n\
                                         <td>' + val.sub_category_name + '</td>\n\
@@ -172,6 +174,7 @@ function getProductList() {
                                             <i class="mdi mdi-delete text-danger" onclick="deleteProduct(event, ' + val.id + ');"></i>\n\
                                         </td>\n\
                                     </tr>';
+                                    x++;
                     });
                     $('#product_list').html(tbody);
                     initDataTable();
@@ -184,8 +187,10 @@ function getProductList() {
 }
 
 function deleteProduct(e, product_id) {
-    showLoader();
     var url = base_url + 'product/delete';
+    var result = confirm("Are you sure you want to delete this product?");
+    if (result == true) {
+        showLoader();
     $.ajax({
         url: url,
         type: 'post',
@@ -201,6 +206,8 @@ function deleteProduct(e, product_id) {
             }
         }
     });
+    }
+    
 }
 
 function editProduct(product_id) {

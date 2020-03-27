@@ -1,4 +1,15 @@
-<?php include_once 'header.php'; ?>
+<?php
+ include_once 'header.php'; 
+ $category_id='';
+ $sub_category_id='';
+ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
+    $category_id = $_REQUEST['cid'];
+    $sub_category_id = $_REQUEST['scid'];
+
+}
+
+ 
+ ?>
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper ">
@@ -49,7 +60,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_sub_category" value="submitsubcategory">Submit</button>
-                                    <input type="hidden" id="subcategory_id" value="">
+                                    <input type="hidden" id="subcategory_id" value="<?php echo $sub_category_id ?>">
+                                    <input type="hidden" id="category_id" value="<?php echo $category_id ?>">
                                 </div>
                             </div>
                         </form>

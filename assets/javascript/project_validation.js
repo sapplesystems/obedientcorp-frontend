@@ -97,13 +97,19 @@ function getProjectList() {
                 var i = 1;
                 var x = 1;
                 $.each(response.data, function (key, value) {
+                    var edit_url;
+                    edit_url = 'add-project.php?pid=' + value.id;
+                    if (value.parent_project_name != '' && value.parent_id > 0) {
+                        edit_url = 'add-sub-project.php?pid=' + value.parent_id + '&spid=' + value.id;
+                    }
+                        console.log(edit_url);
                         html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.name + '</td>\n\
                                 <td>' + value.parent_project_name + '</td>\n\
                                 <td>' + value.unit_price + '</td>\n\
                                 <td>' + value.description + '</td>\n\
-                                <td><a href="add-project.php?pid=' + value.id + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                <td><a href="'+edit_url+'"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr>';
                         i = i + 1;
                         x++;

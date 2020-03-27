@@ -1,6 +1,11 @@
 $(document).ready(function () {
     getProjectList();
     getSubProjectList();
+
+    if ($('#project_id').val() && $('#sub_project_id').val() != '') {
+        updateProject($('#sub_project_id').val());
+    }
+
     $("#sub-project-form").submit(function (e) {
         e.preventDefault();
         var sub_project_frm = $("#sub-project-form");
@@ -96,6 +101,7 @@ function getProjectList() {
     $.ajax({
         url: base_url + 'projects',
         type: 'post',
+        async: false,
         data: {},
         success: function (response) {
             var option = '<option value="">Select Project</option>';
@@ -156,8 +162,8 @@ function getSubProjectList() {
 }//end function for get all sub project
 
 //function for update subproject
-function updateProject(e, project_id) {
-    e.preventDefault();
+function updateProject(project_id) {
+    //e.preventDefault();
     showLoader();
     $.ajax({
         url: base_url + 'project',

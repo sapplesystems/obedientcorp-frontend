@@ -1,7 +1,7 @@
 $(document).ready(function () {
     getCategoryList();
-    
-    if($('#category_id').val() && $('#category_id').val() != ''){
+
+    if ($('#category_id').val() && $('#category_id').val() != '') {
         updateCategory($('#category_id').val());
     }
 
@@ -17,16 +17,15 @@ $(document).ready(function () {
         if ($("#create_category").valid()) {
             showLoader();
             var params = new FormData();
-            var url=base_url + 'category/add';
+            var url = base_url + 'category/add';
             params.append('name', $('#title').val());
             params.append('description', $('#description').val());
             params.append('image', $('#image')[0].files[0]);
-            if($('#category_id').val())
-            {
+            if ($('#category_id').val()) {
                 url = base_url + 'category/update';
                 params.append('updated_by', user_id);
                 params.append('id', $('#category_id').val());
-            }else{
+            } else {
                 params.append('created_by', user_id);
             }
             //console.log(url);return false;
@@ -62,21 +61,28 @@ function getCategoryList() {
         data: {},
         success: function (response) {
             if (response.status == "success") {
-                //console.log(response.data);
+                console.log(response.data);
                 var data = response.data;
                 var tr_html = '';
                 var i = 1;
                 var x = 1;
+                var edit_url = '';
                 $.each(data, function (key, val) {
+                    edit_url = 'create-category.php?cid=' + val.id;
+                    if (val.parent_category_name != '' && val.parent_id > 0) {
+                        console.log("IN");
+                        edit_url = 'create-sub-category.php?cid=' + val.parent_id +'&scid=' + val.id;
+                    }
+                    console.log(edit_url);
                     tr_html += '<tr id="tr_' + val.id + '" role="row" >\n\
                                     <td class="sorting_1">' + i + '</td>\n\
                                     <td>' + val.name + '</td>\n\
                                     <td>' + val.parent_category_name + '</td>\n\
                                     <td>' + val.description + '</td>\n\
-                                    <td><a href="create-category.php?cid=' + val.id + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteCategory(event, ' + val.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                    <td><a href="' + edit_url + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteCategory(event, ' + val.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                                 </tr>';
-                                i = i + 1;
-                                x++;
+                    i = i + 1;
+                    x++;
                 });
                 $('#category_list').html(tr_html);
                 initDataTable();

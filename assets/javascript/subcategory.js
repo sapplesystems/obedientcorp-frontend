@@ -6,6 +6,9 @@ $(document).ready(function() {
         }
     });*/
 
+    if($('#category_id').val() != '' && $('#subcategory_id').val()!=''){
+        updateSubCategory($('#subcategory_id').val());
+    }
 
     $(document).on("click", "#submit_sub_category", function(e) {
         e.preventDefault();
@@ -48,6 +51,7 @@ $(document).ready(function() {
                         document.getElementById('create-sub-category').reset();
                         $('#photo_id').attr('src', '');
                          $('#photo_id').css('display', 'none');
+                         location.href = 'category-list.php';
                         hideLoader();
 
                     } else {
@@ -67,6 +71,7 @@ function getCategoryList() {
         url: base_url + 'categories',
         type: 'post',
         data: {},
+        async: false,
         success: function(response) {
             console.log(response);
             var html = '<tr>\n\
@@ -136,16 +141,18 @@ function getSubCategoryList(category_id) {
 }
 
 //function for update subcategory
-function updateSubCategory(e, category_id) {
-    e.preventDefault();
+function updateSubCategory(category_id) {
+    //e.preventDefault();
     showLoader();
     $.ajax({
         url: base_url + 'category',
         type: 'post',
         data: { id: category_id },
         success: function (response) {
+            console.log(response);
             if (response.status == "success") {
                 var data = response.data;
+                $('#categories').val(data.parent_id);
                 $('#subcategory_id').val(data.id);
                 $('#sub_category_title').val(data.name);
                 $('#sub_category_description').val(data.description);

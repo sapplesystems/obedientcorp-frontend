@@ -1,4 +1,16 @@
-<?php include_once 'header.php'; ?>
+<?php include_once 'header.php'; 
+
+$project_id='';
+$sub_project_id='';
+ if (isset($_REQUEST['pid']) && isset($_REQUEST['spid'])) {
+    $project_id = $_REQUEST['pid'];
+    $sub_project_id = $_REQUEST['spid'];
+
+}
+
+
+
+?>
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -60,7 +72,8 @@
                                 <label class="col-sm-2"></label>
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="sub_project_form">Submit</button>
-                                    <input type="hidden" id="sub_project_id" />
+                                    <input type="hidden" id="sub_project_id" value="<?php echo $sub_project_id;?>" />
+                                    <input type="hidden" id="project_id" value="<?php echo $project_id;?>" />
                                 </div>
                             </div>
                         </form>

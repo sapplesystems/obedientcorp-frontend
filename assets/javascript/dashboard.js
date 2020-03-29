@@ -26,6 +26,10 @@ function getDashboardInfo(user_id) {
                 });
 
                 generateChart(total_left_business, total_right_business, total_self_business);
+
+                //due_payment_list
+                var due_payment_list = data.due_payment_list;
+                generateDuePaymentList(due_payment_list);
             }
             hideLoader();
         }
@@ -151,4 +155,35 @@ function generateChart(total_left_business, total_right_business, total_self_bus
             }
         });
     }
+}
+
+function generateDuePaymentList(list) {
+    var table_data = '<thead>\n\
+                        <tr>\n\
+                            <th> Customer </th>\n\
+                            <th> Amount </th>\n\
+                            <th> EMI Due Date </th>\n\
+                            <th>Project</th>\n\\n\
+                            <th>Sub Project</th>\n\
+                            <th>Plot ID</th>\n\
+                        </tr>\n\
+                    </thead>';
+    table_data += '<tbody>';
+
+    $.each(list, function (key, value) {
+        var dd = new Date(value.due_date);
+        var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+
+        table_data += '<tr>\n\
+                            <td>' + value.name + '</td>\n\
+                            <td>' + value.amount + '</td>\n\
+                            <td>' + duedate + '</td>\n\
+                            <td>' + value.project_master_name + '</td>\n\
+                            <td>' + value.sub_project_master_name + '</td>\n\
+                            <td>' + value.plot_master_name + '</td>\n\
+                        </tr>';
+    });
+    table_data += '</tbody>';
+    $("#due_payment_list").html(table_data);
+    $("#due_payment_list").DataTable();
 }

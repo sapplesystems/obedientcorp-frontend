@@ -2,6 +2,7 @@ getEwalletHistory(user_id);
 
 
 function getEwalletHistory(user_id) {
+    showLoader();
     $.ajax({
         url: base_url + 'wallet-history',
         type: 'post',
@@ -9,7 +10,6 @@ function getEwalletHistory(user_id) {
             user_id: user_id
         },
         success: function (response) {
-            console.log(response);
             if (response.status == "success") {
                 var html = ""
                 var counter = 0
@@ -27,9 +27,10 @@ function getEwalletHistory(user_id) {
                 });
                 $("#ewallet_list").html(html);
                 initDataTable();
+                hideLoader();
             }
             else {
-                console.log(response.data);
+                hideLoader();
             }
 
         }

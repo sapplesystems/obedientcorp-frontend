@@ -32,7 +32,7 @@ $(document).on("click", "#agent_form", function (e) {
             from_date: $('#from_date').val(),
             to_date: $('#to_date').val(),
         };
-        
+        showLoader();
         $.ajax({
             url: base_url + "agent-business",
             type: 'post',
@@ -43,17 +43,18 @@ $(document).on("click", "#agent_form", function (e) {
                     var html = ""
                     $.each(response.data.agent_business, function (key, value) {
                         html += '<tr id="tr_' + value.id + '">\n\
-                                        <td>'+ value.customer_name + '(' + value.customer_code + ')</td>\n\
-                                        <td>'+ value.date + '</td>\n\
-                                        <td>'+ value.amount + '</td>\n\
-                                        <td>'+ value.coupon_code + '</td>\n\
+                                        <td>' + value.customer_name + '(' + value.customer_code + ')</td>\n\
+                                        <td>' + value.date + '</td>\n\
+                                        <td>' + value.amount + '</td>\n\
+                                        <td>' + value.coupon_code + '</td>\n\
                                     </tr>';
                     });
                     $("#agent-business-list").html(html);
                     initDataTable();
+                    hideLoader();
                 }
                 else {
-                    console.log(response.data);
+                    hideLoader();
                 }
 
             }
@@ -76,8 +77,7 @@ function getDownTheLineMembers(user_id) {
                 $.each(data, function (key, val) {
                     option += '<option value="' + val.id + '">' + val.display_name + '</option>';
                 });
-                $('#agent_id,#agent_listing').html(option);
-
+                $('#agent_listing').html(option);
             }
         }
     });

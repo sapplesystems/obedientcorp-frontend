@@ -52,7 +52,6 @@ function getProjectList() {
         data: {},
         success: function (response) {
             sub_project_list = response.data;
-            //console.log(response.data);
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
@@ -65,7 +64,6 @@ function getProjectList() {
                 $('#project_name').html(option);
                 hideLoader();
             } else {
-                console.log(response.data);
                 hideLoader();
             }
 
@@ -80,12 +78,11 @@ function getplotlist(project_id, sub_project_id) {
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: { project_master_id: project_id, sub_project_id: sub_project_id },
+        data: {project_master_id: project_id, sub_project_id: sub_project_id},
         success: function (response) {
             var option = '<option value="">Select plots</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
-                    //console.log(key, value)
                     option += '<option value="' + value.id + '">' + value.name + '</option>';
                 });
                 $('.plot_name_div').css('display', 'block');
@@ -105,9 +102,8 @@ function getPlotAreaUnit(plot_id) {
     $.ajax({
         url: base_url + 'plot-area-unit ',
         type: 'post',
-        data: { id: plot_id, },
+        data: {id: plot_id, },
         success: function (response) {
-            console.log(response);
             if (response.status == "success") {
                 if (response.data.plot_area) {
                     $('#plot_area').val(response.data.plot_area);
@@ -128,7 +124,6 @@ function getPlotAreaUnit(plot_id) {
                 hideLoader();
             }
             else {
-                console.log(response.datat);
                 hideLoader();
             }
 
@@ -281,10 +276,10 @@ $(document).ready(function () {
                         document.getElementById('add_new_booking_form').reset();
                         $('#photo').attr('src', '');
                         $('#photo').css('display', 'none');
-                        location.href = 'manage-customer.php';
+                        location.href = 'manage-customer';
                         hideLoader();
                     } else {
-                        console.log('else ' + response);
+                        hideLoader();
                     }
                 }
             });
@@ -304,7 +299,6 @@ $(document).ready(function () {
                     required: true,
                     number: true
                 },
-
             },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
@@ -406,24 +400,18 @@ $(document).ready(function () {
                                 contentType: false,
                                 processData: false,
                                 success: function (response) {
-                                    if (response.status == "success") {
-                                        console.log(response);
-                                    } else {
-                                        console.log('else ' + response);
-                                    }
+                                    $('#customer_id').val('');
+                                    getCustomersList();
+                                    document.getElementById('customer_add_form_submit').reset();
+                                    $('#photo').attr('src', '');
+                                    $('#photo').css('display', 'none');
+                                    location.href = 'manage-customer';
+                                    hideLoader();
                                 }
                             });
                         }
-                        $('#customer_id').val('');
-                        getCustomersList();
-                        document.getElementById('customer_add_form_submit').reset();
-                        $('#photo').attr('src', '');
-                        $('#photo').css('display', 'none');
-                        location.href = 'manage-customer.php';
-                        hideLoader();
 
                     } else {
-                        console.log(response.data);
                         hideLoader();
                     }
                 }
@@ -444,7 +432,6 @@ function updateCustomerDetail(customer_id, agent_id, status) {
             id: customer_id
         },
         success: function (response) {
-            console.log(response);
             if (response.status == "success") {
 
                 var data = response.data;
@@ -668,7 +655,7 @@ function getCustomersList(user_id) {
                                   <td>\n\
                                         <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=1" title="Edit Customer Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
                                         <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=2" id="add_new_booking" title="Add New Booking"><i class="mdi mdi-open-in-new"></i></a> &nbsp \n\
-                                        <a href="view-booking.php?customer_id=' + val.id + '&agent_id='+agent_id+'" id="view_booking" title="View Bookings"><i class="mdi mdi-view-list"></i></a> &nbsp \n\
+                                        <a href="view-booking.php?customer_id=' + val.id + '&agent_id=' + agent_id + '" id="view_booking" title="View Bookings"><i class="mdi mdi-view-list"></i></a> &nbsp \n\
                                         <!--<i class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>-->\n\
                                   </td>\n\
                               </tr>';
@@ -680,7 +667,6 @@ function getCustomersList(user_id) {
                 initDataTable();
                 hideLoader();
             } else {
-                console.log(response.data);
                 hideLoader();
             }
 

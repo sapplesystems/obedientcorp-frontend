@@ -34,7 +34,6 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log(response);
                     error_html = '';
                     if (response.status == 'success') {
                         error_html += '<div class="alert alert-primary" role="alert">Nominee details saved successfully</div>';
@@ -45,7 +44,6 @@ $(document).ready(function () {
                     hideLoader();
                 },
                 error: function (response) {
-                    console.log(response);
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;

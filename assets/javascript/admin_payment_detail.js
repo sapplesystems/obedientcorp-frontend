@@ -37,11 +37,10 @@ function get_payment_details() {
                                 </thead>';
                 emi_list += '<tbody>';
                 $.each(response.data.detail, function (key, value) {
-                    console.log(value);
                     var dd = new Date(value.emi_due_date);
                     var emi_date = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
                     var sub_project_name = value.sub_project_name;
-                    if(value.sub_project_name == undefined){
+                    if (value.sub_project_name == undefined) {
                         sub_project_name = '';
                     }
                     emi_list += '<tr>\n\

@@ -33,7 +33,6 @@ $(document).ready(function () {
                     hideLoader();
                 },
                 error: function (response) {
-                    console.log(response);
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;

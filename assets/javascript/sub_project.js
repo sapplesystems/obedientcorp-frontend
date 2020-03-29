@@ -65,7 +65,7 @@ $(document).ready(function () {
                         document.getElementById('sub-project-form').reset();
                         $('#mapphoto_id,#photo_id').attr('src', '');
                         $('#mapphoto_id,#photo_id').css('display', 'none');
-                        location.href = 'project-list.php';
+                        location.href = 'project-list';
                         //getSubProjectList();
                         hideLoader();
                     } else {
@@ -168,7 +168,7 @@ function updateProject(project_id) {
     $.ajax({
         url: base_url + 'project',
         type: 'post',
-        data: { id: project_id },
+        data: {id: project_id},
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
@@ -184,7 +184,7 @@ function updateProject(project_id) {
                     $('#photo_id').attr('src', photo_src);
                     $('#photo_id').css('display', 'block');
                 }
-                else{
+                else {
                     $('#photo_id').attr('src', '');
                     $('#photo_id').css('display', 'none');
                 }
@@ -213,7 +213,7 @@ function deleteProject(e, project_id) {
         $.ajax({
             url: base_url + 'project/delete',
             type: 'post',
-            data: { id: project_id },
+            data: {id: project_id},
             success: function (response) {
                 if (response.status == "success") {
                     getSubProjectList();

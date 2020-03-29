@@ -166,7 +166,6 @@ function get_agent_payment_list(agent_id, status) {
         type: 'post',
         data: params,
         success: function (response) {
-            console.log(response);
             if (response.status == 'success') {
                 var action_th = '';
                 if (status == 'Pending') {

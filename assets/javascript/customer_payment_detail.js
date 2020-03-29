@@ -21,7 +21,7 @@ $(function () {
     $(document).on('click', '#pills-pending-tab,#pills-approve-tab,#pills-reject-tab', function () {
         $('#make_request').css('display', 'none');
     })
-    
+
     $(document).on('click', '#pills-due-tab', function () {
         $('#make_request').css('display', '');
     })

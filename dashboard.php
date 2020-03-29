@@ -50,87 +50,13 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="clearfix">
-                            <h4 class="card-title float-left">Total Left</h4>
+                            <h4 class="card-title float-left">Business</h4>
                             <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
                         </div>
-                        <canvas id="visit-sale-chart-dark" class="mt-4"></canvas>
+                        <canvas id="user_business_chart" class="mt-4"></canvas>
                     </div>
                 </div>
             </div>
-            <!--<div class="col-md-4 grid-margin stretch-card ">
-                <div class="card ">
-                    <div class="card-body ">
-                        <h4 class="card-title ">Referal Income</h4>
-                        <div class="table-responsive ">
-                            <table class="table ">
-                                <thead>
-                                    <tr>
-                                        <th> # </th>
-                                        <th> Name </th>
-                                        <th> Progress </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> Herman Beck </td>
-                                        <td>
-                                            <div class="progress ">
-                                                <div class="progress-bar bg-gradient-success " role="progressbar " style="width: 25% " aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 "></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 2 </td>
-                                        <td> Messsy Adam </td>
-                                        <td>
-                                            <div class="progress ">
-                                                <div class="progress-bar bg-gradient-danger " role="progressbar " style="width: 75% " aria-valuenow="75 " aria-valuemin="0 " aria-valuemax="100 "></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 3 </td>
-                                        <td> John Richards </td>
-                                        <td>
-                                            <div class="progress ">
-                                                <div class="progress-bar bg-gradient-warning " role="progressbar " style="width: 90% " aria-valuenow="90 " aria-valuemin="0 " aria-valuemax="100 "></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 4 </td>
-                                        <td> Peter Meggik </td>
-                                        <td>
-                                            <div class="progress ">
-                                                <div class="progress-bar bg-gradient-primary " role="progressbar " style="width: 50% " aria-valuenow="50 " aria-valuemin="0 " aria-valuemax="100 "></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 5 </td>
-                                        <td> Edward </td>
-                                        <td>
-                                            <div class="progress ">
-                                                <div class="progress-bar bg-gradient-danger " role="progressbar " style="width: 35% " aria-valuenow="35 " aria-valuemin="0 " aria-valuemax="100 "></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 5 </td>
-                                        <td> Ronald </td>
-                                        <td>
-                                            <div class="progress ">
-                                                <div class="progress-bar bg-gradient-info " role="progressbar " style="width: 65% " aria-valuenow="65 " aria-valuemin="0 " aria-valuemax="100 "></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
 
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card ">

@@ -156,15 +156,14 @@ function getProductList() {
         type: 'post',
         data: {},
         success: function (response) {
-            //console.log(response);
             if (response.status == "success") {
                 if (response.data) {
                     var data = response.data;
                     var tbody = '';
-                    var x=1;
+                    var x = 1;
                     $.each(data, function (key, val) {
                         tbody += '<tr id="prod_tr_' + val.id + '">\n\
-                                        <td>' + x+ '</td>\n\
+                                        <td>' + x + '</td>\n\
                                         <td>' + val.name + '</td>\n\
                                         <td>' + val.category_name + '</td>\n\
                                         <td>' + val.sub_category_name + '</td>\n\
@@ -174,7 +173,7 @@ function getProductList() {
                                             <i class="mdi mdi-delete text-danger" onclick="deleteProduct(event, ' + val.id + ');"></i>\n\
                                         </td>\n\
                                     </tr>';
-                                    x++;
+                        x++;
                     });
                     $('#product_list').html(tbody);
                     initDataTable();
@@ -191,23 +190,23 @@ function deleteProduct(e, product_id) {
     var result = confirm("Are you sure you want to delete this product?");
     if (result == true) {
         showLoader();
-    $.ajax({
-        url: url,
-        type: 'post',
-        data: {id: product_id},
-        success: function (response) {
-            if (response.status == "success") {
-                showSwal('success', 'Product Removed', 'Product removed successfully.');
-                getProductList();
-                hideLoader();
-            } else {
-                showSwal('error', 'Failed', 'Product couold not be removed.');
-                hideLoader();
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {id: product_id},
+            success: function (response) {
+                if (response.status == "success") {
+                    showSwal('success', 'Product Removed', 'Product removed successfully.');
+                    getProductList();
+                    hideLoader();
+                } else {
+                    showSwal('error', 'Failed', 'Product couold not be removed.');
+                    hideLoader();
+                }
             }
-        }
-    });
+        });
     }
-    
+
 }
 
 function editProduct(product_id) {

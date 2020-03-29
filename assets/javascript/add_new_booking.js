@@ -26,7 +26,6 @@ $(document).ready(function () {
                 if (value.children.length > 0) {
                     $(".sub_project_div").css('display', 'block');
                     $.each(value.children, function (key1, subproject) {
-                        console.log(subproject);
                         sub_option += '<option value="' + subproject.id + '">' + subproject.name + '</option>';
                     });
                 }
@@ -143,14 +142,12 @@ $(document).ready(function () {
                 processData: false,
                 success: function (response) {
                     if (response.status == "success") {
-                        console.log(response.data);
                         $('#customers_list').val('');
                         // getCustomersList();
                         document.getElementById('plotbooking_form').reset();
                         hideLoader();
-                        window.location.href = 'manage-customer.php';
+                        window.location.href = 'manage-customer';
                     } else {
-                        console.log(response.data);
                         hideLoader();
                     }
                 }
@@ -173,7 +170,6 @@ function getCustomersName(customer_id) {
                 $('#customer_name').html(response.data.name);
                 hideLoader();
             } else {
-                console.log(response.data);
                 hideLoader();
             }
 
@@ -189,7 +185,6 @@ function getProjectList() {
         data: {},
         success: function (response) {
             sub_project_list = response.data;
-            //console.log(response.data);
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
@@ -202,7 +197,6 @@ function getProjectList() {
                 $('#project_name').html(option);
                 hideLoader();
             } else {
-                console.log(response.data);
                 hideLoader();
             }
 
@@ -217,11 +211,9 @@ function getplotlist(project_id) {
         type: 'post',
         data: {project_master_id: project_id},
         success: function (response) {
-            console.log(response);
             var option = '<option value="">Select plots</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
-                    //console.log(key, value)
                     option += '<option value="' + value.id + '">' + value.name + '</option>';
                 });
                 $('.plot_name_div').css('display', 'block');
@@ -229,7 +221,6 @@ function getplotlist(project_id) {
                 hideLoader();
             } else {
                 $('.plot_name_div').css('display', 'none');
-                console.log(response.data);
                 hideLoader();
             }
 

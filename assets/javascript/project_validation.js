@@ -1,6 +1,6 @@
 $(document).ready(function () {
     getProjectList();
-    if($('#project_id').val() && $('#project_id').val() != ''){
+    if ($('#project_id').val() && $('#project_id').val() != '') {
         updateProject($('#project_id').val());
     }
     $("#project-form").submit(function (e) {
@@ -57,7 +57,7 @@ $(document).ready(function () {
                         document.getElementById('project-form').reset();
                         $('#mapphoto_id,#photo_id').attr('src', '');
                         $('#mapphoto_id,#photo_id').css('display', 'none');
-                        location.href = 'project-list.php';
+                        location.href = 'project-list';
                         //getProjectList();
                         hideLoader();
                     } else {
@@ -91,7 +91,6 @@ function getProjectList() {
         type: 'post',
         data: {},
         success: function (response) {
-            console.log(response);
             var html = '';
             if (response.status == "success") {
                 var i = 1;
@@ -102,18 +101,17 @@ function getProjectList() {
                     if (value.parent_project_name != '' && value.parent_id > 0) {
                         edit_url = 'add-sub-project.php?pid=' + value.parent_id + '&spid=' + value.id;
                     }
-                        console.log(edit_url);
-                        html += '<tr id="tr_' + value.id + '" role="row" >\n\
+                    html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.name + '</td>\n\
                                 <td>' + value.parent_project_name + '</td>\n\
                                 <td>' + value.unit_price + '</td>\n\
                                 <td>' + value.description + '</td>\n\
-                                <td><a href="'+edit_url+'"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                <td><a href="' + edit_url + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteProject(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr>';
-                        i = i + 1;
-                        x++;
-                   
+                    i = i + 1;
+                    x++;
+
                 });
 
                 $('#project_list').html(html);
@@ -134,7 +132,6 @@ function updateProject(project_id) {
         data: {id: project_id},
         success: function (response) {
             if (response.status == "success") {
-                console.log(response);
                 var data = response.data;
                 $('#project_id').val(project_id);
                 $('#project_name').val(data.name);
@@ -146,7 +143,7 @@ function updateProject(project_id) {
                     $('#photo_id').attr('src', photo_src);
                     $('#photo_id').css('display', 'block');
                 }
-                else{
+                else {
                     $('#photo_id').attr('src', '');
                     $('#photo_id').css('display', 'none');
                 }

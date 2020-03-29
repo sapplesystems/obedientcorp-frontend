@@ -28,7 +28,6 @@ $(document).ready(function () {
             } else {
                 params.append('created_by', user_id);
             }
-            //console.log(url);return false;
             $.ajax({
                 url: url,
                 type: 'post',
@@ -61,7 +60,6 @@ function getCategoryList() {
         data: {},
         success: function (response) {
             if (response.status == "success") {
-                console.log(response.data);
                 var data = response.data;
                 var tr_html = '';
                 var i = 1;
@@ -70,10 +68,8 @@ function getCategoryList() {
                 $.each(data, function (key, val) {
                     edit_url = 'create-category.php?cid=' + val.id;
                     if (val.parent_category_name != '' && val.parent_id > 0) {
-                        console.log("IN");
-                        edit_url = 'create-sub-category.php?cid=' + val.parent_id +'&scid=' + val.id;
+                        edit_url = 'create-sub-category.php?cid=' + val.parent_id + '&scid=' + val.id;
                     }
-                    console.log(edit_url);
                     tr_html += '<tr id="tr_' + val.id + '" role="row" >\n\
                                     <td class="sorting_1">' + i + '</td>\n\
                                     <td>' + val.name + '</td>\n\
@@ -100,11 +96,10 @@ function updateCategory(category_id) {
     $.ajax({
         url: base_url + 'category',
         type: 'post',
-        data: { id: category_id },
+        data: {id: category_id},
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
-                console.log(data);
                 $('#category_id').val(data.id);
                 $('#title').val(data.name);
                 $('#description').val(data.description);
@@ -128,9 +123,8 @@ function deleteCategory(e, category_id) {
         $.ajax({
             url: base_url + 'category/delete',
             type: 'post',
-            data: { id: category_id },
+            data: {id: category_id},
             success: function (response) {
-                console.log(response);
                 if (response.status == "success") {
                     showSwal('success', 'Category Deleted', response.data);
                     getCategoryList();

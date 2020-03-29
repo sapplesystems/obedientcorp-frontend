@@ -4,7 +4,7 @@ $(document).ready(function () {
         var category_id = $(this).val();
         if (category_id != '') {
             getSubCategoryList(category_id);
-        }else{
+        } else {
             $('#sub_categories').css('display', 'none');
             getGoodsProducts();
         }
@@ -79,11 +79,9 @@ function getProductsList(id) {
         dataType: 'json',
         data: {id: id},
         success: function (response) {
-            console.log(response);
             if (response.status == "success") {
                 var products = '';
                 if (response.data.length > 0) {
-                    console.log(response.data);
                     $.each(response.data, function (key, value) {
                         products += '<li>\n\
                                         <div class="product_info">\n\

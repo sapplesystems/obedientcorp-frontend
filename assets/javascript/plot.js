@@ -3,7 +3,7 @@ $(document).ready(function () {
     getProjectList();
     getplotlist();
     getPlotUnit();
-    if($('#plot_id').val() && $('#plot_id').val() != ''){
+    if ($('#plot_id').val() && $('#plot_id').val() != '') {
         updatePlot($('#plot_id').val());
     }
     $("#plot-form").submit(function (e) {
@@ -59,7 +59,7 @@ $(document).ready(function () {
                     if (response.status == 'success') {
                         showSwal('success', 'Plot Added', 'Plot added successfully');
                         document.getElementById('plot-form').reset();
-                        location.href = 'plot-list.php';
+                        location.href = 'plot-list';
                         //getplotlist();
                         hideLoader();
                     } else {
@@ -94,7 +94,6 @@ function getProjectList() {
         async: false,
         success: function (response) {
             sub_project_list = response.data;
-            console.log(sub_project_list);
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
@@ -112,7 +111,6 @@ function getProjectList() {
 //function for getsubproject 
 $("#projects").change(function () {
     var id = $(this).val();
-    console.log(sub_project_list);
     var sub_option = '<option value="">Select Sub Project</option>';
     $.each(sub_project_list, function (key, value) {
         if (value.id == id) {
@@ -138,9 +136,8 @@ function updatePlot(plot_id) {
     $.ajax({
         url: base_url + 'plots',
         type: 'post',
-        data: { id: plot_id },
+        data: {id: plot_id},
         success: function (response) {
-            console.log(response);
             if (response.status == "success") {
                 var data = response.data;
                 $("#sub_pro_div").css('display', 'none');
@@ -252,7 +249,7 @@ function deletePlot(e, plot_id) {
         $.ajax({
             url: base_url + 'plot/delete',
             type: 'post',
-            data: { id: plot_id },
+            data: {id: plot_id},
             success: function (response) {
                 if (response.status == "success") {
                     getplotlist();
@@ -268,7 +265,7 @@ function updateAvailability(plot_id) {
     $.ajax({
         url: base_url + 'plot/update',
         type: 'post',
-        data: { id: plot_id, availability: availability },
+        data: {id: plot_id, availability: availability},
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
@@ -286,12 +283,11 @@ function getPlotUnit()
         data: {},
         async: true,
         success: function (response) {
-            console.log(response);
             var option = '<option value="">Select Unit</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
-                        option += '<option value="' + value.unit + '">' + value.unit + '</option>';
-                
+                    option += '<option value="' + value.unit + '">' + value.unit + '</option>';
+
                 });
 
                 $('#plot_unit').html(option)

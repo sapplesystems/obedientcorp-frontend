@@ -25,7 +25,6 @@ $(document).ready(function () {
                 is_denomination_quantity = true;
             }
         });
-        //console.log(is_denomination_quantity);
         if (is_denomination_quantity) {
             var denominations = [];
             $('.denomination_quantity').each(function () {
@@ -108,11 +107,9 @@ function get_listing() {
         dataType: 'json',
         //data: params,
         success: function (response) {
-            console.log(response);
             if (response.status == 'success') {
                 var table_data = '';
                 $.each(response.data, function (key, value) {
-                    console.log(value);
                     table_data += '<li>\n\
                     <div class="form-group row">\n\
                         <label class="col-sm-4 col-form-label mb-0">&#8377 <span id="coupon_amount_' + value.id + '">' + value.amount + '</span> <span class="multiplyFont">X</span></label>\n\
@@ -131,7 +128,6 @@ function get_listing() {
                     </div>\n\
                 </li>';
                 });
-                //console.log(table_data);
                 $("#denomination").html(table_data);
                 hideLoader();
             }
@@ -156,7 +152,6 @@ function get_agent_list() {
                 $.each(response.data, function (key, value) {
                     table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });
-                //console.log(table_data);
                 $("#agent").html(table_data);
 
 
@@ -186,8 +181,6 @@ function agentTotal(id) {
             damnt = Number(damnt);
             denomination_amount_sum = (denomination_amount_sum + damnt);
         });
-        console.log(e_wallet_amount);
-        console.log(denomination_amount_sum);
         if (e_wallet_amount >= denomination_amount_sum) {
             $('#denomination_amount_sum').html(denomination_amount_sum.toFixed(2));
         } else {
@@ -213,7 +206,6 @@ function get_goods_coupon_listing() {
     destroyDataTable();
     var url = base_url + 'coupons';
     var agent = '';
-    //console.log($("#agent").val());return false;
     if ($("#agent").val()) {
         agent_id = $("#agent").val();
     }
@@ -231,7 +223,6 @@ function get_goods_coupon_listing() {
             user_id: agent_id
         },
         success: function (response) {
-            console.log(response);
             var i = 1;
             if (response.status) {
                 var goods_coupon_list = '';
@@ -291,7 +282,6 @@ function get_goods_coupon_listing() {
 }
 
 function changeCouponStatus(coupon_id) {
-    console.log('changeCouponStatus - ' + coupon_id);
     var url = base_url + 'change-coupon-status';
     $.ajax({
         url: url,
@@ -310,14 +300,12 @@ function changeCouponStatus(coupon_id) {
 }
 
 function extendCouponAvailability(coupon_id) {
-    console.log('extendCouponAvailability - ' + coupon_id);
     $('#extend_coupon_availability_' + coupon_id).css('display', 'none');
     $('#extend_coupon_availability_form_' + coupon_id).css('display', 'block');
 }
 
 function extendCouponAvailabilitySubmit(e, coupon_id) {
     e.preventDefault();
-    console.log('extendCouponAvailabilitySubmit - ' + coupon_id);
     var days = document.getElementById('number_of_days_' + coupon_id);
     if (days.value == '') {
         days.focus();
@@ -349,7 +337,6 @@ function extendCouponAvailabilitySubmit(e, coupon_id) {
 
 function extendCouponAvailabilityCancel(e, coupon_id) {
     e.preventDefault();
-    console.log('extendCouponAvailabilityCancel - ' + coupon_id);
     $('#extend_coupon_availability_' + coupon_id).css('display', '');
     $('#extend_coupon_availability_form_' + coupon_id).css('display', 'none');
     document.getElementById('extend_coupon_availability_form_' + coupon_id).reset();

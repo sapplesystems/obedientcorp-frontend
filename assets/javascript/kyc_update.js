@@ -11,27 +11,26 @@ $(document).ready(function () {
         if ($("#kyc_update").valid()) {
             showLoader();
             var params = new FormData();
-            
-            var kyc_id= $('#kyc_id').val();
-            var id= user_id;
-            console.log(id);
-            var nationality= $('#nationality').val();
-            var occupation= $('#koccupation').val();
-            var qualification= $('#qualification').val();
-            var pan_number=$('#pan_number').val();
-           
-            var pan_image =$('#pan_image')[0].files[0];
-            var passport_number= $('#passport_number').val();
-            var passport_image= $('#passport_image')[0].files[0];
-            var driving_licence_number= $('#driving_licence_number').val();
-            var driving_licence_image= $('#driving_licence_image')[0].files[0];
-            var proposed_area_of_work= $('#proposed_area_of_work').val();
-            
-            var voter_id= $('#voter_id').val();
-            var voter_image= $('#voter_image')[0].files[0];
-            var adhar= $('#adhar_number').val();
-            var adhar_image= $('#adhar_image')[0].files[0];
-                //join_date: $('#join_date').val(),
+
+            var kyc_id = $('#kyc_id').val();
+            var id = user_id;
+            var nationality = $('#nationality').val();
+            var occupation = $('#koccupation').val();
+            var qualification = $('#qualification').val();
+            var pan_number = $('#pan_number').val();
+
+            var pan_image = $('#pan_image')[0].files[0];
+            var passport_number = $('#passport_number').val();
+            var passport_image = $('#passport_image')[0].files[0];
+            var driving_licence_number = $('#driving_licence_number').val();
+            var driving_licence_image = $('#driving_licence_image')[0].files[0];
+            var proposed_area_of_work = $('#proposed_area_of_work').val();
+
+            var voter_id = $('#voter_id').val();
+            var voter_image = $('#voter_image')[0].files[0];
+            var adhar = $('#adhar_number').val();
+            var adhar_image = $('#adhar_image')[0].files[0];
+            //join_date: $('#join_date').val(),
             params.append("kyc_id", kyc_id);
             params.append("user_id", id);
             params.append("nationality", nationality);
@@ -48,8 +47,7 @@ $(document).ready(function () {
             params.append("voter_image", voter_image);
             params.append("adhar", adhar);
             params.append("adhar_image", adhar_image);
-           
-            //console.log(params);return false;
+
             $.ajax({
                 method: "POST",
                 url: base_url + 'kyc/update',

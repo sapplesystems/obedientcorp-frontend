@@ -1,16 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
     getCategoryList();
     /*$(document).on('change', '#categories', function() {
-        if ($(this).val()) {
-            getSubCategoryList($(this).val());
-        }
-    });*/
+     if ($(this).val()) {
+     getSubCategoryList($(this).val());
+     }
+     });*/
 
-    if($('#category_id').val() != '' && $('#subcategory_id').val()!=''){
+    if ($('#category_id').val() != '' && $('#subcategory_id').val() != '') {
         updateSubCategory($('#subcategory_id').val());
     }
 
-    $(document).on("click", "#submit_sub_category", function(e) {
+    $(document).on("click", "#submit_sub_category", function (e) {
         e.preventDefault();
         $("#create-sub-category").validate({
             rules: {
@@ -23,18 +23,18 @@ $(document).ready(function() {
         if ($("#create-sub-category").valid()) {
             showLoader();
             var category_id = $('#categories').val();
-            var url=base_url + 'category/add';
+            var url = base_url + 'category/add';
             var params = new FormData();
             params.append('parent_id', category_id);
             params.append('name', $('#sub_category_title').val());
             params.append('description', $('#sub_category_description').val());
             params.append('image', $('#sub_category_image')[0].files[0]);
-            if($('#subcategory_id').val())
+            if ($('#subcategory_id').val())
             {
                 url = base_url + 'category/update';
                 params.append('updated_by', user_id);
                 params.append('id', $('#subcategory_id').val());
-            }else{
+            } else {
                 params.append('created_by', user_id);
             }
 
@@ -44,14 +44,14 @@ $(document).ready(function() {
                 data: params,
                 contentType: false,
                 processData: false,
-                success: function(response) {
+                success: function (response) {
                     if (response.status == "success") {
                         //getSubCategoryList(category_id);
                         showSwal('success', 'SubCategory Added', 'SubCategory added successfully.');
                         document.getElementById('create-sub-category').reset();
                         $('#photo_id').attr('src', '');
-                         $('#photo_id').css('display', 'none');
-                         location.href = 'category-list.php';
+                        $('#photo_id').css('display', 'none');
+                        location.href = 'category-list';
                         hideLoader();
 
                     } else {
@@ -72,21 +72,18 @@ function getCategoryList() {
         type: 'post',
         data: {},
         async: false,
-        success: function(response) {
-            console.log(response);
+        success: function (response) {
             var html = '<tr>\n\
             <th>Title</th>\n\
             <th>Description</th>\n\
             </tr>';
 
             if (response.status == "success") {
-                //console.log(response.data);
                 var data = response.data;
                 var tr_html = '';
                 var option = '<option value="">Select Categories</option>';
                 var x = 1;
-                $.each(data, function(key, val) {
-                    console.log(key);
+                $.each(data, function (key, val) {
                     option += '<option value="' + val.id + '">' + val.name + '</option>';
                     x++;
 
@@ -105,17 +102,14 @@ function getSubCategoryList(category_id) {
         url: url,
         type: 'post',
         dataType: 'json',
-        data: { id: category_id },
-        success: function(response) {
-            console.log(response);
+        data: {id: category_id},
+        success: function (response) {
             if (response.status == "success") {
-                //console.log(response.data);
                 var data = response.data;
                 var tr_html = '';
                 var x = 1;
                 var i = 1;
-                $.each(data, function(key, val) {
-                    console.log(val);
+                $.each(data, function (key, val) {
                     var class_name = 'odd';
                     if (x % 2 == 0) {
                         class_name = 'even';
@@ -147,9 +141,8 @@ function updateSubCategory(category_id) {
     $.ajax({
         url: base_url + 'category',
         type: 'post',
-        data: { id: category_id },
+        data: {id: category_id},
         success: function (response) {
-            console.log(response);
             if (response.status == "success") {
                 var data = response.data;
                 $('#categories').val(data.parent_id);
@@ -176,7 +169,7 @@ function deleteSubCategory(e, category_id) {
         $.ajax({
             url: base_url + 'category/delete',
             type: 'post',
-            data: { id: category_id },
+            data: {id: category_id},
             success: function (response) {
                 if (response.status == "error") {
                     getCategoryList();

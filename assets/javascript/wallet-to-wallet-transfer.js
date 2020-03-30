@@ -1,0 +1,105 @@
+get_agent_list();
+
+$(document).ready(function () {
+
+    $("#wallet_transfer_form").submit(function (e) {
+        e.preventDefault();
+        var wallet_transfer_form = $("#wallet_transfer_form");
+        wallet_transfer_form.validate({
+            rules: {
+                amount: {
+                    number: true
+                },
+            },
+            errorPlacement: function errorPlacement(error, element) {
+                element.before(error);
+            }
+        });
+
+        if ($("#wallet_transfer_form").valid()) {
+            showLoader();
+            var params = new FormData();
+            var transfer_by = user_id;
+            var transfer_from= user_id;
+            if($('#transfer-from').val())
+            {
+               transfer_from = $('#transfer-from').val();
+            }
+            var transfer_to = $('#transfer-to').val();
+            var amount = $('#amount').val();
+
+            url = base_url + 'transfer/wallet-to-wallet';
+
+            /*if (project_id) {
+                params.append('id', project_id);
+                url = base_url + 'project/update';
+            }*/
+
+            params.append('transfer_by', transfer_by);
+            params.append('transfer_from', transfer_from);
+            params.append('transfer_to', transfer_to);
+            params.append('amount', amount);
+           
+            $.ajax({
+                url: url,
+                type: 'post',
+                data: params,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    console.log(response);
+                    if (response.status == 'success') {
+                        showSwal('success', 'Success', response.data);
+                        document.getElementById('wallet_transfer_form').reset();
+                       hideLoader();
+                    } else {
+                        showSwal('error', 'Error', response.data);
+                        hideLoader();
+                    }
+                },
+                error: function (response) {
+                    error_html = '';
+                    var error_object = JSON.parse(response.responseText);
+                    var message = error_object.message;
+                    var errors = error_object.errors;
+                    $.each(errors, function (key, value) {
+                        error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
+                    });
+                    $('#errors_div').html(error_html);
+                    hideLoader();
+                }
+
+            });//ajax
+        }//end if
+
+    })//form end
+
+
+
+});//end document ready
+
+function get_agent_list() {
+
+    var url = base_url + 'down-the-line-members';
+    $.ajax({
+        url: url,
+        type: 'post',
+        dataType: 'json',
+        data: {
+            user_id: user_id
+        },
+        success: function (response) {
+            if (response.status) {
+                var table_data = '';
+                $.each(response.data, function (key, value) {
+                    table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
+                });
+                $("#transfer-to").html(table_data);
+                $("#transfer-from").html(table_data);
+
+
+            }
+
+        }
+    });
+}

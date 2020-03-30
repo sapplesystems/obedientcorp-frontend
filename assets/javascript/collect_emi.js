@@ -14,10 +14,6 @@ $(function () {
         $('#makeRequest').modal();
     });
 
-    $(document).on('click', '#make_request_to_wallet', function () {
-        $('#makeRequestWallet').modal();
-    });
-
     $(document).on('click', '#pills-pending-tab,#pills-approve-tab,#pills-reject-tab', function () {
         $('#make_request').css('display', 'none');
     })
@@ -103,77 +99,6 @@ $(function () {
         }//end if
     });
 
-    //form submit for wllet 
-    $("#payment-form-wallet").submit(function (e) {
-        e.preventDefault();
-        var payment_frm_wallet = $("#payment-form-wallet");
-        payment_frm_wallet.validate({
-            rules: {
-                amount_wallet: {
-                    required: true,
-                    number: true
-                },
-            },
-            errorPlacement: function errorPlacement(error, element) {
-                element.before(error);
-            }
-        });
-
-        if ($("#payment-form-wallet").valid()) {
-            var params = new FormData();
-            var payment_mode = $('#payment_mode_wallet').val();
-            var payment_number = $('#payment_number_wallet').val();
-
-            if ($('#bank_name_wallet').val()) {
-                var bank_name = $('#bank_name_wallet').val();
-            }
-            var photo = $('#upload-image-wallet')[0].files[0];
-            var comment = $('#comment_wallet').val();
-            var created_for = $('#agent-list').val();
-            var url = base_url + 'request-money';
-            var walletamount = $('#amount_wallet').val();
-
-            params.append('amount', walletamount);
-            params.append('payment_mode', payment_mode);
-            params.append('cheque_number', payment_number);
-            params.append('bank_name', bank_name);
-            params.append('photo', photo);
-            params.append('comment', comment);
-            params.append('created_by', user_id);
-            params.append('created_for', created_for);
-            params.append('payment_type', '2');
-
-            $.ajax({
-                url: url,
-                type: 'post',
-                data: params,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    if (response.status == 'success') {
-                        document.getElementById('payment-form-wallet').reset();
-                        $('#makeRequestWallet').modal('hide');
-                        showSwal('success', 'Payment Request accepted', 'Payment request accepted successfully');
-                    }
-                    else
-                    {
-                        showSwal('error', 'Payment request not accepted', 'Payment request not accepted ');
-                    }
-                },
-                error: function (response) {
-                    error_html = '';
-                    var error_object = JSON.parse(response.responseText);
-                    var message = error_object.message;
-                    var errors = error_object.errors;
-                    $.each(errors, function (key, value) {
-                        error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
-                    });
-                    $('#errors_div').html(error_html);
-                }
-            });//ajax
-        }//end if
-    });//end wallet form
-
 
     //onchange payment_mode
     $('#payment_mode').change(function () {
@@ -205,39 +130,6 @@ $(function () {
                                                             </div>';
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'block');
-        }
-    });
-
-
-    //onchange payment_mode wallet
-    $('#payment_mode_wallet').change(function () {
-        if ($(this).val() == 'Cash') {
-            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div-wallet">Invoice Number:</label>\n\
-               <div class="col-sm-8">\n\
-                 <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet">\n\
-                                                        </div>';
-            $('.payment-number-div-wallet').html(payment_number);
-            $('.bank-name-wallet').css('display', 'none');
-
-        }
-        else if ($(this).val() == 'Online') {
-
-            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div-wallet">Online Transaction Number:</label>\n\
-               <div class="col-sm-8">\n\
-                 <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet">\n\
-                                                        </div>';
-            $('.payment-number-div-wallet').html(payment_number);
-            $('.bank-name-wallet').css('display', 'block');
-
-        }
-        else if ($(this).val() == 'Cheque') {
-
-            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div-wallet">Cheque Number:</label>\n\
-               <div class="col-sm-8">\n\
-                 <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet">\n\
-                                                        </div>';
-            $('.payment-number-div-wallet').html(payment_number);
-            $('.bank-name-wallet').css('display', 'block');
         }
     });
 }); //end ready function

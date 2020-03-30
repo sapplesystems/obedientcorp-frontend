@@ -122,20 +122,20 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-settings menu-icon"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#project" aria-expanded="false" aria-controls="project">
-                                <span class="menu-title">Manage Project</span>
-                                <i class="menu-arrow"></i>
-                                <i class="mdi mdi-wrench menu-icon"></i>
-                            </a>
-                            <div class="collapse" id="project">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="project-list">Project List</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="plot-list">Plot List</a></li>
-                                </ul>
-                            </div>
-                        </li>
                         <?php if ($user_type == 'ADMIN') { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#project" aria-expanded="false" aria-controls="project">
+                                    <span class="menu-title">Manage Project</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-wrench menu-icon"></i>
+                                </a>
+                                <div class="collapse" id="project">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item"> <a class="nav-link" href="project-list">Project List</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="plot-list">Plot List</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category">
                                     <span class="menu-title">Manage Products</span>
@@ -199,10 +199,17 @@ include_once 'common_html.php';
                         <?php } ?>
                         <?php if ($user_type != 'ADMIN') { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="make-payment-request-agent">
-                                    <span class="menu-title">Make Request</span>
-                                    <i class="mdi mdi-repeat menu-icon"></i>
+                                <a class="nav-link" data-toggle="collapse" href="#make_request_nav" aria-expanded="false" aria-controls="category">
+                                    <span class="menu-title">Make Requests</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-view-grid menu-icon"></i>
                                 </a>
+                                <div class="collapse" id="make_request_nav">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item"> <a class="nav-link" href="collect-emi">Collect EMI</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="wallet-request">Make Request to Wallet</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="ewallet-history">

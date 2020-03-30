@@ -80,13 +80,20 @@
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
                                     <tr>
-                                        <th width="5%"> Sr No. </th>
-                                        <th width="10%"> Coupon ID</th>
-                                        <th width="10%"> Coupon Price </th>
-                                        <th width="10%"> Generated Date </th>
-                                        <th width="10%"> Expiry Date </th>
                                         <?php if ($user_type == 'ADMIN') { ?>
-                                            <th> Action </th>
+                                            <th width="5%"> Sr No. </th>
+                                            <th width="10%"> Coupon Code</th>
+                                            <th width="10%"> Coupon Price </th>
+                                            <th width="10%"> Generated Date </th>
+                                            <th width="10%"> Expiry Date </th>
+                                            <th width="55%"> Action </th>
+                                        <?php } else { ?>
+                                            <th width="5%"> Sr No. </th>
+                                            <th width="18%"> Coupon Code</th>
+                                            <th width="18%"> Coupon Price </th>
+                                            <th width="18%"> Generated Date </th>
+                                            <th width="18%"> Expiry Date </th>
+                                            <th width="23%"> Action </th>
                                         <?php } ?>
                                     </tr>
                                 </thead>
@@ -99,6 +106,8 @@
             </div>
         </div>
     </div>
+
+    <div id="print_coupon_div"></div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
     <script src="assets/javascript/coupon_generate.js"></script>

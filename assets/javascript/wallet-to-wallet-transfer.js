@@ -1,4 +1,5 @@
 get_agent_list();
+getWalletAmount(user_id);
 
 $(document).ready(function () {
 
@@ -20,10 +21,10 @@ $(document).ready(function () {
             showLoader();
             var params = new FormData();
             var transfer_by = user_id;
-            var transfer_from= user_id;
-            if($('#transfer-from').val())
+            var transfer_from = user_id;
+            if ($('#transfer-from').val())
             {
-               transfer_from = $('#transfer-from').val();
+                transfer_from = $('#transfer-from').val();
             }
             var transfer_to = $('#transfer-to').val();
             var amount = $('#amount').val();
@@ -31,15 +32,15 @@ $(document).ready(function () {
             url = base_url + 'transfer/wallet-to-wallet';
 
             /*if (project_id) {
-                params.append('id', project_id);
-                url = base_url + 'project/update';
-            }*/
+             params.append('id', project_id);
+             url = base_url + 'project/update';
+             }*/
 
             params.append('transfer_by', transfer_by);
             params.append('transfer_from', transfer_from);
             params.append('transfer_to', transfer_to);
             params.append('amount', amount);
-           
+
             $.ajax({
                 url: url,
                 type: 'post',
@@ -51,7 +52,8 @@ $(document).ready(function () {
                     if (response.status == 'success') {
                         showSwal('success', 'Success', response.data);
                         document.getElementById('wallet_transfer_form').reset();
-                       hideLoader();
+                        getWalletAmount(user_id);
+                        hideLoader();
                     } else {
                         showSwal('error', 'Error', response.data);
                         hideLoader();
@@ -100,6 +102,29 @@ function get_agent_list() {
 
             }
 
+        }
+    });
+}
+
+function getWalletAmount(user_id) {
+    showLoader();
+    var amount = '';
+    $.ajax({
+        url: base_url + 'check-ewallet-amount',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            user_id: user_id
+        },
+        success: function (response) {
+            amount = response.data.amount;
+            if (response.status == 'success') {
+                $('#e_wallet_label').css('display', 'block');
+                $('#rupee_sign').html('&#8377;');
+                $('#e-wallet').html(amount);
+                hideLoader();
+            }
+            hideLoader();
         }
     });
 }

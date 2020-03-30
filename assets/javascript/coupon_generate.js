@@ -239,7 +239,10 @@ function get_goods_coupon_listing() {
                     generated_date = new Date(value.generated_date);
                     generated_date = generated_date.getDate() + '-' + (generated_date.getMonth() + 1) + '-' + generated_date.getFullYear();
 
-                    action_td = '';
+                    action_td = '<td><div class="float-left">\n\
+                                    <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" \n\
+                                        onclick="printCoupon(event, ' + value.id + ', \'' + value.coupon_code + '\', \'' + value.coupon_amount + '\', \'' + generated_date + '\', \'' + expiry_date + '\');">Print Coupon</a>\n\
+                                </div></td>';
                     cb_status = '';
                     if (user_type == 'ADMIN') {
                         if (value.status == 'Active') {
@@ -247,16 +250,19 @@ function get_goods_coupon_listing() {
                         }
                         action_td = '<td>\n\
                                         <div class="float-left">\n\
-                                            <input class="tgl tgl-skewed" id="cb' + value.id + '" type="checkbox" ' + cb_status + ' onclick="changeCouponStatus(' + value.id + ');"/>\n\
+                                            <input class="tgl tgl-skewed" id="cb' + value.id + '" type="checkbox" ' + cb_status + ' onclick="changeCouponStatus(event, ' + value.id + ');"/>\n\
                                             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb' + value.id + '"></label>\n\
                                         </div>\n\
-                                        <div class="float-left ml-4">\n\
-                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(' + value.id + ');">Extend Coupon availability</a>\n\
+                                        <div class="float-left ml-3">\n\
+                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(event, ' + value.id + ');">Extend Coupon<br/> Availability</a>\n\
                                             <form class="form-inline" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
                                                 <input type="number" class="form-control mr-sm-2 number_of_days" id="number_of_days_' + value.id + '" placeholder="Enter Number Of Days">\n\
                                                 <button type="submit" class="btn btn-gradient-success btn-sm" onclick="extendCouponAvailabilitySubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
                                                 <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="extendCouponAvailabilityCancel(event, ' + value.id + ');">Cancel</button>\n\
                                             </form>\n\
+                                        </div>\n\
+                                        <div class="float-left ml-3">\n\
+                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print Coupon</a>\n\
                                         </div>\n\
                                     </td>';
                     }
@@ -281,7 +287,8 @@ function get_goods_coupon_listing() {
 
 }
 
-function changeCouponStatus(coupon_id) {
+function changeCouponStatus(e, coupon_id) {
+    e.preventDefault();
     var url = base_url + 'change-coupon-status';
     $.ajax({
         url: url,
@@ -299,7 +306,8 @@ function changeCouponStatus(coupon_id) {
 
 }
 
-function extendCouponAvailability(coupon_id) {
+function extendCouponAvailability(e, coupon_id) {
+    e.preventDefault();
     $('#extend_coupon_availability_' + coupon_id).css('display', 'none');
     $('#extend_coupon_availability_form_' + coupon_id).css('display', 'block');
 }
@@ -346,4 +354,17 @@ function resetDenominations() {
     $('.denomination_quantity').val(0);
     $('.denomination_total').html('0');
     $('#denomination_amount_sum').html('0');
+}
+
+function printCoupon(e, coupon_id, coupon_code, coupon_amount, generated_date, expiry_date) {
+    e.preventDefault();
+
+    var print_coupon_div = document.getElementById("print_coupon_div").innerHTML;
+    var a = window.open('', '', 'height=500, width=500');
+    a.document.write('<html>');
+    a.document.write('<body><h1>Coupon Code<br>');
+    a.document.write(print_coupon_div);
+    a.document.write('</body></html>');
+    a.document.close();
+    a.print();
 }

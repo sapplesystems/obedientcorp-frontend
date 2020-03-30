@@ -6,7 +6,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Add Sub-project</h4>
+                        <h4 class="card-title mb-4">Wallet to Wallet Money Transfer</h4>
+                        <h5>Your Wallet Balance: <span id="rupee_sign"></span> <span id="e-wallet"></span></h5>
                         <div id="errors_div"></div>
                         <form class="forms-sample" id="wallet_transfer_form" name="wallet_transfer_form" method="post" enctype="multipart/form-data">
                             <div class="form-group row">

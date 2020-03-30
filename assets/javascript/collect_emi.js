@@ -204,19 +204,19 @@ function get_customer_payament_details(customer_id, status) {
                 table_data += '</tbody>';
                 if (status == 'Due') {
                     $("#due_payment_list").html(table_data);
-                    $("#due_payment_list").DataTable();
+                    generateDataTable('due_payment_list');
                 }
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
-                    $("#pending_payment_list").DataTable();
+                    generateDataTable('pending_payment_list');
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(table_data);
-                    $("#approved_payment_list").DataTable();
+                    generateDataTable('approved_payment_list');
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
-                    $("#reject_payment_list").DataTable();
+                    generateDataTable('reject_payment_list');
                 }
             }
             else {

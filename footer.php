@@ -103,7 +103,7 @@
     function logout() {
         $.post('localapi.php', {
             destroy_session: 1
-        }, function(resp) {
+        }, function (resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             window.location.href = 'login';
         });
@@ -116,8 +116,8 @@
     function hideLoader() {
         $('#loader_bg').css('display', 'none');
     }
-    
-    function destroyDataTable(){
+
+    function destroyDataTable() {
         var table = $('.table').DataTable();
         table.destroy();
     }
@@ -135,6 +135,12 @@
          }
          });
          $('#order-listing_filter [type=search]').attr('placeholder','Search');*/
+    }
+
+    function generateDataTable(id) {
+        var table = $('#' + id).DataTable();
+        table.destroy();
+        $('#' + id).DataTable();
     }
 
     function isNumberKey(evt) {

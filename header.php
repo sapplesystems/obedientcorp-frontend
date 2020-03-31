@@ -212,6 +212,12 @@ include_once 'common_html.php';
                                 </div>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="income-fund-history">
+                                    <span class="menu-title">Income Fund History</span>
+                                    <i class="mdi mdi-repeat menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="ewallet-history">
                                     <span class="menu-title">E-Wallet History</span>
                                     <i class="mdi mdi-repeat menu-icon"></i>

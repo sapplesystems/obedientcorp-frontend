@@ -74,6 +74,7 @@ function addMoneyToWallet(params) {
         url: base_url + 'add-money-to-wallet',
         type: 'post',
         data: {
+            inserted_by: user_id,
             user_id: params.user_id,
             amount: params.amount
         },

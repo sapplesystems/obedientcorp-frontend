@@ -7,7 +7,7 @@ $(function () {
 function get_payment_details() {
     //login user id
     showLoader();
-    var url = base_url + 'agent-payment-detail ';
+    var url = base_url + 'agent-payment-detail';
     var payment_photo = '';
     var payment_mode = '';
     var cheque_number = '';

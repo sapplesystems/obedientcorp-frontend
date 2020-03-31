@@ -155,7 +155,7 @@ function paymentReject(pid, agent_id) {
 //function for approvedadmin pament
 function paymentAction(pid, agent_id, status_emi) {
     showLoader();
-    var url = base_url + 'agent-payment-detail ';
+    var url = base_url + 'agent-payment-detail';
     var emis = [];
     var comment = '';
     var status = '';

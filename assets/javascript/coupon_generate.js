@@ -358,11 +358,14 @@ function resetDenominations() {
 
 function printCoupon(e, coupon_id, coupon_code, coupon_amount, generated_date, expiry_date) {
     e.preventDefault();
-
+    $('#pCouponCode').html(coupon_code);
+    $('#pCouponAmount').html(coupon_amount);
+    $('#pGeneratedDate').html(generated_date);
+    $('#pExpiryDate').html(expiry_date);
     var print_coupon_div = document.getElementById("print_coupon_div").innerHTML;
     var a = window.open('', '', 'height=500, width=500');
     a.document.write('<html>');
-    a.document.write('<body><h1>Coupon Code<br>');
+    a.document.write('<body>');
     a.document.write(print_coupon_div);
     a.document.write('</body></html>');
     a.document.close();

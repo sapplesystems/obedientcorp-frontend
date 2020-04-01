@@ -59,6 +59,7 @@ function getTree(uid) {
         data: {id: uid},
         success: function (response) {
             if (response.status == "success") {
+                var user_active_range = Number(response.user_active_range);
                 $('#total_left_member').html('<span><strong>Left Members</strong><br><img src="assets/images/members.png" /> ' + response.data.total_left_member + '</span>');
                 $('#total_right_member').html('<span><strong>Right Members</strong><br><img src="assets/images/members.png" /> ' + response.data.total_right_member + '</span>');
                 $('#all_member').html('<span><strong>All Members</strong><br><img src="assets/images/members.png" /> ' + response.data.all_member + '</span>');
@@ -70,25 +71,25 @@ function getTree(uid) {
                 var node6 = response.data.node6;
                 var node7 = response.data.node7;
                 if (node1 && node1.id) {
-                    setNode(node1, 'node1', '');
+                    setNode(node1, 'node1', '', user_active_range);
                 }
                 if (node2 && node2.id) {
-                    setNode(node2, 'node2', '1');
+                    setNode(node2, 'node2', '1', user_active_range);
                 }
                 if (node3 && node3.id) {
-                    setNode(node3, 'node3', '1');
+                    setNode(node3, 'node3', '1', user_active_range);
                 }
                 if (node4 && node4.id) {
-                    setNode(node4, 'node4', '1');
+                    setNode(node4, 'node4', '1', user_active_range);
                 }
                 if (node5 && node5.id) {
-                    setNode(node5, 'node5', '1');
+                    setNode(node5, 'node5', '1', user_active_range);
                 }
                 if (node6 && node6.id) {
-                    setNode(node6, 'node6', '1');
+                    setNode(node6, 'node6', '1', user_active_range);
                 }
                 if (node7 && node7.id) {
-                    setNode(node7, 'node7', '1');
+                    setNode(node7, 'node7', '1', user_active_range);
                 }
                 $('.hv-item').addClass("animated fadeInDown1").css("opacity", "0");
                 hideLoader();
@@ -102,11 +103,17 @@ function getTree(uid) {
     });
 }
 
-function setNode(object, node_id, link) {
+function setNode(object, node_id, link, user_active_range) {
+    var is_active_icon_class = 'bg-danger';
+    var total_business = (Number(object.total_left_business) + Number(object.total_right_business));
+    if (total_business >= user_active_range) {
+        is_active_icon_class = 'bg-success';
+    }
+
     var photo_src = media_url + 'profile_photo/' + object.photo;
-    var html = '<img src="' + photo_src + '" class="">' + object.username;
+    html = '<span class="main_div_img"><img src="' + photo_src + '" class=""><i class="' + is_active_icon_class + '"></i></span>' + object.username;
     if (link && link != '') {
-        html = '<span class="main_div_img"><img src="' + photo_src + '" class=""><i class="bg-danger"></i></span>' + object.username;
+        html = '<span class="main_div_img"><img src="' + photo_src + '" class=""><i class="' + is_active_icon_class + '"></i></span>' + object.username;
         html += '<a href="javascript:void(0);" class="view_det" onclick="getTree(' + object.id + ');">[ View Team ]</a>';
     }
 

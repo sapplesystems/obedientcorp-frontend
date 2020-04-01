@@ -50,7 +50,7 @@
                                 <div class="py-4">
                                     <p class="clearfix">
                                         <span class="float-left"> Status </span>
-                                        <span class="float-right text-muted"> Active </span>
+                                        <span class="float-right text-muted" id="agent_status"> </span>
                                     </p>
                                     <p class="clearfix">
                                         <span class="float-left"> Phone </span>
@@ -656,6 +656,13 @@
     <script type="text/javascript" src="assets/javascript/nominee_update.js"></script>
     <script type="text/javascript" src="assets/javascript/kyc_update.js"></script>
     <script type="text/javascript">
+        var user_active_range = '<?php echo $user_active_range; ?>';
+        var agent_total_business = localStorage.getItem('agent_total_business');
+        if(Number(agent_total_business) >= Number(user_active_range)){
+            $('#agent_status').html('Active');
+        }else{
+            $('#agent_status').html('Not Active');
+        }
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

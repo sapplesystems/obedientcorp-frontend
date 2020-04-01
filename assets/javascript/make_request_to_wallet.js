@@ -141,7 +141,7 @@ function get_agent_payment_list(agent_id, status) {
                 table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
                     var dd = new Date(value.date_requested);
-                    var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+                    var date_of_payment = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
                     table_data += '<tr >\n\
                                         <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                                         <td>' + value.amount + '</td>\n\

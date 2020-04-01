@@ -42,9 +42,6 @@ function getAgentPaymentList(agent_id) {
     get_agent_payment_list(agent_id, 'Pending');
     get_agent_payment_list(agent_id, 'Approved');
     get_agent_payment_list(agent_id, 'Rejected');
-    setTimeout(function () {
-        initDataTable();
-    }, 2000);
 }
 
 function get_agent_payment_list(agent_id, status) {
@@ -84,7 +81,7 @@ function get_agent_payment_list(agent_id, status) {
                         action_tr = '<td> <i class="mdi mdi-check-circle" onclick="paymentApprove(' + value.id + ',' + agent_id + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="paymentReject(' + value.id + ',' + agent_id + ');"></i> </td>';
                     }
                     var dd = new Date(value.date_of_payment);
-                    var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+                    var date_of_payment = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
                     var payment_type = 'EMI';
                     if (value.coupon_type_id == '3') {
                         payment_type = 'Advance';
@@ -103,24 +100,30 @@ function get_agent_payment_list(agent_id, status) {
                 table_data += '</tbody>';
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
+                    generateDataTable('pending_payment_list');
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(table_data);
+                    generateDataTable('approved_payment_list');
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
+                    generateDataTable('reject_payment_list');
                 }
                 hideLoader();
             }
             else {
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(response.data);
+                    generateDataTable('pending_payment_list');
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(response.data);
+                    generateDataTable('approved_payment_list');
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(response.data);
+                    generateDataTable('reject_payment_list');
                 }
                 hideLoader();
             }

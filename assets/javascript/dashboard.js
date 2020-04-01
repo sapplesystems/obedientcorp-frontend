@@ -172,7 +172,7 @@ function generateDuePaymentList(list) {
 
     $.each(list, function (key, value) {
         var dd = new Date(value.due_date);
-        var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+        var duedate = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
 
         table_data += '<tr>\n\
                             <td>' + value.name + '</td>\n\

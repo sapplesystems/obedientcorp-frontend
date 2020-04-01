@@ -13,10 +13,8 @@
                             <div class="col-sm-8">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label mb-0">Generated For:</label>
-                                    <div class="col-sm-2 p-0">
-                                        <select class="form-control blackOption" id="agent">
-
-                                        </select>
+                                    <div class="col-sm-4 p-0">
+                                        <select class="form-control blackOption" id="agent"></select>
                                     </div>
                                 </div>
                             </div>

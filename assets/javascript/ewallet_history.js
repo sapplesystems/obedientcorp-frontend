@@ -32,11 +32,9 @@ $(document).ready(function () {
         }
         if ($('#type').val()) {
             type = $('#type').val();
-            //type = $('#type').val();
         }
         if ($('#trans_type2').val()) {
             trans_type2 = $('#trans_type2').val();
-            //transaction_type = $('#transaction_type').val();
         }
 
         var params = {

@@ -56,7 +56,7 @@
                                         <th>Customer id</th>
                                         <th>date</th>
                                         <th>Amount</th>
-                                        <th>Business Type</th>
+                                        <th>Coupon Code</th>
                                     </tr>
 
                                 </thead>

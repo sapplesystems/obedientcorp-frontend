@@ -23,6 +23,7 @@ $(document).ready(function () {
 
     $(document).on('change', '#categories', function () {
         $('#subcategory_div').css('display', 'none');
+        $('#subcategory').html('');
         if ($(this).val()) {
             getSubCategoryList($(this).val());
         }
@@ -106,7 +107,7 @@ $(document).ready(function () {
 
 function getCategoryList() {
     $.ajax({
-        url: base_url + 'categories',
+        url: base_url + 'category-list',
         type: 'post',
         async: false,
         data: {},
@@ -134,13 +135,15 @@ function getSubCategoryList(category_id) {
             if (response.status == "success") {
                 if (response.data) {
                     var data = response.data;
-                    var option = '<option value="">Select Subcategory</option>';
-                    $.each(data, function (key, value) {
-                        option += '<option value="' + value.id + '">' + value.name + '</option>';
+                    if (data.length > 0) {
+                        var option = '<option value="">Select Subcategory</option>';
+                        $.each(data, function (key, value) {
+                            option += '<option value="' + value.id + '">' + value.name + '</option>';
 
-                    });
-                    $('#subcategory_div').css('display', 'block');
-                    $('#subcategory').html(option);
+                        });
+                        $('#subcategory_div').css('display', 'block');
+                        $('#subcategory').html(option);
+                    }
                 }
 
             }

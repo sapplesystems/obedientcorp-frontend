@@ -68,7 +68,7 @@ $(document).ready(function () {
 
 function getCategoryList() {
     $.ajax({
-        url: base_url + 'categories',
+        url: base_url + 'category-list',
         type: 'post',
         data: {},
         async: false,

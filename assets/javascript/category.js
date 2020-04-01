@@ -39,6 +39,7 @@ $(document).ready(function () {
                         getCategoryList();
                         showSwal('success', 'Category Added', 'Category added successfully.');
                         document.getElementById('create_category').reset();
+                        window.location.href = 'category-list';
                         hideLoader();
                     }
                     else {

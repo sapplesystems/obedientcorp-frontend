@@ -85,6 +85,15 @@ $(document).ready(function () {
         })
     });
 
+    $(document).on('click', '.close_photo_image', function () {
+        $('#photo').val('');
+        $('.file-upload-info').val('');
+    });
+    $(document).on('click', '.close_map_image', function () {
+        $('#mapphoto').val('');
+        $('.file-upload-info').val('');
+    });
+
 
     //end crop image code
     if ($('#project_id').val() && $('#project_id').val() != '') {

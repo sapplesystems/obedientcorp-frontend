@@ -83,6 +83,15 @@ $(document).ready(function () {
             $('#uploadmapModal').modal('hide');
         })
     });
+    
+    $(document).on('click', '.close_photo_image', function () {
+        $('#photo').val('');
+        $('.file-upload-info').val('');
+    });
+    $(document).on('click', '.close_map_image', function () {
+        $('#mapphoto').val('');
+        $('.file-upload-info').val('');
+    });
 
     if ($('#project_id').val() && $('#sub_project_id').val() != '') {
         updateProject($('#sub_project_id').val());

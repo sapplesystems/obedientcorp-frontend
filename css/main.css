@@ -65,7 +65,7 @@ ul.topMenu {
 }
 ul.topMenu li {
 	display: inline-block;
-	padding: 0 18px;
+	padding: 0 12px;
 	color:#fff;
 }
 ul.topMenu li ul {

@@ -43,6 +43,11 @@ $(document).ready(function () {
 
         })
     });
+    
+    $(document).on('click', '.close_crop_image', function () {
+        $('#image').val('');
+        $('.file-upload-info').val('');
+    });
     //crop image
 
 

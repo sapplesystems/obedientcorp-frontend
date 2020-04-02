@@ -3,57 +3,81 @@
  tpj(document).ready(function() {
        tpj("#burgernavbar").click(function(){ //Sandeep burger clicked menu appeared
         console.log('clicked burger');
-		tpj('#project').removeClass("animated fadeOutUp1").css("opacity","0");
-		tpj('#offices').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#home').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#products').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#legal').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#bankers').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#gallery').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#amenities').removeClass("animated fadeOutUp1").css("opacity","0");
 		tpj('#about').removeClass("animated fadeOutUp1").css("opacity","0");
-		tpj('#serviceNav').removeClass("animated fadeOutUp1").css("opacity","0");
-		tpj('#news').removeClass("animated fadeOutUp1").css("opacity","0");
-		tpj('#career').removeClass("animated fadeOutUp1").css("opacity","0");
-		tpj('#contact').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#winners').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#achievers').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#rankers').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#contact_us').removeClass("animated fadeOutUp1").css("opacity","0");
         tpj(".topBar").slideDown(400);
         tpj("#burgernavbar").hide(1000);
 		tpj("#burgernavbarcancel").show(1000);
-        setTimeout(function(){tpj('#project').addClass("animated fadeInDown1").css("opacity","0");
+        setTimeout(function(){tpj('#home').addClass("animated fadeInDown1").css("opacity","0");
     }, 100);//200
-		 setTimeout(function(){tpj('#offices').addClass("animated fadeInDown1").css("opacity","0");
+		 setTimeout(function(){tpj('#products').addClass("animated fadeInDown1").css("opacity","0");
     }, 200);//400
-		setTimeout(function(){tpj('#about').addClass("animated fadeInDown1").css("opacity","0");
+		setTimeout(function(){tpj('#legal').addClass("animated fadeInDown1").css("opacity","0");
     }, 300);//600
-	    setTimeout(function(){tpj('#serviceNav').addClass("animated fadeInDown1").css("opacity","0");
+	    setTimeout(function(){tpj('#bankers').addClass("animated fadeInDown1").css("opacity","0");
     }, 400);//800
-	    setTimeout(function(){tpj('#news').addClass("animated fadeInDown1").css("opacity","0");
+	    setTimeout(function(){tpj('#gallery').addClass("animated fadeInDown1").css("opacity","0");
     }, 500);//1000
-		setTimeout(function(){tpj('#career').addClass("animated fadeInDown1").css("opacity","0");
+		setTimeout(function(){tpj('#amenities').addClass("animated fadeInDown1").css("opacity","0");
     }, 600);//1200
-	setTimeout(function(){tpj('#contact').addClass("animated fadeInDown1").css("opacity","0");
-    }, 150);//300
+		setTimeout(function(){tpj('#about').addClass("animated fadeInDown1").css("opacity","0");
+    }, 700);//300
+		setTimeout(function(){tpj('#winners').addClass("animated fadeInDown1").css("opacity","0");
+    }, 800);//300
+		setTimeout(function(){tpj('#achievers').addClass("animated fadeInDown1").css("opacity","0");
+    }, 900);//300
+		setTimeout(function(){tpj('#rankers').addClass("animated fadeInDown1").css("opacity","0");
+    }, 1000);//300
+		setTimeout(function(){tpj('#contact_us').addClass("animated fadeInDown1").css("opacity","0");
+    }, 1100);//300
       //  tpj('body').css('overflow-y','hidden');        
     });
    
 
     tpj(".iconCancel").click(function(){    //Sandeep when menu is closed using close button
 		//tpj('.topMenu').css("opacity","1").removeClass("animated fadeInDown85");
-		tpj('#project').removeClass("animated fadeInDown1").css("opacity","1");
-		tpj('#offices').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#home').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#products').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#legal').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#bankers').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#gallery').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#amenities').removeClass("animated fadeInDown1").css("opacity","1");
 		tpj('#about').removeClass("animated fadeInDown1").css("opacity","1");
-		tpj('#serviceNav').removeClass("animated fadeInDown1").css("opacity","1");
-		tpj('#news').removeClass("animated fadeInDown1").css("opacity","1");
-		tpj('#career').removeClass("animated fadeInDown1").css("opacity","1");
-		tpj('#contact').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#winners').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#achievers').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#rankers').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#contact_us').removeClass("animated fadeInDown1").css("opacity","1");
 		 
-		   setTimeout(function(){tpj('#project').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 700);  //1400
-		 setTimeout(function(){tpj('#offices').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 600);   //1200
+		   setTimeout(function(){tpj('#home').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 1100);  //1400
+		 setTimeout(function(){tpj('#products').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 1000);   //1200
+		setTimeout(function(){tpj('#legal').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 900);   //1000
+	    setTimeout(function(){tpj('#bankers').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 800);    //800
+	    setTimeout(function(){tpj('#gallery').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 700);    //600
+		setTimeout(function(){tpj('#amenities').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 600);    //400
 		setTimeout(function(){tpj('#about').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 500);   //1000
-	    setTimeout(function(){tpj('#serviceNav').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 400);    //800
-	    setTimeout(function(){tpj('#news').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 300);    //600
-		setTimeout(function(){tpj('#career').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 200);    //400
-	setTimeout(function(){tpj('#contact').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 500);    //200
+		setTimeout(function(){tpj('#winners').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 400);    //200
+		setTimeout(function(){tpj('#achievers').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 300);    //200
+		setTimeout(function(){tpj('#rankers').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 200);    //200
+		setTimeout(function(){tpj('#contact_us').addClass("animated fadeOutUp1").css("opacity","0");
     }, 100);    //200
 
 	 setTimeout(function(){ tpj(".topBar").slideUp(400); //400

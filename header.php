@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!$user_id || $user_id == '' || empty($user_id)) {
+    echo '<script type="text/javascript">window.location.href = "login";</script>';
+    exit;
+}
 $base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
 $media_url = 'http://demos.sappleserve.com/obedient_api/public/uploads/';
 $user_id = $_SESSION['login_resp']['id'];
@@ -10,10 +14,6 @@ $left_node_id = $_SESSION['login_resp']['left_node_id'];
 $right_node_id = $_SESSION['login_resp']['right_node_id'];
 $photo = $_SESSION['login_resp']['photo'];
 $user_active_range = $_SESSION['login_resp']['configurations']['user_active_range'];
-if (!$user_id || $user_id == '' || empty($user_id)) {
-    echo '<script type="text/javascript">window.location.href = "login";</script>';
-    exit;
-}
 include_once 'common_html.php';
 ?>
 

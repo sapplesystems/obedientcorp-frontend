@@ -12,12 +12,12 @@ $common = array(
                                                     <div class="col-md-1 col-xs-2 text-right navCWrap pull-right paddRightNone"></div>
                                                     <div class="col-md-10 col-menu pull-left text-right paddLeftNone">
                                                         <ul class="topMenu" style="opacity:1;">
-                                                            <li id="project" style="opacity:0"><a class="add-opacity" href="' . $home_url . '">Home</a></li>
-                                                            <li id="offices" style="opacity:0"><a class="add-opacity" href="products">Products</a></li>
-                                                            <li id="about" style="opacity:0"><a class="add-opacity" href="legal">Legal</a></li>
-                                                            <li id="serviceNav" style="opacity:0"><a class="add-opacity" href="bankers">Bankers</a></li>
-                                                            <li id="news" style="opacity:0"><a class="add-opacity" href="gallery">Gallery</a></li>
-                                                            <li id="career" style="opacity:0"><a class="add-opacity" href="amenities">Amenities</a></li>
+                                                            <li id="home" style="opacity:0"><a class="add-opacity" href="' . $home_url . '">Home</a></li>
+                                                            <li id="products" style="opacity:0"><a class="add-opacity" href="products">Products</a></li>
+                                                            <li id="legal" style="opacity:0"><a class="add-opacity" href="legal">Legal</a></li>
+                                                            <li id="bankers" style="opacity:0"><a class="add-opacity" href="bankers">Bankers</a></li>
+                                                            <li id="gallery" style="opacity:0"><a class="add-opacity" href="gallery">Gallery</a></li>
+                                                            <li id="amenities" style="opacity:0"><a class="add-opacity" href="amenities">Amenities</a></li>
                                                             <li id="about" style="opacity:0"><a class="add-opacity" href="#">About</a></li>
                                                             <li id="winners" style="opacity:0"><a class="add-opacity" href="#">Winners</a></li>
                                                             <li id="achievers" style="opacity:0"><a class="add-opacity" href="#">Achievers</a></li>

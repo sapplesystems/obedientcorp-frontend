@@ -86,7 +86,7 @@ $(document).ready(function () {
                         getCategoryList();
                         showSwal('success', 'Category Added', 'Category added successfully.');
                         document.getElementById('create_category').reset();
-                        location.href = 'category-list';
+                        window.location.href = 'category-list';
                         hideLoader();
                     }
                     else {

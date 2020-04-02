@@ -4,21 +4,18 @@
     <div class="content-wrapper ">
         <div class="row">
             <div class="col-12">
+                <div class="form-group">
+                    <label class="col-form-label float-left mr-3">Agent ID</label>
+                    <div class="float-left">
+                        <select class="form-control" id="agent_list"></select>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Customer List</h4>
                         <div class="overflowAuto">
-                            <table class="table table-bordered custom_action" id="order-listing">
-                                <thead>
-                                    <tr>
-                                        <th>Customer Name</th>
-                                        <th>Agent Name</th>
-                                        <th>Customer Mobile</th>
-                                        <th>Customer Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="customers_list"></tbody>
-                            </table>
+                            <table class="table table-bordered custom_action" id="customers_list"></table>
                         </div>
                     </div>
                 </div>

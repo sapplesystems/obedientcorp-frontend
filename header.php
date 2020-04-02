@@ -9,6 +9,7 @@ $user_type = $_SESSION['login_resp']['user_type'];
 $left_node_id = $_SESSION['login_resp']['left_node_id'];
 $right_node_id = $_SESSION['login_resp']['right_node_id'];
 $photo = $_SESSION['login_resp']['photo'];
+$user_active_range = $_SESSION['login_resp']['configurations']['user_active_range'];
 if (!$user_id || $user_id == '' || empty($user_id)) {
     echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
@@ -212,18 +213,18 @@ include_once 'common_html.php';
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="income-fund-history">
-                                    <span class="menu-title">Income Fund History</span>
-                                    <i class="mdi mdi-repeat menu-icon"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="wallet-to-wallet-transfer">
                                     <span class="menu-title">Wallet to Wallet Transfer</span>
                                     <i class="mdi mdi-repeat menu-icon"></i>
                                 </a>
                             </li>
                         <?php } ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="income-fund-history">
+                                <span class="menu-title">Income Fund History</span>
+                                <i class="mdi mdi-repeat menu-icon"></i>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ewallet-history">
                                 <span class="menu-title">E-Wallet History</span>

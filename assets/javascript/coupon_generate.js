@@ -234,10 +234,10 @@ function get_goods_coupon_listing() {
                     }
 
                     expiry_date = new Date(value.expiry_date);
-                    expiry_date = expiry_date.getDate() + '-' + (expiry_date.getMonth() + 1) + '-' + expiry_date.getFullYear();
+                    expiry_date = expiry_date.getDate() + '-' + MonthArr[(expiry_date.getMonth() + 1)] + '-' + expiry_date.getFullYear();
 
                     generated_date = new Date(value.generated_date);
-                    generated_date = generated_date.getDate() + '-' + (generated_date.getMonth() + 1) + '-' + generated_date.getFullYear();
+                    generated_date = generated_date.getDate() + '-' + MonthArr[(generated_date.getMonth() + 1)] + '-' + generated_date.getFullYear();
 
                     action_td = '<td><div class="float-left">\n\
                                     <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" \n\
@@ -262,7 +262,7 @@ function get_goods_coupon_listing() {
                                             </form>\n\
                                         </div>\n\
                                         <div class="float-left ml-3">\n\
-                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print Coupon</a>\n\
+                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ', \'' + value.coupon_code + '\', \'' + value.coupon_amount + '\', \'' + generated_date + '\', \'' + expiry_date + '\');">Print Coupon</a>\n\
                                         </div>\n\
                                     </td>';
                     }

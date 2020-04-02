@@ -5,55 +5,54 @@
             <!-- Column -->
             <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-mobile">
                 <!-- Title -->
-                <h6 class="uppercase white extrabold">Quadra Exclusive Theme</h6>
-                <h6 class="sm-mt bold gray8">ABOUT US</h6>
-                <p class="mini-mt">It is a long established fact that a read page when looking at its layout. </p>
-                <h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>
-                <p class="mini-mt">PO Box 16122 Collins Street West <br class="hidden-xs"> Victoria 8007 Australia</p>
-                <!-- Google Map -->
-                <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937586!2d2.2922926156743895!3d48.858370079287475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEyfel+Kulesi!5e0!3m2!1str!2s!4v1491905379246" data-iframe="true" class="lightbox underline-hover colored-hover">
-                    Find us on Google Map
-                </a>
-                <h6 class="xs-mt bold gray8"><i class="fa fa-envelope mini-mr"></i>CONTACT US</h6>
-                <p class="mini-mt">Pbx: <a href="tel:+0123456790" class="underline-hover colored-hover">+0123456789</a></p>
-                <a href="mailto:goldeyestheme@gmail.com" class="underline-hover colored-hover">example@example.com</a>
+                <h6 class="uppercase white extrabold mb-3">ABOUT US</h6>
+                <!--<h6 class="sm-mt bold gray8">WHO WE ARE</h6>-->
+                <p class="mini-mt">We are one of leading Indian Company in Site Development, Land Development, Construction etc. </p>
             </div>
             <!-- Column -->
             <div class="col-md-3 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
-                <h6 class="uppercase white extrabold sm-mb">Latest News</h6>
+                <h6 class="uppercase white extrabold mb-3">ADDRESS</h6>
                 <!-- You can edit footer-news.html file in js/ajax folder. Will be changed on all website -->
-
+					<!--<h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>-->
+                <p class="mini-mt">17/23, 2nd Floor, Tulsiyani Shoppe, Near <br />PVR Civil Lines, Prayagraj, UP-211001</p>
+                <!-- Google Map -->
+                <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14409.946140127015!2d81.8350541!3d25.4554245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9eb290e50a3463e7!2sOBEDIENT%20INFRA%20DEVELOPMENT%20PVT.%20LTD.!5e0!3m2!1sen!2sin!4v1582019963309!5m2!1sen!2sin" data-iframe="true" class="lightbox underline-hover colored-hover">
+                    Find us on Google Map
+                </a>
             </div>
             <!-- End Column -->
             <!-- Column -->
             <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-mobile">
-                <h6 class="uppercase white extrabold sm-mb">recent Comments</h6>
+                <h6 class="uppercase white extrabold mb-3">Terms & Conditions</h6>
                 <!-- Clients Slider one - You can find details in footer-client-comments.html file, #post1 div -->
                 <!-- When you edit ajax file, the details will be changed on all website -->
                 <!-- Sub Title -->
-                <h6 class="xxs-mt bold gray8">ADD YOUR COMMENT</h6>
-                <p class="mini-mt gray8"><a href="#" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Drop us your comment!</a> All images are placeholders.</p>
+                <!--<h6 class="xxs-mt bold gray8">DOWNLOAD PDF</h6>-->
+                <p class="mini-mt gray8"><a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Trems & Conditions PDF</a> Obedient Infra Development Pvt Ltd</p>
             </div>
             <!-- End Column -->
             <!-- Column -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <!-- Title -->
-                <h5 class="uppercase white extrabold no-pm">SUBSCRIBE US</h5>
+                <h6 class="uppercase white extrabold no-pm mb-3">CONNECT WITH US</h6>
                 <!-- Sub Title -->
-                <h6 class="sm-mt bold gray8">GET UPDATED</h6>
-                <p class="mini-mt">The standard chunk of Lorem Ipsum used.</p>
+                <!--<h6 class="sm-mt bold gray8">GET UPDATED</h6>-->
+                <!--<p class="mini-mt">The standard chunk of Lorem Ipsum used.</p>
                 <div id="newsletter-form" class="footer-newsletter clearfix xs-mt">
                     <form id="newsletter_form" name="newsletter_form" method="post" action="#">
                         <input type="email" name="n-email" id="n-email" required placeholder="Add your E-Mail address" class="font-12 radius-lg form-control">
                         <button type="submit" id="n-submit" name="submit" class="btn-lg fullwidth radius-lg bg-colored1 white qdr-hover-6 click-effect bold font-12">SUBSCRIBE</button>
                     </form>
-                </div>
+                </div>-->
                 <!-- End Form -->
+				<!--<h6 class="xs-mt bold gray8"><i class="fa fa-envelope mini-mr"></i>CONTACT US</h6>-->
+                <p class="mini-mt">Ph: <a href="tel:070077 09339" class="underline-hover colored-hover">070077 09339</a></p>
+                <a href="mailto:query@obedientcorp.com" class="underline-hover colored-hover"> query@obedientcorp.com</a>
                 <h6 class="xs-mt xxs-mb bold gray8">FOLLOW US</h6>
-                <a href="#" class="icon-xs radius bg-dark facebook white-hover slow1"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="icon-xs radius bg-dark twitter white-hover slow1"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="icon-xs radius bg-dark instagram white-hover slow1"><i class="fa fa-instagram"></i></a>
-                <a href="#" class="icon-xs radius bg-dark pinterest white-hover slow1"><i class="fa fa-pinterest"></i></a>
+                <a href="https://facebook.com/Obedientinfradevelopment/" class="icon-xs radius bg-dark facebook white-hover slow1"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/ObedientPvt" class="icon-xs radius bg-dark twitter white-hover slow1"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com/Obedientpvt/" class="icon-xs radius bg-dark instagram white-hover slow1"><i class="fa fa-instagram"></i></a>
+                <!--<a href="#" class="icon-xs radius bg-dark pinterest white-hover slow1"><i class="fa fa-pinterest"></i></a>-->
             </div>
             <!-- End Column -->
         </div>
@@ -65,12 +64,12 @@
             <div class="row clearfix calculate-height t-center-xs">
                 <div class="col-sm-6 col-xs-12 table-im t-left height-auto-mobile t-center-xs">
                     <div class="v-middle">
-                        <img src="images/logos/icon_02_b.png" alt="logo icon" class="logo">
+                        <img src="images/footer_logo.png" alt="logo icon" class="logo">
                     </div>
                 </div>
                 <!-- Bottom Note -->
                 <div class="col-sm-6 col-xs-12 table-im t-right height-auto-mobile t-center-xs xxs-mt-mobile">
-                    <p class="v-middle">&copy; 2018 Obedient. All rights reserved | Design by <a href="http://obedientcorp.com">Obedient Infra Development Pvt. Ltd.</a></p>
+                    <p class="v-middle">&copy; 2020 Obedient. All rights reserved | Design by <a href="http://obedientcorp.com">Obedient Infra Development Pvt. Ltd.</a></p>
                 </div>
             </div>
         </div>

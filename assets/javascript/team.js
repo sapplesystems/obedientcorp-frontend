@@ -22,7 +22,10 @@ function getTeamMemberList(user_id, node) {
         success: function (response) {
             if (response.status == 'success') {
                 var team_data = response.data;
+                var user_active_range = Number(response.user_active_range);
                 var team_html = '';
+                var total_business = 0;
+                var is_active_icon_class = '';
                 var team_list_html = '<div class="media">\n\
                                         <div class="col-md-12 mb-3 border p-0">\n\
                                             <table class="table table-striped">\n\
@@ -36,6 +39,11 @@ function getTeamMemberList(user_id, node) {
                                                 </thead>\n\
                                                 <tbody>';
                 $.each(team_data, function (key, member) {
+                    is_active_icon_class = 'bg-danger';
+                    total_business = (Number(member.total_left_business) + Number(member.total_right_business));
+                    if (total_business >= user_active_range) {
+                        is_active_icon_class = 'bg-success';
+                    }
                     if (member.photo)
                     {
                         var photo_src = media_url + 'profile_photo/' + member.photo;
@@ -47,7 +55,7 @@ function getTeamMemberList(user_id, node) {
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
                                                             <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\
-                                                            <span class="edit-avatar-icon bg-success"></span>\n\
+                                                            <span class="edit-avatar-icon ' + is_active_icon_class + '"></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
                                                             <div class="wrapper d-flex align-items-center mt-2">\n\
@@ -142,21 +150,28 @@ function getReferralTeamMemberList(user_id, node) {
         success: function (response) {
             if (response.status == 'success') {
                 var team_data = response.data;
+                var user_active_range = Number(response.user_active_range);
                 var team_html = '';
+                var total_business = 0;
+                var is_active_icon_class = '';
                 var team_list_html = '<div class="media">\n\
                                         <div class="col-md-12 mb-3 border p-0">\n\
                                             <table class="table table-striped">\n\
                                                 <thead>\n\
                                                     <tr>\n\
                                                         <th> User </th>\n\
-                                                        <th> First name </th>\n\
-                                                        <th> Progress </th>\n\
+                                                        <th> Name </th>\n\
                                                         <th> Left Business </th>\n\
                                                         <th> Right Business </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
                 $.each(team_data, function (key, member) {
+                    is_active_icon_class = 'bg-danger';
+                    total_business = (Number(member.total_left_business) + Number(member.total_right_business));
+                    if (total_business >= user_active_range) {
+                        is_active_icon_class = 'bg-success';
+                    }
                     if (member.photo)
                     {
                         var photo_src = media_url + 'profile_photo/' + member.photo;
@@ -168,22 +183,22 @@ function getReferralTeamMemberList(user_id, node) {
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
                                                             <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\
-                                                            <span class="edit-avatar-icon bg-success"></span>\n\
+                                                            <span class="edit-avatar-icon ' + is_active_icon_class + '"></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
                                                             <div class="wrapper d-flex align-items-center mt-2">\n\
                                                                 <h4 class="mb-0 font-weight-medium">' + member.associate_name + '</h4>\n\
                                                             </div>\n\
                                                             <div class="wrapper d-flex align-items-center mt-1">\n\
-                                                                <h6 class="mb-0 font-weight-light">' + member.associate_name + '</h6>\n\
+                                                                <h6 class="mb-0 font-weight-light">' + member.username + '</h6>\n\
                                                             </div>\n\
                                                             <div class="wrapper d-flex align-items-center mt-1">\n\
-                                                                <h6 class="mb-0 font-weight-light">' + member.associate_name + '</h6>\n\
+                                                                <h6 class="mb-0 font-weight-light"></h6>\n\
                                                             </div>\n\
                                                         </div>\n\
                                                     </div>\n\
                                                     <div class="col-sm-6 col-lg-5">\n\
-                                                        <div class="d-flex align-items-center w-100">\n\
+                                                        <div class="d-flex align-items-center w-100" style="display: none !important;">\n\
                                                             <p class="mb-0 mr-3 font-weight-semibold">Progress</p>\n\
                                                             <div class="progress progress-md w-100">\n\
                                                                 <div class="progress-bar bg-success" role="progressbar" style="width: 67%" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>\n\
@@ -232,11 +247,6 @@ function getReferralTeamMemberList(user_id, node) {
                                                             <img src="' + photo_src + '" alt="image" />\n\
                                                         </td>\n\
                                                         <td> ' + member.associate_name + '</td>\n\
-                                                        <td>\n\
-                                                            <div class="progress">\n\
-                                                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>\n\
-                                                            </div>\n\
-                                                        </td>\n\
                                                         <td> ' + member.total_left_business + ' </td>\n\
                                                         <td> ' + member.total_right_business + ' </td>\n\
                                                     </tr>';
@@ -246,7 +256,6 @@ function getReferralTeamMemberList(user_id, node) {
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
-                initDataTable();
                 hideLoader();
             } else {
                 hideLoader();

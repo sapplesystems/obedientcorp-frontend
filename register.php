@@ -54,7 +54,6 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                         <div class="col-sm-4">
                                             <select class="form-control required" id="position" name="position">
                                                 <option value="">-- Select One --</option>
-                                                <option value="Auto">Auto</option>
                                                 <option value="Left">Left</option>
                                                 <option value="Right">Right</option>
                                             </select>

@@ -181,7 +181,6 @@ function get_agent_payment_list(agent_id, status) {
                                         <th> Payment Mode </th>\n\
                                         <th> Payment Number </th>\n\
                                         ' + action_th + '\n\
-                                        <th></th>\n\
                                     </tr>\n\
                                 </thead>';
                 table_data += '<tbody>';
@@ -191,7 +190,7 @@ function get_agent_payment_list(agent_id, status) {
                         action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.id + ', ' + value.created_for + ',' + value.amount + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.id + ', ' + value.created_for + ');"></i> </td>';
                     }
                     var dd = new Date(value.date_requested);
-                    var date_of_payment = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+                    var date_of_payment = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
                     table_data += '<tr >\n\
                                         <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                                             <td>' + value.amount + '</td>\n\
@@ -205,27 +204,30 @@ function get_agent_payment_list(agent_id, status) {
                 table_data += '</tbody>';
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(table_data);
-                    //$("#pending_payment_list").DataTable();
+                    generateDataTable('pending_payment_list');
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(table_data);
-                    //$("#approved_payment_list").DataTable();
+                    generateDataTable('approved_payment_list');
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(table_data);
-                    //$("#reject_payment_list").DataTable();
+                    generateDataTable('reject_payment_list');
                 }
                 hideLoader();
             }
             else {
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(response.data);
+                    generateDataTable('pending_payment_list');
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(response.data);
+                    generateDataTable('approved_payment_list');
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(response.data);
+                    generateDataTable('reject_payment_list');
                 }
                 hideLoader();
             }

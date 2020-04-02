@@ -24,7 +24,7 @@ if(isset($_REQUEST['pid'])){
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4" id="subcategory_div" style="display:none">
+                            <div class="col-md-3" id="subcategory_div" style="display:none">
                                 <div class="form-group float-right">
                                     <label class="col-form-label float-left mr-3">Sub-Category</label>
                                     <div class="float-left">

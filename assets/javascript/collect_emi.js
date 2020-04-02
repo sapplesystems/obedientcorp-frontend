@@ -188,7 +188,7 @@ function get_customer_payament_details(customer_id, status) {
                         }
                     }
                     var dd = new Date(value.due_date);
-                    var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+                    var duedate = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
 
                     table_data += '<tr >\n\
                                         ' + action_tr + '\n\

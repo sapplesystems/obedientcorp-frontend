@@ -24,7 +24,13 @@ function getDashboardInfo(user_id) {
                     total_right_business.push(Number(value.total_right_business));
                     total_self_business.push(Number(value.total_self_business));
                 });
-
+                var sum_total_left_business = total_left_business.reduce(function (a, b) {
+                    return a + b;
+                });
+                var sum_total_right_business = total_right_business.reduce(function (a, b) {
+                    return a + b;
+                });
+                localStorage.setItem("agent_total_business", (sum_total_left_business + sum_total_right_business));
                 generateChart(total_left_business, total_right_business, total_self_business);
 
                 //due_payment_list
@@ -172,7 +178,7 @@ function generateDuePaymentList(list) {
 
     $.each(list, function (key, value) {
         var dd = new Date(value.due_date);
-        var duedate = dd.getDate() + '-' + month[dd.getMonth()] + '-' + dd.getFullYear();
+        var duedate = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
 
         table_data += '<tr>\n\
                             <td>' + value.name + '</td>\n\

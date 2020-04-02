@@ -25,7 +25,7 @@
                                     <h4 class="text-center" id="user_code"></h4>
                                     <h5 class="text-center" id="kyc_status"></h5>
                                 </div>
-                                <div class="border-bottom py-4">
+                                <div class="border-bottom py-4" style="display: none;">
                                     <p>Skills</p>
                                     <div>
                                         <label class="badge badge-outline-dark">Chalk</label>
@@ -35,7 +35,7 @@
                                         <label class="badge badge-outline-dark">Web Design</label>
                                     </div>
                                 </div>
-                                <div class="border-bottom py-4">
+                                <div class="border-bottom py-4" style="display: none;">
                                     <div class="d-flex mb-3">
                                         <div class="progress progress-md flex-grow">
                                             <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="55" style="width: 55%" aria-valuemin="0" aria-valuemax="100"></div>
@@ -50,7 +50,7 @@
                                 <div class="py-4">
                                     <p class="clearfix">
                                         <span class="float-left"> Status </span>
-                                        <span class="float-right text-muted"> Active </span>
+                                        <span class="float-right text-muted" id="agent_status"> </span>
                                     </p>
                                     <p class="clearfix">
                                         <span class="float-left"> Phone </span>
@@ -60,20 +60,20 @@
                                         <span class="float-left"> Mail </span>
                                         <span class="float-right text-muted" id="profile_mail"> </span>
                                     </p>
-                                    <p class="clearfix">
+                                    <p class="clearfix" style="display: none;">
                                         <span class="float-left"> Facebook </span>
                                         <span class="float-right text-muted">
                                             <a href="javascript:void(0);">David Grey</a>
                                         </span>
                                     </p>
-                                    <p class="clearfix">
+                                    <p class="clearfix" style="display: none;">
                                         <span class="float-left"> Twitter </span>
                                         <span class="float-right text-muted">
                                             <a href="javascript:void(0);">@davidgrey</a>
                                         </span>
                                     </p>
                                 </div>
-                                <button class="btn btn-gradient-primary btn-block">Preview</button>
+                                <button class="btn btn-gradient-primary btn-block" style="display: none;">Preview</button>
                             </div>
                             <div class="col-lg-8">
                                 <div class="card">
@@ -656,6 +656,13 @@
     <script type="text/javascript" src="assets/javascript/nominee_update.js"></script>
     <script type="text/javascript" src="assets/javascript/kyc_update.js"></script>
     <script type="text/javascript">
+        var user_active_range = '<?php echo $user_active_range; ?>';
+        var agent_total_business = localStorage.getItem('agent_total_business');
+        if(Number(agent_total_business) >= Number(user_active_range)){
+            $('#agent_status').html('Active');
+        }else{
+            $('#agent_status').html('Not Active');
+        }
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

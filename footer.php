@@ -46,19 +46,29 @@
 <script src="assets/javascript/croppie.js "></script>
 
 <script type="text/javascript">
-    var base_url = "<?php echo $base_url; ?>";
-    var media_url = "<?php echo $media_url; ?>";
+    /*var base_url = "<?php //echo $base_url; ?>";
+    var media_url = "<?php //echo $media_url; ?>";
     var user_id = 0;
     var user_type = 'AGENT';
     var user_left_node_id = 0;
     var user_right_node_id = 0;
     var user_email = '';
     var UserCookieData;
+    var photo_src = 'assets/images/default-img.png';*/
+    
+    var base_url = "<?php echo $base_url; ?>";
+    var media_url = "<?php echo $media_url; ?>";
+    var user_id = "<?php echo $user_id; ?>";
+    var user_type = "<?php echo $user_type; ?>";
+    var user_left_node_id = "<?php echo $left_node_id; ?>";
+    var user_right_node_id = "<?php echo $right_node_id; ?>";
+    var user_email = "<?php echo $user_email; ?>";
+    var UserCookieData;
     var photo_src = 'assets/images/default-img.png';
 
     var MonthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
-    checkCookie();
+    //checkCookie();
 
     function checkCookie() {
         var UserCookie = getCookie("UserCookie");

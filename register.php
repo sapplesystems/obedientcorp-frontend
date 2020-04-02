@@ -461,7 +461,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     $(document).ready(function() {
         $(":input").inputmask();
-        checkCookie();
+        //checkCookie();
 
         if ($(".datepicker").length) {
             $('.datepicker').datepicker({

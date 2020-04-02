@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$user_id || $user_id == '' || empty($user_id)) {
+if (!$_SESSION['login_resp']['id'] || $_SESSION['login_resp']['id'] == '' || empty($_SESSION['login_resp']['id'])) {
     echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
 }

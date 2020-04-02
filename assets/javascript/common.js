@@ -2,12 +2,12 @@ var error_html = '';
 var state_list;
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-if (UserCookieData.id != "" && UserCookieData.email != "") {
+/*if (UserCookieData.id != "" && UserCookieData.email != "") {
     var user_id = UserCookieData.id;
     var user_left_node_id = UserCookieData.left_node_id;
     var user_right_node_id = UserCookieData.right_node_id;
     var user_email = UserCookieData.email;
-}
+}*/
 $(document).ready(function () {
     getRelationships();
     $(":input").inputmask();

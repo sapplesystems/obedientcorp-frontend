@@ -116,7 +116,7 @@ include_once 'common_html.php';
     //function for login
     $(function () {
 
-        checkCookie();
+        //checkCookie();
         $("#login").click(function (e) {
             e.preventDefault();
             $("#login_form").validate({

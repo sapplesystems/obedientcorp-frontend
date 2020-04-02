@@ -1,92 +1,5 @@
-var photo_image = '';
-var map_image = '';
-
-
 $(document).ready(function () {
-
     getProjectList();
-    //crop image code
-    $image_crop = $('#image_demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 200,
-            height: 200,
-            type: 'square' //circle
-        },
-        boundary: {
-            width: 300,
-            height: 300
-        }
-    });
-
-    $image_crop_map = $('#image_demo_map').croppie({
-        enableExif: true,
-        viewport: {
-            width: 200,
-            height: 200,
-            type: 'square' //circle
-        },
-        boundary: {
-            width: 300,
-            height: 300
-        }
-    });
-
-    $('#photo').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            $image_crop.croppie('bind', {
-                url: event.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-        $('#uploadphotoModal').modal('show');
-    });
-    $('#mapphoto').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            $image_crop_map.croppie('bind', {
-                url: event.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-        $('#uploadmapModal').modal('show');
-    });
-
-    $('.crop_photo_image').click(function (event) {
-        $image_crop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response) {
-
-            if ($('#photo').val() != '')
-            {
-                photo_image = response;
-            }
-            $('#uploadphotoModal').modal('hide');
-        })
-    });
-
-    $('.crop_map_image').click(function (event) {
-        $image_crop_map.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response) {
-
-            if ($('#mapphoto').val() != '')
-            {
-                map_image = response;
-            }
-            $('#uploadmapModal').modal('hide');
-        })
-    });
-
-
-    //end crop image code
     if ($('#project_id').val() && $('#project_id').val() != '') {
         updateProject($('#project_id').val());
     }
@@ -114,68 +27,62 @@ $(document).ready(function () {
             var area = $('#area').val();
             var unit_price = $('#unit_price').val();
             var desc = $('#description').val();
-            //var photo = $('#photo')[0].files[0];
-            //var mapphoto = $('#mapphoto')[0].files[0];
+            var photo = $('#photo')[0].files[0];
+            var mapphoto = $('#mapphoto')[0].files[0];
+            var project_id = $('#project_id').val();
+            url = base_url + 'project/add';
+
+            if (project_id) {
+                params.append('id', project_id);
+                url = base_url + 'project/update';
+            }
+
             params.append('name', name);
             params.append('area', area);
             params.append('unit_price', unit_price);
             params.append('description', desc);
-            params.append('photo', photo_image);
-            params.append('map', map_image);
-            update_or_insert_project(params);
+            params.append('photo', photo);
+            params.append('map', mapphoto);
 
+            $.ajax({
+                url: url,
+                type: 'post',
+                data: params,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    error_html = '';
+                    if (response.status == 'success') {
+                        showSwal('success', 'Project Added', 'Project added successfully');
+                        document.getElementById('project-form').reset();
+                        $('#mapphoto_id,#photo_id').attr('src', '');
+                        $('#mapphoto_id,#photo_id').css('display', 'none');
+                        location.href = 'project-list';
+                        //getProjectList();
+                        hideLoader();
+                    } else {
+                        showSwal('error', 'Project Not Added', 'Project not added successfully');
+                        hideLoader();
+                    }
+
+                    $('#errors_div').html(error_html);
+
+                },
+                error: function (response) {
+                    error_html = '';
+                    var error_object = JSON.parse(response.responseText);
+                    var message = error_object.message;
+                    var errors = error_object.errors;
+                    $.each(errors, function (key, value) {
+                        error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
+                    });
+                    $('#errors_div').html(error_html);
+                    hideLoader();
+                }
+            });//ajax
         }//end if
     });
 });
-
-function update_or_insert_project(params) {
-    var url = base_url + 'project/add';
-    var project_id = $('#project_id').val();
-    if (project_id) {
-        params.append('id', project_id);
-        url = base_url + 'project/update';
-    }
-    $.ajax({
-        url: url,
-        type: 'post',
-        data: params,
-        contentType: false,
-        processData: false,
-        success: function (response) {
-            error_html = '';
-            if (response.status == 'success') {
-                $('#project_id').val(response.data.id);
-                showSwal('success', 'Project Added', 'Project added successfully');
-                document.getElementById('project-form').reset();
-                $('#mapphoto_id,#photo_id').attr('src', '');
-                $('#mapphoto_id,#photo_id').css('display', 'none');
-                location.href = 'project-list';
-                //getProjectList();
-                hideLoader();
-            } else {
-                showSwal('error', 'Project Not Added', 'Project not added successfully');
-                hideLoader();
-            }
-
-            $('#errors_div').html(error_html);
-
-        },
-        error: function (response) {
-            console.log(response);
-            error_html = '';
-            var error_object = JSON.parse(response.responseText);
-            var message = error_object.message;
-            var errors = error_object.errors;
-            $.each(errors, function (key, value) {
-                error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
-            });
-            $('#errors_div').html(error_html);
-            hideLoader();
-        }
-    });//ajax
-
-}//end update_or_insert_function
-
 //get all project list
 function getProjectList() {
     showLoader();
@@ -245,7 +152,8 @@ function updateProject(project_id) {
                     $('#mapphoto_id').attr('src', map_src);
                     $('#mapphoto_id').css('display', 'block');
                 }
-                else {
+                else
+                {
                     $('#mapphoto_id').attr('src', '');
                     $('#mapphoto_id').css('display', 'none');
                 }
@@ -260,7 +168,8 @@ function deleteProject(e, project_id) {
     e.preventDefault();
     showLoader();
     var result = confirm("Are you sure you want to delete this project?");
-    if (result == true) {
+    if (result == true)
+    {
         $.ajax({
             url: base_url + 'project/delete',
             type: 'post',

@@ -1,5 +1,3 @@
-var sub_category_image = '';
-
 $(document).ready(function () {
     getCategoryList();
     /*$(document).on('change', '#categories', function() {
@@ -7,50 +5,6 @@ $(document).ready(function () {
      getSubCategoryList($(this).val());
      }
      });*/
-    //crop image
-    $image_crop = $('#image_demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 200,
-            height: 200,
-            type: 'square' //circle
-        },
-        boundary: {
-            width: 300,
-            height: 300
-        }
-    });
-    $('#sub_category_image').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            $image_crop.croppie('bind', {
-                url: event.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-        $('#uploadimageModal').modal('show');
-    });
-
-    $('.crop_image').click(function (event) {
-        $image_crop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response)
-        {
-
-            if ($('#image').val() != '')
-            {
-                sub_category_image = response;
-            }
-            $('#uploadimageModal').modal('hide');
-
-        })
-    });
-    //crop image
-
-
 
     if ($('#category_id').val() != '' && $('#subcategory_id').val() != '') {
         updateSubCategory($('#subcategory_id').val());
@@ -74,7 +28,7 @@ $(document).ready(function () {
             params.append('parent_id', category_id);
             params.append('name', $('#sub_category_title').val());
             params.append('description', $('#sub_category_description').val());
-            params.append('image', sub_category_image);
+            params.append('image', $('#sub_category_image')[0].files[0]);
             if ($('#subcategory_id').val())
             {
                 url = base_url + 'category/update';

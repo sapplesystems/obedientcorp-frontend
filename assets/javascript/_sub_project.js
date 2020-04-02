@@ -1,88 +1,6 @@
-var photo_image = '';
-var map_image = '';
-
 $(document).ready(function () {
     getProjectList();
     getSubProjectList();
-    //crop image code
-    $image_crop = $('#image_demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 200,
-            height: 200,
-            type: 'square' //circle
-        },
-        boundary: {
-            width: 300,
-            height: 300
-        }
-    });
-
-    $image_crop_map = $('#image_demo_map').croppie({
-        enableExif: true,
-        viewport: {
-            width: 200,
-            height: 200,
-            type: 'square' //circle
-        },
-        boundary: {
-            width: 300,
-            height: 300
-        }
-    });
-
-    $('#photo').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            $image_crop.croppie('bind', {
-                url: event.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-        $('#uploadphotoModal').modal('show');
-    });
-
-    $('#mapphoto').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            $image_crop_map.croppie('bind', {
-                url: event.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-        $('#uploadmapModal').modal('show');
-    });
-    $('.crop_photo_image').click(function (event) {
-        $image_crop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response) {
-
-            if ($('#photo').val() != '')
-            {
-                photo_image = response;
-            }
-            $('#uploadphotoModal').modal('hide');
-        })
-    });
-
-    $('.crop_map_image').click(function (event) {
-        $image_crop_map.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response) {
-
-            if ($('#mapphoto').val() != '')
-            {
-                map_image = response;
-            }
-            $('#uploadmapModal').modal('hide');
-        })
-    });
 
     if ($('#project_id').val() && $('#sub_project_id').val() != '') {
         updateProject($('#sub_project_id').val());
@@ -113,8 +31,8 @@ $(document).ready(function () {
             var area = $('#area').val();
             var unit_price = $('#unit_price').val();
             var desc = $('#description').val();
-            //var photo = $('#photo')[0].files[0];
-            //var mapphoto = $('#mapphoto')[0].files[0];
+            var photo = $('#photo')[0].files[0];
+            var mapphoto = $('#mapphoto')[0].files[0];
             var project_id = $('#sub_project_id').val();
             var projects_id = $('#projects').val();
 
@@ -131,8 +49,8 @@ $(document).ready(function () {
             params.append('area', area);
             params.append('unit_price', unit_price);
             params.append('description', desc);
-            params.append('photo', photo_image);
-            params.append('map', map_image);
+            params.append('photo', photo);
+            params.append('map', mapphoto);
 
             $.ajax({
                 url: url,

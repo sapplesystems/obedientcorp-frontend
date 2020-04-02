@@ -43,6 +43,8 @@
 <!--script src="assets/js/data-table.js"></script-->
 <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+<script src="assets/javascript/croppie.js "></script>
+
 <script type="text/javascript">
     var base_url = "<?php echo $base_url; ?>";
     var media_url = "<?php echo $media_url; ?>";

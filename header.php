@@ -41,6 +41,7 @@ include_once 'common_html.php';
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- End layout styles -->
         <link rel="shortcut icon" href="assets/images/favicon.png" />
+        <link rel="stylesheet" href="assets/css/croppie.css" />
     </head>
 
     <body>

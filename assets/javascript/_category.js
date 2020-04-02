@@ -1,52 +1,5 @@
-var cat_image = '';
-
 $(document).ready(function () {
     getCategoryList();
-    //crop image
-    $image_crop = $('#image_demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 200,
-            height: 200,
-            type: 'square' //circle
-        },
-        boundary: {
-            width: 300,
-            height: 300
-        }
-    });
-    $('#image').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            $image_crop.croppie('bind', {
-                url: event.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-        $('#uploadimageModal').modal('show');
-    });
-
-    $('.crop_image').click(function (event) {
-        $image_crop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response)
-        {
-
-            if ($('#image').val() != '')
-            {
-                cat_image = response;
-            }
-            $('#uploadimageModal').modal('hide');
-
-        })
-    });
-    //crop image
-
-
-
 
     if ($('#category_id').val() && $('#category_id').val() != '') {
         updateCategory($('#category_id').val());
@@ -67,7 +20,7 @@ $(document).ready(function () {
             var url = base_url + 'category/add';
             params.append('name', $('#title').val());
             params.append('description', $('#description').val());
-            params.append('image', cat_image);
+            params.append('image', $('#image')[0].files[0]);
             if ($('#category_id').val()) {
                 url = base_url + 'category/update';
                 params.append('updated_by', user_id);

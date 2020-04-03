@@ -35,7 +35,7 @@ $(document).ready(function () {
         if ($("#profile_update").valid()) {
             showLoader();
             var params = new FormData();
-            var id = user_id;
+            var id = user_profile_id;
             var introducer_code = $('#sponsor').val();
             var signature = $('#signature')[0].files[0];
             //var photo = $('#photo')[0].files[0];
@@ -85,6 +85,7 @@ $(document).ready(function () {
             params.append("adhar", adhar);
             params.append("email", email);
             params.append("transaction_password", transaction_password);
+            
             $.ajax({
                 method: "POST",
                 url: base_url + 'profile/update',

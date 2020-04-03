@@ -227,17 +227,19 @@ function get_goods_coupon_listing() {
             if (response.status) {
                 var goods_coupon_list = '';
                 var cb_status = '';
+                var select_number_of_days = '';
                 $.each(response.data, function (key, value) {
+                    select_number_of_days = '';
                     var classname = 'odd';
                     if (i % 2 == 0) {
                         classname = 'even';
                     }
 
                     expiry_date = new Date(value.expiry_date);
-                    expiry_date = expiry_date.getDate() + '-' + MonthArr[(expiry_date.getMonth() + 1)] + '-' + expiry_date.getFullYear();
+                    expiry_date = expiry_date.getDate() + '-' + MonthArr[(expiry_date.getMonth())] + '-' + expiry_date.getFullYear();
 
                     generated_date = new Date(value.generated_date);
-                    generated_date = generated_date.getDate() + '-' + MonthArr[(generated_date.getMonth() + 1)] + '-' + generated_date.getFullYear();
+                    generated_date = generated_date.getDate() + '-' + MonthArr[(generated_date.getMonth())] + '-' + generated_date.getFullYear();
 
                     action_td = '<td><div class="float-left">\n\
                                     <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" \n\
@@ -248,6 +250,7 @@ function get_goods_coupon_listing() {
                         if (value.status == 'Active') {
                             cb_status = 'checked';
                         }
+                        select_number_of_days = daysOptions(value.id);
                         action_td = '<td>\n\
                                         <div class="float-left">\n\
                                             <input class="tgl tgl-skewed" id="cb' + value.id + '" type="checkbox" ' + cb_status + ' onclick="changeCouponStatus(event, ' + value.id + ');"/>\n\
@@ -256,7 +259,7 @@ function get_goods_coupon_listing() {
                                         <div class="float-left ml-3">\n\
                                             <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(event, ' + value.id + ');">Extend Coupon<br/> Availability</a>\n\
                                             <form class="form-inline" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
-                                                <input type="number" class="form-control mr-sm-2 number_of_days" id="number_of_days_' + value.id + '" placeholder="Enter Number Of Days">\n\
+                                                ' + select_number_of_days + '\n\
                                                 <button type="submit" class="btn btn-gradient-success btn-sm" onclick="extendCouponAvailabilitySubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
                                                 <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="extendCouponAvailabilityCancel(event, ' + value.id + ');">Cancel</button>\n\
                                             </form>\n\
@@ -370,4 +373,12 @@ function printCoupon(e, coupon_id, coupon_code, coupon_amount, generated_date, e
     a.document.write('</body></html>');
     a.document.close();
     a.print();
+}
+
+function daysOptions(id) {
+    var options = '';
+    for (var i = 2; i <= 30; i++) {
+        options += '<option value="' + i + '">' + i + ' Days</option>';
+    }
+    return '<select class="form-control mr-sm-2 number_of_days" id="number_of_days_' + id + '"><option value="">Select Days</option><option value="1">1 Day</option>' + options + '</select>';
 }

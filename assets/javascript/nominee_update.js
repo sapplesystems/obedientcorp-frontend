@@ -11,7 +11,7 @@ $(document).ready(function () {
         if ($("#nominee_update").valid()) {
             showLoader();
             var params = new FormData();
-            var id = user_id;
+            var id = user_profile_id;
             var nominee_name = $('#nominee_name').val();
             var relation = $('#relation').val();
             //var father_husband_name = $('#father_name').val();
@@ -36,11 +36,11 @@ $(document).ready(function () {
                 success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Nominee details saved successfully</div>';
+                        showSwal('success', 'Nominee Details Saved', 'Nominee details saved successfully');
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Nominee details could not be saved</div>';
+                        showSwal('error', 'Nominee Details Saved', 'Nominee details could not be saved');
+                        
                     }
-                    $('#errors_div').html(error_html);
                     hideLoader();
                 },
                 error: function (response) {

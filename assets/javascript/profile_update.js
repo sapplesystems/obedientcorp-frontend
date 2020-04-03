@@ -3,6 +3,30 @@ $(document).ready(function () {
         e.preventDefault();
         var profile_frm = $("#profile_update");
         profile_frm.validate({
+            rules: {
+                confirm_passowrd: {
+                  equalTo: "#password"
+                },
+                password: {
+                  minlength: 8
+                },
+                mobile: {
+                  phoneUS: true,
+                },
+                land_line_phone: {
+                  number: true,
+                },
+                pin_code: {
+                  number: true,
+                },
+                adhar: {
+                  number: true,
+                },
+              },
+              messages: {
+                payee_name: "Payee name same as name",
+                confirm_passowrd: "Confirm password same as Password",
+              },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
             }
@@ -35,6 +59,7 @@ $(document).ready(function () {
             var pin_code = $('#pin_code').val();
             var adhar = $('#adhar').val();
             var email = $('#email').val();
+            var transaction_password =$('#transaction_password').val();
             params.append("id", id);
             params.append("introducer_code", introducer_code);
             params.append("signature", signature);
@@ -59,6 +84,7 @@ $(document).ready(function () {
             params.append("pin_code", pin_code);
             params.append("adhar", adhar);
             params.append("email", email);
+            params.append("transaction_password", transaction_password);
             $.ajax({
                 method: "POST",
                 url: base_url + 'profile/update',
@@ -68,11 +94,14 @@ $(document).ready(function () {
                 success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Profile saved successfully</div>';
+                        if(response.data.transaction_password && response.data.transaction_password != ''){
+                            disableTransactionPassword();
+                        }
+                        showSwal('success', 'Profile Saved', 'Profile saved successfully');
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Profile could not be saved</div>';
+                        showSwal('error', 'Profile Not Saved', 'Profile could not be saved');
                     }
-                    $('#errors_div').html(error_html);
+                   // $('#errors_div').html(error_html);
                     hideLoader();
                 },
                 error: function (response) {

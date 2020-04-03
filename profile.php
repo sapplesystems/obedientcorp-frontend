@@ -1,4 +1,16 @@
-<?php include_once 'header.php'; ?>
+<?php
+include_once 'header.php';
+$agent_user_id = '';
+$agent_user_email = '';
+if($_REQUEST)
+{
+    if ($user_type == 'ADMIN' && $_REQUEST['user_id'] && $_REQUEST['user_email']) {
+        $agent_user_id = $_REQUEST['user_id'];
+        $agent_user_email = $_REQUEST['user_email'];
+    }
+}
+
+?>
 <!-- partial -->
 
 <div class="main-panel ">
@@ -272,7 +284,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Adhar Number <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar">
                                                             </div>
@@ -286,9 +298,14 @@
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="username" name="username" readonly>
                                                             </div>
+                                                            <label class="col-sm-2 col-form-label transaction-password">Transaction Password <span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control " placeholder="Transaction Password" id="transaction_password" name="transaction_password">
+                                                            </div>
                                                         </div>
                                                     </section>
                                                     <input type="submit" class="btn btn-primary" id="profile_update_submit" value="Save" />
+
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="bank-details-1" role="tabpanel" aria-labelledby="bank-details-tab">
@@ -504,7 +521,7 @@
                                                             <label class="col-sm-2 col-form-label">Join Date <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
                                                                 <div class="input-group ">
-                                                                    <input type="text" class="form-control" placeholder="" id="join_date" name="join_date"  />
+                                                                    <input type="text" class="form-control" placeholder="" id="join_date" name="join_date" />
                                                                     <!--<span class="input-group-addon input-group-append border-left">
                                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                                     </span>-->
@@ -650,23 +667,29 @@
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
+    <script type="text/javascript">
+        var agent_user_id = "<?php echo $agent_user_id; ?>";
+        var agent_user_email = "<?php echo $agent_user_email; ?>";
+        var user_active_range = "<?php echo $user_active_range; ?>";
+    </script>
+
     <script type="text/javascript" src="assets/javascript/common.js"></script>
     <script type="text/javascript" src="assets/javascript/profile_update.js"></script>
     <script type="text/javascript" src="assets/javascript/bank_update.js"></script>
     <script type="text/javascript" src="assets/javascript/nominee_update.js"></script>
     <script type="text/javascript" src="assets/javascript/kyc_update.js"></script>
     <script type="text/javascript">
-        var user_active_range = '<?php echo $user_active_range; ?>';
         var agent_total_business = localStorage.getItem('agent_total_business');
-        if(Number(agent_total_business) >= Number(user_active_range)){
+        if (Number(agent_total_business) >= Number(user_active_range)) {
             $('#agent_status').html('Active');
-        }else{
+        } else {
             $('#agent_status').html('Not Active');
         }
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
                     $('#imagePreview').hide();
                     $('#imagePreview').fadeIn(650);
@@ -674,7 +697,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        $("#imageUpload").change(function () {
+        $("#imageUpload").change(function() {
             readURL(this);
         });
     </script>

@@ -13,7 +13,7 @@ $(document).ready(function () {
             var params = new FormData();
 
             var kyc_id = $('#kyc_id').val();
-            var id = user_id;
+            var id = user_profile_id;
             var nationality = $('#nationality').val();
             var occupation = $('#koccupation').val();
             var qualification = $('#qualification').val();
@@ -57,11 +57,10 @@ $(document).ready(function () {
                 success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">KYC details saved successfully</div>';
+                        showSwal('success', 'KYC Details Saved', 'KYC details saved successfully');
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">KYC details could not be saved</div>';
+                        showSwal('error', 'KYC Details Not Saved', 'KYC details could not be saved');
                     }
-                    $('#errors_div').html(error_html);
                     hideLoader();
                 },
                 error: function (response) {

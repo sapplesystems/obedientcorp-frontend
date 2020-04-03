@@ -11,7 +11,7 @@ $(document).ready(function () {
         if ($("#bank_update").valid()) {
             showLoader();
             var params = new FormData();
-            var id = user_id;
+            var id = user_profile_id;
             var payee_name = $('#payee_name').val();
             var bank_name = $('#bank_name').val();
             var account_number = $('#account_number').val();
@@ -34,11 +34,10 @@ $(document).ready(function () {
                 success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Bank details saved successfully</div>';
+                        showSwal('success', 'Bank Details Saved', 'Bank details saved successfully');
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Bank details could not be saved</div>';
+                        showSwal('error', 'Bank Details Not Saved', 'Bank details could not be saved');
                     }
-                    $('#errors_div').html(error_html);
                     hideLoader();
                 },
                 error: function (response) {

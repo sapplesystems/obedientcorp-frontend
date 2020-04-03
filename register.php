@@ -12,7 +12,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Obedient</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -60,7 +60,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Application Signature image <span class="text-danger">*</span></label>
+                                        <label class="col-sm-2 col-form-label">Applicant Signature image <span class="text-danger">*</span></label>
                                         <div class=" input-group col-sm-4">
                                             <!--<input type="file" class="form-control required" placeholder="" name="signature" id="signature">-->
                                             <input type="file" name="img[]" class="file-upload-default required" name="signature" id="signature">
@@ -209,7 +209,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Adhar Number <span class="text-danger">*</span></label>
+                                        <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar">
                                         </div>
@@ -460,6 +460,8 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     var today = new Date();
     var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     $(document).ready(function() {
+        getStatesCities();
+        getRelationships();
         $(":input").inputmask();
         //checkCookie();
 

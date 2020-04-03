@@ -93,6 +93,7 @@ function getProjectList() {
         data: {},
         async: false,
         success: function (response) {
+            console.log(response);
             sub_project_list = response.data;
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
@@ -233,6 +234,11 @@ function getplotlist() {
 
                 });
                 $('#plot_list').html(html);
+                initDataTable();
+                hideLoader();
+            }
+            else
+            {
                 initDataTable();
                 hideLoader();
             }

@@ -197,13 +197,21 @@ function getProjectList() {
         success: function (response) {
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
-                $.each(response.data, function (key, value) {
-                    if (value.parent_id == 0) {
-                        option += '<option value="' + value.id + '">' + value.name + '</option>';
-                    }
-                });
-                $('#projects').html(option);
-                hideLoader();
+                if(response.data.length!= 0)
+                {
+                    $.each(response.data, function (key, value) {
+                        if (value.parent_id == 0) {
+                            option += '<option value="' + value.id + '">' + value.name + '</option>';
+                        }
+                    });
+                    $('#projects').html(option);
+                    hideLoader();
+                }
+                else
+                {
+                    hideLoader();
+                }
+                
             }
         }
     });
@@ -211,7 +219,7 @@ function getProjectList() {
 
 //function for get all subproject list
 function getSubProjectList() {
-    showLoader();
+    //showLoader();
     $.ajax({
         url: base_url + 'project/childern',
         type: 'post',

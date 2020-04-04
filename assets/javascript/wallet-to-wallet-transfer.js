@@ -28,6 +28,7 @@ $(document).ready(function () {
             }
             var transfer_to = $('#transfer-to').val();
             var amount = $('#amount').val();
+            var transaction_password = $('#transaction_password').val();
 
             url = base_url + 'transfer/wallet-to-wallet';
 
@@ -40,6 +41,7 @@ $(document).ready(function () {
             params.append('transfer_from', transfer_from);
             params.append('transfer_to', transfer_to);
             params.append('amount', amount);
+            params.append('transaction_password', transaction_password);
 
             $.ajax({
                 url: url,

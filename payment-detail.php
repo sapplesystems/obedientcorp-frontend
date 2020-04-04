@@ -56,7 +56,7 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['uid'])) {
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row mb-0">
-                                                <label class="col-form-label col-sm-4 text-right">Upload Image:</label>
+                                                <label class="col-form-label col-sm-4 text-right">Uploaded Image:</label>
                                                 <div class="col-sm-8">
                                                     <label class="col-form-label card-description mb-0">
                                                         <img src="" class="upload_img" id="photo" />

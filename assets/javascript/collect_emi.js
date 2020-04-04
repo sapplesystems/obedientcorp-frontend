@@ -1,8 +1,11 @@
 
 var amount = '';
 var type = '';
-get_agent_list();
-//function for get all coupons
+getAgentList();
+getCustoerPaymentDetails(0, 'Due');
+getCustoerPaymentDetails(0, 'Pending');
+getCustoerPaymentDetails(0, 'Approved');
+getCustoerPaymentDetails(0, 'Rejected');
 $(function () {
     $(document).on('click', '#make_request', function () {
         if (checkChecked() == false) {
@@ -78,8 +81,8 @@ $(function () {
                 processData: false,
                 success: function (response) {
                     if (response.status == 'success') {
-                        get_customer_payament_details($('#customer-list').val(), 'Due');
-                        get_customer_payament_details($('#customer-list').val(), 'Pending');
+                        getCustoerPaymentDetails($('#customer-list').val(), 'Due');
+                        getCustoerPaymentDetails($('#customer-list').val(), 'Pending');
                         document.getElementById('payment-form').reset();
                         $('#makeRequest').modal('hide');
                         showSwal('success', 'Payment accepted', 'Payment accepted successfully');
@@ -137,13 +140,13 @@ $(function () {
 
 
 function getCustomerPaymentList(customer_id) {
-    get_customer_payament_details(customer_id, 'Due');
-    get_customer_payament_details(customer_id, 'Pending');
-    get_customer_payament_details(customer_id, 'Approved');
-    get_customer_payament_details(customer_id, 'Rejected');
+    getCustoerPaymentDetails(customer_id, 'Due');
+    getCustoerPaymentDetails(customer_id, 'Pending');
+    getCustoerPaymentDetails(customer_id, 'Approved');
+    getCustoerPaymentDetails(customer_id, 'Rejected');
 
 }
-function get_customer_payament_details(customer_id, status) {
+function getCustoerPaymentDetails(customer_id, status) {
     var params = {
         user_id: $('#agent-list').val(),
         customer_id: customer_id,
@@ -178,14 +181,14 @@ function get_customer_payament_details(customer_id, status) {
                     checkbox = '';
                     var action_tr = '';
                     //var sub_project ='<td></td>';
-                    if (status == 'Due') {
-                        if (value.payment_status == 'Due') {
-                            checkbox = '<div class="form-check m-0">\n\
+                    var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.payment_master_id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
+                    if (status == 'Due' || value.payment_status == 'Due') {
+                        detail_link = '';
+                        checkbox = '<div class="form-check m-0">\n\
                             <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">\n\
                             <i class="input-helper"></i></label></div>';
-                            action_tr = '<td>' + checkbox + '</td>';
+                        action_tr = '<td>' + checkbox + '</td>';
 
-                        }
                     }
                     var dd = new Date(value.due_date);
                     var duedate = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
@@ -198,7 +201,7 @@ function get_customer_payament_details(customer_id, status) {
                                             <td>' + value.project_master_name + '</td>\n\
                                             <td>' + value.sub_project_master_name + '</td>\n\
                                             <td>' + value.plot_master_name + '</td>\n\
-                                            <td>' + value.payment_status + ' &nbsp; <a href="payment-detail.php?pid=' + value.payment_master_id + '&uid=' + $('#agent-list').val() + '">Detail</a></td>\n\
+                                            <td>' + value.payment_status + ' &nbsp; ' + detail_link + '</td>\n\
                                         </tr>';
                 });
                 table_data += '</tbody>';
@@ -222,15 +225,19 @@ function get_customer_payament_details(customer_id, status) {
             else {
                 if (status == 'Due') {
                     $("#due_payment_list").html(response.data);
+                    generateDataTable('due_payment_list');
                 }
                 if (status == 'Pending') {
                     $("#pending_payment_list").html(response.data);
+                    generateDataTable('pending_payment_list');
                 }
                 if (status == 'Approved') {
                     $("#approved_payment_list").html(response.data);
+                    generateDataTable('approved_payment_list');
                 }
                 if (status == 'Rejected') {
                     $("#reject_payment_list").html(response.data);
+                    generateDataTable('reject_payment_list');
                 }
             }
 
@@ -264,7 +271,7 @@ function get_customer_list(user_id) {
 }//end function customer list
 
 //function for get agent list
-function get_agent_list() {
+function getAgentList() {
     //login user id
     var url = base_url + 'down-the-line-members';
     var agent_id = 0;
@@ -272,6 +279,7 @@ function get_agent_list() {
         url: url,
         type: 'post',
         dataType: 'json',
+        async: false,
         data: {
             user_id: user_id
         },

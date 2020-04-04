@@ -1,6 +1,7 @@
 get_agent_list();
 getWalletAmount(user_id);
 var EMI_Or_Money_Request = 0;
+var FMCG_REQUEST = {};
 
 $(document).ready(function () {
     $("#agents").change(function () {
@@ -18,6 +19,7 @@ $(document).ready(function () {
                     required: true,
                     number: true
                 },
+                transaction_password: "required",
             },
             errorPlacement: function errorPlacement(error, element) {
                 element.before(error);
@@ -26,13 +28,47 @@ $(document).ready(function () {
         if ($("#add-money-to-wallet-form").valid()) {
             var params = {
                 user_id: $('#agents').val(),
-                amount: $('#amount').val()
+                amount: $('#amount').val(),
+                transaction_password: $('#transaction_password').val(),
             };
             addMoneyToWallet(params);//ajax
         }//end if
 
 
     });//form submit
+
+    $(document).on('click', '.transaction_password_ok', function (e) {
+        e.preventDefault();
+        var transaction_password = document.getElementById('transaction_password');
+        if (transaction_password.value == '') {
+            transaction_password.focus();
+            return false;
+        } else {
+            $.ajax({
+                url: base_url + 'validate-transaction-password',
+                type: 'post',
+                data: {
+                    inserted_by: user_id,
+                    transaction_password: transaction_password.value,
+                },
+                success: function (response) {
+                    if (response.status == 'success') {
+                        if (EMI_Or_Money_Request && EMI_Or_Money_Request == 1) {
+                            FMCG_REQUEST.transaction_password = transaction_password.value;
+                            addMoneyToWallet(FMCG_REQUEST);
+                        } else {
+                            updateMoneyRequestStatus(FMCG_REQUEST.payment_id, FMCG_REQUEST.agent_id, FMCG_REQUEST.status);
+                        }
+                        hideLoader();
+                    } else {
+                        showSwal('error', 'Failed', response.data);
+                        hideLoader();
+                    }
+
+                }
+            });
+        }
+    });
 });//document ready
 
 function approveRequest(payment_id, agent_id, amount) {
@@ -42,11 +78,20 @@ function approveRequest(payment_id, agent_id, amount) {
         amount: amount
     };
     EMI_Or_Money_Request = 1;
-    addMoneyToWallet(params);
+    FMCG_REQUEST = params;
+    askForTransaction();
+    //addMoneyToWallet(params);
 }
 
 function rejectRequest(payment_id, agent_id) {
-    updateMoneyRequestStatus(payment_id, agent_id, 'Rejected');
+    FMCG_REQUEST = {
+        payment_id: payment_id,
+        agent_id: agent_id,
+        status: 'Rejected'
+    };
+    EMI_Or_Money_Request = 0;
+    askForTransaction();
+    //updateMoneyRequestStatus(payment_id, agent_id, 'Rejected');
 }
 
 function updateMoneyRequestStatus(payment_id, agent_id, status) {
@@ -76,7 +121,8 @@ function addMoneyToWallet(params) {
         data: {
             inserted_by: user_id,
             user_id: params.user_id,
-            amount: params.amount
+            amount: params.amount,
+            transaction_password: params.transaction_password
         },
         success: function (response) {
             if (response.status == 'success') {
@@ -84,13 +130,15 @@ function addMoneyToWallet(params) {
                 updated_amount = Number(updated_amount);
                 $('#e-wallet').html(updated_amount.toFixed(2));
                 $('#amount').val('');
+                $('#transaction_password').val('');
                 if (EMI_Or_Money_Request == 1) {
                     EMI_Or_Money_Request = 0;
                     updateMoneyRequestStatus(params.payment_id, params.user_id, 'Approved');
-                } else {
-                    hideLoader();
                 }
+                hideLoader();
+                showSwal('success', 'Success', 'Money has been added successfully.');
             } else {
+                showSwal('error', 'Failed', response.data);
                 hideLoader();
             }
         }
@@ -235,3 +283,9 @@ function get_agent_payment_list(agent_id, status) {
         }
     });
 }//end function get_agent_payment_list
+
+function askForTransaction() {
+    showSwal('transaction_password');
+    document.getElementById('transaction_password').value = '';
+    return false;
+}

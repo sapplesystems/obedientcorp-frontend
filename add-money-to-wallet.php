@@ -28,7 +28,12 @@ if ($user_type != 'ADMIN') {
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control required" id="amount" name="amount" placeholder="Enter Amount" >
                                         </div>
-
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Transaction Password</label>
+                                        <div class="col-sm-4">
+                                            <input type="password" class="form-control required" id="transaction_password" name="transaction_password" placeholder="Transaction password" >
+                                        </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2"></label>

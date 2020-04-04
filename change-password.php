@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Change Password</h4>
+                        <h4 class="card-title mb-4">Change Login Password</h4>
                         <div id="errors_div"></div>
                         <form class="forms-sample" method="post" action="" id="change_password_form" name="change_password_form">
                             <div class="row">
@@ -79,7 +79,7 @@
         </div>
     </div>
 
-    
+
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
     <script src="assets/javascript/change_password.js"></script>

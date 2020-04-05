@@ -1,4 +1,9 @@
-<?php include_once 'header.php'; ?>
+<?php
+include_once 'header.php';
+if ($user_type != 'ADMIN') {
+    echo '<script type="text/javascript">window.location.href="dashboard.php";</script>';
+}
+?>
 <!-- partial -->
 <style>
 .custom_overflow{overflow:auto;}
@@ -19,11 +24,11 @@
                                 <thead>
                                     <tr>
                                         <th>Sr.No</th>
-                                        <th>Agent Name</th>
+                                        <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone Number</th>
                                         <th>Message</th>
-                                        <th>Created At</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody id="contacts_list"></tbody>

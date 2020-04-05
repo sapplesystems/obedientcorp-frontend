@@ -120,14 +120,6 @@ include_once 'common_html.php';
                                 </a>
                             </li>
                         <?php } ?>
-                        <?php if ($user_type == 'ADMIN') { ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact-list">
-                                    <span class="menu-title">Contact List</span>
-                                    <i class="mdi mdi-settings menu-icon"></i>
-                                </a>
-                            </li>
-                        <?php } ?>
                         <li class="nav-item">
                             <a class="nav-link" href="customer-list">
                                 <span class="menu-title">Customer List</span>
@@ -248,7 +240,14 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-repeat menu-icon"></i>
                             </a>
                         </li>
-
+                        <?php if ($user_type == 'ADMIN') { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact-request">
+                                    <span class="menu-title">Contact Requests</span>
+                                    <i class="mdi mdi-settings menu-icon"></i>
+                                </a>
+                            </li>
+                        <?php } ?>
                         <!--li class="nav-item">
                             <a class="nav-link" href="#" onclick="logout();">
                                 <span class="menu-title">Logout</span>

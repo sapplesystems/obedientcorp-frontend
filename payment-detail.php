@@ -83,13 +83,19 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['uid'])) {
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-md-6">
                                             <div class="form-group row mb-0">
-                                                <label for="message-text" class="col-form-label col-sm-2 text-right">Comment:</label>
-                                                <div class="col-sm-10">
-                                                    <label class="col-form-label card-description mb-0" id="comment"></label>
+                                                <label class="col-form-label col-sm-4 text-right">Agent Comment:</label>
+                                                <div class="col-sm-8">
+                                                    <label class="col-form-label card-description mb-0"id="comment"></label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row mb-0" id="admincomment">
+                                                
                                             </div>
                                         </div>
                                     </div>

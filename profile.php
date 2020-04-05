@@ -21,8 +21,10 @@ if($_REQUEST)
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-4">
-                                <div class="border-bottom text-center pb-4">
+                            <div class="col-lg-12">
+							<div class="row">
+							<div class="col-sm-5">
+                                <div class="text-center pb-4">
                                     <div class="avatar-upload">
                                         <div class="avatar-edit">
                                             <input type='file' id="imageUpload" class="imageUpload" accept=".png, .jpg, .jpeg" />
@@ -37,6 +39,8 @@ if($_REQUEST)
                                     <h4 class="text-center" id="user_code"></h4>
                                     <h5 class="text-center" id="kyc_status"></h5>
                                 </div>
+								</div>
+								<div class="col-sm-5">
                                 <div class="border-bottom py-4" style="display: none;">
                                     <p>Skills</p>
                                     <div>
@@ -86,8 +90,10 @@ if($_REQUEST)
                                     </p>
                                 </div>
                                 <button class="btn btn-gradient-primary btn-block" style="display: none;">Preview</button>
+								</div>
                             </div>
-                            <div class="col-lg-8">
+							</div>
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body p-0">
                                         <ul class="nav nav-tabs customTab" role="tablist">

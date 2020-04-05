@@ -22,7 +22,7 @@ $common = array(
                                                             <li id="winners" style="opacity:0"><a class="add-opacity" href="#">Winners</a></li>
                                                             <li id="achievers" style="opacity:0"><a class="add-opacity" href="#">Achievers</a></li>
                                                             <li id="rankers" style="opacity:0"><a class="add-opacity" href="#">Rankers</a></li>
-                                                            <li id="contact_us" style="opacity:0"><a class="add-opacity" href="#">Contact Us</a></li>
+                                                            <li id="contact_us" style="opacity:0"><a class="add-opacity" href="contact-us">Contact Us</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -32,7 +32,7 @@ $common = array(
                                             <div style="overflow: hidden;">
                                                 <div class="col-md-12 home-bg-img home-bg-img-animate-new" style="background-color:transparent">
                                                     <div class="row topHeader">
-                                                        <div class="col-md-6 main-logo" style="opacity: 0;z-index:3" id="main-logo">
+                                                        <div class="col-md-1 main-logo" style="opacity: 0;z-index:3" id="main-logo">
                                                             <a href="' . $home_url . '"><img style="height:100px;" class="hbalogo" src="images/obedient-logo.png"></a>
                                                         </div>
                                                         <div class="col-md-6 nav-bar" style="padding:0;z-index:3" >
@@ -57,6 +57,11 @@ $common = array(
                                     <li><a href="bankers"><span>Bankers</span></a></li>
                                     <li><a href="gallery"><span>Gallery</span></a></li>
                                     <li><a href="amenities"><span>Amenities</span></a></li>
+                                    <li><a href="#"><span>About</span></a></li>
+                                    <li><a href="#"><span>Winners</span></a></li>
+                                    <li><a href="#"><span>Achievers</span></a></li>
+                                    <li><a href="#"><span>Rankers</span></a></li>
+                                    <li><a href="contact-us"><span>Contact Us</span></a></li>
                                 </ul>
                             </div>',
     'search_form' => '<div class="fs-searchform">

@@ -210,7 +210,7 @@ include_once 'common_html.php';
                         <?php if ($user_type != 'ADMIN') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#make_request_nav" aria-expanded="false" aria-controls="category">
-                                    <span class="menu-title">Make Requests</span>
+                                    <span class="menu-title">Requests</span>
                                     <i class="menu-arrow"></i>
                                     <i class="mdi mdi-view-grid menu-icon"></i>
                                 </a>

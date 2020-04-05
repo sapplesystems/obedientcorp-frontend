@@ -127,6 +127,7 @@ function get_agent_payment_list(agent_id, status) {
         type: 'post',
         data: params,
         success: function (response) {
+            console.log(response);
             if (response.status == 'success') {
                 var table_data = '<thead>\n\
                                     <tr>\n\
@@ -136,6 +137,7 @@ function get_agent_payment_list(agent_id, status) {
                                         <th> Date Requested </th>\n\
                                         <th> Payment Mode </th>\n\
                                         <th> Payment Number </th>\n\
+                                        <th>Status</th>\n\
                                     </tr>\n\
                                 </thead>';
                 table_data += '<tbody>';
@@ -149,6 +151,7 @@ function get_agent_payment_list(agent_id, status) {
                                         <td>' + date_of_payment + '</td>\n\
                                         <td>' + value.payment_mode + '</td>\n\
                                         <td>' + value.cheque_number + '</td>\n\
+                                        <td>' + value.money_request_status + ' &nbsp;<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + value.created_for + '">Detail</a></td>\n\
                                     </tr>';
                 });
                 table_data += '</tbody>';

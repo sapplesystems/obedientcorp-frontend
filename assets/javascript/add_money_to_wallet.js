@@ -229,6 +229,7 @@ function get_agent_payment_list(agent_id, status) {
                                         <th> Payment Mode </th>\n\
                                         <th> Payment Number </th>\n\
                                         ' + action_th + '\n\
+                                        <th></th>\n\
                                     </tr>\n\
                                 </thead>';
                 table_data += '<tbody>';
@@ -247,6 +248,7 @@ function get_agent_payment_list(agent_id, status) {
                                             <td>' + value.payment_mode + '</td>\n\
                                             <td>' + value.cheque_number + '</td>\n\
                                             ' + action_tr + '\n\
+                                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + agent_id + '">Details</a></td>\n\
                                         </tr>';
                 });
                 table_data += '</tbody>';

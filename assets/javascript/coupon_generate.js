@@ -361,6 +361,7 @@ function resetDenominations() {
 
 function printCoupon(e, coupon_id, coupon_code, coupon_amount, generated_date, expiry_date) {
     e.preventDefault();
+    JsBarcode("#barcode", coupon_code);
     $('#pCouponCode').html(coupon_code);
     $('#pCouponAmount').html(coupon_amount);
     $('#pGeneratedDate').html(generated_date);

@@ -44,10 +44,13 @@
 <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
 <script src="assets/javascript/croppie.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
 
 <script type="text/javascript">
-    /*var base_url = "<?php //echo $base_url; ?>";
-    var media_url = "<?php //echo $media_url; ?>";
+    /*var base_url = "<?php //echo $base_url; 
+                        ?>";
+    var media_url = "<?php //echo $media_url; 
+                        ?>";
     var user_id = 0;
     var user_type = 'AGENT';
     var user_left_node_id = 0;
@@ -55,7 +58,7 @@
     var user_email = '';
     var UserCookieData;
     var photo_src = 'assets/images/default-img.png';*/
-    
+
     var base_url = "<?php echo $base_url; ?>";
     var media_url = "<?php echo $media_url; ?>";
     var user_id = "<?php echo $user_id; ?>";
@@ -65,10 +68,22 @@
     var user_email = "<?php echo $user_email; ?>";
     var UserCookieData;
     var photo_src = 'assets/images/default-img.png';
+    var user_active_range = "<?php echo $user_active_range; ?>";
 
     var MonthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
     //checkCookie();
+
+    function checkUserActiveInactive() {
+        var agent_total_business = localStorage.getItem('agent_total_business');
+        if (Number(agent_total_business) >= Number(user_active_range)) {
+            $('.availability-status').addClass('online');
+            $('.avatar-status').addClass('active_profile');
+        } else {
+            $('.availability-status').addClass('offline');
+            $('.avatar-status').addClass('Inactive_profile');
+        }
+    }
 
     function checkCookie() {
         var UserCookie = getCookie("UserCookie");
@@ -115,7 +130,7 @@
     function logout() {
         $.post('localapi.php', {
             destroy_session: 1
-        }, function (resp) {
+        }, function(resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             window.location.href = 'login';
         });
@@ -161,7 +176,7 @@
             return false;
         return true;
     }
-
+    checkUserActiveInactive();
     hideLoader();
 </script>
 </body>

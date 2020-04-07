@@ -1,6 +1,6 @@
 get_listing();
 get_agent_list();
-get_goods_coupon_listing();
+//get_goods_coupon_listing();
 getWalletAmount(user_id);
 
 $(document).ready(function () {
@@ -276,6 +276,7 @@ function get_goods_coupon_listing() {
                                                 <td> ' + value.coupon_amount + ' </td>\n\
                                                 <td> ' + generated_date + ' </td>\n\
                                                 <td id="coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
+                                                <td>'+value.status+'</td>\n\
                                                 ' + action_td + '\n\
                                             </tr>';
 

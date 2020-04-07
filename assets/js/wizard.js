@@ -18,20 +18,8 @@
       land_line_phone: {
         number: true,
       },
-      name: {
-        lettersonly: true,
-      },
-      occupation: {
-        lettersonly: true,
-      },
       pin_code: {
         number: true,
-      },
-      father_name: {
-        lettersonly: true,
-      },
-      mother_name: {
-        lettersonly: true,
       },
       adhar: {
         number: true,

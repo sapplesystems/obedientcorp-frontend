@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-2 pr-0">
-                                <label>Type:</label>
+                                <label>Coupon Type:</label>
                                 <select class="form-control required" id="trans_type2" name="trans_type2">
                                     <option value="">ALL</option>
                                     <option value="RS">Real State</option>
@@ -46,7 +46,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-2 pr-0">
-                                <label>Transaction Type:</label>
+                                <label>Type:</label>
                                 <select class="form-control required" id="type" name="type">
                                     <option value="">ALL</option>
                                     <option value="Cr">CREDIT</option>

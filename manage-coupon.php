@@ -84,6 +84,7 @@
                                             <th width="10%"> Coupon Price </th>
                                             <th width="10%"> Generated Date </th>
                                             <th width="10%"> Expiry Date </th>
+                                            <th width="5%">Status</th>
                                             <th width="55%"> Action </th>
                                         <?php } else { ?>
                                             <th width="5%"> Sr No. </th>
@@ -91,6 +92,7 @@
                                             <th width="18%"> Coupon Price </th>
                                             <th width="18%"> Generated Date </th>
                                             <th width="18%"> Expiry Date </th>
+                                            <th width="18%"> Status </th>
                                             <th width="23%"> Action </th>
                                         <?php } ?>
                                     </tr>

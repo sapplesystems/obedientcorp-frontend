@@ -30308,13 +30308,13 @@ select option {
 
 .avatar-upload {
     position: relative;
-    max-width: 150px;
+    max-width: 132px;
     margin: 0px auto 20px auto; 
 }
 
 .avatar-upload .avatar-edit {
     position: absolute;
-    right: 17px;
+    right: 0px;
     z-index: 1;
     top: 20px;
 }
@@ -30360,8 +30360,8 @@ select option {
     height: 132px;
     position: relative;
     border-radius: 100%;
-    border: 6px solid #F8F8F8;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    border: 0px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0);
 }
 
 .avatar-upload .avatar-preview>div {
@@ -31084,3 +31084,7 @@ CSS ANIMATION FOR TREE
 /*manage coupon css end here*/
 
 .mdi.mdi-calendar.input-group-text.bg-dark{border:1px solid #3e4b5b !important}
+
+.avatar-status{height:16px; width:16px; border-radius:50%; display:block; position:absolute; right:8px; bottom:15px;}
+.active_profile{border:1px solid #1bcfb4; background-color:#1bcfb4;}
+.Inactive_profile{border:1px solid #fe7c96; background-color:#fe7c96;}

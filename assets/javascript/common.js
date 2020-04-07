@@ -22,7 +22,7 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
             $('.datepicker').datepicker({
                 enableOnReadonly: true,
                 todayHighlight: true,
-                format: 'dd-mm-yyyy',
+                format: 'dd-M-yyyy',
                 autoclose: true,
                 endDate: todays_date,
                 //defaultViewDate: new Date()
@@ -46,12 +46,12 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                         email: user_profile_email
                     },
                     success: function (response) {
-                        console.log(response);
                         if (response.status == 'success') {
                             var profile = response.data.profile;
                             var bank = response.data.bank_detail[0];
                             var nominee = response.data.nominee_detail[0];
                             var kyc = response.data.kyc_detail[0];
+                            var business = response.data.business;
                             $('#introducer_code').val(profile.introducer_code);
                             $('#orientation').val(profile.orientation);
                             //$('#signature').val(profile.signature);
@@ -79,8 +79,8 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                             var datetime = new Date(dob);
                             var day = datetime.getDate();
                             day = (day < 10) ? '0' + day : day;
-                            var month = datetime.getMonth() + 1;
-                            month = (month < 10) ? '0' + month : month
+                            var month = MonthArr[datetime.getMonth()];
+                            //month = (month < 10) ? '0' + month : month
                             var year = datetime.getFullYear();
                             var formatted_date = day + "-" + month + "-" + year;
                             $('#dob').val(formatted_date);
@@ -118,6 +118,24 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                             if (profile.transaction_password) {
                                 disableTransactionPassword();
                             }
+                            //show rank leftbusiness rightbusiness
+                            if(business.total_left_business)
+                            {
+                                $('#total_left_business').html(business.total_left_business);
+                            }
+                            if(business.total_right_business)
+                            {
+                                $('#total_right_business').html(business.total_right_business);
+                            }
+                            if(business.matching_amount)
+                            {
+                                $('#matching_business').html(business.matching_amount);
+                            }
+                            if(business.designation)
+                            {
+                                $('#rank').html(business.designation);
+                            }
+
                             //bank detalis
                             $('#bank_id').val(bank.id);
                             $('#bank_id').prop('disabled', true);
@@ -155,8 +173,9 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                             var ndatetime = new Date(ndob);
                             var nday = ndatetime.getDate();
                             nday = (nday < 10) ? '0' + nday : nday;
-                            var nmonth = ndatetime.getMonth() + 1;
-                            nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
+                            //var nmonth = ndatetime.getMonth() + 1;
+                            var nmonth = MonthArr[ndatetime.getMonth()];
+                            //nmonth = (nmonth < 10) ? '0' + nmonth : nmonth
                             var nyear = ndatetime.getFullYear();
                             var ndate = nday + "-" + nmonth + "-" + nyear;
                             $('#ndob').val(ndate);
@@ -206,7 +225,15 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                                 $('#voter_id').prop('disabled', true);
                             }
                             if (kyc.join_date) {
-                                $('#join_date').val(kyc.join_date);
+
+                                var userjoin_date = kyc.join_date;
+                                var joindatetime = new Date(userjoin_date);
+                                var joinday = joindatetime.getDate();
+                                joinday = (joinday < 10) ? '0' + joinday : joinday;
+                                var joinmonth = MonthArr[joindatetime.getMonth()];
+                                var joinyear = ndatetime.getFullYear();
+                                var join_date = joinday + "-" + joinmonth + "-" + joinyear;
+                                $('#join_date').val(join_date);
                                 $('#join_date').prop('disabled', true);
                             }
 

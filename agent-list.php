@@ -29,8 +29,6 @@ if ($user_type != 'ADMIN') {
                                         <th>Introducer Code</th>
                                         <th>Mobile</th>
                                         <th>Joining Date</th>
-                                        <th>Password</th>
-                                        <th>Transaction Password</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

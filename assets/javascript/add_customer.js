@@ -13,6 +13,9 @@ function getDownTheLineMembers(user_id) {
             if (response.status == "success") {
                 var data = response.data;
                 var option = '';
+                if (user_id == 1) {
+                    option += '<option value="">Select</option>';
+                }
                 $.each(data, function (key, val) {
                     option += '<option value="' + val.id + '">' + val.display_name + '</option>';
                 });
@@ -78,7 +81,7 @@ function getplotlist(project_id, sub_project_id) {
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: {project_master_id: project_id, sub_project_id: sub_project_id},
+        data: { project_master_id: project_id, sub_project_id: sub_project_id },
         success: function (response) {
             var option = '<option value="">Select plots</option>';
             if (response.status == "success") {
@@ -102,7 +105,7 @@ function getPlotAreaUnit(plot_id) {
     $.ajax({
         url: base_url + 'plot-area-unit ',
         type: 'post',
-        data: {id: plot_id, },
+        data: { id: plot_id, },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data.plot_area) {
@@ -161,6 +164,42 @@ $(document).ready(function () {
             getPlotAreaUnit($(this).val());
         }
     });
+
+    //calculate age 
+    $(document).on('change', '#dateofbirth', function () {
+        var value = $(this).val();
+        var today = new Date(),
+            dob = new Date(value),
+            age = new Date(today - dob).getFullYear() - 1970;
+        $('#age').val(age);
+        $('#age').prop('readOnly', true);
+    });
+
+    $(document).on('change', '#date_of_birth_nominee', function () {
+        var value = $(this).val();
+        var today = new Date(),
+            dob = new Date(value),
+            age = new Date(today - dob).getFullYear() - 1970;
+        $('#ageN').val(age);
+        $('#ageN').prop('readOnly', true);
+    });
+    //end calculate age
+
+    $(document).on('change', '#installment', function () {
+        var value = $(this).val();
+        if ($('#received_booking_amount').val() && $('#received_booking_amount').val() != '' && $('#total_amount').val() != '') {
+            var amount = Number($('#total_amount').val() - $('#received_booking_amount').val());
+            var emi_amount = Number(amount / value);
+            var html = '<label class="col-sm-2 col-form-label"></label>\n\
+                                    <div class="col-sm-4"></div>\n\
+            <label class="col-form-label col-sm-2">Emi Amount PerMonth :</label>\n\
+            <div class="col-sm-4">\n\
+           <label class="col-form-label card-description mb-0">'+ emi_amount + '</label>\n\
+           </div>';
+            $('#emi_amount').html(html);
+        }
+    });
+
 
     var update_customer_id = $('#customer_id').val();
     var update_agent_id = $('#agent-id').val();
@@ -296,7 +335,6 @@ $(document).ready(function () {
         customer_frm.validate({
             rules: {
                 accountnumber: {
-                    required: true,
                     number: true
                 },
             },
@@ -324,6 +362,7 @@ $(document).ready(function () {
             params.append('mobile', $('#mobile').val());
             params.append('email', $('#email').val());
             params.append('address', $('#customer_address').val());
+            params.append('photo', $('#photo')[0].files[0]);
             //nominee details
             params.append('nominee_name', $('#nomineesname').val());
             params.append('nominee_age', $('#ageN').val());
@@ -374,7 +413,7 @@ $(document).ready(function () {
             params.append('ifsc_code', $('#ifsc_code').val());
             params.append('created_by', user_id);
             params.append('created_for', $('#agent_id').val());
-            params.append('photo', $('#photo')[0].files[0]);
+
 
 
             var url = base_url + 'customer/add';
@@ -393,6 +432,7 @@ $(document).ready(function () {
                         var customer_id = response.data.id;
                         if (customer_id != '' && $('#customer_id').val() == '') {
                             params.append('customer_id', customer_id);
+                            params.append('photo', $('#payment_photo')[0].files[0]);
                             $.ajax({
                                 url: base_url + 'customer/new-booking',
                                 type: 'post',
@@ -433,7 +473,7 @@ function updateCustomerDetail(customer_id, agent_id, status) {
         },
         success: function (response) {
             if (response.status == "success") {
-
+                console.log(response);
                 var data = response.data;
                 if (status == 1) {
                     $('.nominee').css('display', 'none');
@@ -450,8 +490,8 @@ function updateCustomerDetail(customer_id, agent_id, status) {
                     var datetime = new Date(dob);
                     var day = datetime.getDate();
                     day = (day < 10) ? '0' + day : day;
-                    var month = datetime.getMonth() + 1;
-                    month = (month < 10) ? '0' + month : month
+                    var month = MonthArr[datetime.getMonth()];// + 1;
+                    //month = (month < 10) ? '0' + month : month
                     var year = datetime.getFullYear();
                     var formatted_date = day + "-" + month + "-" + year;
                     $('#dateofbirth').val(formatted_date);
@@ -503,24 +543,33 @@ function deleteCustomerList(e, customer_id) {
 function payment_mode_change(value) {
     if (value == 'Cash') {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
-                            <label class="col-sm-2 col-form-label">Invoice Number :</label>\n\
+                            <label class="col-sm-2 col-form-label">Reciept Number :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter reciept number.">\n\
                             </div>\n\
-                            <label class="col-sm-2 col-form-label">Name :</label>\n\
+                            <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
-                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name ">\n\
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name ">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="bank-date-div">\n\
-                            <label class="col-sm-2 col-form-label">Date Of Payment :</label>\n\
+                            <label class="col-sm-2 col-form-label">Date Of Payment :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                             <div class="input-group date datepicker">\n\
-                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment" data-inputmask-inputformat="dd-mm-yyyy" readonly>\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  readonly>\n\
                               <span class="input-group-addon input-group-append border-left">\n\
                                  <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
                               </span>\n\
                             </div>\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label">Upload Image</label>\n\
+                            <div class="input-group col-sm-4">\n\
+                                <input type="file" name="payment_photo" class="file-upload-default" id="payment_photo">\n\
+                                <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">\n\
+                                <span class="input-group-append">\n\
+                                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>\n\
+                                </span>\n\
+                                <img src="" style="display:none;width:100px;" id="photo_id" />\n\
                             </div>\n\
                      </div>';
         $("#branch").val('');
@@ -528,39 +577,50 @@ function payment_mode_change(value) {
     }
     else if (value == 'Cheque') {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
-                            <label class="col-sm-2 col-form-label">Cheque/UTR No :</label>\n\
+                            <label class="col-sm-2 col-form-label">Cheque/UTR No :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
                                 <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
                             </div>\n\
-                            <label class="col-sm-2 col-form-label">Account Holder Name :</label>\n\
+                            <label class="col-sm-2 col-form-label">Account Holder Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                                 <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name ">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="acount-ifsc-div">\n\
-                            <label class="col-sm-2 col-form-label account_label">Account Number :</label>\n\
+                            <label class="col-sm-2 col-form-label account_label">Account Number :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 account_label">\n\
-                                 <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number">\n\
+                                 <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number" onkeypress="return isNumberKey(event);">\n\
                             </div>\n\
-                            <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :</label>\n\
+                            <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 ifsc_code_label">\n\
                                  <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter your ifsc code">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="bank-date-div">\n\
-                            <label class="col-sm-2 col-form-label">Date Of Payment :</label>\n\
+                            <label class="col-sm-2 col-form-label">Date Of Payment :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                             <div class="input-group date datepicker">\n\
-                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment" data-inputmask-inputformat="dd-mm-yyyy" readonly>\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  readonly>\n\
                               <span class="input-group-addon input-group-append border-left">\n\
                                  <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
                               </span>\n\
                             </div>\n\
                             </div>\n\
-                            <label class="col-sm-2 col-form-label bank_name">Bank Name :</label>\n\
+                            <label class="col-sm-2 col-form-label bank_name">Bank Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 bank_name">\n\
                                 <input class="form-control required" type="text" id="bank_name" name="bank_name" placeholder="Enter bank name">\n\
                             </div>\n\
+                     </div>\n\
+                     <div class="form-group row">\n\
+                     <label class="col-sm-2 col-form-label">Upload Image</label>\n\
+                                <div class="input-group col-sm-4">\n\
+                                    <input type="file" name="payment_photo" class="file-upload-default" id="payment_photo">\n\
+                                    <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">\n\
+                                    <span class="input-group-append">\n\
+                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>\n\
+                                    </span>\n\
+                                    <img src="" style="display:none;width:100px;" id="photo_id" />\n\
+                                </div>\n\
                      </div>';
 
         $('.branch').css('display', 'block');
@@ -569,34 +629,43 @@ function payment_mode_change(value) {
     }
     else if (value == 'Online') {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
-                            <label class="col-sm-2 col-form-label">Online Transaction No :</label>\n\
+                            <label class="col-sm-2 col-form-label">Online Transaction No :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter transaction number.">\n\
                             </div>\n\
-                            <label class="col-sm-2 col-form-label">Name :</label>\n\
+                            <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
-                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name ">\n\
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name ">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="acount-ifsc-div">\n\
-                        <label class="col-sm-2 col-form-label account_label">Account Number :</label>\n\
+                        <label class="col-sm-2 col-form-label account_label">Account Number :<span class="text-danger">*</span></label>\n\
                         <div class="col-sm-4 account_label">\n\
-                             <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number">\n\
+                             <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number" onkeypress="return isNumberKey(event);">\n\
                         </div>\n\
-                        <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :</label>\n\
+                        <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
                         <div class="col-sm-4 ifsc_code_label">\n\
                              <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter your ifsc code">\n\
                         </div>\n\
                     </div>\n\
                     <div class="form-group row" id="bank-date-div">\n\
-                            <label class="col-sm-2 col-form-label">Date Of Payment :</label>\n\
+                            <label class="col-sm-2 col-form-label">Date Of Payment :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                             <div class="input-group date datepicker">\n\
-                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  data-inputmask-inputformat="dd-mm-yyyy" readonly>\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  readonly>\n\
                               <span class="input-group-addon input-group-append border-left">\n\
                                  <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
                               </span>\n\
                             </div>\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label">Upload Image</label>\n\
+                            <div class="input-group col-sm-4">\n\
+                                <input type="file" name="payment_photo" class="file-upload-default" id="payment_photo">\n\
+                                <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">\n\
+                                <span class="input-group-append">\n\
+                                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>\n\
+                                </span>\n\
+                                <img src="" style="display:none;width:100px;" id="photo_id" />\n\
                             </div>\n\
                      </div>';
         $("#branch").val('');
@@ -704,15 +773,30 @@ function setIdofForm(form_id) {
     $('.customer-booking-form').attr('id', form_id);
 }
 
+var today = new Date();
+var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 function initDatepicker() {
     $(":input").inputmask();
     if ($(".datepicker").length) {
-        $('.datepicker').datepicker({
+        $('#dateofbirth').datepicker({
             enableOnReadonly: true,
             todayHighlight: true,
-            format: 'dd-mm-yyyy',
+            format: 'dd-M-yyyy',
             autoclose: true,
-            //endDate: todays_date
+            endDate: todays_date
+        });
+        $('#date_of_birth_nominee').datepicker({
+            enableOnReadonly: true,
+            todayHighlight: true,
+            format: 'dd-M-yyyy',
+            autoclose: true,
+            endDate: todays_date
+        });
+        $('#date_of_payment').datepicker({
+            enableOnReadonly: true,
+            todayHighlight: true,
+            format: 'dd-M-yyyy',
+            autoclose: true,
         });
     }
 }

@@ -257,7 +257,7 @@ if ($_REQUEST) {
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <div class="input-group date datepicker">
-                                                                    <input type="text" class="form-control required" placeholder="" id="dob" name="dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                                    <input type="text" class="form-control required" placeholder="" id="dob" name="dob" />
                                                                     <span class="input-group-addon input-group-append border-left">
                                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                                     </span>
@@ -395,7 +395,7 @@ if ($_REQUEST) {
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <div class="input-group date datepicker">
-                                                                    <input type="text" class="form-control required" placeholder="" id="ndob" name="ndob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                                    <input type="text" class="form-control required" placeholder="" id="ndob" name="ndob" />
                                                                     <span class="input-group-addon input-group-append border-left">
                                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                                     </span>
@@ -422,7 +422,7 @@ if ($_REQUEST) {
                                                             </div>-->
                                                             <label class="col-sm-2 col-form-label">Nationality <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="nationality" name="nationality">
+                                                                <input type="text" class="form-control required" placeholder="" id="nationality" name="nationality" value="Indian">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -527,11 +527,11 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Join Date <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <div class="input-group ">
+                                                                <div class="input-group date datepicker ">
                                                                     <input type="text" class="form-control" placeholder="" id="join_date" name="join_date" />
-                                                                    <!--<span class="input-group-addon input-group-append border-left">
+                                                                    <span class="input-group-addon input-group-append border-left">
                                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
-                                                                    </span>-->
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -677,7 +677,6 @@ if ($_REQUEST) {
     <script type="text/javascript">
         var agent_user_id = "<?php echo $agent_user_id; ?>";
         var agent_user_email = "<?php echo $agent_user_email; ?>";
-        var user_active_range = "<?php echo $user_active_range; ?>";
     </script>
 
     <script type="text/javascript" src="assets/javascript/common.js"></script>
@@ -686,15 +685,6 @@ if ($_REQUEST) {
     <script type="text/javascript" src="assets/javascript/nominee_update.js"></script>
     <script type="text/javascript" src="assets/javascript/kyc_update.js"></script>
     <script type="text/javascript">
-        var agent_total_business = localStorage.getItem('agent_total_business');
-        if (Number(agent_total_business) >= Number(user_active_range)) {
-            $('.availability-status').addClass('online');
-            $('.avatar-status').addClass('active_profile');
-        } else {
-            $('.availability-status').addClass('offline');
-            $('.avatar-status').addClass('Inactive_profile');
-        }
-
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

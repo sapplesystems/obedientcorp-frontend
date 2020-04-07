@@ -1231,7 +1231,7 @@ include_once 'header_frontend.php';
             <div class="close fa fa-close" data-dismiss="modal"></div>
             <!-- Left, Image area -->
             <div class="block-img">
-                <img src="images/pre.jpg">
+                <img id="uploded_image"src="">
             </div>
             <!-- End Left, Image area -->
         </div>
@@ -1277,7 +1277,6 @@ var slider = $('.slider-multi').sappleMultiSlider();
 </script>
 <!-- Slider Calling -->
 <script type="text/javascript">
-
     var tpj = jQuery;
     var revapi1066;
     tpj(document).ready(function () {
@@ -1380,6 +1379,36 @@ var slider = $('.slider-multi').sappleMultiSlider();
     setTimeout(function () {
         document.getElementById('pop-on-load').click();
     }, 7000);
+</script>
+<script type="text/javascript">
+ get_landing_image();
+ function get_landing_image() {
+            $.ajax({
+                url: 'http://demos.sappleserve.com/obedient_api/public/api/get-landing-image ',
+                type: 'post',
+                data: {
+                    dashboard: 1
+                },
+                success: function(response) {
+                   // console.log(response);
+                    if (response.status == "success") {
+                        if (response.image_path) {
+                            $('#uploded_image').attr('src', response.image_path);
+                            $('#uploded_image').css('display', 'block');
+                        }
+                        else{
+                            $('#uploded_image').attr('src','images/pre.jpg');
+                            $('#uploded_image').css('display', 'block');
+                        }
+                    }
+                    else
+                    {
+                        console.log("Not any image");
+                    }
+                }
+            });
+
+        } //end function for get_landing_image
 </script>
 </body>
 <!-- Body End -->

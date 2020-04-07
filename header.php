@@ -240,6 +240,18 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-repeat menu-icon"></i>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pin-bonus">
+                                <span class="menu-title">Pin Bonus History</span>
+                                <i class="mdi mdi-repeat menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="matching-income">
+                                <span class="menu-title">Matching Income History</span>
+                                <i class="mdi mdi-repeat menu-icon"></i>
+                            </a>
+                        </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact-request">

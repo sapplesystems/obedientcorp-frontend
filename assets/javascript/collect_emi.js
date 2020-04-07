@@ -1,6 +1,6 @@
-
 var amount = '';
 var type = '';
+var amount_sum = 0;
 getAgentList();
 getCustoerPaymentDetails(0, 'Due');
 getCustoerPaymentDetails(0, 'Pending');
@@ -15,6 +15,8 @@ $(function () {
             return false;
         }
         $('#makeRequest').modal();
+        $('#amount').val(amount_sum);
+        $('#amount').attr('readOnly', true);
     });
 
     $(document).on('click', '#pills-pending-tab,#pills-approve-tab,#pills-reject-tab', function () {
@@ -80,12 +82,13 @@ $(function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
+                    console.log(response);
                     if (response.status == 'success') {
                         getCustoerPaymentDetails($('#customer-list').val(), 'Due');
                         getCustoerPaymentDetails($('#customer-list').val(), 'Pending');
                         document.getElementById('payment-form').reset();
                         $('#makeRequest').modal('hide');
-                        showSwal('success', 'Payment accepted', 'Payment accepted successfully');
+                        showSwal('success', 'Payment Request Accepted', 'Payment Approval is subject to payment realization');
                     }
                 },
                 error: function (response) {
@@ -108,9 +111,9 @@ $(function () {
 
         if ($(this).val() == 'Cash') {
 
-            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Invoice Number:</label>\n\
+            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Reciept Number:</label>\n\
                    <div class="col-sm-8">\n\
-                     <input type="text" class="form-control required" id="payment_number" name="payment_number">\n\
+                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter reciept number.">\n\
                                                             </div>';
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'none');
@@ -120,7 +123,7 @@ $(function () {
 
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Online Transaction Number:</label>\n\
                    <div class="col-sm-8">\n\
-                     <input type="text" class="form-control required" id="payment_number" name="payment_number">\n\
+                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter transaction number.">\n\
                                                             </div>';
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'block');
@@ -129,7 +132,7 @@ $(function () {
         else if ($(this).val() == 'Cheque') {
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Cheque Number:</label>\n\
                    <div class="col-sm-8">\n\
-                     <input type="text" class="form-control required" id="payment_number" name="payment_number">\n\
+                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
                                                             </div>';
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'block');
@@ -196,7 +199,7 @@ function getCustoerPaymentDetails(customer_id, status) {
                     table_data += '<tr >\n\
                                         ' + action_tr + '\n\
                                             <td>' + value.name + '</td>\n\
-                                            <td id="payment-amount_' + value.customer_plot_booking_payment_detail_id + '">' + value.amount + '</td>\n\
+                                            <td id="payment-amount_' + value.customer_plot_booking_payment_detail_id + '" class="emi_amount">' + value.amount + '</td>\n\
                                             <td>' + duedate + '</td>\n\
                                             <td>' + value.project_master_name + '</td>\n\
                                             <td>' + value.sub_project_master_name + '</td>\n\
@@ -304,10 +307,15 @@ function getAgentList() {
 }//end function agent list
 
 function checkChecked() {
+    amount_sum = 0;
     var x = false;
     $('.emi_payment').each(function () {
         if ($(this).is(":checked")) {
+            var chk_val = $(this).val();
             x = true;
+            var damnt = $('#payment-amount_' + chk_val).html();
+            damnt = Number(damnt);
+            amount_sum = (amount_sum + damnt);
         }
     });
     return x;

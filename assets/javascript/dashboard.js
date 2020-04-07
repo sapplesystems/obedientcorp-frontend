@@ -6,7 +6,7 @@ function getDashboardInfo(user_id) {
         url: base_url + 'dashboard/info',
         type: 'post',
         async: false,
-        data: {user_id: user_id},
+        data: { user_id: user_id },
         success: function (response) {
             if (response.status == 'success') {
                 var data = response.data;
@@ -30,7 +30,9 @@ function getDashboardInfo(user_id) {
                 var sum_total_right_business = total_right_business.reduce(function (a, b) {
                     return a + b;
                 });
-                localStorage.setItem("agent_total_business", (sum_total_left_business + sum_total_right_business));
+                //localStorage.setItem("agent_total_business", (sum_total_left_business + sum_total_right_business));
+                localStorage.setItem("agent_total_business", (Number(data.total_left_business) + Number(data.total_right_business)));
+                checkUserActiveInactive();
                 generateChart(total_left_business, total_right_business, total_self_business);
 
                 //due_payment_list
@@ -77,7 +79,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_left_business
+                        data: total_left_business
                     },
                     {
                         label: "Right Business",
@@ -89,7 +91,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_right_business
+                        data: total_right_business
                     },
                     {
                         label: "Self Business",
@@ -101,7 +103,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_self_business
+                        data: total_self_business
                     }
                 ]
             },
@@ -113,8 +115,8 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                     text.push('<ul>');
                     for (var i = 0; i < chart.data.datasets.length; i++) {
                         text.push('<li><span class="legend-dots" style="background:' +
-                                chart.data.datasets[i].legendColor +
-                                '"></span>');
+                            chart.data.datasets[i].legendColor +
+                            '"></span>');
                         if (chart.data.datasets[i].label) {
                             text.push(chart.data.datasets[i].label);
                         }
@@ -125,33 +127,33 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                 },
                 scales: {
                     yAxes: [{
-                            ticks: {
-                                display: false,
-                                min: 0,
-                                stepSize: 20,
-                                max: 80
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                                color: '#322f2f',
-                                zeroLineColor: '#322f2f'
-                            }
-                        }],
+                        ticks: {
+                            display: false,
+                            min: 0,
+                            stepSize: 20,
+                            max: 80
+                        },
+                        gridLines: {
+                            drawBorder: false,
+                            color: '#322f2f',
+                            zeroLineColor: '#322f2f'
+                        }
+                    }],
                     xAxes: [{
-                            gridLines: {
-                                display: false,
-                                drawBorder: false,
-                                color: 'rgba(0,0,0,1)',
-                                zeroLineColor: 'rgba(235,237,242,1)'
-                            },
-                            ticks: {
-                                padding: 20,
-                                fontColor: "#9c9fa6",
-                                autoSkip: true,
-                            },
-                            categoryPercentage: 0.5,
-                            barPercentage: 0.5
-                        }]
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                            color: 'rgba(0,0,0,1)',
+                            zeroLineColor: 'rgba(235,237,242,1)'
+                        },
+                        ticks: {
+                            padding: 20,
+                            fontColor: "#9c9fa6",
+                            autoSkip: true,
+                        },
+                        categoryPercentage: 0.5,
+                        barPercentage: 0.5
+                    }]
                 }
             },
             elements: {

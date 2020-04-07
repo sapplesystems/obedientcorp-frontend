@@ -1,4 +1,4 @@
-Fget_plot_booking_listing();
+get_plot_booking_listing();
 get_agent_name();
 
 function get_plot_booking_listing()

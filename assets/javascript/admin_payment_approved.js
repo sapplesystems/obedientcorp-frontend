@@ -1,6 +1,7 @@
 $(function () {
 
     get_agent_list();
+    getAgentPaymentList(0);
 
 });
 
@@ -19,8 +20,11 @@ function get_agent_list() {
         },
         success: function (response) {
             if (response.status) {
-                var customer_list;
+                var customer_list = '';
                 var i = 0;
+                if(user_id == 1){
+                    customer_list += '<option value="">Select</option>';
+                }
                 $.each(response.data, function (key, value) {
                     if (i == 0) {
                         agent_id = value.id;

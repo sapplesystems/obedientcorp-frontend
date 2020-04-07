@@ -2,6 +2,7 @@ get_agent_list();
 getWalletAmount(user_id);
 var EMI_Or_Money_Request = 0;
 var FMCG_REQUEST = {};
+getAgentPaymentList(0);
 
 $(document).ready(function () {
     $("#agents").change(function () {
@@ -159,6 +160,9 @@ function get_agent_list() {
         success: function (response) {
             if (response.status == 'success') {
                 var table_data = '';
+                if(user_id == 1){
+                    table_data += '<option value="">Select</option>';
+                }
                 $.each(response.data, function (key, value) {
                     table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });

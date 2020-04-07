@@ -99,6 +99,9 @@ function getAgentList() {
             if (response.status) {
                 var agent_list;
                 var i = 0;
+                if(user_id == 1){
+                    agent_list += '<option value="">Select</option>';
+                }
                 $.each(response.data, function (key, value) {
                     agent_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });

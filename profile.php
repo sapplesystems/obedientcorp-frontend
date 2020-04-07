@@ -2,14 +2,12 @@
 include_once 'header.php';
 $agent_user_id = '';
 $agent_user_email = '';
-if($_REQUEST)
-{
+if ($_REQUEST) {
     if ($user_type == 'ADMIN' && $_REQUEST['user_id'] && $_REQUEST['user_email']) {
         $agent_user_id = $_REQUEST['user_id'];
         $agent_user_email = $_REQUEST['user_email'];
     }
 }
-
 ?>
 <!-- partial -->
 
@@ -22,77 +20,80 @@ if($_REQUEST)
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-12">
-							<div class="row">
-							<div class="col-sm-5">
-                                <div class="text-center pb-4">
-                                    <div class="avatar-upload">
-                                        <div class="avatar-edit">
-                                            <input type='file' id="imageUpload" class="imageUpload" accept=".png, .jpg, .jpeg" />
-                                            <label for="imageUpload"></label>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="text-center pb-4">
+                                            <div class="avatar-upload">
+                                                <div class="avatar-edit">
+                                                    <input type='file' id="imageUpload" class="imageUpload" accept=".png, .jpg, .jpeg" />
+                                                    <label for="imageUpload"></label>
+                                                </div>
+                                                <div class="avatar-preview">
+                                                    <div id="imagePreview">
+                                                    </div>
+                                                </div>
+                                                <div class="avatar-status"></div>
+                                            </div>
+                                            <h3 class="text-center" id="profile_user"></h3>
+                                            <h4 class="text-center" id="user_code"></h4>
+                                            <h5 class="text-center" id="kyc_status"></h5>
                                         </div>
-                                        <div class="avatar-preview">
-                                            <div id="imagePreview">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="border-bottom py-4" style="display: none;">
+                                            <p>Skills</p>
+                                            <div>
+                                                <label class="badge badge-outline-dark">Chalk</label>
+                                                <label class="badge badge-outline-dark">Hand lettering</label>
+                                                <label class="badge badge-outline-dark">Information Design</label>
+                                                <label class="badge badge-outline-dark">Graphic Design</label>
+                                                <label class="badge badge-outline-dark">Web Design</label>
                                             </div>
                                         </div>
-                                    </div>
-                                    <h3 class="text-center" id="profile_user"></h3>
-                                    <h4 class="text-center" id="user_code"></h4>
-                                    <h5 class="text-center" id="kyc_status"></h5>
-                                </div>
-								</div>
-								<div class="col-sm-5">
-                                <div class="border-bottom py-4" style="display: none;">
-                                    <p>Skills</p>
-                                    <div>
-                                        <label class="badge badge-outline-dark">Chalk</label>
-                                        <label class="badge badge-outline-dark">Hand lettering</label>
-                                        <label class="badge badge-outline-dark">Information Design</label>
-                                        <label class="badge badge-outline-dark">Graphic Design</label>
-                                        <label class="badge badge-outline-dark">Web Design</label>
-                                    </div>
-                                </div>
-                                <div class="border-bottom py-4" style="display: none;">
-                                    <div class="d-flex mb-3">
-                                        <div class="progress progress-md flex-grow">
-                                            <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="55" style="width: 55%" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="border-bottom py-4" style="display: none;">
+                                            <div class="d-flex mb-3">
+                                                <div class="progress progress-md flex-grow">
+                                                    <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="55" style="width: 55%" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="progress progress-md flex-grow">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="75" style="width: 75%" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="progress progress-md flex-grow">
-                                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="75" style="width: 75%" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h5 class="border-bottom pb-1"> Rank </h5>
+                                                <div class="text-muted" id="rank"></div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h5 class="border-bottom pb-1"> Phone </h5>
+                                                <div class="text-muted" id="profile_phone"> </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h5 class="border-bottom pb-1"> E-mail </h5>
+                                                <div class="text-muted" id="profile_mail"> </div>
+                                            </div>
                                         </div>
+                                        <div class="row mt-4">
+                                            <div class="col-sm-4">
+                                                <h5 class="border-bottom pb-1"> Total Left </h5>
+                                                <div class="text-muted" id="total_left_business"></div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h5 class="border-bottom pb-1"> Total Right </h5>
+                                                <div class="text-muted" id="total_right_business"></div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h5 class="border-bottom pb-1"> Matching Business </h5>
+                                                <div class="text-muted" id="matching_business"></div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-gradient-primary btn-block" style="display: none;">Preview</button>
                                     </div>
                                 </div>
-                                <div class="py-4">
-                                    <p class="clearfix">
-                                        <span class="float-left"> Status </span>
-                                        <span class="float-right text-muted" id="agent_status"> </span>
-                                    </p>
-                                    <p class="clearfix">
-                                        <span class="float-left"> Phone </span>
-                                        <span class="float-right text-muted" id="profile_phone"> </span>
-                                    </p>
-                                    <p class="clearfix">
-                                        <span class="float-left"> Mail </span>
-                                        <span class="float-right text-muted" id="profile_mail"> </span>
-                                    </p>
-                                    <p class="clearfix" style="display: none;">
-                                        <span class="float-left"> Facebook </span>
-                                        <span class="float-right text-muted">
-                                            <a href="javascript:void(0);">David Grey</a>
-                                        </span>
-                                    </p>
-                                    <p class="clearfix" style="display: none;">
-                                        <span class="float-left"> Twitter </span>
-                                        <span class="float-right text-muted">
-                                            <a href="javascript:void(0);">@davidgrey</a>
-                                        </span>
-                                    </p>
-                                </div>
-                                <button class="btn btn-gradient-primary btn-block" style="display: none;">Preview</button>
-								</div>
                             </div>
-							</div>
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body p-0">
@@ -687,15 +688,17 @@ if($_REQUEST)
     <script type="text/javascript">
         var agent_total_business = localStorage.getItem('agent_total_business');
         if (Number(agent_total_business) >= Number(user_active_range)) {
-            $('#agent_status').html('Active');
+            $('.availability-status').addClass('online');
+            $('.avatar-status').addClass('active_profile');
         } else {
-            $('#agent_status').html('Not Active');
+            $('.availability-status').addClass('offline');
+            $('.avatar-status').addClass('Inactive_profile');
         }
 
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
                     $('#imagePreview').hide();
                     $('#imagePreview').fadeIn(650);
@@ -703,7 +706,7 @@ if($_REQUEST)
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        $("#imageUpload").change(function() {
+        $("#imageUpload").change(function () {
             readURL(this);
         });
     </script>

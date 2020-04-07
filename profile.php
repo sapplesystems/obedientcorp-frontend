@@ -147,7 +147,13 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="signature_upload" /></div>
+                                                                <div class="signature_img">
+                                                                    <div id="lightgallery-without-thumb" class="row lightGallery">
+                                                                        <a href="#" class="image-tile" id="a_signature_upload">
+                                                                            <img src="" alt="image small" style="display:none;width:100px;" id="signature_upload">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                                 <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
                                                             </div>
                                                             <!--<label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>

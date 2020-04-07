@@ -34,6 +34,7 @@ include_once 'common_html.php';
         <!-- Plugin css for this page -->
         <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
         <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="assets/vendors/lightgallery/css/lightgallery.css">
         <!-- End plugin css for this page -->
         <!-- inject:css -->
         <!-- endinject -->

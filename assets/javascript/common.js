@@ -112,6 +112,7 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                             if (profile.signature) {
                                 var signature = media_url + 'profile_photo/' + profile.signature;
                                 $('#signature_upload').attr('src', signature);
+                                $('#a_signature_upload').attr('href', signature);
                                 $('#signature_upload').css('display', 'block');
 
                             }

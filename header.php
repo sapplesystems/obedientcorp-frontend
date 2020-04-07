@@ -51,8 +51,8 @@ include_once 'common_html.php';
         <div class="container-scroller">
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="<?php echo $home_url; ?>"><img src="assets/images/logo.png" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="<?php echo $home_url; ?>"><img src="assets/images/logo.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="<?php echo $home_url; ?>"><img src="images/logo_header.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="<?php echo $home_url; ?>"><img src="images/footer_logo.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -65,7 +65,7 @@ include_once 'common_html.php';
                             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                                 <div class="nav-profile-img">
                                     <img src="<?php echo $media_url . 'profile_photo/' . $photo; ?>" alt="image" id="user_photo">
-                                    <span class="availability-status online"></span>
+                                    <span class="availability-status"></span>
                                 </div>
                                 <div class="nav-profile-text">
                                     <p class="mb-1" id="user_login"><?php echo $associate_name; ?></p>

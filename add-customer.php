@@ -50,7 +50,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                             <h5 class="add-customer_heading" <?php echo $style ?>>Personal Details</h5>
                             <div class="border-div" <?php echo $style ?>>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Select Agent :</label>
+                                    <label class="col-sm-2 col-form-label">Select Agent :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <select class="form-control required" id="agent_id" name="agent_id" onchange="getCustomersList(this.value)"></select>
                                     </div>
@@ -62,32 +62,32 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <?php } ?>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Customer Name :</label>
+                                    <label class="col-sm-2 col-form-label">Customer Name :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="customername" name="customername" value="">
+                                        <input type="text" placeholder="Enter Customer Name" class="form-control required" id="customername" name="customername" value="">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Father/Husband/Wife :</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="fatherhusbandwife" name="fatherhusbandwife" placeholder="Enter Name">
+                                    <label class="col-sm-2 col-form-label">Father/Husband/Wife :<span class="text-danger">*</span></label>
+                                    <div class="col-sm-4"> 
+                                        <input type="text" class="form-control required" id="fatherhusbandwife" name="fatherhusbandwife" placeholder="Enter Father/Husband/Wife Name">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Date Of Birth :</label>
+                                    <label class="col-sm-2 col-form-label">Date Of Birth :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <div class="input-group date datepicker">
-                                            <input type="text required" class="form-control required" id="dateofbirth" name="dateofbirth" placeholder="Enter Date Of Birth" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" readonly>
+                                            <input type="text required" class="form-control required" id="dateofbirth" name="dateofbirth" placeholder="Enter Date Of Birth" readonly>
                                             <span class="input-group-addon input-group-append border-left">
                                                 <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                             </span>
                                         </div>
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Age :</label>
+                                    <label class="col-sm-2 col-form-label">Age :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control required" id="age" name="age" placeholder="Enter Age">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Sex :</label>
+                                    <label class="col-sm-2 col-form-label">Sex :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <div class="form-group mb-0">
                                             <div class="form-check d-inline-block">
@@ -100,31 +100,31 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                             </div>
                                         </div>
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Nationality :</label>
+                                    <label class="col-sm-2 col-form-label">Nationality :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="nationality" name="nationality" placeholder="Enter Nationality">
+                                        <input type="text" class="form-control required" id="nationality" name="nationality" value="Indian" placeholder="Enter Nationality">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Mobile :</label>
+                                    <label class="col-sm-2 col-form-label">Mobile :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="mobile" name="mobile" placeholder="Enter Branch Mobile Number" data-inputmask-alias="9999999999" im-insert="true">
+                                        <input type="text" class="form-control required" id="mobile" name="mobile" placeholder="Enter Mobile Number" onkeypress="return isNumberKey(event);" maxlength="10">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Email :</label>
+                                    <label class="col-sm-2 col-form-label">Email :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control required" id="email" name="email" placeholder="Enter Email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Address :</label>
+                                    <label class="col-sm-2 col-form-label">Address :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="customer_address" name="customer_address" placeholder="Enter Addess">
+                                        <input type="text" class="form-control required" id="customer_address" name="customer_address" placeholder="Enter Address">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Photo :</label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="photo" class="file-upload-default" id="photo">
+                                        <input type="file" name="photo" class="file-upload-default " id="photo">
                                         <div class="input-group">
-                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Enter Photo">
+                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Photo">
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                             </span>
@@ -137,26 +137,11 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                             <h5 class="add-customer_heading nominee" <?php echo $style ?>>Nomination</h5>
                             <div class="border-div nominee" <?php echo $style ?>>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Nominee's Name :</label>
+                                    <label class="col-sm-2 col-form-label">Nominee's Name : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control required" id="nomineesname" name="nomineesname" placeholder="Enter Nominee Name">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Age :</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="ageN" name="ageN" placeholder="Enter Nominee Age">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Date of birth :</label>
-                                    <div class="col-sm-4">
-                                        <div class="input-group date datepicker">
-                                            <input type="text" class="form-control required" id="date_of_birth_nominee" name="date_of_birth_nominee" placeholder="Enter Age" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" readonly>
-                                            <span class="input-group-addon input-group-append border-left">
-                                                <span class="mdi mdi-calendar input-group-text bg-dark"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <label class="col-sm-2 col-form-label">Relationship With Customer :</label>
+                                    <label class="col-sm-2 col-form-label">Relationship With Customer :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <select id="relationship" name="relationship" class="form-control required">
                                             <option value="">Select Relation</option>
@@ -164,7 +149,22 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Sex :</label>
+                                    <label class="col-sm-2 col-form-label">Date Of Birth :<span class="text-danger">*</span></label>
+                                    <div class="col-sm-4">
+                                        <div class="input-group date datepicker">
+                                            <input type="text" class="form-control required" id="date_of_birth_nominee" name="date_of_birth_nominee" placeholder="Enter Date Of Birth" readonly>
+                                            <span class="input-group-addon input-group-append border-left">
+                                                <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Age : <span class="text-danger">*</span></label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control required" id="ageN" name="ageN" placeholder="Enter Nominee Age">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Sex : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <div class="form-group mb-0">
                                             <div class="form-check d-inline-block">
@@ -177,9 +177,9 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                             </div>
                                         </div>
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Address :</label>
+                                    <label class="col-sm-2 col-form-label">Address : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="addressnominee" name="addressnominee" placeholder="Enter Addess">
+                                        <input type="text" class="form-control required" id="addressnominee" name="addressnominee" placeholder="Enter Address">
                                     </div>
                                 </div>
                             </div>
@@ -189,22 +189,22 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                             <h5 class="add-customer_heading plan_details">Plan Details</h5>
                             <div class="border-div plan_details">
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Project Name :</label>
+                                    <label class="col-sm-2 col-form-label">Project Name : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <select class="form-control required" id="project_name" name="project_name"></select>
                                     </div>
-                                    <label class="col-sm-2 col-form-label sub_project_div" style="display:none;">Sub Project Name :</label>
+                                    <label class="col-sm-2 col-form-label sub_project_div" style="display:none;">Sub Project Name : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4 sub_project_div" style="display:none;">
                                         <select class="form-control required" id="sub_projects" name="sub_projects "></select>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label plot_name_div" style="display:none;">Plot Name :</label>
+                                    <label class="col-sm-2 col-form-label plot_name_div" style="display:none;">Plot Name : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4 plot_name_div" style="display:none;">
                                         <select class="form-control required" id="plot_name" name="plot_name"></select>
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Reference :</label>
+                                    <label class="col-sm-2 col-form-label">Reference : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="reference" name="reference" placeholder="Enter reference">
                                     </div>
@@ -213,29 +213,29 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Registration Number :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="registration_num" name="registration_num" placeholder="Enter registration number" />
+                                        <input class="form-control" type="text" id="registration_num" name="registration_num" placeholder="Enter registration number" />
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Plot Area :</label>
+                                    <label class="col-sm-2 col-form-label">Plot Area : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="plot_area" name="plot_area" placeholder="Enter plot area">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Unit :</label>
+                                    <label class="col-sm-2 col-form-label">Unit :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="plot_unit" name="plot_unit" placeholder="Enter unit">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Unit Rate :</label>
+                                    <label class="col-sm-2 col-form-label">Unit Rate :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="unit_rate" name="unit_rate" placeholder="Enter unit rate" onkeypress="return isNumberKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Discount Rate :</label>
+                                    <label class="col-sm-2 col-form-label">Discount Rate :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="discount_rate" name="discount_rate" placeholder="Enter discount rate" onkeypress="return isNumberKey(event);">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Installment :</label>
+                                    <label class="col-sm-2 col-form-label">Installment :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <select class="form-control required" id="installment" name="installment">
                                             <option value="">Please select</option>
@@ -249,23 +249,24 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Received Booking Amount :</label>
+                                <div class="form-group row mb-0">
+                                    <label class="col-sm-2 col-form-label">Received Booking Amount :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="received_booking_amount" name="received_booking_amount" placeholder="Enter received booking amount" onkeypress="return isNumberKey(event);">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Total Amount :</label>
+                                    <label class="col-sm-2 col-form-label">Total Amount :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <input class="form-control required" type="text" id="total_amount" name="total_amount" placeholder="Enter total amount" onkeypress="return isNumberKey(event);">
                                     </div>
                                 </div>
+                                <div class="form-group row" id="emi_amount"></div>
                             </div>
                             <!--end plain details-->
                             <h5 class="add-customer_heading payment_details">Payment Details</h5>
                             <div class="border-div payment_details">
                                 <!--payment-details-->
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Payment Mode :</label>
+                                    <label class="col-sm-2 col-form-label">Payment Mode :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <div class="form-check d-inline-block">
@@ -282,7 +283,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                             </div>
                                         </div>
                                     </div>
-                                    <label class="col-sm-2 col-form-label branch" style="display:none;">Branch : </label>
+                                    <label class="col-sm-2 col-form-label branch" style="display:none;">Branch :<span class="text-danger">*</span> </label>
                                     <div class="col-sm-4 branch" style="display:none;">
                                         <input type="text" class="form-control required" id="branch" name="branch" placeholder="Enter Branch">
                                     </div>

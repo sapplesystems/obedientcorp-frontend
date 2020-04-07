@@ -173,7 +173,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
                                             <div class="input-group date datepicker">
-                                                <input type="text" class="form-control required" placeholder="" id="dob" name="dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                <input type="text" class="form-control required" placeholder="Enter date of birth" id="dob" name="dob" readonly />
                                                 <span class="input-group-addon input-group-append border-left">
                                                     <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                 </span>
@@ -183,7 +183,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" data-inputmask-alias="9999999999" im-insert="true" />
+                                            <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" onkeypress="return isNumberKey(event);" />
                                         </div>
                                         <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                         <div class="col-sm-4">
@@ -296,7 +296,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
                                         <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
                                             <div class="input-group date datepicker">
-                                                <input type="text" class="form-control required" placeholder="" id="nominee_dob" name="nominee_dob" data-inputmask="'alias': 'datetime'" data-inputmask-inputformat="dd-mm-yyyy" />
+                                                <input type="text" class="form-control required" placeholder="Enter date of birth" id="nominee_dob" name="nominee_dob" readonly />
                                                 <span class="input-group-addon input-group-append border-left">
                                                     <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                 </span>
@@ -469,7 +469,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
             $('.datepicker').datepicker({
                 enableOnReadonly: true,
                 todayHighlight: true,
-                format: 'dd-mm-yyyy',
+                format: 'dd-M-yyyy',
                 autoclose: true,
                 endDate: todays_date
             });
@@ -478,6 +478,15 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
         $('#name').blur(function() {
             $('#payee_name').val($(this).val());
         });
+
+        $(document).on('change', '#nominee_dob', function () {
+        var value = $(this).val();
+        var today = new Date(),
+            dob = new Date(value),
+            age = new Date(today - dob).getFullYear() - 1970;
+        $('#nominee_age').val(age);
+        $('#nominee_age').prop('readOnly', true);
+    });
 
     }); //document
 
@@ -749,4 +758,10 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     }
 
     hideLoader();
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
 </script>

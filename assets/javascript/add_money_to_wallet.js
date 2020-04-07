@@ -1,10 +1,12 @@
-get_agent_list();
 getWalletAmount(user_id);
 var EMI_Or_Money_Request = 0;
 var FMCG_REQUEST = {};
 getAgentPaymentList(0);
 
 $(document).ready(function () {
+    $("#agents").html(down_the_line_members);
+    $('#agent-list').html(down_the_line_members);
+
     $("#agents").change(function () {
         var user_id = $(this).val();
         getWalletAmount(user_id);
@@ -142,38 +144,6 @@ function addMoneyToWallet(params) {
                 showSwal('error', 'Failed', response.data);
                 hideLoader();
             }
-        }
-    });
-}
-
-function get_agent_list() {
-    showLoader();
-    var url = base_url + 'down-the-line-members';
-
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status == 'success') {
-                var table_data = '';
-                if(user_id == 1){
-                    table_data += '<option value="">Select</option>';
-                }
-                $.each(response.data, function (key, value) {
-                    table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                $("#agents").html(table_data);
-                $('#agent-list').html(table_data);
-
-                hideLoader();
-            } else {
-                hideLoader();
-            }
-
         }
     });
 }

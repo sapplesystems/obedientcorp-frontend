@@ -1,8 +1,9 @@
 getEwalletHistory({user_id: user_id});
 initDatepicker();
-getAgentList();
 
 $(document).ready(function () {
+    
+    $("#agent_list").html(down_the_line_members);
 
     $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
         checkStartEndDate();
@@ -106,30 +107,6 @@ function initDatepicker() {
             //endDate: todays_date
         });
     }
-}
-
-
-function getAgentList() {
-    //login user id
-    var url = base_url + 'down-the-line-members';
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status) {
-                var agent_list;
-                var i = 0;
-                $.each(response.data, function (key, value) {
-                    agent_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                $("#agent_list").html(agent_list);
-            }
-        }
-    });
 }
 
 function checkStartEndDate() {

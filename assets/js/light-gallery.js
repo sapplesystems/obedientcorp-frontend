@@ -4,8 +4,8 @@
     $("#lightgallery").lightGallery();
   }
 
-  if ($("#lightgallery-without-thumb").length) {
-    $("#lightgallery-without-thumb").lightGallery({
+  if ($(".lightgallery-without-thumb").length) {
+    $(".lightgallery-without-thumb").lightGallery({
       thumbnail: true,
       animateThumb: false,
       showThumbByDefault: false

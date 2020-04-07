@@ -147,12 +147,10 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img">
-                                                                    <div id="lightgallery-without-thumb" class="row lightGallery">
-                                                                        <a href="#" class="image-tile" id="a_signature_upload">
-                                                                            <img src="" alt="image small" style="display:none;width:100px;" id="signature_upload">
-                                                                        </a>
-                                                                    </div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_signature_upload">
+                                                                        <img src="" alt="image small" style="display:none;width:100px;" id="signature_upload">
+                                                                    </a>
                                                                 </div>
                                                                 <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
                                                             </div>
@@ -363,7 +361,11 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img"><img src="" id="cancel_cheque_uploded" class="img-lg rounded-circle mb-3" style="display:none;" /></div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_cancel_cheque_uploded">
+                                                                        <img src="" id="cancel_cheque_uploded" class="img-lg mb-3" style="display:none;" alt="small image" />
+                                                                    </a>
+                                                                </div>
 
                                                                 <!--<input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">-->
                                                             </div>
@@ -459,7 +461,11 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="pan_upload" /></div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_pan_upload">
+                                                                        <img src="" style="display:none;width:100px;" id="pan_upload" />
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -476,7 +482,11 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="passport_upload" /></div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_passport_upload">
+                                                                        <img src="" style="display:none;width:100px;" id="passport_upload" />
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -493,7 +503,11 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="driving_upload" /></div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_driving_upload">
+                                                                        <img src="" style="display:none;width:100px;" id="driving_upload" />
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -510,7 +524,11 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="voter_upload" /></div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_voter_upload">
+                                                                        <img src="" style="display:none;width:100px;" id="voter_upload" />
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -527,7 +545,11 @@ if ($_REQUEST) {
                                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                                     </span>
                                                                 </div>
-                                                                <div class="signature_img"><img src="" style="display:none;width:100px;" id="adhar_upload" /></div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_adhar_upload">
+                                                                        <img src="" style="display:none;width:100px;" id="adhar_upload" />
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">

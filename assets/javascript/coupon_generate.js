@@ -1,9 +1,10 @@
 get_listing();
-get_agent_list();
 //get_goods_coupon_listing();
 getWalletAmount(user_id);
 
 $(document).ready(function () {
+    $("#agent").html(down_the_line_members);
+
     $("#agent").change(function () {
         var user_id = $(this).val();
         getWalletAmount(user_id);
@@ -136,31 +137,6 @@ function get_listing() {
     });
 }
 
-function get_agent_list() {
-
-    var url = base_url + 'down-the-line-members';
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status) {
-                var table_data = '';
-                $.each(response.data, function (key, value) {
-                    table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                $("#agent").html(table_data);
-
-
-            }
-
-        }
-    });
-}
-
 //function for quantity
 function agentTotal(id) {
     var e_wallet = document.getElementById('e-wallet');
@@ -276,7 +252,7 @@ function get_goods_coupon_listing() {
                                                 <td> ' + value.coupon_amount + ' </td>\n\
                                                 <td> ' + generated_date + ' </td>\n\
                                                 <td id="coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
-                                                <td>'+value.status+'</td>\n\
+                                                <td>' + value.status + '</td>\n\
                                                 ' + action_td + '\n\
                                             </tr>';
 

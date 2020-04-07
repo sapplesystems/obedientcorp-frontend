@@ -50,16 +50,16 @@
 
 <script type="text/javascript">
     /*var base_url = "<?php //echo $base_url; 
-                        ?>";
-    var media_url = "<?php //echo $media_url; 
-                        ?>";
-    var user_id = 0;
-    var user_type = 'AGENT';
-    var user_left_node_id = 0;
-    var user_right_node_id = 0;
-    var user_email = '';
-    var UserCookieData;
-    var photo_src = 'assets/images/default-img.png';*/
+?>";
+     var media_url = "<?php //echo $media_url; 
+?>";
+     var user_id = 0;
+     var user_type = 'AGENT';
+     var user_left_node_id = 0;
+     var user_right_node_id = 0;
+     var user_email = '';
+     var UserCookieData;
+     var photo_src = 'assets/images/default-img.png';*/
 
     var base_url = "<?php echo $base_url; ?>";
     var media_url = "<?php echo $media_url; ?>";
@@ -130,9 +130,10 @@
     }
 
     function logout() {
+        localStorage.removeItem('down_the_line_members');
         $.post('localapi.php', {
             destroy_session: 1
-        }, function(resp) {
+        }, function (resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             window.location.href = 'login';
         });
@@ -178,6 +179,38 @@
             return false;
         return true;
     }
+
+    function getDownTheLineMemberList() {
+        //login user id
+        var url = base_url + 'down-the-line-members';
+        $.ajax({
+            url: url,
+            type: 'post',
+            async: false,
+            data: {
+                user_id: user_id
+            },
+            success: function (response) {
+                if (response.status) {
+                    var list = '';
+                    var i = 0;
+                    if (user_id == 1) {
+                        list += '<option value="">Select</option>';
+                    }
+                    $.each(response.data, function (key, value) {
+                        list += '<option value="' + value.id + '">' + value.display_name + '</option>';
+                    });
+                    localStorage.setItem('down_the_line_members', list);
+                }
+            }
+        });
+    }
+    
+    var down_the_line_members = localStorage.getItem('down_the_line_members');
+    if(down_the_line_members == '' || down_the_line_members == null){
+        getDownTheLineMemberList();
+    }
+
     checkUserActiveInactive();
     hideLoader();
 </script>

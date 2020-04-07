@@ -1,31 +1,7 @@
-getDownTheLineMembers(user_id);
+getCustomersList(user_id);
 getRelationship();
 getProjectList();
 
-function getDownTheLineMembers(user_id) {
-    $.ajax({
-        url: base_url + 'down-the-line-members',
-        type: 'post',
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status == "success") {
-                var data = response.data;
-                var option = '';
-                if (user_id == 1) {
-                    option += '<option value="">Select</option>';
-                }
-                $.each(data, function (key, val) {
-                    option += '<option value="' + val.id + '">' + val.display_name + '</option>';
-                });
-                $('#agent_id,#agent_listing').html(option);
-                getCustomersList(user_id);
-
-            }
-        }
-    });
-}
 
 function getRelationship() {
     $.ajax({
@@ -81,7 +57,7 @@ function getplotlist(project_id, sub_project_id) {
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: { project_master_id: project_id, sub_project_id: sub_project_id },
+        data: {project_master_id: project_id, sub_project_id: sub_project_id},
         success: function (response) {
             var option = '<option value="">Select plots</option>';
             if (response.status == "success") {
@@ -105,7 +81,7 @@ function getPlotAreaUnit(plot_id) {
     $.ajax({
         url: base_url + 'plot-area-unit ',
         type: 'post',
-        data: { id: plot_id, },
+        data: {id: plot_id, },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data.plot_area) {
@@ -140,6 +116,7 @@ function getPlotAreaUnit(plot_id) {
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 $(document).ready(function () {
+    $('#agent_id,#agent_listing').html(down_the_line_members);
 
     $(document).on('blur', '#discount_rate', function (e) {
         e.preventDefault();
@@ -169,8 +146,8 @@ $(document).ready(function () {
     $(document).on('change', '#dateofbirth', function () {
         var value = $(this).val();
         var today = new Date(),
-            dob = new Date(value),
-            age = new Date(today - dob).getFullYear() - 1970;
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
         $('#age').val(age);
         $('#age').prop('readOnly', true);
     });
@@ -178,8 +155,8 @@ $(document).ready(function () {
     $(document).on('change', '#date_of_birth_nominee', function () {
         var value = $(this).val();
         var today = new Date(),
-            dob = new Date(value),
-            age = new Date(today - dob).getFullYear() - 1970;
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
         $('#ageN').val(age);
         $('#ageN').prop('readOnly', true);
     });
@@ -194,7 +171,7 @@ $(document).ready(function () {
                                     <div class="col-sm-4"></div>\n\
             <label class="col-form-label col-sm-2">Emi Amount PerMonth :</label>\n\
             <div class="col-sm-4">\n\
-           <label class="col-form-label card-description mb-0">'+ emi_amount + '</label>\n\
+           <label class="col-form-label card-description mb-0">' + emi_amount + '</label>\n\
            </div>';
             $('#emi_amount').html(html);
         }

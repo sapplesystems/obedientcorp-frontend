@@ -1,45 +1,9 @@
 $(function () {
 
-    get_agent_list();
+    $("#agent-list").html(down_the_line_members);
     getAgentPaymentList(0);
 
 });
-
-//function for get agent list
-function get_agent_list() {
-    showLoader();
-    //login user id
-    var url = base_url + 'down-the-line-members';
-    var agent_id = 0;
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status) {
-                var customer_list = '';
-                var i = 0;
-                if(user_id == 1){
-                    customer_list += '<option value="">Select</option>';
-                }
-                $.each(response.data, function (key, value) {
-                    if (i == 0) {
-                        agent_id = value.id;
-                        i = 1;
-                    }
-                    customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                // get_customer_list(agent_id);
-                $("#agent-list").html(customer_list);
-                hideLoader();
-            }
-            hideLoader();
-        }
-    });
-}//end function agent list
 
 //function get_agent_payment_list 
 function getAgentPaymentList(agent_id) {

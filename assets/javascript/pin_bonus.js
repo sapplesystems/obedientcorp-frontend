@@ -38,36 +38,10 @@ function getMatchingAmountList(params) {
     });
 }
 
-function getAgentList() {
-    //login user id
-    var url = base_url + 'down-the-line-members';
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status) {
-                var agent_list;
-                var i = 0;
-                if(user_id == 1){
-                    agent_list += '<option value="">Select</option>';
-                }
-                $.each(response.data, function (key, value) {
-                    agent_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                $("#agent_list").html(agent_list);
-            }
-        }
-    });
-}
-
-getAgentList();
 getMatchingAmountList({user_id: user_id});
 
 $(document).ready(function(){
+    $("#agent_list").html(down_the_line_members);
     $(document).on('change', '#agent_list', function () {
         getMatchingAmountList({user_id: $(this).val()});
     });

@@ -153,6 +153,7 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                             if (bank.cancel_cheque != null) {
                                 var bank_cheque = media_url + 'cancel_cheque/' + bank.cancel_cheque;
                                 $('#cancel_cheque_uploded').attr('src', bank_cheque);
+                                $('#a_cancel_cheque_uploded').attr('href', bank_cheque);
                                 $('#cancel_cheque_uploded').css('display', 'block');
                                 $('#cancel_cheque').prop('disabled', true);
                             }
@@ -245,30 +246,35 @@ if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_e
                             if (kyc.adhar_image) {
                                 var image = media_url + 'id_proof/' + kyc.adhar_image;
                                 $('#adhar_upload').attr('src', image);
+                                $('#a_adhar_upload').attr('href', image);
                                 $('#adhar_upload').css('display', 'block');
                                 $('#adhar_image').prop('disabled', true);
                             }
                             if (kyc.pan_image) {
                                 var image = media_url + 'id_proof/' + kyc.pan_image;
                                 $('#pan_upload').attr('src', image);
+                                $('#a_pan_upload').attr('href', image);
                                 $('#pan_upload').css('display', 'block');
                                 $('#pan_image').prop('disabled', true);
                             }
                             if (kyc.passport_image) {
                                 var image = media_url + 'id_proof/' + kyc.passport_image;
                                 $('#passport_upload').attr('src', image);
+                                $('#a_passport_upload').attr('href', image);
                                 $('#passport_upload').css('display', 'block');
                                 $('#passport_image').prop('disabled', true);
                             }
                             if (kyc.driving_licence_image) {
                                 var image = media_url + 'id_proof/' + kyc.driving_licence_image;
                                 $('#driving_upload').attr('src', image);
+                                $('#a_driving_upload').attr('href', image);
                                 $('#driving_upload').css('display', 'block');
                                 $('#driving_licence_image').prop('disabled', true);
                             }
                             if (kyc.voter_image) {
                                 var image = media_url + 'id_proof/' + kyc.voter_image;
                                 $('#voter_upload').attr('src', image);
+                                $('#a_voter_upload').attr('href', image);
                                 $('#voter_upload').css('display', 'block');
                                 $('#voter_image').prop('disabled', true);
                             }

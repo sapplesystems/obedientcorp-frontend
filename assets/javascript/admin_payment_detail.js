@@ -113,6 +113,7 @@ function get_payment_details() {
                 $("#status").html(status);
                 $("#date_of_payment").html(date_of_payment);
                 $("#photo").attr('src', payment_photo);
+                $("#a_photo").attr('href', payment_photo);
                 $("#comment").html(comment);
                 $("#admincomment").html(admin_comment);
                 hideLoader();

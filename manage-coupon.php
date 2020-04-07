@@ -124,7 +124,7 @@
         </style>
         <div class="main_bg" style="background:#f7f7f7; max-width:600px; padding:20px; margin:20px auto; border:1.5px dashed #999999; font-family:arial; box-shadow:0 0 0 7px #f7f7f7;">
             <h4 style="float:left; text-align:left; margin-top:0px; font-weight:normal;"><strong>GENERATED DATE</strong> <br><span id="pGeneratedDate"></span></h4>
-            <h4 style="float:right; text-align:right; margin-top:0px; font-weight:normal;"><strong>EXPIRY DAYE</strong> <br><span id="pExpiryDate"></span></h4>
+            <h4 style="float:right; text-align:right; margin-top:0px; font-weight:normal;"><strong>EXPIRY DATE</strong> <br><span id="pExpiryDate"></span></h4>
             <div style="clear:both;"></div>
             <h1 style="font-size:56px; text-align:center; margin-top:0; margin-bottom:30px;"><span style="font-size:30px;">&#8377;</span> <span id="pCouponAmount"></span></h1>
             <p style="text-align:center;"><strong>Coupon Code:</strong> <span id="pCouponCode" class="bg_color" style="background:#b66dff; padding:5px 10px; border:1px solid #b66dff;color:#ffffff;">55690B14</span></p>

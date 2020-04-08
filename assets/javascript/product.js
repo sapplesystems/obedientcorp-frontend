@@ -15,7 +15,7 @@ $(document).ready(function () {
         $('.datepicker').datepicker({
             enableOnReadonly: true,
             todayHighlight: true,
-            format: 'dd-mm-yyyy',
+            format: 'dd-M-yyyy',
             autoclose: true,
             //endDate: todays_date
         });

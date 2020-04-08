@@ -68,7 +68,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
                                     <label class="col-sm-2 col-form-label">Father/Husband/Wife :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4"> 
-                                        <input type="text" class="form-control required" id="fatherhusbandwife" name="fatherhusbandwife" placeholder="Enter Father/Husband/Wife Name">
+                                        <input type="text" class="form-control required" id="fatherhusbandwife" name="fatherhusbandwife" placeholder="Enter Father/Husband/Wife Name" onkeypress="return isAlphabetKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -139,7 +139,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Nominee's Name : <span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="nomineesname" name="nomineesname" placeholder="Enter Nominee Name">
+                                        <input type="text" class="form-control required" id="nomineesname" name="nomineesname" placeholder="Enter Nominee Name" onkeypress="return isAlphabetKey(event);">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Relationship With Customer :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">

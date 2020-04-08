@@ -40,7 +40,6 @@ function getMatchingAmountList(params) {
             }
             else {
                 $("#matching_income_listing").html('');
-                generateDataTable('matching_income_listing');
                 hideLoader();
             }
 

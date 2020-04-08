@@ -20,8 +20,8 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">PinBonus <i class="mdi mdi-chart-line mdi-24px float-right "></i></h4>
                         <h2 class="mb-5">&#x20b9; 
-                            <a href="pin-bonus">
-                                <span class="dashboard-box" id="pin_bonus">0.00</span>
+                            <a href="pin-bonus" class="dashboard-box">
+                                <span id="pin_bonus">0.00</span>
                             </a>
                         </h2>
                     </div>
@@ -33,8 +33,8 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-bookmark-outline mdi-24px float-right "></i></h4>
                         <h2 class="mb-5">&#x20b9; 
-                            <a href="matching-income">
-                                <span class="dashboard-box" id="matching_income">0.00</span>
+                            <a href="matching-income" class="dashboard-box">
+                                <span id="matching_income">0.00</span>
                             </a>
                         </h2>
                     </div>
@@ -46,8 +46,8 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Total Earning <i class="mdi mdi-diamond mdi-24px float-right "></i></h4>
                         <h2 class="mb-5">&#x20b9; 
-                            <a href="income-fund-history">
-                                <span class="dashboard-box" id="total_earning">0.00</span>
+                            <a href="income-fund-history" class="dashboard-box">
+                                <span id="total_earning">0.00</span>
                             </a>
                         </h2>
                     </div>

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-body p-3">
+                    <div class="card-body p-0">
                         <div class="row">
                             <div class="col-md-12 customTabs">
                                 <ul class="nav nav-tabs border-0" role="tablist">
@@ -19,7 +19,7 @@
                                         <a class="p-1 border-0 bg-transparent nav-link" id="tree-view" data-toggle="tab" href="#tree-view-1" role="tab" aria-controls="tree-view" aria-selected="false"><i class="mdi mdi-file-tree icon-sm my-0 "></i></a>
                                     </li>
                                 </ul>
-                                <div class="tab-content  border-0 p-0 mt-3">
+                                <div class="tab-content border-0 p-0 mt-3">
                                     <div class="tab-pane fade show active" id="detail-view-1" role="tabpanel" aria-labelledby="detail-view">
                                         <ul class="nav nav-pills nav-pills-custom" id="pills-tab" role="tablist">
                                             <li class="nav-item">

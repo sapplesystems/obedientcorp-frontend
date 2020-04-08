@@ -29269,9 +29269,9 @@ footer h4 a {
     width: 10px;
     height: 10px;
     border-radius: 100%;
-    border: 2px solid #ffffff;
+    /*border: 2px solid #ffffff;*/
     bottom: 5px;
-    right: -5px;
+    right: -2px;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img .availability-status.online {
@@ -30124,75 +30124,10 @@ ul.total_indicator li:nth-child(4) span {
     overflow-x: hidden;
 }
 
-#change_password_form label.error, 
-#plot-form label.error, 
-#login_form label.error, 
-#project-form label.error, 
-#sub-project-form label.error, 
-#customer_add_form_submit label.error, 
-#create_category label.error, 
-#create-sub-category label.error, 
-#create_product label.error, 
-#agent-buisness-form label.error, 
-#add-money-to-wallet-form label.error, 
-#payment-form label.error,
-#payment-form-wallet label.error {
-    color: #fe7c96;
-    width: 100%;
-    position: absolute;
-    white-space: nowrap;
-    margin: 0px !important;
-    font-size: 13px;
-    bottom: 8px;
-    left: 20px;
-}
-
 
 #customer_add_form_submit .datepicker, #create_product .datepicker{padding:0px !important;}
 
-#customer_add_form_submit .datepicker label.error, #create_product .datepicker label.error {
-    left: 0px !important;
-}
-#customer_add_form_submit .form-check-label label.error, #create_product .form-check-label label.error {
-    left: 0px !important;
-}
-
-#plotbooking_form label.error {
-    color: #fe7c96;
-    width: 100%;
-    position: absolute;
-    white-space: nowrap;
-    margin: 0px !important;
-    font-size: 13px;
-    bottom: 8px;
-    left: 20px;
-}
-
-#customer_add_form_submit label.error, 
-#project-form label.error, 
-#sub-project-form label.error, 
-#add-money-to-wallet-form label.error, 
-#payment-form label.error,
-#payment-form-wallet label.error{
-    bottom:-8px !important;
-}
-
-#payment-form .col-sm-10 label.error, #payment-form-wallet .col-sm-10 label.error{
-    bottom:-16px !important;
-}
-
-#agent-buisness-form label.error{
-    bottom:-16px !important;
-}
-
 #plotbooking_form .datepicker{padding:0px !important;}
-
-#plotbooking_form .datepicker label.error {
-    left: 0px !important;
-}
-#plotbooking_form .form-check-label label.error {
-    left: 0px !important;
-}
 
 table tr td {
     white-space: inherit !important;
@@ -30401,7 +30336,7 @@ select option {
 .hv-wrapper p {
     margin: 0;
     color: #ffffff;
-    width: 250px;
+    width: 240px;
     background-color: #000000;
     border-radius: .25rem;
     box-shadow: 0 1px 1px #333333;
@@ -30451,9 +30386,9 @@ select option {
 }
 
 .hv-wrapper .hv-item .hv-item-children .hv-item-child {
-    padding: 0 15px;
+    padding: 0 10px;
     position: relative;
-    width: 600px;
+    width: 530px;
 }
 
 .hv-wrapper .hv-item .hv-item-children .hv-item-child:only-child:after {
@@ -30903,7 +30838,7 @@ CSS ANIMATION FOR TREE
 
 .signature_img{margin-top:10px;} 
 .back_to_me{position: absolute;left: 0px; z-index:1;}
-.hv-item-div{position:relative; margin:0px !important;}
+.hv-item-div{position:relative; /*margin:0px !important;*/}
 
 .cal_amount { 
     -moz-column-count: 2; 
@@ -31089,3 +31024,8 @@ CSS ANIMATION FOR TREE
 .active_profile{border:1px solid #1bcfb4; background-color:#1bcfb4;}
 .Inactive_profile{border:1px solid #fe7c96; background-color:#fe7c96;}
 .dashboard-box{color: #ffffff;}
+.dashboard-box:hover{color: #ffffff;text-decoration:none;}
+.form-group label.error{color:#fe7c96;}
+.form-group .datepicker label.error{width:100%;}
+.form-group .form-check-label label.error{position: absolute;width: 140px;display: block;left: 0;top: -20px;}
+.form-group .input-group label.error{width:100%;}

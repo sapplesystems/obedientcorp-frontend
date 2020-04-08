@@ -685,7 +685,10 @@ function getCustomersList(user_id) {
         },
         async: false,
         success: function (response) {
-            var agent_id = $('#agent_listing').val();
+            var agent_id = user_id;
+            if($('#agent_listing').val()){
+                agent_id = $('#agent_listing').val();
+            }
             var html = '';
             var customer_list = '<option value="">New</option>';
             if (response.status == "success") {
@@ -753,7 +756,6 @@ function setIdofForm(form_id) {
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 function initDatepicker() {
-    $(":input").inputmask();
     if ($(".datepicker").length) {
         $('#dateofbirth').datepicker({
             enableOnReadonly: true,

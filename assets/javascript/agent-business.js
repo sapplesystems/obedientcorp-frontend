@@ -1,5 +1,13 @@
 $(document).ready(function () {
     $('#agent_listing').html(down_the_line_members);
+    
+    $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
+        checkStartEndDate();
+    });
+
+    $(document).on('change', '#end-date', function () {//$("#end-date").change(function () {
+        checkStartEndDate();
+    });
 
     $(document).on("click", "#agent_form", function (e) {
         e.preventDefault();
@@ -15,8 +23,8 @@ $(document).ready(function () {
         if ($("#agent-buisness-form").valid()) {
             var params = {
                 agent_id: $('#agent_listing').val(),
-                from_date: $('#from_date').val(),
-                to_date: $('#to_date').val(),
+                from_date: $('#start-date').val(),
+                to_date: $('#end-date').val(),
             };
             showLoader();
             $.ajax({

@@ -438,21 +438,21 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Qualification <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Qualification</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="qualification" name="qualification">
+                                                                <input type="text" class="form-control" placeholder="" id="qualification" name="qualification">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Proposed Area of Work <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Proposed Area of Work</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="proposed_area_of_work" name="proposed_area_of_work">
+                                                                <input type="text" class="form-control" placeholder="" id="proposed_area_of_work" name="proposed_area_of_work">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">PAN </label>
+                                                            <label class="col-sm-2 col-form-label">PAN</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="pan_number" name="pan_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Pan Upload </label>
+                                                            <label class="col-sm-2 col-form-label">Pan Upload</label>
                                                             <div class=" input-group col-sm-4">
                                                                 <input type="file" name="img" class="file-upload-default" name="pan_image" id="pan_image">
                                                                 <div class="input-group">
@@ -469,11 +469,11 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Passport </label>
+                                                            <label class="col-sm-2 col-form-label">Passport</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="passport_number" name="passport_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Passport Upload </label>
+                                                            <label class="col-sm-2 col-form-label">Upload Passport</label>
                                                             <div class=" input-group col-sm-4">
                                                                 <input type="file" name="img" class="file-upload-default " name="passport_image" id="passport_image">
                                                                 <div class="input-group">
@@ -490,11 +490,11 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Driving Licence </label>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="driving_licence_number" name="driving_licence_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Driving Licence Upload</label>
+                                                            <label class="col-sm-2 col-form-label">Upload Driving Licence</label>
                                                             <div class=" input-group col-sm-4">
                                                                 <input type="file" name="img" class="file-upload-default" name="driving_licence_image" id="driving_licence_image">
                                                                 <div class="input-group">
@@ -511,11 +511,11 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Voter Id </label>
+                                                            <label class="col-sm-2 col-form-label">Voter Id</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="voter_id" name="voter_id">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Voter Id Upload </label>
+                                                            <label class="col-sm-2 col-form-label">Upload Voter Id</label>
                                                             <div class=" input-group col-sm-4">
                                                                 <input type="file" name="img" class="file-upload-default" name="voter_image" id="voter_image">
                                                                 <div class="input-group">
@@ -536,7 +536,7 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="adhar_number" name="adhar_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Adhar Upload <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Upload Adhar<span class="text-danger">*</span></label>
                                                             <div class=" input-group col-sm-4">
                                                                 <input type="file" name="img" class="file-upload-default required" name="adhar_image" id="adhar_image">
                                                                 <div class="input-group">
@@ -553,7 +553,7 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Join Date <span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">Join Date<span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
                                                                 <div class="input-group date datepicker ">
                                                                     <input type="text" class="form-control" placeholder="" id="join_date" name="join_date" />

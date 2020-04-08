@@ -37,11 +37,11 @@
                                 </div>
                             </div>
                             <div class="col-sm-2 pr-0">
-                                <label>Transaction Type:</label>
+                                <label>Type:</label>
                                 <select class="form-control required" id="type" name="type">
                                     <option value="">ALL</option>
-                                    <option value="Cr">CREDIT</option>
-                                    <option value="Dr">DEBIT</option>
+                                    <option value="Cr">Cr</option>
+                                    <option value="Dr">Dr</option>
                                 </select>
                             </div>
                             <div class="col-sm-2 pr-0">

@@ -10,17 +10,6 @@ $(document).ready(function () {
     $('#product_images').imageUploader();
     $('#product_docs').imageUploader();
 
-    $(":input").inputmask();
-    if ($(".datepicker").length) {
-        $('.datepicker').datepicker({
-            enableOnReadonly: true,
-            todayHighlight: true,
-            format: 'dd-M-yyyy',
-            autoclose: true,
-            //endDate: todays_date
-        });
-    }
-
     $(document).on('change', '#categories', function () {
         $('#subcategory_div').css('display', 'none');
         $('#subcategory').html('');

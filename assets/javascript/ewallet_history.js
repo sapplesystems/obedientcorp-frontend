@@ -1,5 +1,4 @@
 getEwalletHistory({user_id: user_id});
-initDatepicker();
 
 $(document).ready(function () {
     
@@ -94,29 +93,6 @@ function getEwalletHistory(params) {
 
         }
     });
-}
-
-function initDatepicker() {
-    $(":input").inputmask();
-    if ($(".datepicker").length) {
-        $('.datepicker').datepicker({
-            enableOnReadonly: true,
-            todayHighlight: true,
-            format: 'dd-mm-yyyy',
-            autoclose: true,
-            //endDate: todays_date
-        });
-    }
-}
-
-function checkStartEndDate() {
-    var startDate = document.getElementById("start-date").value;
-    var endDate = document.getElementById("end-date").value;
-    if ((Date.parse(startDate.split(/\-/).reverse().join('-')) > Date.parse(endDate.split(/\-/).reverse().join('-')))) {
-        showSwal('error', 'Invalid End Date', 'End date should be greater than or equal to start date');
-        document.getElementById("end-date").value = "";
-        return false;
-    }
 }
 
 function resetFilters() {

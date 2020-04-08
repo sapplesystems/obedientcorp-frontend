@@ -153,6 +153,16 @@ function getDownTheLineMemberList() {
     });
 }
 
+function checkStartEndDate() {
+    var startDate = document.getElementById("start-date").value;
+    var endDate = document.getElementById("end-date").value;
+    if ((Date.parse(startDate.split(/\-/).reverse().join('-')) > Date.parse(endDate.split(/\-/).reverse().join('-')))) {
+        showSwal('error', 'Invalid End Date', 'End date should be greater than or equal to start date');
+        document.getElementById("end-date").value = "";
+        return false;
+    }
+}
+
 var down_the_line_members = localStorage.getItem('down_the_line_members');
 if (down_the_line_members == '' || down_the_line_members == null) {
     getDownTheLineMemberList();

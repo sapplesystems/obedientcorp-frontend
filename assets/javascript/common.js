@@ -3,11 +3,11 @@ var state_list;
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 /*if (UserCookieData.id != "" && UserCookieData.email != "") {
-    var user_id = UserCookieData.id;
-    var user_left_node_id = UserCookieData.left_node_id;
-    var user_right_node_id = UserCookieData.right_node_id;
-    var user_email = UserCookieData.email;
-}*/
+ var user_id = UserCookieData.id;
+ var user_left_node_id = UserCookieData.left_node_id;
+ var user_right_node_id = UserCookieData.right_node_id;
+ var user_email = UserCookieData.email;
+ }*/
 
 var user_profile_id = user_id;
 var user_profile_email = user_email;
@@ -28,6 +28,7 @@ $(document).ready(function () {
             //defaultViewDate: new Date()
         });
     }
+
     $.post(base_url + 'state-city-list', {}, function (resp) {
         showLoader();
         if (resp.status == 'success') {
@@ -46,7 +47,6 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response.status == 'success') {
-                        console.log(response.data);
                         var profile = response.data.profile;
                         var bank = response.data.bank_detail[0];
                         var nominee = response.data.nominee_detail[0];
@@ -159,6 +159,7 @@ $(document).ready(function () {
     });
 
     $(".imageUpload").change(function () {
+        readURL(this);
         showLoader();
         var fileName = document.getElementById("imageUpload").files[0];
         var id = user_id;
@@ -175,11 +176,16 @@ $(document).ready(function () {
                 success: function (response) {
                     error_html = '';
                     if (response.status == 'success') {
-                        error_html += '<div class="alert alert-primary" role="alert">Photo Uploaded successfully</div>';
+                        $.post('localapi.php', {
+                            udpate_photo: true,
+                            photo: response.data.photo
+                        }, function (resp) {
+                            $('#user_photo').attr('src', media_url + 'profile_photo/' + response.data.photo);
+                            showSwal('success', 'Photo Saved', 'Photo Uploaded successfully');
+                        });
                     } else {
-                        error_html += '<div class="alert alert-warning" role="alert">Photo could not be saved</div>';
+                        showSwal('error', 'Failed', 'Photo could not be saved');
                     }
-                    $('#errors_div').html(error_html);
                     hideLoader();
                 },
                 error: function (response) {
@@ -239,7 +245,7 @@ function getRelationships() {
 
 function checkForBankSaveButton(v) {
     if (v.payee_name == '' || v.payee_name == null) {
-        if( $('#associate_name').val()) {
+        if ($('#associate_name').val()) {
             $('#payee_name').val($('#associate_name').val());
         }
         $('#bank_update_submit').css('display', '');
@@ -333,13 +339,13 @@ function checkForKYCSaveButton(v) {
     } else if (v.join_date == '' || v.join_date == null) {
         $('#kyc_update_submit').css('display', '');
         $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
-    }  else {
+    } else {
         $('#kyc_update_submit').css('display', 'none');
         $('#kyc_detail_status').html('<i class="mdi mdi-check-circle-outline text-success"></i>');
     }
 
 
- }
+}
 
 function setKYCDetail(kyc) {
     $('#kyc_id').val(kyc.id);
@@ -456,7 +462,7 @@ function setNomineeDetails(nominee) {
         $('#ndob').val(ndate);
         $('#ndob').prop('disabled', true);
     }
-   
+
 }
 
 function setBankDetails(bank) {

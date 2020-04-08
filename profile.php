@@ -712,19 +712,3 @@ if ($_REQUEST) {
     <script type="text/javascript" src="assets/javascript/bank_update.js"></script>
     <script type="text/javascript" src="assets/javascript/nominee_update.js"></script>
     <script type="text/javascript" src="assets/javascript/kyc_update.js"></script>
-    <script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-                    $('#imagePreview').hide();
-                    $('#imagePreview').fadeIn(650);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $("#imageUpload").change(function () {
-            readURL(this);
-        });
-    </script>

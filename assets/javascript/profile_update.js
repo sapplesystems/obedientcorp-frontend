@@ -98,7 +98,13 @@ $(document).ready(function () {
                         if(response.data.transaction_password && response.data.transaction_password != ''){
                             disableTransactionPassword();
                         }
-                        showSwal('success', 'Profile Saved', 'Profile saved successfully');
+                        $.post('localapi.php', {
+                            udpate_name: true,
+                            name: associate_name
+                        }, function (resp) {
+                            $('#user_login').html(associate_name);
+                            showSwal('success', 'Profile Saved', 'Profile saved successfully');
+                        });
                     } else {
                         showSwal('error', 'Profile Not Saved', 'Profile could not be saved');
                     }

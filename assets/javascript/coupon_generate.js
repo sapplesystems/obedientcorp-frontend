@@ -219,7 +219,7 @@ function get_goods_coupon_listing() {
 
                     action_td = '<td><div class="float-left">\n\
                                     <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" \n\
-                                        onclick="printCoupon(event, ' + value.id + ', \'' + value.coupon_code + '\', \'' + value.coupon_amount + '\', \'' + generated_date + '\', \'' + expiry_date + '\');">Print Coupon</a>\n\
+                                        onclick="printCoupon(event, ' + value.id + ');">Print Coupon</a>\n\
                                 </div></td>';
                     cb_status = '';
                     if (user_type == 'ADMIN') {
@@ -241,16 +241,16 @@ function get_goods_coupon_listing() {
                                             </form>\n\
                                         </div>\n\
                                         <div class="float-left ml-3">\n\
-                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ', \'' + value.coupon_code + '\', \'' + value.coupon_amount + '\', \'' + generated_date + '\', \'' + expiry_date + '\');">Print Coupon</a>\n\
+                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print Coupon</a>\n\
                                         </div>\n\
                                     </td>';
                     }
 
                     goods_coupon_list += ' <tr role="row" class="' + classname + '">\n\
                                                 <td class="sorting_1">' + i + '</td>\n\
-                                                <td> ' + value.coupon_code + ' </td>\n\
-                                                <td> ' + value.coupon_amount + ' </td>\n\
-                                                <td> ' + generated_date + ' </td>\n\
+                                                <td id="coupon_code_' + value.id + '"> ' + value.coupon_code + ' </td>\n\
+                                                <td id="coupon_amount_' + value.id + '"> ' + value.coupon_amount + ' </td>\n\
+                                                <td id="generated_date_' + value.id + '"> ' + generated_date + ' </td>\n\
                                                 <td id="coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
                                                 <td>' + value.status + '</td>\n\
                                                 ' + action_td + '\n\
@@ -336,13 +336,13 @@ function resetDenominations() {
     $('#denomination_amount_sum').html('0');
 }
 
-function printCoupon(e, coupon_id, coupon_code, coupon_amount, generated_date, expiry_date) {
+function printCoupon(e, coupon_id) {
     e.preventDefault();
-    JsBarcode("#barcode", coupon_code);
-    $('#pCouponCode').html(coupon_code);
-    $('#pCouponAmount').html(coupon_amount);
-    $('#pGeneratedDate').html(generated_date);
-    $('#pExpiryDate').html(expiry_date);
+    JsBarcode("#barcode", $('#coupon_code_' + coupon_id).html());
+    $('#pCouponCode').html($('#coupon_code_' + coupon_id).html());
+    $('#pCouponAmount').html($('#coupon_amount_' + coupon_id).html());
+    $('#pGeneratedDate').html($('#generated_date_' + coupon_id).html());
+    $('#pExpiryDate').html($('#coupon_updated_date_' + coupon_id).html());
     var print_coupon_div = document.getElementById("print_coupon_div").innerHTML;
     var a = window.open('', '', 'height=500, width=500');
     a.document.write('<html>');

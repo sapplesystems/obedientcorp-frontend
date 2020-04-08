@@ -1,3 +1,15 @@
+$(document).ready(function () {
+    if ($(".datepicker").length) {
+        $('.datepicker').datepicker({
+            enableOnReadonly: true,
+            todayHighlight: true,
+            format: 'dd-M-yyyy',
+            autoclose: true,
+            //defaultViewDate: new Date()
+        });
+    }
+});
+
 var MonthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 //checkCookie();

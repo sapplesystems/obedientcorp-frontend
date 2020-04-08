@@ -1,17 +1,6 @@
 $(document).ready(function () {
     $('#agent_listing').html(down_the_line_members);
 
-    $(":input").inputmask();
-    if ($(".datepicker").length) {
-        $('.datepicker').datepicker({
-            enableOnReadonly: true,
-            todayHighlight: true,
-            format: 'dd-mm-yyyy',
-            autoclose: true,
-            //defaultViewDate: new Date()
-        });
-    }
-
     $(document).on("click", "#agent_form", function (e) {
         e.preventDefault();
         // for validation

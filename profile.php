@@ -102,13 +102,13 @@ if ($_REQUEST) {
                                                 <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info-1" role="tab" aria-controls="info" aria-selected="true"><i class="mdi mdi-account-outline"></i> Info</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="bank-details-tab" data-toggle="tab" href="#bank-details-1" role="tab" aria-controls="bank-details" aria-selected="false"><i class="mdi mdi-account-card-details"></i> Bank Details</a>
+                                                <a class="nav-link" id="bank-details-tab" data-toggle="tab" href="#bank-details-1" role="tab" aria-controls="bank-details" aria-selected="false"><i class="mdi mdi-account-card-details"></i> Bank Details <span id="bank_detail_status"></span></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="nominee-tab" data-toggle="tab" href="#nominee-1" role="tab" aria-controls="nominee" aria-selected="false"><i class="mdi mdi-account-check"></i> Nominee</a>
+                                                <a class="nav-link" id="nominee-tab" data-toggle="tab" href="#nominee-1" role="tab" aria-controls="nominee" aria-selected="false"><i class="mdi mdi-account-check"></i> Nominee <span id="nominee_status"></span></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="kyc-tab" data-toggle="tab" href="#kyc-1" role="tab" aria-controls="kyc" aria-selected="false"><i class="mdi mdi-clipboard-check"></i> KYC</a>
+                                                <a class="nav-link" id="kyc-tab" data-toggle="tab" href="#kyc-1" role="tab" aria-controls="kyc" aria-selected="false"><i class="mdi mdi-clipboard-check"></i> KYC <span id="kyc_detail_status"></span></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="activities-tab" data-toggle="tab" href="#activities-1" role="tab" aria-controls="activities" aria-selected="false"><i class="mdi mdi mdi-alarm"></i> Activities</a>
@@ -136,7 +136,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="associate_name" name="associate_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="associate_name" name="associate_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Signature Upload<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -225,7 +225,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code">
+                                                                <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code" onkeypress="return isNumberKey(event);">
                                                             </div>
 
                                                         </div>
@@ -242,11 +242,11 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="father_or_husband_name" name="father_or_husband_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="father_or_husband_name" name="father_or_husband_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="mothers_name" name="mothers_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="mothers_name" name="mothers_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -271,11 +271,11 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" data-inputmask-alias="9999999999" im-insert="true">
+                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" onkeypress="return isNumberKey(event);" maxlength="10">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="land_line_phone" name="land_line_phone">
+                                                                <input type="text" class="form-control required" placeholder="" id="land_line_phone" name="land_line_phone" onkeypress="return isNumberKey(event);">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -291,13 +291,13 @@ if ($_REQUEST) {
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="occupation" name="occupation">
+                                                                <input type="text" class="form-control required" placeholder="" id="occupation" name="occupation" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar">
+                                                                <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -325,7 +325,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Payee Name</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="payee_name" name="payee_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="payee_name" name="payee_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Bank Name</label>
                                                             <div class="col-sm-4">
@@ -335,7 +335,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Account Number</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="account_number" name="account_number">
+                                                                <input type="text" class="form-control required" placeholder="" id="account_number" name="account_number" onkeypress="return isNumberKey(event);">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Branch</label>
                                                             <div class="col-sm-4">
@@ -372,7 +372,7 @@ if ($_REQUEST) {
                                                         </div>
                                                     </section>
                                                     <input type="hidden" id="bank_id" value="" />
-                                                    <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" />
+                                                    <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" style="display:none"; />
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="nominee-1" role="tabpanel" aria-labelledby="nominee-tab">
@@ -381,7 +381,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="nominee_name" name="nominee_name">
+                                                                <input type="text" class="form-control required" placeholder="" id="nominee_name" name="nominee_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -417,7 +417,7 @@ if ($_REQUEST) {
                                                         </div>
                                                     </section>
                                                     <input type="hidden" id="nominee_id" value="" />
-                                                    <input type="submit" class="btn btn-primary" id="nominee_update_submit" value="Save" />
+                                                    <input type="submit" class="btn btn-primary" id="nominee_update_submit" value="Save" style="display:none"; />
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="kyc-1" role="tabpanel" aria-labelledby="kyc-tab">
@@ -434,7 +434,7 @@ if ($_REQUEST) {
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="koccupation" name="koccupation">
+                                                                <input type="text" class="form-control required" placeholder="" id="koccupation" name="koccupation" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -444,17 +444,17 @@ if ($_REQUEST) {
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Proposed Area of Work <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="proposed_area_of_work" name="proposed_area_of_work">
+                                                                <input type="text" class="form-control required" placeholder="" id="proposed_area_of_work" name="proposed_area_of_work">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">PAN <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">PAN </label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="pan_number" name="pan_number">
+                                                                <input type="text" class="form-control" placeholder="" id="pan_number" name="pan_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Pan Upload <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Pan Upload </label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default required" name="pan_image" id="pan_image">
+                                                                <input type="file" name="img" class="file-upload-default" name="pan_image" id="pan_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -469,13 +469,13 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Passport <span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">Passport </label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="passport_number" name="passport_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Passport Upload <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Passport Upload </label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default required" name="passport_image" id="passport_image">
+                                                                <input type="file" name="img" class="file-upload-default " name="passport_image" id="passport_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -490,13 +490,13 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Driving Licence <span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence </label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="driving_licence_number" name="driving_licence_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Driving Licence Upload <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence Upload</label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default required" name="driving_licence_image" id="driving_licence_image">
+                                                                <input type="file" name="img" class="file-upload-default" name="driving_licence_image" id="driving_licence_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -511,13 +511,13 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Voter Id <span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">Voter Id </label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="voter_id" name="voter_id">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Voter Id Upload <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Voter Id Upload </label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default required" name="voter_image" id="voter_image">
+                                                                <input type="file" name="img" class="file-upload-default" name="voter_image" id="voter_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -532,7 +532,7 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Adhar Number<span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">Adhar Number<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="adhar_number" name="adhar_number">
                                                             </div>

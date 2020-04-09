@@ -444,7 +444,6 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     <script src="assets/js/file-upload.js"></script>
     <!-- End custom js for this page -->
     <!--script for jquery validation-->
-    <script src="assets/javascript/global.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
 

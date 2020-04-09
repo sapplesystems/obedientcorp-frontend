@@ -49,9 +49,9 @@ function getMatchingAmountList(params) {
 
 getMatchingAmountList({user_id: user_id});
 
-$(document).ready(function(){
+$(document).ready(function () {
     $("#agent_list").html(down_the_line_members);
-    
+
     $(document).on('change', '#agent_list', function () {
         getMatchingAmountList({user_id: $(this).val()});
     });

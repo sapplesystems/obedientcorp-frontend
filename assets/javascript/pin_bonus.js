@@ -30,7 +30,6 @@ function getMatchingAmountList(params) {
             }
             else {
                 $("#pin_bonus_listing").html('');
-                generateDataTable('pin_bonus_listing');
                 hideLoader();
             }
 

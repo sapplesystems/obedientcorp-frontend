@@ -1,7 +1,9 @@
-get_agent_list();
+$("#transfer-to,#transfer-from").html(down_the_line_members);
 getWalletAmount(user_id);
 
 $(document).ready(function () {
+    $("#transfer-to option[value='" + user_id + "']").remove();
+    $("#transfer-from option[value='" + user_id + "']").remove();
 
     $("#wallet_transfer_form").submit(function (e) {
         e.preventDefault();
@@ -81,32 +83,6 @@ $(document).ready(function () {
 
 
 });//end document ready
-
-function get_agent_list() {
-
-    var url = base_url + 'down-the-line-members';
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status) {
-                var table_data = '';
-                $.each(response.data, function (key, value) {
-                    table_data += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                $("#transfer-to").html(table_data);
-                $("#transfer-from").html(table_data);
-
-
-            }
-
-        }
-    });
-}
 
 function getWalletAmount(user_id) {
     showLoader();

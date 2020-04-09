@@ -204,9 +204,9 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <div class="col-sm-4 plot_name_div" style="display:none;">
                                         <select class="form-control required" id="plot_name" name="plot_name"></select>
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Reference : <span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Reference :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="reference" name="reference" placeholder="Enter reference">
+                                        <input class="form-control" type="text" id="reference" name="reference" placeholder="Enter reference">
                                     </div>
 
                                 </div>
@@ -231,9 +231,9 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Discount Rate :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Discount Rate :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="discount_rate" name="discount_rate" placeholder="Enter discount rate" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control" type="text" id="discount_rate" name="discount_rate" placeholder="Enter discount rate" onkeypress="return isNumberKey(event);">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Installment :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">

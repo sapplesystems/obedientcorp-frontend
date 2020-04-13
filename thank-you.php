@@ -4,8 +4,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
     exit;
 }
-if(isset($_REQUEST['name']) && isset($_REQUEST['username']))
-{
+if (isset($_REQUEST['name']) && isset($_REQUEST['username'])) {
     $name = $_REQUEST['name'];
     $username = $_REQUEST['username'];
 }
@@ -47,7 +46,7 @@ include_once 'common_html.php';
                                     <div class="thank-div">
                                         <div class="text-center"><i class="mdi mdi-check-circle"></i></div>
                                         <h2 class="text-center">THANK YOU</h2>
-                                        <p class="text-center">Hello <?php echo $name; ?>, Your registration has been successfully done. Your Username is: <?php echo $username;?>. </p>
+                                        <p class="text-center">Hello <?php echo $name; ?>, Your registration has been successfully done. Your Username is: <?php echo $username; ?>. </p>
                                     </div>
                                 </div>
                             </div>
@@ -78,6 +77,3 @@ include_once 'common_html.php';
     </body>
 
 </html>
-<script>
-    var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
-</script>

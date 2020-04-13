@@ -73,6 +73,3 @@ include_once 'common_html.php';
     </body>
 
 </html>
-<script>
-    var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
-</script>

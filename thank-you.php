@@ -4,6 +4,11 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
     exit;
 }
+if(isset($_REQUEST['name']) && isset($_REQUEST['username']))
+{
+    $name = $_REQUEST['name'];
+    $username = $_REQUEST['username'];
+}
 include_once 'common_html.php';
 ?>
 <!DOCTYPE html>
@@ -42,7 +47,7 @@ include_once 'common_html.php';
                                     <div class="thank-div">
                                         <div class="text-center"><i class="mdi mdi-check-circle"></i></div>
                                         <h2 class="text-center">THANK YOU</h2>
-                                        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum varius orci non iaculis.</p>
+                                        <p class="text-center">Hello <?php echo $name; ?>, Your registration has been successfully done. Your Username is: <?php echo $username;?>. </p>
                                     </div>
                                 </div>
                             </div>

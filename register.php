@@ -635,11 +635,14 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
             processData: false,
             contentType: false,
             success: function(response) {
+                console.log(response);
                 if (response.status == "success") {
-                    showSwal('success', 'Register Successfully', 'Agent register successfully');
-                    window.location.href = "login";
+                   var name =  response.info.name;
+                   var username = response.info.username;
+                    window.location.href = 'http://demos.sappleserve.com/obedient/thank-you.php?name='+name+'&username='+username;
+                   // window.location.href = 'http://localhost/obedientcorp-frontend/thank-you.php?name='+name+'&username='+username;
                 } else {
-                    showSwal('error', 'Registration Failed', 'Agent registration failed');
+                    window.location.href = "failure";
                     hideLoader();
                 }
 

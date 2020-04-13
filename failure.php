@@ -42,7 +42,7 @@ include_once 'common_html.php';
                                     <div class="thank-div">
                                         <div class="text-center"><i class="mdi mdi-close-circle"></i></div>
                                         <h2 class="text-center">FAILURE</h2>
-                                        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum varius orci non iaculis.</p>
+                                        <p class="text-center">Your registration has been failed.</p>
                                     </div>
                                 </div>
                             </div>

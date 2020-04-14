@@ -87,9 +87,13 @@ $(document).ready(function () {
                         $('#marital_status').val(profile.marital_status);
                         $('#occupation').val(profile.occupation);
                         $('#koccupation').val(profile.occupation);
-                        $('#state').val(profile.state);
-                        $('#city').html(getCitiesList(profile.state));
-                        $('#city').val(profile.city);
+                        if (profile.state) {
+                            $('#state').val(profile.state);
+                            $('#city').html(getCitiesList(profile.state));
+                            if (profile.city) {
+                                $('#city').val(profile.city);
+                            }
+                        }
                         $('#pin_code').val(profile.pin_code);
                         if (kyc.adhar) {
                             $('#adhar').val(kyc.adhar);

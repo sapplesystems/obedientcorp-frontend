@@ -4,9 +4,12 @@ include_once 'connection.php';
 
 $sql = "SELECT id, org_password FROM users WHERE org_password !=''";
 $data = mysqli_query($stage, $sql);
+$i = 0;
 while ($row = mysqli_fetch_assoc($data)) {
+    $i++;
     $postData['user_id'] = $row['id'];
     $postData['password'] = $row['org_password'];
+    echo $i . '-' . $row['id'] . ' => ';
     serviceApi($postData);
 }
 

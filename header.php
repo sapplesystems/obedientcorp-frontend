@@ -12,7 +12,7 @@ $associate_name = $_SESSION['login_resp']['associate_name'];
 $user_type = $_SESSION['login_resp']['user_type'];
 $left_node_id = $_SESSION['login_resp']['left_node_id'];
 $right_node_id = $_SESSION['login_resp']['right_node_id'];
-$photo = $_SESSION['login_resp']['photo'];
+$photo = (!empty($_SESSION['login_resp']['photo'])) ? $_SESSION['login_resp']['photo'] : 'default-img.png';
 $user_active_range = $_SESSION['login_resp']['configurations']['user_active_range'];
 include_once 'common_html.php';
 ?>

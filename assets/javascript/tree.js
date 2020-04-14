@@ -110,7 +110,10 @@ function setNode(object, node_id, link, user_active_range) {
         is_active_icon_class = 'bg-success';
     }
 
-    var photo_src = media_url + 'profile_photo/' + object.photo;
+    var photo_src = media_url + 'profile_photo/default-img.png';
+    if(object.photo){
+        photo_src = media_url + 'profile_photo/' + object.photo;
+    }
     html = '<span class="main_div_img"><img src="' + photo_src + '" class=""><i class="' + is_active_icon_class + '"></i></span>' + object.username;
     if (link && link != '') {
         html = '<span class="main_div_img"><img src="' + photo_src + '" class=""><i class="' + is_active_icon_class + '"></i></span>' + object.username;

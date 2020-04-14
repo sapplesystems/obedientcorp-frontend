@@ -44,9 +44,10 @@ function getTeamMemberList(user_id, node) {
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
                     }
+                    var photo_src = media_url + 'profile_photo/default-img.png';
                     if (member.photo)
                     {
-                        var photo_src = media_url + 'profile_photo/' + member.photo;
+                        photo_src = media_url + 'profile_photo/' + member.photo;
                     }
                     team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\
@@ -172,9 +173,10 @@ function getReferralTeamMemberList(user_id, node) {
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
                     }
+                    var photo_src = media_url + 'profile_photo/default-img.png';
                     if (member.photo)
                     {
-                        var photo_src = media_url + 'profile_photo/' + member.photo;
+                        photo_src = media_url + 'profile_photo/' + member.photo;
                     }
                     team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\

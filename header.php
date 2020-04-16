@@ -198,6 +198,7 @@ include_once 'common_html.php';
                                     <ul class="nav flex-column sub-menu">
                                         <li class="nav-item"> <a class="nav-link" href="real-state-request">Real State Requests</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="fmcg-request">FMCG Requests</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="reward-request">Reward Requests</a></li>
                                     </ul>
                                 </div>
                             </li>

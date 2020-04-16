@@ -32,11 +32,11 @@ function get_reward_request_list(agent_id, status) {
                 }
                 var table_data = '<thead>\n\
                                     <tr>\n\
-                                        <th> Type </th>\n\
+                                        <th> &nbsp; </th>\n\
                                         <th> Amount </th>\n\
                                         <th> Agent </th>\n\
-                                        <th> Date Requested </th>\n\
-                                        <th> Payment Mode </th>\n\
+                                        <th> Date </th>\n\
+                                        <th> Status </th>\n\
                                         ' + action_th + '\n\
                                     </tr>\n\
                                 </thead>';
@@ -44,7 +44,10 @@ function get_reward_request_list(agent_id, status) {
                 $.each(response.data, function (key, value) {
                     var action_tr = '';
                     if (status == 'Pending') {
-                        action_tr = '<td> <i class="mdi mdi-check-circle" onclick="rewardApprove(' + value.id + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rewardReject(' + value.id + ');"></i> </td>';
+                        action_tr = '<td> \n\
+                                        <i title="Approve Request" class="mdi mdi-check-circle" onclick="rewardApprove(' + value.id + ');"></i> \n\
+                                        &nbsp;<i title="Reject Request" class="mdi mdi-close-circle" onclick="rewardReject(' + value.id + ');"></i> \n\
+                                    </td>';
                     }
                     table_data += '<tr >\n\
                                         <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\

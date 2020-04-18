@@ -44,7 +44,7 @@ echo $common['main_container_navigation'];
 
 
         <!-- Works -->
-        <div id="gallery" class="cbp lightbox_selected cbp-l-grid-masonry-projects">
+        <div id="gallery_box" class="cbp lightbox_selected cbp-l-grid-masonry-projects">
 
             <!-- Item -->
             <div class="cbp-item graphic wordpress photography photo animated" data-animation="fadeIn" data-animation-delay="250">
@@ -291,7 +291,7 @@ echo $common['main_container_navigation'];
 
 <script type="text/javascript">
     // init cubeportfolio
-    $('#gallery').cubeportfolio({
+    $('#gallery_box').cubeportfolio({
         filters: '#gallery-filter1, #gallery-filter2',
         loadMoreAction: 'auto',
         layoutMode: 'grid',

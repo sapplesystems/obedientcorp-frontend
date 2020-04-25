@@ -13,12 +13,22 @@ function get_plot_booking_listing()
         },
         success: function (response) {
             var html = '';
+            var registration_number = '';
+            var reference = '';
             if (response.status == "success") {
                 $.each(response.data, function (key, val) {
+                    registration_number = '';
+                    reference = '';
+                    if(val.registration_number){
+                        registration_number = val.registration_number;
+                    }
+                    if(val.reference){
+                        reference = val.reference;
+                    }
                     html += '<tr id="tr_' + val.customer_id + '">\n\
                                       <td>' + val.customer_name + '(' + val.customer_username + ')</td>\n\
-                                      <td>' + val.registration_number + '</td>\n\
-                                      <td>' + val.reference + '</td>\n\
+                                      <td>' + registration_number + '</td>\n\
+                                      <td>' + reference + '</td>\n\
                                       <td>' + val.project_name + '</td>\n\
                                       <td>' + val.sub_project_name + '</td>\n\
                                       <td>' + val.plot_name + '</td>\n\

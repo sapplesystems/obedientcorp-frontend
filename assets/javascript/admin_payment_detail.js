@@ -31,8 +31,8 @@ function get_payment_details() {
                     var emi_list = '<thead>\n\
                     <tr>\n\
                     <th> Customer </th>\n\
-                    <th> Amount </th>\n\
-                    <th> EMI Due Date </th>\n\
+                    <th> Paid Amount </th>\n\
+                    <th> Received Date </th>\n\
                     <th>Project</th>\n\
                     <th>Sub Project</th>\n\
                     <th>Plot ID</th>\n\
@@ -40,8 +40,6 @@ function get_payment_details() {
                     </thead>';
                     emi_list += '<tbody>';
                     $.each(response.data.detail, function (key, value) {
-                        var dd = new Date(value.received_date);
-                        var emi_date = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
                         var sub_project_name = value.sub_project_name;
                         if (value.sub_project_name == undefined) {
                             sub_project_name = '';
@@ -49,7 +47,7 @@ function get_payment_details() {
                         emi_list += '<tr>\n\
                         <td>' + value.customer_display_name + '</td>\n\
                         <td> ' + value.paid_amount + ' </td>\n\
-                        <td>' + emi_date + ' </td>\n\
+                        <td>' + value.received_date + ' </td>\n\
                         <td>' + value.project_name + ' </td>\n\
                         <td>' + sub_project_name + '</td>\n\
                         <td>' + value.plot_name + '</td>\n\

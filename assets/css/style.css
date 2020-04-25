@@ -31029,3 +31029,4 @@ CSS ANIMATION FOR TREE
 .form-group .datepicker label.error{width:100%;}
 .form-group .form-check-label label.error{position: absolute;width: 140px;display: block;left: 0;top: -20px;}
 .form-group .input-group label.error{width:100%;}
+ .emi_amount {background: #ccc;border: none;width: 100px;height: 30px;}

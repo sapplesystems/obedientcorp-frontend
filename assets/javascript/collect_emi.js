@@ -3,8 +3,8 @@ var type = '';
 var amount_sum = 0;
 getAgentList();
 //getCustoerPaymentDetails(0);
-$(function () {
-    $(document).on('click', '#make_request', function () {
+$(function() {
+    $(document).on('click', '#make_request', function() {
         if (checkChecked() == false) {
             document.getElementById('payment-form').reset();
             $('#makeRequest').modal('hide');
@@ -16,15 +16,15 @@ $(function () {
         $('#amount').attr('readOnly', true);
     });
 
-    $(document).on('click', '#pills-pending-tab,#pills-approve-tab,#pills-reject-tab', function () {
+    $(document).on('click', '#pills-pending-tab,#pills-approve-tab,#pills-reject-tab', function() {
         $('#make_request').css('display', 'none');
     })
 
-    $(document).on('click', '#pills-due-tab', function () {
+    $(document).on('click', '#pills-due-tab', function() {
         $('#make_request').css('display', '');
     })
 
-    $("#payment-form").submit(function (e) {
+    $("#payment-form").submit(function(e) {
         e.preventDefault();
         var payment_frm = $("#payment-form");
         payment_frm.validate({
@@ -51,12 +51,24 @@ $(function () {
             var comment = $('#comment').val();
             var created_for = $('#agent-list').val();
             var url = base_url + 'customer-payment-select';
-            var emi_ids = [];
-            $('.emi_payment:checked').each(function () {
-                emi_ids.push($(this).val());
+            var due_list_ids = [];
+            var due_list_payments = [];
+            var booking_ids = [];
+            var customer_ids = [];
+            $('.emi_payment:checked').each(function() {
+                var dlid = $(this).val(); // due list id (auto id of due list table)
+                var pa = $('#payment_amount_' + dlid).val();
+                var bk = $('#booking_id_' + dlid).val(); // auto id of customer plot booking detail table
+                due_list_ids.push(dlid);
+                due_list_payments.push(pa);
+                booking_ids.push(bk);
+                customer_ids.push($('#customer-list').val());
             });
-            emi_ids = emi_ids.join();
-            if (emi_ids == '' || !emi_ids) {
+            due_list_ids = due_list_ids.join();
+            due_list_payments = due_list_payments.join();
+            booking_ids = booking_ids.join();
+            customer_ids = customer_ids.join();
+            if (due_list_ids == '' || !due_list_ids) {
                 document.getElementById('payment-form').reset();
                 $('#makeRequest').modal('hide');
                 showSwal('error', 'Select EMI', 'No EMI selected')
@@ -68,43 +80,46 @@ $(function () {
             params.append('bank_name', bank_name);
             params.append('photo', photo);
             params.append('comment', comment);
-            params.append('emi_ids', emi_ids);
             params.append('created_by', user_id);
             params.append('created_for', created_for);
             params.append('amount', amount);
+            params.append('due_list_ids', due_list_ids);
+            params.append('due_list_payments', due_list_payments);
+            params.append('booking_ids', booking_ids);
+            params.append('customer_ids', customer_ids);
+
             $.ajax({
                 url: url,
                 type: 'post',
                 data: params,
                 contentType: false,
                 processData: false,
-                success: function (response) {
+                success: function(response) {
                     console.log(response);
                     if (response.status == 'success') {
-                        getCustoerPaymentDetails($('#customer-list').val(), 'Due');
-                        getCustoerPaymentDetails($('#customer-list').val(), 'Pending');
+                        getCustoerPaymentDetails($('#customer-list').val());
                         document.getElementById('payment-form').reset();
                         $('#makeRequest').modal('hide');
                         showSwal('success', 'Payment Request Accepted', 'Payment Approval is subject to payment realization');
                     }
                 },
-                error: function (response) {
+                error: function(response) {
                     error_html = '';
                     var error_object = JSON.parse(response.responseText);
                     var message = error_object.message;
                     var errors = error_object.errors;
-                    $.each(errors, function (key, value) {
+                    $.each(errors, function(key, value) {
                         error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                     });
                     $('#errors_div').html(error_html);
                 }
-            });//ajax
-        }//end if
+            }); //ajax
+        } //end if
     });
 
 
     //onchange payment_mode
-    $('#payment_mode').change(function () {
+    $('#payment_mode').change(function() {
 
         if ($(this).val() == 'Cash') {
 
@@ -115,8 +130,7 @@ $(function () {
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'none');
 
-        }
-        else if ($(this).val() == 'Online') {
+        } else if ($(this).val() == 'Online') {
 
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Online Transaction Number:</label>\n\
                    <div class="col-sm-8">\n\
@@ -125,8 +139,7 @@ $(function () {
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'block');
 
-        }
-        else if ($(this).val() == 'Cheque') {
+        } else if ($(this).val() == 'Cheque') {
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Cheque Number:</label>\n\
                    <div class="col-sm-8">\n\
                      <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
@@ -140,9 +153,14 @@ $(function () {
 
 
 function getCustomerPaymentList(customer_id) {
+    $('#make_request').css('display', 'none');
+    if (customer_id) {
+        $('#make_request').css('display', '');
+    }
     getCustoerPaymentDetails(customer_id);
 
 }
+
 function getCustoerPaymentDetails(customer_id) {
     var params = {
         user_id: $('#agent-list').val(),
@@ -153,15 +171,15 @@ function getCustoerPaymentDetails(customer_id) {
         url: base_url + 'customer-payment-list',
         type: 'post',
         data: params,
-        success: function (response) {
+        success: function(response) {
             setDueListTab(response.data.due_list);
             setPendingListTab(response.data.pending_list);
             setApprovedListTab(response.data.approved_list);
             setRejectedListTab(response.data.rejected_list);
-          
+
         }
     });
-}//end function get-payment-details
+} //end function get-payment-details
 
 //function for get customer list
 function get_customer_list(user_id) {
@@ -174,10 +192,10 @@ function get_customer_list(user_id) {
         data: {
             user_id: user_id
         },
-        success: function (response) {
+        success: function(response) {
             if (response.status) {
                 var customer_list = '<option value="">--select--</option>';
-                $.each(response.data, function (key, value) {
+                $.each(response.data, function(key, value) {
                     customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
                 });
                 $("#customer-list").html(customer_list);
@@ -186,7 +204,7 @@ function get_customer_list(user_id) {
 
         }
     });
-}//end function customer list
+} //end function customer list
 
 //function for get agent list
 function getAgentList() {
@@ -201,11 +219,11 @@ function getAgentList() {
         data: {
             user_id: user_id
         },
-        success: function (response) {
+        success: function(response) {
             if (response.status) {
                 var customer_list;
                 var i = 0;
-                $.each(response.data, function (key, value) {
+                $.each(response.data, function(key, value) {
                     if (i == 0) {
                         agent_id = value.id;
                         i = 1;
@@ -219,16 +237,16 @@ function getAgentList() {
 
         }
     });
-}//end function agent list
+} //end function agent list
 
 function checkChecked() {
     amount_sum = 0;
     var x = false;
-    $('.emi_payment').each(function () {
+    $('.emi_payment').each(function() {
         if ($(this).is(":checked")) {
             var chk_val = $(this).val();
             x = true;
-            var damnt = $('#payment-amount_' + chk_val).html();
+            var damnt = $('#payment_amount_' + chk_val).val();
             damnt = Number(damnt);
             amount_sum = (amount_sum + damnt);
         }
@@ -255,23 +273,29 @@ function setDueListTab(response) {
     var checkbox = '';
     table_data += '<tbody>';
     if (response && response.length) {
-        $.each(response, function (key, value) {
+        $.each(response, function(key, value) {
+            var dlid = value.due_list_ids;
             checkbox = '';
             var action_tr = '';
             checkbox = '<div class="form-check m-0">\n\
-            <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_detail_id + '">\n\
+            <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.due_list_id + '">\n\
             <i class="input-helper"></i></label></div>';
             action_tr = '<td>' + checkbox + '</td>';
             table_data += '<tr >\n\
             ' + action_tr + '\n\
                 <td>' + value.customer_display_name + '</td>\n\
-                <td id="payment-amount_' + value.customer_plot_booking_detail_id + '" class="emi_amount">' + value.emi_amount + '</td>\n\
+                <td>\n\
+                    <input type="text" id="payment_amount_' + value.due_list_id + '" class="emi_amount" value="' + value.emi_amount + '" placeholder="' + value.emi_amount + '" />\n\
+                </td>\n\
                 <td>' + value.due_date + '</td>\n\
                 <td>' + value.project_master_name + '</td>\n\
                 <td>' + value.sub_project_master_name + '</td>\n\
                 <td>' + value.plot_master_name + '</td>\n\
-                <td>'+ value.overdue + '</td>\n\
-                <td>'+ value.total_paid + '</td>\n\
+                <td>' + value.overdue + '</td>\n\
+                <td>\n\
+                ' + value.total_paid + '\n\
+                <input type="hidden" id="booking_id_' + value.due_list_id + '" value="' + value.customer_plot_booking_detail_id + '" />\n\
+                </td>\n\
             </tr>';
 
         });
@@ -281,7 +305,7 @@ function setDueListTab(response) {
     $("#due_payment_list").html(table_data);
     generateDataTable('due_payment_list');
 
-}//end set of duelisttab function 
+} //end set of duelisttab function 
 
 //setpandinglist tab function
 function setPendingListTab(response) {
@@ -297,7 +321,7 @@ function setPendingListTab(response) {
 
     table_data += '<tbody>';
     if (response && response.length) {
-        $.each(response, function (key, value) {
+        $.each(response, function(key, value) {
             var payment_type = 'EMI';
             var customer_name = $("#customer-list option:selected").text();
             var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
@@ -306,7 +330,7 @@ function setPendingListTab(response) {
             }
             table_data += '<tr >\n\
                 <td>' + customer_name + '</td>\n\
-                <td id="payment-amount_' + value.id + '" class="emi_amount">' + value.amount + '</td>\n\
+                <td>' + value.amount + '</td>\n\
                 <td>' + value.date_of_payment + '</td>\n\
                 <td>' + payment_type + '</td>\n\
                 <td>' + value.payment_mode + ' &nbsp; ' + detail_link + '</td>\n\
@@ -314,11 +338,11 @@ function setPendingListTab(response) {
         });
         table_data += '</tbody>';
     }
-    
+
     $("#pending_payment_list").html(table_data);
     generateDataTable('pending_payment_list');
 
-}//end set of pendinglisttab function 
+} //end set of pendinglisttab function 
 
 //Set Rejactedlist tab function
 function setRejectedListTab(response) {
@@ -335,7 +359,7 @@ function setRejectedListTab(response) {
     table_data += '<tbody>';
 
     if (response && response.length) {
-        $.each(response, function (key, value) {
+        $.each(response, function(key, value) {
             var payment_type = 'EMI';
             var customer_name = $("#customer-list option:selected").text();
             var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
@@ -344,7 +368,7 @@ function setRejectedListTab(response) {
             }
             table_data += '<tr >\n\
                 <td>' + customer_name + '</td>\n\
-                <td id="payment-amount_' + value.id + '" class="emi_amount">' + value.amount + '</td>\n\
+                <td>' + value.amount + '</td>\n\
                 <td>' + value.date_of_payment + '</td>\n\
                 <td>' + payment_type + '</td>\n\
                 <td>' + value.payment_mode + ' &nbsp; ' + detail_link + '</td>\n\
@@ -354,7 +378,7 @@ function setRejectedListTab(response) {
     }
     $("#reject_payment_list").html(table_data);
     generateDataTable('reject_payment_list');
-}//end set of rejectlisttab function 
+} //end set of rejectlisttab function 
 
 //Set approved list tab function
 function setApprovedListTab(response) {
@@ -371,7 +395,7 @@ function setApprovedListTab(response) {
     table_data += '<tbody>';
 
     if (response && response.length) {
-        $.each(response, function (key, value) {
+        $.each(response, function(key, value) {
             var payment_type = 'EMI';
             var customer_name = $("#customer-list option:selected").text();
             var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
@@ -380,7 +404,7 @@ function setApprovedListTab(response) {
             }
             table_data += '<tr >\n\
                 <td>' + customer_name + '</td>\n\
-                <td id="payment-amount_' + value.id + '" class="emi_amount">' + value.amount + '</td>\n\
+                <td>' + value.amount + '</td>\n\
                 <td>' + value.date_of_payment + '</td>\n\
                 <td>' + payment_type + '</td>\n\
                 <td>' + value.payment_mode + ' &nbsp; ' + detail_link + '</td>\n\
@@ -391,4 +415,4 @@ function setApprovedListTab(response) {
     $("#approved_payment_list").html(table_data);
     generateDataTable('approved_payment_list');
 
-}//end set of aprrovedlisttab function 
+} //end set of aprrovedlisttab function

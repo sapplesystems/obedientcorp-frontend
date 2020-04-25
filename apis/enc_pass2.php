@@ -1,19 +1,27 @@
 <?php
 
 include_once 'connection.php';
+$condition = '';
+if (!empty($_REQUEST['id'])) {
+    $id = $_REQUEST['id'];
+    $id2 = $id + 100;
+    $condition .= " and id between $id and $id2 ";
 
-$sql = "SELECT id, org_password FROM users WHERE org_password !=''";
-$data = mysqli_query($stage, $sql);
-$i = 0;
-while ($row = mysqli_fetch_assoc($data)) {
-    $i++;
-    $postData['user_id'] = $row['id'];
-    $postData['password'] = $row['org_password'];
-    echo $i . '-' . $row['id'] . ' => ';
-    serviceApi($postData);
+
+    $sql = "SELECT id, org_password FROM users WHERE org_password !='' $condition";
+    $data = mysqli_query($stage, $sql);
+    $i = 0;
+    while ($row = mysqli_fetch_assoc($data)) {
+        $i++;
+        $postData['user_id'] = $row['id'];
+        $postData['password'] = trim($row['org_password']);
+        echo $i . '-' . $row['id'] . ' => ';
+        serviceApi($postData);
+    }
 }
 
-function serviceApi($postData) {
+function serviceApi($postData)
+{
     $curlObj = curl_init();
     $options = array(
         CURLOPT_POST => 1,
@@ -30,5 +38,3 @@ function serviceApi($postData) {
     curl_close($curlObj);
     echo '$result - ' . $result . '<hr/><hr/>';
 }
-
-?>

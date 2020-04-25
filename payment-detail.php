@@ -59,7 +59,7 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['uid'])) {
                                                 <label class="col-form-label col-sm-4 text-right">Uploaded Image:</label>
                                                 <div class="col-sm-8 signature_img row lightGallery lightgallery-without-thumb">
                                                     <a href="#" class="image-tile" id="a_photo">
-                                                        <img src="" class="upload_img" id="photo" />
+                                                        <img src="" class="upload_img" id="photo" style="display: none;" />
                                                     </a>
                                                 </div>
                                             </div>

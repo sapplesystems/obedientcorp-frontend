@@ -25,6 +25,7 @@ function get_payment_details() {
             user_id: agent_id
         },
         success: function (response) {
+            console.log(response);
             if (response.status == 'success') {
                 if (response.data.detail) {
                     var emi_list = '<thead>\n\
@@ -39,7 +40,7 @@ function get_payment_details() {
                     </thead>';
                     emi_list += '<tbody>';
                     $.each(response.data.detail, function (key, value) {
-                        var dd = new Date(value.emi_due_date);
+                        var dd = new Date(value.received_date);
                         var emi_date = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
                         var sub_project_name = value.sub_project_name;
                         if (value.sub_project_name == undefined) {
@@ -47,7 +48,7 @@ function get_payment_details() {
                         }
                         emi_list += '<tr>\n\
                         <td>' + value.customer_display_name + '</td>\n\
-                        <td> ' + value.emi_amount + ' </td>\n\
+                        <td> ' + value.paid_amount + ' </td>\n\
                         <td>' + emi_date + ' </td>\n\
                         <td>' + value.project_name + ' </td>\n\
                         <td>' + sub_project_name + '</td>\n\
@@ -93,16 +94,20 @@ function get_payment_details() {
                     date_of_payment = response.data.payment.date_of_payment;
 
                 }
-                if (response.data.payment.photo) {
+                if (response.data.payment.photo != null && response.data.payment.photo != '') {
                     payment_photo = media_url + 'payment_master/' + response.data.payment.photo;
+                    $("#photo").attr('src', payment_photo);
+                    $("#photo").css('display', '');
+                    $("#a_photo").attr('href', payment_photo);
                 }
+                
                 if (response.data.payment.comment) {
                     comment = response.data.payment.comment;
                 }
                 if (response.data.payment.admin_comment) {
                     admin_comment = '<label class="col-form-label col-sm-4 text-right">Admin Comment:</label>\n\
                     <div class="col-sm-8">\n\
-                        <label class="col-form-label card-description mb-0" id="admincomment">'+response.data.payment.admin_comment+'</label>\n\
+                        <label class="col-form-label card-description mb-0" id="admincomment">'+ response.data.payment.admin_comment + '</label>\n\
                     </div>';
 
                     //admin_comment = response.data.payment.admin_comment;
@@ -112,8 +117,6 @@ function get_payment_details() {
                 $("#bank_name").html(bank_name);
                 $("#status").html(status);
                 $("#date_of_payment").html(date_of_payment);
-                $("#photo").attr('src', payment_photo);
-                $("#a_photo").attr('href', payment_photo);
                 $("#comment").html(comment);
                 $("#admincomment").html(admin_comment);
                 hideLoader();

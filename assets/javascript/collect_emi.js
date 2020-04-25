@@ -2,10 +2,7 @@ var amount = '';
 var type = '';
 var amount_sum = 0;
 getAgentList();
-getCustoerPaymentDetails(0, 'Due');
-getCustoerPaymentDetails(0, 'Pending');
-getCustoerPaymentDetails(0, 'Approved');
-getCustoerPaymentDetails(0, 'Rejected');
+//getCustoerPaymentDetails(0);
 $(function () {
     $(document).on('click', '#make_request', function () {
         if (checkChecked() == false) {
@@ -143,17 +140,13 @@ $(function () {
 
 
 function getCustomerPaymentList(customer_id) {
-    getCustoerPaymentDetails(customer_id, 'Due');
-    getCustoerPaymentDetails(customer_id, 'Pending');
-    getCustoerPaymentDetails(customer_id, 'Approved');
-    getCustoerPaymentDetails(customer_id, 'Rejected');
+    getCustoerPaymentDetails(customer_id);
 
 }
-function getCustoerPaymentDetails(customer_id, status) {
+function getCustoerPaymentDetails(customer_id) {
     var params = {
         user_id: $('#agent-list').val(),
         customer_id: customer_id,
-        status: status
     };
     $("#customer_payment").html('');
     $.ajax({
@@ -161,89 +154,11 @@ function getCustoerPaymentDetails(customer_id, status) {
         type: 'post',
         data: params,
         success: function (response) {
-            if (response.status == 'success') {
-                var action_th = '';
-                if (status == 'Due') {
-                    action_th = '<th></th>';
-                }
-                var table_data = '<thead>\n\
-                                        <tr>\n\
-                                            ' + action_th + '\n\
-                                            <th> Customer </th>\n\
-                                            <th> Amount </th>\n\
-                                            <th> EMI Due Date </th>\n\
-                                            <th>Project</th>\n\\n\
-                                            <th>Sub Project</th>\n\
-                                            <th>Plot ID</th>\n\
-                                            <th>Status</th>\n\
-                                        </tr>\n\
-                                    </thead>';
-                var checkbox = '';
-                table_data += '<tbody>';
-                $.each(response.data, function (key, value) {
-                    checkbox = '';
-                    var action_tr = '';
-                    //var sub_project ='<td></td>';
-                    var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.payment_master_id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
-                    if (status == 'Due' || value.payment_status == 'Due') {
-                        detail_link = '';
-                        checkbox = '<div class="form-check m-0">\n\
-                            <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_payment_detail_id + '">\n\
-                            <i class="input-helper"></i></label></div>';
-                        action_tr = '<td>' + checkbox + '</td>';
-
-                    }
-                    var dd = new Date(value.due_date);
-                    var duedate = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
-
-                    table_data += '<tr >\n\
-                                        ' + action_tr + '\n\
-                                            <td>' + value.name + '</td>\n\
-                                            <td id="payment-amount_' + value.customer_plot_booking_payment_detail_id + '" class="emi_amount">' + value.amount + '</td>\n\
-                                            <td>' + duedate + '</td>\n\
-                                            <td>' + value.project_master_name + '</td>\n\
-                                            <td>' + value.sub_project_master_name + '</td>\n\
-                                            <td>' + value.plot_master_name + '</td>\n\
-                                            <td>' + value.payment_status + ' &nbsp; ' + detail_link + '</td>\n\
-                                        </tr>';
-                });
-                table_data += '</tbody>';
-                if (status == 'Due') {
-                    $("#due_payment_list").html(table_data);
-                    generateDataTable('due_payment_list');
-                }
-                if (status == 'Pending') {
-                    $("#pending_payment_list").html(table_data);
-                    generateDataTable('pending_payment_list');
-                }
-                if (status == 'Approved') {
-                    $("#approved_payment_list").html(table_data);
-                    generateDataTable('approved_payment_list');
-                }
-                if (status == 'Rejected') {
-                    $("#reject_payment_list").html(table_data);
-                    generateDataTable('reject_payment_list');
-                }
-            }
-            else {
-                if (status == 'Due') {
-                    $("#due_payment_list").html(response.data);
-                    generateDataTable('due_payment_list');
-                }
-                if (status == 'Pending') {
-                    $("#pending_payment_list").html(response.data);
-                    generateDataTable('pending_payment_list');
-                }
-                if (status == 'Approved') {
-                    $("#approved_payment_list").html(response.data);
-                    generateDataTable('approved_payment_list');
-                }
-                if (status == 'Rejected') {
-                    $("#reject_payment_list").html(response.data);
-                    generateDataTable('reject_payment_list');
-                }
-            }
-
+            setDueListTab(response.data.due_list);
+            setPendingListTab(response.data.pending_list);
+            setApprovedListTab(response.data.approved_list);
+            setRejectedListTab(response.data.rejected_list);
+          
         }
     });
 }//end function get-payment-details
@@ -320,3 +235,160 @@ function checkChecked() {
     });
     return x;
 }
+
+//setduelist tab function
+function setDueListTab(response) {
+    var action_th = '<th></th>';
+    var table_data = '<thead>\n\
+                            <tr>\n\
+                                ' + action_th + '\n\
+                                <th> Customer </th>\n\
+                                <th> Amount </th>\n\
+                                <th>Due Date </th>\n\
+                                <th>Project</th>\n\\n\
+                                <th>Sub Project</th>\n\
+                                <th>Plot ID</th>\n\
+                                <th>Over Due</th>\n\
+                                <th>Total Paid</th>\n\
+                            </tr>\n\
+                        </thead>';
+    var checkbox = '';
+    table_data += '<tbody>';
+    if (response && response.length) {
+        $.each(response, function (key, value) {
+            checkbox = '';
+            var action_tr = '';
+            checkbox = '<div class="form-check m-0">\n\
+            <label class="form-check-label"><input type="checkbox" class="form-check-input emi_payment" value="' + value.customer_plot_booking_detail_id + '">\n\
+            <i class="input-helper"></i></label></div>';
+            action_tr = '<td>' + checkbox + '</td>';
+            table_data += '<tr >\n\
+            ' + action_tr + '\n\
+                <td>' + value.customer_display_name + '</td>\n\
+                <td id="payment-amount_' + value.customer_plot_booking_detail_id + '" class="emi_amount">' + value.emi_amount + '</td>\n\
+                <td>' + value.due_date + '</td>\n\
+                <td>' + value.project_master_name + '</td>\n\
+                <td>' + value.sub_project_master_name + '</td>\n\
+                <td>' + value.plot_master_name + '</td>\n\
+                <td>'+ value.overdue + '</td>\n\
+                <td>'+ value.total_paid + '</td>\n\
+            </tr>';
+
+        });
+        table_data += '</tbody>';
+    }
+
+    $("#due_payment_list").html(table_data);
+    generateDataTable('due_payment_list');
+
+}//end set of duelisttab function 
+
+//setpandinglist tab function
+function setPendingListTab(response) {
+    var table_data = '<thead>\n\
+    <tr>\n\
+        <th> Customer </th>\n\
+        <th> Amount </th>\n\
+        <th>Date Of Payment </th>\n\
+        <th>Payment Type</th>\n\
+        <th>Payment Mode</th>\n\
+    </tr>\n\
+</thead>';
+
+    table_data += '<tbody>';
+    if (response && response.length) {
+        $.each(response, function (key, value) {
+            var payment_type = 'EMI';
+            var customer_name = $("#customer-list option:selected").text();
+            var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
+            if (value.coupon_type_id == 3) {
+                payment_type = 'Advance';
+            }
+            table_data += '<tr >\n\
+                <td>' + customer_name + '</td>\n\
+                <td id="payment-amount_' + value.id + '" class="emi_amount">' + value.amount + '</td>\n\
+                <td>' + value.date_of_payment + '</td>\n\
+                <td>' + payment_type + '</td>\n\
+                <td>' + value.payment_mode + ' &nbsp; ' + detail_link + '</td>\n\
+            </tr>';
+        });
+        table_data += '</tbody>';
+    }
+    
+    $("#pending_payment_list").html(table_data);
+    generateDataTable('pending_payment_list');
+
+}//end set of pendinglisttab function 
+
+//Set Rejactedlist tab function
+function setRejectedListTab(response) {
+    var table_data = '<thead>\n\
+    <tr>\n\
+        <th> Customer </th>\n\
+        <th> Amount </th>\n\
+        <th>Date Of Payment </th>\n\
+        <th>Payment Type</th>\n\
+        <th>Payment Mode</th>\n\
+    </tr>\n\
+</thead>';
+
+    table_data += '<tbody>';
+
+    if (response && response.length) {
+        $.each(response, function (key, value) {
+            var payment_type = 'EMI';
+            var customer_name = $("#customer-list option:selected").text();
+            var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
+            if (value.coupon_type_id == 3) {
+                payment_type = 'Advance';
+            }
+            table_data += '<tr >\n\
+                <td>' + customer_name + '</td>\n\
+                <td id="payment-amount_' + value.id + '" class="emi_amount">' + value.amount + '</td>\n\
+                <td>' + value.date_of_payment + '</td>\n\
+                <td>' + payment_type + '</td>\n\
+                <td>' + value.payment_mode + ' &nbsp; ' + detail_link + '</td>\n\
+            </tr>';
+        });
+        table_data += '</tbody>';
+    }
+    $("#reject_payment_list").html(table_data);
+    generateDataTable('reject_payment_list');
+}//end set of rejectlisttab function 
+
+//Set approved list tab function
+function setApprovedListTab(response) {
+    var table_data = '<thead>\n\
+    <tr>\n\
+        <th> Customer </th>\n\
+        <th> Amount </th>\n\
+        <th>Date Of Payment </th>\n\
+        <th>Payment Type</th>\n\
+        <th>Payment Mode</th>\n\
+    </tr>\n\
+</thead>';
+
+    table_data += '<tbody>';
+
+    if (response && response.length) {
+        $.each(response, function (key, value) {
+            var payment_type = 'EMI';
+            var customer_name = $("#customer-list option:selected").text();
+            var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
+            if (value.coupon_type_id == 3) {
+                payment_type = 'Advance';
+            }
+            table_data += '<tr >\n\
+                <td>' + customer_name + '</td>\n\
+                <td id="payment-amount_' + value.id + '" class="emi_amount">' + value.amount + '</td>\n\
+                <td>' + value.date_of_payment + '</td>\n\
+                <td>' + payment_type + '</td>\n\
+                <td>' + value.payment_mode + ' &nbsp; ' + detail_link + '</td>\n\
+            </tr>';
+        });
+        table_data += '</tbody>';
+    }
+    $("#approved_payment_list").html(table_data);
+    generateDataTable('approved_payment_list');
+
+}//end set of aprrovedlisttab function 

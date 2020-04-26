@@ -278,6 +278,7 @@ $(document).ready(function () {
             params.append('created_by', user_id);
             params.append('created_for', $('#agent-id').val());
             params.append('customer_id', $('#customer_id').val());
+            params.append('photo', $('#payment_photo')[0].files[0]);
             $.ajax({
                 url: base_url + 'customer/new-booking',
                 type: 'post',

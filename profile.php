@@ -50,18 +50,6 @@ if ($_REQUEST) {
                                                 <label class="badge badge-outline-dark">Web Design</label>
                                             </div>
                                         </div>
-                                        <div class="border-bottom py-4" style="display: none;">
-                                            <div class="d-flex mb-3">
-                                                <div class="progress progress-md flex-grow">
-                                                    <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="55" style="width: 55%" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex">
-                                                <div class="progress progress-md flex-grow">
-                                                    <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="75" style="width: 75%" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <h5 class="border-bottom pb-1"> Rank </h5>
@@ -88,6 +76,18 @@ if ($_REQUEST) {
                                             <div class="col-sm-4">
                                                 <h5 class="border-bottom pb-1"> Matching Business </h5>
                                                 <div class="text-muted" id="matching_business"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <div class="d-flex mt-4 position-relative">
+                                                    <span id="business_progress_bar_percentage"></span>
+                                                    <div class="progress progress-md flex-grow">
+                                                        <div id="business_progress_bar" class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="75" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="current_rank">Current Rank: <span id="current_rank" class="text-muted"></span></span>
+                                                <span class="next_rank">Next Rank: <span id="next_rank" class="text-muted"></span></span>
                                             </div>
                                         </div>
                                         <button class="btn btn-gradient-primary btn-block" style="display: none;">Preview</button>

@@ -31029,4 +31029,7 @@ CSS ANIMATION FOR TREE
 .form-group .datepicker label.error{width:100%;}
 .form-group .form-check-label label.error{position: absolute;width: 140px;display: block;left: 0;top: -20px;}
 .form-group .input-group label.error{width:100%;}
- .emi_amount {background: #ccc;border: none;width: 100px;height: 30px;}
+.emi_amount {background: #ccc;border: none;width: 100px;height: 30px;}
+.current_rank{width: 170px;margin-top: 10px;display: inline-block;line-height: 22px;}
+.next_rank{width: 170px;display: inline-block;float: right;margin-top: 10px;text-align:right;line-height: 22px;}
+#business_progress_bar_percentage{position: absolute;transform: translateX(-50%);bottom: 10px;color: #1bcfb4 !important;font-size: 20px;}

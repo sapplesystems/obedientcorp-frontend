@@ -128,7 +128,11 @@ $(document).ready(function () {
                             $('#matching_business').html(business.matching_amount);
                         }
                         if (business.designation) {
-                            $('#rank').html(business.designation);
+                            $('#rank,#current_rank').html(business.designation);
+                            $('#next_rank').html(business.next_designation);
+                            $('#business_progress_bar').css('width', business.percentage + '%');
+                            $('#business_progress_bar_percentage').css('left', business.percentage + '%');
+                            $('#business_progress_bar_percentage').html(business.percentage + '%');
                         }
 
                         //bank detalis

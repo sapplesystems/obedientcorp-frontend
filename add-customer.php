@@ -256,7 +256,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
                                     <label class="col-sm-2 col-form-label">Total Amount :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="total_amount" name="total_amount" placeholder="Enter total amount" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control required" type="text" id="total_amount" name="total_amount" placeholder="Enter total amount" onkeypress="return isNumberKey(event);" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row" id="emi_amount"></div>

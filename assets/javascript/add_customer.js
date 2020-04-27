@@ -163,18 +163,10 @@ $(document).ready(function () {
     //end calculate age
 
     $(document).on('change', '#installment', function () {
-        var value = $(this).val();
-        if ($('#received_booking_amount').val() && $('#received_booking_amount').val() != '' && $('#total_amount').val() != '') {
-            var amount = Number($('#total_amount').val() - $('#received_booking_amount').val());
-            var emi_amount = Number(amount / value);
-            var html = '<label class="col-sm-2 col-form-label"></label>\n\
-                                    <div class="col-sm-4"></div>\n\
-            <label class="col-form-label col-sm-2">Emi Amount PerMonth :</label>\n\
-            <div class="col-sm-4">\n\
-           <label class="col-form-label card-description mb-0">' + emi_amount + '</label>\n\
-           </div>';
-            $('#emi_amount').html(html);
-        }
+        setEMI();
+    });
+    $(document).on('blur', '#received_booking_amount', function () {
+        setEMI();
     });
 
 
@@ -687,7 +679,7 @@ function getCustomersList(user_id) {
         async: false,
         success: function (response) {
             var agent_id = user_id;
-            if($('#agent_listing').val()){
+            if ($('#agent_listing').val()) {
                 agent_id = $('#agent_listing').val();
             }
             var html = '';
@@ -787,6 +779,21 @@ function calculatePlotAmount(area, price) {
 
     $('#received_booking_amount').val(received_booking_amount.toFixed(2));
     $('#total_amount').val(totla_amount.toFixed(2));
+}
+
+function setEMI() {
+    var value = $('#installment').val();
+    if (value && $('#received_booking_amount').val() && $('#received_booking_amount').val() != '' && $('#total_amount').val() != '') {
+        var amount = Number($('#total_amount').val() - $('#received_booking_amount').val());
+        var emi_amount = Number(amount / value);
+        var html = '<label class="col-sm-2 col-form-label"></label>\n\
+                                    <div class="col-sm-4"></div>\n\
+            <label class="col-form-label col-sm-2">Emi Amount Per Month :</label>\n\
+            <div class="col-sm-4">\n\
+           <label class="col-form-label card-description mb-0">Rs. ' + emi_amount.toFixed(2) + '</label>\n\
+           </div>';
+        $('#emi_amount').html(html);
+    }
 }
 
 initDatepicker();

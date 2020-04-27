@@ -779,6 +779,7 @@ function calculatePlotAmount(area, price) {
 
     $('#received_booking_amount').val(received_booking_amount.toFixed(2));
     $('#total_amount').val(totla_amount.toFixed(2));
+    setEMI();
 }
 
 function setEMI() {

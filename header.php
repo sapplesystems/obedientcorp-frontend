@@ -4,8 +4,7 @@ if (!$_SESSION['login_resp']['id'] || $_SESSION['login_resp']['id'] == '' || emp
     echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
 }
-$base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
-$media_url = 'http://demos.sappleserve.com/obedient_api/public/uploads/';
+
 $user_id = $_SESSION['login_resp']['id'];
 $user_email = $_SESSION['login_resp']['email'];
 $associate_name = $_SESSION['login_resp']['associate_name'];

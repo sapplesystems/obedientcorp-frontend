@@ -1,5 +1,6 @@
 <?php
-
+$base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
+$media_url = 'http://demos.sappleserve.com/obedient_api/public/uploads/';
 $home_url = 'http://localhost/obedientcorp-frontend/';
 $common = array(
     'main_container_navigation' => '<div id="main_container" class="container-fluid" style="position:absolute; z-index:99;padding: 0;">

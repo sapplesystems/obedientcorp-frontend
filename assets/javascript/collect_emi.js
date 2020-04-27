@@ -12,7 +12,7 @@ $(function() {
             return false;
         }
         $('#makeRequest').modal();
-        $('#amount').val(amount_sum);
+        $('#amount').val(amount_sum.toFixed(2));
         $('#amount').attr('readOnly', true);
     });
 

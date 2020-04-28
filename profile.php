@@ -20,7 +20,7 @@ if ($_REQUEST) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="row">
+                                <div class="row profile-m">
                                     <div class="col-sm-5">
                                         <div class="text-center pb-4">
                                             <div class="avatar-upload">

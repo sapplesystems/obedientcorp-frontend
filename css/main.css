@@ -65,7 +65,7 @@ ul.topMenu {
 }
 ul.topMenu li {
 	display: inline-block;
-	padding: 0 12px;
+	padding: 0 5px;
 	color:#fff;
 }
 ul.topMenu li ul {
@@ -75,8 +75,9 @@ ul.topMenu li ul {
 #burgernavbar{cursor:pointer;}
 
 @media only screen and (max-width: 991px){
-	.topBar{height: 190px;}
+	#side-dotted-navigation.spy{display:none !important;}
+	.topBar{height: 260px;}
 	ul.topMenu{margin-top:95px;}
-	ul.topMenu li{margin:5px 0;width: 25%; text-align: center;}
+	ul.topMenu li{margin:5px 0;width: 32%; text-align: center;}
 	.topBar .text-right.paddLeftNone{text-align:center !important;}
 }

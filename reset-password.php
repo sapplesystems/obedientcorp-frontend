@@ -112,7 +112,7 @@ include_once 'common_html.php';
 
 </html>
 <script>
-    var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
+    var base_url = "<?php echo $base_url; ?>";
     var token = '<?php echo $_REQUEST['token']; ?>';
     $(document).on("click", "#submitPassword", function (e) {
         e.preventDefault();

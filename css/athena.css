@@ -408,6 +408,7 @@ color: #ffffff;
 }
 
 @media only screen and (max-width: 767px){
+	
 .marginLeft100{
 right:50%;
 top:-60px;
@@ -425,9 +426,16 @@ bottom: 20px;
 
 @media (max-width: 991px) {
 	
-	ul.product_list li{width:100% !important;border: 1px solid #ccc;}
+	ul.product_list li:nth-child(odd){margin-left:0px !important;}
+	ul.product_list li{width:48% !important;border: 1px solid #ccc; margin-left:4% !important;}
 	#sub_categories{margin-top:15px;}
 	.NotGeneric-Title, .tp-caption.NotGeneric-Title{font-size:26px !important;}
+}
+
+@media only screen and (max-width: 480px){
+	ul.product_list li img{height:120px !important;}
+	.cbp img{height:120px !important;}
+	#works .cbp-l-grid-masonry-projects-title{font-size: 14px !important;}
 }
 
 .fullscreen-container, .fullwidthbanner-container{height:100vh !important;}
@@ -488,3 +496,7 @@ ul.rewards_all li > div:hover span.overlay{height: 100%;}
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;line-height: 20px;}
+  
+  .product_list .title{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%;    font-weight: 500;
+    margin-top: 10px;}
+ 

@@ -81,7 +81,7 @@ include_once 'common_html.php';
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-6 login-half-bg d-flex flex-row">
+                        <div class="col-lg-6 login-half-bg d-flex flex-row bg_none">
                             <p class="text-white font-weight-medium text-center flex-grow align-self-end">
                                 Copyright © 2020 Obedient Infra Development Pvt. Ltd. All rights reserved. <a href="https://obedientcorp.com/" target="_blank ">OBEDIENT GROUP</a>
                             </p>
@@ -113,8 +113,7 @@ include_once 'common_html.php';
 
 </html>
 <script>
-    var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
-    //var base_url = 'http://localhost:8081/obedientcorp_git/obedientcorp/public/api/';
+    var base_url = "<?php echo $base_url; ?>";
     //function for login
     $(function () {
 

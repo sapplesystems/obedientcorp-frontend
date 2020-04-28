@@ -4581,6 +4581,21 @@ pre code {
 }
 
 @media (max-width: 575.98px) {
+	
+	.current_rank{font-size:12px !important;line-height: 14px !important; width: 140px !important; margin-bottom:20px;}
+	.next_rank{font-size:12px !important;line-height: 14px !important; width: 140px !important; margin-bottom:20px;}
+	
+	.profile-m .col-sm-4{margin-bottom:15px;}
+	.profile-m .col-sm-4 h5.border-bottom{font-size:14px !important;}
+	.profile-m .col-sm-4 div.text-muted{font-size:14px !important;}
+	
+	.lightGallery .image-tile{margin-bottom:10px !important;}
+	#profile_update_submit{margin-top:20px;}
+	.card-body.p-0 .form-group{margin-bottom:0px !important;}
+	
+	.wizard>.content>.body label{margin-bottom:0px !important;}
+	.form-group label{margin-bottom:0px !important;}
+	
     .table-responsive-sm {
         display: block;
         width: 100%;
@@ -11644,6 +11659,7 @@ button.bg-dark:focus {
     display: -ms-flexbox !important;
     display: flex !important;
 }
+.lightGallery a:first-child{padding-left:0px;}
 
 .d-inline-flex,
 .email-wrapper .message-body .attachments-sections ul li {
@@ -29163,6 +29179,13 @@ footer h4 a {
 }
 
 @media (max-width: 767px) {
+	
+	.wizard>.steps a{font-size:12px !important; padding:5px !important;}
+	
+	.bgImageNone p{font-size:12px !important;}
+	.bg_none{background:none !important;}
+	.bg_none p{font-size:12px !important;}
+	
     .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
         margin-left: .8rem;
         margin-right: .8rem;

@@ -106,7 +106,7 @@ $(window).on('load', function() {
                 cols: 2
             }, {
                 width: 480,
-                cols: 1,
+                cols: 2,
                 options: {
                     caption: '',
                     gapHorizontal: 25,

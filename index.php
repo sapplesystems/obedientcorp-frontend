@@ -263,8 +263,9 @@ include_once 'header_frontend.php';
                                          style="z-index: 12; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-mouse"></i> </div>
 
                                     <!-- LAYER NR. 9 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn "
-                                         id="slide-3005-layer-7"
+                                  <!-- LAYER NR. 4 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
+                                         id="slide-3004-layer-7"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
                                          data-width="none"
@@ -282,7 +283,29 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 13; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">NEXT GOODIE </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+
+                                    <!-- LAYER NR. 4 - 2 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
+                                         id="slide-3004-layer-7"
+                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
+                                         data-width="none"
+                                         data-height="none"
+                                         data-whitespace="nowrap"
+
+                                         data-type="button"
+                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                                         data-responsive_offset="on"
+                                         data-responsive="off"
+                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                         data-textAlign="['left','left','left','left']"
+                                         data-paddingtop="[10,10,10,10]"
+                                         data-paddingright="[30,30,30,30]"
+                                         data-paddingbottom="[10,10,10,10]"
+                                         data-paddingleft="[30,30,30,30]"
+
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 10 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -469,9 +492,9 @@ include_once 'header_frontend.php';
 
                                          style="z-index: 21; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-expand1"></i> </div>
 
-                                    <!-- LAYER NR. 18 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn "
-                                         id="slide-3006-layer-7"
+                                    <!-- LAYER NR. 4 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
+                                         id="slide-3004-layer-7"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
                                          data-width="none"
@@ -489,7 +512,29 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 22; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">NEXT GOODIE </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+
+                                    <!-- LAYER NR. 4 - 2 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
+                                         id="slide-3004-layer-7"
+                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
+                                         data-width="none"
+                                         data-height="none"
+                                         data-whitespace="nowrap"
+
+                                         data-type="button"
+                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                                         data-responsive_offset="on"
+                                         data-responsive="off"
+                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                         data-textAlign="['left','left','left','left']"
+                                         data-paddingtop="[10,10,10,10]"
+                                         data-paddingright="[30,30,30,30]"
+                                         data-paddingbottom="[10,10,10,10]"
+                                         data-paddingleft="[30,30,30,30]"
+
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 19 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -624,9 +669,9 @@ include_once 'header_frontend.php';
 
                                          style="z-index: 27; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-anchor"></i> </div>
 
-                                    <!-- LAYER NR. 24 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn "
-                                         id="slide-3007-layer-7"
+                                    <!-- LAYER NR. 4 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
+                                         id="slide-3004-layer-7"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
                                          data-width="none"
@@ -637,14 +682,36 @@ include_once 'header_frontend.php';
                                          data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
                                          data-responsive_offset="on"
                                          data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
                                          data-textAlign="['left','left','left','left']"
                                          data-paddingtop="[10,10,10,10]"
                                          data-paddingright="[30,30,30,30]"
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 28; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">NEXT GOODIE </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+
+                                    <!-- LAYER NR. 4 - 2 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
+                                         id="slide-3004-layer-7"
+                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
+                                         data-width="none"
+                                         data-height="none"
+                                         data-whitespace="nowrap"
+
+                                         data-type="button"
+                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                                         data-responsive_offset="on"
+                                         data-responsive="off"
+                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                         data-textAlign="['left','left','left','left']"
+                                         data-paddingtop="[10,10,10,10]"
+                                         data-paddingright="[30,30,30,30]"
+                                         data-paddingbottom="[10,10,10,10]"
+                                         data-paddingleft="[30,30,30,30]"
+
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 25 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -769,27 +836,49 @@ include_once 'header_frontend.php';
                                         </span>
                                     </div>
 
-                                    <!-- LAYER NR. 30 -->
-                                    <a class="tp-caption NotGeneric-Button rev-btn "
-                                       href="http://codecanyon.net/item/slider-revolution-responsive-wordpress-plugin/2751380?ref=themepunch" target="_blank"			 id="slide-3008-layer-10"
-                                       data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                       data-y="['middle','middle','middle','middle']" data-voffset="['124','125','124','104']"
-                                       data-width="none"
-                                       data-height="none"
-                                       data-whitespace="nowrap"
+                                    <!-- LAYER NR. 4 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
+                                         id="slide-3004-layer-7"
+                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
+                                         data-width="none"
+                                         data-height="none"
+                                         data-whitespace="nowrap"
 
-                                       data-type="button"
-                                       data-actions=''
-                                       data-responsive_offset="on"
-                                       data-responsive="off"
-                                       data-frames='[{"speed":300,"to":"o:1;","delay":2000,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                       data-textAlign="['left','left','left','left']"
-                                       data-paddingtop="[10,10,10,10]"
-                                       data-paddingright="[30,30,30,30]"
-                                       data-paddingbottom="[10,10,10,10]"
-                                       data-paddingleft="[30,30,30,30]"
+                                         data-type="button"
+                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                                         data-responsive_offset="on"
+                                         data-responsive="off"
+                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                         data-textAlign="['left','left','left','left']"
+                                         data-paddingtop="[10,10,10,10]"
+                                         data-paddingright="[30,30,30,30]"
+                                         data-paddingbottom="[10,10,10,10]"
+                                         data-paddingleft="[30,30,30,30]"
 
-                                       style="z-index: 34; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">BUY ON ENVATO </a>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+
+                                    <!-- LAYER NR. 4 - 2 -->
+                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
+                                         id="slide-3004-layer-7"
+                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
+                                         data-width="none"
+                                         data-height="none"
+                                         data-whitespace="nowrap"
+
+                                         data-type="button"
+                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+                                         data-responsive_offset="on"
+                                         data-responsive="off"
+                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                         data-textAlign="['left','left','left','left']"
+                                         data-paddingtop="[10,10,10,10]"
+                                         data-paddingright="[30,30,30,30]"
+                                         data-paddingbottom="[10,10,10,10]"
+                                         data-paddingleft="[30,30,30,30]"
+
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
                                 </li>
                             </ul>
                             <div style="" class="tp-static-layers">

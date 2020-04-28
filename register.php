@@ -4,6 +4,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
     echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
     exit;
 }
+include_once 'common_html.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -454,8 +455,8 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 
 </html>
 <script type="text/javascript">
-                                                    var front_url = 'http://demos.sappleserve.com/obedient/';
-                                                    var base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
+                                                    var front_url = "<?php echo $home_url; ?>";
+                                                    var base_url = "<?php echo $base_url; ?>";
                                                     var state_list;
                                                     var today = new Date();
                                                     var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();

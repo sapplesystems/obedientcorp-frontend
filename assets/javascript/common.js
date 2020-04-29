@@ -445,19 +445,19 @@ function setKYCDetail(kyc) {
 
 function setNomineeDetails(nominee) {
     $('#nominee_id').val(nominee.id);
-    if (nominee.nominee_name != null ) {
+    if (nominee.nominee_name != null && nominee.nominee_name) {
         $('#nominee_name').val(nominee.nominee_name);
         $('#nominee_name').prop('disabled', true);
     }
-    if (nominee.nominee_age != null ) {
+    if (nominee.nominee_age != null && nominee.nominee_age) {
         $('#nominee_age').val(nominee.nominee_age);
         $('#nominee_age').prop('disabled', true);
     }
-    if (nominee.relation != null ) {
+    if (nominee.relation != null && nominee.relation) {
         $('#relation').val(nominee.relation);
         $('#relation').prop('disabled', true);
     }
-    if (nominee.ndob != null) {
+    if (nominee.ndob != null && nominee.ndob) {
         var ndob = nominee.ndob;
         var ndatetime = new Date(ndob);
         var nday = ndatetime.getDate();
@@ -475,28 +475,28 @@ function setNomineeDetails(nominee) {
 
 function setBankDetails(bank) {
     $('#bank_id').val(bank.id);
-    if (bank.payee_name != null) {
+    if (bank.payee_name != null && bank.payee_name) {
 
         $('#payee_name').val(bank.payee_name);
         $('#payee_name').prop('disabled', true);
     }
-    if (bank.bank_name != null ) {
+    if (bank.bank_name != null && bank.bank_name) {
         $('#bank_name').val(bank.bank_name);
         $('#bank_name').prop('disabled', true);
     }
-    if (bank.account_number != null) {
+    if (bank.account_number != null && bank.account_number) {
         $('#account_number').val(bank.account_number);
         $('#account_number').prop('disabled', true);
     }
-    if (bank.branch != null ) {
+    if (bank.branch != null && bank.branch) {
         $('#branch').val(bank.branch);
         $('#branch').prop('disabled', true);
     }
-    if (bank.ifsc_code != null ) {
+    if (bank.ifsc_code != null && bank.ifsc_code) {
         $('#ifsc_code').val(bank.ifsc_code);
         $('#ifsc_code').prop('disabled', true);
     }
-    if (bank.cancel_cheque != null ) {
+    if (bank.cancel_cheque != null && bank.cancel_cheque) {
         var bank_cheque = media_url + 'cancel_cheque/' + bank.cancel_cheque;
         $('#cancel_cheque_uploded').attr('src', bank_cheque);
         $('#a_cancel_cheque_uploded').attr('href', bank_cheque);

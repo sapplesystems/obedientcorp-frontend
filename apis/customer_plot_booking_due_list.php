@@ -32,9 +32,9 @@ if (mysqli_num_rows($data) > 0) {
 				$plot_booking['discount_rate'] = 0;
 				$plot_booking['total_amount'] = $row['total_consid'];
 				$plot_booking['received_booking_amount'] = $row['book_amt'];
-				$timestamp = strtotime($row['opening_date']);
-				$opening_date = date("Y-m-d", $timestamp);
-				$plot_booking['date_of_payment'] = $opening_date;
+				
+				$generated_date = date('Y-m-d', trim($row['payment_date']));
+				$plot_booking['date_of_payment'] = $generated_date;
 				if($row['ins_duraion'] == 2)
 				{
 					$installment = 12;
@@ -66,6 +66,7 @@ if (mysqli_num_rows($data) > 0) {
 				$plot_booking['installment'] = $installment;
 				$plot_booking['created_by'] = $user_id['id'];
 				$plot_booking['payment_master_id'] = 0 ;
+				//echo '<pre>';print_r($plot_booking);echo '</pre>';
 				$plot_booking_id =  insertQuery($plot_booking, 'customer_plot_booking_details',$i);
 				if($plot_booking_id)
 				{
@@ -75,15 +76,11 @@ if (mysqli_num_rows($data) > 0) {
 					$plot_due_list['customer_id']=$row['cid'];
 					$plot_due_list['customer_plot_booking_paid_list_id'] = 0;
 					$plot_due_list['payment_master_id'] = 0;
-					$timestamp1 = strtotime($row['opening_date']);
-					$opening_date1 = date("Y-m-d", $timestamp1);
-					$plot_due_list['generated_date'] =$opening_date1;
-					$timestamp2 = strtotime($row['due_date']);
-					$due_date = date("Y-m-d", $timestamp2);
-					$plot_due_list['received_date'] = $due_date;
-					$timestamp3 = strtotime($row['nxt_due']);
-					$nxt_due = date("Y-m-d", $timestamp3);
-					$plot_due_list['due_date'] =$nxt_due;
+					$plot_due_list['generated_date'] = $generated_date;
+					$plot_due_list['received_date'] = $generated_date;
+					$month_diff = _monthDiff($generated_date);
+					$next_due_date = date('Y-m-d', strtotime($generated_date . ' + ' . $month_diff . ' month'));
+					$plot_due_list['due_date'] = $next_due_date;
 					$plot_due_list['total_amount'] = $row['total_consid'];
 					$plot_due_list['received_booking_amount'] = $row['book_amt'];
 					$plot_due_list['total_emi_amount'] = $row['total_amt'];
@@ -91,6 +88,7 @@ if (mysqli_num_rows($data) > 0) {
 					$plot_due_list['total_paid'] = 0;
 					$plot_due_list['total_installment'] = $installment;
 					$plot_due_list['emi_amount'] = $plot_due_list['balance_emi_amount'] / $installment;
+					//echo '<pre>';print_r($plot_due_list);echo '</pre>';
 					insertQuery($plot_due_list, 'customer_plot_booking_due_lists',$i);
 
 				}
@@ -117,6 +115,20 @@ function insertQuery($input, $table,$i)
 	mysqli_query($stage, 'insert into ' . $table . ' ' . $keys . ' ' . $values);
 	return mysqli_insert_id($stage);
 	
+}
+
+function _monthDiff($generated_date) {
+	$difference = 1;
+	$next_due_date = date('Y-m-d');
+	$next_due_date = date('Y-m-d', strtotime($next_due_date));
+	$generated_date = date('Y-m-d', strtotime($generated_date));
+	$date1 = date_create($next_due_date);
+	$date2 = date_create($generated_date);
+	$diff = date_diff($date1, $date2);
+	if ($diff->invert == 1) {
+		$difference = (($diff->y * 12) + ($diff->m + 1));
+	}
+	return $difference;
 }
 
 

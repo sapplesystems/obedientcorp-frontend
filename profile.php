@@ -271,7 +271,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" onkeypress="return isNumberKey(event);" maxlength="10">
+                                                                <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" onkeypress="return isNumberKey(event);" maxlength="10" minlength="10">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                                             <div class="col-sm-4">

@@ -22,20 +22,20 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-3 marginLR-m">
                             <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="col-form-label float-left mr-3">Agent ID</label>
-                                    <div class="float-left">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-3">Agent ID</label>
+                                    <div class="col-sm-4">
                                         <select class="form-control" id="agent-list" onchange="get_customer_list(this.value);">
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="col-form-label float-left mr-3">Customer ID</label>
-                                    <div class="float-left">
+                            <div class="col-md-5 mt-10-m">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-3">Customer ID</label>
+                                    <div class="col-sm-4">
                                         <select class="form-control" id="customer-list" onchange="getCustomerPaymentList(this.value);">
                                         </select>
                                     </div>
@@ -46,7 +46,7 @@
                             <div class="col-md-12 text-right">
                                 <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request" style="display:none;">Request</button>
                             </div>
-                            <div class="col-md-12 tab-content tab-content-custom-pill" id="pills-tabContent">
+                            <div class="col-md-12 tab-content tab-content-custom-pill overflowAuto" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-due" role="tabpanel" aria-labelledby="pills-pending-tab">
                                     <table class="table table-striped payment_request" id="due_payment_list"></table>
                                 </div>

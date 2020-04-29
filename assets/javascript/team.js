@@ -52,7 +52,7 @@ function getTeamMemberList(user_id, node) {
                     team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\
                                             <div class="card-body pt-3 pb-3">\n\
-                                                <div class="row">\n\
+                                                <div class="row text-center-m">\n\
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
                                                             <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\
@@ -181,7 +181,7 @@ function getReferralTeamMemberList(user_id, node) {
                     team_html += '<div class="col-md-12 mb-3 border p-0">\n\
                                         <div class="card rounded shadow-none">\n\
                                             <div class="card-body pt-3 pb-3">\n\
-                                                <div class="row">\n\
+                                                <div class="row text-center-m">\n\
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
                                                             <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\

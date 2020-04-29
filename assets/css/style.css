@@ -4582,6 +4582,31 @@ pre code {
 
 @media (max-width: 575.98px) {
 	
+	
+	.form-group.row.col-sm-12.mt-4 .pr-0{margin-top: 15px;}
+	.form-group.row.col-sm-12.mt-4 .pr-0 label.d-block{display:none !important;}
+	
+	#payment-form-wallet .form-group.row{margin-bottom:10px !important;}
+	#wallet_transfer_form .form-group.row{margin-bottom:10px !important;}
+	
+	.mt-10-m{margin-top:10px;}
+	
+	 #e_wallet_label{margin-top: 20px;text-align: center !important; margin-bottom: 30px;}
+	
+	.marginLR-m .form-group.row{margin-left:0px !important; margin-right:0px !important; margin-bottom:10px;}
+	
+	ul.top_row_members{margin-top:15px !important;}
+	
+	ul.top_row_members li{width:49% !important;}
+	ul.top_row_members li:nth-child(2){text-align:left !important;}
+	ul.top_row_members li:nth-child(3){text-align: left !important;}
+	
+	.text-center-m .col-sm-6.col-lg-5.d-lg-flex{text-align:center;}
+	.text-center-m h4, .text-center-m h6{width:100%;}
+	.text-center-m .col.d-flex{margin-bottom:15px;}
+	
+	#business_progress_bar_percentage{font-size:16px !important;}
+	
 	.current_rank{font-size:12px !important;line-height: 14px !important; width: 140px !important; margin-bottom:20px;}
 	.next_rank{font-size:12px !important;line-height: 14px !important; width: 140px !important; margin-bottom:20px;}
 	
@@ -4593,8 +4618,8 @@ pre code {
 	#profile_update_submit{margin-top:20px;}
 	.card-body.p-0 .form-group{margin-bottom:0px !important;}
 	
-	.wizard>.content>.body label{margin-bottom:0px !important;}
-	.form-group label{margin-bottom:0px !important;}
+	.wizard>.content>.body .col-form-label{margin-bottom:0px !important;}
+	.form-group .col-form-label{margin-bottom:0px !important;}
 	
     .table-responsive-sm {
         display: block;
@@ -21235,7 +21260,7 @@ dl li {
 }
 
 .modal .modal-dialog .modal-content .modal-body {
-    padding: 35px 26px;
+    padding: 26px 26px;
 }
 
 .modal .modal-dialog .modal-content .modal-footer {
@@ -27780,6 +27805,7 @@ footer h4 a {
 
 .user-avatar {
     position: relative;
+	display: inline-block;
 }
 
 .user-avatar .edit-avatar-icon {
@@ -27793,21 +27819,21 @@ footer h4 a {
     right: 5px;
 }
 
-.user-avatar .edit-avatar-icon i {
+.user-avatar .edit-avatar-icon i { 
     padding: 4px 0 0 5px;
     display: block;
 }
 
 @media (max-width: 768px) {
-    .user-avatar .edit-avatar-icon {
+   /* .user-avatar .edit-avatar-icon {
         right: 165px;
-    }
+    }*/
 }
 
 @media (max-width: 567px) {
-    .user-avatar .edit-avatar-icon {
+    /*.user-avatar .edit-avatar-icon {
         right: 35px;
-    }
+    }*/
 }
 
 .wrapper .image-grouped .text-avatar {
@@ -30022,6 +30048,7 @@ footer h4 a {
 }
 
 @media (max-width: 991px) {
+	
     .overflowAuto {
         overflow: auto;
     }

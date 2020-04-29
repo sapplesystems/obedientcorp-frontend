@@ -7,7 +7,7 @@
         <div class="row grid-margin">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 marginLR-m">
                         <!-- <h4 class="card-title mb-4">Add Coupon</h4> -->
                         <div class="row">
                             <div class="col-sm-8">

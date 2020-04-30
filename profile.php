@@ -110,9 +110,9 @@ if ($_REQUEST) {
                                             <li class="nav-item">
                                                 <a class="nav-link" id="kyc-tab" data-toggle="tab" href="#kyc-1" role="tab" aria-controls="kyc" aria-selected="false"><i class="mdi mdi-clipboard-check"></i> KYC <span id="kyc_detail_status"></span></a>
                                             </li>
-                                            <li class="nav-item">
+                                            <!--li class="nav-item">
                                                 <a class="nav-link" id="activities-tab" data-toggle="tab" href="#activities-1" role="tab" aria-controls="activities" aria-selected="false"><i class="mdi mdi mdi-alarm"></i> Activities</a>
-                                            </li>
+                                            </li-->
                                         </ul>
                                         <div class="tab-content border-0">
                                             <div class="tab-pane fade show active" id="info-1" role="tabpanel" aria-labelledby="info-tab">

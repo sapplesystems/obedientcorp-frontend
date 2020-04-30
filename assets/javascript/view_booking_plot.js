@@ -26,13 +26,15 @@ function get_plot_booking_listing()
                         reference = val.reference;
                     }
                     html += '<tr id="tr_' + val.customer_id + '">\n\
-                                      <td>' + val.customer_name + '(' + val.customer_username + ')</td>\n\
+                                      <td>' + val.display_name + ')</td>\n\
                                       <td>' + registration_number + '</td>\n\
                                       <td>' + reference + '</td>\n\
                                       <td>' + val.project_name + '</td>\n\
                                       <td>' + val.sub_project_name + '</td>\n\
                                       <td>' + val.plot_name + '</td>\n\
                                       <td>' + val.total_amount + '</td>\n\
+                                      <td>' + val.received_booking_amount + '</td>\n\
+                                      <td>' + val.date_of_payment + '</td>\n\
                                   </tr>';
 
                 });

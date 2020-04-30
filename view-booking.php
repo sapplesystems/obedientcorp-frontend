@@ -29,6 +29,8 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
                                         <th>Sub Project Name</th>
                                         <th>Plot Number</th>
                                         <th>Total Amount</th>
+                                        <th>Booking Amount</th>
+                                        <th>Date of Payment</th>
                                     </tr>
 
                                 </thead>

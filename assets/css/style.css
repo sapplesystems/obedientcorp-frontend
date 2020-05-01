@@ -31083,3 +31083,34 @@ CSS ANIMATION FOR TREE
 .current_rank{width: 170px;margin-top: 10px;display: inline-block;line-height: 22px;}
 .next_rank{width: 170px;display: inline-block;float: right;margin-top: 10px;text-align:right;line-height: 22px;}
 #business_progress_bar_percentage{position: absolute;transform: translateX(-50%);bottom: 10px;color: #1bcfb4 !important;font-size: 20px;}
+
+	/* typing text in dashboard page */
+	
+	.type_text p {
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+  font-size:2rem;
+}
+.type_text p span.typed-text {
+  font-weight: normal;
+  color: #b66dff;
+}
+.type_text p span.cursor {
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+.type_text p span.cursor.typing {
+  animation: none;
+}
+@keyframes blink {
+  0%  { background-color: #ccc; }
+  49% { background-color: #ccc; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #ccc; }
+}
+ 

@@ -1,3 +1,51 @@
+//AUTOMATIC TYPING ON DASHBOARD CODE START HERE
+var typedTextSpan = document.querySelector(".typed-text");
+var cursorSpan = document.querySelector(".cursor");
+
+var textArray = ["Obedient Group", "Where dreams come true"];
+var typingDelay = 200;
+var erasingDelay = 100;
+var newTextDelay = 2000; // Delay between current and next text
+var textArrayIndex = 0;
+var charIndex = 0;
+
+function type() {
+    if (charIndex < textArray[textArrayIndex].length) {
+        if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+    }
+    else {
+        cursorSpan.classList.remove("typing");
+        setTimeout(erase, newTextDelay);
+    }
+}
+
+function erase() {
+    if (charIndex > 0) {
+        if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+    }
+    else {
+        cursorSpan.classList.remove("typing");
+        textArrayIndex++;
+        if (textArrayIndex >= textArray.length)
+            textArrayIndex = 0;
+        setTimeout(type, typingDelay + 1100);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+    if (textArray.length)
+        setTimeout(type, newTextDelay + 250);
+});
+//AUTOMATIC TYPING ON DASHBOARD CODE END HERE
+
 getDashboardInfo(user_id);
 
 function getDashboardInfo(user_id) {
@@ -6,7 +54,7 @@ function getDashboardInfo(user_id) {
         url: base_url + 'dashboard/info',
         type: 'post',
         async: false,
-        data: { user_id: user_id },
+        data: {user_id: user_id},
         success: function (response) {
             if (response.status == 'success') {
                 var data = response.data;
@@ -79,7 +127,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                        data: total_left_business
+                                data: total_left_business
                     },
                     {
                         label: "Right Business",
@@ -91,7 +139,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                        data: total_right_business
+                                data: total_right_business
                     },
                     {
                         label: "Self Business",
@@ -103,7 +151,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                        data: total_self_business
+                                data: total_self_business
                     }
                 ]
             },
@@ -115,8 +163,8 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                     text.push('<ul>');
                     for (var i = 0; i < chart.data.datasets.length; i++) {
                         text.push('<li><span class="legend-dots" style="background:' +
-                            chart.data.datasets[i].legendColor +
-                            '"></span>');
+                                chart.data.datasets[i].legendColor +
+                                '"></span>');
                         if (chart.data.datasets[i].label) {
                             text.push(chart.data.datasets[i].label);
                         }
@@ -127,33 +175,33 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                 },
                 scales: {
                     yAxes: [{
-                        ticks: {
-                            display: false,
-                            min: 0,
-                            stepSize: 20,
-                            max: 80
-                        },
-                        gridLines: {
-                            drawBorder: false,
-                            color: '#322f2f',
-                            zeroLineColor: '#322f2f'
-                        }
-                    }],
+                            ticks: {
+                                display: false,
+                                min: 0,
+                                stepSize: 20,
+                                max: 80
+                            },
+                            gridLines: {
+                                drawBorder: false,
+                                color: '#322f2f',
+                                zeroLineColor: '#322f2f'
+                            }
+                        }],
                     xAxes: [{
-                        gridLines: {
-                            display: false,
-                            drawBorder: false,
-                            color: 'rgba(0,0,0,1)',
-                            zeroLineColor: 'rgba(235,237,242,1)'
-                        },
-                        ticks: {
-                            padding: 20,
-                            fontColor: "#9c9fa6",
-                            autoSkip: true,
-                        },
-                        categoryPercentage: 0.5,
-                        barPercentage: 0.5
-                    }]
+                            gridLines: {
+                                display: false,
+                                drawBorder: false,
+                                color: 'rgba(0,0,0,1)',
+                                zeroLineColor: 'rgba(235,237,242,1)'
+                            },
+                            ticks: {
+                                padding: 20,
+                                fontColor: "#9c9fa6",
+                                autoSkip: true,
+                            },
+                            categoryPercentage: 0.5,
+                            barPercentage: 0.5
+                        }]
                 }
             },
             elements: {

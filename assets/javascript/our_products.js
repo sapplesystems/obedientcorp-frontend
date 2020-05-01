@@ -24,7 +24,7 @@ getGoodsProducts();
 function getCategoryList() {
     $('.sub-category').css('display', 'none');
     $.ajax({
-        url: 'http://demos.sappleserve.com/obedient_api/public/api/categories ',
+        url: base_url + 'categories ',
         type: 'post',
         data: {},
         success: function (response) {
@@ -41,7 +41,7 @@ function getCategoryList() {
 
 function getSubCategoryList(category_id) {
 
-    var url = 'http://demos.sappleserve.com/obedient_api/public/api/sub-category';
+    var url = base_url + 'sub-category';
     $.ajax({
         url: url,
         type: 'post',
@@ -72,7 +72,7 @@ function getSubCategoryList(category_id) {
 } //endsubcategorylist
 
 function getProductsList(id) {
-    var url = 'http://demos.sappleserve.com/obedient_api/public/api/category/products';
+    var url = base_url + 'category/products';
     $.ajax({
         url: url,
         type: 'post',
@@ -85,7 +85,7 @@ function getProductsList(id) {
                     $.each(response.data, function (key, value) {
                         products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/' + value.image[0].file_name + '"" alt="' + value.image[0].file_name + '" />\n\
+                                            <img src="' + media_url + 'product_images/' + value.image[0].file_name + '"" alt="' + value.image[0].file_name + '" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\
@@ -111,7 +111,7 @@ function getProductsList(id) {
 
 function getGoodsProducts() {
     $.ajax({
-        url: 'http://demos.sappleserve.com/obedient_api/public/api/dashboard-products-goods',
+        url: base_url + 'dashboard-products-goods',
         type: 'post',
         success: function (response) {
             if (response.status == "success") {
@@ -124,7 +124,7 @@ function getGoodsProducts() {
                     }
                     products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/' + image_name + '"" alt="' + image_name + '" />\n\
+                                            <img src="' + media_url + 'product_images/' + image_name + '"" alt="' + image_name + '" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\

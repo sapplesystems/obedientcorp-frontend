@@ -1473,7 +1473,7 @@ var slider = $('.slider-multi').sappleMultiSlider();
  get_landing_image();
  function get_landing_image() {
             $.ajax({
-                url: 'http://demos.sappleserve.com/obedient_api/public/api/get-landing-image ',
+                url: base_url + 'get-landing-image ',
                 type: 'post',
                 data: {
                     dashboard: 1

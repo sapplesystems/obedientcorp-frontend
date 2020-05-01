@@ -8,7 +8,7 @@ function getProducts() {
 
 function getGoodsProducts() {
     $.ajax({
-        url: 'http://demos.sappleserve.com/obedient_api/public/api/dashboard-products-goods',
+        url: base_url + 'dashboard-products-goods',
         type: 'post',
         success: function (response) {
             if (response.status == "success") {
@@ -37,8 +37,8 @@ function getGoodsProducts() {
                                                 <div class="cbp-slider-inline">\n\
                                                     <div class="cbp-slider-wrapper">\n\
                                                         <div class="cbp-slider-item cbp-slider-item--active">\n\
-                                                            <a href="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/' + image_name + '" class="lightbox_item" data-title="Festival Time">\n\
-                                                                <img src="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/' + image_name + '" alt="">\n\
+                                                            <a href="' + media_url + 'product_images/' + image_name + '" class="lightbox_item" data-title="Festival Time">\n\
+                                                                <img src="' + media_url + 'product_images/' + image_name + '" alt="">\n\
                                                             </a>\n\
                                                         </div>\n\
                                                     </div>\n\
@@ -55,7 +55,7 @@ function getGoodsProducts() {
 }
 function getRealStateProducts() {
     $.ajax({
-        url: 'http://demos.sappleserve.com/obedient_api/public/api/dashboard-products-real-state',
+        url: base_url + 'dashboard-products-real-state',
         type: 'post',
         success: function (response) {
             var real_product = '';
@@ -65,15 +65,15 @@ function getRealStateProducts() {
                         real_product += '<div class="item cbp-item coding" id="real_' + value.id + '">\n\
                                             <div class="cbp-caption">\n\
                                                 <div class="cbp-caption-defaultWrap">\n\
-                                                    <img src="http://demos.sappleserve.com/obedient_api/public/uploads/project_photo/' + value.photo + '" alt="Works image">\n\
+                                                    <img src="' + media_url + 'project_photo/' + value.photo + '" alt="Works image">\n\
                                                 </div>\n\
                                                 <div class="cbp-caption-activeWrap">\n\
                                                     <div class="cbp-l-caption-alignCenter">\n\
                                                         <div class="cbp-l-caption-body">\n\
                                                             <a href="#" class="works-link" target="_blank"><i class="fa fa-external-link-square"></i></a>\n\
-                                                            <a href="http://demos.sappleserve.com/obedient_api/public/uploads/project_photo/' + value.photo + '" class="works-link lightbox_item" data-title="Beautiful girl in train station">\n\
+                                                            <a href="' + media_url + 'project_photo/' + value.photo + '" class="works-link lightbox_item" data-title="Beautiful girl in train station">\n\
                                                                 <i class="fa fa-expand"></i>\n\
-                                                                <img src="http://demos.sappleserve.com/obedient_api/public/uploads/project_photo/' + value.photo + '" alt="" class="none">\n\
+                                                                <img src="' + media_url + 'project_photo/' + value.photo + '" alt="" class="none">\n\
                                                             </a>\n\
                                                             <a href="#" class="works-link external-link"><i class="fa fa-plus"></i></a>\n\
                                                         </div>\n\

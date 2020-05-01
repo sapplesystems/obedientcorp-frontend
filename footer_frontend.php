@@ -92,3 +92,9 @@
 <a href="#" class="drop-msg click-effect dark-effect user-login"><i class="fa fa-envelope-o"></i></a>
 <!-- Back To Top -->
 <a id="back-to-top" href="#top" class="user-login"><i class="fa fa-angle-up"></i></a>
+
+<script type="text/javascript">
+    var base_url = "<?php echo $base_url; ?>";
+    var media_url = "<?php echo $media_url; ?>";
+    var home_url = "<?php echo $home_url; ?>";
+</script>

@@ -699,7 +699,7 @@ CREATE TABLE `configurations` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `configurations` */
 
@@ -709,7 +709,12 @@ insert  into `configurations`(`id`,`key`,`value`,`created_at`,`updated_at`,`dele
 (5,'landing_image','landing_image_1586157077.jpg','2020-04-06 05:43:28','2020-04-06 07:11:17',NULL),
 (6,'FMCG_Coupon','80',NULL,NULL,NULL),
 (7,'EMI_Coupon','75',NULL,NULL,NULL),
-(8,'Matching_Amount','1',NULL,NULL,NULL);
+(8,'Matching_Amount','1',NULL,NULL,NULL),
+(9,'slider_image_1','slider_image_1_1588346450.jpg',NULL,'2020-05-01 15:20:50',NULL),
+(10,'slider_image_2','slider_image_2_1588346450.jpg',NULL,'2020-05-01 15:20:50',NULL),
+(11,'slider_image_3','slider_image_3_1588346450.jpg',NULL,'2020-05-01 15:20:50',NULL),
+(12,'slider_image_4','slider_image_4_1588346450.jpg',NULL,'2020-05-01 15:20:50',NULL),
+(13,'slider_image_5','slider_image_5_1588346450.jpg',NULL,'2020-05-01 15:20:50',NULL);
 
 /*Table structure for table `contact_form_requests` */
 
@@ -2241,7 +2246,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=189 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=190 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
@@ -2388,7 +2393,8 @@ insert  into `migrations`(`id`,`migration`,`batch`) values
 (185,'2020_04_28_110810_update_due_list',35),
 (186,'2020_04_28_110821_update_due_list_trans',35),
 (187,'2020_04_28_110830_update_due_list_trigger',35),
-(188,'2020_04_28_110902_update_due_list_trigger2',35);
+(188,'2020_04_28_110902_update_due_list_trigger2',35),
+(189,'2020_04_30_103413_create_offers',36);
 
 /*Table structure for table `notifications` */
 
@@ -3464,7 +3470,20 @@ insert  into `oauth_access_tokens`(`id`,`user_id`,`client_id`,`name`,`scopes`,`r
 ('5c3b29b6e7a3968580d4652a66e27113379e27348cc16e42629d19b8563f1f2f9482801c9adaf21d',1,1,'MyApp','[]',0,'2020-04-30 05:00:18','2020-04-30 05:00:18','2021-04-30 05:00:18'),
 ('6d36805039a69dc07321c8eb2e48edde6c6caeae7e3332f5fe03095f6c6669ff4698813dd4c7fc14',4,1,'MyApp','[]',0,'2020-04-30 05:16:56','2020-04-30 05:16:56','2021-04-30 05:16:56'),
 ('89a256ed943e3b7f9aceb8456faaf4487f9a7b9d7962670bc90b09eb4871b342ba419e7b4a4e5318',1,1,'MyApp','[]',0,'2020-04-30 05:23:10','2020-04-30 05:23:10','2021-04-30 05:23:10'),
-('07bac53ba00174e6c19fca639f63444af534a20c23bc64c2e7871c162c1e722e8cc064d774be6e57',2,1,'MyApp','[]',0,'2020-04-30 05:26:54','2020-04-30 05:26:54','2021-04-30 05:26:54');
+('07bac53ba00174e6c19fca639f63444af534a20c23bc64c2e7871c162c1e722e8cc064d774be6e57',2,1,'MyApp','[]',0,'2020-04-30 05:26:54','2020-04-30 05:26:54','2021-04-30 05:26:54'),
+('27436b99c5514b174f5265b69ea6e6041b457b555682b6dc3048df1eea7f893bec6cceea5e425d3c',1,1,'MyApp','[]',0,'2020-04-30 14:22:12','2020-04-30 14:22:12','2021-04-30 14:22:12'),
+('b316b3fea13498530de5548549df9b48e56436956d3e6550156f38851adc759a672f3ec901bae149',3,1,'MyApp','[]',0,'2020-04-30 14:40:11','2020-04-30 14:40:11','2021-04-30 14:40:11'),
+('ff307adfd6b04802b258b2c52ebd2766fdf9f27f0a22c4550dfac6a727303ba8b229d16de33c064a',1,1,'MyApp','[]',0,'2020-05-01 04:55:15','2020-05-01 04:55:15','2021-05-01 04:55:15'),
+('19d262e615011a8e69e03584b540f4fd516062f824f1971f04202a518c7153b5bdebec5d262cbcaa',1,1,'MyApp','[]',0,'2020-05-01 05:49:53','2020-05-01 05:49:53','2021-05-01 05:49:53'),
+('d26885a4a6dfb4afdd57665e031bf735de51d7b94a8b14f8a771923484001ae0851bd571bd70d351',3,1,'MyApp','[]',0,'2020-05-01 05:59:09','2020-05-01 05:59:09','2021-05-01 05:59:09'),
+('03e9cfc6b8f454c753976678355f7212fe39a36def9003d7f433802a8a8b58bec615052a132f0fbb',4,1,'MyApp','[]',0,'2020-05-01 06:00:52','2020-05-01 06:00:52','2021-05-01 06:00:52'),
+('c2e1876be56360b3ec5c3ef2fb1a7a4d6e357ef066452133e5b0d045f879e903759eeb33ff3bb827',1,1,'MyApp','[]',0,'2020-05-01 06:29:40','2020-05-01 06:29:40','2021-05-01 06:29:40'),
+('e3dfe4510a02d16f0e04d8437d732e30e2b2636b145c27dfaed2a1273a3175f594af1d863125c614',1,1,'MyApp','[]',0,'2020-05-01 06:45:23','2020-05-01 06:45:23','2021-05-01 06:45:23'),
+('85324c20ab25b11b4ad09d5f1c5c2ab0805fa4fdff5e115d1f15eda63c424580bb5286562903aa4e',1,1,'MyApp','[]',0,'2020-05-01 06:53:29','2020-05-01 06:53:29','2021-05-01 06:53:29'),
+('7831fdc10c0cc6a0eb1c9921e280f4bc8e506db1a355cd9f6f64d0d96980d186ac42ea55b62517a6',1,1,'MyApp','[]',0,'2020-05-01 10:07:23','2020-05-01 10:07:23','2021-05-01 10:07:23'),
+('cbd7bbf5762a6a03b512a47b8da13f55086519e39953901a714b50d6bb64dde7daa344408f1fc899',3,1,'MyApp','[]',0,'2020-05-01 10:37:33','2020-05-01 10:37:33','2021-05-01 10:37:33'),
+('d99fbaf1b89bee1124b1527a078a6591ef1b937bbd8e2a9e5df80c7d74a6d23eadffc72f0ffac486',3,1,'MyApp','[]',0,'2020-05-01 10:46:34','2020-05-01 10:46:34','2021-05-01 10:46:34'),
+('00e6856d60c2ac48eb314ca09f833644df3a4d2749b65ba28134f966731ac67c9218e0f495c7303f',2,1,'MyApp','[]',0,'2020-05-01 10:54:44','2020-05-01 10:54:44','2021-05-01 10:54:44');
 
 /*Table structure for table `oauth_auth_codes` */
 
@@ -3538,6 +3557,33 @@ CREATE TABLE `oauth_refresh_tokens` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `oauth_refresh_tokens` */
+
+/*Table structure for table `offers` */
+
+DROP TABLE IF EXISTS `offers`;
+
+CREATE TABLE `offers` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `offer` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Offer title',
+  `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Pic for display',
+  `amount` double NOT NULL DEFAULT '0' COMMENT 'Offer cash amount',
+  `business` double NOT NULL DEFAULT '0' COMMENT 'Associated business value',
+  `start_date` date DEFAULT NULL COMMENT 'Offer start date',
+  `end_date` date DEFAULT NULL COMMENT 'Offer end date',
+  `created_by` int(11) NOT NULL DEFAULT '0' COMMENT 'who created this offer',
+  `updated_by` int(11) NOT NULL DEFAULT '0' COMMENT 'who updated this offer',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `offers` */
+
+insert  into `offers`(`id`,`offer`,`photo`,`amount`,`business`,`start_date`,`end_date`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values 
+(1,'Diwali offer','offer_1588312105.png',12000,100000,'2020-05-01','2020-05-29',1,1,'2020-05-01 05:48:25','2020-05-01 05:48:47',NULL),
+(2,'Holi offer','offer_1588312735.png',1234.78,1500000,'2020-05-06','2020-06-06',1,1,'2020-05-01 05:49:43','2020-05-01 06:08:46','2020-05-01 06:08:46'),
+(3,'Holi offer','offer_1588317369.png',129.9,100000,'2020-04-30','2020-05-30',1,0,'2020-05-01 07:16:09','2020-05-01 07:16:09',NULL);
 
 /*Table structure for table `password_resets` */
 
@@ -3879,7 +3925,7 @@ insert  into `project_masters`(`id`,`name`,`parent_id`,`area`,`unit_price`,`desc
 (4,'Lotus 100',0,NULL,5000.00,'This is an highly sophisticated project by the 3C group. Invest here for a peace of mind living.','project_1586406377.png',NULL,'2020-04-09 04:26:17','2020-04-09 04:26:17',NULL),
 (5,'Lotus Panache',4,NULL,10000.00,'Lavish penthouses with a golf course view.','project_1586406981.png','map_1586406981.png','2020-04-09 04:36:21','2020-04-09 06:02:38','2020-04-09 06:02:38'),
 (6,'Lotus Panache',4,NULL,2000.00,'Penthouses inside Lotus 100','project_1586412329.png','map_1586412329.png','2020-04-09 06:05:29','2020-04-09 06:05:29',NULL),
-(7,'Gaur Grandeur',0,NULL,1500.00,'Gaur Grandeur',NULL,NULL,'2020-04-23 10:45:38','2020-04-23 10:45:38',NULL);
+(7,'Gaur Grandeur',0,NULL,1500.00,'Gaur Grandeur','project_1588256703.png','map_1588256703.png','2020-04-23 10:45:38','2020-04-30 14:25:03',NULL);
 
 /*Table structure for table `relationships` */
 
@@ -4189,10 +4235,10 @@ insert  into `user_business_executions`(`id`,`coupon_id`,`user_id`,`business`,`i
 (78,81,37,500.00,'2','2020-04-09 10:59:06','2020-04-09 10:59:06',NULL),
 (79,82,38,1000.00,'2','2020-04-09 10:59:19','2020-04-09 10:59:19',NULL),
 (80,83,37,13999.50,'2','2020-04-09 11:10:47','2020-04-09 11:10:47',NULL),
-(81,84,22,400000.00,'0','2020-04-09 12:30:25','2020-04-09 12:30:25',NULL),
-(82,85,2,20.00,'0','2020-04-25 14:57:15','2020-04-25 14:57:15',NULL),
-(83,86,4,1585.50,'0','2020-04-27 10:41:26','2020-04-27 10:41:26',NULL),
-(84,87,4,1629.54,'0','2020-04-27 10:58:54','2020-04-27 10:58:54',NULL);
+(81,84,22,400000.00,'2','2020-04-09 12:30:25','2020-04-09 12:30:25',NULL),
+(82,85,2,20.00,'2','2020-04-25 14:57:15','2020-04-25 14:57:15',NULL),
+(83,86,4,1585.50,'2','2020-04-27 10:41:26','2020-04-27 10:41:26',NULL),
+(84,87,4,1629.54,'2','2020-04-27 10:58:54','2020-04-27 10:58:54',NULL);
 
 /*Table structure for table `user_business_transactions` */
 
@@ -4211,7 +4257,7 @@ CREATE TABLE `user_business_transactions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=353 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=367 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `user_business_transactions` */
 
@@ -4567,7 +4613,21 @@ insert  into `user_business_transactions`(`id`,`user_id`,`total_left_business`,`
 (349,4,16500.00,0.00,4585.50,16500.00,0.00,0.00,'2020-03-14 10:53:07','2020-04-27 10:41:26',NULL),
 (350,2,4051500.01,13399.63,2891686.66,4038100.39,0.00,0.00,'2020-03-14 09:38:45','2020-04-25 14:57:15',NULL),
 (351,2,0.00,0.00,2891686.66,0.00,0.00,0.00,'2020-03-14 09:38:45','2020-04-27 11:32:55',NULL),
-(352,2,4051500.01,0.00,2891686.66,0.00,0.00,0.00,'2020-03-14 09:38:45','2020-04-27 11:32:55',NULL);
+(352,2,4051500.01,0.00,2891686.66,0.00,0.00,0.00,'2020-03-14 09:38:45','2020-04-27 11:32:55',NULL),
+(353,12,2500.00,0.00,0.00,2500.00,0.00,0.00,'2020-03-17 07:04:32','2020-04-06 06:42:11',NULL),
+(354,11,2500.00,0.00,14000.00,2500.00,0.00,0.00,'2020-03-17 06:03:59','2020-04-06 14:03:43',NULL),
+(355,8,16500.00,0.00,0.00,16500.00,0.00,0.00,'2020-03-15 08:50:01','2020-04-07 05:52:16',NULL),
+(356,4,16500.00,0.00,6215.04,16500.00,0.00,0.00,'2020-03-14 10:53:07','2020-04-27 10:58:54',NULL),
+(357,3,24000.00,0.00,4027500.01,24000.00,0.00,0.00,'2020-03-14 10:38:29','2020-04-15 15:29:22',NULL),
+(358,2,4051500.01,4051500.01,2891686.66,4038100.39,0.00,0.00,'2020-03-14 09:38:45','2020-04-27 11:32:55',NULL),
+(359,1,6956141.30,259833.33,88500.00,6696307.97,0.00,0.00,NULL,'2020-04-09 11:13:44',NULL),
+(360,1,7256141.30,259833.33,88500.00,6996307.97,0.00,0.00,NULL,'2020-04-30 15:45:01',NULL),
+(361,3,324000.00,0.00,4027500.01,324000.00,0.00,0.00,'2020-03-14 10:38:29','2020-04-30 15:45:01',NULL),
+(362,2,4351500.01,4051500.01,2891686.66,4338100.39,0.00,0.00,'2020-03-14 09:38:45','2020-04-30 15:45:01',NULL),
+(363,1,7256156.30,259833.33,88500.00,6996322.97,0.00,0.00,NULL,'2020-04-30 15:45:01',NULL),
+(364,3,325189.13,0.00,4027500.01,325189.13,0.00,0.00,'2020-03-14 10:38:29','2020-04-30 15:45:02',NULL),
+(365,2,4352689.14,4051500.01,2891686.66,4339289.52,0.00,0.00,'2020-03-14 09:38:45','2020-04-30 15:45:02',NULL),
+(366,1,7257345.43,259833.33,88500.00,6997512.10,0.00,0.00,NULL,'2020-04-30 15:45:02',NULL);
 
 /*Table structure for table `user_businesses` */
 
@@ -4593,18 +4653,18 @@ CREATE TABLE `user_businesses` (
 /*Data for the table `user_businesses` */
 
 insert  into `user_businesses`(`id`,`user_id`,`total_left_business`,`total_right_business`,`total_self_business`,`remaining_left_business`,`remaining_right_business`,`matching_amount`,`total_matching_amount`,`total_reward_business_amount`,`created_at`,`updated_at`,`deleted_at`) values 
-(1,1,6956141.30,259833.33,88500.00,6696307.97,0.00,0.00,0.00,0.00,NULL,'2020-04-09 11:13:44',NULL),
-(2,2,4051500.01,4051500.01,2891686.66,4038100.39,0.00,0.00,12199.63,0.00,'2020-03-14 09:38:45','2020-04-27 11:32:55',NULL),
-(3,3,24000.00,0.00,4027500.01,24000.00,0.00,0.00,0.00,0.00,'2020-03-14 10:38:29','2020-04-15 15:29:22',NULL),
-(4,4,16500.00,0.00,6215.04,16500.00,0.00,0.00,0.00,0.00,'2020-03-14 10:53:07','2020-04-27 10:58:54',NULL),
+(1,1,7258567.59,259833.33,88500.00,6998734.26,0.00,0.00,0.00,6998734.26,NULL,'2020-04-30 15:45:02',NULL),
+(2,2,4353911.30,4051500.01,2891686.66,4340511.68,0.00,0.00,12199.63,4340511.68,'2020-03-14 09:38:45','2020-04-30 15:45:02',NULL),
+(3,3,326411.29,0.00,4027500.01,326411.29,0.00,0.00,0.00,326411.29,'2020-03-14 10:38:29','2020-04-30 15:45:02',NULL),
+(4,4,316500.00,0.00,6215.04,316500.00,0.00,0.00,0.00,316500.00,'2020-03-14 10:53:07','2020-04-30 15:45:01',NULL),
 (5,5,0.00,12899.63,500.00,0.00,12899.63,0.00,0.00,0.00,'2020-03-15 08:21:06','2020-04-09 11:13:44',NULL),
 (6,6,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,'2020-03-15 08:32:58','2020-04-27 09:36:33',NULL),
 (7,7,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,'2020-03-15 08:38:29','2020-03-15 08:38:29',NULL),
-(8,8,16500.00,0.00,0.00,16500.00,0.00,0.00,0.00,0.00,'2020-03-15 08:50:01','2020-04-07 05:52:16',NULL),
+(8,8,316500.00,0.00,0.00,316500.00,0.00,0.00,0.00,316500.00,'2020-03-15 08:50:01','2020-04-30 15:45:01',NULL),
 (9,9,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,'2020-03-15 10:04:30','2020-03-15 10:04:30',NULL),
 (10,10,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,'2020-03-15 10:09:02','2020-03-15 10:09:02',NULL),
-(11,11,2500.00,0.00,14000.00,2500.00,0.00,0.00,0.00,0.00,'2020-03-17 06:03:59','2020-04-06 14:03:43',NULL),
-(12,12,2500.00,0.00,0.00,2500.00,0.00,0.00,0.00,0.00,'2020-03-17 07:04:32','2020-04-06 06:42:11',NULL),
+(11,11,302500.00,0.00,14000.00,302500.00,0.00,0.00,0.00,302500.00,'2020-03-17 06:03:59','2020-04-30 15:45:01',NULL),
+(12,12,302500.00,0.00,0.00,302500.00,0.00,0.00,0.00,302500.00,'2020-03-17 07:04:32','2020-04-30 15:45:01',NULL),
 (13,13,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,'2020-03-17 07:34:38','2020-03-17 07:34:38',NULL),
 (14,14,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,'2020-03-18 07:24:39','2020-03-18 07:24:39',NULL),
 (15,15,0.00,0.00,259833.33,0.00,0.00,0.00,0.00,0.00,'2020-03-19 03:36:31','2020-03-19 04:42:47',NULL),

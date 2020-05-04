@@ -23,6 +23,7 @@ $common = array(
                                                             <li id="achievers" style="opacity:0"><a class="add-opacity" href="#">Achievers</a></li>
                                                             <li id="rankers" style="opacity:0"><a class="add-opacity" href="#">Rankers</a></li>
                                                             <li id="contact_us" style="opacity:0"><a class="add-opacity" href="contact-us">Contact Us</a></li>
+							    <li id="login" style="opacity:0"><a class="add-opacity" href="login">Login</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -62,6 +63,7 @@ $common = array(
                                     <li><a href="#"><span>Achievers</span></a></li>
                                     <li><a href="#"><span>Rankers</span></a></li>
                                     <li><a href="contact-us"><span>Contact Us</span></a></li>
+				    <li><a href="login"><span>Login</span></a></li>
                                 </ul>
                             </div>',
     'search_form' => '<div class="fs-searchform">

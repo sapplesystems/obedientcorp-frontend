@@ -3,6 +3,7 @@ include_once 'common_html.php';
 include_once 'header_frontend.php';
 ?>
 
+
 <?php echo $common['main_container_navigation']; ?>
 
 <!-- Dotted Navigation -->
@@ -41,9 +42,9 @@ include_once 'header_frontend.php';
 <div class="clearfix"></div>
 <!-- END GALLERY -->
 <!-- FOOTER -->
-<?php include_once 'footer_frontend.php'; ?>
+<?php include_once 'footer_frontend.php'; ?>  
 <!-- END FOOTER -->
-
+ 
 
 <!-- SEARCH FORM FOR NAV -->
 <?php echo $common['search_form']; ?>

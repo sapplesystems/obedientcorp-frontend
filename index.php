@@ -31,15 +31,9 @@ include_once 'header_frontend.php';
     <?php echo $common['dotted_navigation']; ?>
     <!-- End Dotted Navigation -->
 
-
-    <!--    Made by Erik Terwan    -->
-    <!--   24th of November 2015   -->
-    <!--        MIT License        -->
-
     <!-- ALL SECTIONS -->
     <section id="content">
         <!-- HOME SECTION -->
-
 
 <!--<a href="index.php" class="logoHeaderMain"><img style="height:120px;" src="images/obedient-logo.png" alt="" /></a>-->
         <!-- CONTENT -->
@@ -882,159 +876,6 @@ include_once 'header_frontend.php';
                                 </li>
                             </ul>
                             <div style="" class="tp-static-layers">
-
-                                <!-- LAYER NR. 31 -->
-                                <!--<div class="tp-caption tp-shape tp-shapewrapper   tp-static-layer"
-                                         id="slider-1066-layer-5"
-                                         data-x="['left','left','left','center']" data-hoffset="['30','30','30','0']"
-                                         data-y="['top','top','top','top']" data-voffset="['30','30','30','30']"
-                                                                data-width="150"
-                                        data-height="70"
-                                        data-whitespace="nowrap"
-        
-                                        data-type="shape"
-                                        data-basealign="slide"
-                                        data-responsive_offset="off"
-                                        data-responsive="off"
-                                        data-startslide="0"
-                                        data-endslide="4"
-                                        data-frames='[{"from":"opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"ease":"nothing"}]'
-                                        data-textAlign="['left','left','left','left']"
-                                        data-paddingtop="[0,0,0,0]"
-                                        data-paddingright="[0,0,0,0]"
-                                        data-paddingbottom="[0,0,0,0]"
-                                        data-paddingleft="[0,0,0,0]"
-        
-                                        style="z-index: 35;text-transform:left;background-color:rgba(0, 0, 0, 0);border-color:rgba(255, 255, 255, 0.15);border-style:solid;border-width:1px;"> </div>-->
-
-                                <!-- LAYER NR. 32 -->
-                                <!-- <div class="tp-caption   tp-static-layer"
-                                         id="slider-1066-layer-2"
-                                         data-x="['left','left','left','center']" data-hoffset="['60','60','60','0']"
-                                         data-y="['top','top','top','top']" data-voffset="['45','45','45','45']"
-                                                                data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-        
-                                        data-type="image"
-                                        data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-3004","delay":""}]'
-                                        data-basealign="slide"
-                                        data-responsive_offset="off"
-                                        data-responsive="off"
-                                        data-startslide="0"
-                                        data-endslide="4"
-                                        data-frames='[{"from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"to":"auto:auto;","ease":"nothing"}]'
-                                        data-textAlign="['left','left','left','left']"
-                                        data-paddingtop="[0,0,0,0]"
-                                        data-paddingright="[0,0,0,0]"
-                                        data-paddingbottom="[0,0,0,0]"
-                                        data-paddingleft="[0,0,0,0]"
-        
-                                        style="z-index: 36;text-transform:left;border-width:0px;cursor:pointer;"><img src="images/rs/img/generic-icon.png" alt="" data-ww="['90px','90px','90px','90px']" data-hh="['40px','40px','40px','40px']" width="180" height="80" data-no-retina> </div> -->
-
-                                <!-- LAYER NR. 33 -->
-                                <!--<div class="tp-caption NotGeneric-BigButton rev-btn  tp-static-layer"
-                                         id="slider-1066-layer-7"
-                                         data-x="['left','left','left','left']" data-hoffset="['190','190','190','190']"
-                                         data-y="['top','top','top','top']" data-voffset="['29','29','29','29']"
-                                                                data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-visibility="['on','on','off','off']"
-        
-                                        data-type="button"
-                                        data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-3004","delay":""}]'
-                                        data-basealign="slide"
-                                        data-responsive_offset="off"
-                                        data-responsive="off"
-                                        data-startslide="0"
-                                        data-endslide="4"
-                                        data-frames='[{"from":"opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                        data-textAlign="['left','left','left','left']"
-                                        data-paddingtop="[27,27,27,27]"
-                                        data-paddingright="[30,30,30,30]"
-                                        data-paddingbottom="[27,27,27,27]"
-                                        data-paddingleft="[30,30,30,30]"
-        
-                                        style="z-index: 37; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">INTRO </div>-->
-
-                                <!-- LAYER NR. 34 -->
-                                <!--<div class="tp-caption NotGeneric-BigButton rev-btn  tp-static-layer"
-                                         id="slider-1066-layer-8"
-                                         data-x="['left','left','left','left']" data-hoffset="['668','668','668','668']"
-                                         data-y="['top','top','top','top']" data-voffset="['30','30','30','30']"
-                                                                data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-visibility="['on','on','off','off']"
-        
-                                        data-type="button"
-                                        data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-3007","delay":""}]'
-                                        data-basealign="slide"
-                                        data-responsive_offset="off"
-                                        data-responsive="off"
-                                        data-startslide="0"
-                                        data-endslide="4"
-                                        data-frames='[{"from":"opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                        data-textAlign="['left','left','left','left']"
-                                        data-paddingtop="[27,27,27,27]"
-                                        data-paddingright="[30,30,30,30]"
-                                        data-paddingbottom="[27,27,27,27]"
-                                        data-paddingleft="[30,30,30,30]"
-        
-                                        style="z-index: 38; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">VIDEO </div>-->
-
-                                <!-- LAYER NR. 35 -->
-                                <!--<div class="tp-caption NotGeneric-BigButton rev-btn  tp-static-layer"
-                                         id="slider-1066-layer-9"
-                                         data-x="['left','left','left','left']" data-hoffset="['488','488','488','488']"
-                                         data-y="['top','top','top','top']" data-voffset="['30','30','30','30']"
-                                                                data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-visibility="['on','on','off','off']"
-        
-                                        data-type="button"
-                                        data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-3006","delay":""}]'
-                                        data-basealign="slide"
-                                        data-responsive_offset="off"
-                                        data-responsive="off"
-                                        data-startslide="0"
-                                        data-endslide="4"
-                                        data-frames='[{"from":"opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                        data-textAlign="['left','left','left','left']"
-                                        data-paddingtop="[27,27,27,27]"
-                                        data-paddingright="[30,30,30,30]"
-                                        data-paddingbottom="[27,27,27,27]"
-                                        data-paddingleft="[30,30,30,30]"
-        
-                                        style="z-index: 39; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">KEN BURNS </div>-->
-
-                                <!-- LAYER NR. 36 -->
-                                <!--<div class="tp-caption NotGeneric-BigButton rev-btn  tp-static-layer"
-                                         id="slider-1066-layer-10"
-                                         data-x="['left','left','left','left']" data-hoffset="['320','320','320','320']"
-                                         data-y="['top','top','top','top']" data-voffset="['30','30','30','30']"
-                                                                data-width="none"
-                                        data-height="none"
-                                        data-whitespace="nowrap"
-                                        data-visibility="['on','on','off','off']"
-        
-                                        data-type="button"
-                                        data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-3005","delay":""}]'
-                                        data-basealign="slide"
-                                        data-responsive_offset="off"
-                                        data-responsive="off"
-                                        data-startslide="0"
-                                        data-endslide="4"
-                                        data-frames='[{"from":"opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"ease":"nothing"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                        data-textAlign="['left','left','left','left']"
-                                        data-paddingtop="[27,27,27,27]"
-                                        data-paddingright="[30,30,30,30]"
-                                        data-paddingbottom="[27,27,27,27]"
-                                        data-paddingleft="[30,30,30,30]"
-        
-                                        style="z-index: 40; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">PARALLAX </div>-->
                             </div>
                             <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
                     </div><!-- END REVOLUTION SLIDER -->
@@ -1181,8 +1022,8 @@ include_once 'header_frontend.php';
                         <!-- Progress Bars -->
                         <div class="team-progress">
                             <!-- Bar -->
-                            <div class="progress-bar bg-colored t-left" data-value="96">
-                                <span class="nowrap light white">Chairman and Managing Director (CMD)</span>
+                            <div class="progress-bar bg-colored t-left" data-value="72">
+                                <span class="nowrap light white">Managing Director (MD)</span>
                             </div>
                             <!-- Bar -->
                             <!--<div class="progress-bar bg-colored t-left" data-value="45">
@@ -1193,7 +1034,7 @@ include_once 'header_frontend.php';
                         <!-- Description -->
                         <div class="member-description vertical-center">
                             <p class="fa fa-quote-left icon"></p>
-                            <h2 class="light">Chairman and Managing Director (CMD)</h2>
+                            <h2 class="light">Managing Director (MD)</h2>
                             <p class="description light">More than two decades of experience in network marketing and more than a decade in Real Estate</p>
                         </div>
                     </div>
@@ -1257,7 +1098,7 @@ include_once 'header_frontend.php';
                     </div>
                     <!-- End Container for details -->
                     <!-- Member Name -->
-                    <h2 class="light">Abhishek Singh</h2>
+                    <h2 class="light">Abhishek Kumar Singh</h2>
                 </div>
             </div>
         </section>

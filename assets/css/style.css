@@ -30745,7 +30745,6 @@ ul.price_list li {
     margin-bottom: 10px;
 }
 
-
 /*
 CSS ANIMATION FOR TREE
 */
@@ -30901,14 +30900,11 @@ CSS ANIMATION FOR TREE
 } 
 
 @media (max-width: 991px) {
-    .payment-dialog label.text-right {
-        text-align: left !important;
-    }
-
+    .payment-dialog label.text-right {text-align: left !important;}
     .brand-logo{text-align:center;}
     .bgImageNone{background:none !important;}
     .bgnone_m{background:none !important;}
-    .content-wrapper{padding:15px;}
+    .content-wrapper{padding:15px;} 
     .dataTables_wrapper input[type="search"]{padding: 5px; height: 30px;}
     .dataTables_wrapper .dataTables_length select{height:30px;}
     .dataTables_wrapper #order-listing_paginate > a:first-child, .dataTables_wrapper .dataTables_paginate > a:first-child{padding: 5px;font-size: 14px;}
@@ -30950,6 +30946,7 @@ CSS ANIMATION FOR TREE
 .tgl+.tgl-btn::-moz-selection {
     background: none;
 }
+
 
 .tgl::selection,
 .tgl:after::selection,
@@ -30993,8 +30990,7 @@ CSS ANIMATION FOR TREE
 
 .tgl:checked+.tgl-btn:after {
     left: 50%;
-}
-
+} 
 
 .tgl-skewed+.tgl-btn {
     overflow: hidden;
@@ -31086,14 +31082,14 @@ CSS ANIMATION FOR TREE
 
 	/* typing text in dashboard page */
 	
-	.type_text p {
+	.type_text p { 
   letter-spacing: 0.1rem;
   text-align: center;
   overflow: hidden;
   font-size:2rem;
 }
 .type_text p span.typed-text {
-  font-weight: normal;
+  font-weight: normal; 
   color: #b66dff;
 }
 .type_text p span.cursor {
@@ -31101,10 +31097,10 @@ CSS ANIMATION FOR TREE
   background-color: #ccc;
   margin-left: 0.1rem;
   width: 3px;
-  animation: blink 1s infinite;
+  animation: blink 1s infinite;  
 }
 .type_text p span.cursor.typing {
-  animation: none;
+  animation: none; 
 }
 @keyframes blink {
   0%  { background-color: #ccc; }

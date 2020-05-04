@@ -30386,7 +30386,7 @@ select option {
 .hv-wrapper p {
     margin: 0;
     color: #ffffff;
-    width: 240px;
+    width: 225px;
     background-color: #000000;
     border-radius: .25rem;
     box-shadow: 0 1px 1px #333333;
@@ -30438,7 +30438,7 @@ select option {
 .hv-wrapper .hv-item .hv-item-children .hv-item-child {
     padding: 0 10px;
     position: relative;
-    width: 530px;
+    width: 495px; 
 }
 
 .hv-wrapper .hv-item .hv-item-children .hv-item-child:only-child:after {

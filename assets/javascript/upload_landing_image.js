@@ -57,7 +57,7 @@ $(document).ready(function() {
                 $('#' + file_id).siblings('.file-upload-info').val('');
                 return false;
             } else {
-                crop_image(file_id);
+                landing_crop_image(file_id);
             }
         };
     });//end
@@ -124,7 +124,7 @@ function get_landing_image() {
 } //end function for get_landing_image
 
   //crop function
-  function crop_image(file_id) {
+  function landing_crop_image(file_id) {
     var file = $('#' + file_id)[0].files[0];
     var reader = new FileReader();
     reader.onload = function(event) {

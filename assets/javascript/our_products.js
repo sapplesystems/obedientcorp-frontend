@@ -13,7 +13,8 @@ $(document).ready(function () {
         e.preventDefault();
         var sub_category_id = $(this).val();
         if (sub_category_id != '') {
-            getProductsList(sub_category_id);
+            var cat_id = $('#categories').val();
+            getProductsList(cat_id, sub_category_id);
         }
     });
 });
@@ -24,7 +25,7 @@ getGoodsProducts();
 function getCategoryList() {
     $('.sub-category').css('display', 'none');
     $.ajax({
-        url: 'http://demos.sappleserve.com/obedient_api/public/api/categories ',
+        url: base_url + 'category-list',
         type: 'post',
         data: {},
         success: function (response) {
@@ -41,12 +42,12 @@ function getCategoryList() {
 
 function getSubCategoryList(category_id) {
 
-    var url = 'http://demos.sappleserve.com/obedient_api/public/api/sub-category';
+    var url = base_url + 'sub-category';
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {id: category_id},
+        data: { id: category_id },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data.length > 0) {
@@ -62,7 +63,7 @@ function getSubCategoryList(category_id) {
                 else {
                     $('#sub_categories').css('display', 'none');
 
-                    getProductsList(category_id);
+                    getProductsList(category_id, 0);
                 }
 
             }
@@ -71,13 +72,13 @@ function getSubCategoryList(category_id) {
     });
 } //endsubcategorylist
 
-function getProductsList(id) {
-    var url = 'http://demos.sappleserve.com/obedient_api/public/api/category/products';
+function getProductsList(category_id, sub_category_id) {
+    var url = base_url + 'category/products';
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {id: id},
+        data: { category_id: category_id, sub_category_id: sub_category_id },
         success: function (response) {
             if (response.status == "success") {
                 var products = '';
@@ -85,7 +86,7 @@ function getProductsList(id) {
                     $.each(response.data, function (key, value) {
                         products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/' + value.image[0].file_name + '"" alt="' + value.image[0].file_name + '" />\n\
+                                            <img src="'+ media_url + 'product_images/' + value.image[0].file_name + '"" alt="' + value.image[0].file_name + '" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\
@@ -97,10 +98,12 @@ function getProductsList(id) {
                     });
                     $('#product_list').html(products);
                 } else {
-                    $('#product_list').html('No Products Available');
+                    $('#product_list').html('');
+                    showSwal('error','No Products Available',response.data);
                 }
             } else {
-                $('#product_list').html(response.data);
+                $('#product_list').html('');
+                showSwal('error','No Products Available',response.data);
             }
 
         }
@@ -111,7 +114,7 @@ function getProductsList(id) {
 
 function getGoodsProducts() {
     $.ajax({
-        url: 'http://demos.sappleserve.com/obedient_api/public/api/dashboard-products-goods',
+        url: base_url + 'dashboard-products-goods',
         type: 'post',
         success: function (response) {
             if (response.status == "success") {
@@ -124,7 +127,7 @@ function getGoodsProducts() {
                     }
                     products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="http://demos.sappleserve.com/obedient_api/public/uploads/product_images/' + image_name + '"" alt="' + image_name + '" />\n\
+                                            <img src="'+ media_url + 'product_images/' + image_name + '"" alt="' + image_name + '" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\
@@ -136,7 +139,8 @@ function getGoodsProducts() {
                 });
                 $('#product_list').html(products);
             } else {
-                $('#product_list').html('No Products Available');
+                $('#product_list').html('');
+                showSwal('error','No Products Available',response.data);
             }
         }
     });

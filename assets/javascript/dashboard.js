@@ -168,27 +168,30 @@ function generateChart(total_left_business, total_right_business, total_self_bus
 function generateDuePaymentList(list) {
     var table_data = '<thead>\n\
                         <tr>\n\
-                            <th> Customer </th>\n\
-                            <th> Amount </th>\n\
-                            <th> EMI Due Date </th>\n\
-                            <th>Project</th>\n\\n\
-                            <th>Sub Project</th>\n\
-                            <th>Plot ID</th>\n\
+                        <th> Customer </th>\n\
+                        <th> Amount </th>\n\
+                        <th>Due Date </th>\n\
+                        <th>Project</th>\n\\n\
+                        <th>Sub Project</th>\n\
+                        <th>Plot ID</th>\n\
+                        <th>Over Due</th>\n\
+                        <th>Total Paid</th>\n\
                         </tr>\n\
                     </thead>';
     table_data += '<tbody>';
-
     $.each(list, function (key, value) {
         var dd = new Date(value.due_date);
         var duedate = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
 
         table_data += '<tr>\n\
-                            <td>' + value.name + '</td>\n\
-                            <td>' + value.amount + '</td>\n\
-                            <td>' + duedate + '</td>\n\
+                            <td>' + value.customer_display_name + '</td>\n\
+                            <td>' + value.emi_amount + '</td>\n\
+                            <td>' + value.due_date + '</td>\n\
                             <td>' + value.project_master_name + '</td>\n\
                             <td>' + value.sub_project_master_name + '</td>\n\
                             <td>' + value.plot_master_name + '</td>\n\
+                            <td>' + value.overdue + '</td>\n\
+                            <td>' + value.total_paid + '</td>\n\
                         </tr>';
     });
     table_data += '</tbody>';

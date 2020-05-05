@@ -1,7 +1,6 @@
 <?php
-$base_url = 'http://demos.sappleserve.com/obedient_api/public/api/';
-$media_url = 'http://demos.sappleserve.com/obedient_api/public/uploads/';
-$home_url = 'http://localhost/obedientcorp-frontend/';
+
+include_once 'config.php';
 $common = array(
     'main_container_navigation' => '<div id="main_container" class="container-fluid" style="position:absolute; z-index:99;padding: 0;">
                                         <div class="topBar padd5" style="display:none;z-index:3">
@@ -19,11 +18,12 @@ $common = array(
                                                             <li id="bankers" style="opacity:0"><a class="add-opacity" href="bankers">Bankers</a></li>
                                                             <li id="gallery" style="opacity:0"><a class="add-opacity" href="gallery">Gallery</a></li>
                                                             <li id="amenities" style="opacity:0"><a class="add-opacity" href="amenities">Amenities</a></li>
-                                                            <li id="about" style="opacity:0"><a class="add-opacity" href="#">About</a></li>
+                                                            <li id="about" style="opacity:0"><a class="add-opacity" href="about">About</a></li>
                                                             <li id="winners" style="opacity:0"><a class="add-opacity" href="#">Winners</a></li>
                                                             <li id="achievers" style="opacity:0"><a class="add-opacity" href="#">Achievers</a></li>
                                                             <li id="rankers" style="opacity:0"><a class="add-opacity" href="#">Rankers</a></li>
                                                             <li id="contact_us" style="opacity:0"><a class="add-opacity" href="contact-us">Contact Us</a></li>
+							    <li id="login" style="opacity:0"><a class="add-opacity" href="login">Login</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -58,11 +58,12 @@ $common = array(
                                     <li><a href="bankers"><span>Bankers</span></a></li>
                                     <li><a href="gallery"><span>Gallery</span></a></li>
                                     <li><a href="amenities"><span>Amenities</span></a></li>
-                                    <li><a href="#"><span>About</span></a></li>
+                                    <li><a href="about"><span>About</span></a></li>
                                     <li><a href="#"><span>Winners</span></a></li>
                                     <li><a href="#"><span>Achievers</span></a></li>
                                     <li><a href="#"><span>Rankers</span></a></li>
                                     <li><a href="contact-us"><span>Contact Us</span></a></li>
+				    <li><a href="login"><span>Login</span></a></li>
                                 </ul>
                             </div>',
     'search_form' => '<div class="fs-searchform">

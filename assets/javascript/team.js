@@ -35,6 +35,7 @@ function getTeamMemberList(user_id, node) {
                                                         <th> Name </th>\n\
                                                         <th> Left Business </th>\n\
                                                         <th> Right Business </th>\n\
+                                                        <th> Matching Amount </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
@@ -122,6 +123,7 @@ function getTeamMemberList(user_id, node) {
                                                         <td> ' + member.associate_name + '</td>\n\
                                                         <td> ' + member.total_left_business + ' </td>\n\
                                                         <td> ' + member.total_right_business + ' </td>\n\
+                                                        <td> ' + member.matching_amount + ' </td>\n\
                                                     </tr>';
                 });
                 team_list_html += '</tbody>\n\
@@ -164,6 +166,7 @@ function getReferralTeamMemberList(user_id, node) {
                                                         <th> Name </th>\n\
                                                         <th> Left Business </th>\n\
                                                         <th> Right Business </th>\n\
+                                                        <th> Matching Amount </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
@@ -251,6 +254,7 @@ function getReferralTeamMemberList(user_id, node) {
                                                         <td> ' + member.associate_name + '</td>\n\
                                                         <td> ' + member.total_left_business + ' </td>\n\
                                                         <td> ' + member.total_right_business + ' </td>\n\
+                                                        <td> ' + member.matching_amount + ' </td>\n\
                                                     </tr>';
                 });
                 team_list_html += '</tbody>\n\

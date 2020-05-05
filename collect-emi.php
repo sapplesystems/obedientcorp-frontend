@@ -23,19 +23,19 @@
                             </ul>
                         </div>
                         <div class="row mb-3 marginLR-m">
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-3">Agent ID</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <select class="form-control" id="agent-list" onchange="get_customer_list(this.value);">
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-5 mt-10-m">
+                            <div class="col-md-6 mt-10-m">
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-3">Customer ID</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <select class="form-control" id="customer-list" onchange="getCustomerPaymentList(this.value);">
                                         </select>
                                     </div>

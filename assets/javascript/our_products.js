@@ -86,7 +86,7 @@ function getProductsList(category_id, sub_category_id) {
                     $.each(response.data, function (key, value) {
                         products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="'+ media_url + 'product_images/' + value.image[0].file_name + '"" alt="' + value.image[0].file_name + '" />\n\
+                                            <img src="' + media_url + 'product_images/' + value.image[0].file_name + '"" alt="' + value.image[0].file_name + '" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\
@@ -127,7 +127,7 @@ function getGoodsProducts() {
                     }
                     products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="'+ media_url + 'product_images/' + image_name + '"" alt="' + image_name + '" />\n\
+                                            <img src="' + media_url + 'product_images/' + image_name + '"" alt="' + image_name + '" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\

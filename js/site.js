@@ -14,6 +14,7 @@
 		tpj('#achievers').removeClass("animated fadeOutUp1").css("opacity","0");
 		tpj('#rankers').removeClass("animated fadeOutUp1").css("opacity","0");
 		tpj('#contact_us').removeClass("animated fadeOutUp1").css("opacity","0");
+		tpj('#login').removeClass("animated fadeOutUp1").css("opacity","0");
         tpj(".topBar").slideDown(400);
         tpj("#burgernavbar").hide(1000);
 		tpj("#burgernavbarcancel").show(1000);
@@ -39,6 +40,8 @@
     }, 1000);//300
 		setTimeout(function(){tpj('#contact_us').addClass("animated fadeInDown1").css("opacity","0");
     }, 1100);//300
+		setTimeout(function(){tpj('#login').addClass("animated fadeInDown1").css("opacity","0");
+    }, 1200);//300
       //  tpj('body').css('overflow-y','hidden');        
     });
    
@@ -56,28 +59,31 @@
 		tpj('#achievers').removeClass("animated fadeInDown1").css("opacity","1");
 		tpj('#rankers').removeClass("animated fadeInDown1").css("opacity","1");
 		tpj('#contact_us').removeClass("animated fadeInDown1").css("opacity","1");
+		tpj('#login').removeClass("animated fadeInDown1").css("opacity","1");
 		 
 		   setTimeout(function(){tpj('#home').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 1100);  //1400
+    }, 1200);  //1400
 		 setTimeout(function(){tpj('#products').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 1000);   //1200
+    }, 1100);   //1200
 		setTimeout(function(){tpj('#legal').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 900);   //1000
+    }, 1000);   //1000
 	    setTimeout(function(){tpj('#bankers').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 800);    //800
+    }, 900);    //800
 	    setTimeout(function(){tpj('#gallery').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 700);    //600
+    }, 800);    //600
 		setTimeout(function(){tpj('#amenities').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 600);    //400
+    }, 700);    //400
 		setTimeout(function(){tpj('#about').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 500);    //200
+    }, 600);    //200
 		setTimeout(function(){tpj('#winners').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 400);    //200
+    }, 500);    //200
 		setTimeout(function(){tpj('#achievers').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 300);    //200
+    }, 400);    //200
 		setTimeout(function(){tpj('#rankers').addClass("animated fadeOutUp1").css("opacity","0");
-    }, 200);    //200
+    }, 300);    //200
 		setTimeout(function(){tpj('#contact_us').addClass("animated fadeOutUp1").css("opacity","0");
+    }, 200);    //200
+		setTimeout(function(){tpj('#login').addClass("animated fadeOutUp1").css("opacity","0");
     }, 100);    //200
 
 	 setTimeout(function(){ tpj(".topBar").slideUp(400); //400

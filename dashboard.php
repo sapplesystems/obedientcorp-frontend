@@ -6,9 +6,9 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body p-3">
-                        <marquee>
-                            <h4 class="mb-0">*WELCOME TO OBEDIENT GROUP*</h4>
-                        </marquee>
+                        <div class="type_text">
+				<p class="mb-0">Welcome to <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+			</div>
                     </div>
                 </div>
             </div>

@@ -21,13 +21,13 @@
             .slider-multi ul li {
                 background: no-repeat 50% 50%;
                 background-size: auto 100%;
-                height: 292px;
+                height: 350px;
                 overflow: hidden;
                 position:relative;
                 width: 456px;
             }
-@media screen and (min-width: 1800px) {
-  .slider-multi ul li {
+	@media screen and (min-width: 1800px) {
+			.slider-multi ul li {
                 background: no-repeat 50% 50%;
                 background-size: auto 100%;
                 height: 350px;
@@ -35,7 +35,7 @@
                 position:relative;
                 width: 635px;
             }
-}            
+	}             
             .slider-multi ul li.slide-align-left {
                 background-position: 0 50%;
                 margin:0 8px 0 0;
@@ -47,7 +47,6 @@
             .slider-multi ul li.slide-current {
                 margin:0;
             }
-
 
             /* slider content */
             .slider-multi ul li .content {
@@ -99,7 +98,6 @@
                 padding: 4px 6px;
             }
 
-
             /* pagination */
             .slider-multi .pagination {
                 background: url(../images/stroke.png) no-repeat 50%;
@@ -148,12 +146,12 @@
 				font-style:italic;
             }
             .slider-multi .pagination .counter .total {
-                right: 31px;
+                right: 31px; 
                 bottom: 0px;
 				font-family: BauerBodoniStd-Roman;
-				font-size: 30px;
+				font-size: 30px; 
 				font-style:italic;
-            }
+            }  
 			
 			/* slider smooth arrow */
 			
@@ -170,4 +168,3 @@
 				border-bottom: 9px solid transparent;
 				border-right: 9px solid #b66dff;
 			}
-			

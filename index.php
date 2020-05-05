@@ -12,6 +12,7 @@ include_once 'header_frontend.php';
         .Preloader__Spinner { width:10vw; display:block; }
     }
     #pop-on-load{display: none;}
+    .tp-kbimg-wrap{display: none !important;}
 </style>
 
 <div id="Preloader" class="Preloader" /> <img style="height:200px;" class="Black" src="images/obedient-logo.png" alt="Logo" /> </div>
@@ -45,7 +46,7 @@ include_once 'header_frontend.php';
                         <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
                         <div id="rev_slider_1066_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
                             <ul>	<!-- SLIDE -->
-                                <li data-index="rs-3004" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/rs/img/notgeneric_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                <li id="slider_image_1" data-index="rs-3004" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                                     <!-- MAIN IMAGE -->
                                     <img src="images/rs/img/notgeneric_bg1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                     <!-- LAYERS -->
@@ -186,7 +187,7 @@ include_once 'header_frontend.php';
                                     </div>
                                 </li>
                                 <!-- SLIDE -->
-                                <li data-index="rs-3005" data-transition="fadetotopfadefrombottom" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500"  data-thumb="images/rs/img/notgeneric_bg5-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Chill" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                <li id="slider_image_2" data-index="rs-3005" data-transition="fadetotopfadefrombottom" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Chill" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                                     <!-- MAIN IMAGE -->
                                     <img src="images/rs/img/notgeneric_bg5.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                     <!-- LAYERS -->
@@ -416,7 +417,7 @@ include_once 'header_frontend.php';
                                         <div class="rs-looped rs-wave"  data-speed="4" data-angle="0" data-radius="10" data-origin="50% 50%"><img src="images/rs/img/blurflake1.png" alt="" data-ww="['120px','120px','120px','120px']" data-hh="['120px','120px','120px','120px']" width="120" height="120" data-no-retina> </div></div>
                                 </li>
                                 <!-- SLIDE -->
-                                <li data-index="rs-3006" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/rs/img/notgeneric_bg2-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Enjoy Nature" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                <li id="slider_image_3" data-index="rs-3006" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Enjoy Nature" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                                     <!-- MAIN IMAGE -->
                                     <img src="images/rs/img/notgeneric_bg2.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                     <!-- LAYERS -->
@@ -557,25 +558,12 @@ include_once 'header_frontend.php';
                                     </div>
                                 </li>
                                 <!-- SLIDE -->
-                                <li data-index="rs-3007" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/rs/img/iceberg-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Iceberg" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                <li id="slider_image_4" data-index="rs-3007" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Iceberg" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                                     <!-- MAIN IMAGE -->
                                     <img src="images/rs/img/iceberg.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                     <!-- LAYERS -->
 
                                     <!-- BACKGROUND VIDEO LAYER -->
-                                    <div class="rs-background-video-layer"
-                                         data-forcerewind="on"
-                                         data-volume="mute"
-                                         data-videowidth="100%"
-                                         data-videoheight="100%"
-                                         data-videomp4="images/rs/videos/iceberg.mp4"
-                                         data-videopreload="auto"
-                                         data-videoloop="loopandnoslidestop"
-                                         data-forceCover="1"
-                                         data-aspectratio="16:9"
-                                         data-autoplay="true"
-                                         data-autoplayonlyfirsttime="false"
-                                         ></div>
                                     <!-- LAYER NR. 20 -->
                                     <div class="tp-caption tp-shape tp-shapewrapper  "
                                          id="slide-3007-layer-10"
@@ -734,7 +722,7 @@ include_once 'header_frontend.php';
                                     </div>
                                 </li>
                                 <!-- SLIDE -->
-                                <li data-index="rs-3008" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/rs/img/notgeneric_bg3-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Hiking" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                <li id="slider_image_5" data-index="rs-3008" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Hiking" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                                     <!-- MAIN IMAGE -->
                                     <img src="images/rs/img/notgeneric_bg3.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                     <!-- LAYERS -->
@@ -916,7 +904,7 @@ include_once 'header_frontend.php';
                 </div>
                 <div class="facts-container light">
                     <!-- Item -->
-                    <div class="fact" data-source="6">
+                    <div class="fact" id="real_estate_locations" data-source="0">
                         <div class="texts">
                             <div>
                                 <h1 class="factor">0</h1>
@@ -926,7 +914,7 @@ include_once 'header_frontend.php';
                         </div>
                     </div>
                     <!-- Item -->
-                    <div class="fact" data-source="30">
+                    <div class="fact" id="consumer_goods_products" data-source="0">
                         <div class="texts">
                             <div>
                                 <h1 class="factor">0</h1>
@@ -936,7 +924,7 @@ include_once 'header_frontend.php';
                         </div>
                     </div>
                     <!-- Item -->
-                    <div class="fact" data-source="4678">
+                    <div class="fact" id="total_members" data-source="0">
                         <div class="texts">
                             <div>
                                 <h1 class="factor">0</h1>
@@ -948,7 +936,7 @@ include_once 'header_frontend.php';
                 </div>
             </div>
             <!-- Right image -->
-            <div class="right-image" data-background="images/matrix-tree.png" style="background-size:100% 100%; background-repeat:no-repeat;"></div>
+            <div class="right-image" style="background-size:100% 100%; background-repeat:no-repeat; opacity:1;"></div>
         </section>
 
         <!-- WORKS -->
@@ -1321,21 +1309,9 @@ var slider = $('.slider-multi').sappleMultiSlider();
             success: function (response) {
                 console.log(response);
                 if (response.status == "success") {
-                    if (response.data.home_product_ad) {
-                        var path = media_url + 'home_product_ad/' + response.data.home_product_ad;
-                        $('.right-image').attr('data-background', path);
-                        $('.right-image').css('background-image', 'url(' + path + ')');
-                    }
-                    if (response.data.slider_image_1) {
-                    }
-                    if (response.data.slider_image_2) {
-                    }
-                    if (response.data.slider_image_3) {
-                    }
-                    if (response.data.slider_image_4) {
-                    }
-                    if (response.data.slider_image_5) {
-                    }
+                    $('#real_estate_locations').attr('data-source', response.data.real_estate_locations);
+                    $('#consumer_goods_products').attr('data-source', response.data.consumer_goods_products);
+                    $('#total_members').attr('data-source', response.data.total_members);
                     if (response.data.landing_image) {
                         var landing_path = media_url + 'landing_image/' + response.data.landing_image;
                         $('#uploded_image').attr('src', landing_path);
@@ -1343,6 +1319,31 @@ var slider = $('.slider-multi').sappleMultiSlider();
                     } else {
                         $('#uploded_image').attr('src', 'images/pre.jpg');
                         $('#uploded_image').css('display', 'block');
+                    }
+                    if (response.data.home_product_ad) {
+                        var path = media_url + 'home_product_ad/' + response.data.home_product_ad;
+                        $('.right-image').attr('data-background', path);
+                        $('.right-image').css('background-image', 'url(' + path + ')');
+                    }
+                    if (response.data.slider_image_1) {
+                        $('#slider_image_1 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_1 + ')');
+                        $('#slider_image_1 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_1);
+                    }
+                    if (response.data.slider_image_2) {
+                        $('#slider_image_2 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_2 + ')');
+                        $('#slider_image_2 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_2);
+                    }
+                    if (response.data.slider_image_3) {
+                        $('#slider_image_3 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_3 + ')');
+                        $('#slider_image_3 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_3);
+                    }
+                    if (response.data.slider_image_4) {
+                        $('#slider_image_4 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_4 + ')');
+                        $('#slider_image_4 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_4);
+                    }
+                    if (response.data.slider_image_5) {
+                        $('#slider_image_5 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_5 + ')');
+                        $('#slider_image_5 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_5);
                     }
                 } else {
                     console.log("Not any image");

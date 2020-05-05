@@ -30386,7 +30386,7 @@ select option {
 .hv-wrapper p {
     margin: 0;
     color: #ffffff;
-    width: 225px;
+    width: 220px;
     background-color: #000000;
     border-radius: .25rem;
     box-shadow: 0 1px 1px #333333;
@@ -30438,7 +30438,7 @@ select option {
 .hv-wrapper .hv-item .hv-item-children .hv-item-child {
     padding: 0 10px;
     position: relative;
-    width: 495px; 
+    width: 490px; 
 }
 
 .hv-wrapper .hv-item .hv-item-children .hv-item-child:only-child:after {
@@ -30531,10 +30531,10 @@ select option {
 }
 
 .hv-wrapper .hv-item img {
-    height: 50px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 5px;
-    width: 50px;
+    width: 40px;
 }
 
 .paddTB {
@@ -30651,8 +30651,8 @@ ul.top_row_members li:nth-child(3) {
 }
 
 .main_div_img i {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     display: block;
     border-radius: 50%;
     position: absolute;

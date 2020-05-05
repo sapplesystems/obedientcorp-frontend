@@ -7,13 +7,13 @@ $(document).ready(function() {
         enableOrientation: true,
 
         viewport: {
-            width: 500,
-            height:600,
+            width: 550,
+            height:650,
             type: 'square' //circle
         },
         boundary: {
-            width: 700,
-            height: 700
+            width: 650,
+            height: 750
         }
     });
 
@@ -26,8 +26,6 @@ $(document).ready(function() {
             {
                 product_img = response; 
             }
-            console.log(product_img);
-
             $('#uploadproductModal').modal('hide');
             //$('#uploaded_image').html(data);
 
@@ -49,9 +47,8 @@ $(document).ready(function() {
         img.onload = function() {
             imgwidth = this.width;
             imgheight = this.height;
-            console.log('Image dimension must be at least ' + imgwidth + ' ' + imgheight + '(Width X Height)');
-            if (imgwidth < 500 || imgheight < 600) {
-                showSwal('error', 'Image dimension should be at least 500 x 600');
+            if (imgwidth < 550 || imgheight < 650) {
+                showSwal('error', 'Image dimension should be at least 550 x 650');
                 $('#' + file_id).val('');
                 $('#' + file_id).siblings('.file-upload-info').val('');
                 return false;
@@ -73,7 +70,6 @@ $(document).ready(function() {
         if ($("#upload-product-form").valid()) {
             showLoader();
             var params = new FormData();
-            console.log(product_img);
             params.append('home_product_ad', product_img);
             $.ajax({
                 url: base_url + 'upload-homeproduct-image',
@@ -82,7 +78,6 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    console.log(response);
                     if (response.status == "success") {
                         showSwal('success', 'Image Uploded', 'Product homepage image upload successfully');
                         document.getElementById('upload-product-form').reset();
@@ -113,8 +108,6 @@ function get_product_image() {
                     $('#product_uploded_image').attr('src', response.image_path);
                     $('#product_uploded_image').css('display', 'block');
                 }
-            } else {
-                console.log("Not any image");
             }
             hideLoader();
         }

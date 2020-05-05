@@ -62,18 +62,22 @@ function getRealStateProducts() {
             if (response.status == "success") {
                 $.each(response, function (key, val) {
                     $.each(val.data, function (key1, value) {
+                        var project_photo = media_url + 'project_photo/no_image.jpg';
+                        if(value.photo != ''){
+                            project_photo = media_url + 'project_photo/' + value.photo;
+                        }
                         real_product += '<div class="item cbp-item coding" id="real_' + value.id + '">\n\
                                             <div class="cbp-caption">\n\
                                                 <div class="cbp-caption-defaultWrap">\n\
-                                                    <img src="' + media_url + 'project_photo/' + value.photo + '" alt="Works image">\n\
+                                                    <img src="' + project_photo + '" alt="Works image" style="width: 100%;">\n\
                                                 </div>\n\
                                                 <div class="cbp-caption-activeWrap">\n\
                                                     <div class="cbp-l-caption-alignCenter">\n\
                                                         <div class="cbp-l-caption-body">\n\
                                                             <a href="#" class="works-link" target="_blank"><i class="fa fa-external-link-square"></i></a>\n\
-                                                            <a href="' + media_url + 'project_photo/' + value.photo + '" class="works-link lightbox_item" data-title="Beautiful girl in train station">\n\
+                                                            <a href="' + project_photo + '" class="works-link lightbox_item" data-title="Beautiful girl in train station">\n\
                                                                 <i class="fa fa-expand"></i>\n\
-                                                                <img src="' + media_url + 'project_photo/' + value.photo + '" alt="" class="none">\n\
+                                                                <img src="' + project_photo + '" alt="" class="none">\n\
                                                             </a>\n\
                                                             <a href="#" class="works-link external-link"><i class="fa fa-plus"></i></a>\n\
                                                         </div>\n\
@@ -81,7 +85,7 @@ function getRealStateProducts() {
                                                 </div>\n\
                                             </div>\n\
                                             <a href="#" class="cbp-l-grid-masonry-projects-title" rel="nofollow">' + value.name + '</a>\n\
-                                            <div class="cbp-l-grid-masonry-projects-desc">' + value.description + '</div>\n\
+                                            <div class="cbp-l-grid-masonry-projects-desc" style="height:40px; line-height:40px;">' + value.description + '</div>\n\
                                         </div>';
                     });
                 });

@@ -1,44 +1,40 @@
 get_landing_image();
 var landing_img = '';
-$(document).ready(function() {
+$(document).ready(function () {
 
     //croper size for slider
     $landing_image_crop = $('#landing_image').croppie({
         enableOrientation: true,
-
         viewport: {
-            width: 500,
-            height: 500,
+            width: 600,
+            height: 600,
             type: 'square' //circle
         },
         boundary: {
-            width: 600,
-            height: 600
+            width: 700,
+            height: 700
         }
     });
 
-    $('.landing_crop_image').click(function(event) {
+    $('.landing_crop_image').click(function (event) {
         $landing_image_crop.croppie('result', {
             type: 'canvas',
             size: 'viewport'
-        }).then(function(response) {
-            console.log('landing',$('#landing-image').val());
-            if($('#landing-image').val()!='')
+        }).then(function (response) {
+            if ($('#landing-image').val() != '')
             {
                 landing_img = response;
             }
-            console.log(response);
-
             $('#uploadlandingModal').modal('hide');
             //$('#uploaded_image').html(data);
 
         })
     });
-    $(document).on('click', '.close_landing_image', function() {
+    $(document).on('click', '.close_landing_image', function () {
         $('.file-upload-info').val('');
     });
     //get size of image
-    $(".landing_image").change(function() {
+    $(".landing_image").change(function () {
         var _URL = window.URL || window.webkitURL;
         var file_id = $(this).attr('id');
         var file = $(this)[0].files[0];
@@ -47,12 +43,11 @@ $(document).ready(function() {
         var imgheight = 0;
         var currentObj = this;
         img.src = _URL.createObjectURL(file);
-        img.onload = function() {
+        img.onload = function () {
             imgwidth = this.width;
             imgheight = this.height;
-            console.log('Image dimension must be at least ' + imgwidth + ' ' + imgheight + '(Width X Height)');
-            if (imgwidth < 500 || imgheight < 500) {
-                showSwal('error', 'Image dimension should be at least 500 x 500');
+            if (imgwidth < 600 || imgheight < 600) {
+                showSwal('error', 'Image dimension should be at least 600 x 600');
                 $('#' + file_id).val('');
                 $('#' + file_id).siblings('.file-upload-info').val('');
                 return false;
@@ -62,7 +57,7 @@ $(document).ready(function() {
         };
     });//end
     //form submit
-    $("#upload-image-form").submit(function(e) {
+    $("#upload-image-form").submit(function (e) {
         e.preventDefault();
         var upload_image_form = $("#upload-image-form");
         upload_image_form.validate({
@@ -74,7 +69,6 @@ $(document).ready(function() {
         if ($("#upload-image-form").valid()) {
             showLoader();
             var params = new FormData();
-            console.log(landing_img)
             params.append('landing_image', landing_img);
             $.ajax({
                 url: base_url + 'upload-landing-image ',
@@ -82,8 +76,7 @@ $(document).ready(function() {
                 data: params,
                 contentType: false,
                 processData: false,
-                success: function(response) {
-                    console.log(response);
+                success: function (response) {
                     if (response.status == "success") {
                         showSwal('success', 'Image Uploded', 'Homepage landing image upload successfully');
                         document.getElementById('upload-image-form').reset();
@@ -108,14 +101,12 @@ function get_landing_image() {
         data: {
             dashboard: 1
         },
-        success: function(response) {
+        success: function (response) {
             if (response.status == "success") {
                 if (response.image_path) {
                     $('#uploded_image').attr('src', response.image_path);
                     $('#uploded_image').css('display', 'block');
                 }
-            } else {
-                console.log("Not any image");
             }
             hideLoader();
         }
@@ -123,14 +114,14 @@ function get_landing_image() {
 
 } //end function for get_landing_image
 
-  //crop function
-  function landing_crop_image(file_id) {
+//crop function
+function landing_crop_image(file_id) {
     var file = $('#' + file_id)[0].files[0];
     var reader = new FileReader();
-    reader.onload = function(event) {
+    reader.onload = function (event) {
         $landing_image_crop.croppie('bind', {
             url: event.target.result
-        }).then(function() {
+        }).then(function () {
             console.log('jQuery bind complete');
         });
 

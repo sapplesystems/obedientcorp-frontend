@@ -18,7 +18,6 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(response) {
-                console.log(response);
                 if (response.status == "success") {
                     showSwal('success', 'Image Uploded', " Homepage slider images uplode successfully");
                     document.getElementById('upload-slider-form').reset();
@@ -43,7 +42,6 @@ $(document).ready(function() {
         img.onload = function() {
             imgwidth = this.width;
             imgheight = this.height;
-            console.log('Image dimension must be at least ' + imgwidth + ' ' + imgheight + '(Width X Height)');
             if (imgwidth < 1366 || imgheight < 768) {
                 showSwal('error', 'Image dimension should be at least 1366 x 768');
                 $('#' + file_id).val('');
@@ -86,8 +84,6 @@ function get_slider_image() {
                         $('#uploded_image5').css('display', 'block');
                     }
                 });
-            } else {
-                console.log("Not any image");
             }
             hideLoader();
         }

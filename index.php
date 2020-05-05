@@ -257,7 +257,7 @@ include_once 'header_frontend.php';
                                          style="z-index: 12; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-mouse"></i> </div>
 
                                     <!-- LAYER NR. 9 -->
-                                  <!-- LAYER NR. 4 -->
+                                    <!-- LAYER NR. 4 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
                                          id="slide-3004-layer-7"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -1311,34 +1311,46 @@ var slider = $('.slider-multi').sappleMultiSlider();
     }, 7000);
 </script>
 <script type="text/javascript">
- get_landing_image();
- function get_landing_image() {
-            $.ajax({
-                url: base_url + 'get-landing-image ',
-                type: 'post',
-                data: {
-                    dashboard: 1
-                },
-                success: function(response) {
-                   // console.log(response);
-                    if (response.status == "success") {
-                        if (response.image_path) {
-                            $('#uploded_image').attr('src', response.image_path);
-                            $('#uploded_image').css('display', 'block');
-                        }
-                        else{
-                            $('#uploded_image').attr('src','images/pre.jpg');
-                            $('#uploded_image').css('display', 'block');
-                        }
-                    }
-                    else
-                    {
-                        console.log("Not any image");
-                    }
-                }
-            });
+    //get_landing_image();
+    get_homepage_images();
 
-        } //end function for get_landing_image
+    function get_homepage_images() {
+        $.ajax({
+            url: base_url + 'home-page-detail',
+            type: 'post',
+            success: function (response) {
+                console.log(response);
+                if (response.status == "success") {
+                    if (response.data.home_product_ad) {
+                        var path = media_url + 'home_product_ad/' + response.data.home_product_ad;
+                        $('.right-image').attr('data-background', path);
+                        $('.right-image').css('background-image', 'url(' + path + ')');
+                    }
+                    if (response.data.slider_image_1) {
+                    }
+                    if (response.data.slider_image_2) {
+                    }
+                    if (response.data.slider_image_3) {
+                    }
+                    if (response.data.slider_image_4) {
+                    }
+                    if (response.data.slider_image_5) {
+                    }
+                    if (response.data.landing_image) {
+                        var landing_path = media_url + 'landing_image/' + response.data.landing_image;
+                        $('#uploded_image').attr('src', landing_path);
+                        $('#uploded_image').css('display', 'block');
+                    } else {
+                        $('#uploded_image').attr('src', 'images/pre.jpg');
+                        $('#uploded_image').css('display', 'block');
+                    }
+                } else {
+                    console.log("Not any image");
+                }
+            }
+        });
+
+    } //end function for get_landing_image
 </script>
 </body>
 <!-- Body End -->

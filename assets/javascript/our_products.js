@@ -13,7 +13,8 @@ $(document).ready(function () {
         e.preventDefault();
         var sub_category_id = $(this).val();
         if (sub_category_id != '') {
-            getProductsList(sub_category_id);
+            var cat_id = $('#categories').val();
+            getProductsList(cat_id, sub_category_id);
         }
     });
 });
@@ -24,7 +25,7 @@ getGoodsProducts();
 function getCategoryList() {
     $('.sub-category').css('display', 'none');
     $.ajax({
-        url: base_url + 'categories ',
+        url: base_url + 'category-list',
         type: 'post',
         data: {},
         success: function (response) {
@@ -46,7 +47,7 @@ function getSubCategoryList(category_id) {
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {id: category_id},
+        data: { id: category_id },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data.length > 0) {
@@ -62,7 +63,7 @@ function getSubCategoryList(category_id) {
                 else {
                     $('#sub_categories').css('display', 'none');
 
-                    getProductsList(category_id);
+                    getProductsList(category_id, 0);
                 }
 
             }
@@ -71,13 +72,13 @@ function getSubCategoryList(category_id) {
     });
 } //endsubcategorylist
 
-function getProductsList(id) {
+function getProductsList(category_id, sub_category_id) {
     var url = base_url + 'category/products';
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {id: id},
+        data: { category_id: category_id, sub_category_id: sub_category_id },
         success: function (response) {
             if (response.status == "success") {
                 var products = '';
@@ -97,10 +98,12 @@ function getProductsList(id) {
                     });
                     $('#product_list').html(products);
                 } else {
-                    $('#product_list').html('No Products Available');
+                    $('#product_list').html('');
+                    showSwal('error','No Products Available',response.data);
                 }
             } else {
-                $('#product_list').html(response.data);
+                $('#product_list').html('');
+                showSwal('error','No Products Available',response.data);
             }
 
         }
@@ -136,7 +139,8 @@ function getGoodsProducts() {
                 });
                 $('#product_list').html(products);
             } else {
-                $('#product_list').html('No Products Available');
+                $('#product_list').html('');
+                showSwal('error','No Products Available',response.data);
             }
         }
     });

@@ -98,3 +98,6 @@
     var media_url = "<?php echo $media_url; ?>";
     var home_url = "<?php echo $home_url; ?>";
 </script>
+<script src="assets/vendors/js/vendor.bundle.base.js "></script>
+<script src="assets/vendors/sweetalert/sweetalert.min.js "></script>
+<script src="assets/js/alerts.js"></script>

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     getTeamMemberList(user_id, 'all-members');
-    getReferralTeamMemberList(user_id, 'referral-members');
+    //getReferralTeamMemberList(user_id, 'referral-members');
     if (user_left_node_id && user_left_node_id != '' && user_left_node_id > 0) {
         getTeamMemberList(user_left_node_id, 'members-in-left');
     }

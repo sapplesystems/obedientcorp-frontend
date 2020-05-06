@@ -78,14 +78,21 @@ $(document).ready(function () {
                 processData: false,
                 success: function (response) {
                     if (response.status == "success") {
-                        resetForm();
                         showSwal('success', 'Product Added', 'Product added successfully.');
                         hideLoader();
                         getProductList();
+                        if($('#product_id').val() == '')
+                        {
+                            resetForm();
+                        }
+                        
                     } else {
-                        resetForm();
                         showSwal('error', 'Failed', 'Product could not be added.');
                         hideLoader();
+                        if($('#product_id').val() == '')
+                        {
+                            resetForm();
+                        }
                     }
                 }
             });
@@ -289,4 +296,7 @@ function deleteProductAttachment(attachment_id) {
 function resetForm() {
     document.getElementById('create_product').reset();
     $('#product_id').val('');
+    $('#categories').val('');
+    $('#subcategory').val('');
+    $(".uploaded").children(".uploaded-image").remove();
 }

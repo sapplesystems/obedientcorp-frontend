@@ -93,7 +93,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 6; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 6; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
 
                                     <!-- LAYER NR. 3 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -213,7 +213,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 10; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 10; white-space: nowrap;text-transform:left;">Where Dreams Come True </div>
 
                                     <!-- LAYER NR. 7 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2"
@@ -234,7 +234,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 11; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 11; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
 
                                     <!-- LAYER NR. 8 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-1"
@@ -266,7 +266,6 @@ include_once 'header_frontend.php';
                                          data-width="none"
                                          data-height="none"
                                          data-whitespace="nowrap"
-
                                          data-type="button"
                                          data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
                                          data-responsive_offset="on"
@@ -288,7 +287,6 @@ include_once 'header_frontend.php';
                                          data-width="none"
                                          data-height="none"
                                          data-whitespace="nowrap"
-
                                          data-type="button"
                                          data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
                                          data-responsive_offset="on"
@@ -464,7 +462,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 20; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 20; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
 
                                     <!-- LAYER NR. 17 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -628,7 +626,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 26; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 26; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
 
                                     <!-- LAYER NR. 23 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -769,7 +767,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 31; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 31; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
 
                                     <!-- LAYER NR. 28 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -949,7 +947,7 @@ include_once 'header_frontend.php';
                 <h4 class="light">It is a long established fact that a reader will be distracted by the readable is that it has a more-or-less normal. <br> is that it has a more-or-less normal.</h4>
 
                 <!-- Container for works -->
-                <div class="works-container">
+                <div class="works-container" style="display:none;">
                     <!-- Container for filters and search -->
                     <div class="clearfix">
                         <!-- Filters -->
@@ -981,10 +979,103 @@ include_once 'header_frontend.php';
                         </a>
                     </div>
                 </div>
+				
+				<!-- Nav tabs -->
+                    <div class="modern-tabs-container t-left border-gray2 no-border mt-5 custom_tab">
+                        <ul class="nav nav-tabs modern-tabs font-11 radius bg-white gray8 uppercase bold" role="tablist">
+                            <li role="presentation"><a href="#tab1a" aria-controls="tab1a" role="tab" data-toggle="tab" class="bg-colored border-colored white show active">Real Estate</a></li>
+                            <li role="presentation"><a href="#tab2a" aria-controls="tab2a" role="tab" data-toggle="tab" class="bg-colored border-colored white">Daily Use Items</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content slide-effect t-left custom_tab">
+
+                        <!-- Tab -->
+                        <div id="tab1a" role="tabpanel" class="tab-pane active">
+                            <div class="tab-container">
+                               <div class="custom-slider container block-img qdr-controls c-grab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
+							<div class="gap-10">
+							<img src="images/products/A.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/B.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/C.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/D.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/E.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/F.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/G.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/H.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+						</div>
+                            </div>
+                        </div>
+                        <!-- Tab -->
+                        <div id="tab2a" role="tabpanel" class="tab-pane">
+                            <div class="tab-container">
+                               <div class="custom-slider container block-img qdr-controls c-grab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
+							<div class="gap-10">
+							<img src="images/products/A.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/B.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/C.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/D.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/E.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/F.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/G.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+							<div class="gap-10"><img src="images/products/H.jpg" alt="">
+							<h4><strong>Lorem Ipsum</strong></h4>
+								<p>Dummy text of the printing and typesetting industry.</p>
+							</div>
+						</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Tab panes -->
 
             </div>
         </section>
-
 
         <!-- TEAM SECTION -->
         <section id="team" class="team-type-3 t-center">
@@ -1132,7 +1223,6 @@ include_once 'header_frontend.php';
     </section>
     <!-- END ALL SECTIONS -->
 
-
 </section>
 <!-- END WRAPPER -->
 <!-- SEARCH FORM FOR NAV -->
@@ -1158,9 +1248,7 @@ include_once 'header_frontend.php';
 <!-- End Modal 11 -->
 
 <script type='text/javascript' src='js/jquery.js'></script>
-
 <script type='text/javascript' src='js/owl.carousel.min.js'></script> 
-
 <script type='text/javascript' src='js/scrollreveal.min.js'></script> 
 
 <script type='text/javascript' src='js/autoptimize_single_44a4fedab4312ace693cdb9756957b7a.js'></script> 
@@ -1183,7 +1271,6 @@ include_once 'header_frontend.php';
 <script src="js/sappleslider.multi.js"></script>
 <script type='text/javascript' src='js/site.js'></script>
 <script src="assets/javascript/dashboard_products.js"></script>
-
 
 <script type="text/javascript">
 $('.featured_project_slide').css('display', 'none');
@@ -1261,37 +1348,81 @@ var slider = $('.slider-multi').sappleMultiSlider();
 
 </script>
 <script type="text/javascript">
-
-    // Works on QDR Modal
-    $('#works-without-images').cubeportfolio({
-        filters: '#works-without-images-filters',
-        layoutMode: 'masonry',
-        defaultFilter: '*',
-        animationType: 'scaleSides',
-        gapHorizontal: 10,
-        gapVertical: 10,
-        gridAdjustment: 'responsive',
-        mediaQueries: [{
+//*********************************************
+    //  CLIENTS
+    //*********************************************
+        // init cubeportfolio
+        $('#js-grid-clients').cubeportfolio({
+            layoutMode: 'slider',
+            drag: true,
+            auto: true,
+            autoTimeout: 3000,
+            autoPauseOnHover: true,
+            showNavigation: false,
+            showPagination: true,
+            rewindNav: true,
+            scrollByPage: false,
+            gridAdjustment: 'responsive',
+            mediaQueries: [{
                 width: 1500,
-                cols: 4,
+                cols: 5,
             }, {
                 width: 1100,
-                cols: 4,
+                cols: 5,
             }, {
                 width: 800,
-                cols: 3,
+                cols: 4,
             }, {
                 width: 480,
                 cols: 1,
-                options: {
-                    gapHorizontal: 15,
-                    gapVertical: 15,
-                }
             }],
-        caption: 'zoom',
-        displayType: 'fadeIn',
-        displayTypeSpeed: 400,
-    });
+            gapHorizontal: 10,
+            gapVertical: 5,
+            caption: 'opacity',
+            displayType: 'fadeIn',
+            displayTypeSpeed: 100,
+        });
+
+
+        //*********************************************
+        //  PORTFOLIO SECTION
+        //*********************************************
+
+            // init cubeportfolio
+            $('#work-items').cubeportfolio({
+                layoutMode: 'slider',
+                defaultFilter: '*',
+                animationType: 'fadeOutTop',
+                gapHorizontal: 0,
+                gapVertical: 0,
+                showNavigation: false,
+                showPagination: false,
+                gridAdjustment: 'responsive',
+                mediaQueries: [{
+                    width: 1500,
+                    cols: 4,
+                }, {
+                    width: 1100,
+                    cols: 4,
+                }, {
+                    width: 750,
+                    cols: 2,
+                }, {
+                    width: 480, 
+                    cols: 1,
+                    options: {
+                        caption: '',
+                    }
+                }],
+                caption: 'zoom',
+                displayType: 'fadeIn',
+                displayTypeSpeed: 100,
+
+                // lightbox
+                lightboxDelegate: '.cbp-lightbox',
+                lightboxGallery: true,
+                lightboxTitleSrc: 'data-title',
+            });
 
     setTimeout(function () {
         document.getElementById('pop-on-load').click();

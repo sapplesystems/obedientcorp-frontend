@@ -81,7 +81,8 @@ ul.topMenu li ul {
 @media only screen and (max-width: 991px){
 	#side-dotted-navigation.spy{display:none !important;}
 	.topBar{height: 260px;}
-	ul.topMenu{margin-top:95px;}
+	ul.topMenu{margin-top:70px;}
 	ul.topMenu li{margin:5px 0;width: 32%; text-align: center;}
 	.topBar .text-right.paddLeftNone{text-align:center !important;}
+	.topHeader .hbalogo{height:80px !important;}
 }

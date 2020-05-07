@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="type_text">
-				<p class="mb-0">Welcome to <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
-			</div>
+                            <p class="mb-0">Welcome to <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,30 +71,27 @@
                 <div class="card ">
                     <div class="card-body ">
                         <h4 class="card-title ">Rewards</h4>
-                        <div class="d-flex ">
-                            <div class="d-flex align-items-center text-muted font-weight-light ">
-                                <i class="mdi mdi-clock icon-sm mr-2 "></i>
-                                <span>October 3rd, 2018</span>
+                        <div class="d-block mt-4">
+                            <div class="d-inline-block align-items-center text-muted font-weight-light ">
+                                <i class="mdi mdi-trophy icon-sm mr-2 "></i>
+                                <span>Current Rewards</span>
+                            </div>
+                            <div class="d-inline-block align-items-center text-muted font-weight-light float-right">
+                                <i class="mdi mdi-trophy icon-sm mr-2 "></i>
+                                <span>Next Rewards</span>
                             </div>
                         </div>
-                        <div class="row mt-3 ">
-                            <div class="col-6 pr-1 ">
-                                <img src="assets/images/dashboard/img_1.jpg " class="mb-2 mw-100 w-100 rounded " alt="image ">
-                                <img src="assets/images/dashboard/img_4.jpg " class="mw-100 w-100 rounded " alt="image ">
-                            </div>
-                            <div class="col-6 pl-1 ">
-                                <img src="assets/images/dashboard/img_2.jpg " class="mb-2 mw-100 w-100 rounded " alt="image ">
-                                <img src="assets/images/dashboard/img_3.jpg " class="mw-100 w-100 rounded " alt="image ">
+                        <div class="row mt-2">
+                            <div class="col-sm-12">
+                                <ul class="rewards_all">
+                                    <li><span>&#8377; 25000 &nbsp;-&nbsp;</span><div><img src="images/img-1.jpg" /><span class="overlay"><span class="text_overlay">Bike</span></span></div></li>
+                                    <li><span>&#8377; 70000 &nbsp;-&nbsp;</span><div><img src="images/img-2.jpg" /><span class="overlay"><span class="text_overlay">Renault Kwid</span></span></div></li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="d-flex mt-5 align-items-top ">
-                            <img src="assets/images/faces/face3.jpg " class="img-sm rounded-circle mr-3 " alt="image ">
-                            <div class="mb-0 flex-grow ">
-                                <h5 class="mr-2 mb-2 ">School Website - Authentication Module.</h5>
-                                <p class="mb-0 font-weight-light ">It is a long established fact that a reader will be distracted by the readable content of a page.</p>
-                            </div>
-                            <div class="ml-auto ">
-                                <i class="mdi mdi-heart-outline text-muted "></i>
+                        <div class="row mt-3">
+                            <div class="col-sm-12 text-right">
+                                <a href="rewards" class="btn btn-primary btn-sm">View More</a>
                             </div>
                         </div>
                     </div>

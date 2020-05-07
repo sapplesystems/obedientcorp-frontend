@@ -6,7 +6,7 @@ $(document).ready(function () {
             getSubCategoryList(category_id);
         } else {
             $('#sub_categories').css('display', 'none');
-            getGoodsProducts();
+            getAllProducts();
         }
     });
     $(document).on('change', '#sub_categories', function (e) {
@@ -20,7 +20,7 @@ $(document).ready(function () {
 });
 
 getCategoryList();
-getGoodsProducts();
+getAllProducts();
 //get categories
 function getCategoryList() {
     $('.sub-category').css('display', 'none');
@@ -112,9 +112,9 @@ function getProductsList(category_id, sub_category_id) {
 }
 
 
-function getGoodsProducts() {
+function getAllProducts() {
     $.ajax({
-        url: base_url + 'dashboard-products-goods',
+        url: base_url + 'all-products-goods',
         type: 'post',
         success: function (response) {
             if (response.status == "success") {

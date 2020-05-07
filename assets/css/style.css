@@ -29544,6 +29544,10 @@ footer h4 a {
     color: #b66dff;
 }
 
+.sidebar .nav .nav-item:hover i {
+    color: #b66dfff5 !important;
+}
+
 .sidebar .nav .nav-item.nav-profile .nav-link {
     height: auto;
     line-height: 1;
@@ -31109,4 +31113,33 @@ CSS ANIMATION FOR TREE
   99% { background-color: transparent; }
   100%  { background-color: #ccc; }
 }
+
+ul.rewards_all{list-style:none; padding:0px; margin:0px;width: 100%;}
+ul.rewards_all li{float:left; width:48%;border:1px solid #999999; text-align:center; padding:15px; margin:1%; position: relative;    border-radius: 4px;}
+ul.rewards_all li img{height:70px; /*border: 1px dashed rgba(255,255,255,0.3);padding: 5px;    border-radius: 4px;*/} 
+ul.rewards_all li > span{font-size: 16px;margin-right: 15px;vertical-align: middle;font-weight: bold;}
+
+ul.rewards_all li .mdi.mdi-bookmark{position: absolute;top: -31px;left: 5px;font-size: 50px;}
+	
+ul.rewards_all li .mdi.mdi-trophy-variant{position: absolute;top: -6px;left: 20px;font-size: 20px;color: #212529;}
+ul.rewards_all li > div{display:inline-block; position:relative;}
+ul.rewards_all li > div span.overlay{position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;}
+ul.rewards_all li > div:hover span.overlay{height: 100%;}
+.text_overlay{color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;line-height: 20px;}
  

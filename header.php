@@ -125,7 +125,7 @@ include_once 'common_html.php';
                         <li class="nav-item">
                             <a class="nav-link" href="customer-list">
                                 <span class="menu-title">Customer List</span>
-                                <i class="mdi mdi-settings menu-icon"></i>
+                                <i class="mdi mdi-account-box-outline menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -234,25 +234,25 @@ include_once 'common_html.php';
                         <li class="nav-item">
                             <a class="nav-link" href="income-fund-history">
                                 <span class="menu-title">Income Fund History</span>
-                                <i class="mdi mdi-repeat menu-icon"></i>
+                                <i class="mdi mdi-history menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ewallet-history">
                                 <span class="menu-title">E-Wallet History</span>
-                                <i class="mdi mdi-repeat menu-icon"></i>
+                                <i class="mdi mdi-wallet-membership menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pin-bonus">
                                 <span class="menu-title">Pin Bonus History</span>
-                                <i class="mdi mdi-repeat menu-icon"></i>
+                                <i class="mdi mdi-pin menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="matching-income">
                                 <span class="menu-title">Matching Income History</span>
-                                <i class="mdi mdi-repeat menu-icon"></i>
+                                <i class="mdi mdi-file-document menu-icon"></i>
                             </a>
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>
@@ -278,7 +278,7 @@ include_once 'common_html.php';
                         <li class="nav-item">
                             <a class="nav-link" href="change-password">
                                 <span class="menu-title">Change Password</span>
-                                <i class="mdi mdi-account menu-icon"></i>
+                                <i class="mdi mdi-lock menu-icon"></i>
                             </a>
                         </li>
                         <!--li class="nav-item">

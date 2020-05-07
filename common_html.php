@@ -22,6 +22,7 @@ $common = array(
                                                             <li id="winners" style="opacity:0"><a class="add-opacity" href="#">Winners</a></li>
                                                             <li id="achievers" style="opacity:0"><a class="add-opacity" href="#">Achievers</a></li>
                                                             <li id="rankers" style="opacity:0"><a class="add-opacity" href="#">Rankers</a></li>
+							    <li id="rewards" style="opacity:0"><a class="add-opacity" href="rewards">Rewards</a></li>
                                                             <li id="contact_us" style="opacity:0"><a class="add-opacity" href="contact-us">Contact Us</a></li>
 							    <li id="login" style="opacity:0"><a class="add-opacity" href="login">Login</a></li>
                                                         </ul>
@@ -62,6 +63,7 @@ $common = array(
                                     <li><a href="#"><span>Winners</span></a></li>
                                     <li><a href="#"><span>Achievers</span></a></li>
                                     <li><a href="#"><span>Rankers</span></a></li>
+				    <li><a href="rewards"><span>Rewards</span></a></li>
                                     <li><a href="contact-us"><span>Contact Us</span></a></li>
 				    <li><a href="login"><span>Login</span></a></li>
                                 </ul>

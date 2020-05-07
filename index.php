@@ -213,7 +213,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 10; white-space: nowrap;text-transform:left;">Move Yo Mouse </div>
+                                         style="z-index: 10; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
 
                                     <!-- LAYER NR. 7 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2"
@@ -234,7 +234,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 11; white-space: nowrap;text-transform:left;">REVOLUTION SLIDER TEMPLATE </div>
+                                         style="z-index: 11; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
 
                                     <!-- LAYER NR. 8 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-1"
@@ -443,7 +443,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 19; white-space: nowrap;text-transform:left;">Smooth Ken Burns </div>
+                                         style="z-index: 19; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
 
                                     <!-- LAYER NR. 16 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -464,7 +464,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 20; white-space: nowrap;text-transform:left;">REVOLUTION SLIDER TEMPLATE </div>
+                                         style="z-index: 20; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
 
                                     <!-- LAYER NR. 17 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -607,7 +607,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 25; white-space: nowrap;text-transform:left;">Stay Cool Mate </div>
+                                         style="z-index: 25; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
 
                                     <!-- LAYER NR. 22 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -628,7 +628,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 26; white-space: nowrap;text-transform:left;">REVOLUTION SLIDER TEMPLATE </div>
+                                         style="z-index: 26; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
 
                                     <!-- LAYER NR. 23 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -748,7 +748,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 30; white-space: nowrap;text-transform:left;">Want this too? </div>
+                                         style="z-index: 30; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
 
                                     <!-- LAYER NR. 27 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -769,7 +769,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 31; white-space: nowrap;text-transform:left;">GET SLIDER REVOLUTION TODAY </div>
+                                         style="z-index: 31; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
 
                                     <!-- LAYER NR. 28 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -873,7 +873,6 @@ include_once 'header_frontend.php';
         <!-- END CONTENT -->
 
         <!-- END HOME SECTION -->
-
 
         <!-- FACTS -->
         <section id="facts" class="clearfix ">

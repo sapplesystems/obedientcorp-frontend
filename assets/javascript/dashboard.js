@@ -111,7 +111,9 @@ function generateChart(total_left_business, total_right_business, total_self_bus
         gradientStrokeRed.addColorStop(0, 'rgba(255, 191, 150, 1)');
         gradientStrokeRed.addColorStop(1, 'rgba(254, 112, 150, 1)');
         var gradientLegendRed = 'linear-gradient(to right, rgba(255, 191, 150, 1), rgba(254, 112, 150, 1))';
-
+console.log(total_left_business);
+console.log(total_right_business);
+console.log(total_self_business);
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -127,7 +129,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_left_business
+                                data: [10,20,30,40,50,60,70,80,90,120,25,78],//total_left_business
                     },
                     {
                         label: "Right Business",
@@ -139,7 +141,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_right_business
+                                data: [45,87,96,52,41,6,3,82,24,15,85,174],//total_right_business
                     },
                     {
                         label: "Self Business",
@@ -151,7 +153,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_self_business
+                                data: [178,45,12,23,56,89,85,52,41,74,96,63],//total_self_business
                     }
                 ]
             },

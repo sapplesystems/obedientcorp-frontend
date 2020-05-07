@@ -446,7 +446,8 @@ bottom: 20px;
     left: 20px;}
 
     ul.product_list{list-style:none; padding:0px; margin:0px;}
-    ul.product_list li{float:left; width:25%; padding:0 20px; margin:20px 0;}
+    ul.product_list li{float:left; width:23%; padding:0 20px; margin:20px 0; margin-left:2.66%;border: 1px solid #ccc;}
+	ul.product_list li:nth-child(4n+1){margin-left:0px;}
     ul.product_list li img{max-width:100%; height:200px;}
     ul.product_list li .product_info{position:relative; text-align:center;}
     ul.product_list li .product_info .info_hover{display:none; position:absolute; bottom:0px; left:0px; background-color:rgba(0,0,0,0.7); padding:15px 10px; width:100%;}
@@ -468,9 +469,9 @@ bottom: 20px;
 .rewards_sec .btn-outline-secondary{border-color:#322f2f;}
 .rewards_sec img{height:30px !important; width:auto !important;border-radius:initial !important;}
 .bg-gradient-info.card-img-holder .badge{font-size:14px !important;}
-ul.rewards_all{list-style:none; padding:0px; margin:0px;}
-ul.rewards_all li{float:left; width:31.33%;border:1px solid #999999; text-align:center; padding:15px; margin:1%; position: relative;    border-radius: 4px;}
-ul.rewards_all li img{height:100px; /*border: 1px dashed rgba(255,255,255,0.3);padding: 5px;    border-radius: 4px;*/} 
+ul.rewards_all{list-style:none; padding:0px; margin:0px;width: 100%;}
+ul.rewards_all li{float:left; width:48%;border:1px solid #999999; text-align:center; padding:15px; margin:1%; position: relative;    border-radius: 4px;}
+ul.rewards_all li img{height:auto; /*border: 1px dashed rgba(255,255,255,0.3);padding: 5px;    border-radius: 4px;*/} 
 ul.rewards_all li > span{font-size: 20px;margin-right: 15px;vertical-align: middle;font-weight: bold;}
 
 ul.rewards_all li .mdi.mdi-bookmark{position: absolute;top: -31px;left: 5px;font-size: 50px;}
@@ -499,4 +500,15 @@ ul.rewards_all li > div:hover span.overlay{height: 100%;}
   
   .product_list .title{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%;    font-weight: 500;
     margin-top: 10px;}
- 
+	 
+#slide-3007-layer-10{display:none !important;}	
+
+/* home page thumbnail silder in tabs css */
+
+.custom_tab ul li{margin:0 5px !important;}
+.custom_tab ul li a{border:1px solid #ECECEC !important; border-radius:0px !important;}
+.custom_tab p{margin-top:-10px; text-align:center;}
+.custom_tab h4{font-size:16px !important; display:block; white-space: nowrap;overflow: hidden !important;text-overflow: ellipsis;text-align:center;} 
+	
+	
+

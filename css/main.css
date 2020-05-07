@@ -65,8 +65,12 @@ ul.topMenu {
 }
 ul.topMenu li {
 	display: inline-block;
-	padding: 0 5px;
+	padding: 0 8px;
 	color:#fff;
+	transition:0.5s;
+}
+ul.topMenu li:hover{
+	color:#b66dff;
 }
 ul.topMenu li ul {
 	display: none;

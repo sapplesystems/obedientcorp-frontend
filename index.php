@@ -52,7 +52,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 1 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-Title tp-resizeme"
                                          id="slide-3004-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -72,10 +72,10 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 5; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 5; white-space: nowrap;text-transform:left;"><span id ="slider_title_1">Welcome to Obedient Group </span></div>
 
                                     <!-- LAYER NR. 2 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme "
                                          id="slide-3004-layer-4"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
@@ -93,7 +93,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 6; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 6; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_1">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 3 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -193,7 +193,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 6 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-3"
+                                    <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-3 "
                                          id="slide-3005-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -213,10 +213,10 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 10; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 10; white-space: nowrap;text-transform:left;"><span id="slider_title_2">Where Dreams Come True</span> </div>
 
                                     <!-- LAYER NR. 7 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2"
+                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2 "
                                          id="slide-3005-layer-4"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
@@ -234,7 +234,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 11; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 11; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_2">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 8 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-1"
@@ -266,7 +266,6 @@ include_once 'header_frontend.php';
                                          data-width="none"
                                          data-height="none"
                                          data-whitespace="nowrap"
-
                                          data-type="button"
                                          data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
                                          data-responsive_offset="on"
@@ -288,7 +287,6 @@ include_once 'header_frontend.php';
                                          data-width="none"
                                          data-height="none"
                                          data-whitespace="nowrap"
-
                                          data-type="button"
                                          data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
                                          data-responsive_offset="on"
@@ -423,7 +421,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 15 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-Title   tp-resizeme "
                                          id="slide-3006-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -443,7 +441,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 19; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 19; white-space: nowrap;text-transform:left;"><span id ="slider_title_3">Welcome to Obedient Group </span></div>
 
                                     <!-- LAYER NR. 16 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -464,7 +462,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 20; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 20; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_3">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 17 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -565,7 +563,7 @@ include_once 'header_frontend.php';
 
                                     <!-- BACKGROUND VIDEO LAYER -->
                                     <!-- LAYER NR. 20 -->
-                                    <div class="tp-caption tp-shape tp-shapewrapper  "
+                                    <div class="tp-caption tp-shape tp-shapewrapper "
                                          id="slide-3007-layer-10"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -607,7 +605,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 25; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 25; white-space: nowrap;text-transform:left;"><span id="slider_title_4">Welcome to Obedient Group</span> </div>
 
                                     <!-- LAYER NR. 22 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -628,7 +626,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 26; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 26; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_4">Real Estate & Consumer Goods</span> </div>
 
                                     <!-- LAYER NR. 23 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -728,7 +726,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 26 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-Title   tp-resizeme "
                                          id="slide-3008-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -748,7 +746,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 30; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 30; white-space: nowrap;text-transform:left;"><span id="slider_title_5">Welcome to Obedient Group </span></div>
 
                                     <!-- LAYER NR. 27 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -769,7 +767,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 31; white-space: nowrap;text-transform:left;">REAL ESTATE & CONSUMER GOODS </div>
+                                         style="z-index: 31; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_5">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 28 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -949,7 +947,7 @@ include_once 'header_frontend.php';
                 <h4 class="light">It is a long established fact that a reader will be distracted by the readable is that it has a more-or-less normal. <br> is that it has a more-or-less normal.</h4>
 
                 <!-- Container for works -->
-                <div class="works-container">
+                <div class="works-container" style="display:none;">
                     <!-- Container for filters and search -->
                     <div class="clearfix">
                         <!-- Filters -->
@@ -981,10 +979,28 @@ include_once 'header_frontend.php';
                         </a>
                     </div>
                 </div>
+				
+				<!-- Nav tabs -->
+                    <div class="modern-tabs-container t-left border-gray2 no-border mt-5 custom_tab">
+                        <ul class="nav nav-tabs modern-tabs font-11 radius bg-white gray8 uppercase bold sub_cat" role="tablist">
+                            <li role="presentation"><a href="#tab1a" aria-controls="tab1a" role="tab" data-toggle="tab" class="bg-colored border-colored white show active">Real Estate</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content slide-effect t-left custom_tab dynamic_tab">
+
+                        <!-- Tab -->
+                        <div id="tab1a" role="tabpanel" class="tab-pane active">
+                            <div class="tab-container">
+                               <div class="custom-slider container block-img qdr-controls c-grab" id="real-state" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Tab panes -->
 
             </div>
         </section>
-
 
         <!-- TEAM SECTION -->
         <section id="team" class="team-type-3 t-center">
@@ -1132,7 +1148,6 @@ include_once 'header_frontend.php';
     </section>
     <!-- END ALL SECTIONS -->
 
-
 </section>
 <!-- END WRAPPER -->
 <!-- SEARCH FORM FOR NAV -->
@@ -1158,9 +1173,7 @@ include_once 'header_frontend.php';
 <!-- End Modal 11 -->
 
 <script type='text/javascript' src='js/jquery.js'></script>
-
 <script type='text/javascript' src='js/owl.carousel.min.js'></script> 
-
 <script type='text/javascript' src='js/scrollreveal.min.js'></script> 
 
 <script type='text/javascript' src='js/autoptimize_single_44a4fedab4312ace693cdb9756957b7a.js'></script> 
@@ -1183,7 +1196,6 @@ include_once 'header_frontend.php';
 <script src="js/sappleslider.multi.js"></script>
 <script type='text/javascript' src='js/site.js'></script>
 <script src="assets/javascript/dashboard_products.js"></script>
-
 
 <script type="text/javascript">
 $('.featured_project_slide').css('display', 'none');
@@ -1261,37 +1273,81 @@ var slider = $('.slider-multi').sappleMultiSlider();
 
 </script>
 <script type="text/javascript">
-
-    // Works on QDR Modal
-    $('#works-without-images').cubeportfolio({
-        filters: '#works-without-images-filters',
-        layoutMode: 'masonry',
-        defaultFilter: '*',
-        animationType: 'scaleSides',
-        gapHorizontal: 10,
-        gapVertical: 10,
-        gridAdjustment: 'responsive',
-        mediaQueries: [{
+//*********************************************
+    //  CLIENTS
+    //*********************************************
+        // init cubeportfolio
+        $('#js-grid-clients').cubeportfolio({
+            layoutMode: 'slider',
+            drag: true,
+            auto: true,
+            autoTimeout: 3000,
+            autoPauseOnHover: true,
+            showNavigation: false,
+            showPagination: true,
+            rewindNav: true,
+            scrollByPage: false,
+            gridAdjustment: 'responsive',
+            mediaQueries: [{
                 width: 1500,
-                cols: 4,
+                cols: 5,
             }, {
                 width: 1100,
-                cols: 4,
+                cols: 5,
             }, {
                 width: 800,
-                cols: 3,
+                cols: 4,
             }, {
                 width: 480,
                 cols: 1,
-                options: {
-                    gapHorizontal: 15,
-                    gapVertical: 15,
-                }
             }],
-        caption: 'zoom',
-        displayType: 'fadeIn',
-        displayTypeSpeed: 400,
-    });
+            gapHorizontal: 10,
+            gapVertical: 5,
+            caption: 'opacity',
+            displayType: 'fadeIn',
+            displayTypeSpeed: 100,
+        });
+
+
+        //*********************************************
+        //  PORTFOLIO SECTION
+        //*********************************************
+
+            // init cubeportfolio
+            $('#work-items').cubeportfolio({
+                layoutMode: 'slider',
+                defaultFilter: '*',
+                animationType: 'fadeOutTop',
+                gapHorizontal: 0,
+                gapVertical: 0,
+                showNavigation: false,
+                showPagination: false,
+                gridAdjustment: 'responsive',
+                mediaQueries: [{
+                    width: 1500,
+                    cols: 4,
+                }, {
+                    width: 1100,
+                    cols: 4,
+                }, {
+                    width: 750,
+                    cols: 2,
+                }, {
+                    width: 480, 
+                    cols: 1,
+                    options: {
+                        caption: '',
+                    }
+                }],
+                caption: 'zoom',
+                displayType: 'fadeIn',
+                displayTypeSpeed: 100,
+
+                // lightbox
+                lightboxDelegate: '.cbp-lightbox',
+                lightboxGallery: true,
+                lightboxTitleSrc: 'data-title',
+            });
 
     setTimeout(function () {
         document.getElementById('pop-on-load').click();
@@ -1324,26 +1380,18 @@ var slider = $('.slider-multi').sappleMultiSlider();
                         $('.right-image').attr('data-background', path);
                         $('.right-image').css('background-image', 'url(' + path + ')');
                     }
-                    if (response.data.slider_image_1) {
-                        $('#slider_image_1 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_1 + ')');
-                        $('#slider_image_1 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_1);
+                    if(response.data.sliders.length > 0)
+                    {
+                        $.each(response.data.sliders, function (key, value) 
+                        {
+                            var id = value.id;
+                        $('#slider_image_'+id+' .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + value.slider_image + ')');
+                        $('#slider_image_'+id+' .defaultimg').attr('src', media_url + 'sliding_image/' + value.slider_image);
+                        $('#slider_title_'+id).html(value.slider_title);
+                        $('#slider_sub_title_'+id).html(value.slider_sub_title);
+                        });
                     }
-                    if (response.data.slider_image_2) {
-                        $('#slider_image_2 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_2 + ')');
-                        $('#slider_image_2 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_2);
-                    }
-                    if (response.data.slider_image_3) {
-                        $('#slider_image_3 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_3 + ')');
-                        $('#slider_image_3 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_3);
-                    }
-                    if (response.data.slider_image_4) {
-                        $('#slider_image_4 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_4 + ')');
-                        $('#slider_image_4 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_4);
-                    }
-                    if (response.data.slider_image_5) {
-                        $('#slider_image_5 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_5 + ')');
-                        $('#slider_image_5 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_5);
-                    }
+                  
                 } else {
                     console.log("Not any image");
                 }

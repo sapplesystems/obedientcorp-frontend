@@ -461,7 +461,8 @@ bottom: 20px;
 .cbp-caption-activeWrap{display:none;}
 .cbp img{height:300px; width:auto; margin: 0px auto;}
 .cbp-caption-defaultWrap{border: 1px solid #cccccc;}
-.slick-slide img{display:inline-block; width:auto; height:auto;}
+.slick-slide img{display:inline-block; width:auto !important; height:200px; max-width: 100%}
+.slick-initialized .slick-slide{text-align: center;}
 
 
 .rewards_sec table tr td{border-bottom:1px solid #322f2f;} 
@@ -505,7 +506,7 @@ ul.rewards_all li > div:hover span.overlay{height: 100%;}
 
 /* home page thumbnail silder in tabs css */
 
-.custom_tab ul li{margin:0 5px !important;}
+.custom_tab ul li{margin:5px !important;}
 .custom_tab ul li a{border:1px solid #ECECEC !important; border-radius:0px !important;}
 .custom_tab p{margin-top:-10px; text-align:center;}
 .custom_tab h4{font-size:16px !important; display:block; white-space: nowrap;overflow: hidden !important;text-overflow: ellipsis;text-align:center;} 

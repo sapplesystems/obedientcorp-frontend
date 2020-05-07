@@ -52,7 +52,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 1 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-Title tp-resizeme"
                                          id="slide-3004-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -72,10 +72,10 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 5; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 5; white-space: nowrap;text-transform:left;"><span id ="slider_title_1">Welcome to Obedient Group </span></div>
 
                                     <!-- LAYER NR. 2 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme "
                                          id="slide-3004-layer-4"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
@@ -93,7 +93,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 6; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
+                                         style="z-index: 6; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_1">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 3 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -193,7 +193,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 6 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-3"
+                                    <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-3 "
                                          id="slide-3005-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -213,10 +213,10 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 10; white-space: nowrap;text-transform:left;">Where Dreams Come True </div>
+                                         style="z-index: 10; white-space: nowrap;text-transform:left;"><span id="slider_title_2">Where Dreams Come True</span> </div>
 
                                     <!-- LAYER NR. 7 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2"
+                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2 "
                                          id="slide-3005-layer-4"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
@@ -234,7 +234,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 11; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
+                                         style="z-index: 11; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_2">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 8 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-1"
@@ -421,7 +421,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 15 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-Title   tp-resizeme "
                                          id="slide-3006-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -441,7 +441,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 19; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 19; white-space: nowrap;text-transform:left;"><span id ="slider_title_3">Welcome to Obedient Group </span></div>
 
                                     <!-- LAYER NR. 16 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -462,7 +462,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 20; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
+                                         style="z-index: 20; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_3">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 17 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -563,7 +563,7 @@ include_once 'header_frontend.php';
 
                                     <!-- BACKGROUND VIDEO LAYER -->
                                     <!-- LAYER NR. 20 -->
-                                    <div class="tp-caption tp-shape tp-shapewrapper  "
+                                    <div class="tp-caption tp-shape tp-shapewrapper "
                                          id="slide-3007-layer-10"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -605,7 +605,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 25; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 25; white-space: nowrap;text-transform:left;"><span id="slider_title_4">Welcome to Obedient Group</span> </div>
 
                                     <!-- LAYER NR. 22 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -626,7 +626,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 26; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
+                                         style="z-index: 26; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_4">Real Estate & Consumer Goods</span> </div>
 
                                     <!-- LAYER NR. 23 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -726,7 +726,7 @@ include_once 'header_frontend.php';
                                     <!-- LAYERS -->
 
                                     <!-- LAYER NR. 26 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme"
+                                    <div class="tp-caption NotGeneric-Title   tp-resizeme "
                                          id="slide-3008-layer-1"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -746,7 +746,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 30; white-space: nowrap;text-transform:left;">Welcome to Obedient Group </div>
+                                         style="z-index: 30; white-space: nowrap;text-transform:left;"><span id="slider_title_5">Welcome to Obedient Group </span></div>
 
                                     <!-- LAYER NR. 27 -->
                                     <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
@@ -767,7 +767,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[0,0,0,0]"
                                          data-paddingleft="[0,0,0,0]"
 
-                                         style="z-index: 31; white-space: nowrap;text-transform:left;">Real Estate & Consumer Goods </div>
+                                         style="z-index: 31; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_5">Real Estate & Consumer Goods </span></div>
 
                                     <!-- LAYER NR. 28 -->
                                     <div class="tp-caption NotGeneric-Icon   tp-resizeme"
@@ -979,100 +979,25 @@ include_once 'header_frontend.php';
                         </a>
                     </div>
                 </div>
-				
-				<!-- Nav tabs -->
-                    <div class="modern-tabs-container t-left border-gray2 no-border mt-5 custom_tab">
-                        <ul class="nav nav-tabs modern-tabs font-11 radius bg-white gray8 uppercase bold" role="tablist">
-                            <li role="presentation"><a href="#tab1a" aria-controls="tab1a" role="tab" data-toggle="tab" class="bg-colored border-colored white show active">Real Estate</a></li>
-                            <li role="presentation"><a href="#tab2a" aria-controls="tab2a" role="tab" data-toggle="tab" class="bg-colored border-colored white">Daily Use Items</a></li>
-                        </ul>
-                    </div>
 
-                    <!-- Tab panes -->
-                    <div class="tab-content slide-effect t-left custom_tab">
+                <!-- Nav tabs -->
+                <div class="modern-tabs-container t-left border-gray2 no-border mt-5 custom_tab">
+                    <ul class="nav nav-tabs modern-tabs font-11 radius bg-white gray8 uppercase bold sub_cat" role="tablist">
+                        <li role="presentation"><a href="#tab1a" aria-controls="tab1a" role="tab" data-toggle="tab" class="bg-colored border-colored white show active">Real Estate</a></li>
+                    </ul>
+                </div>
 
-                        <!-- Tab -->
-                        <div id="tab1a" role="tabpanel" class="tab-pane active">
-                            <div class="tab-container">
-                               <div class="custom-slider container block-img qdr-controls c-grab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
-							<div class="gap-10">
-							<img src="images/products/A.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/B.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/C.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/D.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/E.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/F.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/G.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/H.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-						</div>
-                            </div>
-                        </div>
-                        <!-- Tab -->
-                        <div id="tab2a" role="tabpanel" class="tab-pane">
-                            <div class="tab-container">
-                               <div class="custom-slider container block-img qdr-controls c-grab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
-							<div class="gap-10">
-							<img src="images/products/A.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/B.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/C.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/D.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/E.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/F.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/G.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-							<div class="gap-10"><img src="images/products/H.jpg" alt="">
-							<h4><strong>Lorem Ipsum</strong></h4>
-								<p>Dummy text of the printing and typesetting industry.</p>
-							</div>
-						</div>
-                            </div>
+                <!-- Tab panes -->
+                <div class="tab-content slide-effect t-left custom_tab dynamic_tab">
+
+                    <!-- Tab -->
+                    <div id="tab1a" role="tabpanel" class="tab-pane active">
+                        <div class="tab-container">
+                            <div class="custom-slider container block-img qdr-controls c-grab" id="real-state" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'></div>
                         </div>
                     </div>
-                    <!-- End Tab panes -->
+                </div>
+                <!-- End Tab panes -->
 
             </div>
         </section>
@@ -1351,19 +1276,19 @@ var slider = $('.slider-multi').sappleMultiSlider();
 //*********************************************
     //  CLIENTS
     //*********************************************
-        // init cubeportfolio
-        $('#js-grid-clients').cubeportfolio({
-            layoutMode: 'slider',
-            drag: true,
-            auto: true,
-            autoTimeout: 3000,
-            autoPauseOnHover: true,
-            showNavigation: false,
-            showPagination: true,
-            rewindNav: true,
-            scrollByPage: false,
-            gridAdjustment: 'responsive',
-            mediaQueries: [{
+    // init cubeportfolio
+    $('#js-grid-clients').cubeportfolio({
+        layoutMode: 'slider',
+        drag: true,
+        auto: true,
+        autoTimeout: 3000,
+        autoPauseOnHover: true,
+        showNavigation: false,
+        showPagination: true,
+        rewindNav: true,
+        scrollByPage: false,
+        gridAdjustment: 'responsive',
+        mediaQueries: [{
                 width: 1500,
                 cols: 5,
             }, {
@@ -1376,53 +1301,52 @@ var slider = $('.slider-multi').sappleMultiSlider();
                 width: 480,
                 cols: 1,
             }],
-            gapHorizontal: 10,
-            gapVertical: 5,
-            caption: 'opacity',
-            displayType: 'fadeIn',
-            displayTypeSpeed: 100,
-        });
+        gapHorizontal: 10,
+        gapVertical: 5,
+        caption: 'opacity',
+        displayType: 'fadeIn',
+        displayTypeSpeed: 100,
+    });
 
 
-        //*********************************************
-        //  PORTFOLIO SECTION
-        //*********************************************
+    //*********************************************
+    //  PORTFOLIO SECTION
+    //*********************************************
 
-            // init cubeportfolio
-            $('#work-items').cubeportfolio({
-                layoutMode: 'slider',
-                defaultFilter: '*',
-                animationType: 'fadeOutTop',
-                gapHorizontal: 0,
-                gapVertical: 0,
-                showNavigation: false,
-                showPagination: false,
-                gridAdjustment: 'responsive',
-                mediaQueries: [{
-                    width: 1500,
-                    cols: 4,
-                }, {
-                    width: 1100,
-                    cols: 4,
-                }, {
-                    width: 750,
-                    cols: 2,
-                }, {
-                    width: 480, 
-                    cols: 1,
-                    options: {
-                        caption: '',
-                    }
-                }],
-                caption: 'zoom',
-                displayType: 'fadeIn',
-                displayTypeSpeed: 100,
-
-                // lightbox
-                lightboxDelegate: '.cbp-lightbox',
-                lightboxGallery: true,
-                lightboxTitleSrc: 'data-title',
-            });
+    // init cubeportfolio
+    $('#work-items').cubeportfolio({
+        layoutMode: 'slider',
+        defaultFilter: '*',
+        animationType: 'fadeOutTop',
+        gapHorizontal: 0,
+        gapVertical: 0,
+        showNavigation: false,
+        showPagination: false,
+        gridAdjustment: 'responsive',
+        mediaQueries: [{
+                width: 1500,
+                cols: 4,
+            }, {
+                width: 1100,
+                cols: 4,
+            }, {
+                width: 750,
+                cols: 2,
+            }, {
+                width: 480,
+                cols: 1,
+                options: {
+                    caption: '',
+                }
+            }],
+        caption: 'zoom',
+        displayType: 'fadeIn',
+        displayTypeSpeed: 100,
+        // lightbox
+        lightboxDelegate: '.cbp-lightbox',
+        lightboxGallery: true,
+        lightboxTitleSrc: 'data-title',
+    });
 
     setTimeout(function () {
         document.getElementById('pop-on-load').click();
@@ -1455,26 +1379,18 @@ var slider = $('.slider-multi').sappleMultiSlider();
                         $('.right-image').attr('data-background', path);
                         $('.right-image').css('background-image', 'url(' + path + ')');
                     }
-                    if (response.data.slider_image_1) {
-                        $('#slider_image_1 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_1 + ')');
-                        $('#slider_image_1 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_1);
+                    if (response.data.sliders.length > 0)
+                    {
+                        $.each(response.data.sliders, function (key, value)
+                        {
+                            var id = value.id;
+                            $('#slider_image_' + id + ' .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + value.slider_image + ')');
+                            $('#slider_image_' + id + ' .defaultimg').attr('src', media_url + 'sliding_image/' + value.slider_image);
+                            $('#slider_title_' + id).html(value.slider_title);
+                            $('#slider_sub_title_' + id).html(value.slider_sub_title);
+                        });
                     }
-                    if (response.data.slider_image_2) {
-                        $('#slider_image_2 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_2 + ')');
-                        $('#slider_image_2 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_2);
-                    }
-                    if (response.data.slider_image_3) {
-                        $('#slider_image_3 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_3 + ')');
-                        $('#slider_image_3 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_3);
-                    }
-                    if (response.data.slider_image_4) {
-                        $('#slider_image_4 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_4 + ')');
-                        $('#slider_image_4 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_4);
-                    }
-                    if (response.data.slider_image_5) {
-                        $('#slider_image_5 .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + response.data.slider_image_5 + ')');
-                        $('#slider_image_5 .defaultimg').attr('src', media_url + 'sliding_image/' + response.data.slider_image_5);
-                    }
+
                 } else {
                     console.log("Not any image");
                 }

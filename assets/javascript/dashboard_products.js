@@ -1,54 +1,20 @@
 getProducts();
 
 function getProducts() {
-    getGoodsProducts();
+    getSubCategories();
     getRealStateProducts();
 }
 
 
-function getGoodsProducts() {
+function getSubCategories() {
     $.ajax({
-        url: base_url + 'dashboard-products-goods',
+        url: base_url + 'category-and-products',
         type: 'post',
+        data: {id: 1},
         success: function (response) {
             if (response.status == "success") {
-                var goods_products = '';
-                var image_name = '';
-                var active_class = 'cbp-slider-item--active';
-                $.each(response.data, function (key, val) {
-                    if (val.images[0])
-                    {
-                        image_name = val.images[0].file_name;
-                    }
-                    /*var product_images = '';
-                     if (val.images.length && val.images.length > 0) {
-                     for (var x = 0; x < val.images.length; x++) {
-                     if (val.images[x].file_type == 'image') {
-                     product_images += '<div class="cbp-slider-item ' + active_class + '">\n\
-                     <a href="images/works_04_b.jpg" class="lightbox_item" data-title="Festival Time">\n\
-                     <img src="images/03.jpg" alt="">\n\
-                     </a>\n\
-                     </div>';
-                     active_class = '';
-                     }
-                     }
-                     }*/
-                    goods_products += '<div class="item cbp-item design">\n\
-                                                <div class="cbp-slider-inline">\n\
-                                                    <div class="cbp-slider-wrapper">\n\
-                                                        <div class="cbp-slider-item cbp-slider-item--active">\n\
-                                                            <a href="' + media_url + 'product_images/' + image_name + '" class="lightbox_item" data-title="Festival Time">\n\
-                                                                <img src="' + media_url + 'product_images/' + image_name + '" alt="">\n\
-                                                            </a>\n\
-                                                        </div>\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                                <a href="#" class="cbp-l-grid-masonry-projects-title" rel="nofollow">' + val.name + '</a>\n\
-                                                <div class="cbp-l-grid-masonry-projects-desc">' + val.description + '</div>\n\
-                                            </div>';
-
-                });
-                $('.cbp-wrapper').append(goods_products);
+                $('.sub_cat').append(response.data.li_tab_html);
+                $('.dynamic_tab').append(response.data.div_product_html);
             }
         }
     });
@@ -63,34 +29,59 @@ function getRealStateProducts() {
                 $.each(response, function (key, val) {
                     $.each(val.data, function (key1, value) {
                         var project_photo = media_url + 'project_photo/no_image.jpg';
-                        if(value.photo != ''){
+                        if (value.photo != '') {
                             project_photo = media_url + 'project_photo/' + value.photo;
                         }
-                        real_product += '<div class="item cbp-item coding" id="real_' + value.id + '">\n\
-                                            <div class="cbp-caption">\n\
-                                                <div class="cbp-caption-defaultWrap">\n\
-                                                    <img src="' + project_photo + '" alt="Works image" style="width: 100%;">\n\
-                                                </div>\n\
-                                                <div class="cbp-caption-activeWrap">\n\
-                                                    <div class="cbp-l-caption-alignCenter">\n\
-                                                        <div class="cbp-l-caption-body">\n\
-                                                            <a href="#" class="works-link" target="_blank"><i class="fa fa-external-link-square"></i></a>\n\
-                                                            <a href="' + project_photo + '" class="works-link lightbox_item" data-title="Beautiful girl in train station">\n\
-                                                                <i class="fa fa-expand"></i>\n\
-                                                                <img src="' + project_photo + '" alt="" class="none">\n\
-                                                            </a>\n\
-                                                            <a href="#" class="works-link external-link"><i class="fa fa-plus"></i></a>\n\
-                                                        </div>\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <a href="#" class="cbp-l-grid-masonry-projects-title" rel="nofollow">' + value.name + '</a>\n\
-                                            <div class="cbp-l-grid-masonry-projects-desc" style="height:40px; line-height:40px;">' + value.description + '</div>\n\
-                                        </div>';
+                        real_product += '<div class="gap-10"><img src="' + project_photo + '" alt="">\n\
+                                            <h4><strong>' + value.name + '</strong></h4>\n\
+                                                <p>' + value.description + '.</p>\n\
+                                            </div>';
                     });
                 });
-                $('.cbp-wrapper').append(real_product);
+                $('#real-state').append(real_product);
             }
         }
     });
 }
+/*$(document).ready(function () {
+
+    $(document).on('click', '.sub-category', function (e) {
+        var sub_cat_id = $(this).attr("data-id");
+        $.ajax({
+            url: base_url + 'all-products-goods',
+            type: 'post',
+            data: {sub_category_id: sub_cat_id},
+            success: function (response) {
+                console.log(response);
+                var goods_products = '<button type="button" data-role="none" class="slick-prev slick-arrow" role="button" style=""></button>';
+                var image_name = '';
+                if (response.status == "success") {
+                    //goods_products+=' <div aria-live="polite" class="slick-list draggable">';
+                    //goods_products+=' <div class="slick-track" style="opacity: 1; width: 4230px; transform: translate3d(-2350px, 0px, 0px);" role="listbox">';
+                    $.each(response.data, function (key, val) {
+
+                        if (val.images.length > 0)
+                        {
+                            image_name = media_url + 'product_images/' + val.images[0].file_name;
+                        }
+                        else
+                        {
+                            image_name = media_url + 'project_photo/no_image.jpg';
+                        }
+                        goods_products += '<div class="gap-10 slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 235px;" tabindex="-1"><img src="' + image_name + '" alt="">\n\
+                        <h4><strong>' + val.name + '</strong></h4>\n\
+                            <p>' + val.description + '.</p>\n\
+                        </div>';
+
+                    });
+                    //goods_products+='</div></div>';
+                    goods_products += ' <button type="button" data-role="none" class="slick-next slick-arrow" role="button" style=""></button>';
+                    console.log(goods_products);
+                    $('#product_' + sub_cat_id).append(goods_products);
+                    //$('#product_'+sub_cat_id+'.draggable').childern().append(goods_products);
+                }
+            }
+        });
+
+    });
+});*/

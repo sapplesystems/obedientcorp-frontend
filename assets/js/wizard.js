@@ -13,7 +13,8 @@
         minlength: 8
       },
       mobile: {
-        phoneUS: true,
+        minlength:10,
+        maxlength:10,
       },
       land_line_phone: {
         number: true,

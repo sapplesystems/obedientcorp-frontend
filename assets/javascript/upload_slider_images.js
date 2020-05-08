@@ -29,11 +29,11 @@ $(document).ready(function () {
             processData: false,
             success: function (response) {
                 if (response.status == "success") {
-                    showSwal('success', 'Image Uploded', " Homepage slider images uplode successfully");
+                    showSwal('success', 'Slider Updated', " Homepage slider updated successfully");
                     document.getElementById('upload-slider-form').reset();
                     get_slider_image();
                 } else {
-                    showSwal('error', 'Image Not Uploded', 'Image not uploded');
+                    showSwal('error', 'Slider Not Updated', 'Slider not updated');
                 }
                 hideLoader();
             }

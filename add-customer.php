@@ -108,11 +108,12 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Mobile :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="mobile" name="mobile" placeholder="Enter Mobile Number" onkeypress="return isNumberKey(event);" maxlength="10">
+                                        <input type="text" class="form-control required" id="mobile" name="mobile" placeholder="Enter Mobile Number" onkeypress="return isNumberKey(event);">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Email :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="email" name="email" placeholder="Enter Email">
+                                    <span id="emailid-error" class="error" style="display:none">Enter valid email-id.</span>
+                                        <input type="text" class="form-control required" id="email" name="email" placeholder="Enter Email" >
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -215,19 +216,19 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <div class="col-sm-4">
                                         <input class="form-control" type="text" id="registration_num" name="registration_num" placeholder="Enter registration number" />
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Plot Area : <span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Plot Area : </label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="plot_area" name="plot_area" placeholder="Enter plot area">
+                                        <input class="form-control" type="text" id="plot_area" name="plot_area" placeholder="Enter plot area">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Unit :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Unit :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="plot_unit" name="plot_unit" placeholder="Enter unit">
+                                        <input class="form-control " type="text" id="plot_unit" name="plot_unit" placeholder="Enter unit">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Unit Rate :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Unit Rate :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="unit_rate" name="unit_rate" placeholder="Enter unit rate" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control " type="text" id="unit_rate" name="unit_rate" placeholder="Enter unit rate" onkeypress="return isNumberKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -250,13 +251,13 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
                                 </div>
                                 <div class="form-group row mb-0">
-                                    <label class="col-sm-2 col-form-label">Received Booking Amount :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Received Booking Amount :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="received_booking_amount" name="received_booking_amount" placeholder="Enter received booking amount" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control" type="text" id="received_booking_amount" name="received_booking_amount" placeholder="Enter received booking amount" onkeypress="return isNumberKey(event);">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Total Amount :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Total Amount :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control required" type="text" id="total_amount" name="total_amount" placeholder="Enter total amount" onkeypress="return isNumberKey(event);" readonly>
+                                        <input class="form-control" type="text" id="total_amount" name="total_amount" placeholder="Enter total amount" onkeypress="return isNumberKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row" id="emi_amount"></div>

@@ -13,13 +13,14 @@ if(isset($_REQUEST['pid'])){
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
+                    <form class="forms-sample" id="create_product" name="create_product" method="post" action="" enctype="multipart/form-data">
                         <div class="row">
                             <h4 class="card-title mb-4 col-md-5">Create Product</h4>
                             <div class="col-md-3">
                                 <div class="form-group float-right">
                                     <label class="col-form-label float-left mr-3">Category</label>
                                     <div class="float-left">
-                                        <select class="form-control" id="categories" name="categories">
+                                        <select class="form-control required" id="categories" name="categories">
                                         </select>
                                     </div>
                                 </div>
@@ -28,14 +29,13 @@ if(isset($_REQUEST['pid'])){
                                 <div class="form-group float-right">
                                     <label class="col-form-label float-left mr-3">Sub-Category</label>
                                     <div class="float-left">
-                                        <select class="form-control" id="subcategory" name="subcategory">
+                                        <select class="form-control required" id="subcategory" name="subcategory">
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <form class="forms-sample" id="create_product" name="create_product" method="post" action="" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="row">
@@ -48,19 +48,19 @@ if(isset($_REQUEST['pid'])){
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Quantity</label>
-                                                <input type="text" class="form-control" placeholder="Quantity" id="quantity" name="quantity">
+                                                <input type="text" class="form-control" placeholder="Quantity" id="quantity" name="quantity" onkeypress="return isNumberKey(event);">
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Dealer Price</label>
-                                                <input type="text" class="form-control required" placeholder="Dealer Price" id="dealer_price" name="">
+                                                <input type="text" class="form-control required" placeholder="Dealer Price" id="dealer_price" name="" onkeypress="return isNumberKey(event);">
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Market Price</label>
-                                                <input type="text" class="form-control required" placeholder="Market Price" id="market_price" name="market_place">
+                                                <input type="text" class="form-control required" placeholder="Market Price" id="market_price" name="market_place" onkeypress="return isNumberKey(event);">
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -119,7 +119,7 @@ if(isset($_REQUEST['pid'])){
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div><!--last div -->
                 </div>
             </div>
         </div>

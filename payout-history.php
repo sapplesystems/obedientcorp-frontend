@@ -14,7 +14,7 @@ if ($user_type != 'ADMIN') {
                         <label>Agent ID</label>
                         <select class="form-control" id="agent_list"></select>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <label>Start Date:</label>
                         <div class="input-group date datepicker p-0">
                             <input type="text required" class="form-control required" id="start-date" name="start-date" placeholder="From" readonly>
@@ -23,7 +23,7 @@ if ($user_type != 'ADMIN') {
                             </span>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label>End Date:</label>
                         <div class="input-group date datepicker p-0">
                             <input type="text required" class="form-control required" id="end-date" name="end-date" placeholder="To" readonly>
@@ -32,14 +32,15 @@ if ($user_type != 'ADMIN') {
                             </span>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label>&nbsp;</label>
+                        <div class="clearfix"></div>
                         <input type="button" value="Search" class="btn btn-gradient-primary" onclick="payoutHistoryFilter();" />
                     </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="card">
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 custom_overflow">
                         <h4 class="card-title mb-4">Payout History</h4>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="payout_history"></table>

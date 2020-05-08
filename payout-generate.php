@@ -20,7 +20,7 @@ if ($user_type != 'ADMIN') {
                 </div>
                 <div class="clearfix"></div>
                 <div class="card">
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 custom_overflow">
                         <h4 class="card-title mb-4">Payout List</h4>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="payout_list"></table>

@@ -88,6 +88,9 @@ function getEwalletHistory(params) {
                 hideLoader();
             }
             else {
+                showSwal('error', 'Error', response.data);
+                $("#ewallet_list").html('');
+                generateDataTable('ewallet_list');
                 hideLoader();
             }
 

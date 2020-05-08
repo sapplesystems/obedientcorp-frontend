@@ -24,8 +24,6 @@ function getTeamMemberList(user_id, node) {
                 var team_data = response.data;
                 var user_active_range = Number(response.user_active_range);
                 var team_html = '';
-                var total_business = 0;
-                var is_active_icon_class = '';
                 var team_list_html = '<div class="media">\n\
                                         <div class="col-md-12 mb-3 border p-0">\n\
                                             <table class="table table-striped">\n\
@@ -40,10 +38,15 @@ function getTeamMemberList(user_id, node) {
                                                 </thead>\n\
                                                 <tbody>';
                 $.each(team_data, function (key, member) {
-                    is_active_icon_class = 'bg-danger';
+                    var total_business = 0;
+                    var is_active_icon_class = '';
                     total_business = (Number(member.total_left_business) + Number(member.total_right_business));
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
+                    }else if (total_business > 0) {
+                        is_active_icon_class = 'bg-warning';
+                    }else{
+                        is_active_icon_class = 'bg-danger';
                     }
                     var photo_src = media_url + 'profile_photo/default-img.png';
                     if (member.photo)
@@ -171,10 +174,15 @@ function getReferralTeamMemberList(user_id, node) {
                                                 </thead>\n\
                                                 <tbody>';
                 $.each(team_data, function (key, member) {
-                    is_active_icon_class = 'bg-danger';
+                    var total_business = 0;
+                    var is_active_icon_class = '';
                     total_business = (Number(member.total_left_business) + Number(member.total_right_business));
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
+                    }else if (total_business > 0) {
+                        is_active_icon_class = 'bg-warning';
+                    }else{
+                        is_active_icon_class = 'bg-danger';
                     }
                     var photo_src = media_url + 'profile_photo/default-img.png';
                     if (member.photo)

@@ -79,6 +79,10 @@ function getIncomeFundHistory(params) {
                 table_data += '</tbody>';
                 $("#income_fund_history_list").html(table_data);
                 generateDataTable('income_fund_history_list');
+            }else{
+                showSwal('error', 'Error', response.data);
+                $("#income_fund_history_list").html('');
+                generateDataTable('income_fund_history_list');
             }
             hideLoader();
         }

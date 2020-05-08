@@ -55,6 +55,7 @@ include_once 'common_html.php';
                                             <div class="col-sm-4">
                                                 <select class="form-control required" id="position" name="position">
                                                     <option value="">-- Select One --</option>
+                                                    <option value="Auto">Auto</option>
                                                     <option value="Left">Left</option>
                                                     <option value="Right">Right</option>
                                                 </select>
@@ -730,7 +731,7 @@ include_once 'common_html.php';
                                                                 },
                                                                 success: function (response) {
                                                                     if (response.status == "success") {
-                                                                        $('#sponsor_detail').html(response.data.associate_name);
+                                                                        $('#sponsor_detail').html(response.data.display_name);
                                                                     } else {
                                                                         $('#register_error').css('display', 'block');
                                                                         $('#register_error').html(response.data);

@@ -155,10 +155,10 @@ include_once 'common_html.php';
                                                     <option value="Female">Female</option>
                                                 </select>
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger"></span></label>
+                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                             <div class="col-sm-4">
                                                 <div class="input-group date datepicker">
-                                                    <input type="text" class="form-control" placeholder="Enter date of birth" id="dob" name="dob" readonly />
+                                                    <input type="text" class="form-control required" placeholder="Enter date of birth" id="dob" name="dob" readonly />
                                                     <span class="input-group-addon input-group-append border-left">
                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                     </span>
@@ -166,9 +166,9 @@ include_once 'common_html.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger"></span></label>
+                                            <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" placeholder="" id="mobile" name="mobile" onkeypress="return isNumberKey(event);" />
+                                                <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" onkeypress="return isNumberKey(event);" />
                                             </div>
                                             <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                             <div class="col-sm-4">
@@ -194,9 +194,9 @@ include_once 'common_html.php';
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger"></span></label>
+                                            <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger">*</span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
+                                                <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
                                             </div>
                                             <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                             <div class="col-sm-4">

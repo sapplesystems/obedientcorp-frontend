@@ -911,7 +911,7 @@
 	/* Add an item without col */
 	.qdr-col-6>.not-col,.qdr-col-5>.not-col,.qdr-col-4>.not-col,.qdr-col-3>.not-col,.qdr-col-2>.not-col,.qdr-col-1>.not-col{ width: 100%;}
 	/* Gaps */
-	.gap-50>*{ padding:50px !important; }.gap-40>*{ padding:40px !important; }.gap-30>*{ padding:30px !important; }.gap-25>*{ padding:25px !important; }.gap-24>*{ padding:24px !important; }.gap-23>*{ padding:23px !important; }.gap-22>*{ padding:22px !important; }.gap-21>*{ padding:21px !important; }.gap-20>*{ padding:20px !important; } .gap-19>*{ padding:19px !important; } .gap-18>*{ padding:18px !important; } .gap-17>*{ padding:17px !important; } .gap-16>*{ padding:16px !important; } .gap-15>*{ padding:15px !important; } .gap-13>*{ padding:13px !important; } .gap-12>*{ padding:12px !important; } .gap-11>*{ padding:11px !important; } .gap-10>*{ padding:10px !important; } .gap-9>*{ padding:9px !important; } .gap-8>*{ padding:8px !important; } .gap-7>*{ padding:7px !important; } .gap-6>*{ padding:6px !important; } .gap-5>*{ padding:6px !important; } .gap-4>*{ padding:5px !important; } .gap-3>*{ padding:4px !important; } .gap-2>*{ padding:3px !important; } .gap-1>*{ padding:1px !important; } .gap-0>*{ padding:0px !important; }
+	.gap-50>*{ padding:50px !important; }.gap-40>*{ padding:40px !important; }.gap-30>*{ padding:30px !important; }.gap-25>*{ padding:25px !important; }.gap-24>*{ padding:24px !important; }.gap-23>*{ padding:23px !important; }.gap-22>*{ padding:22px !important; }.gap-21>*{ padding:21px !important; }.gap-20>*{ padding:20px !important; } .gap-19>*{ padding:19px !important; } .gap-18>*{ padding:18px !important; } .gap-17>*{ padding:17px !important; } .gap-16>*{ padding:16px !important; } .gap-15>*{ padding:15px !important; } .gap-13>*{ padding:13px !important; } .gap-12>*{ padding:12px !important; } .gap-11>*{ padding:11px !important; } .gap-10>*{ padding:10px; } .gap-9>*{ padding:9px !important; } .gap-8>*{ padding:8px !important; } .gap-7>*{ padding:7px !important; } .gap-6>*{ padding:6px !important; } .gap-5>*{ padding:6px !important; } .gap-4>*{ padding:5px !important; } .gap-3>*{ padding:4px !important; } .gap-2>*{ padding:3px !important; } .gap-1>*{ padding:1px !important; } .gap-0>*{ padding:0px !important; }
 		@media only screen and (max-width: 640px){
 			.gap-0-sm>*,.gap-0-xs>*{ padding:0px !important; }
 			.gap-5-sm>*,.gap-5-xs>*{ padding:5px !important; }
@@ -3219,4 +3219,5 @@
 	.css3-color:hover{color:#3a88d0 !important;}
 	.pagelines-color:hover{color:#4f98df !important;}
 	.gittip-color:hover{color:#7c6035 !important;}
-
+	
+	

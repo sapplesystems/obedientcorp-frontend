@@ -47,6 +47,7 @@ include_once 'common_html.php';
                                         <div class="text-center"><i class="mdi mdi-check-circle"></i></div>
                                         <h2 class="text-center">THANK YOU</h2>
                                         <p class="text-center">Hello <?php echo $name; ?>, Your registration has been successfully done. Your Username is: <?php echo $username; ?>. </p>
+                                        <p class="text-center"><a href="login" class="btn btn-gradient-primary btn-fw">Login</a></p>
                                     </div>
                                 </div>
                             </div>

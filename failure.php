@@ -43,6 +43,7 @@ include_once 'common_html.php';
                                         <div class="text-center"><i class="mdi mdi-close-circle"></i></div>
                                         <h2 class="text-center">FAILURE</h2>
                                         <p class="text-center">Your registration has been failed.</p>
+                                        <p class="text-center"><a href="<?php echo $home_url; ?>" class="btn btn-gradient-primary btn-fw">Back</a></p>
                                     </div>
                                 </div>
                             </div>

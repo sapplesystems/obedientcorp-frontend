@@ -993,7 +993,7 @@ include_once 'header_frontend.php';
                     <!-- Tab -->
                     <div id="tab1a" role="tabpanel" class="tab-pane active">
                         <div class="tab-container">
-                            <div class="custom-slider container block-img qdr-controls c-grab" id="real-state" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'></div>
+                            <div class="custom-slider container block-img qdr-controls c-grab" id="real-state" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 1}'></div>
                         </div>
                     </div>
                 </div>

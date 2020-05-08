@@ -190,6 +190,19 @@ include_once 'common_html.php';
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#make_payout_nav" aria-expanded="false" aria-controls="category">
+                                    <span class="menu-title">Payout</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-view-grid menu-icon"></i>
+                                </a>
+                                <div class="collapse" id="make_payout_nav">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item"> <a class="nav-link" href="payout-generate">Payout Generate</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="payout-history">Payout History</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#approve_request" aria-expanded="false" aria-controls="category">
                                     <span class="menu-title">Approve Requests</span>
                                     <i class="menu-arrow"></i>

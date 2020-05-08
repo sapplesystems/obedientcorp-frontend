@@ -121,7 +121,6 @@ if ($user_type != 'ADMIN') {
                     else {
                         showSwal('error', 'Error', response.data);
                         $("#payout_history").html('');
-                        generateDataTable('payout_history');
                         hideLoader();
                     }
 

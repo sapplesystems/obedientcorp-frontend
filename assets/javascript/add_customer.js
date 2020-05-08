@@ -57,7 +57,7 @@ function getplotlist(project_id, sub_project_id) {
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: { project_master_id: project_id, sub_project_id: sub_project_id },
+        data: {project_master_id: project_id, sub_project_id: sub_project_id},
         success: function (response) {
             var option = '<option value="">Select plots</option>';
             if (response.status == "success") {
@@ -81,7 +81,7 @@ function getPlotAreaUnit(plot_id) {
     $.ajax({
         url: base_url + 'plot-area-unit ',
         type: 'post',
-        data: { id: plot_id, },
+        data: {id: plot_id, },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data.plot_area) {
@@ -103,6 +103,8 @@ function getPlotAreaUnit(plot_id) {
                 hideLoader();
             }
             else {
+                $('#plot_name').val('');
+                showSwal('error', 'Oops', response.data);
                 hideLoader();
             }
 
@@ -146,8 +148,8 @@ $(document).ready(function () {
     $(document).on('change', '#dateofbirth', function () {
         var value = $(this).val();
         var today = new Date(),
-            dob = new Date(value),
-            age = new Date(today - dob).getFullYear() - 1970;
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
         $('#age').val(age);
         $('#age').prop('readOnly', true);
     });
@@ -155,8 +157,8 @@ $(document).ready(function () {
     $(document).on('change', '#date_of_birth_nominee', function () {
         var value = $(this).val();
         var today = new Date(),
-            dob = new Date(value),
-            age = new Date(today - dob).getFullYear() - 1970;
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
         $('#ageN').val(age);
         $('#ageN').prop('readOnly', true);
     });
@@ -201,7 +203,7 @@ $(document).ready(function () {
     $("#project_name").change(function () {
 
         var id = $(this).val();
-        if($('#plot_area').val() && $('#plot_unit').val() && $('#unit_rate').val() && $('#received_booking_amount').val() && $('#total_amount').val())
+        if ($('#plot_area').val() && $('#plot_unit').val() && $('#unit_rate').val() && $('#received_booking_amount').val() && $('#total_amount').val())
         {
             $('#plot_area').val('');
             $('#plot_unit').val('');
@@ -450,7 +452,7 @@ $(document).ready(function () {
                 "color": "#fe7c96",
                 "display": "inline-block",
                 "font-size": "0.875rem"
-              });
+            });
         }
         else {
             $('#emailid-error').css('display', 'none');

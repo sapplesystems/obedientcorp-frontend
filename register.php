@@ -62,10 +62,9 @@ include_once 'common_html.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Applicant Signature image <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Applicant Signature image <span class="text-danger"></span></label>
                                             <div class=" input-group col-sm-4">
-                                                <!--<input type="file" class="form-control required" placeholder="" name="signature" id="signature">-->
-                                                <input type="file" name="img[]" class="file-upload-default required" name="signature" id="signature">
+                                                <input type="file" name="img[]" class="file-upload-default" name="signature" id="signature">
                                                 <div class="input-group">
                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                     <span class="input-group-append">
@@ -73,10 +72,9 @@ include_once 'common_html.php';
                                                     </span>
                                                 </div>
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <!--<input type="file" class="form-control required" placeholder="" name="photo" id="photo">-->
-                                                <input type="file" name="img[]" class="file-upload-default required" name="photo" id="photo">
+                                                <input type="file" name="img[]" class="file-upload-default" name="photo" id="photo">
                                                 <div class="input-group">
                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                     <span class="input-group-append">
@@ -90,92 +88,77 @@ include_once 'common_html.php';
                                             <div class="col-sm-4">
                                                 <input type="text" class="form-control required" placeholder="" name="name" id="name" onkeypress="return isAlphabetKey(event);">
                                             </div>
-                                            <!--<label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
-                                                        <div class="col-sm-4">
-                                                            <input type="text" class="form-control required" placeholder="" name="address" id="address">
-                                                        </div>-->
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">House No<span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">House No<span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" name="house_no" id="house_no">
+                                                <input type="text" class="form-control" placeholder="" name="house_no" id="house_no">
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Block <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Block <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" name="block" id="block">
+                                                <input type="text" class="form-control" placeholder="" name="block" id="block">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Sector<span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Sector<span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" name="sector" id="sector">
+                                                <input type="text" class="form-control" placeholder="" name="sector" id="sector">
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Street No<span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Street No<span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" name="street_no" id="street_no">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Village Colony<span class="text-danger">*</span></label>
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" name="village_colony" id="village_colony">
-                                            </div>
-                                            <label class="col-sm-2 col-form-label">Post Office/Sub City<span class="text-danger">*</span></label>
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" name="post_office_or_sub_city" id="post_office_or_sub_city">
+                                                <input type="text" class="form-control" placeholder="" name="street_no" id="street_no">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Village Colony<span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <select class="form-control states required" id="states" name="states"> </select>
+                                                <input type="text" class="form-control" placeholder="" name="village_colony" id="village_colony">
                                             </div>
-                                            <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Post Office/Sub City<span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <select class="form-control required " id="city" name="city"></select>
+                                                <input type="text" class="form-control" placeholder="" name="post_office_or_sub_city" id="post_office_or_sub_city">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">State <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code" onkeypress="return isNumberKey(event);">
+                                                <select class="form-control states" id="states" name="states"> </select>
+                                            </div>
+                                            <label class="col-sm-2 col-form-label">District <span class="text-danger"></span></label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control " id="city" name="city"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger"></span></label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="" id="pin_code" name="pin_code" onkeypress="return isNumberKey(event);">
                                             </div>
 
                                         </div>
-
-                                        <!--<div class="form-group row">
-                                                        <label class="col-sm-2"></label>
-                                                        <div class="col-sm-4">
-                                                            <label class="col-form-label text-danger p-0">Please enter the Name as given in your Bank Records</label>
-                                                        </div>
-                                                        <label class="col-sm-2"></label>
-                                                        <div class="col-sm-4">
-                                                            <label class="col-form-label text-danger p-0">Please enter Address as given in your Pan and GST Records</label>
-                                                        </div>
-                                                    </div>-->
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Father Name <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="father_name" name="father_name" onkeypress="return isAlphabetKey(event);">
+                                                <input type="text" class="form-control" placeholder="" id="father_name" name="father_name" onkeypress="return isAlphabetKey(event);">
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="mother_name" name="mother_name" onkeypress="return isAlphabetKey(event);">
+                                                <input type="text" class="form-control" placeholder="" id="mother_name" name="mother_name" onkeypress="return isAlphabetKey(event);">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Gender <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Gender <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <select class="form-control required" id="gender" name="gender">
+                                                <select class="form-control" id="gender" name="gender">
                                                     <option value="">-- Select One --</option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
                                                 </select>
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
                                                 <div class="input-group date datepicker">
-                                                    <input type="text" class="form-control required" placeholder="Enter date of birth" id="dob" name="dob" readonly />
+                                                    <input type="text" class="form-control" placeholder="Enter date of birth" id="dob" name="dob" readonly />
                                                     <span class="input-group-addon input-group-append border-left">
                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                     </span>
@@ -183,9 +166,9 @@ include_once 'common_html.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" onkeypress="return isNumberKey(event);" maxlength="10" />
+                                                <input type="text" class="form-control" placeholder="" id="mobile" name="mobile" onkeypress="return isNumberKey(event);" maxlength="10" />
                                             </div>
                                             <label class="col-sm-2 col-form-label">Land Line Phone #</label>
                                             <div class="col-sm-4">
@@ -193,9 +176,9 @@ include_once 'common_html.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <select class="form-control required" id="marital_status" name="marital_status">
+                                                <select class="form-control" id="marital_status" name="marital_status">
                                                     <option value="">-Select Marital Status-</option>
                                                     <option value="Single">Single</option>
                                                     <option value="Married">Married</option>
@@ -204,20 +187,20 @@ include_once 'common_html.php';
                                                     <option value="Divorced">Divorced</option>
                                                 </select>
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Occupation <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="occupation" name="occupation" onkeypress="return isAlphabetKey(event);">
+                                                <input type="text" class="form-control" placeholder="" id="occupation" name="occupation" onkeypress="return isAlphabetKey(event);">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
+                                                <input type="text" class="form-control" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Email ID <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="email_id" name="email_id" data-inputmask="'alias': 'email'" im-insert="true" />
+                                                <input type="text" class="form-control" placeholder="" id="email_id" name="email_id" data-inputmask="'alias': 'email'" im-insert="true" />
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -230,42 +213,33 @@ include_once 'common_html.php';
                                                 <input type="password" class="form-control required" placeholder="" id="confirm_passowrd" name="confirm_passowrd">
                                             </div>
                                         </div>
-                                        <!-- <div class="form-group row">
-                                                        <label class="col-sm-2 col-form-label"></label>
-                                                        <div class="col-sm-4">
-                                                        </div>
-                                                        <label class="col-sm-2 col-form-label">Confirm Password <span class="text-danger">*</span></label>
-                                                        <div class="col-sm-4">
-                                                            <input type="password" class="form-control required" placeholder="" id="confirm_passowrd" name="confirm_passowrd">
-                                                        </div>
-                                                    </div>-->
                                     </section>
                                     <h3>Bank Details</h3>
                                     <section>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Payee Name</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="payee_name" name="payee_name" onkeypress="return isAlphabetKey(event);">
+                                                <input type="text" class="form-control" placeholder="" id="payee_name" name="payee_name" onkeypress="return isAlphabetKey(event);">
                                             </div>
                                             <label class="col-sm-2 col-form-label">Bank Name</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="bank_name" name="bank_name">
+                                                <input type="text" class="form-control" placeholder="" id="bank_name" name="bank_name">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Account Number</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="account_number" name="account_number" onkeypress="return isNumberKey(event);">
+                                                <input type="text" class="form-control" placeholder="" id="account_number" name="account_number" onkeypress="return isNumberKey(event);">
                                             </div>
                                             <label class="col-sm-2 col-form-label">Branch</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="branch" name="branch">
+                                                <input type="text" class="form-control" placeholder="" id="branch" name="branch">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">IFSC Code</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="ifsc_code" name="ifsc_code">
+                                                <input type="text" class="form-control" placeholder="" id="ifsc_code" name="ifsc_code">
                                             </div>
                                             <label class="col-sm-2 col-form-label"></label>
                                             <div class="col-sm-4">
@@ -275,36 +249,26 @@ include_once 'common_html.php';
                                     <h3>Nominee Details</h3>
                                     <section>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control required" placeholder="" id="nominee_name" name="nominee_name" onkeypress="return isAlphabetKey(event);">
+                                                <input type="text" class="form-control" placeholder="" id="nominee_name" name="nominee_name" onkeypress="return isAlphabetKey(event);">
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Relation <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
-                                                <select class="form-control required" id="relation" name="relation"></select>
+                                                <select class="form-control" id="relation" name="relation"></select>
                                             </div>
                                         </div>
-                                        <!--<div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
-                                                    <div class="col-sm-4">
-                                                        <input type="text" class="form-control required" placeholder="" id="nominee_father_name" name="nominee_father_name">
-                                                    </div>
-                                                    <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
-                                                    <div class="col-sm-4">
-                                                        <input type="text" class="form-control required" placeholder="" id="nominee_mother_name" name="nominee_mother_name">
-                                                    </div>
-                                                </div>-->
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
                                                 <div class="input-group date datepicker">
-                                                    <input type="text" class="form-control required" placeholder="Enter date of birth" id="nominee_dob" name="nominee_dob" readonly />
+                                                    <input type="text" class="form-control" placeholder="Enter date of birth" id="nominee_dob" name="nominee_dob" readonly />
                                                     <span class="input-group-addon input-group-append border-left">
                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                     </span>
                                                 </div>
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Age <span class="text-danger">*</span></label>
+                                            <label class="col-sm-2 col-form-label">Age <span class="text-danger"></span></label>
                                             <div class="col-sm-4">
                                                 <input type="text" class="form-control" placeholder="" id="nominee_age" name="nominee_age">
                                             </div>

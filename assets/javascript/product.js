@@ -38,6 +38,10 @@ $(document).ready(function () {
             var image_file = document.getElementById('product_images');
             var doc_file = document.getElementById('product_docs');
             var totalfiles = image_file.children[0].children[0].files.length;
+            if(totalfiles == 0)
+            {
+                showSwal('error', 'Upload Product Image', 'Please upload product image first.');
+            }
             var docfiles = doc_file.children[0].children[0].files.length;
             for (var index = 0; index < totalfiles; index++) {
                 params.append("image[]", image_file.children[0].children[0].files[index]);

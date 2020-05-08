@@ -84,9 +84,16 @@ function getProductsList(category_id, sub_category_id) {
                 var products = '';
                 if (response.data.length > 0) {
                     $.each(response.data, function (key, value) {
+                        image_name = '';
+                        if (value.image.length > 0) {
+                            image_name = media_url + 'product_images/' + value.image[0].file_name;
+                        }
+                        else {
+                            image_name = media_url + 'project_photo/no_image.jpg';
+                        }
                         products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="' + media_url + 'product_images/' + value.image[0].file_name + '"" alt="' + value.image[0].file_name + '" />\n\
+                                            <img src="'+image_name+'" alt="'+image_name+'" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\
@@ -99,11 +106,11 @@ function getProductsList(category_id, sub_category_id) {
                     $('#product_list').html(products);
                 } else {
                     $('#product_list').html('');
-                    showSwal('error','No Products Available',response.data);
+                    showSwal('error', 'No Products Available', response.data);
                 }
             } else {
                 $('#product_list').html('');
-                showSwal('error','No Products Available',response.data);
+                showSwal('error', 'No Products Available', response.data);
             }
 
         }
@@ -122,12 +129,15 @@ function getAllProducts() {
                 var image_name;
                 $.each(response.data, function (key, value) {
                     image_name = '';
-                    if (value.images[0]) {
-                        image_name = value.images[0].file_name;
+                    if (value.images.length > 0) {
+                        image_name = media_url + 'product_images/' + value.images[0].file_name;
+                    }
+                    else {
+                        image_name = media_url + 'project_photo/no_image.jpg';
                     }
                     products += '<li>\n\
                                         <div class="product_info">\n\
-                                            <img src="' + media_url + 'product_images/' + image_name + '"" alt="' + image_name + '" />\n\
+                                            <img src="'+ image_name + '" alt="' + image_name + '" />\n\
                                              <div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div>\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\
@@ -140,7 +150,7 @@ function getAllProducts() {
                 $('#product_list').html(products);
             } else {
                 $('#product_list').html('');
-                showSwal('error','No Products Available',response.data);
+                showSwal('error', 'No Products Available', response.data);
             }
         }
     });

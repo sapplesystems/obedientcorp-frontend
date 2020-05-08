@@ -99,7 +99,11 @@ $(document).ready(function () {
                             $('#adhar').val(kyc.adhar);
                             $('#adhar').prop('disabled', true);
                         }
-                        $('#email').val(profile.email);
+                        if(profile.email)
+                        {
+                            $('#email').val(profile.email);
+                            $('#email').prop('disabled', true);
+                        }
                         $('#profile_mail').html(profile.email);
                         $('#username').val(profile.username);
                         var photo_src = "assets/images/default-img.png"

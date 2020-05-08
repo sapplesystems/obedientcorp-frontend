@@ -108,10 +108,14 @@ function setNode(object, node_id, link, user_active_range) {
     var total_business = (Number(object.total_left_business) + Number(object.total_right_business));
     if (total_business >= user_active_range) {
         is_active_icon_class = 'bg-success';
+    } else if (total_business > 0) {
+        is_active_icon_class = 'bg-warning';
+    } else {
+        is_active_icon_class = 'bg-danger';
     }
 
     var photo_src = media_url + 'profile_photo/default-img.png';
-    if(object.photo){
+    if (object.photo) {
         photo_src = media_url + 'profile_photo/' + object.photo;
     }
     html = '<span class="main_div_img"><img src="' + photo_src + '" class=""><i class="' + is_active_icon_class + '"></i></span>' + object.username;

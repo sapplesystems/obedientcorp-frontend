@@ -31073,6 +31073,7 @@ CSS ANIMATION FOR TREE
 .avatar-status{height:16px; width:16px; border-radius:50%; display:block; position:absolute; right:8px; bottom:15px;}
 .active_profile{border:1px solid #1bcfb4; background-color:#1bcfb4;}
 .Inactive_profile{border:1px solid #fe7c96; background-color:#fe7c96;}
+.start_profile{border:1px solid #fed713; background-color:#fed713;}
 .dashboard-box{color: #ffffff;}
 .dashboard-box:hover{color: #ffffff;text-decoration:none;}
 .form-group label.error{color:#fe7c96;}

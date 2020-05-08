@@ -198,10 +198,10 @@ include_once 'common_html.php';
                                             <div class="col-sm-4">
                                                 <input type="text" class="form-control" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
                                             </div>
-                                            <label class="col-sm-2 col-form-label">Email ID <span class="text-danger"></span></label>
+                                            <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                             <div class="col-sm-4">
                                                 <span id="emailid-error" class="error" style="display:none">Enter valid email-id.</span>
-                                                <input type="text" class="form-control" placeholder="" id="email_id" name="email_id" />
+                                                <input type="text" class="form-control required" placeholder="" id="email_id" name="email_id" />
                                             </div>
                                         </div>
                                         <div class="form-group row">

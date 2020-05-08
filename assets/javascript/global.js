@@ -18,7 +18,7 @@ function checkUserActiveInactive() {
     var agent_total_business = localStorage.getItem('agent_total_business');
     $('.availability-status').addClass('offline');
     $('.avatar-status').addClass('Inactive_profile');
-    if (Number(agent_total_business) >= 0) {
+    if (Number(agent_total_business) > 0) {
         $('.availability-status').removeClass('offline');
         $('.avatar-status').removeClass('Inactive_profile');
         $('.availability-status').addClass('busy');

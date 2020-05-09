@@ -3,7 +3,7 @@ var landing_img = '';
 $(document).ready(function () {
 
     //croper size for slider
-    $landing_image_crop = $('#landing_image').croppie({
+   /* $landing_image_crop = $('#landing_image').croppie({
         enableOrientation: true,
         viewport: {
             width: 600,
@@ -32,9 +32,9 @@ $(document).ready(function () {
     });
     $(document).on('click', '.close_landing_image', function () {
         $('.file-upload-info').val('');
-    });
+    });*/
     //get size of image
-    $(".landing_image").change(function () {
+    /*$(".landing_image").change(function () {
         var _URL = window.URL || window.webkitURL;
         var file_id = $(this).attr('id');
         var file = $(this)[0].files[0];
@@ -52,10 +52,10 @@ $(document).ready(function () {
                 $('#' + file_id).siblings('.file-upload-info').val('');
                 return false;
             } else {
-                landing_crop_image(file_id);
+                //landing_crop_image(file_id);
             }
         };
-    });//end
+    });//end*/
     //form submit
     $("#upload-image-form").submit(function (e) {
         e.preventDefault();
@@ -69,6 +69,7 @@ $(document).ready(function () {
         if ($("#upload-image-form").valid()) {
             showLoader();
             var params = new FormData();
+            landing_img = $('#landing-image')[0].files[0];
             params.append('landing_image', landing_img);
             $.ajax({
                 url: base_url + 'upload-landing-image ',
@@ -115,7 +116,7 @@ function get_landing_image() {
 } //end function for get_landing_image
 
 //crop function
-function landing_crop_image(file_id) {
+/*function landing_crop_image(file_id) {
     var file = $('#' + file_id)[0].files[0];
     var reader = new FileReader();
     reader.onload = function (event) {
@@ -129,4 +130,4 @@ function landing_crop_image(file_id) {
     reader.readAsDataURL(file);
     $('#uploadlandingModal').modal('show');
 
-}
+}*/

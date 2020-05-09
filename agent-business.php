@@ -55,8 +55,8 @@
                                     <tr>
                                         <th>date</th>
                                         <th>Amount</th>
-                                        <th>Coupon Code</th>
-                                        <th>Coupon Type</th>
+                                        <th>Shopping Card Code</th>
+                                        <th>Shopping Card Type</th>
                                     </tr>
 
                                 </thead>

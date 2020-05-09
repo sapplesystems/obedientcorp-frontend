@@ -19,7 +19,7 @@ include_once 'header.php';
                 <div class="clearfix"></div>
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Pin Bonus</h4>
+                        <h4 class="card-title mb-4">Self Business Volume</h4>
                         <div class="overflowAuto custom_overflow">
                             <table class="table table-bordered custom_action" id="pin_bonus_listing"></table>
                         </div>

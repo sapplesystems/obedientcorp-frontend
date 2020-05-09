@@ -72,7 +72,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Manage Coupon</h4>
+                        <h4 class="card-title mb-4">Manage Shopping Cards</h4>
 
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="order-listing">
@@ -80,16 +80,16 @@
                                     <tr>
                                         <?php if ($user_type == 'ADMIN') { ?>
                                             <th width="5%"> Sr No. </th>
-                                            <th width="10%"> Coupon Code</th>
-                                            <th width="10%"> Coupon Price </th>
+                                            <th width="10%">Code</th>
+                                            <th width="10%">Price </th>
                                             <th width="10%"> Generated Date </th>
                                             <th width="10%"> Expiry Date </th>
                                             <th width="5%">Status</th>
                                             <th width="55%"> Action </th>
                                         <?php } else { ?>
                                             <th width="5%"> Sr No. </th>
-                                            <th width="18%"> Coupon Code</th>
-                                            <th width="18%"> Coupon Price </th>
+                                            <th width="18%">Code</th>
+                                            <th width="18%">Price </th>
                                             <th width="18%"> Generated Date </th>
                                             <th width="18%"> Expiry Date </th>
                                             <th width="18%"> Status </th>

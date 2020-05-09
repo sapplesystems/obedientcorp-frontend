@@ -1,4 +1,9 @@
-<?php include_once 'header.php'; ?>
+<?php 
+include_once 'header.php'; 
+if ($user_type != 'ADMIN') {
+    echo '<script type="text/javascript">window.location.href="dashboard.php";</script>';
+}
+?>
 <link rel="stylesheet" href="assets/css/image-uploader.min.css">
 <!-- partial -->
 <div class="main-panel">

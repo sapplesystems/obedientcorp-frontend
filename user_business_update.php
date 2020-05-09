@@ -1,5 +1,8 @@
 <?php
 include_once 'header.php';
+if ($user_type != 'ADMIN') {
+    echo '<script type="text/javascript">window.location.href="dashboard.php";</script>';
+}
 ?>
 <style>
     .overflowAuto_d {

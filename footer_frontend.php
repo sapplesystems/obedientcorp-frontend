@@ -23,7 +23,7 @@
             <!-- End Column -->
             <!-- Column -->
             <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-mobile">
-                <h6 class="uppercase white extrabold mb-3">Terms & Conditions</h6>
+                <h6 class="uppercase white extrabold mb-3">T&C</h6>
                 <!-- Clients Slider one - You can find details in footer-client-comments.html file, #post1 div -->
                 <!-- When you edit ajax file, the details will be changed on all website -->
                 <!-- Sub Title -->
@@ -52,7 +52,7 @@
                 <a href="https://facebook.com/Obedientinfradevelopment/" class="icon-xs radius bg-dark facebook white-hover slow1"><i class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/ObedientPvt" class="icon-xs radius bg-dark twitter white-hover slow1"><i class="fa fa-twitter"></i></a>
                 <a href="https://www.instagram.com/Obedientpvt/" class="icon-xs radius bg-dark instagram white-hover slow1"><i class="fa fa-instagram"></i></a>
-                <!--<a href="#" class="icon-xs radius bg-dark pinterest white-hover slow1"><i class="fa fa-pinterest"></i></a>-->
+                <a href="javascript:void(0);" class="icon-xs radius bg-dark youtube white-hover slow1"><i class="fa fa-youtube"></i></a>
             </div>
             <!-- End Column -->
         </div>
@@ -64,12 +64,12 @@
             <div class="row clearfix calculate-height t-center-xs">
                 <div class="col-sm-6 col-xs-12 table-im t-left height-auto-mobile t-center-xs">
                     <div class="v-middle">
-                        <img src="images/footer_logo.png" alt="logo icon" class="logo">
+                        <img src="images/obedient-logo.png" alt="Footer Logo" class="logo">
                     </div>
                 </div>
                 <!-- Bottom Note -->
                 <div class="col-sm-6 col-xs-12 table-im t-right height-auto-mobile t-center-xs xxs-mt-mobile">
-                    <p class="v-middle">&copy; 2020 Obedient. All rights reserved | Design by <a href="http://obedientcorp.com">Obedient Infra Development Pvt. Ltd.</a></p>
+                    <p class="v-middle">&copy; 2020 Obedient. All rights reserved | Design by <a href="http://obedientcorp.com">Obedient Group.</a></p>
                 </div>
             </div>
         </div>

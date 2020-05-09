@@ -1,10 +1,10 @@
 <div class="card">
     <div class="card-body p-3">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <h4 class="card-title mb-4">Team Graphics View</h4>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <div class="input-group">
                         <input type="text" class="form-control" id="associate_code" placeholder="Enter Associate ID">

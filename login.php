@@ -83,7 +83,7 @@ include_once 'common_html.php';
                         </div>
                         <div class="col-lg-6 login-half-bg d-flex flex-row bg_none">
                             <p class="text-white font-weight-medium text-center flex-grow align-self-end">
-                                Copyright © 2020 Obedient Infra Development Pvt. Ltd. All rights reserved. <a href="https://obedientcorp.com/" target="_blank ">OBEDIENT GROUP</a>
+                                Copyright © 2020 Obedient Group. All rights reserved. <a href="javascript:void(0);">OBEDIENT GROUP</a>
                             </p>
                         </div>
                     </div>

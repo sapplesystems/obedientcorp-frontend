@@ -53,10 +53,10 @@
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
                                     <tr>
-                                        <th>Customer id</th>
                                         <th>date</th>
                                         <th>Amount</th>
                                         <th>Coupon Code</th>
+                                        <th>Coupon Type</th>
                                     </tr>
 
                                 </thead>

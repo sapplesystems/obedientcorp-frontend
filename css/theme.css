@@ -24,8 +24,6 @@
 	*{ border:0; vertical-align: baseline; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 	*, *:hover, *:focus{ outline:none !important; }
 
-
-
 /* ============================================================ */
 /* Theme Shortcodes & Helper Classes - Without Javascript support
 /* ============================================================ */
@@ -440,8 +438,10 @@
 	.gray7,.gray7-hover:hover{ color:#777 !important; }
 	.gray8,.gray8-hover:hover{ color:#474747 !important; }
 	.gray9,.gray9-hover:hover{ color:#383838 !important; }
-/* Paddings, Margins */
+	
+	/* Paddings, Margins */
 	/* Paddings */
+	
 	.mini-py{ padding-top:5px !important; padding-bottom:5px !important; }
 	.mini-px{ padding-left:5px !important; padding-right:5px !important; }
 	.mini-pt{ padding-top:5px !important; } .mini-pr{ padding-right:5px !important; } .mini-pb{ padding-bottom:5px !important; } .mini-pl{ padding-left:5px !important; }
@@ -2818,7 +2818,7 @@
 	.client-list{ overflow: hidden; }
 	.client-list li, .client-list li a{ display: block; text-align: center; max-width: 100%; margin:0 auto; padding: 0; height: auto; position: relative; }
 	.client-list li{ border-style: inherit; border-color:inherit; }
-	.client-list li a{ width: 80%; padding:10px 0; opacity: 0.6; -webkit-transition: opacity 0.3s; -moz-transition: opacity 0.3s; transition: opacity 0.3s; }
+	.client-list li a{ width: 80%; padding:10px 0; opacity: 1; -webkit-transition: opacity 0.3s; -moz-transition: opacity 0.3s; transition: opacity 0.3s; }
 	.client-list li a img{ vertical-align: middle; width: 100%; max-width: 80%; margin:0 auto; height:100px;}
 	.client-list li a:hover{ opacity: 1; }
 	/* Borders */
@@ -2890,7 +2890,7 @@
 	.classic_footer .social-icon{ width: 40px; height: 40px; line-height: 40px; font-size: 12px;}
 /* Bottom */
 	.classic_footer .footer-bottom{ background-color:#131313; padding:20px 0; font-size: 13px; }
-	.classic_footer .footer-bottom img.logo{ max-height: 35px; }
+	.classic_footer .footer-bottom img.logo{ max-height: 65px; }
 	.classic_footer .footer-bottom .bottoms>div{ display: inline-block !important; vertical-align: middle; float: none !important; max-height: 40px; }
 		@media only screen and (max-width: 1025px){
 			.classic_footer .footer-bottom .bottoms>div{ width: 100% !important; text-align: center; margin-bottom:10px; height: auto; }

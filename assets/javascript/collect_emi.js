@@ -268,6 +268,7 @@ function setDueListTab(response) {
                                 <th>Plot ID</th>\n\
                                 <th>Over Due</th>\n\
                                 <th>Total Paid</th>\n\
+                                <th>Balance</th>\n\
                             </tr>\n\
                         </thead>';
     var checkbox = '';
@@ -296,6 +297,7 @@ function setDueListTab(response) {
                 ' + value.total_paid + '\n\
                 <input type="hidden" id="booking_id_' + value.due_list_id + '" value="' + value.customer_plot_booking_detail_id + '" />\n\
                 </td>\n\
+                <td>' + value.balance_emi_amount + '</td>\n\
             </tr>';
 
         });

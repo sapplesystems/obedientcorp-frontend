@@ -1021,12 +1021,12 @@ include_once 'header_frontend.php';
                 <div class="member animated" data-animation="fadeIn" data-animation-delay="200">
                     <!-- Container for details -->
                     <div class="member-body">
-                        <img src="images/cmd.jpg" alt="Chairman and Managing Director">
+                        <img src="images/cmd.jpg" alt="Chairman">
                         <!-- Progress Bars -->
                         <div class="team-progress">
                             <!-- Bar -->
                             <div class="progress-bar bg-colored t-left" data-value="72">
-                                <span class="nowrap light white">Managing Director (MD)</span>
+                                <span class="nowrap light white">Chairman</span>
                             </div>
                             <!-- Bar -->
                             <!--<div class="progress-bar bg-colored t-left" data-value="45">
@@ -1037,7 +1037,7 @@ include_once 'header_frontend.php';
                         <!-- Description -->
                         <div class="member-description vertical-center">
                             <p class="fa fa-quote-left icon"></p>
-                            <h2 class="light">Managing Director (MD)</h2>
+                            <h2 class="light">Chairman</h2>
                             <p class="description light">More than two decades of experience in network marketing and more than a decade in Real Estate</p>
                         </div>
                     </div>
@@ -1072,7 +1072,7 @@ include_once 'header_frontend.php';
                     </div>
                     <!-- End Container for details -->
                     <!-- Member Name -->
-                    <h2 class="light">Poonam Pal</h2>
+                    <h2 class="light">Poonam Anuj Kr.</h2>
                 </div>
 
                 <!-- Member -->
@@ -1084,7 +1084,7 @@ include_once 'header_frontend.php';
                         <div class="team-progress">
                             <!-- Bar -->
                             <div class="progress-bar bg-colored t-left" data-value="55">
-                                <span class="nowrap light white">Founder, Leader</span>
+                                <span class="nowrap light white">Founder Leader</span>
                             </div>
                             <!-- Bar -->
                             <!--<div class="progress-bar bg-colored t-left" data-value="55">
@@ -1106,40 +1106,6 @@ include_once 'header_frontend.php';
             </div>
         </section>
         <!-- END TEAM -->
-
-        <!-- Title -->
-        <div class="t-center mb-5"><h1 class="uppercase light">
-                Our <span class="normal">Videos</span>
-            </h1>
-            <div class="title-strips-over dark"></div>
-        </div>
-        <section id="smooth_slider">
-            <div class="slider-multi">
-                <ul>
-                    <li>
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UGYQ7pWOlOU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </li>
-                    <li>
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Vbr-IDLf4so" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </li>
-                    <li>
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/bxPl7ZKZti4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </li>
-                    <li>
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ED_h8uoWsPc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </li>
-                    <li>
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HDzK3qU_xzE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </li>
-                    <li>
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kWVsbypOVq0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </li>
-                    <li>
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/OEJvO65Shac" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </li>
-                </ul>
-            </div>
-        </section>
 
         <!-- FOOTER -->
         <?php include_once 'footer_frontend.php'; ?>
@@ -1398,6 +1364,14 @@ var slider = $('.slider-multi').sappleMultiSlider();
         });
 
     } //end function for get_landing_image
+	
+	$(document).ready(function(){
+  $(".posR").click(function(){
+    $(".subMenu").slideToggle("slow");
+  });
+});
+	
+	
 </script>
 </body>
 <!-- Body End -->

@@ -37,10 +37,10 @@ $(document).ready(function () {
                         var html = ""
                         $.each(response.data.agent_business, function (key, value) {
                             html += '<tr id="tr_' + value.id + '">\n\
-                                        <td>' + value.customer_name + '(' + value.customer_code + ')</td>\n\
                                         <td>' + value.date + '</td>\n\
                                         <td>' + value.amount + '</td>\n\
                                         <td>' + value.coupon_code + '</td>\n\
+                                        <td>' + value.coupon_type + '</td>\n\
                                     </tr>';
                         });
                         $("#agent-business-list").html(html);

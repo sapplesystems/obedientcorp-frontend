@@ -1,5 +1,15 @@
 <?php include_once 'header.php'; ?>
 <!-- partial -->
+<style>
+.diff-color li:nth-child(1) a{    background: -webkit-gradient(linear, left top, right top, from(#90caf9), color-stop(99%, #047edf));
+    background: linear-gradient(to right, #90caf9, #047edf 99%) !important; color:#ffffff !important;}
+.diff-color li:nth-child(2) a{background: -webkit-gradient(linear, left top, right top, from(#f6e384), to(#ffd500));
+    background: linear-gradient(to right, #f6e384, #ffd500) !important; color:#ffffff !important;}
+.diff-color li:nth-child(3) a{background: -webkit-gradient(linear, left top, right top, from(#84d9d2), to(#07cdae));
+    background: linear-gradient(to right, #84d9d2, #07cdae) !important; color:#ffffff !important;}
+.diff-color li:nth-child(4) a{background: -webkit-gradient(linear, left top, right top, from(#ffbf96), to(#fe7096));
+    background: linear-gradient(to right, #ffbf96, #fe7096) !important; color:#ffffff !important;}
+</style>
 <div class="main-panel ">
     <div class="content-wrapper ">
         <div class="row">
@@ -7,7 +17,7 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="col-md-12 customTabs">
-                            <ul class="nav nav-pills nav-pills-custom" id="pills-tab" role="tablist">
+                            <ul class="nav nav-pills nav-pills-custom diff-color" id="pills-tab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="pills-due-tab" data-toggle="pill" href="#pills-due" role="tab" aria-controls="pills-due" aria-selected="true">Due </a>
                                 </li>

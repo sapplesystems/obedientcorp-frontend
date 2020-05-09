@@ -81,13 +81,15 @@ echo $common['dotted_navigation'];
     </div>
 
     <!-- Buttons -->
-    <div class="qdr-col-3 gap-15 container t-center">
+    <div class="qdr-col-4 gap-15 container t-center">
         <!-- Button -->
         <div><a href="https://facebook.com/Obedientinfradevelopment" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-facebook facebook-bg white radius-lg bs-inset-hover qdr-hover-4">Facebook</a></div>
         <!-- Button -->
         <div><a href="https://twitter.com/ObedientPvt" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-twitter twitter-bg white radius-lg bs-inset-hover qdr-hover-4">Twitter</a></div>
         <!-- Button -->
         <div><a href="https://www.instagram.com/Obedientpvt" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-instagram instagram-bg white radius-lg bs-inset-hover qdr-hover-4">Instagram</a></div>
+        <!-- Button -->
+		<div><a href="javascript:void(0);" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-youtube youtube-bg white radius-lg bs-inset-hover qdr-hover-4">Youtube</a></div>
         <!-- Button -->
     </div>
 

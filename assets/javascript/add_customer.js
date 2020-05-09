@@ -57,7 +57,7 @@ function getplotlist(project_id, sub_project_id) {
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: {project_master_id: project_id, sub_project_id: sub_project_id},
+        data: { project_master_id: project_id, sub_project_id: sub_project_id },
         success: function (response) {
             var option = '<option value="">Select plots</option>';
             if (response.status == "success") {
@@ -81,7 +81,7 @@ function getPlotAreaUnit(plot_id) {
     $.ajax({
         url: base_url + 'plot-area-unit ',
         type: 'post',
-        data: {id: plot_id, },
+        data: { id: plot_id, },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data.plot_area) {
@@ -148,8 +148,8 @@ $(document).ready(function () {
     $(document).on('change', '#dateofbirth', function () {
         var value = $(this).val();
         var today = new Date(),
-                dob = new Date(value),
-                age = new Date(today - dob).getFullYear() - 1970;
+            dob = new Date(value),
+            age = new Date(today - dob).getFullYear() - 1970;
         $('#age').val(age);
         $('#age').prop('readOnly', true);
     });
@@ -157,8 +157,8 @@ $(document).ready(function () {
     $(document).on('change', '#date_of_birth_nominee', function () {
         var value = $(this).val();
         var today = new Date(),
-                dob = new Date(value),
-                age = new Date(today - dob).getFullYear() - 1970;
+            dob = new Date(value),
+            age = new Date(today - dob).getFullYear() - 1970;
         $('#ageN').val(age);
         $('#ageN').prop('readOnly', true);
     });
@@ -203,8 +203,7 @@ $(document).ready(function () {
     $("#project_name").change(function () {
 
         var id = $(this).val();
-        if ($('#plot_area').val() && $('#plot_unit').val() && $('#unit_rate').val() && $('#received_booking_amount').val() && $('#total_amount').val())
-        {
+        if ($('#plot_area').val() && $('#plot_unit').val() && $('#unit_rate').val() && $('#received_booking_amount').val() && $('#total_amount').val()) {
             $('#plot_area').val('');
             $('#plot_unit').val('');
             $('#unit_rate').val('');
@@ -805,29 +804,38 @@ function initDatepicker() {
 }
 
 function calculatePlotAmount(area, price) {
-    var totla_amount = (Number(area) * Number(price));
-    var received_booking_amount = (totla_amount * 0.10);
-
+    var total_amount = (Number(area) * Number(price));
+    var received_booking_amount = (total_amount * 0.10);
     $('#received_booking_amount').val(received_booking_amount.toFixed(2));
-    $('#received_booking_amount').prop('readOnly', true);
-    $('#total_amount').val(totla_amount.toFixed(2));
+    $('#total_amount').val(total_amount.toFixed(2));
     $('#total_amount').prop('readOnly', true);
     setEMI();
 }
 
 function setEMI() {
     var value = $('#installment').val();
-    if (value && $('#received_booking_amount').val() && $('#received_booking_amount').val() != '' && $('#total_amount').val() != '') {
+    var payment_div = '<label class="col-form-label col-sm-2">Emi Amount Per Month:</label>';
+    if (value == 1) {
+        payment_div = '<label class="col-form-label col-sm-2">Single Payment:</label>';
+        var amount = Number($('#total_amount').val());
+        $('#received_booking_amount').val(amount.toFixed(2));
+        var html = '<label class="col-sm-2 col-form-label"></label>\n\
+                                    <div class="col-sm-4"></div>\n\
+                                        '+ payment_div + '\n\
+            <div class="col-sm-4">\n\
+           <label class="col-form-label card-description mb-0">Rs. ' + amount.toFixed(2) + '</label>\n\
+           </div>';
+    } else if (value && $('#received_booking_amount').val() && $('#received_booking_amount').val() != '' && $('#total_amount').val() != '') {
         var amount = Number($('#total_amount').val() - $('#received_booking_amount').val());
         var emi_amount = Number(amount / value);
         var html = '<label class="col-sm-2 col-form-label"></label>\n\
                                     <div class="col-sm-4"></div>\n\
-            <label class="col-form-label col-sm-2">Emi Amount Per Month :</label>\n\
+                                        '+ payment_div + '\n\
             <div class="col-sm-4">\n\
            <label class="col-form-label card-description mb-0">Rs. ' + emi_amount.toFixed(2) + '</label>\n\
            </div>';
-        $('#emi_amount').html(html);
     }
+    $('#emi_amount').html(html);
 }
 
 initDatepicker();

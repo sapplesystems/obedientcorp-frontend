@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-2 pr-0">
-                                <label>Coupon Type:</label>
+                                <label>Shopping Card:</label>
                                 <select class="form-control required" id="trans_type2" name="trans_type2">
                                     <option value="">ALL</option>
                                     <option value="RS">Real State</option>

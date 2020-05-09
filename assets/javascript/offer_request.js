@@ -1,18 +1,18 @@
 $(function () {
 
     $("#agent-list").html(down_the_line_members);
-    getRewardRequestList(0);
+    getOfferRequestList(0);
 
 });
 
-//function get_reward_request_list 
-function getRewardRequestList(agent_id) {
-    get_reward_request_list(agent_id, 'Pending');
-    get_reward_request_list(agent_id, 'Approved');
-    get_reward_request_list(agent_id, 'Rejected');
+//function get_offer_request_list 
+function getOfferRequestList(agent_id) {
+    get_offer_request_list(agent_id, 'Pending');
+    get_offer_request_list(agent_id, 'Approved');
+    get_offer_request_list(agent_id, 'Rejected');
 }
 
-function get_reward_request_list(agent_id, status) {
+function get_offer_request_list(agent_id, status) {
     showLoader();
     var params = {
         user_id: agent_id,
@@ -21,10 +21,11 @@ function get_reward_request_list(agent_id, status) {
 
     $("#customer_payment").html('');
     $.ajax({
-        url: base_url + 'reward-list',
+        url: base_url + 'offer-list',
         type: 'post',
         data: params,
         success: function (response) {
+            console.log(response);
             if (response.status == 'success') {
                 var action_th = '';
                 if (status == 'Pending') {
@@ -33,10 +34,10 @@ function get_reward_request_list(agent_id, status) {
                 var table_data = '<thead>\n\
                                     <tr>\n\
                                         <th> &nbsp; </th>\n\
-                                        <th> Amount </th>\n\
+                                        <th> Offer Amount </th>\n\
                                         <th> Agent </th>\n\
+                                        <th> Business Amount </th>\n\
                                         <th> Date </th>\n\
-                                        <th> Status </th>\n\
                                         ' + action_th + '\n\
                                     </tr>\n\
                                 </thead>';
@@ -45,16 +46,16 @@ function get_reward_request_list(agent_id, status) {
                     var action_tr = '';
                     if (status == 'Pending') {
                         action_tr = '<td> \n\
-                                        <i title="Approve Request" class="mdi mdi-check-circle" onclick="rewardApprove(' + value.id + ');"></i> \n\
-                                        &nbsp;<i title="Reject Request" class="mdi mdi-close-circle" onclick="rewardReject(' + value.id + ');"></i> \n\
+                                        <i title="Approve Request" class="mdi mdi-check-circle" onclick="offerApprove(' + value.id + ');"></i> \n\
+                                        &nbsp;<i title="Reject Request" class="mdi mdi-close-circle" onclick="offerReject(' + value.id + ');"></i> \n\
                                     </td>';
                     }
                     table_data += '<tr >\n\
                                         <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
-                                            <td>' + value.amount + '</td>\n\
+                                            <td>' + value.offer_amount + '</td>\n\
                                             <td >' + value.agent_display_name + ' </td>\n\
+                                            <td>' + value.offer_business + '</td>\n\
                                             <td>' + value.date + '</td>\n\
-                                            <td>' + value.status + '</td>\n\
                                             ' + action_tr + '\n\
                                         </tr>'; 
                 });
@@ -91,9 +92,9 @@ function get_reward_request_list(agent_id, status) {
 
         }
     });
-}//end function get_reward_request_list
+}//end function get_offer_request_list
 
-function rewardApprove(reward_id) {
+function offerApprove(offer_id) {
     showSwal('warning-message-and-cancel');
     $('.payment_action').click(function () {
         var comment = $('#payment_comment').val();
@@ -102,11 +103,11 @@ function rewardApprove(reward_id) {
             $('#payment_comment').focus();
             return false;
         }
-        rewardAction(reward_id,comment,status);
+        offerAction(offer_id,comment,status);
     });
 }
 
-function rewardReject(reward_id) {
+function offerReject(offer_id) {
     showSwal('warning-message-and-cancel');
     $('.payment_action').click(function () {
         var comment = $('#payment_comment').val();
@@ -115,19 +116,19 @@ function rewardReject(reward_id) {
             $('#payment_comment').focus();
             return false;
         }
-        rewardAction(reward_id,comment,status);
+        offerAction(offer_id,comment,status);
     });
 }
-//function for reward request action
-function rewardAction(reward_id, comment, status) {
+//function for offer request action
+function offerAction(offer_id, comment, status) {
     showLoader();
-    var url = base_url + 'reward-list-action';
+    var url = base_url + 'offer-list-action';
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
         data: {
-            id: reward_id,
+            id: offer_id,
             status: status,
             comment:comment
         },
@@ -138,7 +139,7 @@ function rewardAction(reward_id, comment, status) {
                 {
                     agent_id = $("#agent-list").val();
                 }
-                getRewardRequestList(agent_id);
+                getOfferRequestList(agent_id);
                 showSwal('success', 'Status', response.data);
               
             } else {

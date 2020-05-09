@@ -56,7 +56,7 @@
                                         <th>Customer id</th>
                                         <th>date</th>
                                         <th>Amount</th>
-                                        <th>Coupon Code</th>
+                                        <th>Shopping Card Code</th>
                                     </tr>
 
                                 </thead>

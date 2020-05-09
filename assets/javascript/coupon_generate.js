@@ -219,7 +219,7 @@ function get_goods_coupon_listing() {
 
                     action_td = '<td><div class="float-left">\n\
                                     <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" \n\
-                                        onclick="printCoupon(event, ' + value.id + ');">Print Coupon</a>\n\
+                                        onclick="printCoupon(event, ' + value.id + ');">Print</a>\n\
                                 </div></td>';
                     cb_status = '';
                     if (user_type == 'ADMIN') {
@@ -233,7 +233,7 @@ function get_goods_coupon_listing() {
                                             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb' + value.id + '"></label>\n\
                                         </div>\n\
                                         <div class="float-left ml-3">\n\
-                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(event, ' + value.id + ');">Extend Coupon<br/> Availability</a>\n\
+                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(event, ' + value.id + ');">Extend Availability</a>\n\
                                             <form class="form-inline" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
                                                 ' + select_number_of_days + '\n\
                                                 <button type="submit" class="btn btn-gradient-success btn-sm" onclick="extendCouponAvailabilitySubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
@@ -241,7 +241,7 @@ function get_goods_coupon_listing() {
                                             </form>\n\
                                         </div>\n\
                                         <div class="float-left ml-3">\n\
-                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print Coupon</a>\n\
+                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print</a>\n\
                                         </div>\n\
                                     </td>';
                     }

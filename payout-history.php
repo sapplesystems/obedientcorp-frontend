@@ -53,34 +53,35 @@ if ($user_type != 'ADMIN') {
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
     <?php include_once 'footer.php'; ?>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(document).ready(function () {
-                $("#agent_list").html(down_the_line_members);
-                getPayoutHistoryList({user_id: 0});
-                $(document).on('change', '#agent_list', function () {
-                    getPayoutHistoryList({user_id: $(this).val()});
-                });
+                            $(document).ready(function () {
+                                $("#agent_list").html(down_the_line_members);
+                                getPayoutHistoryList({user_id: 0});
+                                $(document).on('change', '#agent_list', function () {
+                                    getPayoutHistoryList({user_id: $(this).val()});
+                                });
 
-                $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
-                    checkStartEndDate();
-                });
+                                $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
+                                    checkStartEndDate();
+                                });
 
-                $(document).on('change', '#end-date', function () {//$("#end-date").change(function () {
-                    checkStartEndDate();
-                });
-            });
-        });
+                                $(document).on('change', '#end-date', function () {//$("#end-date").change(function () {
+                                    checkStartEndDate();
+                                });
+                            });
 
-        function getPayoutHistoryList(params) {
-            showLoader();
-            $.ajax({
-                url: base_url + 'payout-history',
-                type: 'post',
-                data: params,
-                success: function (response) {
-                    if (response.status == "success") {
-                        var table_data = '<thead>\n\
+                            function getPayoutHistoryList(params) {
+                                showLoader();
+                                $.ajax({
+                                    url: base_url + 'payout-history',
+                                    type: 'post',
+                                    data: params,
+                                    success: function (response) {
+                                        if (response.status == "success") {
+                                            var table_data = '<thead>\n\
                                     <tr>\n\
                                         <th>Agent Name</th>\n\
                                         <th>Left Business</th>\n\
@@ -96,9 +97,9 @@ if ($user_type != 'ADMIN') {
                                         <th>Date</th>\n\
                                     </tr>\n\
                                 </thead>';
-                        table_data += '<tbody>';
-                        $.each(response.data, function (key, value) {
-                            table_data += '<tr>\n\
+                                            table_data += '<tbody>';
+                                            $.each(response.data, function (key, value) {
+                                                table_data += '<tr>\n\
                                     <td>' + value.display_name + '</td>\n\
                                     <td>' + value.total_left_business + '</td>\n\
                                     <td>' + value.total_right_business + '</td>\n\
@@ -112,41 +113,52 @@ if ($user_type != 'ADMIN') {
                                     <td>' + value.payout_amount + '</td>\n\
                                     <td>' + value.created_date + '</td>\n\
                                 </tr>';
-                        });
-                        table_data += '</tbody>';
-                        $("#payout_history").html(table_data);
-                        generateDataTable('payout_history');
-                        hideLoader();
-                    }
-                    else {
-                        showSwal('error', 'Error', response.data);
-                        $("#payout_history").html('');
-                        hideLoader();
-                    }
+                                            });
+                                            table_data += '</tbody>';
+                                            $("#payout_history").html(table_data);
+                                            //generateDataTable('payout_history');
+                                            $('#payout_history').DataTable({
+                                                dom: 'Bfrtip',
+                                                buttons: [
+                                                    {
+                                                        extend: 'excelHtml5',
+                                                        title: 'Payout-History-' + Date.now(),
+                                                        text: 'Export to excel'
+                                                    }
+                                                ]
+                                            });
+                                            $('.dt-button').removeClass().addClass('btn btn-gradient-primary');
+                                            hideLoader();
+                                        }
+                                        else {
+                                            showSwal('error', 'Error', response.data);
+                                            $("#payout_history").html('');
+                                            hideLoader();
+                                        }
 
-                }
-            });
-        }
+                                    }
+                                });
+                            }
 
-        function payoutHistoryFilter() {
-            var user_id = 0;
-            var start_date = '';
-            var end_date = '';
-            if ($('#agent_list').val()) {
-                user_id = $('#agent_list').val();
-            }
-            if ($('#start-date').val()) {
-                start_date = $('#start-date').val();
-            }
-            if ($('#end-date').val()) {
-                end_date = $('#end-date').val();
-            }
-            var params = {
-                user_id: user_id,
-                start_date: start_date,
-                end_date: end_date
+                            function payoutHistoryFilter() {
+                                var user_id = 0;
+                                var start_date = '';
+                                var end_date = '';
+                                if ($('#agent_list').val()) {
+                                    user_id = $('#agent_list').val();
+                                }
+                                if ($('#start-date').val()) {
+                                    start_date = $('#start-date').val();
+                                }
+                                if ($('#end-date').val()) {
+                                    end_date = $('#end-date').val();
+                                }
+                                var params = {
+                                    user_id: user_id,
+                                    start_date: start_date,
+                                    end_date: end_date
 
-            };
-            getPayoutHistoryList(params);
-        }
+                                };
+                                getPayoutHistoryList(params);
+                            }
     </script>

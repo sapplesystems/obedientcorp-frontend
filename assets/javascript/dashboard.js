@@ -86,6 +86,8 @@ function getDashboardInfo(user_id) {
                 //due_payment_list
                 var due_payment_list = data.due_payment_list;
                 generateDuePaymentList(due_payment_list);
+
+                setCurrentNextReward(data.current_next_reward);
             }
             hideLoader();
         }
@@ -111,9 +113,9 @@ function generateChart(total_left_business, total_right_business, total_self_bus
         gradientStrokeRed.addColorStop(0, 'rgba(255, 191, 150, 1)');
         gradientStrokeRed.addColorStop(1, 'rgba(254, 112, 150, 1)');
         var gradientLegendRed = 'linear-gradient(to right, rgba(255, 191, 150, 1), rgba(254, 112, 150, 1))';
-console.log(total_left_business);
-console.log(total_right_business);
-console.log(total_self_business);
+        console.log(total_left_business);
+        console.log(total_right_business);
+        console.log(total_self_business);
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -129,7 +131,7 @@ console.log(total_self_business);
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: [10,20,30,40,50,60,70,80,90,120,25,78],//total_left_business
+                                data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 120, 25, 78], //total_left_business
                     },
                     {
                         label: "Right Business",
@@ -141,7 +143,7 @@ console.log(total_self_business);
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: [45,87,96,52,41,6,3,82,24,15,85,174],//total_right_business
+                                data: [45, 87, 96, 52, 41, 6, 3, 82, 24, 15, 85, 174], //total_right_business
                     },
                     {
                         label: "Self Business",
@@ -153,7 +155,7 @@ console.log(total_self_business);
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: [178,45,12,23,56,89,85,52,41,74,96,63],//total_self_business
+                                data: [178, 45, 12, 23, 56, 89, 85, 52, 41, 74, 96, 63], //total_self_business
                     }
                 ]
             },
@@ -247,4 +249,49 @@ function generateDuePaymentList(list) {
     table_data += '</tbody>';
     $("#due_payment_list").html(table_data);
     $("#due_payment_list").DataTable();
+}
+
+function setCurrentNextReward(data) {
+    var title = '';
+    var reward = '';
+    var clearfix = '';
+    var view_more_text_right = 'text-right';
+    if (data.length == 1) {
+        title = '<div class="d-inline-block align-items-center text-muted font-weight-light">\n\
+                    <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
+                    <span>Next Rewards</span>\n\
+                </div>';
+        reward = '<li><span>&#8377; ' + data[0].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[0].photo + '" /></div></li>';
+        clearfix = '<div class="clearfix"></div>';
+        view_more_text_right = '';
+    } else if (data.length == 2) {
+        title = '<div class="d-inline-block align-items-center text-muted font-weight-light ">\n\
+                        <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
+                        <span>Current Rewards</span>\n\
+                    </div>\n\
+                    <div class="d-inline-block align-items-center text-muted font-weight-light float-right">\n\
+                        <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
+                        <span>Next Rewards</span>\n\
+                    </div>';
+        reward = '<li><span>&#8377; ' + data[0].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[0].photo + '" /></div></li>\n\
+                <li><span>&#8377; ' + data[1].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[1].photo + '" /></div></li>';
+    }
+    var reward_html = '<h4 class="card-title ">Rewards</h4>\n\
+                        <div class="d-block mt-4">\n\
+                            ' + title + '\n\
+                        </div>\n\
+                        ' + clearfix + '\n\
+                        <div class="row mt-2">\n\
+                            <div class="col-sm-12">\n\
+                                <ul class="rewards_all">\n\
+                                    ' + reward + '\n\
+                                </ul>\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="row mt-3">\n\
+                            <div class="col-sm-12 ' + view_more_text_right + '">\n\
+                                <a href="rewards" class="btn btn-primary btn-sm">View More</a>\n\
+                            </div>\n\
+                        </div>';
+    $('#current_next_reward').html(reward_html);
 }

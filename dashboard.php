@@ -69,32 +69,7 @@
 
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card ">
-                    <div class="card-body ">
-                        <h4 class="card-title ">Rewards</h4>
-                        <div class="d-block mt-4">
-                            <div class="d-inline-block align-items-center text-muted font-weight-light ">
-                                <i class="mdi mdi-trophy icon-sm mr-2 "></i>
-                                <span>Current Rewards</span>
-                            </div>
-                            <div class="d-inline-block align-items-center text-muted font-weight-light float-right">
-                                <i class="mdi mdi-trophy icon-sm mr-2 "></i>
-                                <span>Next Rewards</span>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-sm-12">
-                                <ul class="rewards_all">
-                                    <li><span>&#8377; 25000 &nbsp;-&nbsp;</span><div><img src="images/img-1.jpg" /><span class="overlay"><span class="text_overlay">Bike</span></span></div></li>
-                                    <li><span>&#8377; 70000 &nbsp;-&nbsp;</span><div><img src="images/img-2.jpg" /><span class="overlay"><span class="text_overlay">Renault Kwid</span></span></div></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-sm-12 text-right">
-                                <a href="rewards" class="btn btn-primary btn-sm">View More</a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="card-body" id="current_next_reward"></div>
                 </div>
             </div>
         </div>

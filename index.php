@@ -940,6 +940,11 @@ include_once 'header_frontend.php';
         <section id="works" class="mb-5">
             <!-- Container for all works section -->
             <div class="container">
+			<div class="row mb-5 custom_img_care">
+			<div class="col-md-4"><img src="images/skincare.jpg" /></div>
+			<div class="col-md-4"><img src="images/healthcare.jpg" /></div>
+			<div class="col-md-4"><img src="images/breakfast.jpg" /></div>
+			</div>
                 <!-- Titles -->
                 <h2 class="uppercase">See our Products.</h2>
                 <!--<h2 class="uppercase light">creative &amp; high quality.</h2>-->

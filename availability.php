@@ -1,6 +1,10 @@
 <?php
 include_once 'common_html.php';
 include_once 'header_frontend.php';
+if(isset($_REQUEST['id']) && isset($_REQUEST['id'])!='')
+{
+    $project_id = $_REQUEST['id'];
+}
 ?>
 
 <?php echo $common['main_container_navigation']; ?>
@@ -26,7 +30,7 @@ include_once 'header_frontend.php';
 <div class="t-center container">
 <div class="row custom_ind">
 	<div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
-	<span class="stay icon-xs bg-success white m-auto"></span> Available</div>
+	<span class="stay icon-xs bg-success white m-auto"></span> Free</div>
 	<div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
 	<span class="stay icon-xs bg-primary white m-auto"></span> Booked</div>
 	<div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
@@ -37,133 +41,8 @@ include_once 'header_frontend.php';
 	<span class="stay icon-xs bg-colored2 white m-auto"></span> Hold</div>
 </div>
  <!-- Row for cols -->
-            <div class="row">
-                <!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-warning white m-auto font-22">
-                        A1
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A2
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A3
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A4
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A5
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A6
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A7
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A8
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A9
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A10
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A11
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A12
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        A13
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-primary white m-auto font-22">
-                        A14
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-primary white m-auto font-22">
-                        A15
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-danger white m-auto font-22">
-                        B1
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        B2
-                    </span>
-                </div>
-                <!-- End Box -->
-				<!-- Box -->
-                <div class="col-md-2 col-sm-6 col-6 sm-mt">
-                    <span class="stay icon-xl radius bg-success white m-auto font-22">
-                        B3
-                    </span>
-                </div>
-                <!-- End Box -->
+            <div class="row" id="plot-availability">
+                <input type="hidden" value="<?php echo $project_id; ?>" id="project-id"/>
 				</div>
 </div>
     <div class="clearfix"></div>
@@ -185,7 +64,7 @@ include_once 'header_frontend.php';
 <!-- MAIN SCRIPTS - Classic scripts for all theme -->
 <script src="js/scripts.js?v=2.3.1"></script>
 <!-- END JS FILES -->
-<script src="assets/javascript/our_products.js"></script>
+<script src="assets/javascript/availability.js"></script>
 
 
 <script type='text/javascript' src='js/site.js'></script>

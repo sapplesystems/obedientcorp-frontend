@@ -57,7 +57,7 @@ $(document).ready(function () {
                         $('#e_wallet_label').css('display', 'block');
                         $('#rupee_sign').html('&#8377;');
                         $('#e-wallet').html(response.data.amount);
-                        showSwal('success', 'Coupon Generated', 'Coupon generated for goods');
+                        showSwal('success', 'Shopping Card Generated', 'Shopping card generated for goods');
                         hideLoader();
                         $('.denomination_quantity').val(0);
                         $('.denomination_total').html('0');
@@ -279,7 +279,7 @@ function changeCouponStatus(e, coupon_id) {
         },
         success: function (response) {
             if (response.status == 'success') {
-                showSwal('success', 'Coupon ' + response.chk_status, response.data);
+                showSwal('success', 'Shopping Card ' + response.chk_status, response.data);
             }
         }
     });
@@ -310,13 +310,13 @@ function extendCouponAvailabilitySubmit(e, coupon_id) {
         },
         success: function (response) {
             if (response.status == 'success') {
-                showSwal('success', 'Coupon Extended ', response.data);
+                showSwal('success', 'Shopping Card Extended ', response.data);
                 $('#coupon_updated_date_' + coupon_id).html(response.updated_date);
                 extendCouponAvailabilityCancel(e, coupon_id);
             }
             else
             {
-                showSwal('error', 'Coupon Not Extended ', 'Coupon not extended');
+                showSwal('error', 'Shopping Card Not Extended ', 'Coupon not extended');
 
             }
         }

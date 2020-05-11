@@ -945,174 +945,7 @@ include_once 'header_frontend.php';
                 <!--<h2 class="uppercase light">creative &amp; high quality.</h2>-->
                 <div class="title-strips-over dark"></div>
                 <h4 class="light">It is a long established fact that a reader will be distracted by the readable is that it has a more-or-less normal. <br> is that it has a more-or-less normal.</h4>
-
-
-                <!-- Nav tabs -->
-                <div class="modern-tabs-container t-left border-gray2 no-border mt-5 custom_tab" style="display:none;">
-                    <ul class="nav nav-tabs modern-tabs font-11 radius bg-white gray8 uppercase bold sub_cat" role="tablist">
-                        <li role="presentation"><a href="#tab1a" aria-controls="tab1a" role="tab" data-toggle="tab" class="bg-colored border-colored white show active">Real Estate</a></li>
-                    </ul>
-                </div>
-
-                <!-- Tab panes -->
-                <div class="tab-content slide-effect t-left custom_tab dynamic_tab" style="display:none;">
-
-                    <!-- Tab -->
-                    <div id="tab1a" role="tabpanel" class="tab-pane active">
-                        <div class="tab-container">
-                            <div class="custom-slider container block-img qdr-controls c-grab" id="real-state" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 1}'></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Tab panes -->
-			<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
-            <span>Real Estate</span>
-			</div>			
-				
-				<div class="row">
-				<div class="col-sm-12">
-				<!-- Slider -->
-					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
-						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
-						</div>
-					</div>
-				</div>
-				</div>
-				<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
-            <span>Product 1</span>
-			</div>			
-				
-				<div class="row">
-				<div class="col-sm-12">
-				<!-- Slider -->
-					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
-						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-					</div>
-				</div>
-				</div>
-				
-				<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
-            <span>Product 2</span>
-			</div>			
-				
-				<div class="row">
-				<div class="col-sm-12">
-				<!-- Slider -->
-					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
-						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-					</div>
-				</div>
-				</div>
-				
-				<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
-            <span>Product 3</span>
-			</div>			
-				
-				<div class="row">
-				<div class="col-sm-12">
-				<!-- Slider -->
-					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
-						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
-						<h4><strong>Lorem Ipsum</strong></h4>
-						<p>Dummy text of the printing and typesetting industry since 1500</p>
-						</div>
-					</div>
-				</div>
-				</div>
+                <div id="project_product_slider"></div>
 
             </div>
         </section>
@@ -1149,6 +982,7 @@ include_once 'header_frontend.php';
 <!-- End Modal 11 -->
 
 <script type='text/javascript' src='js/jquery.js'></script>
+<script src="assets/javascript/dashboard_products.js"></script>
 <script type='text/javascript' src='js/owl.carousel.min.js'></script> 
 <script type='text/javascript' src='js/scrollreveal.min.js'></script> 
 
@@ -1171,13 +1005,12 @@ include_once 'header_frontend.php';
 <script src="js/projectHomeSlider.js"></script>
 <script src="js/sappleslider.multi.js"></script>
 <script type='text/javascript' src='js/site.js'></script>
-<script src="assets/javascript/dashboard_products.js"></script>
 
 <script type="text/javascript">
-$('.featured_project_slide').css('display', 'none');
-$('.featured_project_slide:first').css({'display': 'block', 'opacity': '0'});
-var slider = $('.slider-single').sappleSingleSlider();
-var slider = $('.slider-multi').sappleMultiSlider();
+    $('.featured_project_slide').css('display', 'none');
+    $('.featured_project_slide:first').css({'display': 'block', 'opacity': '0'});
+    var slider = $('.slider-single').sappleSingleSlider();
+    var slider = $('.slider-multi').sappleMultiSlider();
 
 </script>
 <!-- Slider Calling -->
@@ -1327,57 +1160,6 @@ var slider = $('.slider-multi').sappleMultiSlider();
     setTimeout(function () {
         document.getElementById('pop-on-load').click();
     }, 7000);
-</script>
-<script type="text/javascript">
-    //get_landing_image();
-    get_homepage_images();
-
-    function get_homepage_images() {
-        $.ajax({
-            url: base_url + 'home-page-detail',
-            type: 'post',
-            success: function (response) {
-                console.log(response);
-                if (response.status == "success") {
-                    $('#real_estate_locations').attr('data-source', response.data.real_estate_locations);
-                    $('#consumer_goods_products').attr('data-source', response.data.consumer_goods_products);
-                    $('#total_members').attr('data-source', response.data.total_members);
-                    if (response.data.landing_image) {
-                        var landing_path = media_url + 'landing_image/' + response.data.landing_image;
-                        $('#uploded_image').attr('src', landing_path);
-                        $('#uploded_image').css('display', 'block');
-                    } else {
-                        $('#uploded_image').attr('src', 'images/pre.jpg');
-                        $('#uploded_image').css('display', 'block');
-                    }
-                    if (response.data.home_product_ad) {
-                        var path = media_url + 'home_product_ad/' + response.data.home_product_ad;
-                        $('.right-image').attr('data-background', path);
-                        $('.right-image').css('background-image', 'url(' + path + ')');
-                    }
-                    if (response.data.sliders.length > 0)
-                    {
-                        $.each(response.data.sliders, function (key, value)
-                        {
-                            var id = value.id;
-                            $('#slider_image_' + id + ' .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + value.slider_image + ')');
-                            $('#slider_image_' + id + ' .defaultimg').attr('src', media_url + 'sliding_image/' + value.slider_image);
-                            $('#slider_title_' + id).html(value.slider_title);
-                            $('#slider_sub_title_' + id).html(value.slider_sub_title);
-                        });
-                    }
-
-                } else {
-                    console.log("Not any image");
-                }
-            }
-        });
-
-    } //end function for get_landing_image
-	
-	
-	
-	
 </script>
 </body>
 <!-- Body End -->

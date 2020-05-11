@@ -152,6 +152,7 @@ $(document).ready(function () {
             age = new Date(today - dob).getFullYear() - 1970;
         $('#age').val(age);
         $('#age').prop('readOnly', true);
+        $('#age-error').css('display','none');
     });
 
     $(document).on('change', '#date_of_birth_nominee', function () {
@@ -161,6 +162,7 @@ $(document).ready(function () {
             age = new Date(today - dob).getFullYear() - 1970;
         $('#ageN').val(age);
         $('#ageN').prop('readOnly', true);
+        $('ageN-error').css('display','none');
     });
     //end calculate age
 
@@ -785,21 +787,28 @@ function initDatepicker() {
             todayHighlight: true,
             format: 'dd-M-yyyy',
             autoclose: true,
-            endDate: todays_date
-        });
+            endDate: todays_date,
+           
+        }).change(function() {
+            $(this).valid();  // triggers the validation test        
+      });
         $('#date_of_birth_nominee').datepicker({
             enableOnReadonly: true,
             todayHighlight: true,
             format: 'dd-M-yyyy',
             autoclose: true,
             endDate: todays_date
-        });
+        }).change(function() {
+            $(this).valid();  // triggers the validation test        
+      });
         $('#date_of_payment').datepicker({
             enableOnReadonly: true,
             todayHighlight: true,
             format: 'dd-M-yyyy',
             autoclose: true,
-        });
+        }).change(function() {
+            $(this).valid();  // triggers the validation test        
+      });
     }
 }
 

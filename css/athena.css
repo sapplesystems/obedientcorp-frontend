@@ -171,7 +171,7 @@ border: 0;
 /* ATHENA TEAM */
 #team{padding:0 0 50px 0;}
 
-.team-type-3 .member{margin:0 15px; height: auto; }
+.team-type-3 .member{margin:0 0px; height: auto; }
 .team-type-3 .member img{width: 100%; height: auto; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
 .team-type-3 .member:hover img{opacity: 0.35; }
 .team-type-3 .member .member-body{background-color:#000; position: relative; }
@@ -408,6 +408,8 @@ color: #ffffff;
 
 @media only screen and (max-width: 767px){
 	
+	.mt50-m{margin-top:50px !important;}
+	
 .marginLeft100{
 right:50%;
 top:-60px;
@@ -432,6 +434,9 @@ bottom: 20px;
 }
 
 @media only screen and (max-width: 480px){
+	
+	#slider_title_1, #slider_title_2, #slider_title_3, #slider_title_4, #slider_title_5{font-size:22px !important;}
+	
 	ul.product_list li img{height:120px !important;}
 	.cbp img{height:120px !important;}
 	#works .cbp-l-grid-masonry-projects-title{font-size: 14px !important;}
@@ -603,7 +608,7 @@ ul.product_list li .product_info:hover .info_hover a:after {
 	 height: 100%;
 }
 
- #slider_sub_title_1,  #slider_sub_title_2,  #slider_sub_title_3,  #slider_sub_title_4,  #slider_sub_title_5{font-size:14px !important;}
+ #slider_sub_title_1,  #slider_sub_title_2,  #slider_sub_title_3,  #slider_sub_title_4,  #slider_sub_title_5{font-size:12px !important;}
  
  .slide-in-fwd-left {
 	-webkit-animation: slide-in-fwd-left 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -699,8 +704,11 @@ ul.product_list li .product_info:hover .info_hover a:after {
 .minHeight575{min-height:575px;}
 
 .posR{position:relative;}
-ul.subMenu{display: block;position: absolute;width: 100px;text-align: left;}
-ul.subMenu li{padding: 0px !important;margin-bottom: 5px;}
+ul.subMenu{display: block;position: absolute;width: 100px;text-align: left;margin-top:5px; background-color:rgba(0,0,0.7);}
+ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !important;}
 
 
 .subMenu_dotted li{border-radius:0px !important; padding-left:20px !important;}
+.btn-primary{color: #fff !important;
+    background-color: #b66dff !important;
+    border-color: #b66dff !important;}

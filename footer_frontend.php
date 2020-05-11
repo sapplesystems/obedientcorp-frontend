@@ -23,12 +23,12 @@
             <!-- End Column -->
             <!-- Column -->
             <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-mobile">
-                <h6 class="uppercase white extrabold mb-3">T&C</h6>
+                <h6 class="uppercase white extrabold mb-3">TERMS & CONDITIONS</h6>
                 <!-- Clients Slider one - You can find details in footer-client-comments.html file, #post1 div -->
                 <!-- When you edit ajax file, the details will be changed on all website -->
                 <!-- Sub Title -->
                 <!--<h6 class="xxs-mt bold gray8">DOWNLOAD PDF</h6>-->
-                <p class="mini-mt gray8"><a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Trems & Conditions PDF</a> Obedient Infra Development Pvt Ltd</p>
+                <p class="mini-mt gray8"><a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Terms & Conditions PDF</a> Obedient Group</p>
             </div>
             <!-- End Column -->
             <!-- Column -->
@@ -101,3 +101,10 @@
 <script src="assets/vendors/js/vendor.bundle.base.js "></script>
 <script src="assets/vendors/sweetalert/sweetalert.min.js "></script>
 <script src="assets/js/alerts.js"></script>
+<script>
+$(document).ready(function(){
+  $(".posR").click(function(){
+    $(".subMenu").slideToggle("slow");
+  });
+});
+</script>

@@ -937,7 +937,7 @@ include_once 'header_frontend.php';
         </section>
 
         <!-- WORKS -->
-        <section id="works">
+        <section id="works" class="mb-5">
             <!-- Container for all works section -->
             <div class="container">
                 <!-- Titles -->
@@ -946,49 +946,16 @@ include_once 'header_frontend.php';
                 <div class="title-strips-over dark"></div>
                 <h4 class="light">It is a long established fact that a reader will be distracted by the readable is that it has a more-or-less normal. <br> is that it has a more-or-less normal.</h4>
 
-                <!-- Container for works -->
-                <div class="works-container" style="display:none;">
-                    <!-- Container for filters and search -->
-                    <div class="clearfix">
-                        <!-- Filters -->
-                        <div id="project-filters" class="cbp-l-filters-buttonCenter cbp-l-filters-left">
-                            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All <div class="cbp-filter-counter"></div> </div>
-                            <div data-filter=".coding" class="cbp-filter-item"> Real Estate <div class="cbp-filter-counter"></div> </div>
-                            <div data-filter=".design" class="cbp-filter-item"> Daily Use Items <div class="cbp-filter-counter"></div> </div>
-                        </div>
-                        <!-- Search -->
-                        <div class="cbp-search cbp-l-filters-right">
-                            <input id="project-search" type="text" placeholder="Search by title" autocomplete="off" data-search=".cbp-l-grid-masonry-projects-title" class="cbp-search-input">
-                            <div class="cbp-search-icon"></div>
-                            <div class="cbp-search-nothing">No results match for <i>{{query}}</i></div>
-                        </div>
-                    </div>
-                    <!-- End Container for filters and search -->
-
-                    <!-- Container for portfolio items -->
-                    <div id="projects" class="lightbox_selected cbp cbp-l-grid-masonry-projects">
-                        <div class="cbp-wrapper"></div>
-                    </div>
-                    <!-- End container for works -->
-                    <!-- Load more button -->
-                    <div id="more-projects" class="cbp-l-loadMore-button" style="display:none;">
-                        <a href="#" class="cbp-l-loadMore-link" rel="nofollow">
-                            <!--<span class="cbp-l-loadMore-defaultText">LOAD MORE</span>-->
-                            <span class="cbp-l-loadMore-loadingText">LOADING...</span>
-                            <span class="cbp-l-loadMore-noMoreLoading">NO MORE WORKS</span>
-                        </a>
-                    </div>
-                </div>
 
                 <!-- Nav tabs -->
-                <div class="modern-tabs-container t-left border-gray2 no-border mt-5 custom_tab">
+                <div class="modern-tabs-container t-left border-gray2 no-border mt-5 custom_tab" style="display:none;">
                     <ul class="nav nav-tabs modern-tabs font-11 radius bg-white gray8 uppercase bold sub_cat" role="tablist">
                         <li role="presentation"><a href="#tab1a" aria-controls="tab1a" role="tab" data-toggle="tab" class="bg-colored border-colored white show active">Real Estate</a></li>
                     </ul>
                 </div>
 
                 <!-- Tab panes -->
-                <div class="tab-content slide-effect t-left custom_tab dynamic_tab">
+                <div class="tab-content slide-effect t-left custom_tab dynamic_tab" style="display:none;">
 
                     <!-- Tab -->
                     <div id="tab1a" role="tabpanel" class="tab-pane active">
@@ -998,114 +965,157 @@ include_once 'header_frontend.php';
                     </div>
                 </div>
                 <!-- End Tab panes -->
+			<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
+            <span>Real Estate</span>
+			</div>			
+				
+				<div class="row">
+				<div class="col-sm-12">
+				<!-- Slider -->
+					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
+						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						<a href="javascript:void:(0);" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
+            <span>Product 1</span>
+			</div>			
+				
+				<div class="row">
+				<div class="col-sm-12">
+				<!-- Slider -->
+					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
+						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+				<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
+            <span>Product 2</span>
+			</div>			
+				
+				<div class="row">
+				<div class="col-sm-12">
+				<!-- Slider -->
+					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
+						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+				<div class="divider-4 font-22 uppercase container extrabold mt xs-mb">
+            <span>Product 3</span>
+			</div>			
+				
+				<div class="row">
+				<div class="col-sm-12">
+				<!-- Slider -->
+					<div class="custom-slider container block-img qdr-controls c-grab mt-3 custom_tab" data-slick='{"dots": false, "arrows": true, "fade": false, "draggable":true, "slidesToShow": 4, "slidesToScroll": 2}'>
+						<div class="gap-10"><img src="images/blocks/block_01.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_02.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_03.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_04.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_05.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+						<div class="gap-10"><img src="images/blocks/block_06.jpg" alt="">
+						<h4><strong>Lorem Ipsum</strong></h4>
+						<p>Dummy text of the printing and typesetting industry since 1500</p>
+						</div>
+					</div>
+				</div>
+				</div>
 
             </div>
         </section>
-
-        <!-- TEAM SECTION -->
-        <section id="team" class="team-type-3 t-center">
-
-            <!-- Title -->
-            <h1 class="uppercase light">
-                Meet Our <span class="normal">Team</span>
-            </h1>
-            <div class="title-strips-over dark"></div>
-            <!-- Description -->
-            <p class="page-description">
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.
-            </p>
-            <!-- Container -->
-            <div class="container custom-slider mt-70 qdr-controls">
-
-                <!-- Member -->
-                <div class="member animated" data-animation="fadeIn" data-animation-delay="200">
-                    <!-- Container for details -->
-                    <div class="member-body">
-                        <img src="images/cmd.jpg" alt="Chairman">
-                        <!-- Progress Bars -->
-                        <div class="team-progress">
-                            <!-- Bar -->
-                            <div class="progress-bar bg-colored t-left" data-value="72">
-                                <span class="nowrap light white">Chairman</span>
-                            </div>
-                            <!-- Bar -->
-                            <!--<div class="progress-bar bg-colored t-left" data-value="45">
-                                <span class="nowrap light white">Design 45%</span>
-                            </div>-->
-                        </div>
-                        <!-- End Progress Bars -->
-                        <!-- Description -->
-                        <div class="member-description vertical-center">
-                            <p class="fa fa-quote-left icon"></p>
-                            <h2 class="light">Chairman</h2>
-                            <p class="description light">More than two decades of experience in network marketing and more than a decade in Real Estate</p>
-                        </div>
-                    </div>
-                    <!-- End Container for details -->
-                    <!-- Member Name -->
-                    <h2 class="light">Anuj Kumar</h2>
-                </div>
-
-                <!-- Member -->
-                <div class="member animated" data-animation="fadeIn" data-animation-delay="400">
-                    <!-- Container for details -->
-                    <div class="member-body">
-                        <img src="images/md.jpg" alt="Managing Director">
-                        <!-- Progress Bars -->
-                        <div class="team-progress">
-                            <!-- Bar -->
-                            <div class="progress-bar bg-colored t-left" data-value="70">
-                                <span class="nowrap light white">Managing Director (MD)</span>
-                            </div>
-                            <!-- Bar -->
-                            <!-- <div class="progress-bar bg-colored t-left" data-value="65">
-                                 <span class="nowrap light white">Python 65%</span>
-                             </div>-->
-                        </div>
-                        <!-- End Progress Bars -->
-                        <!-- Description -->
-                        <div class="member-description vertical-center">
-                            <p class="fa fa-quote-left icon"></p>
-                            <h2 class="light">Managing Director (MD)</h2>
-                            <p class="description light">More than two Years of experience in network marketing and two years in Real Estate</p>
-                        </div>
-                    </div>
-                    <!-- End Container for details -->
-                    <!-- Member Name -->
-                    <h2 class="light">Poonam Anuj Kr.</h2>
-                </div>
-
-                <!-- Member -->
-                <div class="member animated" data-animation="fadeIn" data-animation-delay="600">
-                    <!-- Container for details -->
-                    <div class="member-body">
-                        <img src="images/founder.jpg" alt="Founder">
-                        <!-- Progress Bars -->
-                        <div class="team-progress">
-                            <!-- Bar -->
-                            <div class="progress-bar bg-colored t-left" data-value="55">
-                                <span class="nowrap light white">Founder Leader</span>
-                            </div>
-                            <!-- Bar -->
-                            <!--<div class="progress-bar bg-colored t-left" data-value="55">
-                                <span class="nowrap light white">Illustrator 55%</span>
-                            </div>-->
-                        </div>
-                        <!-- End Progress Bars -->
-                        <!-- Description -->
-                        <div class="member-description vertical-center">
-                            <p class="fa fa-quote-left icon"></p>
-                            <h2 class="light">Founder, Leader</h2>
-                            <p class="description light">More than a decade of experience in network marketing and five plus years in Real Estate</p>
-                        </div>
-                    </div>
-                    <!-- End Container for details -->
-                    <!-- Member Name -->
-                    <h2 class="light">Abhishek Kumar Singh</h2>
-                </div>
-            </div>
-        </section>
-        <!-- END TEAM -->
 
         <!-- FOOTER -->
         <?php include_once 'footer_frontend.php'; ?>
@@ -1365,11 +1375,7 @@ var slider = $('.slider-multi').sappleMultiSlider();
 
     } //end function for get_landing_image
 	
-	$(document).ready(function(){
-  $(".posR").click(function(){
-    $(".subMenu").slideToggle("slow");
-  });
-});
+	
 	
 	
 </script>

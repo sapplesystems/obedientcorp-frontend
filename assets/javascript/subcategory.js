@@ -12,12 +12,12 @@ $(document).ready(function () {
         enableExif: true,
         viewport: {
             width: 1920,
-            height: 206,
+            height: 306,
             type: 'square' //circle
         },
         boundary: {
             width: 2020,
-            height: 306
+            height: 406
         }
     });
     $('#sub_category_image').on('change', function () {

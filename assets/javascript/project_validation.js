@@ -9,26 +9,26 @@ $(document).ready(function () {
     $image_crop = $('#image_demo').croppie({
         enableExif: true,
         viewport: {
-            width: 200,
-            height: 200,
+            width: 500,
+            height: 500,
             type: 'square' //circle
         },
         boundary: {
-            width: 300,
-            height: 300
+            width: 600,
+            height: 600
         }
     });
 
     $image_crop_map = $('#image_demo_map').croppie({
         enableExif: true,
         viewport: {
-            width: 200,
-            height: 200,
+            width: 500,
+            height: 500,
             type: 'square' //circle
         },
         boundary: {
-            width: 300,
-            height: 300
+            width: 600,
+            height: 600
         }
     });
 

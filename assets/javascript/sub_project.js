@@ -8,26 +8,26 @@ $(document).ready(function () {
     $image_crop = $('#image_demo').croppie({
         enableExif: true,
         viewport: {
-            width: 200,
-            height: 200,
+            width: 500,
+            height: 500,
             type: 'square' //circle
         },
         boundary: {
-            width: 300,
-            height: 300
+            width: 600,
+            height: 600
         }
     });
 
     $image_crop_map = $('#image_demo_map').croppie({
         enableExif: true,
         viewport: {
-            width: 200,
-            height: 200,
+            width: 500,
+            height: 500,
             type: 'square' //circle
         },
         boundary: {
-            width: 300,
-            height: 300
+            width: 600,
+            height: 600
         }
     });
 
@@ -83,7 +83,7 @@ $(document).ready(function () {
             $('#uploadmapModal').modal('hide');
         })
     });
-    
+
     $(document).on('click', '.close_photo_image', function () {
         $('#photo').val('');
         $('.file-upload-info').val('');
@@ -197,7 +197,7 @@ function getProjectList() {
         success: function (response) {
             var option = '<option value="">Select Project</option>';
             if (response.status == "success") {
-                if(response.data.length!= 0)
+                if (response.data.length != 0)
                 {
                     $.each(response.data, function (key, value) {
                         if (value.parent_id == 0) {
@@ -211,7 +211,7 @@ function getProjectList() {
                 {
                     hideLoader();
                 }
-                
+
             }
         }
     });

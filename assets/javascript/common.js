@@ -27,6 +27,12 @@ $(document).ready(function () {
             endDate: todays_date,
             //defaultViewDate: new Date()
         });
+        $('#dob').change(function () {
+            $(this).valid();  // triggers the validation test        
+        });
+        $('#ndob').change(function() {
+            $(this).valid();  // triggers the validation test        
+      });
     }
 
     $.post(base_url + 'state-city-list', {}, function (resp) {
@@ -99,8 +105,7 @@ $(document).ready(function () {
                             $('#adhar').val(kyc.adhar);
                             $('#adhar').prop('disabled', true);
                         }
-                        if(profile.email)
-                        {
+                        if (profile.email) {
                             $('#email').val(profile.email);
                             $('#email').prop('disabled', true);
                         }

@@ -408,6 +408,8 @@ color: #ffffff;
 
 @media only screen and (max-width: 767px){
 	
+	.custom_ind .sm-mt{margin-top:20px !important;}
+	
 	.mt50-m{margin-top:50px !important;}
 	
 .marginLeft100{
@@ -712,3 +714,5 @@ ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !import
 .btn-primary{color: #fff !important;
     background-color: #b66dff !important;
     border-color: #b66dff !important;}
+	
+	.custom_ind .icon-xs{height:10px !important; width:10px !important;}

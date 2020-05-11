@@ -11,13 +11,13 @@ $(document).ready(function () {
     $image_crop = $('#image_demo').croppie({
         enableExif: true,
         viewport: {
-            width: 200,
-            height: 200,
+            width: 1920,
+            height: 206,
             type: 'square' //circle
         },
         boundary: {
-            width: 300,
-            height: 300
+            width: 2020,
+            height: 306
         }
     });
     $('#sub_category_image').on('change', function () {

@@ -68,16 +68,19 @@ function getDashboardInfo(user_id) {
                 var total_right_business = [];
                 var total_self_business = [];
                 $.each(month_wise_data, function (key, value) {
-                    total_left_business.push(Number(value.total_left_business));
-                    total_right_business.push(Number(value.total_right_business));
-                    total_self_business.push(Number(value.total_self_business));
+                    var tlb = (value.total_left_business / 100000);
+                    var trb = (value.total_right_business / 100000);
+                    var tsb = (value.total_self_business / 100000);
+                    total_left_business.push(Number(tlb.toFixed(2)));
+                    total_right_business.push(Number(trb.toFixed(2)));
+                    total_self_business.push(Number(tsb.toFixed(2)));
                 });
-                var sum_total_left_business = total_left_business.reduce(function (a, b) {
+                /*var sum_total_left_business = total_left_business.reduce(function (a, b) {
                     return a + b;
                 });
                 var sum_total_right_business = total_right_business.reduce(function (a, b) {
                     return a + b;
-                });
+                });*/
                 //localStorage.setItem("agent_total_business", (sum_total_left_business + sum_total_right_business));
                 localStorage.setItem("agent_total_business", (Number(data.total_left_business) + Number(data.total_right_business)));
                 checkUserActiveInactive();
@@ -131,7 +134,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 120, 25, 78], //total_left_business
+                                data: total_left_business
                     },
                     {
                         label: "Right Business",
@@ -143,7 +146,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: [45, 87, 96, 52, 41, 6, 3, 82, 24, 15, 85, 174], //total_right_business
+                                data: total_right_business
                     },
                     {
                         label: "Self Business",
@@ -155,7 +158,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: [178, 45, 12, 23, 56, 89, 85, 52, 41, 74, 96, 63], //total_self_business
+                                data: total_self_business
                     }
                 ]
             },
@@ -183,7 +186,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                                 display: false,
                                 min: 0,
                                 stepSize: 20,
-                                max: 80
+                                max: 5000
                             },
                             gridLines: {
                                 drawBorder: false,

@@ -3,11 +3,13 @@ var photo_image = '';
 $(document).ready(function () {
 
     $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
+        $(this).valid();  // triggers the validation test 
         checkStartEndDate();
     });
 
     $(document).on('change', '#end-date', function () {//$("#end-date").change(function () {
         checkStartEndDate();
+        $(this).valid();
     });
      //crop image code
      $image_crop = $('#image_demo').croppie({

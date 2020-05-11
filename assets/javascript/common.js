@@ -35,6 +35,17 @@ $(document).ready(function () {
       });
     }
 
+    //get age 
+    $(document).on('change', '#ndob', function() {
+        var value = $(this).val();
+        var today = new Date(),
+            dob = new Date(value),
+            age = new Date(today - dob).getFullYear() - 1970;
+        $('#nominee_age').val(age);
+        $('#nominee_age').prop('readOnly', true);
+        $('#nominee_age-error').css('display','none');
+    });
+
     $.post(base_url + 'state-city-list', {}, function (resp) {
         showLoader();
         if (resp.status == 'success') {
@@ -453,6 +464,7 @@ function setKYCDetail(kyc) {
 }
 
 function setNomineeDetails(nominee) {
+    console.log(nominee);
     $('#nominee_id').val(nominee.id);
     if (nominee.nominee_name != null && nominee.nominee_name) {
         $('#nominee_name').val(nominee.nominee_name);

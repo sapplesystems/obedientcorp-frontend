@@ -2,6 +2,9 @@ $(function () {
     $(document).on('click', '#make_request_to_wallet', function () {
         $('#makeRequestWallet').modal();
     });
+    $('#upload-image-wallet').change(function() {
+        $(this).valid();  // triggers the validation test        
+  });
 
     //form submit for wllet 
     $("#payment-form-wallet").submit(function (e) {

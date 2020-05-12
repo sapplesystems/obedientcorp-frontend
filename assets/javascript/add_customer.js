@@ -162,7 +162,7 @@ $(document).ready(function () {
             age = new Date(today - dob).getFullYear() - 1970;
         $('#ageN').val(age);
         $('#ageN').prop('readOnly', true);
-        $('ageN-error').css('display','none');
+        $('#ageN-error').css('display','none');
     });
     //end calculate age
 

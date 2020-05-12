@@ -324,27 +324,27 @@ if ($_REQUEST) {
                                                 <form id="bank_update" name="bank_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Payee Name</label>
+                                                            <label class="col-sm-2 col-form-label">Payee Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="payee_name" name="payee_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Bank Name</label>
+                                                            <label class="col-sm-2 col-form-label">Bank Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="bank_name" name="bank_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Account Number</label>
+                                                            <label class="col-sm-2 col-form-label">Account Number <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="account_number" name="account_number" onkeypress="return isNumberKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Branch</label>
+                                                            <label class="col-sm-2 col-form-label">Branch <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="branch" name="branch">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">IFSC Code</label>
+                                                            <label class="col-sm-2 col-form-label">IFSC Code <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="ifsc_code" name="ifsc_code">
                                                             </div>

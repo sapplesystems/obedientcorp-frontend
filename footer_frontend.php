@@ -28,7 +28,7 @@
                 <!-- When you edit ajax file, the details will be changed on all website -->
                 <!-- Sub Title -->
                 <!--<h6 class="xxs-mt bold gray8">DOWNLOAD PDF</h6>-->
-                <p class="mini-mt gray8"><a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Terms & Conditions PDF</a> Obedient Group</p>
+                <p class="mini-mt gray8"><a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Terms & Conditions PDF</a></p>
             </div>
             <!-- End Column -->
             <!-- Column -->
@@ -86,7 +86,7 @@
         <textarea name="message" id="message_id" required placeholder="Message"></textarea>
         <button type="submit" id="submit_form" class="bg-colored white qdr-hover-6 uppercase extrabold">Send</button>
     </form>
-    <a href="#" class="inline-block colored-hover uppercase extrabold h6 no-pm qdr-hover-5">Or see contact page</a>
+    <a href="contact-us" class="inline-block colored-hover uppercase extrabold h6 no-pm qdr-hover-5">Or see contact page</a>
 </div>
 <!-- Contact us button -->
 <a href="#" class="drop-msg click-effect dark-effect user-login"><i class="fa fa-envelope-o"></i></a>

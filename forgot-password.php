@@ -51,7 +51,7 @@ include_once 'common_html.php';
                                                     <i class="mdi mdi-email menu-icon text-primary"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-lg border-left-0" id="enter_email" name="enter_email" placeholder="Type your email">
+                                            <input type="text" class="form-control form-control-lg border-left-0" id="enter_email" name="enter_email" placeholder="Type your User ID">
                                         </div>
                                     </div>
                                     <div class="my-3">
@@ -62,7 +62,7 @@ include_once 'common_html.php';
                         </div>
                         <div class="col-lg-6 register-half-bg d-flex flex-row bgImageNone">
                             <p class="text-white font-weight-medium text-center flex-grow align-self-end">
-                                Copyright © 2020 Obedient Infra Development Pvt. Ltd. All rights reserved. <a href="https://obedientcorp.com/" target="_blank ">OBEDIENT GROUP</a>
+                                Copyright © 2020 Obedient Group. All rights reserved. <a href="https://obedientcorp.com/" target="_blank ">OBEDIENT GROUP</a>
                             </p>
                         </div>
                     </div>

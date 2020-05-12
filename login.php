@@ -52,7 +52,7 @@ include_once 'common_html.php';
                                                     <i class="mdi mdi-account-outline text-primary"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="UserName">
+                                            <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="User Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -71,7 +71,7 @@ include_once 'common_html.php';
                                             <label class="form-check-label text-muted">
                                                 <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                                         </div>
-                                        <a href="forgot-password" class="auth-link">Forgot password?</a>
+                                        <a href="forgot-password" class="auth-link">Forgot Password?</a>
                                     </div>
                                     <div class="my-3">
                                         <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login">LOGIN</button>

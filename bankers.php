@@ -12,45 +12,59 @@ echo $common['dotted_navigation'];
 
 </section>
 <!-- END CONTENT -->
-
+ 
 <!-- Boxes -->
-<section id="one" class="py">
+<section id="one" class="py minHeight575">
 
-    <!-- Divider -->
+    <!-- Divider --> 
     <div class="t-center">
         <h1 class="extrabold-title">Our Bankers</h1>
         <div class="title-strips-over dark"></div>
     </div>
     <!-- BOXES -->
-    <div class="t-center container qdr-col-3" >
+    <div class="t-center container qdr-col-3 bank_logos">
         <!-- Box -->
-        <div class="qdr-hover-container">
+        <div class="qdr-hover-container slide-in-fwd-left">
             <!-- Icon -->
-            <div class="mb-5">
-                <img src="images/Kotak.jpg" />
-            </div>
-            <p class="gray6">Obedient Infra Development Pvt. Ltd.</p>
-            <p class="xxs-mt gray6 font15">Account No.- 2312903536<br>IFSC Code : KKBK0005077<br>Branch - Lowther Road, Prayagraj.</p>
-        </div>
-        <!-- End Box -->
-        <!-- Box -->
-        <div class="qdr-hover-container">
-            <!-- Icon -->
-            <div class="mb-5">
+            <div class="mb-4">
                 <img src="images/canara.png" />
             </div>
-            <p class="gray6">Obedient Infra Development Pvt. Ltd.</p>
-            <p class="xxs-mt gray6 font15">Account No.- 0627214000013<br>IFSC Code : CNRB0000627<br>Branch - Civil Lines, Prayagraj.</p>
+            <p class="gray9"><strong>Obedient Infra Development Pvt. Ltd.</strong></p>
+            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 0627214000013<br><strong>IFSC Code</strong> : CNRB0000627<br><strong>Branch</strong> - Civil Lines, Prayagraj.</p>
+        </div>
+        <!-- End Box -->
+		  <!-- Box -->
+        <div class="qdr-hover-container slide-in-fwd-top">
+            <!-- Icon -->
+            <div class="mb-4">
+                <img src="images/canara.png" />
+            </div>
+            <p class="gray9"><strong>Obedient Marketing Universal Pvt. Ltd.</strong></p>
+            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 0627214000018<br><strong>IFSC Code</strong> : CNRB0000627<br><strong>Branch</strong> - Civil Lines Prayagraj.</p>
         </div>
         <!-- End Box -->
         <!-- Box -->
-        <div class="qdr-hover-container">
+        <div class="qdr-hover-container slide-in-fwd-right">
             <!-- Icon -->
-            <div class="mb-5">
+            <div class="mb-4">
                 <img src="images/yes.png" />
             </div>
-            <p class="gray6">Obedient Infra Development Pvt. Ltd.</p>
-            <p class="xxs-mt gray6 font15">Account No.- 011663300001143<br>IFSC Code : YESB0000116<br>Branch - Civil Lines Prayagraj.</p>
+            <p class="gray9"><strong>Obedient Infra Development Pvt. Ltd.</strong></p>
+            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 011663300001143<br><strong>IFSC Code</strong> : YESB0000116<br><strong>Branch</strong> - Civil Lines Prayagraj.</p>
+        </div>
+        <!-- End Box -->
+		 <!-- Box -->
+        <div class="qdr-hover-container mt-3">
+		</div>
+		<!-- End Box -->
+		 <!-- Box -->
+        <div class="qdr-hover-container slide-in-fwd-bottom mt-3">
+            <!-- Icon -->
+            <div class="mb-4">
+                <img src="images/Kotak.jpg" />
+            </div>
+            <p class="gray9"><strong>Obedient Infra Development Pvt. Ltd.</strong></p>
+            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 2312903536<br><strong>IFSC Code</strong> : KKBK0005077<br><strong>Branch</strong> - Lowther Road, Prayagraj.</p>
         </div>
         <!-- End Box -->
     </div>

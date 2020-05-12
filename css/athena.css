@@ -627,6 +627,11 @@ ul.product_list li .product_info:hover .info_hover a:after {
 	        animation: slide-in-fwd-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.slide-in-fwd-bottom {
+	-webkit-animation: slide-in-fwd-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-fwd-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 
 
 @-webkit-keyframes slide-in-fwd-left {
@@ -703,6 +708,32 @@ ul.product_list li .product_info:hover .info_hover a:after {
   }
 }
 
+@-webkit-keyframes slide-in-fwd-bottom {
+  0% {
+    -webkit-transform: translateZ(-1400px) translateY(800px);
+            transform: translateZ(-1400px) translateY(800px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-bottom {
+  0% {
+    -webkit-transform: translateZ(-1400px) translateY(800px);
+            transform: translateZ(-1400px) translateY(800px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+
 .minHeight575{min-height:575px;}
 
 .posR{position:relative;}
@@ -718,5 +749,5 @@ ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !import
 	.custom_ind .icon-xs{height:10px !important; width:10px !important;}
 	.custom_img_care img{max-width:100%;}
         .category_image{max-width:100%;}
-    #plot-availability .icon-xl{width: 100%;line-height: initial;padding-top: 18px;font-size: 20px;}
-    #plot-availability .icon-xl span{display: block;font-size: 16px;font-weight: 100;margin-top: 5px;}
+		#plot-availability .icon-xl{width:100%;}
+.bank_logos img{height:100px;}		

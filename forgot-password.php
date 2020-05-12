@@ -42,7 +42,7 @@ include_once 'common_html.php';
                                     <a href="<?php echo $home_url; ?>"><img src="assets/images/logo.png" alt="logo"></a>
                                 </div>
                                 <h4>Forgot Password</h4>
-                                <h6 class="font-weight-light">Enter your email and we will send you a reset.</h6>
+                                <h6 class="font-weight-light">Enter your user id and we will send you a reset link.</h6>
                                 <form class="pt-3" id="forgetpassword_form" name="forgetpassword_form">
                                     <div class="form-group">
                                         <div class="input-group">
@@ -51,7 +51,7 @@ include_once 'common_html.php';
                                                     <i class="mdi mdi-email menu-icon text-primary"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-lg border-left-0" id="enter_email" name="enter_email" placeholder="Type your User ID">
+                                            <input type="text" class="form-control form-control-lg border-left-0" id="enter_email" name="enter_email" placeholder="Type Your User Id">
                                         </div>
                                     </div>
                                     <div class="my-3">
@@ -107,7 +107,7 @@ include_once 'common_html.php';
             $.ajax({
                 url: base_url + 'forget-password',
                 type: 'post',
-                data: {email: $('#enter_email').val()},
+                data: {username: $('#enter_email').val()},
                 success: function (response) {
                     if (response.status == "success") {
                         showSwal('success', 'Success', 'Mail sent successfully.');

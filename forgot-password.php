@@ -51,7 +51,7 @@ include_once 'common_html.php';
                                                     <i class="mdi mdi-email menu-icon text-primary"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-lg border-left-0" id="enter_email" name="enter_email" placeholder="Type Your User Id">
+                                            <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="Type Your User Id">
                                         </div>
                                     </div>
                                     <div class="my-3">
@@ -100,21 +100,34 @@ include_once 'common_html.php';
         e.preventDefault();
         $("#forgetpassword_form").validate({
             rules: {
-                enter_email: "required",
+                username: "required",
             }
         });
-        if ($("#enter_email").valid()) {
+        if ($("#username").valid()) {
             $.ajax({
-                url: base_url + 'forget-password',
+                url: base_url + 'get-email-username',
                 type: 'post',
-                data: {username: $('#enter_email').val()},
+                data: {username: $('#username').val()},
                 success: function (response) {
                     if (response.status == "success") {
-                        showSwal('success', 'Success', 'Mail sent successfully.');
-                        document.getElementById('forgetpassword_form').reset();
+                        $.ajax({
+                            url: base_url + 'forget-password',
+                            type: 'post',
+                            data: {email: response.data},
+                            success: function (response) {
+                                if (response.status == "success") {
+                                    showSwal('success', 'Success', 'Mail sent successfully.');
+                                    document.getElementById('forgetpassword_form').reset();
+                                }
+                                else {
+                                    showSwal('error', 'Failed', 'Wrong Email.');
+                                }
+
+                            }
+                        });
                     }
                     else {
-                        showSwal('error', 'Failed', 'Wrong Email.');
+                        showSwal('error', 'Failed', response.data);
                     }
 
                 }

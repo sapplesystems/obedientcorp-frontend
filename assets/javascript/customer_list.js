@@ -21,7 +21,6 @@ function getCustomersList(params) {
                                     <tr>\n\
                                         <th>Customer Name</th>\n\
                                         <th>Agent Name</th>\n\
-                                        <th>Customer Mobile</th>\n\
                                         <th>Customer Email</th>\n\
                                     </tr>\n\
                                 </thead>';
@@ -30,7 +29,6 @@ function getCustomersList(params) {
                     table_data += '<tr id="tr_' + value.id + '">\n\
                                     <td>' + value.name + '(' + value.username + ')</td>\n\
                                     <td>' + value.agent_display_name + '</td>\n\
-                                    <td>' + value.mobile + '</td>\n\
                                     <td>' + value.email + '</td>\n\
                                 </tr>';
                 });

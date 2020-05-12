@@ -27,18 +27,7 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['id']) != '') {
         <div class="title-strips-over dark"></div>
     </div>
     <div class="t-center container">
-        <div class="row custom_ind">
-            <div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
-                <span class="stay icon-xs bg-success white m-auto"></span> Free</div>
-            <div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
-                <span class="stay icon-xs bg-primary white m-auto"></span> Booked</div>
-            <div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
-                <span class="stay icon-xs bg-warning white m-auto"></span> Registry</div>
-            <div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
-                <span class="stay icon-xs bg-danger white m-auto"></span> Alloted</div>
-            <div class="col-md-1 col-sm-6 col-6 sm-mt font-14 pl-1 pr-1">
-                <span class="stay icon-xs bg-colored2 white m-auto"></span> Hold</div>
-        </div>
+	<div class="divider-4 font-22 uppercase container extrabold mt-5"><span id="project-name"></span></div>
         <!-- Row for cols -->
         <div class="row" id="plot-availability">
             <input type="hidden" value="<?php echo $project_id; ?>" id="project-id"/>

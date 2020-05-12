@@ -718,3 +718,5 @@ ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !import
 	.custom_ind .icon-xs{height:10px !important; width:10px !important;}
 	.custom_img_care img{max-width:100%;}
         .category_image{max-width:100%;}
+    #plot-availability .icon-xl{width: 100%;line-height: initial;padding-top: 18px;font-size: 20px;}
+    #plot-availability .icon-xl span{display: block;font-size: 16px;font-weight: 100;margin-top: 5px;}

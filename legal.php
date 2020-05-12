@@ -23,8 +23,8 @@ echo $common['dotted_navigation'];
         <!-- Col -->
         <div class="qdr-col-5 gap-5 lightbox_gallery">
             <div>
-                <a href="images/legal-1.jpg" class="thumbnail-img block-img">
-                    <img src="images/legal-1.jpg" alt="">
+                <a href="images/CERTIFICATE-OF-INCORPORATION-pdf.jpg" class="thumbnail-img block-img">
+                    <img src="images/CERTIFICATE-OF-INCORPORATION-pdf.jpg" alt="">
                     <div class="img-overlay"><div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div></div>
                 </a>
             </div>

@@ -20,13 +20,8 @@ include_once 'header_frontend.php';
     <!-- Filters -->
     <div class="row">
         <div class="col-sm-4">
-            <select class="form-control" id="categories">
+            <select class="form-control" id="sub_categories">
                 <option value="">Select Category</option>
-            </select>
-        </div>
-        <div class="col-sm-4">
-            <select id="sub_categories" class="form-control" style="display: none;">
-                <option value="">Select Sub-Category</option>
             </select>
         </div>
         <div class="col-sm-4"></div>

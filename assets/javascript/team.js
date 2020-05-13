@@ -11,6 +11,7 @@ $(document).ready(function () {
 });
 
 function getTeamMemberList(user_id, node) {
+    var table_id = 'table-' + node;
     showLoader();
     $.ajax({
         method: "POST",
@@ -26,10 +27,11 @@ function getTeamMemberList(user_id, node) {
                 var team_html = '';
                 var team_list_html = '<div class="media">\n\
                                         <div class="col-md-12 mb-3 border p-0">\n\
-                                            <table class="table table-striped">\n\
+                                            <table class="table table-striped" id="' + table_id + '">\n\
                                                 <thead>\n\
                                                     <tr>\n\
                                                         <th> User </th>\n\
+                                                        <th> User Id </th>\n\
                                                         <th> Name </th>\n\
                                                         <th> Left Business </th>\n\
                                                         <th> Right Business </th>\n\
@@ -43,9 +45,9 @@ function getTeamMemberList(user_id, node) {
                     total_business = (Number(member.total_left_business) + Number(member.total_right_business));
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
-                    }else if (total_business > 0) {
+                    } else if (total_business > 0) {
                         is_active_icon_class = 'bg-warning';
-                    }else{
+                    } else {
                         is_active_icon_class = 'bg-danger';
                     }
                     var photo_src = media_url + 'profile_photo/default-img.png';
@@ -123,6 +125,7 @@ function getTeamMemberList(user_id, node) {
                                                         <td class="py-1">\n\
                                                             <img src="' + photo_src + '" alt="image" />\n\
                                                         </td>\n\
+                                                        <td> ' + member.username + '</td>\n\
                                                         <td> ' + member.associate_name + '</td>\n\
                                                         <td> ' + member.total_left_business + ' </td>\n\
                                                         <td> ' + member.total_right_business + ' </td>\n\
@@ -134,6 +137,7 @@ function getTeamMemberList(user_id, node) {
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
+                generateDataTable(table_id);
                 hideLoader();
             } else {
                 hideLoader();
@@ -146,6 +150,7 @@ function getTeamMemberList(user_id, node) {
 }
 
 function getReferralTeamMemberList(user_id, node) {
+    var table_id = 'table2-' + node;
     showLoader();
     $.ajax({
         method: "POST",
@@ -162,10 +167,11 @@ function getReferralTeamMemberList(user_id, node) {
                 var is_active_icon_class = '';
                 var team_list_html = '<div class="media">\n\
                                         <div class="col-md-12 mb-3 border p-0">\n\
-                                            <table class="table table-striped">\n\
+                                            <table class="table table-striped" id="' + table_id + '">\n\
                                                 <thead>\n\
                                                     <tr>\n\
                                                         <th> User </th>\n\
+                                                        <th> User Id </th>\n\
                                                         <th> Name </th>\n\
                                                         <th> Left Business </th>\n\
                                                         <th> Right Business </th>\n\
@@ -179,9 +185,9 @@ function getReferralTeamMemberList(user_id, node) {
                     total_business = (Number(member.total_left_business) + Number(member.total_right_business));
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
-                    }else if (total_business > 0) {
+                    } else if (total_business > 0) {
                         is_active_icon_class = 'bg-warning';
-                    }else{
+                    } else {
                         is_active_icon_class = 'bg-danger';
                     }
                     var photo_src = media_url + 'profile_photo/default-img.png';
@@ -259,6 +265,7 @@ function getReferralTeamMemberList(user_id, node) {
                                                         <td class="py-1">\n\
                                                             <img src="' + photo_src + '" alt="image" />\n\
                                                         </td>\n\
+                                                        <td> ' + member.username + '</td>\n\
                                                         <td> ' + member.associate_name + '</td>\n\
                                                         <td> ' + member.total_left_business + ' </td>\n\
                                                         <td> ' + member.total_right_business + ' </td>\n\
@@ -270,6 +277,7 @@ function getReferralTeamMemberList(user_id, node) {
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
+                generateDataTable(table_id);
                 hideLoader();
             } else {
                 hideLoader();

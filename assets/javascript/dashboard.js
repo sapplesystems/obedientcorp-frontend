@@ -262,7 +262,7 @@ function setCurrentNextReward(data) {
     if (data.length == 1) {
         title = '<div class="d-inline-block align-items-center text-muted font-weight-light">\n\
                     <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
-                    <span>Next Rewards</span>\n\
+                    <span>Next Reward</span>\n\
                 </div>';
         reward = '<li><span>&#8377; ' + data[0].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[0].photo + '" /></div></li>';
         clearfix = '<div class="clearfix"></div>';

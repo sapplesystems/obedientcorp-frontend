@@ -28,7 +28,7 @@
                 <!-- When you edit ajax file, the details will be changed on all website -->
                 <!-- Sub Title -->
                 <!--<h6 class="xxs-mt bold gray8">DOWNLOAD PDF</h6>-->
-                <p class="mini-mt gray8"><a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Terms & Conditions PDF</a></p>
+                <p class="mini-mt">Terms & Conditions PDF<!--<a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Terms & Conditions PDF</a>--></p>
             </div>
             <!-- End Column -->
             <!-- Column -->
@@ -46,7 +46,7 @@
                 </div>-->
                 <!-- End Form -->
 				<!--<h6 class="xs-mt bold gray8"><i class="fa fa-envelope mini-mr"></i>CONTACT US</h6>-->
-                <p class="mini-mt">Ph: <a href="tel:070077 09339" class="underline-hover colored-hover">070077 09339</a></p>
+                <!--<p class="mini-mt">Ph: <a href="tel:070077 09339" class="underline-hover colored-hover">070077 09339</a></p>-->
                 <a href="mailto:query@obedientcorp.com" class="underline-hover colored-hover"> query@obedientcorp.com</a>
                 <h6 class="xs-mt xxs-mb bold gray8">FOLLOW US</h6>
                 <a href="https://facebook.com/Obedientinfradevelopment/" class="icon-xs radius bg-dark facebook white-hover slow1"><i class="fa fa-facebook"></i></a>
@@ -69,7 +69,7 @@
                 </div>
                 <!-- Bottom Note -->
                 <div class="col-sm-6 col-xs-12 table-im t-right height-auto-mobile t-center-xs xxs-mt-mobile">
-                    <p class="v-middle">&copy; 2020 Obedient. All rights reserved | Design by <a href="http://obedientcorp.com">Obedient Group.</a></p>
+                    <p class="v-middle">&copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by <a href="http://obedientcorp.com">Obedient Group.</a></p>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
         <textarea name="message" id="message_id" required placeholder="Message"></textarea>
         <button type="submit" id="submit_form" class="bg-colored white qdr-hover-6 uppercase extrabold">Send</button>
     </form>
-    <a href="contact-us" class="inline-block colored-hover uppercase extrabold h6 no-pm qdr-hover-5">Or see contact page</a>
+    <a href="contact-us.php" class="inline-block colored-hover uppercase extrabold h6 no-pm qdr-hover-5">Or see contact page</a>
 </div>
 <!-- Contact us button -->
 <a href="#" class="drop-msg click-effect dark-effect user-login"><i class="fa fa-envelope-o"></i></a>

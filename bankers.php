@@ -23,24 +23,24 @@ echo $common['dotted_navigation'];
     </div>
     <!-- BOXES -->
     <div class="t-center container qdr-col-3 bank_logos">
-        <!-- Box -->
+	<!-- Box -->
         <div class="qdr-hover-container slide-in-fwd-left">
-            <!-- Icon -->
-            <div class="mb-4">
-                <img src="images/canara.png" />
-            </div>
-            <p class="gray9"><strong>Obedient Infra Development Pvt. Ltd.</strong></p>
-            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 0627214000013<br><strong>IFSC Code</strong> : CNRB0000627<br><strong>Branch</strong> - Civil Lines, Prayagraj.</p>
-        </div>
-        <!-- End Box -->
-		  <!-- Box -->
-        <div class="qdr-hover-container slide-in-fwd-top">
             <!-- Icon -->
             <div class="mb-4">
                 <img src="images/canara.png" />
             </div>
             <p class="gray9"><strong>Obedient Marketing Universal Pvt. Ltd.</strong></p>
             <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 0627214000018<br><strong>IFSC Code</strong> : CNRB0000627<br><strong>Branch</strong> - Civil Lines Prayagraj.</p>
+        </div>
+        <!-- End Box -->
+        <!-- Box -->
+        <div class="qdr-hover-container slide-in-fwd-top">
+            <!-- Icon -->
+            <div class="mb-4">
+                <img src="images/canara.png" />
+            </div>
+            <p class="gray9"><strong>Obedient Infra Development Pvt. Ltd.</strong></p>
+            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 0627214000013<br><strong>IFSC Code</strong> : CNRB0000627<br><strong>Branch</strong> - Civil Lines, Prayagraj.</p>
         </div>
         <!-- End Box -->
         <!-- Box -->

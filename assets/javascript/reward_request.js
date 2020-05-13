@@ -34,7 +34,7 @@ function get_reward_request_list(agent_id, status) {
                                     <tr>\n\
                                         <th> &nbsp; </th>\n\
                                         <th> Amount </th>\n\
-                                        <th> Agent </th>\n\
+                                        <th> Associate </th>\n\
                                         <th> Date </th>\n\
                                         <th> Status </th>\n\
                                         ' + action_th + '\n\

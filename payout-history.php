@@ -11,7 +11,7 @@ if ($user_type != 'ADMIN') {
             <div class="col-12">
                 <div class="form-group row">
                     <div class="col-sm-3">
-                        <label>Agent ID</label>
+                        <label>Associate ID</label>
                         <select class="form-control" id="agent_list"></select>
                     </div>
                     <div class="col-sm-3">

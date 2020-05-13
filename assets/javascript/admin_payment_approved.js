@@ -106,7 +106,7 @@ function setPendingListTab(response, agent_id) {
                             <tr>\n\
                                 <th> Type </th>\n\
                                 <th> Amount </th>\n\
-                                <th> Agent </th>\n\
+                                <th> Associate  </th>\n\
                                 <th> Date Requested </th>\n\
                                 <th> Payment Mode </th>\n\
                                 <th> Payment Type </th>\n\
@@ -141,7 +141,7 @@ function setApprovedListTab(response, agent_id) {
                             <tr>\n\
                                 <th> Type </th>\n\
                                 <th> Amount </th>\n\
-                                <th> Agent </th>\n\
+                                <th> Associate  </th>\n\
                                 <th> Date Requested </th>\n\
                                 <th> Payment Mode </th>\n\
                                 <th> Payment Type </th>\n\
@@ -174,7 +174,7 @@ function setRejectedListTab(response, agent_id) {
                         <tr>\n\
                             <th> Type </th>\n\
                             <th> Amount </th>\n\
-                            <th> Agent </th>\n\
+                            <th> Associate  </th>\n\
                             <th> Date Requested </th>\n\
                             <th> Payment Mode </th>\n\
                             <th> Payment Type </th>\n\

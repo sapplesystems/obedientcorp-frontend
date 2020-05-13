@@ -96,6 +96,7 @@ $(document).ready(function () {
                         if($('#product_id').val() == '')
                         {
                             resetForm();
+
                         }
                     }
                 }
@@ -301,6 +302,7 @@ function resetForm() {
     document.getElementById('create_product').reset();
     $('#product_id').val('');
     $('#categories').val('');
-    $('#subcategory').val('');
+    $('#subcategory_div').css('display', 'none');
+    $('#subcategory').html('');
     $(".uploaded").children(".uploaded-image").remove();
 }

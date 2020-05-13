@@ -20,7 +20,7 @@ function getCustomersList(params) {
                 var table_data = '<thead>\n\
                                     <tr>\n\
                                         <th>Customer Name</th>\n\
-                                        <th>Agent Name</th>\n\
+                                        <th>Associate Name</th>\n\
                                         <th>Customer Email</th>\n\
                                     </tr>\n\
                                 </thead>';

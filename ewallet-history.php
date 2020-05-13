@@ -9,13 +9,14 @@
                         <h4 class="card-title mb-4">E-Wallet History</h4>
 
                         <h3 class="mb-4">Available Balance: <span id="available_wallet_balance" name="available_wallet_balance"></span></h3>
-
-                        <div class="form-group">
-                            <label class="col-form-label float-left mr-3">Agent ID</label>
-                            <div class="float-left">
-                                <select class="form-control" id="agent_list"></select>
+                        <?php if ($user_type == 'ADMIN') { ?>
+                            <div class="form-group">
+                                <label class="col-form-label float-left mr-3">Associate ID</label>
+                                <div class="float-left">
+                                    <select class="form-control" id="agent_list"></select>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
                         <div class="clearfix"></div>
                         <div class="form-group row col-sm-12 mt-4">
                             <label class="float-left col-form-label col-sm-1 pr-0 mt-3" style="display: none;">Filters :</label>

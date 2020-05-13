@@ -17,7 +17,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
                 <div class="card">
                     <div class="card-body p-3 custom_overflow">
                         <h4 class="card-title mb-4">View Plot Booking</h4>
-                        <h3 class="mb-4">Agent Name:  <span id="agent-name"></span></h3>
+                        <h3 class="mb-4">Associate Name:  <span id="agent-name"></span></h3>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>

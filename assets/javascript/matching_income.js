@@ -51,8 +51,37 @@ getMatchingAmountList({user_id: user_id});
 
 $(document).ready(function () {
     $("#agent_list").html(down_the_line_members);
+    
+    $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
+        checkStartEndDate();
+    });
+
+    $(document).on('change', '#end-date', function () {//$("#end-date").change(function () {
+        checkStartEndDate();
+    });
 
     $(document).on('change', '#agent_list', function () {
         getMatchingAmountList({user_id: $(this).val()});
+    });
+    
+    $(document).on('click', '#search_matching', function (e) {
+        e.preventDefault();
+        var start_date = '';
+        var end_date = '';
+
+        if ($('#start-date').val()) {
+            start_date = $('#start-date').val();
+        }
+        if ($('#end-date').val()) {
+            end_date = $('#end-date').val();
+        }
+
+        var params = {
+            user_id: $('#agent_list').val(),
+            start_date: start_date,
+            end_date: end_date,
+
+        };
+        getMatchingAmountList(params);
     });
 });

@@ -114,7 +114,7 @@ include_once 'common_html.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="self-business-volume">
-                                <span class="menu-title">SBV history </span>
+                                <span class="menu-title">SBVH</span>
                                 <i class="mdi mdi-pin menu-icon"></i>
                             </a>
                         </li>
@@ -185,8 +185,8 @@ include_once 'common_html.php';
                         </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="agent-list">
-                                    <span class="menu-title">Agent List</span>
+                                <a class="nav-link" href="associate-list">
+                                    <span class="menu-title">Associate List</span>
                                     <i class="mdi mdi-settings menu-icon"></i>
                                 </a>
                             </li>
@@ -217,8 +217,8 @@ include_once 'common_html.php';
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="agent-business">
-                                    <span class="menu-title">Agent Business</span>
+                                <a class="nav-link" href="associate-business">
+                                    <span class="menu-title">Associate Business</span>
                                     <i class="mdi mdi-wallet menu-icon"></i>
                                 </a>
                             </li>

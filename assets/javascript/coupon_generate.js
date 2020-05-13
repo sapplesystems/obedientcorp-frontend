@@ -111,17 +111,18 @@ function get_listing() {
             if (response.status == 'success') {
                 var table_data = '';
                 $.each(response.data, function (key, value) {
+                    var Option = 0;
+                    if (value.amount == 100) { Option = 50; } else if (value.amount == 500) { Option = 10; } else if (value.amount == 5000) { Option = 1; }
+                    var OptionHTML = '<option value="0">0</option>';
+                    for (var xo = 1; xo <= Option; xo++) {
+                        OptionHTML += '<option value="' + xo + '">' + xo + '</option>';
+                    }
                     table_data += '<li>\n\
                     <div class="form-group row">\n\
                         <label class="col-sm-4 col-form-label mb-0">&#8377 <span id="coupon_amount_' + value.id + '">' + value.amount + '</span> <span class="multiplyFont">X</span></label>\n\
                         <div class="col-sm-4 p-0">\n\
                             <select class="form-control blackOption denomination_quantity"  id="quantity_' + value.id + '" data-value=' + value.amount + ' onchange="agentTotal(' + value.id + ')">\n\
-                            <option value="0">0</option>\n\
-                            <option value="1">1</option>\n\
-                            <option value="2">2</option>\n\
-                            <option value="3">3</option>\n\
-                            <option value="4">4</option>\n\
-                            <option value="5">5</option>\n\
+                            '+ OptionHTML + '\n\
                             </select>\n\
                         </div>\n\
                         <label class="col-sm-4 col-form-label mb-0">= &#8377 <span class="denomination_total" id="denomination_total_' + value.id + '">0</span></label>\n\
@@ -314,8 +315,7 @@ function extendCouponAvailabilitySubmit(e, coupon_id) {
                 $('#coupon_updated_date_' + coupon_id).html(response.updated_date);
                 extendCouponAvailabilityCancel(e, coupon_id);
             }
-            else
-            {
+            else {
                 showSwal('error', 'Shopping Card Not Extended ', 'Coupon not extended');
 
             }

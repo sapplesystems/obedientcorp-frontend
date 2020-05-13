@@ -35,7 +35,7 @@
                         <div class="row mb-3 marginLR-m">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-form-label col-sm-3">Agent ID</label>
+                                    <label class="col-form-label col-sm-3">Associate ID</label>
                                     <div class="col-sm-6">
                                         <select class="form-control" id="agent-list" onchange="get_customer_list(this.value);">
                                         </select>
@@ -56,7 +56,7 @@
                             <div class="col-md-12 text-right">
                                 <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request" style="display:none;">Request</button>
                             </div>
-                            <div class="col-md-12 tab-content tab-content-custom-pill overflowAuto" id="pills-tabContent">
+                            <div class="col-md-12 tab-content tab-content-custom-pill overflowAuto custom_overflow" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-due" role="tabpanel" aria-labelledby="pills-pending-tab">
                                     <table class="table table-striped payment_request" id="due_payment_list"></table>
                                 </div>

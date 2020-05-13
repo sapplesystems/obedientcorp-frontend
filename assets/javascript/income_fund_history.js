@@ -33,8 +33,12 @@ $(document).ready(function () {
             type = $('#type').val();
         }
 
+        var uid = user_id;
+        if($('#agent_list').val() && $('#agent_list').val() != ''){
+            uid = $('#agent_list').val();
+        }
         var params = {
-            user_id: $('#agent_list').val(),
+            user_id: uid,
             start_date: start_date,
             end_date: end_date,
             type: type,

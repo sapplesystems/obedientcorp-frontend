@@ -30,7 +30,7 @@ if ($user_type != 'ADMIN') {
                                     </li>
                                 </ul>
                                 <div class="form-group">
-                                    <label class="col-form-label float-left mr-3">Agent ID</label>
+                                    <label class="col-form-label float-left mr-3">Associate ID</label>
                                     <div class="float-left">
                                         <select class="form-control" id="agent-list" onchange="getAgentPaymentList(this.value);">
                                         </select>

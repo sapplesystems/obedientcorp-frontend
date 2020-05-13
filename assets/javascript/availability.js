@@ -1,5 +1,4 @@
 
-
 $(document).ready(function () {
 
     if ($('#project-id').val() && $('#project-id').val() != '') {
@@ -53,4 +52,4 @@ function getPlotAvailability(project_id) {
 
     })
 
-}
+}//end function

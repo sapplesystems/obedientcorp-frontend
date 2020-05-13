@@ -136,7 +136,7 @@ function get_agent_payment_list(agent_id, status) {
                                     <tr>\n\
                                         <th> Type </th>\n\
                                         <th> Amount </th>\n\
-                                        <th> Agent </th>\n\
+                                        <th> Associate Name </th>\n\
                                         <th> Date Requested </th>\n\
                                         <th> Payment Mode </th>\n\
                                         <th> Payment Number </th>\n\

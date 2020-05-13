@@ -106,7 +106,7 @@ function updateMoneyRequestStatus(payment_id, agent_id, status) {
         success: function (response) {
             if (response.status == 'success') {
                 showSwal('success', 'Payment ' + status, 'Payment ' + status + ' successfully.');
-                getAgentPaymentList(agent_id);
+                getAgentPaymentList(0);//agent_id
                 hideLoader();
             } else {
                 showSwal('error', 'Failed', 'Something went wrong');
@@ -198,7 +198,7 @@ function get_agent_payment_list(agent_id, status) {
                                     <tr>\n\
                                         <th> Type </th>\n\
                                         <th> Amount </th>\n\
-                                        <th> Agent </th>\n\
+                                        <th> Associate </th>\n\
                                         <th> Date Requested </th>\n\
                                         <th> Payment Mode </th>\n\
                                         <th> Payment Number </th>\n\
@@ -222,7 +222,7 @@ function get_agent_payment_list(agent_id, status) {
                                             <td>' + value.payment_mode + '</td>\n\
                                             <td>' + value.cheque_number + '</td>\n\
                                             ' + action_tr + '\n\
-                                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + agent_id + '">Details</a></td>\n\
+                                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.created_for + '">Details</a></td>\n\
                                         </tr>';
                 });
                 table_data += '</tbody>';

@@ -62,15 +62,9 @@ include_once 'common_html.php';
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Applicant Signature image <span class="text-danger"></span></label>
-                                        <div class=" input-group col-sm-4">
-                                            <input type="file" name="img[]" class="file-upload-default" name="signature" id="signature">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
-                                                <span class="input-group-append">
-                                                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                                                </span>
-                                            </div>
+                                        <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control required" placeholder="" name="name" id="name" onkeypress="return isAlphabetKey(event);">
                                         </div>
                                         <label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger"></span></label>
                                         <div class="col-sm-4">
@@ -81,12 +75,6 @@ include_once 'common_html.php';
                                                     <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                 </span>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control required" placeholder="" name="name" id="name" onkeypress="return isAlphabetKey(event);">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -166,11 +154,11 @@ include_once 'common_html.php';
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
+                                        <label class="col-sm-2 col-form-label">Mobile 1<span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control required" placeholder="" id="mobile" name="mobile" onkeypress="return isNumberKey(event);" />
                                         </div>
-                                        <label class="col-sm-2 col-form-label">Land Line Phone #</label>
+                                        <label class="col-sm-2 col-form-label">Mobile 2</label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control" placeholder="" id="land_line_phone" name="land_line_phone" onkeypress="return isNumberKey(event);">
                                         </div>
@@ -244,6 +232,25 @@ include_once 'common_html.php';
                                         </div>
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cancel Cheque</label>
+                                        <div class="col-sm-4">
+                                            <div class="input-group">
+                                                <input type="file" name="img[]" class="file-upload-default" name="cancel_cheque" id="cancel_cheque">
+                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                <span class="input-group-append">
+                                                    <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
+                                                </span>
+                                            </div>
+                                            <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                <a href="#" class="image-tile" id="a_cancel_cheque_uploded">
+                                                    <img src="" id="cancel_cheque_uploded" class="img-lg mb-3" style="display:none;" alt="small image" />
+                                                </a>
+                                            </div>
+
+                                            <!--<input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">-->
                                         </div>
                                     </div>
                                 </section>
@@ -439,13 +446,14 @@ include_once 'common_html.php';
                 format: 'dd-M-yyyy',
                 autoclose: true,
                 endDate: todays_date
-            }).change(function() {
-                $(this).valid(); // triggers the validation test        
             });
         }
 
         $('#name').blur(function() {
             $('#payee_name').val($(this).val());
+        });
+        $('#dob').change(function() {
+                $(this).valid(); // triggers the validation test        
         });
 
         $(document).on('change', '#nominee_dob', function() {
@@ -532,8 +540,11 @@ include_once 'common_html.php';
         var params = new FormData();
         var introducer_code = $('#sponsor').val();
         var orientation = $('#position').val();
-        var signature = $('#signature')[0].files[0];
-        var photo = $('#photo')[0].files[0];
+        var photo = '';
+        if($('#photo').val())
+        {
+            photo = $('#photo')[0].files[0]; 
+        }
         var associate_name = $('#name').val();
         //var address = $('#address').val();
         var house_no = $('#house_no').val();
@@ -564,6 +575,12 @@ include_once 'common_html.php';
         var account_number = $('#account_number').val();
         var branch = $('#branch').val();
         var ifsc_code = $('#ifsc_code').val();
+        var cancel_cheque = '';
+        if($('#cancel_cheque').val())
+        {
+            cancel_cheque = $('#cancel_cheque')[0].files[0];
+        }
+       
         //nominee details
         var nominee_name = $('#nominee_name').val();
         var relation = $('#relation').val();
@@ -575,7 +592,7 @@ include_once 'common_html.php';
 
         params.append("introducer_code", introducer_code);
         params.append("orientation", orientation);
-        params.append("signature", signature);
+        //params.append("signature", signature);
         params.append("photo", photo);
         params.append("associate_name", associate_name);
         //params.append("address", address);
@@ -605,6 +622,7 @@ include_once 'common_html.php';
         params.append("account_number", account_number);
         params.append("branch", branch);
         params.append("ifsc_code", ifsc_code);
+        params.append("cancel_cheque", cancel_cheque);
         params.append("nominee_name", nominee_name);
         //params.append("father_or_husband_name", father_husband_name);
         //params.append("mothers_name", mothers_name);

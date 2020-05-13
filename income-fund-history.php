@@ -8,13 +8,14 @@
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Income Fund History</h4>
                         <h3 class="card-title mb-4">Available Income Fund: <span id="available_income_fund" name="available_income_fund"></span></h3>
-                        
+                        <?php if ($user_type == 'ADMIN') { ?>
                         <div class="form-group">
-                            <label class="col-form-label float-left mr-3">Agent ID</label>
+                            <label class="col-form-label float-left mr-3">Associate ID</label>
                             <div class="float-left">
                                 <select class="form-control" id="agent_list"></select>
                             </div>
                         </div>
+                        <?php } ?>
                         <div class="clearfix"></div>
                         <div class="form-group row col-sm-12 mt-4">
                             <label class="float-left col-form-label col-sm-1 pr-0 mt-3" style="display: none;">Filters :</label>

@@ -11,9 +11,33 @@ include_once 'header.php';
         <div class="row">
             <div class="col-12 marginLR-m">
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Agent ID</label>
-                    <div class="col-sm-4">
+                <?php if ($user_type == 'ADMIN') { ?>
+                    <div class="col-sm-3">
+                        <label>Associate ID</label>
                         <select class="form-control" id="agent_list"></select>
+                    </div>
+                <?php } ?>
+                    <div class="col-sm-3 pr-0">
+                        <label>Start Date:</label>
+                        <div class="input-group date datepicker p-0">
+                            <input type="text required" class="form-control required" id="start-date" name="start-date" placeholder="From" readonly>
+                            <span class="input-group-addon input-group-append border-left">
+                                <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 pr-0">
+                        <label>End Date:</label>
+                        <div class="input-group date datepicker p-0">
+                            <input type="text required" class="form-control required" id="end-date" name="end-date" placeholder="To" readonly>
+                            <span class="input-group-addon input-group-append border-left">
+                                <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 pr-0">
+                        <label class="d-block">&nbsp;</label>
+                        <input type="button" class="btn btn-info" id="search_matching" name="search_matching" value="Search" />&nbsp;
                     </div>
                 </div>
                 <div class="clearfix"></div>

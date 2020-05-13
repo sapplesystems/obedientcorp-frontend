@@ -8,11 +8,12 @@ $data = mysqli_query($live, $query) or die(mysqli_error($live));
 if (mysqli_num_rows($data) > 0) {
 	$i = 1;
 	while ($row = mysqli_fetch_assoc($data)) {
-		$query1 = "select plot_no from plot where plot_no = '".$row['plan_no']. "' ";
+		$query1 = "select pl_id, plot_no from plot where plot_no = '".$row['plan_no']. "' ";
 		$plot = mysqli_query($live, $query1) or die(mysqli_error($live));
 		$plot_no = mysqli_fetch_assoc($plot);
 		if(!empty($plot_no) && !empty($plot_no['plot_no']))
 		{
+                    $plot_master_id = $plot_no['pl_id'];
 			$query2 = "select id from users where username = '".$row['agentCode']. "' ";
 			$agent_id = mysqli_query($stage, $query2) or die(mysqli_error($stage));
 			$user_id = mysqli_fetch_assoc($agent_id);
@@ -25,7 +26,7 @@ if (mysqli_num_rows($data) > 0) {
 				$plot_booking['registration_number'] = $row['registration_no'];
 				$plot_booking['project_master_id'] = $row['plan_type'];
 				$plot_booking['sub_project_id'] = $row['cid'];
-				$plot_booking['plot_master_id'] = $row['plan_no'];
+				$plot_booking['plot_master_id'] = $plot_master_id;
 				$plot_booking['plot_area'] = $row['ara_sq_ft'];
 				$plot_booking['reference'] = '';
 				$plot_booking['unit_rate'] = $row['no_month'];

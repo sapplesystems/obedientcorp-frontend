@@ -17,7 +17,7 @@ if ($user_type != 'ADMIN') {
                                 <div id="errors_div"></div>
                                 <form class="forms-sample" id="add-money-to-wallet-form" name="add-money-to-wallet-form" method="post">
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Agents</label>
+                                        <label class="col-sm-2 col-form-label">Associates</label>
                                         <div class="col-sm-4">
                                             <select class="form-control required" id="agents" name="agents"></select>
                                         </div>

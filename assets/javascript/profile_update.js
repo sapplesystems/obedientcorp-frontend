@@ -38,7 +38,7 @@ $(document).ready(function () {
       var params = new FormData();
       var id = user_profile_id;
       var introducer_code = $('#sponsor').val();
-      var signature = $('#signature')[0].files[0];
+      //var signature = $('#signature')[0].files[0];
       //var photo = $('#photo')[0].files[0];
       var associate_name = $('#associate_name').val();
       var house_no = $('#house_no').val();
@@ -63,7 +63,7 @@ $(document).ready(function () {
       var transaction_password = $('#transaction_password').val();
       params.append("id", id);
       params.append("introducer_code", introducer_code);
-      params.append("signature", signature);
+      //params.append("signature", signature);
       //params.append("photo", photo);
       params.append("associate_name", associate_name);
       params.append("house_no", house_no);

@@ -10,7 +10,7 @@ if ($user_type != 'ADMIN') {
         <div class="row">
             <div class="col-12">
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Agent ID</label>
+                    <label class="col-form-label col-sm-2">Associate ID</label>
                     <div class="col-sm-4">
                         <select class="form-control" id="agent_list"></select>
                     </div>

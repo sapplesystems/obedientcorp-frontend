@@ -138,7 +138,7 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="associate_name" name="associate_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Signature Upload<span class="text-danger">*</span></label>
+                                                            <!--<label class="col-sm-2 col-form-label">Signature Upload<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="file" class="file-upload-default" name="signature" id="signature">
                                                                 <div class="input-group">
@@ -152,32 +152,9 @@ if ($_REQUEST) {
                                                                         <img src="" alt="image small" style="display:none;width:100px;" id="signature_upload">
                                                                     </a>
                                                                 </div>
-                                                                <!--<input type="file" class="form-control" placeholder="" name="signature" id="signature">-->
-                                                            </div>
-                                                            <!--<label class="col-sm-2 col-form-label">Applicant Photo <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="file" class="file-upload-default" name="photo" id="photo">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File" >
-                                                                    <span class="input-group-append">
-                                                                        <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
-                                                                    </span>
-                                                                    <img src="" style="display:none;width:100px;" id="photo" />
-                                                                </div>
-                                                                <!--<input type="file" class="form-control" placeholder="" name="photo" id="photo">
-                                                           <!--<img src="" alt="profile" id="application_photo" class="img-lg rounded-circle mb-3" style="display:none;" />
+                                                                <input type="file" class="form-control" placeholder="" name="signature" id="signature">
                                                             </div>-->
                                                         </div>
-                                                        <!--<div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="associate_name" name="associate_name">
-                                                            </div>
-                                                           <label class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="address" name="address">
-                                                            </div>
-                                                        </div>-->
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">House No<span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
@@ -212,13 +189,13 @@ if ($_REQUEST) {
                                                             <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <select class="form-control required" id="state" name="state">
-                                                                    <option>-- Select One --</option>
+                                                                    <option value="">-- Select One --</option>
                                                                 </select>
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <select class="form-control required" id="city" name="city">
-                                                                    <option>-- Select One --</option>
+                                                                    <option value="">-- Select One --</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -229,16 +206,6 @@ if ($_REQUEST) {
                                                             </div>
 
                                                         </div>
-                                                        <!--<div class="form-group row">
-                                                            <label class="col-sm-2"></label>
-                                                            <div class="col-sm-4">
-                                                                <label class="col-form-label text-danger p-0">Please enter the Name as given in your Bank Records</label>
-                                                            </div>
-                                                            <label class="col-sm-2"></label>
-                                                            <div class="col-sm-4">
-                                                                <label class="col-form-label text-danger p-0">Please enter Address as given in your Pan and GST Records</label>
-                                                            </div>
-                                                        </div>-->
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -269,11 +236,11 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Mobile # <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Mobile 1 <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" onkeypress="return isNumberKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Land Line Phone #</label>
+                                                            <label class="col-sm-2 col-form-label">Mobile 2</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="land_line_phone" name="land_line_phone" onkeypress="return isNumberKey(event);">
                                                             </div>
@@ -301,7 +268,7 @@ if ($_REQUEST) {
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                            <span id="emailid-error" class="error" style="display:none">Enter valid email-id.</span>
+                                                                <span id="emailid-error" class="error" style="display:none">Enter valid email-id.</span>
                                                                 <input type="text" class="form-control required" placeholder="" id="email" name="email">
                                                             </div>
                                                         </div>
@@ -310,10 +277,10 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="username" name="username" readonly>
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label transaction-password">Transaction Password <span class="text-danger"></span></label>
+                                                            <!--<label class="col-sm-2 col-form-label transaction-password">Transaction Password <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control " placeholder="Transaction Password" id="transaction_password" name="transaction_password">
-                                                            </div>
+                                                            </div>-->
                                                         </div>
                                                     </section>
                                                     <input type="submit" class="btn btn-primary" id="profile_update_submit" value="Save" />
@@ -373,7 +340,7 @@ if ($_REQUEST) {
                                                         </div>
                                                     </section>
                                                     <input type="hidden" id="bank_id" value="" />
-                                                    <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" style="display:none"; />
+                                                    <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" style="display:none" ; />
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="nominee-1" role="tabpanel" aria-labelledby="nominee-tab">
@@ -390,21 +357,11 @@ if ($_REQUEST) {
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <!--<div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="father_name" name="father_name">
-                                                            </div>
-                                                            <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="mother_name" name="mother_name">
-                                                            </div>
-                                                        </div>-->
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <div class="input-group date datepicker">
-                                                                    <input type="text" class="form-control required" placeholder="" id="ndob" name="ndob" />
+                                                                    <input type="text" class="form-control" placeholder="" id="ndob" name="ndob" />
                                                                     <span class="input-group-addon input-group-append border-left">
                                                                         <span class="mdi mdi-calendar input-group-text bg-dark"></span>
                                                                     </span>
@@ -418,7 +375,7 @@ if ($_REQUEST) {
                                                         </div>
                                                     </section>
                                                     <input type="hidden" id="nominee_id" value="" />
-                                                    <input type="submit" class="btn btn-primary" id="nominee_update_submit" value="Save" style="display:none"; />
+                                                    <input type="submit" class="btn btn-primary" id="nominee_update_submit" value="Save" style="display:none" ; />
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="kyc-1" role="tabpanel" aria-labelledby="kyc-tab">
@@ -433,9 +390,9 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="nationality" name="nationality" value="Indian">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Occupation </label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="koccupation" name="koccupation" onkeypress="return isAlphabetKey(event);">
+                                                                <input type="text" class="form-control " placeholder="" id="koccupation" name="koccupation" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -470,13 +427,13 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Passport</label>
+                                                            <label class="col-sm-2 col-form-label">Passport<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="passport_number" name="passport_number">
+                                                                <input type="text" class="form-control required" placeholder="" id="passport_number" name="passport_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Upload Passport</label>
+                                                            <label class="col-sm-2 col-form-label">Passport Image 1<span class="text-danger">*</span></label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default " name="passport_image" id="passport_image">
+                                                                <input type="file" class="file-upload-default required " name="passport_image" id="passport_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -491,13 +448,30 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Driving Licence</label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" placeholder="" id="driving_licence_number" name="driving_licence_number">
-                                                            </div>
-                                                            <label class="col-sm-2 col-form-label">Upload Driving Licence</label>
+                                                            <label class="col-sm-2 col-form-label">Passport Image 2<span class="text-danger">*</span></label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default" name="driving_licence_image" id="driving_licence_image">
+                                                                <input type="file" class="file-upload-default required" name="passport_image2" id="passport_image2">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_passport_upload2">
+                                                                        <img src="" style="display:none;width:100px;" id="passport_upload2" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Driving Licence<span class="text-danger">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control required" placeholder="" id="driving_licence_number" name="driving_licence_number">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence Image 1<span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" class="file-upload-default required" name="driving_licence_image" id="driving_licence_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -512,13 +486,30 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Driving Licence Image 2<span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" class="file-upload-default required" name="driving_licence_image2" id="driving_licence_image2">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_driving_upload2">
+                                                                        <img src="" style="display:none;width:100px;" id="driving_upload2" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Voter Id</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="voter_id" name="voter_id">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Upload Voter Id</label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default" name="voter_image" id="voter_image">
+                                                                <input type="file" class="file-upload-default" name="voter_image" id="voter_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -537,9 +528,9 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="adhar_number" name="adhar_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Upload Adhar<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Adhar Image 1<span class="text-danger">*</span></label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" name="img" class="file-upload-default required" name="adhar_image" id="adhar_image">
+                                                                <input type="file" class="file-upload-default required" name="adhar_image" id="adhar_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -549,6 +540,23 @@ if ($_REQUEST) {
                                                                 <div class="signature_img row lightGallery lightgallery-without-thumb">
                                                                     <a href="#" class="image-tile" id="a_adhar_upload">
                                                                         <img src="" style="display:none;width:100px;" id="adhar_upload" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Adhar Image 2<span class="text-danger">*</span></label>
+                                                            <div class=" input-group col-sm-4">
+                                                                <input type="file" class="file-upload-default required" name="adhar_image2" id="adhar_image2">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                                                    <span class="input-group-append">
+                                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="signature_img row lightGallery lightgallery-without-thumb">
+                                                                    <a href="#" class="image-tile" id="a_adhar_upload2">
+                                                                        <img src="" style="display:none;width:100px;" id="adhar_upload2" />
                                                                     </a>
                                                                 </div>
                                                             </div>

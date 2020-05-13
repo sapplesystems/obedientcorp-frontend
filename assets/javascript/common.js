@@ -63,6 +63,7 @@ $(document).ready(function () {
                     email: user_profile_email
                 },
                 success: function (response) {
+                    console.log(response);
                     if (response.status == 'success') {
                         var profile = response.data.profile;
                         var bank = response.data.bank_detail[0];
@@ -118,7 +119,6 @@ $(document).ready(function () {
                         }
                         if (profile.email) {
                             $('#email').val(profile.email);
-                            $('#email').prop('disabled', true);
                         }
                         $('#profile_mail').html(profile.email);
                         $('#username').val(profile.username);
@@ -376,6 +376,7 @@ function checkForKYCSaveButton(v) {
 }
 
 function setKYCDetail(kyc) {
+    console.log(kyc);
     $('#kyc_id').val(kyc.id);
     if (kyc.nationality) {
         $('#nationality').val(kyc.nationality);
@@ -433,6 +434,13 @@ function setKYCDetail(kyc) {
         $('#adhar_upload').css('display', 'block');
         $('#adhar_image').prop('disabled', true);
     }
+    if (kyc.adhar_image_2) {
+        var image = media_url + 'id_proof/' + kyc.adhar_image_2;
+        $('#adhar_upload2').attr('src', image);
+        $('#a_adhar_upload2').attr('href', image);
+        $('#adhar_upload2').css('display', 'block');
+        $('#adhar_image2').prop('disabled', true);
+    }
     if (kyc.pan_image) {
         var image = media_url + 'id_proof/' + kyc.pan_image;
         $('#pan_upload').attr('src', image);
@@ -447,12 +455,26 @@ function setKYCDetail(kyc) {
         $('#passport_upload').css('display', 'block');
         $('#passport_image').prop('disabled', true);
     }
+    if (kyc.passport_image_2) {
+        var image = media_url + 'id_proof/' + kyc.passport_image_2;
+        $('#passport_upload2').attr('src', image);
+        $('#a_passport_upload2').attr('href', image);
+        $('#passport_upload2').css('display', 'block');
+        $('#passport_image2').prop('disabled', true);
+    }
     if (kyc.driving_licence_image) {
         var image = media_url + 'id_proof/' + kyc.driving_licence_image;
         $('#driving_upload').attr('src', image);
         $('#a_driving_upload').attr('href', image);
         $('#driving_upload').css('display', 'block');
         $('#driving_licence_image').prop('disabled', true);
+    }
+    if (kyc.driving_licence_image_2) {
+        var image = media_url + 'id_proof/' + kyc.driving_licence_image_2;
+        $('#driving_upload2').attr('src', image);
+        $('#a_driving_upload2').attr('href', image);
+        $('#driving_upload2').css('display', 'block');
+        $('#driving_licence_image2').prop('disabled', true);
     }
     if (kyc.voter_image) {
         var image = media_url + 'id_proof/' + kyc.voter_image;
@@ -464,7 +486,6 @@ function setKYCDetail(kyc) {
 }
 
 function setNomineeDetails(nominee) {
-    console.log(nominee);
     $('#nominee_id').val(nominee.id);
     if (nominee.nominee_name != null && nominee.nominee_name) {
         $('#nominee_name').val(nominee.nominee_name);

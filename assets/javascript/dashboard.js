@@ -270,11 +270,11 @@ function setCurrentNextReward(data) {
     } else if (data.length == 2) {
         title = '<div class="d-inline-block align-items-center text-muted font-weight-light ">\n\
                         <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
-                        <span>Current Rewards</span>\n\
+                        <span>Current Reward</span>\n\
                     </div>\n\
                     <div class="d-inline-block align-items-center text-muted font-weight-light float-right">\n\
                         <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
-                        <span>Next Rewards</span>\n\
+                        <span>Next Reward</span>\n\
                     </div>';
         reward = '<li><span>&#8377; ' + data[0].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[0].photo + '" /></div></li>\n\
                 <li><span>&#8377; ' + data[1].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[1].photo + '" /></div></li>';

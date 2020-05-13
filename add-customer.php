@@ -50,7 +50,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                             <h5 class="add-customer_heading" <?php echo $style ?>>Personal Details</h5>
                             <div class="border-div" <?php echo $style ?>>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Select Agent :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Select Associate :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <select class="form-control required" id="agent_id" name="agent_id" onchange="getCustomersList(this.value)"></select>
                                     </div>

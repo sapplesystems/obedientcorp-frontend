@@ -167,7 +167,15 @@ $(document).ready(function () {
     //end calculate age
 
     $(document).on('change', '#installment', function () {
-        setEMI();
+        var discount_rate = $('#discount_rate').val();
+        var plot_area = $('#plot_area').val();
+        var unit_rate = $('#unit_rate').val();
+        if (discount_rate && discount_rate != '' && discount_rate > 0) {
+            calculatePlotAmount(plot_area, discount_rate);
+        } else if (unit_rate && unit_rate != '' && unit_rate > 0) {
+            calculatePlotAmount(plot_area, unit_rate);
+        }
+        //setEMI();
     });
     $(document).on('blur', '#received_booking_amount', function () {
         setEMI();

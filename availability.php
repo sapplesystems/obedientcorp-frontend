@@ -19,7 +19,7 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['id']) != '') {
     <!-- Background image - you can choose parallax ratio and offset -->
     <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 200px, 0px);" data-background="images/availability.jpg" style="background-position: center 60%"></div>
 </section>
-<!-- End Page Title --> 
+<!-- End Page Title -->
 <!-- GALLERY -->
 <section id="plot" class="py container t-left shop shop-styled minHeight200">
     <div class="t-center">
@@ -27,10 +27,10 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['id']) != '') {
         <div class="title-strips-over dark"></div>
     </div>
     <div class="t-center container">
-	<div class="divider-4 font-22 uppercase container extrabold mt-5"><span id="project-name"></span></div>
+        <div class="divider-4 font-22 uppercase container extrabold mt-5"><span id="project-name"></span></div>
         <!-- Row for cols -->
         <div class="row" id="plot-availability">
-            <input type="hidden" value="<?php echo $project_id; ?>" id="project-id"/>
+            <input type="hidden" value="<?php echo $project_id; ?>" id="project-id" />
         </div>
     </div>
     <div class="clearfix"></div>

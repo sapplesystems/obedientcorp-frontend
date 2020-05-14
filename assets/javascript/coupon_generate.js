@@ -112,7 +112,13 @@ function get_listing() {
                 var table_data = '';
                 $.each(response.data, function (key, value) {
                     var Option = 0;
-                    if (value.amount == 100) { Option = 50; } else if (value.amount == 500) { Option = 10; } else if (value.amount == 1000) { Option = 5; }
+                    if (value.amount == 100) {
+                        Option = 50;
+                    } else if (value.amount == 500) {
+                        Option = 10;
+                    } else if (value.amount == 1000) {
+                        Option = 5;
+                    }
                     var OptionHTML = '<option value="0">0</option>';
                     for (var xo = 1; xo <= Option; xo++) {
                         OptionHTML += '<option value="' + xo + '">' + xo + '</option>';
@@ -122,7 +128,7 @@ function get_listing() {
                         <label class="col-sm-4 col-form-label mb-0">&#8377 <span id="coupon_amount_' + value.id + '">' + value.amount + '</span> <span class="multiplyFont">X</span></label>\n\
                         <div class="col-sm-4 p-0">\n\
                             <select class="form-control blackOption denomination_quantity"  id="quantity_' + value.id + '" data-value=' + value.amount + ' onchange="agentTotal(' + value.id + ')">\n\
-                            '+ OptionHTML + '\n\
+                            ' + OptionHTML + '\n\
                             </select>\n\
                         </div>\n\
                         <label class="col-sm-4 col-form-label mb-0">= &#8377 <span class="denomination_total" id="denomination_total_' + value.id + '">0</span></label>\n\
@@ -205,15 +211,20 @@ function get_goods_coupon_listing() {
                 var goods_coupon_list = '';
                 var cb_status = '';
                 var select_number_of_days = '';
+                var coupon_availability_div = '';
                 $.each(response.data, function (key, value) {
                     select_number_of_days = '';
+                    coupon_availability_div = '';
                     var classname = 'odd';
                     if (i % 2 == 0) {
                         classname = 'even';
                     }
 
-                    expiry_date = new Date(value.expiry_date);
-                    expiry_date = expiry_date.getDate() + '-' + MonthArr[(expiry_date.getMonth())] + '-' + expiry_date.getFullYear();
+                    expiry_date = '';
+                    if (value.coupon_type_id == 1) {
+                        expiry_date = new Date(value.expiry_date);
+                        expiry_date = expiry_date.getDate() + '-' + MonthArr[(expiry_date.getMonth())] + '-' + expiry_date.getFullYear();
+                    }
 
                     generated_date = new Date(value.generated_date);
                     generated_date = generated_date.getDate() + '-' + MonthArr[(generated_date.getMonth())] + '-' + generated_date.getFullYear();
@@ -228,31 +239,37 @@ function get_goods_coupon_listing() {
                             cb_status = 'checked';
                         }
                         select_number_of_days = daysOptions(value.id);
+                        if (value.coupon_type_id == 1) {
+                            coupon_availability_div = '<div class="float-left ml-3">\n\
+                                                    <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(event, ' + value.id + ');">Extend Availability</a>\n\
+                                                    <form class="form-inline" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
+                                                        ' + select_number_of_days + '\n\
+                                                        <button type="submit" class="btn btn-gradient-success btn-sm" onclick="extendCouponAvailabilitySubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
+                                                        <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="extendCouponAvailabilityCancel(event, ' + value.id + ');">Cancel</button>\n\
+                                                    </form>\n\
+                                                </div>';
+                        }
                         action_td = '<td>\n\
                                         <div class="float-left">\n\
                                             <input class="tgl tgl-skewed" id="cb' + value.id + '" type="checkbox" ' + cb_status + ' onclick="changeCouponStatus(event, ' + value.id + ');"/>\n\
                                             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb' + value.id + '"></label>\n\
                                         </div>\n\
-                                        <div class="float-left ml-3">\n\
-                                            <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(event, ' + value.id + ');">Extend Availability</a>\n\
-                                            <form class="form-inline" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
-                                                ' + select_number_of_days + '\n\
-                                                <button type="submit" class="btn btn-gradient-success btn-sm" onclick="extendCouponAvailabilitySubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
-                                                <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="extendCouponAvailabilityCancel(event, ' + value.id + ');">Cancel</button>\n\
-                                            </form>\n\
-                                        </div>\n\
+                                        ' + coupon_availability_div + '\n\
                                         <div class="float-left ml-3">\n\
                                             <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print</a>\n\
                                         </div>\n\
                                     </td>';
                     }
-
+                    if (value.coupon_type_id != 1) {
+                        action_td = '<td> -- </td>';
+                    }
                     goods_coupon_list += ' <tr role="row" class="' + classname + '">\n\
                                                 <td class="sorting_1">' + i + '</td>\n\
-                                                <td id="coupon_code_' + value.id + '"> ' + value.coupon_code + ' </td>\n\
-                                                <td id="coupon_amount_' + value.id + '"> ' + value.coupon_amount + ' </td>\n\
-                                                <td id="generated_date_' + value.id + '"> ' + generated_date + ' </td>\n\
-                                                <td id="coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
+                                                <td id="print_coupon_code_' + value.id + '"> ' + value.coupon_code + ' </td>\n\
+                                                <td id="print_coupon_type_' + value.id + '"> ' + value.coupon_type + ' </td>\n\
+                                                <td id="print_coupon_amount_' + value.id + '"> ' + value.coupon_amount + ' </td>\n\
+                                                <td id="print_generated_date_' + value.id + '"> ' + generated_date + ' </td>\n\
+                                                <td id="print_coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
                                                 <td>' + value.status + '</td>\n\
                                                 ' + action_td + '\n\
                                             </tr>';
@@ -312,7 +329,7 @@ function extendCouponAvailabilitySubmit(e, coupon_id) {
         success: function (response) {
             if (response.status == 'success') {
                 showSwal('success', 'Shopping Card Extended ', response.data);
-                $('#coupon_updated_date_' + coupon_id).html(response.updated_date);
+                $('#print_coupon_updated_date_' + coupon_id).html(response.updated_date);
                 extendCouponAvailabilityCancel(e, coupon_id);
             }
             else {
@@ -338,11 +355,11 @@ function resetDenominations() {
 
 function printCoupon(e, coupon_id) {
     e.preventDefault();
-    JsBarcode("#barcode", $('#coupon_code_' + coupon_id).html());
-    $('#pCouponCode').html($('#coupon_code_' + coupon_id).html());
-    $('#pCouponAmount').html($('#coupon_amount_' + coupon_id).html());
-    $('#pGeneratedDate').html($('#generated_date_' + coupon_id).html());
-    $('#pExpiryDate').html($('#coupon_updated_date_' + coupon_id).html());
+    JsBarcode("#barcode", $('#print_coupon_code_' + coupon_id).html());
+    $('#pCouponCode').html($('#print_coupon_code_' + coupon_id).html());
+    $('#pCouponAmount').html($('#print_coupon_amount_' + coupon_id).html());
+    $('#pGeneratedDate').html($('#print_generated_date_' + coupon_id).html());
+    $('#pExpiryDate').html($('#print_coupon_updated_date_' + coupon_id).html());
     var print_coupon_div = document.getElementById("print_coupon_div").innerHTML;
     var a = window.open('', '', 'height=500, width=500');
     a.document.write('<html>');

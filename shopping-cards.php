@@ -80,20 +80,22 @@
                                     <tr>
                                         <?php if ($user_type == 'ADMIN') { ?>
                                             <th width="5%"> Sr No. </th>
-                                            <th width="10%">Code</th>
+                                            <th width="7%">Code</th>
+                                            <th width="8%">Code Type</th>
                                             <th width="10%">Price </th>
                                             <th width="10%"> Generated Date </th>
                                             <th width="10%"> Expiry Date </th>
                                             <th width="5%">Status</th>
-                                            <th width="55%"> Action </th>
+                                            <th width="45%"> Action </th>
                                         <?php } else { ?>
                                             <th width="5%"> Sr No. </th>
-                                            <th width="18%">Code</th>
-                                            <th width="18%">Price </th>
-                                            <th width="18%"> Generated Date </th>
-                                            <th width="18%"> Expiry Date </th>
-                                            <th width="18%"> Status </th>
-                                            <th width="23%"> Action </th>
+                                            <th width="5%">Code</th>
+                                            <th width="10%">Code Type</th>
+                                            <th width="15%">Price </th>
+                                            <th width="15%"> Generated Date </th>
+                                            <th width="15%"> Expiry Date </th>
+                                            <th width="15%"> Status </th>
+                                            <th width="20%"> Action </th>
                                         <?php } ?>
                                     </tr>
                                 </thead>

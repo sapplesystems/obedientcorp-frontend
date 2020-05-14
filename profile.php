@@ -186,40 +186,40 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">State <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control required" id="state" name="state">
+                                                                <select class="form-control" id="state" name="state">
                                                                     <option value="">-- Select One --</option>
                                                                 </select>
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">District <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control required" id="city" name="city">
+                                                                <select class="form-control" id="city" name="city">
                                                                     <option value="">-- Select One --</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Pin Code <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="pin_code" name="pin_code" onkeypress="return isNumberKey(event);">
+                                                                <input type="text" class="form-control" placeholder="" id="pin_code" name="pin_code" onkeypress="return isNumberKey(event);">
                                                             </div>
 
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Father Name <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Father Name <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="father_or_husband_name" name="father_or_husband_name" onkeypress="return isAlphabetKey(event);">
+                                                                <input type="text" class="form-control" placeholder="" id="father_or_husband_name" name="father_or_husband_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Mother Name <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="mothers_name" name="mothers_name" onkeypress="return isAlphabetKey(event);">
+                                                                <input type="text" class="form-control" placeholder="" id="mothers_name" name="mothers_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Gender <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Gender <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control required" id="gender" name="gender">
+                                                                <select class="form-control " id="gender" name="gender">
                                                                     <option value="">-- Select One --</option>
                                                                     <option value="Male">Male</option>
                                                                     <option value="Female">Female</option>
@@ -246,7 +246,7 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
                                                                 <select class="form-control required" id="marital_status" name="marital_status">
                                                                     <option value="">-- Select One --</option>
@@ -256,9 +256,9 @@ if ($_REQUEST) {
                                                                     <option value="Divorced">Divorced</option>
                                                                 </select>
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Occupation <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Occupation <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="occupation" name="occupation" onkeypress="return isAlphabetKey(event);">
+                                                                <input type="text" class="form-control" placeholder="" id="occupation" name="occupation" onkeypress="return isAlphabetKey(event);">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -291,29 +291,29 @@ if ($_REQUEST) {
                                                 <form id="bank_update" name="bank_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Payee Name <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Payee Name <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="payee_name" name="payee_name" onkeypress="return isAlphabetKey(event);">
+                                                                <input type="text" class="form-control " placeholder="" id="payee_name" name="payee_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Bank Name <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Bank Name <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="bank_name" name="bank_name">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Account Number <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="account_number" name="account_number" onkeypress="return isNumberKey(event);">
-                                                            </div>
-                                                            <label class="col-sm-2 col-form-label">Branch <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="branch" name="branch">
+                                                                <input type="text" class="form-control " placeholder="" id="bank_name" name="bank_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">IFSC Code <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Account Number <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="ifsc_code" name="ifsc_code">
+                                                                <input type="text" class="form-control " placeholder="" id="account_number" name="account_number" onkeypress="return isNumberKey(event);">
+                                                            </div>
+                                                            <label class="col-sm-2 col-form-label">Branch <span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control " placeholder="" id="branch" name="branch">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">IFSC Code <span class="text-danger"></span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control " placeholder="" id="ifsc_code" name="ifsc_code">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label"></label>
                                                             <div class="col-sm-4">
@@ -347,18 +347,18 @@ if ($_REQUEST) {
                                                 <form id="nominee_update" name="nominee_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Nominee Name <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="nominee_name" name="nominee_name" onkeypress="return isAlphabetKey(event);">
+                                                                <input type="text" class="form-control " placeholder="" id="nominee_name" name="nominee_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Relation <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Relation <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control required" id="relation" name="relation">
+                                                                <select class="form-control " id="relation" name="relation">
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
                                                                 <div class="input-group date datepicker">
                                                                     <input type="text" class="form-control" placeholder="" id="ndob" name="ndob" />
@@ -368,9 +368,9 @@ if ($_REQUEST) {
                                                                 </div>
 
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Age <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Age <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="nominee_age" name="nominee_age">
+                                                                <input type="text" class="form-control " placeholder="" id="nominee_age" name="nominee_age">
                                                             </div>
                                                         </div>
                                                     </section>
@@ -386,9 +386,9 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="kyc_dob" name="kyc_dob">
                                                             </div>-->
-                                                            <label class="col-sm-2 col-form-label">Nationality <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Nationality <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="nationality" name="nationality" value="Indian">
+                                                                <input type="text" class="form-control " placeholder="" id="nationality" name="nationality" value="Indian">
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Occupation </label>
                                                             <div class="col-sm-4">
@@ -427,13 +427,14 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Passport<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Passport<span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="passport_number" name="passport_number">
+                                                                <input type="text" class="form-control " placeholder="" id="passport_number" name="passport_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Passport Image 1<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Passport Image 1<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" class="file-upload-default required " name="passport_image" id="passport_image">
+                                                            <span id="passport_image_error_1" class="error" style="display:none">This field is required.</span>
+                                                                <input type="file" class="file-upload-default  " name="passport_image" id="passport_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -448,9 +449,10 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Passport Image 2<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Passport Image 2<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" class="file-upload-default required" name="passport_image2" id="passport_image2">
+                                                            <span id="passport_image_error_2" class="error" style="display:none">This field is required.</span>
+                                                                <input type="file" class="file-upload-default " name="passport_image2" id="passport_image2">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -465,13 +467,14 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Driving Licence<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence<span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="driving_licence_number" name="driving_licence_number">
+                                                                <input type="text" class="form-control " placeholder="" id="driving_licence_number" name="driving_licence_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Driving Licence Image 1<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence Image 1<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" class="file-upload-default required" name="driving_licence_image" id="driving_licence_image">
+                                                            <span id="driving_licence_image_error_1" class="error" style="display:none">This field is required.</span>
+                                                                <input type="file" class="file-upload-default " name="driving_licence_image" id="driving_licence_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
@@ -486,9 +489,10 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Driving Licence Image 2<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Driving Licence Image 2<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                                <input type="file" class="file-upload-default required" name="driving_licence_image2" id="driving_licence_image2">
+                                                            <span id="driving_licence_image_error_2" class="error" style="display:none">This field is required.</span>
+                                                                <input type="file" class="file-upload-default" name="driving_licence_image2" id="driving_licence_image2">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">

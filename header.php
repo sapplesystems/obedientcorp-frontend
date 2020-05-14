@@ -114,7 +114,7 @@ include_once 'common_html.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="self-business-volume">
-                                <span class="menu-title">SBVH</span>
+                                <span class="menu-title">SBV History</span>
                                 <i class="mdi mdi-pin menu-icon"></i>
                             </a>
                         </li>

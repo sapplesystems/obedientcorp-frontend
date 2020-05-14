@@ -1,4 +1,25 @@
 $(document).ready(function () {
+    $('#passport_image').change(function () {
+        $('#passport_image_error_1').css('display', 'none'); // triggers the validation test        
+    });
+    $('#passport_image2').change(function () {
+        $('#passport_image_error_2').css('display', 'none'); // triggers the validation test  
+    });
+    $('#driving_licence_image').change(function () {
+        $('#driving_licence_image_error_1').css('display', 'none');
+    });
+    $('#driving_licence_image2').change(function () {
+        $('#driving_licence_image_error_2').css('display', 'none');
+    });
+
+    $('#adhar_image').change(function () {
+        $(this).valid();  // triggers the validation test        
+    });
+    $('#adhar_image2').change(function () {
+        $(this).valid();  // triggers the validation test        
+    });
+
+
     $("#kyc_update").submit(function (e) {
         e.preventDefault();
         var kyc_frm = $("#kyc_update");
@@ -9,7 +30,7 @@ $(document).ready(function () {
         });
 
         if ($("#kyc_update").valid()) {
-            showLoader();
+            //showLoader();
             var params = new FormData();
 
             var kyc_id = $('#kyc_id').val();
@@ -21,9 +42,49 @@ $(document).ready(function () {
 
             var pan_image = $('#pan_image')[0].files[0];
             var passport_number = $('#passport_number').val();
+            if ($('#passport_image').val() != '' && $('#passport_image2').val() == '') {
+                $('#passport_image_error_2').css('display', 'block');
+                $('#passport_image_error_2').css({
+                    "color": "#fe7c96",
+                    "display": "inline-block",
+                    "margin-left": "1.5em",
+                    "font-size": "0.875rem"
+                });
+                return false;
+            }
+            if ($('#passport_image').val() == '' && $('#passport_image2').val() != '') {
+                $('#passport_image_error_1').css('display', 'block');
+                $('#passport_image_error_1').css({
+                    "color": "#fe7c96",
+                    "display": "inline-block",
+                    "margin-left": "1.5em",
+                    "font-size": "0.875rem"
+                });
+                return false;
+            }
             var passport_image = $('#passport_image')[0].files[0];
             var passport_image2 = $('#passport_image2')[0].files[0];
             var driving_licence_number = $('#driving_licence_number').val();
+            if ($('#driving_licence_image').val() != '' && $('#driving_licence_image2').val() == '') {
+                $('#driving_licence_image_error_2').css('display', 'block');
+                $('#driving_licence_image_error_2').css({
+                    "color": "#fe7c96",
+                    "display": "inline-block",
+                    "margin-left": "1.5em",
+                    "font-size": "0.875rem"
+                });
+                return false;
+            }
+            if ($('#driving_licence_image').val() == '' && $('#driving_licence_image2').val() != '') {
+                $('#driving_licence_image_error_1').css('display', 'block');
+                $('#driving_licence_image_error_1').css({
+                    "color": "#fe7c96",
+                    "display": "inline-block",
+                    "margin-left": "1.5em",
+                    "font-size": "0.875rem"
+                });
+                return false;
+            }
             var driving_licence_image = $('#driving_licence_image')[0].files[0];
             var driving_licence_image2 = $('#driving_licence_image2')[0].files[0];
             var proposed_area_of_work = $('#proposed_area_of_work').val();

@@ -196,12 +196,24 @@ function get_customer_list(user_id) {
             user_id: user_id
         },
         success: function (response) {
-            if (response.status) {
+            console.log(response);
+            if (response.status == 'success') {
                 var customer_list = '<option value="">--select--</option>';
-                $.each(response.data, function (key, value) {
-                    customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                $("#customer-list").html(customer_list);
+                if (response.data.length > 0) {
+                    $.each(response.data, function (key, value) {
+                        customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
+                    });
+                    $("#customer-list").html(customer_list);
+                }
+                else {
+                    $("#customer-list").html(customer_list);
+                    $("#due_payment_list ,#pending_payment_list,#reject_payment_list,#approved_payment_lis ").html('');
+                    generateDataTable('due_payment_list');
+                    generateDataTable('pending_payment_list');
+                    generateDataTable('reject_payment_list');
+                    generateDataTable('approved_payment_list');
+                }
+
 
             }
 

@@ -82,37 +82,37 @@ if ($user_type != 'ADMIN') {
                                     success: function (response) {
                                         if (response.status == "success") {
                                             var table_data = '<thead>\n\
-                                    <tr>\n\
-                                        <th>Agent Name</th>\n\
-                                        <th>Left Business</th>\n\
-                                        <th>Right Business</th>\n\
-                                        <th>Balance Left Business</th>\n\
-                                        <th>Balance Right Business</th>\n\
-                                        <th>Matching Amount</th>\n\
-                                        <th>Commission</th>\n\
-                                        <th>TDS</th>\n\
-                                        <th>Processing Fee</th>\n\
-                                        <th>Other Charges</th>\n\
-                                        <th>Payout Amount</th>\n\
-                                        <th>Date</th>\n\
-                                    </tr>\n\
-                                </thead>';
+                                                                    <tr>\n\
+                                                                        <th>Agent Name</th>\n\
+                                                                        <th>Left Business</th>\n\
+                                                                        <th>Right Business</th>\n\
+                                                                        <th>Balance Left Business</th>\n\
+                                                                        <th>Balance Right Business</th>\n\
+                                                                        <th>Matching Amount</th>\n\
+                                                                        <th>Commission</th>\n\
+                                                                        <th>TDS</th>\n\
+                                                                        <th>Processing Fee</th>\n\
+                                                                        <th>Other Charges</th>\n\
+                                                                        <th>Payout Amount</th>\n\
+                                                                        <th>Date</th>\n\
+                                                                    </tr>\n\
+                                                                </thead>';
                                             table_data += '<tbody>';
                                             $.each(response.data, function (key, value) {
                                                 table_data += '<tr>\n\
-                                    <td>' + value.display_name + '</td>\n\
-                                    <td>' + value.total_left_business + '</td>\n\
-                                    <td>' + value.total_right_business + '</td>\n\
-                                    <td>' + value.remaining_left_business + '</td>\n\
-                                    <td>' + value.remaining_right_business + '</td>\n\
-                                    <td>' + value.matching_amount + '</td>\n\
-                                    <td>' + value.commission + '</td>\n\
-                                    <td>' + value.tds + '</td>\n\
-                                    <td>' + value.processing_fee + '</td>\n\
-                                    <td>' + value.other_charges + '</td>\n\
-                                    <td>' + value.payout_amount + '</td>\n\
-                                    <td>' + value.created_date + '</td>\n\
-                                </tr>';
+                                                                    <td>' + value.display_name + '</td>\n\
+                                                                    <td>' + value.total_left_business + '</td>\n\
+                                                                    <td>' + value.total_right_business + '</td>\n\
+                                                                    <td>' + value.remaining_left_business + '</td>\n\
+                                                                    <td>' + value.remaining_right_business + '</td>\n\
+                                                                    <td>' + value.matching_amount + '</td>\n\
+                                                                    <td>' + value.commission + '</td>\n\
+                                                                    <td>' + value.tds + '</td>\n\
+                                                                    <td>' + value.processing_fee + '</td>\n\
+                                                                    <td>' + value.other_charges + '</td>\n\
+                                                                    <td>' + value.payout_amount + '</td>\n\
+                                                                    <td>' + value.from_date + ' To ' + value.to_date + '</td>\n\
+                                                                </tr>';
                                             });
                                             table_data += '</tbody>';
                                             $("#payout_history").html(table_data);

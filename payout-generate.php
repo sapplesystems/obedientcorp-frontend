@@ -1,5 +1,5 @@
-<?php 
-include_once 'header.php'; 
+<?php
+include_once 'header.php';
 if ($user_type != 'ADMIN') {
     echo '<script type="text/javascript">window.location.href="dashboard";</script>';
 }
@@ -22,6 +22,7 @@ if ($user_type != 'ADMIN') {
                 <div class="card">
                     <div class="card-body p-3 custom_overflow">
                         <h4 class="card-title mb-4">Payout List</h4>
+                        <h3 class="text-center" id="payout_week"></h3>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="payout_list"></table>
                         </div>
@@ -74,12 +75,13 @@ if ($user_type != 'ADMIN') {
                                     <td>' + value.remaining_right_business + '</td>\n\
                                     <td>' + value.matching_amount + '</td>\n\
                                     <td>' + value.income_fund + '</td>\n\
-                                    <td>' + value.created_date + '</td>\n\
+                                    <td>' + value.payout_generated_from + ' To ' + value.payout_generated_to + '</td>\n\
                                 </tr>';
                         });
                         table_data += '</tbody>';
                         $("#payout_list").html(table_data);
                         generateDataTable('payout_list');
+                        $('#payout_week').html('Week ' + response.payout_week);
                         hideLoader();
                     }
                     else {
@@ -90,8 +92,8 @@ if ($user_type != 'ADMIN') {
                 }
             });
         }
-        
-        function generatePayout(){
+
+        function generatePayout() {
             showLoader();
             $.ajax({
                 url: base_url + 'generate-payout',
@@ -100,12 +102,12 @@ if ($user_type != 'ADMIN') {
                 success: function (response) {
                     console.log(response);
                     if (response.status == "success") {
-                        showSwal('success','Payout Generated','Payout generated successfully');
+                        showSwal('success', 'Payout Generated', 'Payout generated successfully');
                         window.location.href = 'payout-history';
                         hideLoader();
                     }
                     else {
-                        showSwal('error','Failed','Payout Generation Failed');
+                        showSwal('error', 'Failed', 'Payout Generation Failed');
                         hideLoader();
                     }
                 }

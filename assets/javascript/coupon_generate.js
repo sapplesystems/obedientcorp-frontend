@@ -112,7 +112,7 @@ function get_listing() {
                 var table_data = '';
                 $.each(response.data, function (key, value) {
                     var Option = 0;
-                    if (value.amount == 100) { Option = 50; } else if (value.amount == 500) { Option = 10; } else if (value.amount == 5000) { Option = 1; }
+                    if (value.amount == 100) { Option = 50; } else if (value.amount == 500) { Option = 10; } else if (value.amount == 1000) { Option = 5; }
                     var OptionHTML = '<option value="0">0</option>';
                     for (var xo = 1; xo <= Option; xo++) {
                         OptionHTML += '<option value="' + xo + '">' + xo + '</option>';

@@ -275,6 +275,12 @@ include_once 'common_html.php';
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="winners">
+                                    <span class="menu-title">Winners</span>
+                                    <i class="mdi mdi-settings menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="upload-homepage-images">
                                     <span class="menu-title">Upload Homepage Images</span>
                                     <i class="mdi mdi-home menu-icon"></i>

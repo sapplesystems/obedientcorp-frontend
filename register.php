@@ -766,7 +766,9 @@ include_once 'common_html.php';
     hideLoader();
 
     function isNumberKey(evt) {
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        //var charCode = (evt.which) ? evt.which : evt.keyCode;
+        var e = window.event || evt;
+        var charCode = e.charCode;
         if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
             return false;
         return true;

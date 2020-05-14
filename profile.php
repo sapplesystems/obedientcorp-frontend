@@ -248,7 +248,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Marital Status <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control required" id="marital_status" name="marital_status">
+                                                                <select class="form-control" id="marital_status" name="marital_status">
                                                                     <option value="">-- Select One --</option>
                                                                     <option value="Single">Single</option>
                                                                     <option value="Married">Married</option>

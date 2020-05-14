@@ -1,8 +1,12 @@
 <?php
 include_once 'common_html.php';
 include_once 'header_frontend.php';
-if (isset($_REQUEST['id']) && isset($_REQUEST['id']) != '') {
-    $project_id = $_REQUEST['id'];
+$sub_project_id = 0;
+if (isset($_REQUEST['pid']) && isset($_REQUEST['pid']) != '') {
+    $project_id = $_REQUEST['pid'];
+}
+if (isset($_REQUEST['spid']) && isset($_REQUEST['spid']) != '') {
+    $sub_project_id = $_REQUEST['spid'];
 }
 ?>
 
@@ -31,6 +35,7 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['id']) != '') {
         <!-- Row for cols -->
         <div class="row" id="plot-availability">
             <input type="hidden" value="<?php echo $project_id; ?>" id="project-id" />
+            <input type="hidden" value="<?php echo $sub_project_id; ?>" id="sub-project-id" />
         </div>
     </div>
     <div class="clearfix"></div>

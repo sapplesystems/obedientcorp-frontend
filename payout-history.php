@@ -125,7 +125,8 @@ if ($user_type != 'ADMIN') {
                                                         title: 'Payout-History-' + Date.now(),
                                                         text: 'Export to excel'
                                                     }
-                                                ]
+                                                ],
+                                                aaSorting: []
                                             });
                                             $('.dt-button').removeClass().addClass('btn btn-gradient-primary');
                                             hideLoader();

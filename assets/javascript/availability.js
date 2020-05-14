@@ -3,15 +3,16 @@ $(document).ready(function () {
 
     if ($('#project-id').val() && $('#project-id').val() != '') {
         var project_id = $('#project-id').val();
-        getPlotAvailability(project_id);
+        var sub_project_id = $('#sub-project-id').val();
+        getPlotAvailability(project_id, sub_project_id);
     }
 });
-function getPlotAvailability(project_id) {
+function getPlotAvailability(project_id, sub_project_id) {
 
     $.ajax({
         url: base_url + 'get-plot ',
         type: 'post',
-        data: { project_master_id: project_id },
+        data: {project_master_id: project_id, sub_project_id: sub_project_id},
         success: function (response) {
             if (response.status == 'success') {
                 if (response.data.length > 0) {
@@ -32,7 +33,7 @@ function getPlotAvailability(project_id) {
                             differ_class = 'bg-colored2';
                         }
                         plot_availability += '<div class="col-md-2 col-sm-6 col-6 sm-mt">\n\
-                                    <span class="stay icon-xl radius white m-auto '+ differ_class + ' ">' + value.name + ' <span>' + value.availability + '</span></span>\n\
+                                    <span class="stay icon-xl radius white m-auto ' + differ_class + ' ">' + value.name + ' <span>' + value.availability + '</span></span>\n\
                                     </div>';
 
                     });
@@ -44,7 +45,11 @@ function getPlotAvailability(project_id) {
                     </div>'
                     $('#plot-availability').html(error);
                 }
-                $('#project-name').html(response.project_name);
+                if (response.sub_project_name) {
+                    $('#project-name').html(response.sub_project_name);
+                } else {
+                    $('#project-name').html(response.project_name);
+                }
 
             }
 

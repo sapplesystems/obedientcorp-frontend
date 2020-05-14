@@ -16,7 +16,11 @@ include_once 'header_frontend.php';
 </section>
 <!-- End Page Title --> 
 <!-- GALLERY -->
-<section id="shop" class="sm-pt container t-left shop shop-styled minHeight200">
+<section id="shop" class="sm-pt container t-left shop shop-styled minHeight200 py">
+	<div class="t-center">
+        <h1 class="extrabold-title">All Products</h1>
+        <div class="title-strips-over dark"></div>
+    </div>
     <!-- Filters -->
     <div class="row">
         <div class="col-sm-4">

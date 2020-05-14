@@ -62,7 +62,7 @@ include_once 'common_html.php';
                         </div>
                         <div class="col-lg-6 register-half-bg d-flex flex-row bgImageNone">
                             <p class="text-white font-weight-medium text-center flex-grow align-self-end">
-                                Copyright © 2020 Obedient Group. All rights reserved. <a href="https://obedientcorp.com/" target="_blank ">OBEDIENT GROUP</a>
+                                &copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by Obedient Group
                             </p>
                         </div>
                     </div>

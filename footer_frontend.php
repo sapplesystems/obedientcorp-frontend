@@ -69,7 +69,7 @@
                 </div>
                 <!-- Bottom Note -->
                 <div class="col-sm-6 col-xs-12 table-im t-right height-auto-mobile t-center-xs xxs-mt-mobile">
-                    <p class="v-middle">&copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by <a href="http://obedientcorp.com">Obedient Group.</a></p>
+                    <p class="v-middle">&copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by Obedient Group</p>
                 </div>
             </div>
         </div>

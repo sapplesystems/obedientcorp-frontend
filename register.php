@@ -646,7 +646,8 @@ include_once 'common_html.php';
                     window.location.href = front_url + 'thank-you.php?name=' + name + '&username=' + username;
                     // window.location.href = 'http://localhost/obedientcorp-frontend/thank-you.php?name='+name+'&username='+username;
                 } else {
-                    window.location.href = "failure";
+                    showSwal('error','Registration Failed',response.data);
+                    //window.location.href = "failure";
                     hideLoader();
                 }
 

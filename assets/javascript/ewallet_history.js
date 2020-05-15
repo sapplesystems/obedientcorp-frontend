@@ -1,7 +1,7 @@
 getEwalletHistory({user_id: user_id});
 
 $(document).ready(function () {
-    
+
     $("#agent_list").html(down_the_line_members);
 
     $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
@@ -38,7 +38,7 @@ $(document).ready(function () {
         }
 
         var uid = user_id;
-        if($('#agent_list').val() && $('#agent_list').val() != ''){
+        if ($('#agent_list').val() && $('#agent_list').val() != '') {
             uid = $('#agent_list').val();
         }
         var params = {
@@ -69,20 +69,31 @@ function getEwalletHistory(params) {
                                     <th>Sr No.</th>\n\
                                     <th>Amount</th>\n\
                                     <th>Type</th>\n\
+                                    <th>Shopping Card Type</th>\n\
                                     <th>Date</th>\n\
+                                    <th>Customer</th>\n\
+                                    <th>Detail</th>\n\
                                     <th>Comments</th>\n\
                                 </tr>\n\
                             </thead>";
                 table_html += '<tbody>';
                 var counter = 0
                 $('#available_wallet_balance').html(response.data.wallet_balance);
+                var customer_project_detail = '';
                 $.each(response.data.wallet_transactions, function (key, value) {
                     counter = counter + 1;
+                    customer_project_detail = '';
+                    if (value.type == 'Dr' && value.trans_type2 == 'RS') {
+                        customer_project_detail = 'Debited Rs. ' + value.amount + ' from your wallet against ' + value.customer_project_detail;
+                    }
                     table_html += '<tr id="tr_' + value.id + '">\n\
                                     <td>' + counter + '</td>\n\
                                     <td>' + value.amount + '</td>\n\
                                     <td>' + value.type + '</td>\n\
+                                    <td>' + value.trans_type + '</td>\n\
                                     <td>' + value.created_at + '</td>\n\
+                                    <td>' + value.customer_display_name + '</td>\n\
+                                    <td>' + customer_project_detail + '</td>\n\
                                     <td>' + value.description + '</td>\n\
                                 </tr>';
                 });

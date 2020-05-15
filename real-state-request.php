@@ -13,7 +13,7 @@ if ($user_type != 'ADMIN') {
                     <div class="card-body p-3">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4 class="card-title mb-4">Pending Approval</h4>
+                                <h4 class="card-title mb-4">Real Estate List</h4>
                             </div>
                         </div>
                         <div class="row">

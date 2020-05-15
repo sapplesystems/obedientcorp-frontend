@@ -1,9 +1,13 @@
 var amount = '';
 var type = '';
 var amount_sum = 0;
-getAgentList();
+
 //getCustoerPaymentDetails(0);
 $(function () {
+    $("#agent-list").html(down_the_line_members);
+    
+    get_customer_list($("#agent-list").val());
+    
     $(document).on('click', '#make_request', function () {
         if (checkChecked() == false) {
             document.getElementById('payment-form').reset();
@@ -220,39 +224,6 @@ function get_customer_list(user_id) {
         }
     });
 } //end function customer list
-
-//function for get agent list
-function getAgentList() {
-    //login user id
-    var url = base_url + 'down-the-line-members';
-    var agent_id = 0;
-    $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        async: false,
-        data: {
-            user_id: user_id
-        },
-        success: function (response) {
-            if (response.status) {
-                var customer_list;
-                var i = 0;
-                $.each(response.data, function (key, value) {
-                    if (i == 0) {
-                        agent_id = value.id;
-                        i = 1;
-                    }
-                    customer_list += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                });
-                get_customer_list(agent_id);
-                $("#agent-list").html(customer_list);
-
-            }
-
-        }
-    });
-} //end function agent list
 
 function checkChecked() {
     amount_sum = 0;

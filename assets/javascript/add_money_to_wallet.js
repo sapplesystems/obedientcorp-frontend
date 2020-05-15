@@ -6,6 +6,11 @@ getAgentPaymentList(0);
 $(document).ready(function () {
     $("#agents").html(down_the_line_members);
     $('#agent-list').html(down_the_line_members);
+    
+    $(document).on('click', '#pills-pending-tab', function (e) {
+        e.preventDefault();
+        getAgentPaymentList($("#agent-list").val());
+    });
 
     $("#agents").change(function () {
         var user_id = $(this).val();

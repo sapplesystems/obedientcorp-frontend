@@ -1,7 +1,11 @@
-$(function() {
+$(function () {
 
     $("#agent-list").html(down_the_line_members);
     getAgentPaymentList(0);
+    $(document).on('click', '#pills-pending-tab', function (e) {
+        e.preventDefault();
+        getAgentPaymentList($("#agent-list").val());
+    });
 
 });
 
@@ -19,7 +23,7 @@ function getAgentPaymentList(agent_id) {
         url: base_url + 'agent-payment-list',
         type: 'post',
         data: params,
-        success: function(response) {
+        success: function (response) {
             if (response.status == 'success') {
                 setPendingListTab(response.data.pending, agent_id);
                 setApprovedListTab(response.data.approved, agent_id);
@@ -47,7 +51,7 @@ function getAgentPaymentList(agent_id) {
 
 function paymentApprove(pid, agent_id) {
     showSwal('warning-message-and-cancel');
-    $('.payment_action').click(function() {
+    $('.payment_action').click(function () {
         var comment = $('#payment_comment').val();
         if (comment == '') {
             $('#payment_comment').focus();
@@ -59,7 +63,7 @@ function paymentApprove(pid, agent_id) {
 
 function paymentReject(pid, agent_id) {
     showSwal('warning-message-and-cancel');
-    $('.payment_action').click(function() {
+    $('.payment_action').click(function () {
         var comment = $('#payment_comment').val();
         if (comment == '') {
             $('#payment_comment').focus();
@@ -82,7 +86,7 @@ function paymentAction(pid, agent_id, status_emi) {
         url: base_url + 'coupon/emi/generate',
         type: 'post',
         data: params,
-        success: function(response) {
+        success: function (response) {
             if (response.status == "success") {
                 getAgentPaymentList(agent_id);
                 if (status_emi == '1') {
@@ -93,7 +97,7 @@ function paymentAction(pid, agent_id, status_emi) {
                 }
                 hideLoader();
             } else {
-                showSwal('error',response.data);
+                showSwal('error', response.data);
                 hideLoader();
             }
         }
@@ -115,7 +119,7 @@ function setPendingListTab(response, agent_id) {
                             </tr>\n\
                         </thead>';
     table_data += '<tbody>';
-    $.each(response, function(key, value) {
+    $.each(response, function (key, value) {
         var payment_type = 'EMI';
         if (value.coupon_type_id == '3') {
             payment_type = 'Advance';
@@ -149,7 +153,7 @@ function setApprovedListTab(response, agent_id) {
                             </tr>\n\
                         </thead>';
     table_data += '<tbody>';
-    $.each(response, function(key, value) {
+    $.each(response, function (key, value) {
         var payment_type = 'EMI';
         if (value.coupon_type_id == '3') {
             payment_type = 'Advance';
@@ -182,7 +186,7 @@ function setRejectedListTab(response, agent_id) {
                         </tr>\n\
                         </thead>';
     table_data += '<tbody>';
-    $.each(response, function(key, value) {
+    $.each(response, function (key, value) {
         var payment_type = 'EMI';
         if (value.coupon_type_id == '3') {
             payment_type = 'Advance';

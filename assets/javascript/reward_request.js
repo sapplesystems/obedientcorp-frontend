@@ -2,6 +2,11 @@ $(function () {
 
     $("#agent-list").html(down_the_line_members);
     getRewardRequestList(0);
+    
+    $(document).on('click', '#pills-pending-tab', function (e) {
+        e.preventDefault();
+        getRewardRequestList($("#agent-list").val());
+    });
 
 });
 

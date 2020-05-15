@@ -131,7 +131,7 @@ function changePasswordCancel(e, user_id) {
     $('#change_password_' + user_id).css('display', '');
     $('#change_transaction_password_form_' + user_id).css('display', 'none');
     document.getElementById('change_transaction_password_form_' + user_id).reset();
-    getAgentsList();
+    //getAgentsList();
 
 }
 

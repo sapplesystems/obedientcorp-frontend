@@ -57,7 +57,7 @@ function update_or_insert_winner(params) {
                 document.getElementById('winner-form').reset();
                 $('#mapphoto_id,#photo_id').attr('src', '');
                 $('#mapphoto_id,#photo_id').css('display', 'none');
-               location.href = 'winners';
+               location.href = 'winners-list';
                 //getwinnerList();
                 hideLoader();
             } else {

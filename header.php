@@ -275,7 +275,7 @@ include_once 'common_html.php';
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="winners">
+                                <a class="nav-link" href="winners-list">
                                     <span class="menu-title">Winners</span>
                                     <i class="mdi mdi-settings menu-icon"></i>
                                 </a>

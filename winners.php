@@ -1,46 +1,121 @@
 <?php
-include_once 'header.php';
-if ($user_type != 'ADMIN') {
-    echo '<script type="text/javascript">window.location.href="dashboard";</script>';
-}
+include_once 'common_html.php';
+include_once 'header_frontend.php';
+echo $common['main_container_navigation'];
 ?>
-<!-- partial -->
-<div class="main-panel">
-    <div class="content-wrapper ">
-        <div class="row grid-margin">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <a href="add-winner" class="btn btn-gradient-primary">Add New Winner</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Edit/View Winner</h4>
-                        <div class="overflowAuto">
-                            <table class="table table-bordered custom_action " id="order-listing">
-                                <thead><tr>
-                                        <th width="10%">Sr No.</th>
-                                        <th width="20%">Winner Name</th>
-                                        <th width="10%">Photo</th>
-                                        <th width="10%">Plot No.</th>
-                                        <th width="10%">Plot Area</th>
-                                        <th width="10%">Plot Unit</th>
-                                        <th width="10%">Action</th>
-                                    </tr></thead>
-                                <tbody id="winners_list">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<!-- Page Title -->
+<section id="home" class="xl-py t-center white fullwidth">
+    <!-- Background image - you can choose parallax ratio and offset -->
+    <div style="background-position: center 57%;" class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/winners.jpeg"></div>
+
+</section>
+<!-- End Page Title -->
+
+
+<!-- Dotted Navigation -->
+<?php echo $common['dotted_navigation']; ?>
+<!-- End Dotted Navigation -->
+
+
+
+
+
+
+<!-- GALLERY -->
+<section class="pb bt-1 border-gray t-center gallery-type-1 with-texts py">
+
+    <div class="t-center">
+        <h1 class="extrabold-title">Winners</h1>
+        <div class="title-strips-over dark"></div>
     </div>
-    <!-- content-wrapper ends -->
-    <?php include_once 'footer.php'; ?>
-    <script src="assets/javascript/winner.js"></script>
+
+    <!-- Filters -->
+    <div class="clearfix t-center sm-py">
+        <!-- Works -->
+        <div id="gallery_box" class="cbp lightbox_selected cbp-l-grid-masonry-projects winners-list"></div>
+    </div>
+
+</section>
+<!-- END GALLERY -->
+<?php include_once 'footer_frontend.php'; ?>
+<!-- SEARCH FORM FOR NAV -->
+<?php echo $common['search_form']; ?>
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js?v=2.3"></script>
+
+<script type="text/javascript">
+    getWinnersList();
+    function getWinnersList() {
+        $.ajax({
+            url: base_url + 'winner-list',
+            type: 'post',
+            async: false,
+            success: function(response) {
+                if (response.status == "success") {
+                    var winners = '';
+                    $.each(response.data, function(key, value) {
+                        var path = media_url + 'winner_photo/' + value.photo;
+                        winners += '<div class="cbp-item">\n\
+                                        <div class="cbp-caption">\n\
+                                            <div> <img src="' + path + '" alt="image gallery"> </div>\n\
+                                        </div>\n\
+                                        <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">' + value.name + '</a>\n\
+                                        <div class="description cbp-l-grid-masonry-projects-desc">Plot Size ' + value.plot_area + ' ' + value.plot_unit + ' ; Plot No.' + value.plot_no + '</div>\n\
+                                    </div>';
+                    });
+                    $('.winners-list').html(winners);
+                } else {
+                    console.log("Not any image");
+                }
+            }
+        });
+    }
+</script>
+
+<!-- MAIN SCRIPTS - Classic scripts for all theme -->
+<script src="js/scripts.js?v=2.3.1"></script>
+<!-- END JS FILES -->
+
+<script type='text/javascript' src='js/site.js'></script>
+
+<script type="text/javascript">
+    // init cubeportfolio
+    $('#gallery_box').cubeportfolio({
+        filters: '#gallery-filter1, #gallery-filter2',
+        loadMoreAction: 'auto',
+        layoutMode: 'grid',
+        defaultFilter: '*',
+        animationType: 'quicksand',
+        gapHorizontal: 10,
+        gapVertical: 10,
+        gridAdjustment: 'responsive',
+        mediaQueries: [{
+            width: 1500,
+            cols: 5,
+        }, {
+            width: 1100,
+            cols: 4,
+        }, {
+            width: 800,
+            cols: 3
+        }, {
+            width: 480,
+            cols: 1,
+            options: {
+                caption: '',
+                gapHorizontal: 10,
+                gapVertical: 10,
+            }
+        }],
+        caption: 'zoom',
+        displayType: 'fadeIn',
+        displayTypeSpeed: 300,
+    });
+</script>
+</body>
+<!-- Body End -->
+
+</html>

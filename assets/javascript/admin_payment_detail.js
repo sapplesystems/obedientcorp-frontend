@@ -27,6 +27,11 @@ function get_payment_details() {
         success: function (response) {
             console.log(response);
             if (response.status == 'success') {
+                if (response.data.payment.status != 'Pending') {
+                    $('#action_div').html('');
+                } else {
+                    $('#action_div').css('display', '');
+                }
                 if (response.data.detail) {
                     var emi_list = '<thead>\n\
                     <tr>\n\
@@ -98,14 +103,14 @@ function get_payment_details() {
                     $("#photo").css('display', '');
                     $("#a_photo").attr('href', payment_photo);
                 }
-                
+
                 if (response.data.payment.comment) {
                     comment = response.data.payment.comment;
                 }
                 if (response.data.payment.admin_comment) {
                     admin_comment = '<label class="col-form-label col-sm-4 text-right">Admin Comment:</label>\n\
                     <div class="col-sm-8">\n\
-                        <label class="col-form-label card-description mb-0" id="admincomment">'+ response.data.payment.admin_comment + '</label>\n\
+                        <label class="col-form-label card-description mb-0" id="admincomment">' + response.data.payment.admin_comment + '</label>\n\
                     </div>';
 
                     //admin_comment = response.data.payment.admin_comment;

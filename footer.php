@@ -69,6 +69,7 @@
     var UserCookieData;
     var photo_src = 'assets/images/default-img.png';
     var user_active_range = "<?php echo $user_active_range; ?>";
+    var payment_detail_screen = 0;
 </script>
 <script type="text/javascript" src="assets/javascript/global.js" /></script>
 </body>

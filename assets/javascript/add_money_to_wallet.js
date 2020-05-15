@@ -1,8 +1,9 @@
-getWalletAmount(user_id);
 var EMI_Or_Money_Request = 0;
 var FMCG_REQUEST = {};
-getAgentPaymentList(0);
-
+if (payment_detail_screen == 0) { //this variable is declared in footer and beingh set from payment-detail.php
+    getWalletAmount(user_id);
+    getAgentPaymentList(0);
+}
 $(document).ready(function () {
     $("#agents").html(down_the_line_members);
     $('#agent-list').html(down_the_line_members);
@@ -126,7 +127,11 @@ function updateMoneyRequestStatus(payment_id, agent_id, status, admin_comment) {
         success: function (response) {
             if (response.status == 'success') {
                 showSwal('success', 'Payment ' + status, 'Payment ' + status + ' successfully.');
-                getAgentPaymentList(0);//agent_id
+                if (payment_detail_screen == 1) {
+                    get_payment_details(); // function declaired in admin_payment_detail.js which is included into payment-detail.php
+                } else {
+                    getAgentPaymentList(0);//agent_id
+                }
                 hideLoader();
             } else {
                 showSwal('error', 'Failed', 'Something went wrong');
@@ -224,8 +229,10 @@ function get_agent_payment_list(agent_id, status) {
                 table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
                     var action_tr = '';
+                    var query_string = 'payment-detail.php?pid=' + value.id + '&uid=' + value.created_for;
                     if (status == 'Pending') {
                         action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.id + ', ' + value.created_for + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.id + ', ' + value.created_for + ');"></i> </td>';
+                        query_string += '&flag=f';
                     }
                     var dd = new Date(value.date_requested);
                     var date_of_payment = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
@@ -237,7 +244,7 @@ function get_agent_payment_list(agent_id, status) {
                                             <td>' + value.payment_mode + '</td>\n\
                                             <td>' + value.cheque_number + '</td>\n\
                                             ' + action_tr + '\n\
-                                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.created_for + '">Details</a></td>\n\
+                                            <td><a target="_blank" class="btn btn-link p-0" href="' + query_string + '">Details</a></td>\n\
                                         </tr>';
                 });
                 table_data += '</tbody>';

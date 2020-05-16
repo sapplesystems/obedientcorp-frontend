@@ -31,6 +31,9 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
                                         <th>Total Amount</th>
                                         <th>Booking Amount</th>
                                         <th>Date of Payment</th>
+                                        <th>Overdue</th>
+                                        <th>Total Paid</th>
+                                        <th>EMI Amount</th>
                                     </tr>
 
                                 </thead>

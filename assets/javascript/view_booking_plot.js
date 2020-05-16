@@ -9,6 +9,7 @@ function get_plot_booking_listing()
         url: base_url + 'customer/view-booking',
         type: 'post',
         data: {
+            user_id: user_id,
             customer_id: customer_id
         },
         success: function (response) {
@@ -19,22 +20,25 @@ function get_plot_booking_listing()
                 $.each(response.data, function (key, val) {
                     registration_number = '';
                     reference = '';
-                    if(val.registration_number){
+                    if (val.registration_number) {
                         registration_number = val.registration_number;
                     }
-                    if(val.reference){
+                    if (val.reference) {
                         reference = val.reference;
                     }
                     html += '<tr id="tr_' + val.customer_id + '">\n\
                                       <td>' + val.display_name + ')</td>\n\
                                       <td>' + registration_number + '</td>\n\
                                       <td>' + reference + '</td>\n\
-                                      <td>' + val.project_name + '</td>\n\
-                                      <td>' + val.sub_project_name + '</td>\n\
-                                      <td>' + val.plot_name + '</td>\n\
+                                      <td>' + val.project_master_name + '</td>\n\
+                                      <td>' + val.sub_project_master_name + '</td>\n\
+                                      <td>' + val.plot_master_name + '</td>\n\
                                       <td>' + val.total_amount + '</td>\n\
                                       <td>' + val.received_booking_amount + '</td>\n\
                                       <td>' + val.date_of_payment + '</td>\n\
+                                      <td>' + val.overdue + '</td>\n\
+                                      <td>' + val.total_paid + '</td>\n\
+                                      <td>' + val.emi_amount + '</td>\n\
                                   </tr>';
 
                 });

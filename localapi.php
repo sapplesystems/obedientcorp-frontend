@@ -2,7 +2,7 @@
 
 session_start();
 if (isset($_POST['create_session'])) {
-    $_SESSION['login_resp'] = $_POST['login_resp'];
+    $_SESSION['login_resp'] = json_decode($_POST['login_resp'], true);//$_POST['login_resp'];
     echo true;
     exit;
 }

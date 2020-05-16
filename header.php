@@ -72,8 +72,6 @@ include_once 'common_html.php';
                                 </div>
                             </a>
                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" onclick="logout()">
                                     <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>

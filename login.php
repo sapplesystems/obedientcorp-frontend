@@ -146,7 +146,7 @@ include_once 'common_html.php';
                         if (response.status == "success") {
                             $.post('localapi.php', {
                                 create_session: 1,
-                                login_resp: response.data
+                                login_resp: JSON.stringify(response.data)//response.data
                             }, function (resp) {
                                 var customObject = {};
                                 customObject.id = response.data.id;

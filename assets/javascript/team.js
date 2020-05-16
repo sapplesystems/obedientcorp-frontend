@@ -42,6 +42,7 @@ function getTeamMemberList(user_id, node) {
                 $.each(team_data, function (key, member) {
                     var total_business = 0;
                     var is_active_icon_class = '';
+                    var is_admin_active_style = '';
                     total_business = (Number(member.total_left_business) + Number(member.total_right_business));
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
@@ -49,6 +50,9 @@ function getTeamMemberList(user_id, node) {
                         is_active_icon_class = 'bg-warning';
                     } else {
                         is_active_icon_class = 'bg-danger';
+                    }
+                    if (member.user_type == 'ADMIN') {
+                        is_admin_active_style = ' style="display:none !important;" ';
                     }
                     var photo_src = media_url + 'profile_photo/default-img.png';
                     if (member.photo)
@@ -62,7 +66,7 @@ function getTeamMemberList(user_id, node) {
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
                                                             <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\
-                                                            <span class="edit-avatar-icon ' + is_active_icon_class + '"></span>\n\
+                                                            <span class="edit-avatar-icon ' + is_active_icon_class + '" ' + is_admin_active_style + '></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
                                                             <div class="wrapper d-flex align-items-center mt-2">\n\

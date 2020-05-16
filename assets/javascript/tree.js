@@ -113,6 +113,9 @@ function setNode(object, node_id, link, user_active_range) {
     } else {
         is_active_icon_class = 'bg-danger';
     }
+    if(object.user_type == 'ADMIN'){
+        is_active_icon_class = '';
+    }
 
     var photo_src = media_url + 'profile_photo/default-img.png';
     if (object.photo) {

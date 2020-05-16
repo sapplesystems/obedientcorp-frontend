@@ -29205,6 +29205,14 @@ footer h4 a {
 }
 
 @media (max-width: 767px) {
+	
+	#f1_container{height: 145px !important;}
+	.head_p{font-size:18px !important;}
+	
+	ul.rewards_all_main li > span{font-size:20px !important;}
+	
+	ul.rewards_all_main li{width:100% !important; margin:0 0 20px 0 !important;}
+	ul.rewards_all_main li img{max-width:100px !important;}
 
     .wizard>.steps a{font-size:12px !important; padding:5px !important;}
 
@@ -30272,7 +30280,7 @@ select option {
 }
 
 .payment_request .mdi-ticket {
-    color: #b66dff;
+    color: #1bcfb4;
 }
 
 .payment_request .mdi-close-circle {
@@ -30685,8 +30693,8 @@ ul.top_row_members li:nth-child(3) {
     display: none;
     font-size: 12px;
     position: absolute;
-    top: 0;
-    left: 23px;
+    top: -2px;
+    left: 89px;
     width: 200px;
     background-color: rgba(255, 255, 255, 0.9);
     margin-bottom: 0;
@@ -31058,4 +31066,83 @@ ul.rewards_all li > div span.overlay{position: absolute;bottom: 0;left: 0;right:
 ul.rewards_all li > div:hover span.overlay{height: 100%;}
 .text_overlay{color: white;font-size: 14px;position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);text-align: center;line-height: 20px;}
 .custom_overflow{overflow:auto;}
+
+.info_click span{font-size: 12px;display: block;cursor: pointer;}
+  
+ul.rewards_all_main{list-style:none; padding:0px; margin:0px;width: 100%;}
+ul.rewards_all_main li{float:left; width:48%; text-align:center; padding:0px; margin:1%; position: relative;    border-radius: 4px;}
+ul.rewards_all_main li img{max-width:200px; /*border: 1px dashed rgba(255,255,255,0.3);padding: 5px;    border-radius: 4px;*/} 
+ul.rewards_all_main li #f1_card span{font-size: 30px;margin-right: 15px;vertical-align: middle;font-weight: bold;}
+
+ul.rewards_all_main li .mdi.mdi-bookmark{position: absolute;top: -31px;left: 5px;font-size: 50px;color: #1bcfb4 !important;}
+	
+ul.rewards_all_main li .mdi.mdi-check-circle-outline{position: absolute;top: 21px;left: 14px;font-size: 22px;color: #ffffff;}
+ul.rewards_all_main li .mdi.mdi-trophy-award{position: absolute;top: 21px;left: 14px;font-size: 22px;color: #ffffff;}
+ul.rewards_all_main li > div{display:inline-block; position:relative;}
+ul.rewards_all_main li > div span.overlay{position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;}
+ul.rewards_all_main li > div:hover span.overlay{height: 100%;}
+.text_overlay{color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;line-height: 20px;}
+  
+  
+  #f1_container {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 250px;
+  z-index: 1;
+}
+#f1_container {
+  perspective: 1000;
+}
+#f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.7s linear;
+  border:1px solid #999999;
+}
+#f1_container:hover #f1_card {
+  transform: rotateY(180deg);
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  padding:20px;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #b66dff;
+}
+.head_p{font-size:22px; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);    width: 80%;}
+#f1_card .border-bottom{border-bottom:1px solid rgba(255,255,255,0.7) !important;}
+
+.cus_text{    font-weight: normal !important;
+    font-size: 22px !important;
+    margin-right: 0 !important;
+    position: relative !important;
+    top: 8px !important;}
+	.height100{height:100px !important;}
 

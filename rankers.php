@@ -8,7 +8,7 @@ include_once 'header.php';
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-0">Rewards</h4>
+                        <h4 class="card-title mb-0">Rankers</h4>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@ include_once 'header.php';
                     var rewards = '';
                     $.each(response.data, function (key, value) {
                         var path = 'images/' + value.photo;
-                        rewards += '<li><div id="f1_container"><div id="f1_card"><i class="mdi mdi-bookmark"><i class="mdi mdi-check-circle-outline"></i></i><div class="front face"><span>&#8377; ' + value.amount + ' &nbsp;-&nbsp;</span><img src="' + path + '" /></div><div class="back face center"><p class="head_p">You need X more business on right and Y more business on left to get this reward</p></div></div></div></li>'
+                        rewards += '<li><div id="f1_container" class="height100"><div id="f1_card"><i class="mdi mdi-bookmark"><i class="mdi mdi-trophy-award"></i></i><div class="front face"><div class="row mt-3"><div class="col-sm-4"><strong>Rank Achieved :</strong></div><div class="col-sm-8 text-left">Distributer</div></div></div><div class="back face center"><div class="row mt-3"><div class="col-sm-4"><h5 class="border-bottom pb-1"> Target </h5> <div>33673.73</div></div><div class="col-sm-4"><h5 class="border-bottom pb-1"> Achieved </h5><div>500.00</div></div><div class="col-sm-4"><h5 class="border-bottom pb-1"> Required </h5><div>500.00</div></div></div></div></div></div></li>'
                     });
                     $('.rewards_all_main').append(rewards);
 

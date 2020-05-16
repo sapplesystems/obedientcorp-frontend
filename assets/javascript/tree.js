@@ -131,7 +131,7 @@ function setNode(object, node_id, link, user_active_range) {
                             <span>\n\
                                 <strong>' + object.associate_name + '</strong>\n\
                                 <span class="info_click">\n\
-                                    <i class="mdi mdi-information-outline"></i>\n\
+                                    Introducer\n\
                                     <label><strong>Sponser Id</strong> - ' + object.introducer_code + '<br />\n\
                                         <strong>Sponser Name</strong> - ' + object.introducer_name + '<br />\n\
                                         <strong>Joining Date</strong> - ' + object.joining_date + '</label>\n\

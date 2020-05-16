@@ -299,6 +299,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <input type="hidden" id="customer_id" value="<?php echo $customer_id; ?>" />
                                     <input type="hidden" id="agent-id" value="<?php echo $agent_id; ?>" />
                                     <input type="hidden" id="status" value="<?php echo $status; ?>" />
+                                    <a class="btn btn-danger btn-sm" href="manage-customer">Back</a>&nbsp;
                                     <input type="submit" class="btn btn-info btn-sm" id="customer_add_submit_button" name="customer_add_submit_button" value="Submit" />&nbsp;
                                 </div>
                             </div>

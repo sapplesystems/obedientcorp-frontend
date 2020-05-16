@@ -251,7 +251,7 @@ function generateDuePaymentList(list) {
     });
     table_data += '</tbody>';
     $("#due_payment_list").html(table_data);
-    $("#due_payment_list").DataTable();
+    $("#due_payment_list").DataTable({aaSorting: []});
 }
 
 function setCurrentNextReward(data) {

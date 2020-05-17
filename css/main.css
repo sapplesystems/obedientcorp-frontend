@@ -80,7 +80,6 @@ ul.topMenu li ul {
 
 @media only screen and (max-width: 991px){
 		.custom_btn_overlap{visibility:hidden!important;}
-	#side-dotted-navigation.spy{display:none !important;}
 	.topBar{height: 260px;}
 	ul.topMenu{margin-top:70px;}
 	ul.topMenu li{margin:5px 0;width: 32%; text-align: center;}

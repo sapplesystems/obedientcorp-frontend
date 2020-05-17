@@ -109,9 +109,7 @@ include_once 'header_frontend.php';
             </h1>
             <div class="title-strips-over dark"></div>
             <!-- Description -->
-            <p class="page-description">
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.
-            </p>
+            <p class="page-description"></p>
             <!-- Container -->
             <div class="container mt-70 qdr-controls">
 			<div class="row">

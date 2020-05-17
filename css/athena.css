@@ -382,12 +382,24 @@ opacity: 1;
 }
 
 .marginLeftProducts{
-margin-left:-175px !important;
-z-index:9 !important;
+	margin-left: -160px !important;
+    z-index: 9 !important;
+    width: 150px;
+    padding: 0px !important;
+    text-align: center !important;
+    height: 36px;
+    line-height: 36px !important;
+	font-size: 12px !important;
 }
 
 .marginLeftLogin{
-margin-left:175px !important;
+    margin-left: 160px !important;
+    width: 150px !important;
+    text-align: center !important;
+    padding: 0px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+	font-size: 12px !important;
 }
 
 .btnBGTheme{
@@ -731,3 +743,5 @@ ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !import
     margin-top: 5px;}
 	
 	#gallery_box.cbp img{height: 170px !important;}
+	
+	.custom_subHead{line-height: 12px !important;}

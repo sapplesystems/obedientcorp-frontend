@@ -56,9 +56,7 @@ include_once 'header.php';
                         var dynamic_msg = '';
                         $.each(response.data.rewards_list, function(key, value) {
                             var current_class = '';
-                            left_more = value.left_more;
-                            right_more = value.right_more;
-                            dynamic_msg = 'You need ' + right_more + ' more business on right and ' + left_more + ' more business on left to get this reward';
+                            dynamic_msg = 'You need ' + value.right_more + ' more business on right and ' + value.left_more + ' more business on left to get this reward';
                             if (value.current == 1) {
                                 current_class = 'rank2';
 
@@ -69,6 +67,7 @@ include_once 'header.php';
                                 current_class = 'rank3';
                             }
                             var path = 'images/' + value.photo;
+                            
                             rewards += '<li><div id="f1_container"><div id="f1_card"><div class="front face ' + current_class + '"><span>&#8377; ' + value.amount + ' &nbsp;-&nbsp;</span><img src="' + path + '" /></div><div class="back face center"><p class="head_p">' + dynamic_msg + '</p></div></div></div></li>'
                         });
                         $('.rewards_all_main').append(rewards);

@@ -120,7 +120,7 @@ include_once 'common_html.php';
                                     document.getElementById('forgetpassword_form').reset();
                                 }
                                 else {
-                                    showSwal('error', 'Failed', 'Wrong Email.');
+                                    showSwal('error', 'Failed', 'Mail could not be sent.');
                                 }
 
                             }

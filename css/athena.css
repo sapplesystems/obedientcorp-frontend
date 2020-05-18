@@ -504,7 +504,7 @@ bottom: 20px;
 -webkit-box-orient: vertical;
 overflow: hidden;
 text-overflow: ellipsis; padding-bottom:0px !important; letter-spacing: 1px;}
-.custom_tab h4{font-size:16px !important; display:block; white-space: nowrap;overflow: hidden !important;text-overflow: ellipsis;text-align:center;} 
+.custom_tab h4{font-size:16px !important; display:block;/* white-space: nowrap;overflow: hidden !important;text-overflow: ellipsis;*/text-align:center;} 
 	
 	
 ul.product_list li {
@@ -747,4 +747,4 @@ ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !import
 	.custom_subHead{line-height: 12px !important;}
 	.marginAuto{margin:14px auto !important;}
 	
-	.real-estate-slider .slick-slide img{height:200px;}
+	.real-estate-slider .slick-slide img{height:300px;}

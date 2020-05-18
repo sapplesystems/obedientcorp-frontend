@@ -479,7 +479,7 @@ bottom: 20px;
 .cbp-caption-activeWrap{display:none;}
 .cbp img{height:300px; width:auto; margin: 0px auto;}
 .cbp-caption-defaultWrap{border: 1px solid #cccccc;}
-.slick-slide img{display:inline-block; width:auto !important; height:200px; max-width: 100%}
+.slick-slide img{display:inline-block; width:auto !important; height:300px; max-width: 100%}
 .slick-initialized .slick-slide{text-align: center;}
 
 
@@ -721,7 +721,7 @@ ul.product_list li .product_info:hover .info_hover a:after {
 .minHeight575{min-height:575px;}
 
 .posR{position:relative;}
-ul.subMenu{display: block;position: absolute;width: 100px;text-align: left;margin-top:5px; background-color:rgba(0,0,0.7);}
+ul.subMenu{display: block;position: absolute;width: 100px;text-align: left;margin-top:5px; background-color:rgba(0,0,0.7); z-index:9;}
 ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !important;}
 
 
@@ -745,3 +745,6 @@ ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !import
 	#gallery_box.cbp img{height: 170px !important;}
 	
 	.custom_subHead{line-height: 12px !important;}
+	.marginAuto{margin:14px auto !important;}
+	
+	.real-estate-slider .slick-slide img{height:200px;}

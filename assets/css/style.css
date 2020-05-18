@@ -16002,8 +16002,8 @@ code {
 }
 
 .img-lg {
-    width: 82px;
-    height: 82px;
+    width: 82px !important;
+    height: 82px !important;
 }
 
 .img-sm {
@@ -31153,4 +31153,6 @@ ul.rewards_all_main li > div:hover span.overlay{height: 100%;}
 	.rank1{background-color: #ebd6ff;border: 1px solid #d9b3ff;color: #000;}
 	.rank2{background-color: #bfdef7;border: 1px solid #87c2f0;color: #000;}
 	.rank3{background-color: #fff4bd;border: 1px solid #feea84;color: #000;}
+	table.custom_team_table tr td{border-top:0px !important;padding: 0px;}
+	.dataTables_wrapper{margin-bottom:40px;}
 

@@ -22,7 +22,7 @@ echo $common['dotted_navigation'];
         <div class="title-strips-over dark"></div>
     </div>
     <!-- BOXES -->
-    <div class="t-center container qdr-col-3 bank_logos">
+    <div class="t-center container qdr-col-2 bank_logos">
 	<!-- Box -->
         <div class="qdr-hover-container slide-in-fwd-left">
             <!-- Icon -->
@@ -34,7 +34,7 @@ echo $common['dotted_navigation'];
         </div>
         <!-- End Box -->
         <!-- Box -->
-        <div class="qdr-hover-container slide-in-fwd-top">
+        <div class="qdr-hover-container slide-in-fwd-right">
             <!-- Icon -->
             <div class="mb-4">
                 <img src="images/canara.png" />
@@ -44,21 +44,17 @@ echo $common['dotted_navigation'];
         </div>
         <!-- End Box -->
         <!-- Box -->
-        <div class="qdr-hover-container slide-in-fwd-right">
+        <div class="qdr-hover-container slide-in-fwd-left mt-3">
             <!-- Icon -->
             <div class="mb-4">
                 <img src="images/yes.png" />
-            </div>
+            </div> 
             <p class="gray9"><strong>Obedient Infra Development Pvt. Ltd.</strong></p>
             <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 011663300001143<br><strong>IFSC Code</strong> : YESB0000116<br><strong>Branch</strong> - Civil Lines Prayagraj.</p>
         </div>
         <!-- End Box -->
 		 <!-- Box -->
-        <div class="qdr-hover-container mt-3">
-		</div>
-		<!-- End Box -->
-		 <!-- Box -->
-        <div class="qdr-hover-container slide-in-fwd-bottom mt-3">
+        <div class="qdr-hover-container slide-in-fwd-right mt-3">
             <!-- Icon -->
             <div class="mb-4">
                 <img src="images/Kotak.jpg" />

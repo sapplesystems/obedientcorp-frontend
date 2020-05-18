@@ -22,9 +22,21 @@ echo $common['dotted_navigation'];
     <div class="qdr-col-1 sm-mt">
         <!-- Col -->
         <div class="qdr-col-5 gap-5 lightbox_gallery">
+		<div>
+                <a href="images/CERTIFICATE OF INCORPORATION2-page-001.jpg" class="thumbnail-img block-img">
+                    <img src="images/CERTIFICATE OF INCORPORATION2-page-001.jpg" alt="">
+                    <div class="img-overlay"><div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div></div>
+                </a>
+            </div>
+			<div>
+                <a href="images/obedient-pan.jpg" class="thumbnail-img block-img">
+                    <img src="images/obedient-pan.jpg" alt="">
+                    <div class="img-overlay"><div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div></div>
+                </a>
+            </div>
             <div>
-                <a href="images/CERTIFICATE-OF-INCORPORATION-pdf.jpg" class="thumbnail-img block-img">
-                    <img src="images/CERTIFICATE-OF-INCORPORATION-pdf.jpg" alt="">
+                <a href="images/legal-1.jpg" class="thumbnail-img block-img">
+                    <img src="images/legal-1.jpg" alt="">
                     <div class="img-overlay"><div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div></div>
                 </a>
             </div>

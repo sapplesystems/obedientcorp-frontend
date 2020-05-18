@@ -5,7 +5,6 @@ if(isset($_REQUEST['pid'])){
     $pid = $_REQUEST['pid'];
 }
 ?>
-<link rel="stylesheet" href="assets/css/image-uploader.min.css">
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper ">

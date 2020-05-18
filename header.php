@@ -42,6 +42,7 @@ include_once 'common_html.php';
         <!-- End layout styles -->
         <link rel="shortcut icon" href="assets/images/favicon.png" />
         <link rel="stylesheet" href="assets/css/croppie.css" />
+        <link rel="stylesheet" href="assets/css/image-uploader.min.css">
     </head>
 
     <body>
@@ -275,6 +276,12 @@ include_once 'common_html.php';
                             <li class="nav-item">
                                 <a class="nav-link" href="winners-list">
                                     <span class="menu-title">Winners</span>
+                                    <i class="mdi mdi-settings menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery-list">
+                                    <span class="menu-title">Gallery</span>
                                     <i class="mdi mdi-settings menu-icon"></i>
                                 </a>
                             </li>

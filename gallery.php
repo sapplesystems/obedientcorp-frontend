@@ -7,7 +7,7 @@ echo $common['main_container_navigation'];
 <!-- Page Title -->
 <section id="home" class="xl-py t-center white fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
-    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/gallery-bg.jpeg"></div>
+    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/gallery-banner.jpg"></div>
 
 </section>
 <!-- End Page Title -->
@@ -23,256 +23,25 @@ echo $common['main_container_navigation'];
 
 
 <!-- GALLERY -->
-<section class="pb bt-1 border-gray t-center gallery-type-1 with-texts">
-
-    <!-- Filters -->
-    <div class="clearfix t-center sm-py">
-        <!-- Filters Category -->
-        <div id="gallery-filter1" class="dropdown drop-effect xxs-mt mb-4" style="display: none;">
-            <button class="dropdown-toggle uppercase extrabold font-12 bg-colored-hover border-colored-hover white-hover slow" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Category
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu font-12 bold-subtitle" aria-labelledby="dropdownMenu1">
-                <li data-filter="*" class="cbp-filter-item-active cbp-filter-item" ><div class="link">All</div></li>
-                <li data-filter=".photography" class="cbp-filter-item" ><div class="link">Category 1</div></li>
-                <li data-filter=".graphic" class="cbp-filter-item" ><div class="link">Category 2</div></li>
-                <li data-filter=".design" class="cbp-filter-item" ><div class="link">Category 3</div></li>
-                <li data-filter=".wordpress" class="cbp-filter-item" ><div class="link">Category 4</div></li>
-            </ul>
+<section class="pb bt-1 border-gray t-center gallery-type-1 with-texts py">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="t-center">
+                    <h1 class="extrabold-title">Gallery</h1>
+                    <div class="title-strips-over dark"></div>
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Accordion -->
+                <div id="two" class="gallery-list">
 
-
-        <!-- Works -->
-        <div id="gallery_box" class="cbp lightbox_selected cbp-l-grid-masonry-projects">
-
-            <!-- Item -->
-            <div class="cbp-item graphic wordpress photography photo animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-1.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-1.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-1.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                                <a href="#" class="works-link" target="_blank"><i class="icon-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">White Fashion</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">web design / identity</div>
+                <!-- End Accordion -->
             </div>
-
-            <!-- Item -->
-            <div class="cbp-item photography design wordpress video animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-2.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-2.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-2.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                                <a href="#" class="works-link" target="_blank"><i class="icon-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Blue Eyes</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">web design / identity</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item graphic design photography movie music animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-3.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-3.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-3.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                                <a href="#" class="works-link" target="_blank"><i class="icon-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Office Worker</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">Videography / Office</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item wordpress photography graphic article music animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-4.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-4.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-4.jpg" alt="" class="none">
-                                </a>
-                                <a href="# class="works-link external-link"><i class="icon-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Black&amp;White</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">Outdoor / Photography</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item graphic photography design video music animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-5.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-5.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-5.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Blue Dress</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">Colors / Image</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item wordpress graphic design video photo animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-6.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-6.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-6.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                                <a href="#" class="works-link" target="_blank"><i class="icon-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Blue Accessories</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">web design / identity</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item design wordpress music article animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-7.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-7.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-7.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Happy Couple</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">web design / identity</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item wordpress photography video animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-8.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-8.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-8.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Health</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">Health / Photo</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item graphic design music animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-9.jpg" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-9.jpg" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-9.jpg" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Sun Glasses</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">Mode / Photo</div>
-            </div>
-
-            <!-- Item -->
-            <div class="cbp-item wordpress movie animated" data-animation="fadeIn" data-animation-delay="250">
-                <div class="cbp-caption">
-                    <!-- IMG -->
-                    <div> <img src="images/gallery-10.png" alt="image gallery"> </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <!-- LINKS -->
-                            <div class="cbp-l-caption-body">
-                                <a href="images/gallery-10.png" class="works-link lightbox_item" data-title="Dashboard<br>by Paul Flavius Nechita">
-                                    <i class="icon-magnifier-add"></i>
-                                    <img src="images/gallery-10.png" alt="" class="none">
-                                </a>
-                                <a href="#" class="works-link external-link"><i class="icon-plus"></i></a>
-                                <a href="#" class="works-link" target="_blank"><i class="icon-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="title cbp-l-grid-masonry-projects-title" rel="nofollow">Talking Phone</a>
-                <div class="description cbp-l-grid-masonry-projects-desc">web design / identity</div>
-            </div>
-
         </div>
-        <!-- End container for works -->
 
 </section>
 <!-- END GALLERY -->
@@ -280,7 +49,81 @@ echo $common['main_container_navigation'];
 <!-- SEARCH FORM FOR NAV -->
 <?php echo $common['search_form']; ?>
 
+<script type="text/javascript">
+    getGalleryTitle();
 
+    function getGalleryTitle() {
+        $.ajax({
+            url: base_url + 'gallery-list',
+            type: 'post',
+            async: false,
+            success: function(response) {
+                if (response.status == "success") {
+                    var gallery = '';
+                    var i = 1;
+                   
+                    $.each(response.data, function(key, value) {
+                        var class_add =  '';
+                        if(i == 1)
+                        {
+                            class_add = 'border-';
+                        }
+                        gallery += '<div class="card mini-mb '+class_add+'">\n\
+                        <div class="card-header c-pointer bg-white bs-light-hover slow" data-toggle="collapse" data-target="#two-'+i+'" id="gal_two_'+i+'" aria-expanded="true" aria-controls="two-'+i+'" onclick="getGalleryImages(event,'+value.id+','+i+')">\n\
+                        <h5 class="bold-subtitle">' + value.title + ' </h5>\n\
+                        <div id="gallery_images_'+i+'"></div>\n\
+                                        </div>\n\
+                                    </div>';
+
+                        i=i+1;
+                    });
+                    $('.gallery-list').html(gallery);
+                    $('#gal_two_1').click();
+                } else {
+                    console.log("Not any image");
+                }
+            }
+        });
+    }//end function get gallery title
+   //function get gallery images 
+function getGalleryImages(e,id,i) {
+    e.preventDefault();
+    $.ajax({
+        url: base_url + 'gallery-image-list',
+        type: 'post',
+        data: {gallery_id: id},
+        async: true,
+        success: function (response) {
+            console.log(response);
+            if (response.status == "success") {
+                var path = '';
+                var html = '<div id="two-'+i+'" class="collapse" data-parent="#two">\n\
+                    <div class="card-body">\n\
+                    <div class="qdr-col-3 gap-3 lightbox_gallery clearfix lightboxed">';
+                $.each(response.data, function (key, value) {
+                    path = media_url+'gallery_photo/'+value.file_name
+                    html += '<div>\n\
+                            <a href="'+path+'" class="thumbnail-img block-img">\n\
+                                <img src="'+path+'" alt="">\n\
+                                <div class="img-overlay">\n\
+                                    <div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div>\n\
+                                </div>\n\
+                            </a>\n\
+                            </div>';
+                   
+                });
+                html+='</div><!qdr -->\n\
+                </div><!--card--body -->\n\
+                </div><!--collapse -->';
+                $('#gallery_images_'+i).html(html);
+                $('.collapse').removeClass('show');
+                $('#two-'+i).addClass('show');
+            }
+        }
+    });
+    
+}//end function for get gallery images
+</script>
 <!-- jQuery -->
 <script src="js/jquery.min.js?v=2.3"></script>
 <!-- MAIN SCRIPTS - Classic scripts for all theme -->
@@ -301,33 +144,32 @@ echo $common['main_container_navigation'];
         gapVertical: 10,
         gridAdjustment: 'responsive',
         mediaQueries: [{
-                width: 1500,
-                cols: 5,
-            }, {
-                width: 1100,
-                cols: 4,
-            }, {
-                width: 800,
-                cols: 3
-            }, {
-                width: 480,
-                cols: 1,
-                options: {
-                    caption: '',
-                    gapHorizontal: 10,
-                    gapVertical: 10,
-                }
-            }],
+            width: 1500,
+            cols: 5,
+        }, {
+            width: 1100,
+            cols: 4,
+        }, {
+            width: 800,
+            cols: 3
+        }, {
+            width: 480,
+            cols: 1,
+            options: {
+                caption: '',
+                gapHorizontal: 10,
+                gapVertical: 10,
+            }
+        }],
         caption: 'zoom',
         displayType: 'fadeIn',
         displayTypeSpeed: 300,
     });
-
-
 </script>
 
 
 
 </body>
 <!-- Body End -->
+
 </html>

@@ -25,6 +25,7 @@ if (isset($_REQUEST['gallery_id']) && isset($_REQUEST['title'])) {
                             <div class="form-group row">
                                 <label class="col-sm-2"></label>
                                 <div class="col-sm-10">
+                                    <a class="btn btn-gradient-danger mr-2" href="gallery-list">Back</a>
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="gallery_images_submit">Submit</button>
                                     <input type="hidden" id="gallery-id" value="<?php echo $galleryid; ?>">
                                 </div>
@@ -39,18 +40,7 @@ if (isset($_REQUEST['gallery_id']) && isset($_REQUEST['title'])) {
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">View Gallery Images</h4>
-                        <div class="overflowAuto">
-                            <table class="table table-bordered custom_action " id="order-listing">
-                                <thead><tr>
-                                        <th width="10%">Sr No.</th>
-                                        <th width="20%">Gallery Name</th>
-                                        <th width="10%">Photo</th>
-                                        <th width="10%">Action</th>
-                                    </tr></thead>
-                                <tbody id="gallery_images_list">
-                                </tbody>
-                            </table>
-                        </div>
+                        <div class="overflowAuto" id="gallery_images_list_data"></div>
                     </div>
                 </div>
             </div>

@@ -150,7 +150,7 @@ function getgalleryList() {
                                 <td>\n\
                                 <a href="' + edit_url + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
                                 <a href="javascript:void(0);" onclick="deletegallery(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a>&nbsp\n\
-                                <a href="create-gallery-images.php?gallery_id=' + value.id + '&title=' + value.title + '" id="gallery-images" title="Upload Gallery Images" target="_blank"><i class="mdi mdi-open-in-new"></i></a>  \n\
+                                <a href="create-gallery-images.php?gallery_id=' + value.id + '&title=' + value.title + '" id="gallery-images" title="Upload Gallery Images"><i class="mdi mdi-open-in-new"></i></a>  \n\
                                 </td>\n\
                             </tr>';
                     i = i + 1;
@@ -231,7 +231,16 @@ function getGalleryImages(id) {
             console.log(response);
             if (response.status == "success") {
                 var i = 1;
-                var html = '';
+                var html = '<table class="table table-bordered custom_action" id="gallery_images_list_table">\n\
+                                <thead>\n\
+                                    <tr>\n\
+                                        <th width="10%">Sr No.</th>\n\
+                                        <th width="20%">Gallery Name</th>\n\
+                                        <th width="10%">Photo</th>\n\
+                                        <th width="10%">Action</th>\n\
+                                    </tr>\n\
+                                </thead>\n\
+                                <tbody>';
                 $.each(response.data, function (key, value) {
                     html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
@@ -243,8 +252,9 @@ function getGalleryImages(id) {
                             </tr>';
                     i = i + 1;
                 });
-                $('#gallery_images_list').html(html);
-                initDataTable();
+                html += '</tbody></table>';
+                $('#gallery_images_list_data').html(html);
+                generateDataTable('gallery_images_list_table');
                 hideLoader();
             }
         }

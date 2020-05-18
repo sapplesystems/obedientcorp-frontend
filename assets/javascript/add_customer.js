@@ -717,10 +717,6 @@ function getCustomersList(user_id) {
         },
         async: false,
         success: function (response) {
-            var agent_id = user_id;
-            if ($('#agent_listing').val()) {
-                agent_id = $('#agent_listing').val();
-            }
             var html = '';
             var customer_list = '<option value="">New</option>';
             if (response.status == "success") {
@@ -734,9 +730,9 @@ function getCustomersList(user_id) {
                                   <td>' + val.age + '</td>\n\
                                   <td>' + val.email + '</td>\n\
                                   <td>\n\
-                                        <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=1" title="Edit Customer Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
-                                        <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + agent_id + '&f=2" id="add_new_booking" title="Add New Booking" target="_blank"><i class="mdi mdi-open-in-new"></i></a> &nbsp \n\
-                                        <a href="view-booking.php?customer_id=' + val.id + '&agent_id=' + agent_id + '" id="view_booking" title="View Bookings" target="_blank"><i class="mdi mdi-view-list"></i></a> &nbsp \n\
+                                        <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + val.agent_id + '&f=1" title="Edit Customer Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
+                                        <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + val.agent_id + '&f=2" id="add_new_booking" title="Add New Booking" target="_blank"><i class="mdi mdi-open-in-new"></i></a> &nbsp \n\
+                                        <a href="view-booking.php?customer_id=' + val.id + '&agent_id=' + val.agent_id + '" id="view_booking" title="View Bookings"><i class="mdi mdi-view-list"></i></a> &nbsp \n\
                                         <!--<i class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>-->\n\
                                   </td>\n\
                               </tr>';

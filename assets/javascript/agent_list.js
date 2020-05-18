@@ -28,13 +28,13 @@ function getAgentsList() {
                     </div>\n\
                     <div class="float-left">\n\
                         <input class="tgl tgl-skewed" id="cb' + value.user_id + '" type="checkbox" ' + cb_status + ' onclick="changeAgentStatus(event, ' + value.user_id + ');"/>\n\
-                        <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb' + value.user_id + '"></label>\n\
+                        <label title="Change Agent Status" class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb' + value.user_id + '"></label>\n\
                     </div>\n\
                     <div class="float-left ml-3">\n\
                         <a href="javascript:void(0);" id="change_transaction_password_' + value.user_id + '" onclick="changeTransactionPassword(event, ' + value.user_id + ');" title="Change Transaction Password"><i class="mdi mdi-lock"></i></a>\n\
                         <form class="form-inline" style="display:none;" name="change_transaction_password_form_' + value.user_id + '" id="change_transaction_password_form_' + value.user_id + '" method="post">\n\
-                            <input type="password" class="required" name="password" id="password_'+ value.user_id + '" placehoder="Password"/>\n\
-                            <input type="hidden" name="path" value="" id="url_path_'+ value.user_id + '"/>\n\
+                            <input type="password" class="required" name="password" id="password_' + value.user_id + '" placehoder="Password"/>\n\
+                            <input type="hidden" name="path" value="" id="url_path_' + value.user_id + '"/>\n\
                             <button type="submit" class="btn btn-gradient-success btn-sm" onclick="changePasswordSubmit(event, ' + value.user_id + ');">Submit</button>&nbsp;\n\
                             <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="changePasswordCancel(event, ' + value.user_id + ');">Cancel</button>\n\
                         </form>\n\
@@ -43,13 +43,17 @@ function getAgentsList() {
                         <a href="javascript:void(0);" id="change_password_' + value.user_id + '" onclick="changePassword(event,' + value.user_id + ');" title="Change Login Password"><i class="mdi mdi-key"></i></a>\n\
                     </div>\n\
                 </td>';
+                    var joining_date = '';
+                    if (value.joining_date !== null && value.joining_date !== '') {
+                        joining_date = value.joining_date;
+                    }
                     table_data += '<tr id="tr_' + value.id + '">\n\
                                     <td>' + x + '</td>\n\
                                     <td>' + value.name + '</td>\n\
                                     <td>' + value.code + '</td>\n\
                                     <td>' + value.introducer_code + '</td>\n\
                                     <td>' + value.mobile_no + '</td>\n\
-                                    <td>' + value.joining_date + '</td>\n\
+                                    <td>' + joining_date + '</td>\n\
                                     ' + action_td + '\n\
                                 </tr>';
                     x++;
@@ -131,7 +135,7 @@ function changePasswordCancel(e, user_id) {
     $('#change_password_' + user_id).css('display', '');
     $('#change_transaction_password_form_' + user_id).css('display', 'none');
     document.getElementById('change_transaction_password_form_' + user_id).reset();
-    getAgentsList();
+    //getAgentsList();
 
 }
 

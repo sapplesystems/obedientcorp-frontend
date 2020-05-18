@@ -1,48 +1,37 @@
 <?php
-include_once 'common_html.php';
-include_once 'header_frontend.php';
-echo $common['main_container_navigation'];
-echo $common['dotted_navigation'];
+include_once 'header.php';
 ?>
-
-<!-- CONTENT -->
-<section id="home" class="xl-py t-center fullwidth">
-    <!-- Background image - you can choose parallax ratio and offset -->
-    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/rewards-banner.jpg" style="background-position: center 40%;"></div>
-
-</section>
-<!-- END CONTENT -->
-
-<!-- Boxes -->
-<section id="one" class="py">
-
-    <!-- Divider -->
-    <div class="t-center">
-        <h1 class="extrabold-title">Rewards</h1>
-        <div class="title-strips-over dark"></div>
-    </div>
-    <!-- BOXES -->
-    <div class="container">
-        <ul class="rewards_all">
-
+<!-- partial -->
+<div class="main-panel ">
+    <div class="content-wrapper ">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <h4 class="card-title mb-0">Rewards</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<!-- BOXES -->
+    <div class="row">
+	<div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+        <ul class="rewards_all_main">
         </ul>
+		</div>
+		</div>
+		</div>
     </div>
     <div class="clearfix"></div>
-
-</section>
-
-<?php include_once 'footer_frontend.php'; ?>
-<!-- SEARCH FORM FOR NAV -->
-<?php echo $common['search_form']; ?>
-
-
-<!-- jQuery -->
-<script src="js/jquery.min.js?v=2.3"></script>
-<!-- MAIN SCRIPTS - Classic scripts for all theme -->
-<script src="js/scripts.js?v=2.3.1"></script>
-<!-- END JS FILES -->
-<script type='text/javascript' src='js/site.js'></script>
-<script type="text/javascript">
+		
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <?php include_once 'footer.php'; ?>
+	<script type="text/javascript">
     getRewards();
     function getRewards() {
         $.ajax({
@@ -53,9 +42,9 @@ echo $common['dotted_navigation'];
                     var rewards = '';
                     $.each(response.data, function (key, value) {
                         var path = 'images/' + value.photo;
-                        rewards += '<li><span>&#8377; ' + value.amount + ' &nbsp;-&nbsp;</span><div><img src="' + path + '" /><span class="overlay"><span class="text_overlay"></span></span></div></li>'
+                        rewards += '<li><div id="f1_container"><div id="f1_card"><i class="mdi mdi-bookmark"><i class="mdi mdi-check-circle-outline"></i></i><div class="front face"><span>&#8377; ' + value.amount + ' &nbsp;-&nbsp;</span><img src="' + path + '" /></div><div class="back face center"><p class="head_p">You need X more business on right and Y more business on left to get this reward</p></div></div></div></li>'
                     });
-                    $('.rewards_all').append(rewards);
+                    $('.rewards_all_main').append(rewards);
 
                 } else {
                     console.log("Not any image");
@@ -65,7 +54,3 @@ echo $common['dotted_navigation'];
 
     }
 </script>
-</body>
-<!-- Body End -->
-
-</html>

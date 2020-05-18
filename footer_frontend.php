@@ -37,7 +37,7 @@
                 <h6 class="uppercase white extrabold no-pm mb-3">CONNECT WITH US</h6>
                 <!-- Sub Title -->
                 <!--<h6 class="sm-mt bold gray8">GET UPDATED</h6>-->
-                <!--<p class="mini-mt">The standard chunk of Lorem Ipsum used.</p>
+                <!--<p class="mini-mt"></p>
                 <div id="newsletter-form" class="footer-newsletter clearfix xs-mt">
                     <form id="newsletter_form" name="newsletter_form" method="post" action="#">
                         <input type="email" name="n-email" id="n-email" required placeholder="Add your E-Mail address" class="font-12 radius-lg form-control">
@@ -47,7 +47,7 @@
                 <!-- End Form -->
 				<!--<h6 class="xs-mt bold gray8"><i class="fa fa-envelope mini-mr"></i>CONTACT US</h6>-->
                 <!--<p class="mini-mt">Ph: <a href="tel:070077 09339" class="underline-hover colored-hover">070077 09339</a></p>-->
-                <a href="mailto:query@obedientcorp.com" class="underline-hover colored-hover"> query@obedientcorp.com</a>
+                <a href="mailto:query@myobedient.com" class="underline-hover colored-hover">query@myobedient.com</a>
                 <h6 class="xs-mt xxs-mb bold gray8">FOLLOW US</h6>
                 <a href="https://facebook.com/Obedientinfradevelopment/" class="icon-xs radius bg-dark facebook white-hover slow1"><i class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/ObedientPvt" class="icon-xs radius bg-dark twitter white-hover slow1"><i class="fa fa-twitter"></i></a>
@@ -62,13 +62,13 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row clearfix calculate-height t-center-xs">
-                <div class="col-sm-6 col-xs-12 table-im t-left height-auto-mobile t-center-xs">
+                <div class="col-sm-4 col-xs-12 table-im t-left height-auto-mobile t-center-xs">
                     <div class="v-middle">
                         <img src="images/obedient-logo.png" alt="Footer Logo" class="logo">
                     </div>
                 </div>
                 <!-- Bottom Note -->
-                <div class="col-sm-6 col-xs-12 table-im t-right height-auto-mobile t-center-xs xxs-mt-mobile">
+                <div class="col-sm-8 col-xs-12 table-im t-right height-auto-mobile t-center-xs xxs-mt-mobile">
                     <p class="v-middle">&copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by Obedient Group</p>
                 </div>
             </div>
@@ -104,7 +104,8 @@
 <script>
 $(document).ready(function(){
   $(".posR").click(function(){
-    $(".subMenu").slideToggle("slow");
+		$("#login").toggleClass('custom_btn_overlap');
+		$(".subMenu").slideToggle("slow");
   });
 });
 </script>

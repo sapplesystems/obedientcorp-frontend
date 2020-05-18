@@ -1,12 +1,13 @@
-getWalletAmount(user_id);
 var EMI_Or_Money_Request = 0;
 var FMCG_REQUEST = {};
-getAgentPaymentList(0);
-
+if (payment_detail_screen == 0) { //this variable is declared in footer and beingh set from payment-detail.php
+    getWalletAmount(user_id);
+    getAgentPaymentList(0);
+}
 $(document).ready(function () {
     $("#agents").html(down_the_line_members);
     $('#agent-list').html(down_the_line_members);
-    
+
     $(document).on('click', '#pills-pending-tab', function (e) {
         e.preventDefault();
         getAgentPaymentList($("#agent-list").val());
@@ -35,6 +36,7 @@ $(document).ready(function () {
         });
         if ($("#add-money-to-wallet-form").valid()) {
             var params = {
+                inserted_by: user_id,
                 user_id: $('#agents').val(),
                 amount: $('#amount').val(),
                 transaction_password: $('#transaction_password').val(),
@@ -61,13 +63,10 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response.status == 'success') {
-                        if (EMI_Or_Money_Request && EMI_Or_Money_Request == 1) {
-                            FMCG_REQUEST.transaction_password = transaction_password.value;
-                            addMoneyToWallet(FMCG_REQUEST);
-                        } else {
-                            updateMoneyRequestStatus(FMCG_REQUEST.payment_id, FMCG_REQUEST.agent_id, FMCG_REQUEST.status);
-                        }
-                        hideLoader();
+                        FMCG_REQUEST.transaction_password = transaction_password.value;
+                        FMCG_REQUEST.inserted_by = user_id;
+                        showSwal('warning-message-and-cancel');
+                        return false;
                     } else {
                         showSwal('error', 'Failed', response.data);
                         hideLoader();
@@ -77,13 +76,31 @@ $(document).ready(function () {
             });
         }
     });
+
+    $(document).on('click', '.payment_action', function () {
+        var comment = $('#payment_comment').val();
+        if (comment == '') {
+            $('#payment_comment').focus();
+            return false;
+        }
+        FMCG_REQUEST.comment = comment;
+        processMoneyRequest();
+    });
 });//document ready
 
-function approveRequest(payment_id, agent_id, amount) {
+function processMoneyRequest() {
+    if (EMI_Or_Money_Request && EMI_Or_Money_Request == 1) {
+        addMoneyToWallet(FMCG_REQUEST);
+    } else {
+        updateMoneyRequestStatus(FMCG_REQUEST.payment_id, FMCG_REQUEST.agent_id, 'Rejected', FMCG_REQUEST.comment);
+    }
+    hideLoader();
+}
+
+function approveRequest(payment_id, agent_id) {
     var params = {
         payment_id: payment_id,
         user_id: agent_id,
-        amount: amount
     };
     EMI_Or_Money_Request = 1;
     FMCG_REQUEST = params;
@@ -95,23 +112,26 @@ function rejectRequest(payment_id, agent_id) {
     FMCG_REQUEST = {
         payment_id: payment_id,
         agent_id: agent_id,
-        status: 'Rejected'
     };
     EMI_Or_Money_Request = 0;
     askForTransaction();
     //updateMoneyRequestStatus(payment_id, agent_id, 'Rejected');
 }
 
-function updateMoneyRequestStatus(payment_id, agent_id, status) {
+function updateMoneyRequestStatus(payment_id, agent_id, status, admin_comment) {
     showLoader();
     $.ajax({
         url: base_url + 'update-request-money-status',
         type: 'post',
-        data: {id: payment_id, status: status},
+        data: {id: payment_id, status: status, comment: admin_comment},
         success: function (response) {
             if (response.status == 'success') {
                 showSwal('success', 'Payment ' + status, 'Payment ' + status + ' successfully.');
-                getAgentPaymentList(0);//agent_id
+                if (payment_detail_screen == 1) {
+                    get_payment_details(); // function declaired in admin_payment_detail.js which is included into payment-detail.php
+                } else {
+                    getAgentPaymentList(0);//agent_id
+                }
                 hideLoader();
             } else {
                 showSwal('error', 'Failed', 'Something went wrong');
@@ -126,12 +146,7 @@ function addMoneyToWallet(params) {
     $.ajax({
         url: base_url + 'add-money-to-wallet',
         type: 'post',
-        data: {
-            inserted_by: user_id,
-            user_id: params.user_id,
-            amount: params.amount,
-            transaction_password: params.transaction_password
-        },
+        data: params,
         success: function (response) {
             if (response.status == 'success') {
                 var updated_amount = response.data.amount;
@@ -141,7 +156,7 @@ function addMoneyToWallet(params) {
                 $('#transaction_password').val('');
                 if (EMI_Or_Money_Request == 1) {
                     EMI_Or_Money_Request = 0;
-                    updateMoneyRequestStatus(params.payment_id, params.user_id, 'Approved');
+                    updateMoneyRequestStatus(params.payment_id, params.user_id, 'Approved', params.comment);
                 }
                 hideLoader();
                 showSwal('success', 'Success', 'Money has been added successfully.');
@@ -214,8 +229,10 @@ function get_agent_payment_list(agent_id, status) {
                 table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
                     var action_tr = '';
+                    var query_string = 'payment-detail.php?pid=' + value.id + '&uid=' + value.created_for;
                     if (status == 'Pending') {
-                        action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.id + ', ' + value.created_for + ',' + value.amount + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.id + ', ' + value.created_for + ');"></i> </td>';
+                        action_tr = '<td> <i class="mdi mdi-check-circle" onclick="approveRequest(' + value.id + ', ' + value.created_for + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="rejectRequest(' + value.id + ', ' + value.created_for + ');"></i> </td>';
+                        query_string += '&flag=f';
                     }
                     var dd = new Date(value.date_requested);
                     var date_of_payment = dd.getDate() + '-' + MonthArr[dd.getMonth()] + '-' + dd.getFullYear();
@@ -227,7 +244,7 @@ function get_agent_payment_list(agent_id, status) {
                                             <td>' + value.payment_mode + '</td>\n\
                                             <td>' + value.cheque_number + '</td>\n\
                                             ' + action_tr + '\n\
-                                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.created_for + '">Details</a></td>\n\
+                                            <td><a target="_blank" class="btn btn-link p-0" href="' + query_string + '">Details</a></td>\n\
                                         </tr>';
                 });
                 table_data += '</tbody>';
@@ -268,5 +285,6 @@ function get_agent_payment_list(agent_id, status) {
 function askForTransaction() {
     showSwal('transaction_password');
     document.getElementById('transaction_password').value = '';
+    //$('#pending_payment_list').DataTable().search( '' ).columns().search( '' ).draw();
     return false;
 }

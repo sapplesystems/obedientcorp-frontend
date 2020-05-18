@@ -1,7 +1,9 @@
 $(function () {
 
     $("#agent-list").html(down_the_line_members);
-    getAgentPaymentList(0);
+    if (payment_detail_screen == 0) { //this variable is declared in footer and beingh set from payment-detail.php
+        getAgentPaymentList(0);
+    }
     $(document).on('click', '#pills-pending-tab', function (e) {
         e.preventDefault();
         getAgentPaymentList($("#agent-list").val());
@@ -95,6 +97,9 @@ function paymentAction(pid, agent_id, status_emi) {
                 if (status_emi == '0') {
                     showSwal('success', 'Payment Rejected', 'Payment is rejected.');
                 }
+                if(payment_detail_screen == 1){
+                    get_payment_details(); // function declaired in admin_payment_detail.js which is included into payment-detail.php
+                }
                 hideLoader();
             } else {
                 showSwal('error', response.data);
@@ -132,7 +137,7 @@ function setPendingListTab(response, agent_id) {
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\
                             <td> <i class="mdi mdi-check-circle" onclick="paymentApprove(' + value.id + ',' + value.user_id + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="paymentReject(' + value.id + ',' + value.user_id + ');"></i> </td>\n\
-                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '">Details</a></td>\n\
+                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '&flag=rs">Details</a></td>\n\
                         </tr>';
     });
     table_data += '</tbody>';

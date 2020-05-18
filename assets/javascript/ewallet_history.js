@@ -84,7 +84,7 @@ function getEwalletHistory(params) {
                     counter = counter + 1;
                     customer_project_detail = '';
                     if (value.type == 'Dr' && value.trans_type2 == 'RS') {
-                        customer_project_detail = 'Debited Rs. ' + value.amount + ' from your wallet against ' + value.customer_project_detail;
+                        customer_project_detail = 'Debited Rs. ' + value.amount + ' from your wallet against <i>' + value.customer_project_detail + '</i>. <br/><br/>EMI collected on: ' + value.customer_project_emi_date;
                     }
                     table_html += '<tr id="tr_' + value.id + '">\n\
                                     <td>' + counter + '</td>\n\

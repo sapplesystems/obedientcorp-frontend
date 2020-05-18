@@ -79,7 +79,7 @@ ul.topMenu li ul {
 #burgernavbar{cursor:pointer;}
 
 @media only screen and (max-width: 991px){
-	#side-dotted-navigation.spy{display:none !important;}
+		.custom_btn_overlap{visibility:hidden!important;}
 	.topBar{height: 260px;}
 	ul.topMenu{margin-top:70px;}
 	ul.topMenu li{margin:5px 0;width: 32%; text-align: center;}

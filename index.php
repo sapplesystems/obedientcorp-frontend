@@ -75,7 +75,7 @@ include_once 'header_frontend.php';
                                          style="z-index: 5; white-space: nowrap;text-transform:left;"><span id ="slider_title_1">Welcome to Obedient Group </span></div>
 
                                     <!-- LAYER NR. 2 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme "
+                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme custom_subHead"
                                          id="slide-3004-layer-4"
                                          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
@@ -136,7 +136,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+                                         style=""><a href="products">OUR PRODUCTS<a/> </div>
 
                                     <!-- LAYER NR. 4 - 2 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -158,7 +158,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
+                                         style=""><a href="login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 5 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -949,7 +949,7 @@ include_once 'header_frontend.php';
                 <h2 class="uppercase">See our Products.</h2>
                 <!--<h2 class="uppercase light">creative &amp; high quality.</h2>-->
                 <div class="title-strips-over dark"></div>
-                <h4 class="light">It is a long established fact that a reader will be distracted by the readable is that it has a more-or-less normal. <br> is that it has a more-or-less normal.</h4>
+                <h4 class="light"></h4>
                 <div id="project_product_slider"></div>
 
             </div>

@@ -11,6 +11,7 @@ $(document).ready(function () {
 });
 
 function getTeamMemberList(user_id, node) {
+    var table1_id = 'table1-' + node;
     var table_id = 'table-' + node;
     showLoader();
     $.ajax({
@@ -26,7 +27,7 @@ function getTeamMemberList(user_id, node) {
                 var user_active_range = Number(response.user_active_range);
                 var team_html = '';
                 var team_list_html = '<div class="media">\n\
-                                        <div class="col-md-12 mb-3 border p-0">\n\
+                                        <div class="col-md-12 mb-3 p-0">\n\
                                             <table class="table table-striped" id="' + table_id + '">\n\
                                                 <thead>\n\
                                                     <tr>\n\
@@ -39,9 +40,11 @@ function getTeamMemberList(user_id, node) {
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
+                team_html += '<table class="table custom_team_table" id="' + table1_id + '"><thead><tr><th></th></tr></thead><tbody>';
                 $.each(team_data, function (key, member) {
                     var total_business = 0;
                     var is_active_icon_class = '';
+                    var is_admin_active_style = '';
                     total_business = (Number(member.total_left_business) + Number(member.total_right_business));
                     if (total_business >= user_active_range) {
                         is_active_icon_class = 'bg-success';
@@ -50,19 +53,23 @@ function getTeamMemberList(user_id, node) {
                     } else {
                         is_active_icon_class = 'bg-danger';
                     }
+                    if (member.user_type == 'ADMIN') {
+                        is_admin_active_style = ' style="display:none !important;" ';
+                    }
                     var photo_src = media_url + 'profile_photo/default-img.png';
                     if (member.photo)
                     {
                         photo_src = media_url + 'profile_photo/' + member.photo;
                     }
-                    team_html += '<div class="col-md-12 mb-3 border p-0">\n\
+                    team_html += '<tr><td>';
+                    team_html += '<div class="col-md-12 border mb-3 p-0">\n\
                                         <div class="card rounded shadow-none">\n\
                                             <div class="card-body pt-3 pb-3">\n\
                                                 <div class="row text-center-m">\n\
                                                     <div class="col-sm-6 col-lg-5 d-lg-flex">\n\
                                                         <div class="user-avatar mb-auto">\n\
                                                             <img src=' + photo_src + ' alt="profile image" class="profile-img img-lg rounded-circle">\n\
-                                                            <span class="edit-avatar-icon ' + is_active_icon_class + '"></span>\n\
+                                                            <span class="edit-avatar-icon ' + is_active_icon_class + '" ' + is_admin_active_style + '></span>\n\
                                                         </div>\n\
                                                         <div class="wrapper pl-lg-4">\n\
                                                             <div class="wrapper d-flex align-items-center mt-2">\n\
@@ -120,6 +127,7 @@ function getTeamMemberList(user_id, node) {
                                             </div>\n\
                                         </div>\n\
                                     </div>';
+                    team_html += '</td></tr>';
 
                     team_list_html += '<tr>\n\
                                                         <td class="py-1">\n\
@@ -132,11 +140,13 @@ function getTeamMemberList(user_id, node) {
                                                         <td> ' + member.matching_amount + ' </td>\n\
                                                     </tr>';
                 });
+                team_html += '</tbody></table>';
                 team_list_html += '</tbody>\n\
                                             </table>\n\
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
+                generateDataTable(table1_id);
                 generateDataTable(table_id);
                 hideLoader();
             } else {
@@ -166,7 +176,7 @@ function getReferralTeamMemberList(user_id, node) {
                 var total_business = 0;
                 var is_active_icon_class = '';
                 var team_list_html = '<div class="media">\n\
-                                        <div class="col-md-12 mb-3 border p-0">\n\
+                                        <div class="col-md-12 mb-3 p-0">\n\
                                             <table class="table table-striped" id="' + table_id + '">\n\
                                                 <thead>\n\
                                                     <tr>\n\
@@ -195,7 +205,7 @@ function getReferralTeamMemberList(user_id, node) {
                     {
                         photo_src = media_url + 'profile_photo/' + member.photo;
                     }
-                    team_html += '<div class="col-md-12 mb-3 border p-0">\n\
+                    team_html += '<div class="col-md-12 mb-3 p-0">\n\
                                         <div class="card rounded shadow-none">\n\
                                             <div class="card-body pt-3 pb-3">\n\
                                                 <div class="row text-center-m">\n\

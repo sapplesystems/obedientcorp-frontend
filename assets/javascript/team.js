@@ -36,7 +36,7 @@ function getTeamMemberList(user_id, node) {
                                                         <th> Name </th>\n\
                                                         <th> Left Business </th>\n\
                                                         <th> Right Business </th>\n\
-                                                        <th> Matching Amount </th>\n\
+                                                        <th> Matching Business </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';
@@ -185,7 +185,7 @@ function getReferralTeamMemberList(user_id, node) {
                                                         <th> Name </th>\n\
                                                         <th> Left Business </th>\n\
                                                         <th> Right Business </th>\n\
-                                                        <th> Matching Amount </th>\n\
+                                                        <th> Matching Business </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
                                                 <tbody>';

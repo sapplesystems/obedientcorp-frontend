@@ -30,7 +30,7 @@ if ($user_type != 'ADMIN') {
                                         <th width="10%"> Product Name </th>
                                         <th width="10%"> Category Name </th>
                                         <th width="10%"> Sub Category Name </th>
-                                        <th width="10%"> Product SKU </th>
+                                        <th width="10%"> SKU </th>
                                         <th width="10%"> Action </th>
                                     </tr>
                                 </thead>

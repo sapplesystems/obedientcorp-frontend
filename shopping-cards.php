@@ -4,6 +4,8 @@
 <div class="main-panel ">
     <div class="content-wrapper ">
 
+   <?php if($user_type != 'ADMIN')
+   {?>
         <div class="row grid-margin">
             <div class="col-12">
                 <div class="card">
@@ -66,7 +68,7 @@
                 </div>
             </div>
         </div>
-
+   <?php }?>
 
         <div class="row">
             <div class="col-12">

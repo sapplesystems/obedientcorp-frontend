@@ -57,6 +57,7 @@ $(document).ready(function () {
     });
 
     if ($('#offer_id').val() && $('#offer_id').val() != '') {
+
         updateOffer($('#offer_id').val());
     }
 
@@ -157,9 +158,21 @@ function getOfferList() {
             if (response.status == "success") {
                 var i = 1;
                 var x = 1;
+                var CurrentDate = new Date();
+                var SelectedDate ='';
                 $.each(response.data, function (key, value) {
                     var edit_url;
-                    edit_url = 'add-offer.php?oid=' + value.id;
+                    var click_function='';
+                    SelectedDate = new Date(value.end_date);
+                    if(CurrentDate < SelectedDate){
+                        edit_url = 'add-offer.php?oid=' + value.id;
+                    }
+                    else
+                    {
+                        edit_url = '#';
+                        click_function = 'onclick="showSwal(\'error\',\'You can not edit this offer as the end date is exceeded.\');"';
+                    }
+
                     html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.offer+ '</td>\n\
@@ -167,7 +180,7 @@ function getOfferList() {
                                 <td>' + value.business + '</td>\n\
                                 <td>' + value.start_date + '</td>\n\
                                 <td>' + value.end_date + '</td>\n\
-                                <td><a href="' + edit_url + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteOffer(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                <td><a href="' + edit_url + '" '+click_function+'> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteOffer(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr>';
                     i = i + 1;
                     x++;

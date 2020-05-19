@@ -7,7 +7,7 @@
                         <div id="errors_div"></div>
                         <form class="forms-sample" id="upload-product-form" name="upload-product-form" method="post" enctype="multipart/form-data">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Upload Image</label>
+                                <label class="col-sm-2 col-form-label">Upload Image <br><span class="text-muted mt-1 d-block">Size 550x650</span></label>
                                 <div class="input-group col-sm-4">
                                     <input type="file" name="product-image" class="file-upload-default product_image required" id="product-image">
                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">

@@ -7,7 +7,7 @@
                         <div id="errors_div"></div>
                         <form class="forms-sample" id="upload-slider-form" name="upload-slider-form" method="post" enctype="multipart/form-data">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Upload Image 1</label>
+                                <label class="col-sm-2 col-form-label">Upload Image 1 <br><span class="text-muted mt-1 d-block">Size 1920x1080</span></label>
                                 <div class="input-group col-sm-4">
                                     <input type="file" name="slider-image1" class="file-upload-default slider_images" id="slider-image1">
                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Upload Image 2</label>
+                                <label class="col-sm-2 col-form-label">Upload Image 2 <br><span class="text-muted mt-1 d-block">Size 1920x1080</span></label>
                                 <div class="input-group col-sm-4">
                                     <input type="file" name="slider-image2" class="file-upload-default slider_images" id="slider-image2">
                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Upload Image 3</label>
+                                <label class="col-sm-2 col-form-label">Upload Image 3 <br><span class="text-muted mt-1 d-block">Size 1920x1080</span></label>
                                 <div class="input-group col-sm-4">
                                     <input type="file" name="slider-image3" class="file-upload-default slider_images" id="slider-image3">
                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Upload Image 4</label>
+                                <label class="col-sm-2 col-form-label">Upload Image 4 <br><span class="text-muted mt-1 d-block">Size 1920x1080</span></label>
                                 <div class="input-group col-sm-4">
                                     <input type="file" name="slider-image4" class="file-upload-default slider_images" id="slider-image4">
                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Upload Image 5</label>
+                                <label class="col-sm-2 col-form-label">Upload Image 5 <br><span class="text-muted mt-1 d-block">Size 1920x1080</span></label>
                                 <div class="input-group col-sm-4">
                                     <input type="file" name="slider-image5" class="file-upload-default slider_images" id="slider-image5">
                                     <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">

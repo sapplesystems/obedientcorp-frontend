@@ -60,9 +60,9 @@ function getTree(uid) {
         success: function (response) {
             if (response.status == "success") {
                 var user_active_range = Number(response.user_active_range);
-                $('#total_left_member').html('<span><strong>Left Members</strong><br><img src="assets/images/members.png" /> ' + response.data.total_left_member + '</span>');
-                $('#total_right_member').html('<span><strong>Right Members</strong><br><img src="assets/images/members.png" /> ' + response.data.total_right_member + '</span>');
-                $('#all_member').html('<span><strong>All Members</strong><br><img src="assets/images/members.png" /> ' + response.data.all_member + '</span>');
+                $('#total_left_member').html('<span><strong>Left Members</strong><br><img class="tree_view_img" src="assets/images/members.png" /> ' + response.data.total_left_member + '</span>');
+                $('#total_right_member').html('<span><strong>Right Members</strong><br><img class="tree_view_img" src="assets/images/members.png" /> ' + response.data.total_right_member + '</span>');
+                $('#all_member').html('<span><strong>All Members</strong><br><img class="tree_view_img" src="assets/images/members.png" /> ' + response.data.all_member + '</span>');
                 var node1 = response.data.node1;
                 var node2 = response.data.node2;
                 var node3 = response.data.node3;

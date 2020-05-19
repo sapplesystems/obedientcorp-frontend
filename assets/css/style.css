@@ -4597,10 +4597,6 @@ pre code {
 
     ul.top_row_members{margin-top:15px !important;}
 
-    ul.top_row_members li{width:49% !important;}
-    ul.top_row_members li:nth-child(2){text-align:left !important;}
-    ul.top_row_members li:nth-child(3){text-align: left !important;}
-
     .text-center-m .col-sm-6.col-lg-5.d-lg-flex{text-align:center;}
     .text-center-m h4, .text-center-m h6{width:100%;}
     .text-center-m .col.d-flex{margin-bottom:15px;}
@@ -29983,6 +29979,12 @@ footer h4 a {
 }
 
 @media (min-width: 992px) {
+	
+	    .custom_dashboard_card .col-md-4{flex: 0 0 20%;max-width: 20%;padding-right: 10px;padding-left: 10px;}
+    .custom_dashboard_card .col-md-4 h2{font-size:22px;}
+    .custom_dashboard_card .col-md-4 .card .card-body {padding: 2.5rem 1.5rem;}
+    .custom_dashboard_card .col-md-4 h4 i{    position: absolute;top: 10px;right: 10px;}
+	
     .boxed-layout .container-scroller {
         background: #171928;
         padding: 0 calc((100% - 1200px) / 2);
@@ -30693,8 +30695,8 @@ ul.top_row_members li:nth-child(3) {
     display: none;
     font-size: 12px;
     position: absolute;
-    top: -2px;
-    left: 89px;
+    top: 0px;
+    left: 23px;
     width: 200px;
     background-color: rgba(255, 255, 255, 0.9);
     margin-bottom: 0;
@@ -30898,7 +30900,7 @@ CSS ANIMATION FOR TREE
 #order-listing_info, .dataTables_info{float:left;margin-top:5px;} 
 
 .signature_img{margin-top:10px;} 
-.back_to_me{position: absolute;left: 0px; z-index:1;}
+.back_to_me{position: absolute;left: 0px; z-index:1; top:96px;}
 .hv-item-div{position:relative; /*margin:0px !important;*/}
 
 @media (max-width: 991px) {
@@ -31161,4 +31163,9 @@ ul.rewards_all_main li > div:hover span.overlay{height: 100%;}
     ul.bg_hint li:first-child span{width:10px; height:10px; display:inline-block; background-color:#ebd6ff;}
     ul.bg_hint li:nth-child(2) span{width:10px; height:10px; display:inline-block; background-color:#bfdef7;}
     ul.bg_hint li:nth-child(3) span{width:10px; height:10px; display:inline-block; background-color:#9c9fa6;}
+	
+	.tree_view_img{    height: 16px !important;
+    border-radius: 0 !important;
+    margin-right: 0px !important;
+    width: auto !important;}
 

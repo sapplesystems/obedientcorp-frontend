@@ -6,11 +6,14 @@ if (!$_SESSION['login_resp']['id'] || $_SESSION['login_resp']['id'] == '' || emp
 }
 
 $user_id = $_SESSION['login_resp']['id'];
+$username = $_SESSION['login_resp']['username'];
 $user_email = $_SESSION['login_resp']['email'];
 $associate_name = $_SESSION['login_resp']['associate_name'];
 $user_type = $_SESSION['login_resp']['user_type'];
 $left_node_id = $_SESSION['login_resp']['left_node_id'];
+$left_node = $_SESSION['login_resp']['left_node'];
 $right_node_id = $_SESSION['login_resp']['right_node_id'];
+$right_node = $_SESSION['login_resp']['right_node'];
 $photo = (!empty($_SESSION['login_resp']['photo'])) ? $_SESSION['login_resp']['photo'] : 'default-img.png';
 $user_active_range = $_SESSION['login_resp']['configurations']['user_active_range'];
 include_once 'common_html.php';

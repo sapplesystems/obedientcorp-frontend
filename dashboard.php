@@ -1,10 +1,5 @@
 <?php include_once 'header.php'; ?>
-<style>
-    .custom_dashboard_card .col-md-4{flex: 0 0 20%;max-width: 20%;padding-right: 10px;padding-left: 10px;}
-    .custom_dashboard_card .col-md-4 h2{font-size:22px;}
-    .custom_dashboard_card .col-md-4 .card .card-body {padding: 2.5rem 1.5rem;}
-    .custom_dashboard_card .col-md-4 h4 i{    position: absolute;top: 10px;right: 10px;}
-</style>
+
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">

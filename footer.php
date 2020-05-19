@@ -62,9 +62,12 @@
     var base_url = "<?php echo $base_url; ?>";
     var media_url = "<?php echo $media_url; ?>";
     var user_id = "<?php echo $user_id; ?>";
+    var username = "<?php echo $username; ?>";
     var user_type = "<?php echo $user_type; ?>";
     var user_left_node_id = "<?php echo $left_node_id; ?>";
+    var user_left_node_username = "<?php echo $left_node; ?>";
     var user_right_node_id = "<?php echo $right_node_id; ?>";
+    var user_right_node_username = "<?php echo $right_node; ?>";
     var user_email = "<?php echo $user_email; ?>";
     var UserCookieData;
     var photo_src = 'assets/images/default-img.png';

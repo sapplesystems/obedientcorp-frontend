@@ -52,7 +52,7 @@ include_once 'common_html.php';
                                                     <i class="mdi mdi-account-outline text-primary"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="User Name">
+                                            <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="User ID">
                                         </div>
                                     </div>
                                     <div class="form-group">

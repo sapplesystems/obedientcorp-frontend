@@ -1,3 +1,9 @@
+<style>
+.bg-facebook{background-color:#4e71a8;}
+.bg-twitter{background-color:#1cb7eb;}
+.bg-instagram{background-color:#ab3e8c;}
+.bg-youtube{background-color:#e83f3a;}
+</style>
 <footer id="footer" class="classic_footer">
     <!-- Container -->
     <div class="container footer-body">
@@ -49,10 +55,10 @@
                 <!--<p class="mini-mt">Ph: <a href="tel:070077 09339" class="underline-hover colored-hover">070077 09339</a></p>-->
                 <a href="mailto:query@myobedient.com" class="underline-hover colored-hover">query@myobedient.com</a>
                 <h6 class="xs-mt xxs-mb bold gray8">FOLLOW US</h6>
-                <a href="https://m.facebook.com/Obedientgroup/" class="icon-xs radius bg-dark facebook white-hover slow1"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/GroupObedient" class="icon-xs radius bg-dark twitter white-hover slow1"><i class="fa fa-twitter"></i></a>
-                <a href="https://www.instagram.com/obedientgroup" class="icon-xs radius bg-dark instagram white-hover slow1"><i class="fa fa-instagram"></i></a>
-                <a href="https://www.youtube.com/channel/UCGlcQ2yzdb8gT4QlOXngo3Q" class="icon-xs radius bg-dark youtube white-hover slow1"><i class="fa fa-youtube"></i></a>
+                <a href="https://m.facebook.com/Obedientgroup/" target="_blank" class="icon-xs radius facebook-bg facebook white-hover slow1"><i class="fa fa-facebook white"></i></a>&nbsp;
+                <a href="https://twitter.com/GroupObedient" target="_blank" class="icon-xs radius twitter-bg twitter white-hover slow1"><i class="fa fa-twitter white"></i></a>&nbsp;
+                <a href="https://www.instagram.com/obedientgroup" target="_blank" class="icon-xs radius instagram-bg instagram white-hover slow1"><i class="fa fa-instagram white"></i></a>&nbsp;
+                <a href="https://www.youtube.com/channel/UCGlcQ2yzdb8gT4QlOXngo3Q" target="_blank" class="icon-xs radius youtube-bg youtube white-hover slow1"><i class="fa fa-youtube white"></i></a>
             </div>
             <!-- End Column -->
         </div>

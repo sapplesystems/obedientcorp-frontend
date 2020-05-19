@@ -5,6 +5,10 @@ echo $common['main_container_navigation'];
 echo $common['dotted_navigation'];
 ?>
 
+<style>
+.block-img img{width:auto; max-width:100%; height:300px;}
+</style>
+
 <!-- CONTENT -->
 <section id="home" class="xl-py t-center fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
@@ -21,7 +25,7 @@ echo $common['dotted_navigation'];
     <!-- Image and Gallery -->
     <div class="qdr-col-1 sm-mt">
         <!-- Col -->
-        <div class="qdr-col-5 gap-5 lightbox_gallery">
+        <div class="qdr-col-4 gap-5 lightbox_gallery">
 		<div>
                 <a href="images/CERTIFICATE OF INCORPORATION2-page-001.jpg" class="thumbnail-img block-img">
                     <img src="images/CERTIFICATE OF INCORPORATION2-page-001.jpg" alt="">
@@ -59,8 +63,8 @@ echo $common['dotted_navigation'];
                 </a>
             </div>
             <div>
-                <a href="images/legal-5.png" class="thumbnail-img block-img">
-                    <img src="images/legal-5.png" alt="">
+                <a href="images/legal-5.jpg" class="thumbnail-img block-img">
+                    <img src="images/legal-5.jpg" alt="">
                     <div class="img-overlay"><div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div></div>
                 </a>
             </div>

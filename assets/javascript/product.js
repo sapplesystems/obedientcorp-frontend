@@ -160,6 +160,7 @@ function getProductList() {
         type: 'post',
         data: {},
         success: function (response) {
+            console.log(response);
             if (response.status == "success") {
                 if (response.data) {
                     var data = response.data;
@@ -171,7 +172,7 @@ function getProductList() {
                                         <td>' + val.name + '</td>\n\
                                         <td>' + val.category_name + '</td>\n\
                                         <td>' + val.sub_category_name + '</td>\n\
-                                        <td>' + val.description + '</td>\n\
+                                        <td>' + val.sku + '</td>\n\
                                         <td>\n\
                                             <a href="create-product.php?pid=' + val.id + '"<i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
                                             <i class="mdi mdi-delete text-danger" onclick="deleteProduct(event, ' + val.id + ');"></i>\n\

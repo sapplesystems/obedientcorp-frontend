@@ -78,7 +78,7 @@ echo $common['main_container_navigation'];
                         i=i+1;
                     });
                     $('.gallery-list').html(gallery);
-                    $('#gal_two_1').click();
+                    //$('#gal_two_1').click();
                 } else {
                     console.log("Not any image");
                 }

@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    getTeamMemberList(user_id, 'all-members');
-    //getReferralTeamMemberList(user_id, 'referral-members');
-    if (user_left_node_id && user_left_node_id != '' && user_left_node_id > 0) {
-        getTeamMemberList(user_left_node_id, 'members-in-left');
-    }
-    if (user_right_node_id && user_right_node_id != '' && user_right_node_id > 0) {
-        getTeamMemberList(user_right_node_id, 'members-in-right');
-    }
-
+    /*getTeamMemberList(user_id, 'all-members');
+     //getReferralTeamMemberList(user_id, 'referral-members');
+     if (user_left_node_id && user_left_node_id != '' && user_left_node_id > 0) {
+     getTeamMemberList(user_left_node_id, 'members-in-left');
+     }
+     if (user_right_node_id && user_right_node_id != '' && user_right_node_id > 0) {
+     getTeamMemberList(user_right_node_id, 'members-in-right');
+     }*/
+    getTeamMemberList(user_id, user_left_node_id, user_right_node_id);
 });
 
 function getTeamMemberList(user_id, node) {
@@ -19,7 +19,8 @@ function getTeamMemberList(user_id, node) {
         url: base_url + 'team',
         data: {
             id: user_id,
-            node: node
+            left_id: user_id,
+            right_id: user_id,
         },
         success: function (response) {
             if (response.status == 'success') {

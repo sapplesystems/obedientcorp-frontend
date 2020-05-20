@@ -58,8 +58,8 @@ if ($user_type != 'ADMIN') {
                                         <th>Associate Name</th>\n\
                                         <th>Left BV</th>\n\
                                         <th>Right BV</th>\n\
-                                        <th>Balance Left Business</th>\n\
-                                        <th>Balance Right Business</th>\n\
+                                        <th>Balance Left BV</th>\n\
+                                        <th>Balance Right BV</th>\n\
                                         <th>Matching Business</th>\n\
                                         <th>Commission</th>\n\
                                         <th>Date</th>\n\

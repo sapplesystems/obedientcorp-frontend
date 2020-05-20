@@ -182,7 +182,7 @@ include_once 'common_html.php';
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger">*</span></label>
+                                        <label class="col-sm-2 col-form-label">Aadhaar Number <span class="text-danger">*</span></label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
                                         </div>

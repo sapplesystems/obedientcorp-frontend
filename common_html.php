@@ -19,7 +19,7 @@ $common = array(
                                                             <li id="products" style="opacity:0"><a class="add-opacity" href="products">Products</a></li>
                                                             <li id="realestate" style="opacity:0"><a class="add-opacity posR" href="javascript:void(0);">Real Estate <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 																<ul class="subMenu">
-																	<li><a href="all-sites">All Sites</a></li>
+																	<li><a href="our-projects">Our Projects</a></li>
 																	<li><a href="amenities">Amenities</a></li>
 																	<li><a href="winners">Winners</a></li>
 																</ul>
@@ -62,7 +62,7 @@ $common = array(
                                     <li><a href="products"><span>Products</span></a></li>
                                     <li><a href="javascript:void(0);"><span>Real Estate</span></a></li>
 										<ul class="subMenu_dotted">
-											<li><a href="all-sites">All Sites</a></li>
+											<li><a href="our-projects">Our Projects</a></li>
 											<li><a href="amenities.php">Amenities</a></li>
 											<li><a href="winners">Winners</a></li>
 										</ul>

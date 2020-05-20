@@ -29,7 +29,7 @@ include_once 'header_frontend.php';
     <!-- Items -->
 
     <div class="t-center">
-        <h1 class="extrabold-title">All Sites</h1>
+        <h1 class="extrabold-title">All Our Projects</h1>
         <div class="title-strips-over dark"></div>
     </div>
     <div class="row">

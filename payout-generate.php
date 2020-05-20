@@ -55,9 +55,9 @@ if ($user_type != 'ADMIN') {
                     if (response.status == "success") {
                         var table_data = '<thead>\n\
                                     <tr>\n\
-                                        <th>Agent Name</th>\n\
-                                        <th>Left Business</th>\n\
-                                        <th>Right Business</th>\n\
+                                        <th>Associate Name</th>\n\
+                                        <th>Left BV</th>\n\
+                                        <th>Right BV</th>\n\
                                         <th>Balance Left Business</th>\n\
                                         <th>Balance Right Business</th>\n\
                                         <th>Matching Business</th>\n\

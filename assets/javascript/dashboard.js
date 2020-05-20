@@ -127,7 +127,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
                 datasets: [
                     {
-                        label: "Left Business",
+                        label: "Left BV",
                         borderColor: gradientStrokeViolet,
                         backgroundColor: gradientStrokeViolet,
                         hoverBackgroundColor: gradientStrokeViolet,
@@ -139,7 +139,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                                 data: total_left_business
                     },
                     {
-                        label: "Right Business",
+                        label: "Right BV",
                         borderColor: gradientStrokeRed,
                         backgroundColor: gradientStrokeRed,
                         hoverBackgroundColor: gradientStrokeRed,

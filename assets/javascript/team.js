@@ -34,8 +34,8 @@ function getTeamMemberList(user_id, node) {
                                                         <th> User </th>\n\
                                                         <th> User Id </th>\n\
                                                         <th> Name </th>\n\
-                                                        <th> Left Business </th>\n\
-                                                        <th> Right Business </th>\n\
+                                                        <th> Left BV </th>\n\
+                                                        <th> Right BV </th>\n\
                                                         <th> Matching Business </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\
@@ -97,7 +97,7 @@ function getTeamMemberList(user_id, node) {
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
-                                                                    <p class="mb-0 font-weight-medium text-muted">LEFT BUSINESS</p>\n\
+                                                                    <p class="mb-0 font-weight-medium text-muted">LEFT BV</p>\n\
                                                                     <h4 class="font-weight-semibold mb-0">' + member.total_left_business + '</h4>\n\
                                                                 </div>\n\
                                                             </div>\n\
@@ -106,7 +106,7 @@ function getTeamMemberList(user_id, node) {
                                                                     <i class="mdi mdi-star-circle icon-sm my-0 "></i>\n\
                                                                 </div>\n\
                                                                 <div class="wrapper pl-3">\n\
-                                                                    <p class="mb-0 font-weight-medium text-muted">RIGHT BUSINESS</p>\n\
+                                                                    <p class="mb-0 font-weight-medium text-muted">RIGHT BV</p>\n\
                                                                     <h4 class="font-weight-semibold mb-0">' + member.total_right_business + '</h4>\n\
                                                                 </div>\n\
                                                             </div>\n\
@@ -183,8 +183,8 @@ function getReferralTeamMemberList(user_id, node) {
                                                         <th> User </th>\n\
                                                         <th> User Id </th>\n\
                                                         <th> Name </th>\n\
-                                                        <th> Left Business </th>\n\
-                                                        <th> Right Business </th>\n\
+                                                        <th> Left BV </th>\n\
+                                                        <th> Right BV </th>\n\
                                                         <th> Matching Business </th>\n\
                                                     </tr>\n\
                                                 </thead>\n\

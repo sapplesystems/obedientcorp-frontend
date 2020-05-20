@@ -53,8 +53,8 @@ include_once 'header.php';
                         left_right_business = ' <table class="table">\n\
                         <thead><tr><th></th><th>Target</th><th>Achieved</th><th>Required</th></tr></thead>\n\
                         <tbody>\n\
-                        <tr><td><strong>Left Business</strong></td><td>'+value.left_target+'</td><td>'+value.left_achieved+'</td><td>'+value.left_required+'</td></tr>\n\
-                        <tr><td><strong>Right Business</strong></td><td>'+value.right_target+'</td><td>'+value.right_achieved+'</td><td>'+value.right_required+'</td></tr>\n\
+                        <tr><td><strong>Left BV</strong></td><td>'+value.left_target+'</td><td>'+value.left_achieved+'</td><td>'+value.left_required+'</td></tr>\n\
+                        <tr><td><strong>Right BV</strong></td><td>'+value.right_target+'</td><td>'+value.right_achieved+'</td><td>'+value.right_required+'</td></tr>\n\
                         </tbody></table>';
                         if(value.achieved == 1)
                         {

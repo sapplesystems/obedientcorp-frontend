@@ -138,9 +138,9 @@ function setNode(object, node_id, link, user_active_range) {
                                 </span>\n\
                             </span>\n\
                             ' + html + '<br>\n\
-                            <span class="width50"><strong>Left Business</strong><br>\n\&#8377 ' + object.total_left_business + '</span>\n\
+                            <span class="width50"><strong>Left BV</strong><br>\n\&#8377 ' + object.total_left_business + '</span>\n\
                             <span class="width50 marginLeft5">\n\
-                                <strong>Right Business</strong>\n\
+                                <strong>Right BV</strong>\n\
                                 <br>&#8377 ' + object.total_right_business + '</span>\n\
                         </p>');
 }

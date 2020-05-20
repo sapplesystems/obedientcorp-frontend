@@ -43,7 +43,7 @@ $(document).ready(function () {
             var params = {
                 created_by: 1,
                 created_for: $('#agent').val(),
-                comments: 'Coupon generated',
+                comments: 'Shopping cards generated',
                 denominations: denominations
             };
 

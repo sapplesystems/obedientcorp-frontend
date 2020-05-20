@@ -46,24 +46,24 @@ if ($user_type != 'ADMIN') {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Total Left Business :</label>
+                                    <label class="col-sm-2 col-form-label">Total Left BV :</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" id="total_left_business" name="total_left_business" value="0">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Total Right Business:</label>
+                                    <label class="col-sm-2 col-form-label">Total Right BV:</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" id="total_right_business" name="total_right_business" value="0">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Remaining Left Business:</label>
+                                    <label class="col-sm-2 col-form-label">Remaining Left BV:</label>
                                     <div class="col-sm-4">
                                         <div class="input-group">
                                             <input type="text " class="form-control" id="remaining_left_business" name="remaining_left_business" value="0">
 
                                         </div>
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Remaining Right Business:</label>
+                                    <label class="col-sm-2 col-form-label">Remaining Right BV:</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" id="remaining_right_business" name="remaining_right_business" value="0">
                                     </div>

@@ -15,7 +15,12 @@ echo $common['dotted_navigation'];
         vertical-align: top;
         margin-top: 15px !important;
     }
-    #contact_us_form label.error{color:#ff0000; float:left; margin-bottom:3px;}
+
+    #contact_us_form label.error {
+        color: #ff0000;
+        float: left;
+        margin-bottom: 3px;
+    }
 </style>
 
 <!-- CONTENT -->
@@ -54,7 +59,7 @@ echo $common['dotted_navigation'];
                     </div>
                     <!-- Phone -->
                     <div>
-                        <input type="numbers" name="contact_phone" id="contact_phone" placeholder="Phone" class="classic_form big radius-lg bg-white bs-light-focus required ">
+                        <input type="text" name="contact_phone" id="contact_phone" placeholder="Phone" class="classic_form big radius-lg bg-white bs-light-focus required ">
                     </div>
                 </div>
                 <!-- Mail -->
@@ -89,7 +94,7 @@ echo $common['dotted_navigation'];
         <!-- Button -->
         <div><a href="https://www.instagram.com/Obedientpvt" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-instagram instagram-bg white radius-lg bs-inset-hover qdr-hover-4">Instagram</a></div>
         <!-- Button -->
-		<div><a href="javascript:void(0);" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-youtube youtube-bg white radius-lg bs-inset-hover qdr-hover-4">Youtube</a></div>
+        <div><a href="javascript:void(0);" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-youtube youtube-bg white radius-lg bs-inset-hover qdr-hover-4">Youtube</a></div>
         <!-- Button -->
     </div>
 
@@ -128,15 +133,18 @@ echo $common['dotted_navigation'];
 <script src="assets/vendors/sweetalert/sweetalert.min.js "></script>
 <script type='text/javascript' src='js/site.js'></script>
 <script src="assets/js/alerts.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
 <script type='text/javascript'>
-    $(document).ready(function () {
-        $("#contact_us_form").submit(function (e) {
+    $(document).ready(function() {
+        $("#contact_us_form").submit(function(e) {
             e.preventDefault();
             var contact_frm = $("#contact_us_form");
             contact_frm.validate({
                 rules: {
                     contact_phone: {
-                        number: true
+                        number: true,
+                        minlength: 10,
+                        maxlength: 10,
                     },
                 },
                 errorPlacement: function errorPlacement(error, element) {
@@ -144,8 +152,7 @@ echo $common['dotted_navigation'];
                 }
             });
 
-            if ($("#contact_us_form").valid())
-            {
+            if ($("#contact_us_form").valid()) {
                 showLoader();
                 var params = {
                     name: $('#contact_name').val(),
@@ -158,7 +165,7 @@ echo $common['dotted_navigation'];
                     url: url,
                     type: 'post',
                     data: params,
-                    success: function (response) {
+                    success: function(response) {
                         console.log(response);
                         if (response.status == 'success') {
                             showSwal('success', 'Contact Saved', 'Contact saved successfully');
@@ -169,12 +176,12 @@ echo $common['dotted_navigation'];
                         hideLoader();
 
                     },
-                    error: function (response) {
+                    error: function(response) {
                         console.log(response);
                     }
                 });
 
-            }//end if
+            } //end if
 
         });
     }); //document
@@ -190,4 +197,5 @@ echo $common['dotted_navigation'];
 
 </body>
 <!-- Body End -->
+
 </html>

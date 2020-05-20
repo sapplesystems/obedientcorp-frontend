@@ -66,11 +66,11 @@ if ($_REQUEST) {
                                         </div>
                                         <div class="row mt-4">
                                             <div class="col-sm-4">
-                                                <h5 class="border-bottom pb-1"> Total Left </h5>
+                                                <h5 class="border-bottom pb-1"> Total Left BV </h5>
                                                 <div class="text-muted" id="total_left_business"></div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <h5 class="border-bottom pb-1"> Total Right </h5>
+                                                <h5 class="border-bottom pb-1"> Total Right BV </h5>
                                                 <div class="text-muted" id="total_right_business"></div>
                                             </div>
                                             <div class="col-sm-4">

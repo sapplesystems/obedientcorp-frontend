@@ -48,6 +48,7 @@ function getProductsList(sub_category_id) {
                         }
                         products += '<li>\n\
                                         <div class="product_info">\n\
+										<span></span>\n\
                                             <img src="'+image_name+'" alt="'+image_name+'" />\n\
                                              <!--div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div-->\n\
                                         </div>\n\

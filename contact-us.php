@@ -83,13 +83,13 @@ echo $common['dotted_navigation'];
     <!-- Buttons -->
     <div class="qdr-col-4 gap-15 container t-center">
         <!-- Button -->
-        <div><a href="https://facebook.com/Obedientinfradevelopment" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-facebook facebook-bg white radius-lg bs-inset-hover qdr-hover-4">Facebook</a></div>
+        <div><a href="https://m.facebook.com/Obedientgroup/" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-facebook facebook-bg white radius-lg bs-inset-hover qdr-hover-4">Facebook</a></div>
         <!-- Button -->
-        <div><a href="https://twitter.com/ObedientPvt" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-twitter twitter-bg white radius-lg bs-inset-hover qdr-hover-4">Twitter</a></div>
+        <div><a href="https://twitter.com/GroupObedient" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-twitter twitter-bg white radius-lg bs-inset-hover qdr-hover-4">Twitter</a></div>
         <!-- Button -->
-        <div><a href="https://www.instagram.com/Obedientpvt" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-instagram instagram-bg white radius-lg bs-inset-hover qdr-hover-4">Instagram</a></div>
+        <div><a href="https://www.instagram.com/obedientgroup" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-instagram instagram-bg white radius-lg bs-inset-hover qdr-hover-4">Instagram</a></div>
         <!-- Button -->
-		<div><a href="javascript:void(0);" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-youtube youtube-bg white radius-lg bs-inset-hover qdr-hover-4">Youtube</a></div>
+		<div><a href="https://www.youtube.com/channel/UCGlcQ2yzdb8gT4QlOXngo3Q" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-youtube youtube-bg white radius-lg bs-inset-hover qdr-hover-4">Youtube</a></div>
         <!-- Button -->
     </div>
 

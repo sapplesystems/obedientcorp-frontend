@@ -29397,6 +29397,9 @@ footer h4 a {
 }
 
 @media (max-width: 480px) {
+	
+	ul.rewards_all_main li #f1_card span{font-size: 20px !important;}
+	
     .navbar .navbar-brand-wrapper {
         width: 55px;
     }

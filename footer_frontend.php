@@ -58,7 +58,7 @@
                 <a href="https://m.facebook.com/Obedientgroup/" target="_blank" class="icon-xs radius facebook-bg facebook white-hover slow1"><i class="fa fa-facebook white"></i></a>&nbsp;
                 <a href="https://twitter.com/GroupObedient" target="_blank" class="icon-xs radius twitter-bg twitter white-hover slow1"><i class="fa fa-twitter white"></i></a>&nbsp;
                 <a href="https://www.instagram.com/obedientgroup" target="_blank" class="icon-xs radius instagram-bg instagram white-hover slow1"><i class="fa fa-instagram white"></i></a>&nbsp;
-                <a href="https://www.youtube.com/channel/UCGlcQ2yzdb8gT4QlOXngo3Q" target="_blank" class="icon-xs radius youtube-bg youtube white-hover slow1"><i class="fa fa-youtube white"></i></a>
+                <a href="https://www.youtube.com/channel/UCGlcQ2yzdb8gT4QlOXngo3Q" target="_blank" class="icon-xs radius youtube-bg youtube white-hover slow1"><i class="fa fa-youtube-play white" aria-hidden="true"></i></i></a>
             </div>
             <!-- End Column -->
         </div>

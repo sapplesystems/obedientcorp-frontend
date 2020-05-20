@@ -74,7 +74,7 @@ if ($_REQUEST) {
                                                 <div class="text-muted" id="total_right_business"></div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <h5 class="border-bottom pb-1"> Matching Business </h5>
+                                                <h5 class="border-bottom pb-1"> Matching BV </h5>
                                                 <div class="text-muted" id="matching_business"></div>
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@ if ($_REQUEST) {
                                                 <form id="profile_update" name="profile_update" method="post" enctype="multipart/form-data">
                                                     <section>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Sponsor <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Introducer<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="introducer_code" name="introducer_code" readonly>
                                                             </div>
@@ -273,7 +273,7 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Username <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">User ID <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="username" name="username" readonly>
                                                             </div>

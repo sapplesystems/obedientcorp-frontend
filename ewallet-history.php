@@ -43,7 +43,7 @@
                                 <select class="form-control required" id="trans_type2" name="trans_type2">
                                     <option value="">ALL</option>
                                     <option value="RS">Real Estate</option>
-                                    <option value="FMCG">FMCG</option>
+                                    <option value="FMCG">Consumer Goods</option>
                                 </select>
                             </div>
                             <div class="col-sm-2 pr-0">

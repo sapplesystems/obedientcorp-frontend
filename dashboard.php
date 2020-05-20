@@ -56,7 +56,7 @@
                 <div class="card bg-gradient-warning card-img-holder text-white ">
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                        <h4 class="font-weight-normal mb-3 ">Total Left Business<i class="mdi mdi-arrange-send-backward mdi-24px float-right "></i></h4>
+                        <h4 class="font-weight-normal mb-3 ">Total Left BV<i class="mdi mdi-arrange-send-backward mdi-24px float-right "></i></h4>
                         <h2 class="">&#x20b9; 
                             <span id="total_left_business">0.00</span>
                         </h2>
@@ -67,7 +67,7 @@
                 <div class="card bg-gradient-danger card-img-holder text-white ">
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                        <h4 class="font-weight-normal mb-3 ">Total Right Business<i class="mdi mdi-briefcase-check mdi-24px float-right "></i></h4>
+                        <h4 class="font-weight-normal mb-3 ">Total Right BV<i class="mdi mdi-briefcase-check mdi-24px float-right "></i></h4>
                         <h2 class="">&#x20b9; 
                             <span id="total_right_business">0.00</span>
                         </h2>

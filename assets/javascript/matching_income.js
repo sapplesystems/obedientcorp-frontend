@@ -11,8 +11,8 @@ function getMatchingAmountList(params) {
                                     <tr>\n\
                                         <th>Sr.No</th>\n\
                                         <th>Date</th>\n\
-                                        <th>Total Left Business</th>\n\
-                                        <th>Total Right Business</th>\n\
+                                        <th>Total Left BV</th>\n\
+                                        <th>Total Right BV</th>\n\
                                         <th>Matching Business</th>\n\
                                         <th>Balance Left</th>\n\
                                         <th>Balance Right</th>\n\

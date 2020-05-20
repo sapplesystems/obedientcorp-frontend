@@ -262,7 +262,7 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Aadhar Number <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Aadhaar Number <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
                                                             </div>
@@ -528,11 +528,11 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Adhar Number<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Aadhaar Number<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="adhar_number" name="adhar_number">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Adhar Image 1<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Aadhaar Image 1<span class="text-danger">*</span></label>
                                                             <div class=" input-group col-sm-4">
                                                                 <input type="file" class="file-upload-default required" name="adhar_image" id="adhar_image">
                                                                 <div class="input-group">
@@ -549,7 +549,7 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Adhar Image 2<span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Aadhaar Image 2<span class="text-danger">*</span></label>
                                                             <div class=" input-group col-sm-4">
                                                                 <input type="file" class="file-upload-default required" name="adhar_image2" id="adhar_image2">
                                                                 <div class="input-group">

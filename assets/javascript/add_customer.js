@@ -556,7 +556,7 @@ function payment_mode_change(value) {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
                             <label class="col-sm-2 col-form-label">Reciept Number :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Reciept Number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Reciept Number">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
@@ -590,7 +590,7 @@ function payment_mode_change(value) {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
                             <label class="col-sm-2 col-form-label">Cheque :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Cheque Number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Cheque Number">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Account Holder Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
@@ -604,7 +604,7 @@ function payment_mode_change(value) {
                             </div>\n\
                             <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 ifsc_code_label">\n\
-                                 <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your Ifsc Code">\n\
+                                 <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your IFSC Code">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="bank-date-div">\n\
@@ -642,7 +642,7 @@ function payment_mode_change(value) {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
                             <label class="col-sm-2 col-form-label">Online Transaction No :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Transaction Number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Transaction Number">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
@@ -656,7 +656,7 @@ function payment_mode_change(value) {
                         </div>\n\
                         <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
                         <div class="col-sm-4 ifsc_code_label">\n\
-                             <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your Ifsc Code">\n\
+                             <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your IFSC Code">\n\
                         </div>\n\
                     </div>\n\
                     <div class="form-group row" id="bank-date-div">\n\

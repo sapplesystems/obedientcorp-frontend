@@ -23,7 +23,7 @@ function getAgentsList() {
                         cb_status = 'checked';
                     }
                     action_td = '<td>\n\
-                    <div class="float-left">\n\
+                    <div class="float-left ml-3">\n\
                     <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Agent Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
                     </div>\n\
                     <div class="float-left">\n\
@@ -42,6 +42,9 @@ function getAgentsList() {
                     <div class="float-left ml-3">\n\
                         <a href="javascript:void(0);" id="change_password_' + value.user_id + '" onclick="changePassword(event,' + value.user_id + ');" title="Change Login Password"><i class="mdi mdi-key"></i></a>\n\
                     </div>\n\
+                    <div class="float-left ml-3">\n\
+                    <a href="update-kyc-status.php?associate_id=' + value.user_id + '" id="update-kyc-status" title="Update Kyc Status"><i class="mdi mdi-open-in-new"></i></a> \n\
+                    </div>\n\
                 </td>';
                     var joining_date = '';
                     if (value.joining_date !== null && value.joining_date !== '') {
@@ -54,6 +57,7 @@ function getAgentsList() {
                                     <td>' + value.introducer_code + '</td>\n\
                                     <td>' + value.mobile_no + '</td>\n\
                                     <td>' + joining_date + '</td>\n\
+                                    <td>'+value.kyc_status+'</td>\n\
                                     ' + action_td + '\n\
                                 </tr>';
                     x++;

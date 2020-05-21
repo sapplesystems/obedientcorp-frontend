@@ -420,7 +420,7 @@ color: #ffffff;
 
 @media only screen and (max-width: 767px){
 	
-	
+	.bg_careImg{margin-bottom:20px;}
 	
 		.custom_img_care img{width:100%; margin-bottom:20px;}
 	
@@ -766,3 +766,9 @@ ul.subMenu li{margin-bottom: 5px;width: 100% !important;text-align: left !import
 	.marginAuto{margin:14px auto !important;}
 	
 	.real-estate-slider .slick-slide img{height:300px;}
+	
+	.bg_careImg{height:300px; background-size:cover; background-repeat:no-repeat; background-position:center center;}
+			.custom_CareImgs .imgCare1{background-image:url(../images/All-2.jpg);}
+			.custom_CareImgs .imgCare2{background-image:url(../images/final-file-2.jpg);}
+			.custom_CareImgs .imgCare3{background-image:url(../images/FINAL-SANITIZER-e-2.jpg);}
+			.bgPosition{ background-position: center 35%;background-size: 100% 115%;}

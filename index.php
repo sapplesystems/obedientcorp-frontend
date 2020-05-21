@@ -940,11 +940,12 @@ include_once 'header_frontend.php';
         <section id="works" class="mb-5">
             <!-- Container for all works section -->
             <div class="container-fluid">
-			<div class="row mb-5 custom_img_care">
-			<div class="col-md-4"><img src="images/skincare.jpg" /></div>
-			<div class="col-md-4"><img src="images/healthcare.jpg" /></div>
-			<div class="col-md-4"><img src="images/breakfast.jpg" /></div>
+			<div class="row mb-5 custom_CareImgs">
+			<div class="col-md-4"><div class="bg_careImg imgCare1"></div></div>
+			<div class="col-md-4"><div class="bg_careImg imgCare2"></div></div>
+			<div class="col-md-4"><div class="bg_careImg imgCare3 bgPosition"></div></div>
 			</div>
+				</div>
                 <!-- Titles -->
 				<div class="text-center">
                 <h2 class="uppercase">See our Products.</h2>

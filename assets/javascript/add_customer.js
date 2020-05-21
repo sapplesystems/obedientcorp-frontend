@@ -59,7 +59,7 @@ function getplotlist(project_id, sub_project_id) {
         type: 'post',
         data: { project_master_id: project_id, sub_project_id: sub_project_id },
         success: function (response) {
-            var option = '<option value="">Select plots</option>';
+            var option = '<option value="">Select Plots</option>';
             if (response.status == "success") {
                 $.each(response.data, function (key, value) {
                     option += '<option value="' + value.id + '">' + value.name + '</option>';
@@ -556,18 +556,18 @@ function payment_mode_change(value) {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
                             <label class="col-sm-2 col-form-label">Reciept Number :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter reciept number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Reciept Number.">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
-                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " onkeypress="return isAlphabetKey(event);">\n\
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter Name " onkeypress="return isAlphabetKey(event);">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="bank-date-div">\n\
                             <label class="col-sm-2 col-form-label">Date Of Payment :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                             <div class="input-group date datepicker">\n\
-                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  readonly>\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter Date Of Payment"  readonly>\n\
                               <span class="input-group-addon input-group-append border-left">\n\
                                  <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
                               </span>\n\
@@ -588,13 +588,13 @@ function payment_mode_change(value) {
     }
     else if (value == 'Cheque') {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
-                            <label class="col-sm-2 col-form-label">Cheque/UTR No :<span class="text-danger">*</span></label>\n\
+                            <label class="col-sm-2 col-form-label">Cheque :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Cheque Number.">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Account Holder Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
-                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter account holder name " onkeypress="return isAlphabetKey(event);">\n\
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter Account Holder Name " onkeypress="return isAlphabetKey(event);">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="acount-ifsc-div">\n\
@@ -604,14 +604,14 @@ function payment_mode_change(value) {
                             </div>\n\
                             <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 ifsc_code_label">\n\
-                                 <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter your ifsc code">\n\
+                                 <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your Ifsc Code">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="bank-date-div">\n\
                             <label class="col-sm-2 col-form-label">Date Of Payment :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                             <div class="input-group date datepicker">\n\
-                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  readonly>\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter Date Of Payment"  readonly>\n\
                               <span class="input-group-addon input-group-append border-left">\n\
                                  <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
                               </span>\n\
@@ -619,7 +619,7 @@ function payment_mode_change(value) {
                             </div>\n\
                             <label class="col-sm-2 col-form-label bank_name">Bank Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 bank_name">\n\
-                                <input class="form-control required" type="text" id="bank_name" name="bank_name" placeholder="Enter bank name">\n\
+                                <input class="form-control required" type="text" id="bank_name" name="bank_name" placeholder="Enter Bank Name">\n\
                             </div>\n\
                      </div>\n\
                      <div class="form-group row">\n\
@@ -642,11 +642,11 @@ function payment_mode_change(value) {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
                             <label class="col-sm-2 col-form-label">Online Transaction No :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter transaction number.">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Transaction Number.">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
-                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter name " onkeypress="return isAlphabetKey(event);">\n\
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter Name " onkeypress="return isAlphabetKey(event);">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="acount-ifsc-div">\n\
@@ -656,14 +656,14 @@ function payment_mode_change(value) {
                         </div>\n\
                         <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
                         <div class="col-sm-4 ifsc_code_label">\n\
-                             <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter your ifsc code">\n\
+                             <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your Ifsc Code">\n\
                         </div>\n\
                     </div>\n\
                     <div class="form-group row" id="bank-date-div">\n\
                             <label class="col-sm-2 col-form-label">Date Of Payment :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                             <div class="input-group date datepicker">\n\
-                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter date of payment"  readonly>\n\
+                              <input class="form-control required " type="text" id="date_of_payment" name="date_of_payment" placeholder="Enter Date Of Payment"  readonly>\n\
                               <span class="input-group-addon input-group-append border-left">\n\
                                  <span class="mdi mdi-calendar input-group-text bg-dark"></span>\n\
                               </span>\n\

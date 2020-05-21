@@ -69,7 +69,7 @@ if ($user_type != 'ADMIN') {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Matching Business :</label>
+                                    <label class="col-sm-2 col-form-label">Matching BV :</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control " id="matching_amount" name="matching_amount" value="0">
                                     </div>

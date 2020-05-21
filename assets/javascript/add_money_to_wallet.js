@@ -263,16 +263,27 @@ function get_agent_payment_list(agent_id, status) {
                 hideLoader();
             }
             else {
+                var table_data = '<thead>\n\
+                                    <tr>\n\
+                                        <th> Type </th>\n\
+                                        <th> Amount </th>\n\
+                                        <th> Associate </th>\n\
+                                        <th> Date Requested </th>\n\
+                                        <th> Payment Mode </th>\n\
+                                        <th> Payment Number </th>\n\
+                                        <th> Action </th>\n\
+                                    </tr>\n\
+                                </thead><tbody></tbody>';
                 if (status == 'Pending') {
-                    $("#pending_payment_list").html(response.data);
+                    $("#pending_payment_list").html(table_data);
                     generateDataTable('pending_payment_list');
                 }
                 if (status == 'Approved') {
-                    $("#approved_payment_list").html(response.data);
+                    $("#approved_payment_list").html(table_data);
                     generateDataTable('approved_payment_list');
                 }
                 if (status == 'Rejected') {
-                    $("#reject_payment_list").html(response.data);
+                    $("#reject_payment_list").html(table_data);
                     generateDataTable('reject_payment_list');
                 }
                 hideLoader();

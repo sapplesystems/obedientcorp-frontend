@@ -36,7 +36,7 @@ echo $common['dotted_navigation'];
 
     <div class="t-center">
         <h1 class="bold-title lh-sm">
-            Drop Us a Message
+            Drop Us A Message
         </h1>
     </div>
 
@@ -54,7 +54,7 @@ echo $common['dotted_navigation'];
                     </div>
                     <!-- Phone -->
                     <div>
-                        <input type="numbers" name="contact_phone" id="contact_phone" placeholder="Phone" class="classic_form big radius-lg bg-white bs-light-focus required ">
+                        <input type="text" name="contact_phone" id="contact_phone" placeholder="Phone" class="classic_form big radius-lg bg-white bs-light-focus required ">
                     </div>
                 </div>
                 <!-- Mail -->
@@ -89,7 +89,7 @@ echo $common['dotted_navigation'];
         <!-- Button -->
         <div><a href="https://www.instagram.com/obedientgroup" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-instagram instagram-bg white radius-lg bs-inset-hover qdr-hover-4">Instagram</a></div>
         <!-- Button -->
-		<div><a href="https://www.youtube.com/channel/UCGlcQ2yzdb8gT4QlOXngo3Q" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-youtube youtube-bg white radius-lg bs-inset-hover qdr-hover-4">Youtube</a></div>
+		<div><a href="https://www.youtube.com/channel/UCGlcQ2yzdb8gT4QlOXngo3Q" target="_blank" class="xl-btn block-im qdr-hover-3 fa fa-youtube-play youtube-bg white radius-lg bs-inset-hover qdr-hover-4">Youtube</a></div>
         <!-- Button -->
     </div>
 
@@ -128,6 +128,7 @@ echo $common['dotted_navigation'];
 <script src="assets/vendors/sweetalert/sweetalert.min.js "></script>
 <script type='text/javascript' src='js/site.js'></script>
 <script src="assets/js/alerts.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
 <script type='text/javascript'>
     $(document).ready(function () {
         $("#contact_us_form").submit(function (e) {
@@ -136,7 +137,9 @@ echo $common['dotted_navigation'];
             contact_frm.validate({
                 rules: {
                     contact_phone: {
-                        number: true
+						number: true,
+                        minlength: 10,
+                        maxlength: 10,
                     },
                 },
                 errorPlacement: function errorPlacement(error, element) {
@@ -153,7 +156,7 @@ echo $common['dotted_navigation'];
                     email: $('#contact_email').val(),
                     message: $('#contact_message').val(),
                 };
-                var url = 'http://demos.sappleserve.com/obedient_api/public/api/add-contact-request';
+                var url = base_url+'add-contact-request';
                 $.ajax({
                     url: url,
                     type: 'post',

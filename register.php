@@ -235,7 +235,7 @@ include_once 'common_html.php';
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Cancel Cheque</label>
+                                        <label class="col-sm-2 col-form-label">Cancel Cheque/Bank Copy</label>
                                         <div class="col-sm-4">
                                             <div class="input-group">
                                                 <input type="file" name="img[]" class="file-upload-default" name="cancel_cheque" id="cancel_cheque">

@@ -13,7 +13,7 @@ if ($user_type != 'ADMIN') {
                     <div class="card-body p-3">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4 class="card-title mb-4">Consumer Goods Shopping Card Request List</h4>
+                                <h4 class="card-title mb-4">Consumer Goods Request List</h4>
                             </div>
                         </div>
                         <div class="row">
@@ -36,7 +36,8 @@ if ($user_type != 'ADMIN') {
                                         </select>
                                     </div>
                                 </div>
-                                <div class="tab-content tab-content-custom-pill" id="pills-tabContent">
+                                <div class="clearfix"></div>
+                                <div class="tab-content tab-content-custom-pill" id="pills-tabContent" style="overflow:auto;">
                                     <div class="tab-pane fade show active" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">
                                         <table class="table table-striped payment_request" id="pending_payment_list"></table>
                                     </div>

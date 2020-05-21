@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Self Business Volume <i class="mdi mdi-chart-line mdi-24px float-right "></i></h4>
-                        <h2 class="">&#x20b9; 
+                        <h2 class="">
                             <a href="self-business-volume" class="dashboard-box">
                                 <span id="pin_bonus">0.00</span>
                             </a>
@@ -33,7 +33,7 @@
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-diamond mdi-24px float-right "></i></h4>
-                        <h2 class="">&#x20b9; 
+                        <h2 class="">&#x20b9;
                             <a href="income-fund-history" class="dashboard-box">
                                 <span id="matching_income">0.00</span>
                             </a>
@@ -46,7 +46,7 @@
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Total Earning <i class="mdi mdi-bookmark-outline mdi-24px float-right "></i></h4>
-                        <h2 class="">&#x20b9; 
+                        <h2 class="">&#x20b9;
                             <span id="total_income">0.00</span>
                         </h2>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Total Left BV<i class="mdi mdi-arrange-send-backward mdi-24px float-right "></i></h4>
-                        <h2 class="">&#x20b9; 
+                        <h2 class="">
                             <span id="total_left_business">0.00</span>
                         </h2>
                     </div>
@@ -68,7 +68,7 @@
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Total Right BV<i class="mdi mdi-briefcase-check mdi-24px float-right "></i></h4>
-                        <h2 class="">&#x20b9; 
+                        <h2 class=""> 
                             <span id="total_right_business">0.00</span>
                         </h2>
                     </div>

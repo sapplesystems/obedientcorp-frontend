@@ -209,6 +209,8 @@ $(document).ready(function () {
         initDatepicker();
     });//end payment mode change
 
+   // $('#payment_cheque').click();
+
 
     $("#project_name").change(function () {
 

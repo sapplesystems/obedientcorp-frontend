@@ -1,8 +1,20 @@
 <style>
-.bg-facebook{background-color:#4e71a8;}
-.bg-twitter{background-color:#1cb7eb;}
-.bg-instagram{background-color:#ab3e8c;}
-.bg-youtube{background-color:#e83f3a;}
+    .bg-facebook {
+        background-color: #4e71a8;
+    }
+
+    .bg-twitter {
+        background-color: #1cb7eb;
+    }
+
+    .bg-instagram {
+        background-color: #ab3e8c;
+    }
+
+    .bg-youtube {
+        background-color: #e83f3a;
+    }
+    #contact-form label.error{color:#ff0000; float:left; margin-bottom:3px;}
 </style>
 <footer id="footer" class="classic_footer">
     <!-- Container -->
@@ -19,7 +31,7 @@
             <div class="col-md-3 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
                 <h6 class="uppercase white extrabold mb-3">ADDRESS</h6>
                 <!-- You can edit footer-news.html file in js/ajax folder. Will be changed on all website -->
-					<!--<h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>-->
+                <!--<h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>-->
                 <p class="mini-mt">17/23, 2nd Floor, Tulsiyani Shoppe, Near <br />PVR Civil Lines, Prayagraj, UP-211001</p>
                 <!-- Google Map -->
                 <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14409.946140127015!2d81.8350541!3d25.4554245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9eb290e50a3463e7!2sOBEDIENT%20INFRA%20DEVELOPMENT%20PVT.%20LTD.!5e0!3m2!1sen!2sin!4v1582019963309!5m2!1sen!2sin" data-iframe="true" class="lightbox underline-hover colored-hover">
@@ -34,7 +46,9 @@
                 <!-- When you edit ajax file, the details will be changed on all website -->
                 <!-- Sub Title -->
                 <!--<h6 class="xxs-mt bold gray8">DOWNLOAD PDF</h6>-->
-                <p class="mini-mt">Terms & Conditions PDF<!--<a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Terms & Conditions PDF</a>--></p>
+                <p class="mini-mt">Terms & Conditions PDF
+                    <!--<a href="assets/Term _ Condition.pdf" target="_blank" class="mini-mt underline-hover gray6-hover gray7">Terms & Conditions PDF</a>-->
+                </p>
             </div>
             <!-- End Column -->
             <!-- Column -->
@@ -51,7 +65,7 @@
                     </form>
                 </div>-->
                 <!-- End Form -->
-				<!--<h6 class="xs-mt bold gray8"><i class="fa fa-envelope mini-mr"></i>CONTACT US</h6>-->
+                <!--<h6 class="xs-mt bold gray8"><i class="fa fa-envelope mini-mr"></i>CONTACT US</h6>-->
                 <!--<p class="mini-mt">Ph: <a href="tel:070077 09339" class="underline-hover colored-hover">070077 09339</a></p>-->
                 <a href="mailto:query@myobedient.com" class="underline-hover colored-hover">query@myobedient.com</a>
                 <h6 class="xs-mt xxs-mb bold gray8">FOLLOW US</h6>
@@ -86,11 +100,12 @@
     <h5 class="uppercase t-center extrabold">Drop us a message</h5>
     <p class="t-center normal">You're in the right place! Just drop us a message. How can we help?</p>
     <!-- Contact Form -->
-    <form class="quick_form" name="quick_form" method="post" action="#">
-        <input type="text" name="name" id="name_id" required placeholder="Name" class="no-mt">
-        <input type="email" name="emailid" id="emailid" required placeholder="E-Mail">
-        <textarea name="message" id="message_id" required placeholder="Message"></textarea>
-        <button type="submit" id="submit_form" class="bg-colored white qdr-hover-6 uppercase extrabold">Send</button>
+    <form class="contact-form" name="contact-form" id="contact-form" method="post" action="#">
+        <input type="text" name="cont_name" id="cont_name" placeholder="Name" class="no-mt required ">
+        <input type="text" name="cont_number" id="cont_number" placeholder="Phone" class="required">
+        <input type="email" name="cont_emailid" id="cont_emailid" placeholder="E-Mail" class="required">
+        <textarea name="cont_message" id="cont_message" placeholder="Message" class="required"></textarea>
+        <button type="submit" id="submit_cont_form" class="bg-colored white qdr-hover-6 uppercase extrabold">Send</button>
     </form>
     <a href="contact-us.php" class="inline-block colored-hover uppercase extrabold h6 no-pm qdr-hover-5">Or see contact page</a>
 </div>
@@ -108,10 +123,62 @@
 <script src="assets/vendors/sweetalert/sweetalert.min.js "></script>
 <script src="assets/js/alerts.js"></script>
 <script>
-$(document).ready(function(){
-  $(".posR").click(function(){
-		$("#login").toggleClass('custom_btn_overlap');
-		$(".subMenu").slideToggle("slow");
-  });
-});
+    $(document).ready(function() {
+        $(".posR").click(function() {
+            $("#login").toggleClass('custom_btn_overlap');
+            $(".subMenu").slideToggle("slow");
+        });
+		
+		$(document).click(function() {
+            $("#login").removeClass('custom_btn_overlap');
+            $(".subMenu").css("display", "none");
+        });
+
+        $("#contact-form").submit(function(e) {
+            e.preventDefault();
+            var contact_form = $("#contact-form");
+            contact_form.validate({
+                rules: {
+                    cont_number: {
+                        number: true,
+                        minlength: 10,
+                        maxlength: 10,
+                    },
+                },
+                errorPlacement: function errorPlacement(error, element) {
+                    element.before(error);
+                }
+            });
+
+            if ($("#contact-form").valid()) {
+                var params = {
+                    name: $('#cont_name').val(),
+                    phone: $('#cont_number').val(),
+                    email: $('#cont_emailid').val(),
+                    message: $('#cont_message').val(),
+                };
+                var url = base_url + 'add-contact-request';
+                $.ajax({
+                    url: url,
+                    type: 'post',
+                    data: params,
+                    success: function(response) {
+                        console.log(response);
+                        if (response.status == 'success') {
+                            showSwal('success', 'Contact Saved', 'Contact saved successfully');
+                        } else {
+                            showSwal('error', 'Contact Not Saved', response.data);
+                        }
+                        document.getElementById('contact-form').reset();
+
+                    },
+                    error: function(response) {
+                        console.log(response);
+                    }
+                });
+
+            } //end if
+
+        });
+    });
 </script>

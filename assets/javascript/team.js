@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    /*getTeamMemberList(user_id, 'all-members');
-     //getReferralTeamMemberList(user_id, 'referral-members');
-     if (user_left_node_id && user_left_node_id != '' && user_left_node_id > 0) {
-     getTeamMemberList(user_left_node_id, 'members-in-left');
-     }
-     if (user_right_node_id && user_right_node_id != '' && user_right_node_id > 0) {
-     getTeamMemberList(user_right_node_id, 'members-in-right');
-     }*/
-    getTeamMemberList(user_id, user_left_node_id, user_right_node_id);
+    getTeamMemberList(user_id, 'all-members');
+    //getReferralTeamMemberList(user_id, 'referral-members');
+    if (user_left_node_id && user_left_node_id != '' && user_left_node_id > 0) {
+        getTeamMemberList(user_left_node_id, 'members-in-left');
+    }
+    if (user_right_node_id && user_right_node_id != '' && user_right_node_id > 0) {
+        getTeamMemberList(user_right_node_id, 'members-in-right');
+    }
+
 });
 
 function getTeamMemberList(user_id, node) {
@@ -19,8 +19,7 @@ function getTeamMemberList(user_id, node) {
         url: base_url + 'team',
         data: {
             id: user_id,
-            left_id: user_id,
-            right_id: user_id,
+            node: node
         },
         success: function (response) {
             if (response.status == 'success') {
@@ -114,7 +113,7 @@ function getTeamMemberList(user_id, node) {
                                                         </div>\n\
                                                     </div>\n\
                                                     <div class="col-sm-6 col-lg-2">\n\
-                                                        <div class="wrapper d-flex">\n\
+                                                        <div class="wrapper d-flex mt-3">\n\
                                                             <div class="d-inline-flex align-items-center justify-content-center border rounded-circle px-2 py-2 my-auto text-muted">\n\
                                                                 <i class="mdi mdi-account-plus icon-sm my-0 "></i>\n\
                                                             </div>\n\

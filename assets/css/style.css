@@ -29398,6 +29398,8 @@ footer h4 a {
 
 @media (max-width: 480px) {
 	
+	.text-center-m h4, .text-center-m h6, .text-center-m p{font-size:14px;}
+	
 	ul.rewards_all_main li #f1_card span{font-size: 20px !important;}
 	
     .navbar .navbar-brand-wrapper {
@@ -30187,7 +30189,7 @@ ul.total_indicator li:nth-child(4) span {
     cursor: pointer;
 }
 
-.custom_action tr td:last-child{white-space:nowrap !important;}
+#customers_list tr td:last-child{white-space:nowrap !important;}
 
 #order-listing_paginate .pagination {
     overflow-x: hidden;
@@ -30855,6 +30857,7 @@ CSS ANIMATION FOR TREE
 .dataTables_wrapper #order-listing_length, .dataTables_wrapper .dataTables_length{
     float: left;
     margin-bottom: 10px;
+	margin-top: 2px;
 }
 
 .dataTables_wrapper #order-listing_filter{
@@ -30909,6 +30912,9 @@ CSS ANIMATION FOR TREE
 .hv-item-div{position:relative; /*margin:0px !important;*/}
 
 @media (max-width: 991px) {
+	
+	.team_style #all-members .dataTables_wrapper, .team_style #members-in-left .dataTables_wrapper, .team_style #members-in-right .dataTables_wrapper{width:100%;}
+	
     .payment-dialog label.text-right {text-align: left !important;}
     .brand-logo{text-align:center;}
     .bgImageNone{background:none !important;}

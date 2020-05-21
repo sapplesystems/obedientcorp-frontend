@@ -21,7 +21,7 @@ if ($user_type != 'ADMIN') {
                                         <div class="col-sm-4">
                                             <select class="form-control required" id="agents" name="agents"></select>
                                         </div>
-                                        <label class="col-sm-6 col-form-label">Your Wallet Balance: &#8377; <span id="e-wallet">0</span></label>
+                                        <!--<label class="col-sm-6 col-form-label">Your Wallet Balance: &#8377; <span id="e-wallet">0</span></label>-->
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Amount</label>

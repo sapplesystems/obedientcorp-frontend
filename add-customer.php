@@ -66,9 +66,9 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <div class="col-sm-4">
                                         <input type="text" placeholder="Enter Customer Name" class="form-control required" id="customername" name="customername" value="" onkeypress="return isAlphabetKey(event);">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Father/Husband/Wife :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Father/Husband :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4"> 
-                                        <input type="text" class="form-control required" id="fatherhusbandwife" name="fatherhusbandwife" placeholder="Enter Father/Husband/Wife Name" onkeypress="return isAlphabetKey(event);">
+                                        <input type="text" class="form-control required" id="fatherhusbandwife" name="fatherhusbandwife" placeholder="Enter Father/Husband Name" onkeypress="return isAlphabetKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -272,13 +272,13 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                         <div class="form-group">
                                             <div class="form-check d-inline-block">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input payment_mode required" id="payment_cheque" name="payment_mode" value="Cheque"> Cheque/UTR <i class="input-helper"></i></label>
+                                                    <input type="radio" class="form-check-input payment_mode required" id="payment_cheque" name="payment_mode" value="Cheque"> Cheque<i class="input-helper"></i></label>
                                             </div>
                                             <div class="form-check d-inline-block ml-3 mr-3">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input payment_mode required" id="payment_cash" name="payment_mode" value="Cash"> Cash <i class="input-helper"></i></label>
                                             </div>
-                                            <div class="form-check d-inline-block ">
+                                            <div class="form-check d-inline-block">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input payment_mode required" id="payment_online" name="payment_mode" value="Online">Online <i class="input-helper"></i></label>
                                             </div>

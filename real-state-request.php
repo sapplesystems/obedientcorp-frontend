@@ -4,6 +4,7 @@ if ($user_type != 'ADMIN') {
     echo '<script type="text/javascript">window.location.href="dashboard";</script>';
 }
 ?>
+
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -36,7 +37,8 @@ if ($user_type != 'ADMIN') {
                                         </select>
                                     </div>
                                 </div>
-                                <div class="tab-content tab-content-custom-pill" id="pills-tabContent">
+                                <div class="clearfix"></div>
+                                <div class="tab-content tab-content-custom-pill" id="pills-tabContent" style="overflow:auto;">
                                     <div class="tab-pane fade show active" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">
                                         <table class="table table-striped payment_request" id="pending_payment_list"></table>
                                     </div>

@@ -88,7 +88,7 @@ if ($user_type != 'ADMIN') {
                                                                         <th>Right BV</th>\n\
                                                                         <th>Balance Left BV</th>\n\
                                                                         <th>Balance Right BV</th>\n\
-                                                                        <th>Matching Business</th>\n\
+                                                                        <th>Matching BV</th>\n\
                                                                         <th>Commission</th>\n\
                                                                         <th>TDS</th>\n\
                                                                         <th>Processing Fee</th>\n\

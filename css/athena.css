@@ -455,7 +455,7 @@ bottom: 20px;
 
 @media only screen and (max-width: 480px){
 	
-
+.slick-slide img{height:150px !important;}
 	.bank_logos img{height: auto; width: 100%;}
 	#slider_title_1, #slider_title_2, #slider_title_3, #slider_title_4, #slider_title_5{font-size:22px !important;}
 	
@@ -477,6 +477,7 @@ bottom: 20px;
     ul.product_list li img{max-width:100%; max-height:100%;vertical-align: middle;}
     ul.product_list li .product_info{text-align:center;position:relative;white-space: nowrap;}
 	ul#product_list li .product_info{height:244px;}
+	ul#product_list li .price{display:none;}
 	ul.product_list li .product_info > span{    display: inline-block;
     height: 100%;vertical-align: middle;}
     ul.product_list li .product_info .info_hover{display:none; position:absolute; left:0px; top:0; background-color:rgba(255,255,255,0.7); padding:10px 10px; width:100%; height:100%;}
@@ -514,9 +515,9 @@ bottom: 20px;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
 overflow: hidden;
-text-overflow: ellipsis; padding-bottom:0px !important; letter-spacing: 1px;}
+text-overflow: ellipsis; padding-bottom:0px !important; letter-spacing: 1px;display:none;}
 .custom_tab h4{font-size:16px !important; display:block;/* white-space: nowrap;overflow: hidden !important;text-overflow: ellipsis;*/text-align:center;} 
-	
+.real-estate-slider p{display: -webkit-box;}	
 	
 ul.product_list li {
 	-webkit-animation: slit-in-vertical 0.45s ease-out both;

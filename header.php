@@ -55,8 +55,8 @@ include_once 'common_html.php';
         <div class="container-scroller">
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="<?php echo $home_url; ?>"><img src="images/logo_header.png" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="<?php echo $home_url; ?>"><img src="images/footer_logo.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="javascript:void();"><img src="images/logo_header.png" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="javascript:void();"><img src="images/footer_logo.png" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -81,11 +81,11 @@ include_once 'common_html.php';
                                     <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
                             </div>
                         </li>
-                        <li class="nav-item nav-logout d-none d-lg-block">
+                        <!--li class="nav-item nav-logout d-none d-lg-block">
                             <a class="nav-link" href="#" onclick="logout()">
                                 <i class="mdi mdi-power"></i>
                             </a>
-                        </li>
+                        </li-->
                     </ul>
                     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                         <span class="mdi mdi-menu"></span>
@@ -173,12 +173,12 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-history menu-icon"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a class="nav-link" href="customer-list">
                                 <span class="menu-title">Customer List</span>
                                 <i class="mdi mdi-account-box-outline menu-icon"></i>
                             </a>
-                        </li>
+                        </li-->
                         <li class="nav-item">
                             <a class="nav-link" href="manage-customer">
                                 <span class="menu-title">Manage Customer</span>

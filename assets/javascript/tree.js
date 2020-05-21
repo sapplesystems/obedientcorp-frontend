@@ -1,8 +1,14 @@
 getTree(user_id);
 
 $(document).ready(function () {
-    $(document).on('click', '.info_click', function () {
+    $(document).on('click', '.info_click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('.info_click').find('label').hide();
         $(this).find('label').toggle();
+    });
+    $(document).on('click', 'body', function () {
+        $(this).find('label').hide();
     });
 });
 
@@ -138,10 +144,10 @@ function setNode(object, node_id, link, user_active_range) {
                                 </span>\n\
                             </span>\n\
                             ' + html + '<br>\n\
-                            <span class="width50"><strong>Left BV</strong><br>\n\&#8377 ' + object.total_left_business + '</span>\n\
+                            <span class="width50"><strong>Left BV</strong><br>\n\ ' + object.total_left_business + '</span>\n\
                             <span class="width50 marginLeft5">\n\
                                 <strong>Right BV</strong>\n\
-                                <br>&#8377 ' + object.total_right_business + '</span>\n\
+                                <br> ' + object.total_right_business + '</span>\n\
                         </p>');
 }
 

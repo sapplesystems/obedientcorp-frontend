@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-md-12 customTabs">
+                            <div class="col-md-12 customTabs team_style">
                                 <ul class="nav nav-tabs border-0" role="tablist">
                                     <li class="nav-item">
                                         <a class="p-1 border-0 bg-transparent nav-link active" id="detail-view" data-toggle="tab" href="#detail-view-1" role="tab" aria-controls="detail-view" aria-selected="true"><i class="mdi mdi-format-list-bulleted icon-sm my-0 "></i></a>

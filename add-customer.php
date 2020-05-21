@@ -207,39 +207,39 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
                                     <label class="col-sm-2 col-form-label">Reference :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="reference" name="reference" placeholder="Enter reference">
+                                        <input class="form-control" type="text" id="reference" name="reference" placeholder="Enter Reference">
                                     </div>
 
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Registration Number :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="registration_num" name="registration_num" placeholder="Enter registration number" />
+                                        <input class="form-control" type="text" id="registration_num" name="registration_num" placeholder="Enter Registration number" />
                                     </div>
                                     <label class="col-sm-2 col-form-label">Plot Area : </label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="plot_area" name="plot_area" placeholder="Enter plot area">
+                                        <input class="form-control" type="text" id="plot_area" name="plot_area" placeholder="Enter Plot Area">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Unit :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control " type="text" id="plot_unit" name="plot_unit" placeholder="Enter unit">
+                                        <input class="form-control " type="text" id="plot_unit" name="plot_unit" placeholder="Enter Unit">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Unit Rate :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control " type="text" id="unit_rate" name="unit_rate" placeholder="Enter unit rate" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control " type="text" id="unit_rate" name="unit_rate" placeholder="Enter Unit Rate" onkeypress="return isNumberKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Discount Rate :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="discount_rate" name="discount_rate" placeholder="Enter discount rate" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control" type="text" id="discount_rate" name="discount_rate" placeholder="Enter Discount Rate" onkeypress="return isNumberKey(event);">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Installment :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <select class="form-control required" id="installment" name="installment">
-                                            <option value="">Please select</option>
+                                            <option value="">Please Select</option>
                                             <option value="1">SINGLE PAYMENT</option>
                                             <option value="12">EMI-1 YEAR</option>
                                             <option value="24">EMI-2 YEAR</option>
@@ -253,11 +253,11 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                 <div class="form-group row mb-0">
                                     <label class="col-sm-2 col-form-label">Received Booking Amount :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="received_booking_amount" name="received_booking_amount" placeholder="Enter received booking amount" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control" type="text" id="received_booking_amount" name="received_booking_amount" placeholder="Enter Received Booking Amount" onkeypress="return isNumberKey(event);">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Total Amount :</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="total_amount" name="total_amount" placeholder="Enter total amount" onkeypress="return isNumberKey(event);">
+                                        <input class="form-control" type="text" id="total_amount" name="total_amount" placeholder="Enter Total Amount" onkeypress="return isNumberKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row" id="emi_amount"></div>

@@ -81,9 +81,9 @@ $(function () {
     //onchange payment_mode wallet
     $('#payment_mode_wallet').change(function () {
         if ($(this).val() == 'Cash') {
-            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div-wallet">Invoice Number:</label>\n\
+            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div-wallet">Reciept Number:</label>\n\
                <div class="col-sm-8">\n\
-                 <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet">\n\
+                 <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet" placeholder="Enter reciept number">\n\
                                                         </div>';
             $('.payment-number-div-wallet').html(payment_number);
             $('.bank-name-wallet').css('display', 'none');
@@ -93,7 +93,7 @@ $(function () {
 
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div-wallet">Online Transaction Number:</label>\n\
                <div class="col-sm-8">\n\
-                 <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet">\n\
+                 <input type="text" class="form-control required" id="payment_number_wallet" name="payment_number_wallet" placeholder="Enter transaction number">\n\
                                                         </div>';
             $('.payment-number-div-wallet').html(payment_number);
             $('.bank-name-wallet').css('display', 'block');

@@ -30,20 +30,20 @@ $(document).ready(function () {
         $('#dob').change(function () {
             $(this).valid();  // triggers the validation test        
         });
-        $('#ndob').change(function() {
+        $('#ndob').change(function () {
             $(this).valid();  // triggers the validation test        
-      });
+        });
     }
 
     //get age 
-    $(document).on('change', '#ndob', function() {
+    $(document).on('change', '#ndob', function () {
         var value = $(this).val();
         var today = new Date(),
             dob = new Date(value),
             age = new Date(today - dob).getFullYear() - 1970;
         $('#nominee_age').val(age);
         $('#nominee_age').prop('readOnly', true);
-        $('#nominee_age-error').css('display','none');
+        $('#nominee_age-error').css('display', 'none');
     });
 
     $.post(base_url + 'state-city-list', {}, function (resp) {
@@ -75,11 +75,8 @@ $(document).ready(function () {
                         $('#associate_name').val(profile.associate_name);
                         $('#profile_user').html(profile.associate_name);
                         $('#user_code').html(profile.username);
-                        if (response.data.kyc_status == 1) {
-                            $('#kyc_status').html('KYC Done');
-                        }
-                        else {
-                            $('#kyc_status').html('KYC Pending');
+                        if (kyc.kyc_status) {
+                            $('#kyc_status').html('KYC ' + kyc.kyc_status);
                         }
                         $('#house_no').val(profile.house_no);
                         $('#block').val(profile.block);
@@ -161,6 +158,12 @@ $(document).ready(function () {
                         setNomineeDetails(nominee);
                         //kyc
                         setKYCDetail(kyc);
+                        if (kyc.kyc_status == 'Approved') {
+                            $('#kyc_detail_status').html('<i class="mdi mdi-check-circle-outline text-success"></i>');
+                        }
+                        else {
+                            $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
+                        }
                         checkForBankSaveButton(bank);
                         checkForNomineeSaveButton(nominee);
                         checkForKYCSaveButton(kyc);
@@ -299,6 +302,8 @@ function checkForBankSaveButton(v) {
         $('#bank_detail_status').html('<i class="mdi mdi-check-circle-outline text-success"></i>');
     }
 
+
+
 }
 
 function checkForNomineeSaveButton(v) {
@@ -324,52 +329,36 @@ function checkForNomineeSaveButton(v) {
 function checkForKYCSaveButton(v) {
     if (v.nationality == '' || v.nationality == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.occupation == '' || v.occupation == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.qualification == '' || v.qualification == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.pan_number == '' || v.pan_number == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.passport_number == '' || v.passport_number == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.driving_licence_number == '' || v.driving_licence_number == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.proposed_area_of_work == '' || v.proposed_area_of_work == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.voter_id == '' || v.voter_id == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.adhar == '' || v.adhar == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.adhar_image == '' || v.adhar_image == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.pan_image == '' || v.pan_image == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.passport_image == '' || v.passport_image == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.driving_licence_image == '' || v.driving_licence_image == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.voter_image == '' || v.voter_image == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else if (v.join_date == '' || v.join_date == null) {
         $('#kyc_update_submit').css('display', '');
-        $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
     } else {
         $('#kyc_update_submit').css('display', 'none');
-        $('#kyc_detail_status').html('<i class="mdi mdi-check-circle-outline text-success"></i>');
     }
 
 

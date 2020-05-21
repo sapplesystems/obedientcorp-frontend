@@ -29,6 +29,7 @@ if ($user_type != 'ADMIN') {
                                         <th>Introducer Code</th>
                                         <th>Mobile</th>
                                         <th>Joining Date</th>
+                                        <th>Kyc Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

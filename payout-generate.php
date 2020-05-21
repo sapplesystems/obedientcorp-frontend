@@ -15,7 +15,7 @@ if ($user_type != 'ADMIN') {
                         <select class="form-control" id="agent_list"></select>
                     </div>
                     <div class="col-sm-4">
-                        <input type="button" value="Generate Payout" class="btn btn-gradient-primary" onclick="generatePayout();" />
+                        <input type="button" value="Approve Payout" class="btn btn-gradient-primary" onclick="generatePayout();" />
                     </div>
                 </div>
                 <div class="clearfix"></div>

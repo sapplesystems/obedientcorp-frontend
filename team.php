@@ -1,4 +1,7 @@
 <?php include_once 'header.php'; ?>
+<style>
+.team_style .dataTables_length label, .team_style .dataTables_filter label{display:inline-block !important;}
+</style>
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">

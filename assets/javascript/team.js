@@ -146,15 +146,8 @@ function getTeamMemberList(user_id, node) {
                                         </div></div>';
                 $('#' + node).html(team_html);
                 $('#list-' + node).html(team_list_html);
-                //generateDataTable(table1_id);
-                //generateDataTable(table_id);
-                var table1 = $('#' + table1_id).DataTable();
-                table1.destroy();
-                $('#' + table1_id).DataTable({aaSorting: []});
-
-                var table2 = $('#' + table_id).DataTable();
-                table2.destroy();
-                $('#' + table_id).DataTable({aaSorting: []});
+                generateDataTable2(table1_id);
+                generateDataTable2(table_id);
                 hideLoader();
             } else {
                 hideLoader();

@@ -122,6 +122,12 @@ function generateDataTable(id) {
     $('#' + id).DataTable();
 }
 
+function generateDataTable2(id) {
+    var table = $('#' + id).DataTable();
+    table.destroy();
+    $('#' + id).DataTable({aaSorting: []});
+}
+
 function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))

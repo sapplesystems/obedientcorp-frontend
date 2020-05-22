@@ -45,7 +45,7 @@
 <!--script src="assets/js/data-table.js"></script-->
 <script src="assets/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="assets/vendors/inputmask/jquery.inputmask.bundle.js"></script>
-<script src="assets/javascript/croppie.js "></script>
+<script src="assets/javascript/croppie.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
 
 <script type="text/javascript">

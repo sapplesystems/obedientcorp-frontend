@@ -30134,6 +30134,18 @@ footer h4 a {
     font-size: 24px;
 }
 
+.custom_icon .icon-sm {
+    border-radius: 50%;
+    border: 1px solid #322f2f;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+    margin-right: 10px;
+}
+
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link .icon-sm {
     color: #b66dff !important;
@@ -30141,12 +30153,6 @@ footer h4 a {
 
 .customTabs .nav.nav-tabs {
     float: right;
-}
-
-.custom_icon {
-    height: 40px;
-    width: 40px;
-    line-height: 50px;
 }
 
 .custom_icon .mdi-star-circle:before {
@@ -30915,9 +30921,10 @@ CSS ANIMATION FOR TREE
 
 @media (max-width: 991px) {
 	
-	.team_style #all-members .dataTables_wrapper, .team_style #members-in-left .dataTables_wrapper, .team_style #members-in-right .dataTables_wrapper{width:100%;}
-	
-    .payment-dialog label.text-right {text-align: left !important;}
+	.team_style #all-members .dataTables_wrapper, .team_style #members-in-left .dataTables_wrapper, .team_style #members-in-right .dataTables_wrapper, 
+	.team_style #referral-members .dataTables_wrapper{width:1000px;}
+	.team_style .tab-content.tab-content-custom-pill{overflow:auto;}
+	.payment-dialog label.text-right {text-align: left !important;}
     .brand-logo{text-align:center;}
     .bgImageNone{background:none !important;}
     .bgnone_m{background:none !important;}
@@ -31168,7 +31175,7 @@ ul.rewards_all_main li > div:hover span.overlay{height: 100%;}
 	.rank1{background-color: #ebd6ff;border: 1px solid #ebd6ff;color: #000;}
 	.rank2{background-color: #bfdef7;border: 1px solid #bfdef7;color: #000;}
 	.rank3{background-color: #9c9fa6;border: 1px solid #9c9fa6;color: #000;}
-	table.custom_team_table tr td{border-top:0px !important;padding: 0px;}
+	table.custom_team_table tr td{background: -webkit-gradient(linear, left top, left bottom, from(#222328), to(#1a191d)); background: linear-gradient(to bottom, #222328, #1a191d);}
     .dataTables_wrapper{margin-bottom:40px;}
     
     ul.bg_hint{list-style:none; padding:0px; margin:0px 0 0 8px;}

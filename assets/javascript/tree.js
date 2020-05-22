@@ -1,4 +1,4 @@
-getTree(user_id);
+//getTree(user_id);
 
 $(document).ready(function () {
     $(document).on('click', '.info_click', function (e) {
@@ -9,6 +9,9 @@ $(document).ready(function () {
     });
     $(document).on('click', 'body', function () {
         $(this).find('label').hide();
+    });
+    $(document).on('click', '#tree-view', function () {
+        getTree(user_id);
     });
 });
 

@@ -78,9 +78,7 @@ function getTeamMemberList(user_id, left_id, right_id, node) {
 }
 
 function setMainView(user_active_range, members, node) {
-    showLoader();
-    console.log('in-'+node);
-    var table_id = 'table1-' + node;
+    var table_id = 'table-' + node;
     var team_html = '';
     team_html += '<table class="table custom_team_table" id="' + table_id + '">';
     team_html += '<thead>';
@@ -145,14 +143,10 @@ function setMainView(user_active_range, members, node) {
     team_html += '</tbody></table>';
     $('#' + node).html(team_html);
     generateDataTable2(table_id);
-    hideLoader();
-    console.log('out-'+node);
 }
 
 function setCompactView(user_active_range, members, node) {
-    showLoader();
-    console.log('c-in-'+node);
-    var table_id = 'table1-' + node;
+    var table_id = 'table-' + node;
     var team_html = '';
     team_html += '<div class="media">';
     team_html += '<div class="col-md-12 mb-3 p-0">';
@@ -201,6 +195,4 @@ function setCompactView(user_active_range, members, node) {
     team_html += '</tbody></table></div></div>';
     $('#' + node).html(team_html);
     generateDataTable2(table_id);
-    hideLoader();
-    console.log('c-out-'+node);
 }

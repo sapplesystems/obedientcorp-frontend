@@ -72,7 +72,7 @@ include_once 'common_html.php';
                                     <span class="availability-status"></span>
                                 </div>
                                 <div class="nav-profile-text">
-                                    <p class="mb-1" id="user_login"><?php echo $associate_name; ?></p>
+                                    <p class="mb-1" id="user_login"><?php echo $associate_name.' ('.$username.')'; ?></p>
                                 </div>
                             </a>
                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">

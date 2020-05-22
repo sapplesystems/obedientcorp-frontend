@@ -3,8 +3,8 @@ include_once 'header.php';
 ?>
 <!-- partial -->
 <style>
-.custom_overflow{overflow:auto;}
-.custom_overflow table tr th:last-child, .custom_overflow table tr td:last-child{white-space: nowrap !important; width:200px !important}
+    .custom_overflow{overflow:auto;}
+    .custom_overflow table tr th:last-child, .custom_overflow table tr td:last-child{white-space: nowrap !important; width:200px !important}
 </style>
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -36,4 +36,37 @@ include_once 'header.php';
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
     <?php include_once 'footer.php'; ?>
-    <script src="assets/javascript/rankers_list.js"></script>
+    <script type="text/javascript">
+        function getRankers() {
+            showLoader();
+            var url = base_url + 'rankers';
+            $.ajax({
+                url: url,
+                type: 'post',
+                success: function (response) {
+                    if (response.status == 'success') {
+                        var html = '';
+                        var x = 1;
+                        $.each(response.data, function (key, value) {
+                            html += '<tr id="tr_' + x + '">\n\
+                                        <td>' + x + '</td>\n\
+                                        <td>' + value.display_name + '</td>\n\
+                                        <td>' + value.designation + '</td>\n\
+                                    </tr>';
+                            x++;
+                        });
+                        $("#rankers_list").html(html);
+                        initDataTable();
+                        hideLoader();
+                    }
+                    else
+                    {
+                        showSwal('error', 'No Records Found');
+                        hideLoader();
+                    }
+                }
+            });
+        }
+        
+        getRankers();
+    </script>

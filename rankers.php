@@ -48,11 +48,7 @@ include_once 'header.php';
                         var html = '';
                         var x = 1;
                         $.each(response.data, function (key, value) {
-                            html += '<tr id="tr_' + x + '">\n\
-                                        <td>' + x + '</td>\n\
-                                        <td>' + value.display_name + '</td>\n\
-                                        <td>' + value.designation + '</td>\n\
-                                    </tr>';
+                            html += '<tr"><td>' + x + '</td><td>' + value.display_name + '</td><td>' + value.designation + '</td></tr>';
                             x++;
                         });
                         $("#rankers_list").html(html);
@@ -67,6 +63,6 @@ include_once 'header.php';
                 }
             });
         }
-        
+
         getRankers();
     </script>

@@ -74,6 +74,11 @@
     var user_active_range = "<?php echo $user_active_range; ?>";
     var payment_detail_screen = 0;
 </script>
+
+<!--Down the line member drop donw typing search start here-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js"></script>
+<!--Down the line member drop donw typing search end here-->
 <script type="text/javascript" src="assets/javascript/global.js" /></script>
 </body>
 

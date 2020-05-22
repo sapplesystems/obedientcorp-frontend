@@ -55,6 +55,7 @@ if ($user_type != 'ADMIN') {
                     if (response.status == "success") {
                         var table_data = '<thead>\n\
                                     <tr>\n\
+                                        <th>Date</th>\n\
                                         <th>Associate Name</th>\n\
                                         <th>Left BV</th>\n\
                                         <th>Right BV</th>\n\
@@ -62,21 +63,20 @@ if ($user_type != 'ADMIN') {
                                         <th>Balance Right BV</th>\n\
                                         <th>Matching BV</th>\n\
                                         <th>Commission</th>\n\
-                                        <th>Date</th>\n\
                                     </tr>\n\
                                 </thead>';
                         table_data += '<tbody>';
                         $.each(response.data, function (key, value) {
-                            table_data += '<tr id="tr_' + value.id + '">\n\
-                                    <td>' + value.display_name + '</td>\n\
-                                    <td>' + value.total_left_business + '</td>\n\
-                                    <td>' + value.total_right_business + '</td>\n\
-                                    <td>' + value.remaining_left_business + '</td>\n\
-                                    <td>' + value.remaining_right_business + '</td>\n\
-                                    <td>' + value.matching_amount + '</td>\n\
-                                    <td>' + value.income_fund + '</td>\n\
-                                    <td>' + value.payout_generated_from + ' To ' + value.payout_generated_to + '</td>\n\
-                                </tr>';
+                            table_data += '<tr id="tr_' + value.id + '">\n\\n\
+                                                <td>' + value.payout_generated_from + ' To ' + value.payout_generated_to + '</td>\n\
+                                                <td>' + value.display_name + '</td>\n\
+                                                <td>' + value.total_left_business + '</td>\n\
+                                                <td>' + value.total_right_business + '</td>\n\
+                                                <td>' + value.remaining_left_business + '</td>\n\
+                                                <td>' + value.remaining_right_business + '</td>\n\
+                                                <td>' + value.matching_amount + '</td>\n\
+                                                <td>' + value.income_fund + '</td>\n\
+                                            </tr>';
                         });
                         table_data += '</tbody>';
                         $("#payout_list").html(table_data);

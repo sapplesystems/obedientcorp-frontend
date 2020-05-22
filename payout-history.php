@@ -104,6 +104,8 @@ if ($user_type != 'ADMIN') {
                         $('#week_range').html(week_range);
                         var table_data = '<thead>\n\
                                                 <tr>\n\
+                                                    <th>Week No.</th>\n\
+                                                    <th>Date</th>\n\
                                                     <th>Associate Name</th>\n\
                                                     <th>Left BV</th>\n\
                                                     <th>Right BV</th>\n\
@@ -115,12 +117,13 @@ if ($user_type != 'ADMIN') {
                                                     <th>Processing Fee</th>\n\
                                                     <th>Other Charges</th>\n\
                                                     <th>Payout Amount</th>\n\
-                                                    <th>Date</th>\n\
                                                 </tr>\n\
                                             </thead>';
                         table_data += '<tbody>';
                         $.each(response.data, function (key, value) {
                             table_data += '<tr>\n\
+                                            <td>' + value.week_no + '</td>\n\
+                                            <td>' + value.from_date + ' To ' + value.to_date + '</td>\n\
                                             <td>' + value.display_name + '</td>\n\
                                             <td>' + value.total_left_business + '</td>\n\
                                             <td>' + value.total_right_business + '</td>\n\
@@ -132,7 +135,6 @@ if ($user_type != 'ADMIN') {
                                             <td>' + value.processing_fee + '</td>\n\
                                             <td>' + value.other_charges + '</td>\n\
                                             <td>' + value.payout_amount + '</td>\n\
-                                            <td>' + value.from_date + ' To ' + value.to_date + '</td>\n\
                                         </tr>';
                         });
                         table_data += '</tbody>';

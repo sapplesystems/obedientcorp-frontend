@@ -78,11 +78,11 @@ function getDashboardInfo(user_id) {
                     total_self_business.push(Number(tsb.toFixed(2)));
                 });
                 /*var sum_total_left_business = total_left_business.reduce(function (a, b) {
-                    return a + b;
-                });
-                var sum_total_right_business = total_right_business.reduce(function (a, b) {
-                    return a + b;
-                });*/
+                 return a + b;
+                 });
+                 var sum_total_right_business = total_right_business.reduce(function (a, b) {
+                 return a + b;
+                 });*/
                 //localStorage.setItem("agent_total_business", (sum_total_left_business + sum_total_right_business));
                 localStorage.setItem("agent_total_business", (Number(data.total_left_business) + Number(data.total_right_business)));
                 checkUserActiveInactive();
@@ -256,7 +256,7 @@ function generateDuePaymentList(list) {
     $("#due_payment_list").DataTable({aaSorting: []});
 }
 
-function setCurrentNextReward(data) {
+function setCurrentNextRewardOld(data) {
     var title = '';
     var reward = '';
     var clearfix = '';
@@ -298,5 +298,100 @@ function setCurrentNextReward(data) {
                                 <a href="rewards" class="btn btn-primary btn-sm">View More</a>\n\
                             </div>\n\
                         </div>';
+    $('#current_next_reward').html(reward_html);
+}
+
+function setCurrentNextReward(data) {
+    var reward = '';
+    if (data.length == 1) {
+        var amount = data[0].amount;
+        reward = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
+                        <div class="card card-statistics">\n\
+                            <div class="card-body aligner-wrapper">\n\
+                                <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>\n\
+                                <div class="clearfix">\n\
+                                    <div class="float-left">\n\
+                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>\n\
+                                    </div>\n\
+                                    <div class="float-right mt-3">\n\
+                                        <p class="mb-0 text-right">Current Reward</p>\n\
+                                        <div class="fluid-container">\n\
+                                            <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>\n\
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
+                        <div class="card card-statistics">\n\
+                            <div class="card-body aligner-wrapper">\n\
+                                <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>\n\
+                                <div class="clearfix">\n\
+                                    <div class="float-left">\n\
+                                        <i class="mdi mdi-cube text-danger icon-lg"></i>\n\
+                                    </div>\n\
+                                    <div class="float-right mt-3">\n\
+                                        <p class="mb-0 text-right">Next Reward</p>\n\
+                                        <div class="fluid-container">\n\
+                                            <h3 class="font-weight-medium text-right mb-0">&#8377; ' + amount.toFixed(2) + '</h3>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>';
+    } else if (data.length == 2) {
+        var amount1 = data[0].amount;
+        var amount2 = data[1].amount;
+        reward = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
+                        <div class="card card-statistics">\n\
+                            <div class="card-body aligner-wrapper">\n\
+                                <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>\n\
+                                <div class="clearfix">\n\
+                                    <div class="float-left">\n\
+                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>\n\
+                                    </div>\n\
+                                    <div class="float-right mt-3">\n\
+                                        <p class="mb-0 text-right">Current Reward</p>\n\
+                                        <div class="fluid-container">\n\
+                                            <h3 class="font-weight-medium text-right mb-0">&#8377; ' + amount1.toFixed(2) + '</h3>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>\n\
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
+                        <div class="card card-statistics">\n\
+                            <div class="card-body aligner-wrapper">\n\
+                                <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>\n\
+                                <div class="clearfix">\n\
+                                    <div class="float-left">\n\
+                                        <i class="mdi mdi-cube text-danger icon-lg"></i>\n\
+                                    </div>\n\
+                                    <div class="float-right mt-3">\n\
+                                        <p class="mb-0 text-right">Next Reward</p>\n\
+                                        <div class="fluid-container">\n\
+                                            <h3 class="font-weight-medium text-right mb-0">&#8377; ' + amount2.toFixed(2) + '</h3>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>';
+    }
+    var reward_html = reward + '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">\n\
+                        <div class="card">\n\
+                            <div class="card-body p-0">\n\
+                                <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">\n\
+                                    <a class="btn btn-primary" href="rankers">View All Rankers</a>\n\
+                                    <a class="btn btn-success" href="rewards">View All Rewards</a>\n\
+                                    <a class="btn btn-info" href="offers">View All Offers</a>\n\
+                                    <a class="btn btn-warning" href="ranks">View All Ranks</a>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>';
     $('#current_next_reward').html(reward_html);
 }

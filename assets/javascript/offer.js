@@ -172,6 +172,10 @@ function getOfferList() {
                         edit_url = '#';
                         click_function = 'onclick="showSwal(\'error\',\'You can not edit this offer as the end date is exceeded.\');"';
                     }
+                    var action_td = '';
+                    if(user_type == 'ADMIN'){
+                        action_td = '<td><a href="' + edit_url + '" '+click_function+'> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteOffer(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>';
+                    }
 
                     html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
@@ -180,7 +184,7 @@ function getOfferList() {
                                 <td>' + value.business + '</td>\n\
                                 <td>' + value.start_date + '</td>\n\
                                 <td>' + value.end_date + '</td>\n\
-                                <td><a href="' + edit_url + '" '+click_function+'> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteOffer(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
+                                '+action_td+'\n\
                             </tr>';
                     i = i + 1;
                     x++;

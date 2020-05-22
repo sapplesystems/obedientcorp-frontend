@@ -32,9 +32,8 @@ if ($user_type != 'ADMIN') {
                                 </ul>
                                 <div class="form-group">
                                     <label class="col-form-label float-left mr-3">Associate ID</label>
-                                    <div class="float-left">
-                                        <select class="form-control" id="agent-list" onchange="getOfferRequestList(this.value);">
-                                        </select>
+                                    <div class="float-left col-md-3">
+                                        <select class="form-control" id="agent-list" onchange="getOfferRequestList(this.value);"></select>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>

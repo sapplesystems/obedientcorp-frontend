@@ -14,9 +14,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-12">
                         <label class="float-left col-form-label mr-3">Select Associate :</label>
-                        <select class="col-sm-7 form-control required" id="agent_listing" name="agent_listing"></select>
+                        <div class="col-sm-3 float-left">
+                            <select class="form-control required" id="agent_listing" name="agent_listing"></select>
+                        </div>
                     </div>
                 </div>
                 <div class="card">

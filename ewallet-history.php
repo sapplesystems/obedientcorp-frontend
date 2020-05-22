@@ -12,7 +12,7 @@
                         <?php if ($user_type == 'ADMIN') { ?>
                             <div class="form-group">
                                 <label class="col-form-label float-left mr-3">Associate ID</label>
-                                <div class="float-left">
+                                <div class="float-left col-md-3">
                                     <select class="form-control" id="agent_list"></select>
                                 </div>
                             </div>

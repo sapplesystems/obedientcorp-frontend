@@ -8,7 +8,7 @@ $(document).ready(function () {
             //defaultViewDate: new Date()
         });
     }
-    $('#agent_list,#agent_id,#agent_listing').select2({selectOnClose: true});
+    $('#agent_list,#agent_id,#agent_listing,#agents,#agent-list,#agent,#transfer-to').select2({selectOnClose: true});
 });
 
 var MonthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];

@@ -97,9 +97,9 @@ if (isset($_REQUEST['associate_id'])) {
                                         <div class="form-group row">
                                             <label class="col-sm-2"></label>
                                             <div class="col-sm-10">
-                                                <button type="button" class="btn btn-gradient-primary mr-2" id="reject">Reject</button>
+                                                <button type="button" class="btn btn-gradient-danger mr-2" id="reject">Reject</button>
                                                 <button type="button" class="btn btn-gradient-primary mr-2" id="approve">Approve</button>
-                                                <button type="button" class="btn btn-gradient-primary mr-2" id="back">Back</button>
+                                                <a href="associate-list" class="btn btn-gradient-info mr-2">Back</a>
                                                 <input type="hidden" id="associate_id" value="<?php echo $associate_id; ?>">
                                             </div>
                                         </div>

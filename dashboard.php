@@ -34,7 +34,7 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-bank mdi-24px float-right "></i></h4>
                         <h2 class="">&#x20b9;
-                            <a href="income-fund-history" class="dashboard-box">
+                            <a href="matching-income" class="dashboard-box">
                                 <span id="matching_income">0.00</span>
                             </a>
                         </h2>
@@ -47,7 +47,9 @@
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
                         <h4 class="font-weight-normal mb-3 ">Total Earning <i class="mdi mdi-bank mdi-24px float-right "></i></h4>
                         <h2 class="">&#x20b9;
-                            <span id="total_income">0.00</span>
+                            <a href="income-fund-history" class="dashboard-box">
+                                <span id="total_income">0.00</span>
+                            </a>
                         </h2>
                     </div>
                 </div>

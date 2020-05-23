@@ -385,10 +385,10 @@ function setCurrentNextReward(data) {
                         <div class="card">\n\
                             <div class="card-body p-0">\n\
                                 <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">\n\
-                                    <a class="btn btn-primary" href="rankers">View All Rankers</a>\n\
                                     <a class="btn btn-success" href="rewards">View All Rewards</a>\n\
                                     <a class="btn btn-info" href="offers">View All Offers</a>\n\
                                     <a class="btn btn-warning" href="ranks">View All Ranks</a>\n\
+                                    <a class="btn btn-primary" href="rankers">View All Rankers</a>\n\
                                 </div>\n\
                             </div>\n\
                         </div>\n\

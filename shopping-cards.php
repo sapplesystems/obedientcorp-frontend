@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="div-total text-right" style="display:none;" id="e_wallet_label">
-                                    <h5>Your Wallet Balance: <span id="rupee_sign"></span> <span id="e-wallet"></span></h5>
+                                    <h5>Wallet Balance: <span id="rupee_sign"></span> <span id="e-wallet"></span></h5>
                                 </div>
                             </div>
                         </div>

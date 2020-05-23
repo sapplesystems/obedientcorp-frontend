@@ -29,6 +29,28 @@
                 </div>
             </div>
             <div class="col-md-4 stretch-card grid-margin ">
+                <div class="card bg-gradient-warning card-img-holder text-white ">
+                    <div class="card-body">
+                        <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
+                        <h4 class="font-weight-normal mb-3 ">Total Left BV<i class="mdi mdi-briefcase  mdi-24px float-right "></i></h4>
+                        <h2 class="">
+                            <span id="total_left_business">0.00</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin ">
+                <div class="card bg-gradient-danger card-img-holder text-white ">
+                    <div class="card-body">
+                        <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
+                        <h4 class="font-weight-normal mb-3 ">Total Right BV<i class="mdi mdi-briefcase mdi-24px float-right "></i></h4>
+                        <h2 class=""> 
+                            <span id="total_right_business">0.00</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin ">
                 <div class="card bg-gradient-success card-img-holder text-white ">
                     <div class="card-body">
                         <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
@@ -50,28 +72,6 @@
                             <a href="income-fund-history" class="dashboard-box">
                                 <span id="total_income">0.00</span>
                             </a>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 stretch-card grid-margin ">
-                <div class="card bg-gradient-warning card-img-holder text-white ">
-                    <div class="card-body">
-                        <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                        <h4 class="font-weight-normal mb-3 ">Total Left BV<i class="mdi mdi-briefcase  mdi-24px float-right "></i></h4>
-                        <h2 class="">
-                            <span id="total_left_business">0.00</span>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 stretch-card grid-margin ">
-                <div class="card bg-gradient-danger card-img-holder text-white ">
-                    <div class="card-body">
-                        <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                        <h4 class="font-weight-normal mb-3 ">Total Right BV<i class="mdi mdi-briefcase mdi-24px float-right "></i></h4>
-                        <h2 class=""> 
-                            <span id="total_right_business">0.00</span>
                         </h2>
                     </div>
                 </div>
@@ -132,10 +132,10 @@
                         <div class="card">
                             <div class="card-body p-0">
                                 <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">
-                                    <a class="btn btn-primary" href="rankers">View All Rankers</a>
                                     <a class="btn btn-success" href="rewards">View All Rewards</a>
                                     <a class="btn btn-info" href="offers">View All Offers</a>
                                     <a class="btn btn-warning" href="ranks">View All Ranks</a>
+                                    <a class="btn btn-primary" href="rankers">View All Rankers</a>
                                 </div>
                             </div>
                         </div>

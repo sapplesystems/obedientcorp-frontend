@@ -124,17 +124,14 @@ function setMainView(user_active_range, members, node) {
         team_html += '<h6 class="mb-0 font-weight-light"></h6>';
         team_html += '</td>';
         team_html += '<td class="custom_icon" style="width:22%;">';
-        team_html += '<i class="mdi mdi-star-circle icon-sm my-0 "></i>';
         team_html += '<p class="mb-0 font-weight-medium text-muted">LEFT BV</p>';
         team_html += '<h4 class="font-weight-semibold mb-0">' + member.total_left_business + '</h4>';
         team_html += '</td>';
         team_html += '<td class="custom_icon" style="width:22%;">';
-        team_html += '<i class="mdi mdi-star-circle icon-sm my-0 "></i>';
         team_html += '<p class="mb-0 font-weight-medium text-muted">RIGHT BV</p>';
         team_html += '<h4 class="font-weight-semibold mb-0">' + member.total_right_business + '</h4>';
         team_html += '</td>';
         team_html += '<td class="custom_icon" style="width:22%;">';
-        team_html += '<i class="mdi mdi-account-plus icon-sm my-0 "></i>';
         team_html += '<p class="mb-0 font-weight-medium text-muted">INTRODUCER</p>';
         team_html += '<h4 class="font-weight-semibold mb-0 text-primary">' + member.introducer_code + '</h4>';
         team_html += '</td>';

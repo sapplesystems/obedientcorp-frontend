@@ -68,7 +68,7 @@ if ($user_type != 'ADMIN') {
                         table_data += '<tbody>';
                         $.each(response.data, function (key, value) {
                             table_data += '<tr id="tr_' + value.id + '">\n\\n\
-                                                <td>' + value.payout_generated_from + ' To ' + value.payout_generated_to + '</td>\n\
+                                                <td>' + response.payout_generated_from + ' To ' + response.payout_generated_to + '</td>\n\
                                                 <td>' + value.display_name + '</td>\n\
                                                 <td>' + value.total_left_business + '</td>\n\
                                                 <td>' + value.total_right_business + '</td>\n\

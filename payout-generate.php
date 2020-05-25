@@ -75,7 +75,7 @@ if ($user_type != 'ADMIN') {
                                                 <td>' + value.remaining_left_business + '</td>\n\
                                                 <td>' + value.remaining_right_business + '</td>\n\
                                                 <td>' + value.matching_amount + '</td>\n\
-                                                <td>' + value.income_fund + '</td>\n\
+                                                <td>' + value.commission + '</td>\n\
                                             </tr>';
                         });
                         table_data += '</tbody>';

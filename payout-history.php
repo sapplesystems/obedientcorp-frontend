@@ -113,6 +113,7 @@ if ($user_type != 'ADMIN') {
                                                     <th>Balance Right BV</th>\n\
                                                     <th>Matching BV</th>\n\
                                                     <th>Commission</th>\n\
+                                                    <th>Income Fund</th>\n\
                                                     <th>TDS</th>\n\
                                                     <th>Processing Fee</th>\n\
                                                     <th>Other Charges</th>\n\
@@ -131,6 +132,7 @@ if ($user_type != 'ADMIN') {
                                             <td>' + value.remaining_right_business + '</td>\n\
                                             <td>' + value.matching_amount + '</td>\n\
                                             <td>' + value.commission + '</td>\n\
+                                            <td>' + value.income_fund + '</td>\n\
                                             <td>' + value.tds + '</td>\n\
                                             <td>' + value.processing_fee + '</td>\n\
                                             <td>' + value.other_charges + '</td>\n\

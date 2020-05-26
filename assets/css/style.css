@@ -30455,7 +30455,7 @@ width: 2px;
 height: 25px;
 bottom: 0;
 left: 50%;
-background-color: rgba(255, 255, 255, 0.7);
+background-color: rgba(255, 255, 255, 0.3);
 transform: translateY(100%);
 }
 
@@ -30478,7 +30478,7 @@ display: none;
 .hv-wrapper .hv-item .hv-item-children .hv-item-child:after {
 content: '';
 position: absolute;
-background-color: rgba(255, 255, 255, 0.7);
+background-color: rgba(255, 255, 255, 0.3);
 left: 0;
 }
 
@@ -30699,26 +30699,30 @@ position: relative;
 content: '';
 width: 0px;
 height: 0px;
-border-top: 7px solid transparent;
-border-bottom: 7px solid transparent;
-border-right: 7px solid rgba(255, 255, 255, 0.9);
+border-left: 7px solid transparent;
+border-right: 7px solid transparent;
+border-top: 7px solid rgba(255, 255, 255, 1);
 position: absolute;
-left: -7px;
+left: 50%;
+bottom:-7px;
+transform: translateX(-50%);
+z-index: 1;
 }
 
 .info_click label {
 display: none;
 font-size: 12px;
 position: absolute;
-top: 0px;
-left: 23px;
+bottom: 50%;
+left: 50%;
 width: 200px;
-background-color: rgba(255, 255, 255, 0.9);
-margin-bottom: 0;
+background-color: rgba(255, 255, 255, 1);
+margin-bottom: 17px;
 padding: 5px 10px;
 color: #000;
 text-align: left;
 z-index: 1;
+transform: translate(-50%, 0%);
 }
 
 

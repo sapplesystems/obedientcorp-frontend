@@ -32,7 +32,7 @@ function getAssociateKycDetails(agent_id)
             if (response.status == 'success') {
                 var path = '';
                 var status = 'Not Available'
-                if (response.data[0].kyc_status && response.data[0].kyc_status != '')
+                if (response.data[0].kyc_status!=null && response.data[0].kyc_status != '' && response.data[0].kyc_status!="undefined")
                 {
                     $('#kyc-status').html(response.data[0].kyc_status);
                 }
@@ -40,7 +40,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#kyc-status').html(status);
                 }
-                if (response.data[0].adhar && response.data[0].adhar != '')
+                if (response.data[0].adhar!=null && response.data[0].adhar != '' && response.data[0].adhar != "undefined")
                 {
                     $('#aadhaar_number').html(response.data[0].adhar);
                 }
@@ -48,7 +48,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#aadhaar_number').html(status);
                 }
-                if (response.data[0].pan_number && response.data[0].pan_number != '')
+                if (response.data[0].pan_number!=null && response.data[0].pan_number != '' && response.data[0].pan_number != "undefined" )
                 {
                     $('#pan_number').html(response.data[0].pan_number);
                 }
@@ -56,7 +56,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#pan_number').html(status);
                 }
-                if (response.data[0].passport_number && response.data[0].passport_number != '')
+                if (response.data[0].passport_number!=null && response.data[0].passport_number != '' && response.data[0].passport_number!="undefined")
                 {
                     $('#passport_number').html(response.data[0].passport_number);
                 }
@@ -64,7 +64,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#passport_number').html(status);
                 }
-                if (response.data[0].driving_licence_number && response.data[0].driving_licence_number != '')
+                if (response.data[0].driving_licence_number!=null && response.data[0].driving_licence_number != '' && response.data[0].driving_licence_number != "undefined")
                 {
                     $('#dl_number').html(response.data[0].driving_licence_number);
                 }
@@ -72,7 +72,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#dl_number').html(status);
                 }
-                if (response.data[0].voter_id && response.data[0].voter_id != '')
+                if (response.data[0].voter_id!=null && response.data[0].voter_id != '' && response.data[0].voter_id != "undefined")
                 {
                     $('#voter_id').html(response.data[0].voter_id);
                 }
@@ -81,7 +81,7 @@ function getAssociateKycDetails(agent_id)
                     $('#voter_id').html(status);
                 }
                 //images
-                if (response.data[0].adhar_image && response.data[0].adhar_image != null && response.data[0].adhar_image != '')
+                if (response.data[0].adhar_image!="undefined" && response.data[0].adhar_image != null && response.data[0].adhar_image != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].adhar_image;
                     $('#aadhar_image1').attr('src', path);
@@ -91,7 +91,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#status-adhar1').html('<span>' + status + '</span>');
                 }
-                if (response.data[0].adhar_image_2 && response.data[0].adhar_image_2 != null && response.data[0].adhar_image_2 != '')
+                if (response.data[0].adhar_image_2!="undefined" && response.data[0].adhar_image_2 != null && response.data[0].adhar_image_2 != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].adhar_image_2;
                     $('#aadhar_image2').attr('src', path);
@@ -101,7 +101,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#status-adhar2').html('<span>' + status + '</span>');
                 }
-                if (response.data[0].pan_image && response.data[0].pan_image != null && response.data[0].pan_image != '')
+                if (response.data[0].pan_image!="undefined" && response.data[0].pan_image != null && response.data[0].pan_image != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].pan_image;
                     $('#pancard_image1').attr('src', path);
@@ -111,7 +111,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#status-pan').html('<span>' + status + '</span>');
                 }
-                if (response.data[0].passport_image && response.data[0].passport_image != null && response.data[0].passport_image != '')
+                if (response.data[0].passport_image!="undefined" && response.data[0].passport_image != null && response.data[0].passport_image != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].passport_image;
                     $('#passport_image1').attr('src', path);
@@ -121,7 +121,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#status-pass1').html('<span>' + status + '</span>');
                 }
-                if (response.data[0].passport_image_2 && response.data[0].passport_image_2 != null && response.data[0].passport_image_2 != '')
+                if (response.data[0].passport_image_2!="undefined" && response.data[0].passport_image_2 != null && response.data[0].passport_image_2 != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].passport_image_2;
                     $('#passport_image2').attr('src', path);
@@ -131,7 +131,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#status-pass2').html('<span>' + status + '</span>');
                 }
-                if (response.data[0].driving_licence_image && response.data[0].driving_licence_image != null && response.data[0].driving_licence_image != '')
+                if (response.data[0].driving_licence_image!="undefined" && response.data[0].driving_licence_image != null && response.data[0].driving_licence_image != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].driving_licence_image;
                     $('#dl_image1').attr('src', path);
@@ -141,7 +141,7 @@ function getAssociateKycDetails(agent_id)
                 {
                     $('#status-dl1').html('<span>' + status + '</span>');
                 }
-                if (response.data[0].driving_licence_image_2 && response.data[0].driving_licence_image_2 != null && response.data[0].driving_licence_image_2 != '')
+                if (response.data[0].driving_licence_image_2!="undefined" && response.data[0].driving_licence_image_2 != null && response.data[0].driving_licence_image_2 != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].driving_licence_image_2;
                     $('#dl_image2').attr('src', path);
@@ -152,7 +152,7 @@ function getAssociateKycDetails(agent_id)
                     $('#status-dl2').html('<span>' + status + '</span>');
                 }
 
-                if (response.data[0].voter_image && response.data[0].voter_image != null && response.data[0].voter_image != '')
+                if (response.data[0].voter_image!="undefined" && response.data[0].voter_image != null && response.data[0].voter_image != '')
                 {
                     path = media_url + 'id_proof/' + response.data[0].voter_image;
                     $('#voter_image1').attr('src', path);
@@ -210,7 +210,7 @@ function getBankDetails(user_id)
             console.log(response);
             if (response.status == 'success') {
                 var data = 'Not Available';
-                if (response.data[0].payee_name && response.data[0].payee_name != null && response.data[0].payee_name != '')
+                if (response.data[0].payee_name!="undefined" && response.data[0].payee_name != null && response.data[0].payee_name != '')
                 {
                     data = response.data[0].payee_name;
                     $('#payee-name').html(data);
@@ -218,7 +218,7 @@ function getBankDetails(user_id)
                     $('#payee-name').html(data);
                 }
 
-                if (response.data[0].bank_name && response.data[0].bank_name != null && response.data[0].bank_name != '')
+                if (response.data[0].bank_name!="undefined" && response.data[0].bank_name != null && response.data[0].bank_name != '')
                 {
                     data = response.data[0].bank_name;
                     $('#bank-name').html(data);
@@ -226,14 +226,14 @@ function getBankDetails(user_id)
                     $('#bank-name').html(data);
                 }
 
-                if (response.data[0].account_number && response.data[0].account_number != null && response.data[0].account_number != '')
+                if (response.data[0].account_number!="undefined" && response.data[0].account_number != null && response.data[0].account_number != '')
                 {
                     data = response.data[0].account_number;
                     $('#ac-number').html(data);
                 }else{
                     $('#ac-number').html(data);
                 }
-                if (response.data[0].branch && response.data[0].branch != null && response.data[0].branch != '')
+                if (response.data[0].branch!="undefined" && response.data[0].branch != null && response.data[0].branch != '')
                 {
                     data = response.data[0].branch;
                     $('#branch').html(data);
@@ -241,14 +241,14 @@ function getBankDetails(user_id)
                     $('#branch').html(data);
                 }
 
-                if (response.data[0].ifsc_code && response.data[0].ifsc_code != null && response.data[0].ifsc_code != '')
+                if (response.data[0].ifsc_code!="undefined" && response.data[0].ifsc_code != null && response.data[0].ifsc_code != '')
                 {
                     data = response.data[0].ifsc_code;
                     $('#ifsc-code').html(data);
                 }else{
                     $('#ifsc-code').html(data);
                 }
-                if (response.data[0].cancel_cheque && response.data[0].cancel_cheque != null && response.data[0].cancel_cheque != '')
+                if (response.data[0].cancel_cheque!="undefined" && response.data[0].cancel_cheque != null && response.data[0].cancel_cheque != '')
                 {
                     path = media_url + 'cancel_cheque/' + response.data[0].cancel_cheque;
                     $('#bank_copy').attr('src', path);

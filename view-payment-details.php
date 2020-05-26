@@ -25,4 +25,4 @@ if (isset($_REQUEST['booking_id'])) {
     <input type="hidden" id="plot_booking_id" value="<?php echo $plot_booking_id;?>"/>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script src="assets\javascript\view_booking_plot.js"></script>
+    <script src="assets/javascript/view_booking_plot.js"></script>

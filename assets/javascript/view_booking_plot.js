@@ -84,7 +84,7 @@ function get_agent_name() {
     $.ajax({
         url: base_url + 'agent-name',
         type: 'post',
-        data: { user_id: agent_id },
+        data: {user_id: agent_id},
         success: function (response) {
             if (response.status == 'success') {
                 $('#agent-name').html(response.data);
@@ -124,65 +124,65 @@ function viewPaymentDetails(booking_id) {
             if (response.status == "success") {
                 var i = 1;
                 $.each(response.data, function (key, val) {
-                    var name='';
-                    var payment_number ='';
-                    var amount ='';
-                    var date_of_payment ='';
-                    var bank_name='';
-                    var account_no ='';
+                    var name = '';
+                    var payment_number = '';
+                    var amount = '';
+                    var date_of_payment = '';
+                    var bank_name = '';
+                    var account_no = '';
                     var ifsc_code = '';
                     var photo = '';
-                    var status='';
+                    var status = '';
                     var payment_mode = '';
-                    if(val.account_holder_name!='' && val.account_holder_name!=null && val.account_holder_name!="undefined")
+                    if (val.account_holder_name != '' && val.account_holder_name != null && val.account_holder_name != "undefined")
                     {
-                        name= val.account_holder_name;
+                        name = val.account_holder_name;
                     }
-                    if(val.payment_mode!='' && val.payment_mode!=null && val.payment_mode!="undefined")
+                    if (val.payment_mode != '' && val.payment_mode != null && val.payment_mode != "undefined")
                     {
                         payment_mode = val.payment_mode;
                     }
-                    if(val.amount!='' && val.amount!=null && val.amount!="undefined")
+                    if (val.amount != '' && val.amount != null && val.amount != "undefined")
                     {
                         amount = val.amount;
                     }
-                    if(val.cheque_number!='' && val.cheque_number!=null && val.cheque_number!="undefined")
+                    if (val.cheque_number != '' && val.cheque_number != null && val.cheque_number != "undefined")
                     {
                         payment_number = val.cheque_number;
                     }
-                    if(val.date_of_payment!='' && val.date_of_payment!=null && val.date_of_payment!="undefined")
+                    if (val.date_of_payment != '' && val.date_of_payment != null && val.date_of_payment != "undefined")
                     {
                         date_of_payment = val.date_of_payment;
                     }
-                    if(val.bank_name!='' && val.bank_name!=null && val.bank_name!="undefined")
+                    if (val.bank_name != '' && val.bank_name != null && val.bank_name != "undefined")
                     {
                         bank_name = val.bank_name;
                     }
-                    if(val.account_number!='' && val.account_number!=null && val.account_number!="undefined")
+                    if (val.account_number != '' && val.account_number != null && val.account_number != "undefined")
                     {
                         account_no = val.account_number;
                     }
-                    if(val.ifsc_code!='' && val.ifsc_code!=null && val.ifsc_code!="undefined")
+                    if (val.ifsc_code != '' && val.ifsc_code != null && val.ifsc_code != "undefined")
                     {
                         ifsc_code = val.ifsc_code;
                     }
-                    if(val.status!='' && val.status!=null && val.status!="undefined")
+                    if (val.status != '' && val.status != null && val.status != "undefined")
                     {
                         status = val.status;
                     }
-                    if(val.photo!='' && val.photo!=null && val.photo!="undefined")
+                    if (val.photo != '' && val.photo != null && val.photo != "undefined")
                     {
-                        photo = '<div class="signature_img row lightGallery lightgallery-without-thumb">\n\
-                        <a href="'+media_url + 'payment_master/' + val.photo+'" class="image-tile" id="a_photo">\n\
-                            <img src="'+media_url + 'payment_master/' + val.photo+'" class="upload_img" id="photo" />\n\
+                        photo = '<div class="lightGallery lightgallery-without-thumb">\n\
+                        <a href="' + media_url + 'payment_master/' + val.photo + '" class="image-tile" id="a_photo">\n\
+                            <img src="' + media_url + 'payment_master/' + val.photo + '" class="upload_img" id="photo" />\n\
                         </a>\n\
                     </div>';
                     }
                     html += '<tr>\n\
-                                    <td>'+ i + '</td>\n\
+                                    <td>' + i + '</td>\n\
                                       <td>' + name + '</td>\n\
                                       <td>' + amount + '</td>\n\
-                                      <td>' + payment_mode+ '</td>\n\
+                                      <td>' + payment_mode + '</td>\n\
                                       <td>' + payment_number + '</td>\n\
                                       <td>' + date_of_payment + '</td>\n\
                                       <td>' + bank_name + '</td>\n\
@@ -199,6 +199,7 @@ function viewPaymentDetails(booking_id) {
                 $('.view_payment_detail').html(html);
                 initDataTable();
                 hideLoader();
+                initializedLightGallery();
             } else {
                 $('.view_payment_detail').html(html);
                 initDataTable();

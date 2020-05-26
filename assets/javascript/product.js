@@ -84,10 +84,12 @@ $(document).ready(function () {
                     if (response.status == "success") {
                         showSwal('success', 'Product Added', 'Product added successfully.');
                         hideLoader();
-                        getProductList();
+                        //getProductList();
                         if($('#product_id').val() == '')
                         {
                             resetForm();
+                            setTimeout(function(){ location.href='product-list'; }, 2000);
+                            
                         }
                         
                     } else {

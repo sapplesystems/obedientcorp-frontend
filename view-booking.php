@@ -7,6 +7,9 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
 }
 
 ?>
+<style>
+.select2{display: none !important;}
+</style>
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -30,10 +33,13 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
                                         <th>Plot Number</th>
                                         <th>Total Amount</th>
                                         <th>Booking Amount</th>
-                                        <th>Date of Payment</th>
+                                        <th>Date of Booking</th>
                                         <th>Overdue</th>
                                         <th>Total Paid</th>
+                                        <th>Current Balance Amount</th>
                                         <th>EMI Amount</th>
+                                        <th>EMI Tenure</th>
+                                        <th>Action</th>
                                     </tr>
 
                                 </thead>

@@ -47,14 +47,14 @@ document.addEventListener("DOMContentLoaded", function () { // On DOM Load initi
 //AUTOMATIC TYPING ON DASHBOARD CODE END HERE
 
 getDashboardInfo(user_id);
-
+getNewsList();
 function getDashboardInfo(user_id) {
     showLoader();
     $.ajax({
         url: base_url + 'dashboard/info',
         type: 'post',
         async: false,
-        data: {user_id: user_id},
+        data: { user_id: user_id },
         success: function (response) {
             if (response.status == 'success') {
                 var data = response.data;
@@ -136,7 +136,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_left_business
+                        data: total_left_business
                     },
                     {
                         label: "Right BV",
@@ -148,7 +148,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_right_business
+                        data: total_right_business
                     },
                     {
                         label: "Self Business",
@@ -160,7 +160,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                                data: total_self_business
+                        data: total_self_business
                     }
                 ]
             },
@@ -172,8 +172,8 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                     text.push('<ul>');
                     for (var i = 0; i < chart.data.datasets.length; i++) {
                         text.push('<li><span class="legend-dots" style="background:' +
-                                chart.data.datasets[i].legendColor +
-                                '"></span>');
+                            chart.data.datasets[i].legendColor +
+                            '"></span>');
                         if (chart.data.datasets[i].label) {
                             text.push(chart.data.datasets[i].label);
                         }
@@ -184,33 +184,33 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                 },
                 scales: {
                     yAxes: [{
-                            ticks: {
-                                display: false,
-                                min: 0,
-                                stepSize: 20,
-                                max: 5000
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                                color: '#322f2f',
-                                zeroLineColor: '#322f2f'
-                            }
-                        }],
+                        ticks: {
+                            display: false,
+                            min: 0,
+                            stepSize: 20,
+                            max: 5000
+                        },
+                        gridLines: {
+                            drawBorder: false,
+                            color: '#322f2f',
+                            zeroLineColor: '#322f2f'
+                        }
+                    }],
                     xAxes: [{
-                            gridLines: {
-                                display: false,
-                                drawBorder: false,
-                                color: 'rgba(0,0,0,1)',
-                                zeroLineColor: 'rgba(235,237,242,1)'
-                            },
-                            ticks: {
-                                padding: 20,
-                                fontColor: "#9c9fa6",
-                                autoSkip: true,
-                            },
-                            categoryPercentage: 0.5,
-                            barPercentage: 0.5
-                        }]
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                            color: 'rgba(0,0,0,1)',
+                            zeroLineColor: 'rgba(235,237,242,1)'
+                        },
+                        ticks: {
+                            padding: 20,
+                            fontColor: "#9c9fa6",
+                            autoSkip: true,
+                        },
+                        categoryPercentage: 0.5,
+                        barPercentage: 0.5
+                    }]
                 }
             },
             elements: {
@@ -253,7 +253,7 @@ function generateDuePaymentList(list) {
     });
     table_data += '</tbody>';
     $("#due_payment_list").html(table_data);
-    $("#due_payment_list").DataTable({aaSorting: []});
+    $("#due_payment_list").DataTable({ aaSorting: [] });
 }
 
 function setCurrentNextRewardOld(data) {
@@ -395,3 +395,49 @@ function setCurrentNextReward(data) {
                     </div>';
     $('#current_next_reward').html(reward_html);
 }
+
+//get all news list
+function getNewsList() {
+    showLoader();
+    $.ajax({
+        url: base_url + 'news-list',
+        type: 'post',
+        data: {},
+        success: function (response) {
+            var html = '';
+            if (response.status == "success") {
+                var i = 1;
+                $.each(response.data, function (key, value) {
+                    var path = '';
+                    if (value.photo) {
+                        path = media_url + 'news_photo/' + value.photo;
+                    }
+
+                    html += '<div class="list-item">\n\
+                    <div class="preview-image">\n\
+                        <img class="img-sm rounded-circle" src="'+path+'" alt="profile image">\n\
+                    </div>\n\
+                    <div class="content">\n\
+                        <div class="d-flex align-items-center">\n\
+                            <h6 class="product-name">'+ value.title + '</h6>\n\
+                            <small class="time ml-3">'+value.created_date+'</small>\n\
+                        </div>\n\
+                        <div class="d-flex align-items-center">\n\
+                            <p class="review-text d-block textFull">'+ value.description + '</p>\n\
+                        </div>\n\
+                    </div>\n\
+                </div>';
+
+                });
+
+                $('#news-list').append(html);
+
+                hideLoader();
+            }
+            else {
+
+                hideLoader();
+            }
+        }
+    });
+}//function end all news list

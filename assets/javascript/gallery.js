@@ -65,6 +65,7 @@ $(document).ready(function () {
                         showSwal('success', 'Gallery Saved', response.data);
                         document.getElementById('gallery-images-form').reset();
                         $(".uploaded").children(".uploaded-image").remove();
+                        setTimeout(function(){ location.reload(); }, 2000);
                         getGalleryImages($('#gallery-id').val());
                         hideLoader();
                     } else {

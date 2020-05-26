@@ -66,7 +66,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <div class="col-sm-4">
                                         <input type="text" placeholder="Enter Customer Name" class="form-control required" id="customername" name="customername" value="" onkeypress="return isAlphabetKey(event);">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Father/Husband :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Father/Husband Name :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4"> 
                                         <input type="text" class="form-control required" id="fatherhusbandwife" name="fatherhusbandwife" placeholder="Enter Father/Husband Name" onkeypress="return isAlphabetKey(event);">
                                     </div>

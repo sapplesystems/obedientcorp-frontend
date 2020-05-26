@@ -236,11 +236,11 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Mobile 1 <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">Mobile<span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control required" placeholder="" id="mobile_no" name="mobile_no" onkeypress="return isNumberKey(event);">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">Mobile 2</label>
+                                                            <label class="col-sm-2 col-form-label">Secondary Mobile</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="land_line_phone" name="land_line_phone" onkeypress="return isNumberKey(event);">
                                                             </div>

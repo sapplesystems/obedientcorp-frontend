@@ -4,6 +4,7 @@ $(document).ready(function () {
     if ($('#associate_id').val() != '' && $('#associate_id').val())
     {
         getAssociateKycDetails($('#associate_id').val());
+        getBankDetails($('#associate_id').val());
     }
 
     $('#reject').click(function () {
@@ -19,7 +20,6 @@ $(document).ready(function () {
 
 function getAssociateKycDetails(agent_id)
 {
-
     var url = base_url + 'agent-kyc-detail';
     $.ajax({
         url: url,
@@ -195,4 +195,73 @@ function updateKycStatus(status)
             }
         }
     });
+}
+
+function getBankDetails(user_id)
+{
+    var url = base_url + 'bank-detail';
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {
+            user_id: user_id,
+        },
+        success: function (response) {
+            console.log(response);
+            if (response.status == 'success') {
+                var data = 'Not Available';
+                if (response.data[0].payee_name && response.data[0].payee_name != null && response.data[0].payee_name != '')
+                {
+                    data = response.data[0].payee_name;
+                    $('#payee-name').html(data);
+                }else{
+                    $('#payee-name').html(data);
+                }
+
+                if (response.data[0].bank_name && response.data[0].bank_name != null && response.data[0].bank_name != '')
+                {
+                    data = response.data[0].bank_name;
+                    $('#bank-name').html(data);
+                }else{
+                    $('#bank-name').html(data);
+                }
+
+                if (response.data[0].account_number && response.data[0].account_number != null && response.data[0].account_number != '')
+                {
+                    data = response.data[0].account_number;
+                    $('#ac-number').html(data);
+                }else{
+                    $('#ac-number').html(data);
+                }
+                if (response.data[0].branch && response.data[0].branch != null && response.data[0].branch != '')
+                {
+                    data = response.data[0].branch;
+                    $('#branch').html(data);
+                }else{
+                    $('#branch').html(data);
+                }
+
+                if (response.data[0].ifsc_code && response.data[0].ifsc_code != null && response.data[0].ifsc_code != '')
+                {
+                    data = response.data[0].ifsc_code;
+                    $('#ifsc-code').html(data);
+                }else{
+                    $('#ifsc-code').html(data);
+                }
+                if (response.data[0].cancel_cheque && response.data[0].cancel_cheque != null && response.data[0].cancel_cheque != '')
+                {
+                    path = media_url + 'cancel_cheque/' + response.data[0].cancel_cheque;
+                    $('#bank_copy').attr('src', path);
+                    $('#bnk-copy').attr('href', path);
+                }else{
+                    $('#cancel_cheque').html('<span>' + data + '</span>');
+                }
+            }
+            else
+            {
+                showSwal('error', 'Change Status ', response.data);
+            }
+        }
+    });
+
 }

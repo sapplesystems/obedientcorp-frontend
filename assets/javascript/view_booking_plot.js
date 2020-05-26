@@ -172,7 +172,7 @@ function viewPaymentDetails(booking_id) {
                     }
                     if(val.photo!='' && val.photo!=null && val.photo!="undefined")
                     {
-                        photo = '<div class="lightGallery lightgallery-without-thumb">\n\
+                        photo = '<div class="signature_img row lightGallery lightgallery-without-thumb">\n\
                         <a href="'+media_url + 'payment_master/' + val.photo+'" class="image-tile" id="a_photo">\n\
                             <img src="'+media_url + 'payment_master/' + val.photo+'" class="upload_img" id="photo" />\n\
                         </a>\n\

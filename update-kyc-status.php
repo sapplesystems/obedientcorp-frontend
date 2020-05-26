@@ -14,6 +14,41 @@ if (isset($_REQUEST['associate_id'])) {
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Update Kyc Status</h4>
                         <h3 class="mb-4">Kyc Status: <span id="kyc-status"></span></h3>
+                        <h5 class="mb-4">Bank Details</h5>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Payee Name</label>
+                            <div class="col-sm-4">
+                                <span id="payee-name"></span>
+                            </div>
+                            <label class="col-sm-2 col-form-label">Bank Name</label>
+                            <div class="input-group col-sm-4">
+                                <span id="bank-name"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Account Number </label>
+                            <div class="col-sm-4">
+                                <span id="ac-number"></span>
+                            </div>
+                            <label class="col-sm-2 col-form-label">Branch</label>
+                            <div class="input-group col-sm-4">
+                                <span id="branch"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">IFSC Code</label>
+                            <div class="col-sm-4">
+                                <span id="ifsc-code"></span>
+                            </div>
+                            <label class="col-sm-2 col-form-label">Cancel Cheque/Bank Copy</label>
+                            <div class="input-group col-sm-4">
+                            <div class="signature_img row lightGallery lightgallery-without-thumb" id="cancel_cheque">
+                                    <a href="#" class="image-tile" id="bnk-copy">
+                                        <img src="" style="width:100px;" id="bank_copy" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         <h5 class="mb-4">Aadhaar Number: <span id="aadhaar_number"></span></h5>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Aadhaar Image 1</label>

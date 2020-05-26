@@ -150,49 +150,7 @@
                             <p class="mb-0">Welcome to <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
                         </div>
                         <div class="news_update mt-4">
-                            <marquee scrollamount="3" direction="up" onmouseover="stop();" onmouseout="start();">
-                                <div class="list-item">
-                                    <div class="preview-image">
-                                        <img class="img-sm rounded-circle" src="images/logo_header.png" alt="profile image">
-                                    </div>
-                                    <div class="content">
-                                        <div class="d-flex align-items-center">
-                                            <h6 class="product-name">Obedient Group</h6>
-                                            <small class="time ml-3">08.34 AM</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <p class="review-text d-block textFull">We are one of leading Indian Company in Site Development, Land Development, Construction etc. Our Company is incorporated as 'Obedient Corporation' from 20 June 2018, and now this Company incorporated as Obedient Infra Development Pvt. Ltd. A Private Limited Company under the Companies Act, 2013 pursuant to Certificate of Incorporation dated September 29, 2018.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="preview-image">
-                                        <img class="img-sm rounded-circle" src="images/logo_header.png" alt="profile image">
-                                    </div>
-                                    <div class="content">
-                                        <div class="d-flex align-items-center">
-                                            <h6 class="product-name">Obedient Group</h6>
-                                            <small class="time ml-3">08.34 AM</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <p class="review-text d-block textFull">We are one of leading Indian Company in Site Development, Land Development, Construction etc. Our Company is incorporated as 'Obedient Corporation' from 20 June 2018, and now this Company incorporated as Obedient Infra Development Pvt. Ltd. A Private Limited Company under the Companies Act, 2013 pursuant to Certificate of Incorporation dated September 29, 2018.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="preview-image">
-                                        <img class="img-sm rounded-circle" src="images/logo_header.png" alt="profile image">
-                                    </div>
-                                    <div class="content">
-                                        <div class="d-flex align-items-center">
-                                            <h6 class="product-name">Obedient Group</h6>
-                                            <small class="time ml-3">08.34 AM</small>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <p class="review-text d-block textFull">We are one of leading Indian Company in Site Development, Land Development, Construction etc. Our Company is incorporated as 'Obedient Corporation' from 20 June 2018, and now this Company incorporated as Obedient Infra Development Pvt. Ltd. A Private Limited Company under the Companies Act, 2013 pursuant to Certificate of Incorporation dated September 29, 2018.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <marquee scrollamount="3" direction="up" onmouseover="stop();" onmouseout="start();" id="news-list">
                             </marquee>
                         </div>
                     </div>

@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="col-md-12 customTabs">
-                            <ul class="nav nav-pills nav-pills-custom" id="pills-tab" role="tablist">
+                            <ul class="nav nav-pills nav-pills-custom diff-color" id="pills-tab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="pills-pending-tab" data-toggle="pill" href="#pills-pending" role="tab" aria-controls="pills-pending" aria-selected="false"> Pending </a>
                                 </li>

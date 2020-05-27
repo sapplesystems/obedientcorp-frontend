@@ -244,7 +244,7 @@ function get_agent_payment_list(agent_id, status) {
                                             <td>' + value.payment_mode + '</td>\n\
                                             <td>' + value.cheque_number + '</td>\n\
                                             ' + action_tr + '\n\
-                                            <td><a target="_blank" class="btn btn-link p-0" href="' + query_string + '">Details</a></td>\n\
+                                            <td><a class="btn btn-link p-0" href="' + query_string + '">Details</a></td>\n\
                                         </tr>';
                 });
                 table_data += '</tbody>';

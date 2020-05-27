@@ -137,7 +137,7 @@ function setPendingListTab(response, agent_id) {
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\
                             <td> <i class="mdi mdi-check-circle" onclick="paymentApprove(' + value.id + ',' + value.user_id + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="paymentReject(' + value.id + ',' + value.user_id + ');"></i> </td>\n\
-                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '&flag=rs">Details</a></td>\n\
+                            <td><a class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '&flag=rs">Details</a></td>\n\
                         </tr>';
     });
     table_data += '</tbody>';
@@ -170,7 +170,7 @@ function setApprovedListTab(response, agent_id) {
                             <td>' + value.date_of_payment + '</td>\n\
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\
-                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '">Details</a></td>\n\
+                            <td><a class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '">Details</a></td>\n\
                         </tr>';
     });
     table_data += '</tbody>';
@@ -203,7 +203,7 @@ function setRejectedListTab(response, agent_id) {
                             <td>' + value.date_of_payment + '</td>\n\
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\
-                            <td><a target="_blank" class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '">Details</a></td>\n\
+                            <td><a class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '">Details</a></td>\n\
                         </tr>';
     });
     table_data += '</tbody>';

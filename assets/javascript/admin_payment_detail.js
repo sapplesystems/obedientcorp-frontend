@@ -118,6 +118,16 @@ function get_payment_details() {
                 $("#payment_mode").html(payment_mode);
                 $("#cheque_number").html(cheque_number);
                 $("#bank_name").html(bank_name);
+                if(status == 'Pending')
+                {
+                    $('#status').addClass('text-warning');
+                }else if(status == 'Approved')
+                {
+                    $('#status').addClass('text-success');
+                }else if(status == 'Rejected')
+                {
+                    $('#status').addClass('text-danger');
+                }
                 $("#status").html(status);
                 $("#date_of_payment").html(date_of_payment);
                 $("#comment").html(comment);

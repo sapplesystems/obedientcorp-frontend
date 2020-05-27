@@ -2,14 +2,20 @@ var amount = '';
 var type = '';
 var amount_sum = 0;
 
-//getCustoerPaymentDetails(0);
 $(function () {
     $("#agent-list").html(down_the_line_members);
     
     get_customer_list($("#agent-list").val());
+    getCustoerPaymentDetails(0);
     
     $(document).on('click', '#make_request', function () {
-        if (checkChecked() == false) {
+        var cus_id= $('#customer-list').val();
+        if(cus_id == ''){
+            document.getElementById('payment-form').reset();
+            $('#makeRequest').modal('hide');
+            showSwal('error', 'No Customer Selected', 'Select customer from the list');
+            return false;
+        }else if ((checkChecked() == false)) {
             document.getElementById('payment-form').reset();
             $('#makeRequest').modal('hide');
             showSwal('error', 'Select Checkbox', 'No EMI selected');
@@ -66,10 +72,11 @@ $(function () {
                 var dlid = $(this).val(); // due list id (auto id of due list table)
                 var pa = $('#payment_amount_' + dlid).val();
                 var bk = $('#booking_id_' + dlid).val(); // auto id of customer plot booking detail table
+                var cusid = $('#customer_id_' + dlid).val(); // customer id of customer plot booking detail table
                 due_list_ids.push(dlid);
                 due_list_payments.push(pa);
                 booking_ids.push(bk);
-                customer_ids.push($('#customer-list').val());
+                customer_ids.push(cusid);
             });
             due_list_ids = due_list_ids.join();
             due_list_payments = due_list_payments.join();
@@ -81,6 +88,7 @@ $(function () {
                 showSwal('error', 'Select EMI', 'No EMI selected')
                 return false;
             }
+
             var amount = $('#amount').val();
             params.append('payment_mode', payment_mode);
             params.append('cheque_number', payment_number);
@@ -160,10 +168,6 @@ $(function () {
 
 
 function getCustomerPaymentList(customer_id) {
-    $('#make_request').css('display', 'none');
-    if (customer_id) {
-        $('#make_request').css('display', '');
-    }
     getCustoerPaymentDetails(customer_id);
 
 }
@@ -282,6 +286,7 @@ function setDueListTab(response) {
                 <td>\n\
                 ' + value.total_paid + '\n\
                 <input type="hidden" id="booking_id_' + value.due_list_id + '" value="' + value.customer_plot_booking_detail_id + '" />\n\
+                <input type="hidden" id="customer_id_' + value.due_list_id + '" value="' + value.customer_id + '" />\n\
                 </td>\n\
                 <td>' + value.balance_emi_amount + '</td>\n\
             </tr>';

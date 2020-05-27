@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Income Fund History</h4>
+                        <h4 class="card-title mb-4">Income History</h4>
                         <h3 class="card-title mb-4">Total Income Fund: <span id="available_income_fund" name="available_income_fund"></span></h3>
                         <?php if ($user_type == 'ADMIN') { ?>
                         <div class="form-group">

@@ -84,7 +84,8 @@ function getDashboardInfo(user_id) {
                  return a + b;
                  });*/
                 //localStorage.setItem("agent_total_business", (sum_total_left_business + sum_total_right_business));
-                localStorage.setItem("agent_total_business", (Number(data.total_left_business) + Number(data.total_right_business)));
+                //localStorage.setItem("agent_total_business", (Number(data.total_left_business) + Number(data.total_right_business)));
+                localStorage.setItem("agent_total_business", Number(data.total_self_business));
                 checkUserActiveInactive();
                 generateChart(total_left_business, total_right_business, total_self_business);
 

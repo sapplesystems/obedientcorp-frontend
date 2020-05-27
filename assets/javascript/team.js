@@ -96,7 +96,8 @@ function setMainView(user_active_range, members, node) {
         var total_business = 0;
         var is_active_icon_class = '';
         var is_admin_active_style = '';
-        total_business = (Number(member.total_left_business) + Number(member.total_right_business));
+        //total_business = (Number(member.total_left_business) + Number(member.total_right_business));
+        total_business = (Number(member.total_self_business));
         if (total_business >= user_active_range) {
             is_active_icon_class = 'bg-success';
         } else if (total_business > 0) {
@@ -164,7 +165,8 @@ function setCompactView(user_active_range, members, node) {
         var total_business = 0;
         var is_active_icon_class = '';
         var is_admin_active_style = '';
-        total_business = (Number(member.total_left_business) + Number(member.total_right_business));
+        //total_business = (Number(member.total_left_business) + Number(member.total_right_business));
+        total_business = (Number(member.total_self_business));
         if (total_business >= user_active_range) {
             is_active_icon_class = 'bg-success';
         } else if (total_business > 0) {

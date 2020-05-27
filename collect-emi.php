@@ -1,6 +1,8 @@
 <?php include_once 'header.php'; ?>
 <!-- partial -->
-
+<style>
+.white_space tr th, .white_space tr td{white-space: nowrap !important;}
+</style>
 <div class="main-panel ">
     <div class="content-wrapper ">
         <div class="row">
@@ -47,7 +49,7 @@
                             <div class="col-md-12 text-right">
                                 <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request">Request</button>
                             </div>
-                            <div class="col-md-12 tab-content tab-content-custom-pill overflowAuto custom_overflow" id="pills-tabContent">
+                            <div class="col-md-12 tab-content tab-content-custom-pill overflowAuto custom_overflow white_space" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-due" role="tabpanel" aria-labelledby="pills-pending-tab">
                                     <table class="table table-striped payment_request" id="due_payment_list"></table>
                                 </div>

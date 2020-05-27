@@ -419,6 +419,10 @@ color: #ffffff;
 }
 
 @media only screen and (max-width: 767px){
+	
+	#thumbnails .cbp-pagination-item:last-child{margin-right:0px;}
+	
+	.cbp-pagination-item{max-width: calc(25% - 6.5px);}
 
 .bg_careImg{margin-bottom:20px;}
 

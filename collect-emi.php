@@ -54,7 +54,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-right">
-                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request" style="display:none;">Request</button>
+                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request">Request</button>
                             </div>
                             <div class="col-md-12 tab-content tab-content-custom-pill overflowAuto custom_overflow" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-due" role="tabpanel" aria-labelledby="pills-pending-tab">

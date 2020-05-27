@@ -27,9 +27,9 @@ function getAgentsList() {
                     <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Agent Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
                     </div>\n\
                     <div class="float-left">\n\
-					            <i class="mdi mdi-check-circle text-info"></i>\n\
-					            <i class="mdi mdi-close-circle text-info"></i>\n\
-                       <input class="tgl tgl-skewed" id="cb' + value.user_id + '" type="checkbox" ' + cb_status + ' onclick="changeAgentStatus(event, ' + value.user_id + ');"/>\n\
+                        <i class="mdi mdi-check-circle text-info" style="display:none;"></i>\n\
+                        <i class="mdi mdi-close-circle text-info" style="display:none;"></i>\n\
+                        <input class="tgl tgl-skewed" id="cb' + value.user_id + '" type="checkbox" ' + cb_status + ' onclick="changeAgentStatus(event, ' + value.user_id + ');"/>\n\
                         <label title="Change Agent Status" class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb' + value.user_id + '"></label>\n\
                     </div>\n\
                     <div class="float-left ml-3">\n\

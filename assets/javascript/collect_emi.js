@@ -316,13 +316,12 @@ function setPendingListTab(response) {
     if (response && response.length) {
         $.each(response, function (key, value) {
             var payment_type = 'EMI';
-            var customer_name = $("#customer-list option:selected").text();
             var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
             if (value.coupon_type_id == 3) {
                 payment_type = 'Advance';
             }
             table_data += '<tr >\n\
-                <td>' + customer_name + '</td>\n\
+                <td>' + value.customer_display_name + '</td>\n\
                 <td>' + value.amount + '</td>\n\
                 <td>' + value.date_of_payment + '</td>\n\
                 <td>' + payment_type + '</td>\n\
@@ -354,13 +353,12 @@ function setRejectedListTab(response) {
     if (response && response.length) {
         $.each(response, function (key, value) {
             var payment_type = 'EMI';
-            var customer_name = $("#customer-list option:selected").text();
             var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
             if (value.coupon_type_id == 3) {
                 payment_type = 'Advance';
             }
             table_data += '<tr >\n\
-                <td>' + customer_name + '</td>\n\
+                <td>' + value.customer_display_name + '</td>\n\
                 <td>' + value.amount + '</td>\n\
                 <td>' + value.date_of_payment + '</td>\n\
                 <td>' + payment_type + '</td>\n\
@@ -390,13 +388,12 @@ function setApprovedListTab(response) {
     if (response && response.length) {
         $.each(response, function (key, value) {
             var payment_type = 'EMI';
-            var customer_name = $("#customer-list option:selected").text();
             var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
             if (value.coupon_type_id == 3) {
                 payment_type = 'Advance';
             }
             table_data += '<tr >\n\
-                <td>' + customer_name + '</td>\n\
+                <td>' + value.customer_display_name + '</td>\n\
                 <td>' + value.amount + '</td>\n\
                 <td>' + value.date_of_payment + '</td>\n\
                 <td>' + payment_type + '</td>\n\

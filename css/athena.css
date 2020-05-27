@@ -419,10 +419,6 @@ color: #ffffff;
 }
 
 @media only screen and (max-width: 767px){
-	
-	#thumbnails .cbp-pagination-item:last-child{margin-right:0px;}
-	
-	.cbp-pagination-item{max-width: calc(25% - 6.5px);}
 
 .bg_careImg{margin-bottom:20px;}
 
@@ -777,3 +773,7 @@ margin-top: 5px;}
 .custom_CareImgs .imgCare2{background-image:url(../images/final-file-2.jpg);}
 .custom_CareImgs .imgCare3{background-image:url(../images/FINAL-SANITIZER-e-2.jpg);}
 .bgPosition{ background-position: center 35%;background-size: 100% 115%;}
+
+.cbp-pagination-item{border: 1px solid #cccccc; height: 100px; width: calc(25% - 3.8px);}
+.cbp-pagination-item img{ position: absolute; top: 50%;transform: translate(-50%, -50%);max-width: 100%;max-height: 100%; width: auto;left: 50%;}
+#thumbnails .cbp-pagination-item:last-child{margin-right:0px;}

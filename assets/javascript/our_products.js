@@ -35,6 +35,7 @@ function getProductsList(sub_category_id) {
         dataType: 'json',
         data: { category_id: 1, sub_category_id: sub_category_id },
         success: function (response) {
+            console.log(response);
             if (response.status == "success") {
                 var products = '';
                 if (response.data.length > 0) {
@@ -48,8 +49,9 @@ function getProductsList(sub_category_id) {
                         }
                         products += '<li>\n\
                                         <div class="product_info">\n\
-										<span></span>\n\
+                                        <a href="product-details.php?pid='+value.id+'">\n\
                                             <img src="'+image_name+'" alt="'+image_name+'" />\n\
+                                            </a>\n\
                                              <!--div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div-->\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\

@@ -169,8 +169,8 @@ include_once 'common_html.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="income-fund-history">
-                                <span class="menu-title">Income Fund History</span>
-                                <i class="mdi mdi-history menu-icon"></i>
+                                <span class="menu-title">Income History</span>
+                                <i class="mdi mdi-wallet menu-icon"></i>
                             </a>
                         </li>
                         <!--li class="nav-item">

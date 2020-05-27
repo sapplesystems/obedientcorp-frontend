@@ -316,7 +316,7 @@ function setPendingListTab(response) {
     if (response && response.length) {
         $.each(response, function (key, value) {
             var payment_type = 'EMI';
-            var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
+            var detail_link = '<a  href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
             if (value.coupon_type_id == 3) {
                 payment_type = 'Advance';
             }
@@ -353,7 +353,7 @@ function setRejectedListTab(response) {
     if (response && response.length) {
         $.each(response, function (key, value) {
             var payment_type = 'EMI';
-            var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
+            var detail_link = '<a  href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
             if (value.coupon_type_id == 3) {
                 payment_type = 'Advance';
             }
@@ -388,7 +388,7 @@ function setApprovedListTab(response) {
     if (response && response.length) {
         $.each(response, function (key, value) {
             var payment_type = 'EMI';
-            var detail_link = '<a target="_blank" href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
+            var detail_link = '<a  href="payment-detail.php?pid=' + value.id + '&uid=' + $('#agent-list').val() + '">Detail</a>';
             if (value.coupon_type_id == 3) {
                 payment_type = 'Advance';
             }

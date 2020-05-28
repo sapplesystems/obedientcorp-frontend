@@ -37,12 +37,12 @@ function getAgentsList() {
                     }
                     action_td = '<td>\n\
                     <div class="float-left">\n\
-                    <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Agent Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
+                    <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Associate Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
                     </div>\n\
                     <div class="float-left">\n\
-                        <i class="mdi mdi-check-circle ' + change_agent_status + '" id="change_agent_status_' + value.user_id + '" onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Change Agent Status" ></i>\n\
+                        <i class="mdi mdi-check-circle ' + change_agent_status + '" id="change_agent_status_' + value.user_id + '" onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Activate/Deactivate Associate" ></i>\n\
                     </div>\n\
-                    <div class="float-left ml-2">\n\
+                    <div class="float-left ml-2" style="display: none;">\n\
                         <i class="mdi mdi-checkbox-blank-circle" title="Change Status" ></i>\n\
                     </div>\n\
                     <div class="float-left ml-2">\n\

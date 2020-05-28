@@ -12,7 +12,7 @@ $(document).ready(function () {
             }
         });
         if ($("#news-update-form").valid()) {
-            var url ='';
+            var url = '';
             var params = new FormData();
             var description = $('#description').val();
             var news_title = $('#news_title').val();
@@ -21,12 +21,11 @@ $(document).ready(function () {
             params.append('photo', photo);
             params.append('description', description);
             url = base_url + 'news-add';
-            if($('#news-id').val()!='')
-            {
+            if ($('#news-id').val() != '') {
                 url = base_url + 'news-update';
                 params.append('id', $('#news-id').val());
             }
-            
+
             $.ajax({
                 url: url,
                 type: 'post',
@@ -37,6 +36,10 @@ $(document).ready(function () {
                     if (response.status == "success") {
                         showSwal('success', 'News Saved', response.data);
                         document.getElementById('news-update-form').reset();
+                        if ($('news-id').val() != '') {
+                            $('#upload_photo').attr('src', '');
+                            $('#upload_photo').css('display', 'none');
+                        }
                         getNewsList();
                     }
                     else {
@@ -68,13 +71,13 @@ function getNewsList() {
                     //edit_url = 'add-winner.php?wid=' + value.id;
                     html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
-                                <td>' + value.title+ '</td>\n\
+                                <td>' + value.title + '</td>\n\
                                 <td>' + value.description + '</td>\n\
-                                <td><img src="'+media_url+'news_photo/'+value.photo+'" id="photo_id" /> </td>\n\
+                                <td><img src="'+ media_url + 'news_photo/' + value.photo + '" id="photo_id" /> </td>\n\
                                 <td><a href="javascript:void(0);" onclick="updateNews(event, ' + value.id + ');"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteNews(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>\n\
                             </tr>';
                     i = i + 1;
-                   
+
 
                 });
 
@@ -82,8 +85,7 @@ function getNewsList() {
                 initDataTable();
                 hideLoader();
             }
-            else
-            {
+            else {
                 initDataTable();
                 hideLoader();
             }
@@ -92,13 +94,13 @@ function getNewsList() {
 }//function end all winner list
 
 //function for edit winner details
-function updateNews(e,news_id) {
+function updateNews(e, news_id) {
     e.preventDefault();
     showLoader();
     $.ajax({
         url: base_url + 'news-detail',
         type: 'post',
-        data: {id: news_id},
+        data: { id: news_id },
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
@@ -114,7 +116,7 @@ function updateNews(e,news_id) {
                 else {
                     $('#upload_photo').attr('src', '');
                     $('#upload_photo').css('display', 'none');
-                }               
+                }
                 hideLoader();
             }
         }
@@ -130,11 +132,11 @@ function deleteNews(e, news_id) {
         $.ajax({
             url: base_url + 'news-delete',
             type: 'post',
-            data: {id: news_id},
+            data: { id: news_id },
             success: function (response) {
                 if (response.status == "success") {
                     getNewsList();
-                    
+
 
                 }
                 hideLoader();

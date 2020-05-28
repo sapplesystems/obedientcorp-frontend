@@ -88,7 +88,7 @@ $(document).ready(function () {
                         if($('#product_id').val() == '')
                         {
                             resetForm();
-                            setTimeout(function(){ location.href='product-list'; }, 2000);
+                            setTimeout(function(){ window.location.href='product-list'; }, 2000);
                             
                         }
                         

@@ -20,20 +20,8 @@ if ($user_type != 'ADMIN') {
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Associate List</h4>
                         <div class="overflowAuto custom_overflow">
-                            <table class="table table-bordered custom_action agents_list" id="order-listing" >
-                                <thead>
-                                    <tr>
-                                        <th>Sr.No</th>
-                                        <th>Associate Name</th>
-                                        <th>Associate  Code</th>
-                                        <th>Introducer Code</th>
-                                        <th>Mobile</th>
-                                        <th>Joining Date</th>
-                                        <th>Kyc Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="agents_list"></tbody>
+                            <table class="table table-bordered custom_action agents_list" id="associate_order_list" >
+
                             </table>
                         </div>
                     </div>

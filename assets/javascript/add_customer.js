@@ -181,6 +181,10 @@ $(document).ready(function () {
         setEMI();
     });
 
+    $(document).on('change','#agent_id',function(){
+        $('#agent_id-error').css('display','none');
+    });
+
 
     var update_customer_id = $('#customer_id').val();
     var update_agent_id = $('#agent-id').val();
@@ -334,7 +338,7 @@ $(document).ready(function () {
                 },
             },
             errorPlacement: function errorPlacement(error, element) {
-                element.before(error);
+                    element.before(error);
             }
         });
 
@@ -796,7 +800,7 @@ function initDatepicker() {
             endDate: todays_date,
            
         }).change(function() {
-            $(this).valid();  // triggers the validation test        
+            $('#dateofbirth-error').css('display','none');  // triggers the validation test        
       });
         $('#date_of_birth_nominee').datepicker({
             enableOnReadonly: true,
@@ -805,7 +809,7 @@ function initDatepicker() {
             autoclose: true,
             endDate: todays_date
         }).change(function() {
-            $(this).valid();  // triggers the validation test        
+            $('#date_of_birth_nominee-error').css('display','none');  // triggers the validation test        
       });
         $('#date_of_payment').datepicker({
             enableOnReadonly: true,
@@ -813,7 +817,7 @@ function initDatepicker() {
             format: 'dd-M-yyyy',
             autoclose: true,
         }).change(function() {
-            $(this).valid();  // triggers the validation test        
+            $('#date_of_payment-error').css('display','none');  // triggers the validation test        
       });
     }
 }

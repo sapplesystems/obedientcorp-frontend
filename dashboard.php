@@ -157,6 +157,66 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 grid-margin pending_req">
+                <div class="card">
+                    <div class="row">
+                        <div class="card-col col-xl-3 col-lg-3 col-md-3 col-6 border-right">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                    <span class="mr-0 mr-sm-4 font-32 text-primary">10</span>
+                                    <div class="wrapper text-center text-sm-left">
+                                        <p class="card-text mb-0">Pending Requests</p>
+                                        <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">Real Esate</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-col col-xl-3 col-lg-3 col-md-3 col-6 border-right">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                    <span class="mr-0 mr-sm-4 font-32 text-danger">2</span>
+                                    <div class="wrapper text-center text-sm-left">
+                                        <p class="card-text mb-0">Pending Requests</p>
+                                        <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">FMCG</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-col col-xl-3 col-lg-3 col-md-3 col-6 border-right">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                    <span class="mr-0 mr-sm-4 font-32 text-success">0</span>
+                                    <div class="wrapper text-center text-sm-left">
+                                        <p class="card-text mb-0">Pending Requests</p>
+                                        <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">Rewards</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-col col-xl-3 col-lg-3 col-md-3 col-6">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                    <span class="mr-0 mr-sm-4 font-32 text-warning">1</span>
+                                    <div class="wrapper text-center text-sm-left">
+                                        <p class="card-text mb-0">Pending Requests</p>
+                                        <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">Offers</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row ">
             <div class="col-lg-12 grid-margin">
                 <div class="card">

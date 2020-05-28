@@ -31067,7 +31067,7 @@ transform: skew(10deg);display: inline-block;-webkit-transition: all .2s ease;tr
 
 /* typing text in dashboard page */
 
-.type_text p {letter-spacing: 0.1rem;text-align: center;overflow: hidden;font-size:2rem;}
+.type_text p {text-align: center;overflow: hidden;font-size:1.7rem;}
 .type_text p span.typed-text {font-weight: normal; color: #b66dff;}
 .type_text p span.cursor {display: inline-block;background-color: #ccc;margin-left: 0.1rem;width: 3px;animation: blink 1s infinite;}
 .type_text p span.cursor.typing {animation: none;}
@@ -31240,3 +31240,8 @@ color: #ffffff !important;
     background: linear-gradient(to right, #84d9d2, #07cdae) !important; color:#ffffff !important;}
 .diff-color li:nth-child(4) a{background: -webkit-gradient(linear, left top, right top, from(#ffbf96), to(#fe7096));
     background: linear-gradient(to right, #ffbf96, #fe7096) !important; color:#ffffff !important;}
+	
+	.pending_req .card .card-body {padding: 2rem 1.5rem !important;}
+	.font-32{font-size:42px !important; font-weight: bold;}
+	
+	

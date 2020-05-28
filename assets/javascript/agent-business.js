@@ -44,7 +44,7 @@ $(document).ready(function () {
                                     </tr>';
                         });
                         $("#agent-business-list").html(html);
-                        initDataTable();
+                        $("#order-listing").DataTable({ aaSorting: [] });
                         hideLoader();
                     }
                     else {

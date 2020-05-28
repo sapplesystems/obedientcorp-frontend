@@ -90,7 +90,7 @@ function paymentAction(pid, agent_id, status_emi) {
         data: params,
         success: function (response) {
             if (response.status == "success") {
-                getAgentPaymentList(agent_id);
+                getAgentPaymentList($("#agent-list").val());
                 if (status_emi == '1') {
                     showSwal('success', 'Payment Approved', 'Payment is approved.');
                 }

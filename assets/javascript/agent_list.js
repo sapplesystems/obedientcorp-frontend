@@ -15,25 +15,38 @@ function getAgentsList() {
         success: function (response) {
             var x = 1;
             if (response.status == "success") {
-                var table_data = '';
+                var table_data = '<thead>\n\
+                <tr>\n\
+                    <th>Sr.No</th>\n\
+                    <th>Associate Name</th>\n\
+                    <th>Associate  Code</th>\n\
+                    <th>Introducer Code</th>\n\
+                    <th>Mobile</th>\n\
+                    <th>Joining Date</th>\n\
+                    <th>Kyc Status</th>\n\
+                    <th>Action</th>\n\
+                </tr>\n\
+            </thead><tbody>';
                 //table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
-                    cb_status = '';
+                    var display_activate = 'style="display: none;"';
+                    var display_deactivate = 'style="display: none;"';
                     if (value.is_activated == '1') {
-                        cb_status = 'checked';
+                        display_activate = '';
+                    }
+                    else {
+                        display_deactivate = '';
                     }
                     action_td = '<td>\n\
                     <div class="float-left ml-3">\n\
                     <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Agent Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
                     </div>\n\
                     <div class="float-left">\n\
-                        <i class="mdi mdi-check-circle text-info" style="display:none;"></i>\n\
-                        <i class="mdi mdi-close-circle text-info" style="display:none;"></i>\n\
-                        <input class="tgl tgl-skewed" id="cb' + value.user_id + '" type="checkbox" ' + cb_status + ' onclick="changeAgentStatus(event, ' + value.user_id + ');"/>\n\
-                        <label title="Change Agent Status" class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb' + value.user_id + '"></label>\n\
+                        <i class="mdi mdi-check-circle text-success" '+ display_activate + ' onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Change Agent Status" ></i>\n\
+                        <i class="mdi mdi-close-circle  text-danger" '+ display_deactivate + ' onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Change Agent Status" ></i>\n\
                     </div>\n\
                     <div class="float-left ml-3">\n\
-                        <a href="javascript:void(0);" id="change_transaction_password_' + value.user_id + '" onclick="changeTransactionPassword(event, ' + value.user_id + ');" title="Change Transaction Password"><i class="mdi mdi-lock"></i></a>\n\
+                        <a href="javascript:void(0);" id="change_transaction_password_' + value.user_id + '" onclick="changeTransactionPassword(event, ' + value.user_id + ');" title="Change Transaction Password"><i class="mdi mdi-lock text-primary"></i></a>\n\
                         <form class="form-inline" style="display:none;" name="change_transaction_password_form_' + value.user_id + '" id="change_transaction_password_form_' + value.user_id + '" method="post">\n\
                             <input type="password" class="required" name="password" id="password_' + value.user_id + '" placehoder="Password"/>\n\
                             <input type="hidden" name="path" value="" id="url_path_' + value.user_id + '"/>\n\
@@ -42,31 +55,31 @@ function getAgentsList() {
                         </form>\n\
                     </div>\n\
                     <div class="float-left ml-3">\n\
-                        <a href="javascript:void(0);" id="change_password_' + value.user_id + '" onclick="changePassword(event,' + value.user_id + ');" title="Change Login Password"><i class="mdi mdi-key"></i></a>\n\
+                        <a href="javascript:void(0);" id="change_password_' + value.user_id + '" onclick="changePassword(event,' + value.user_id + ');" title="Change Login Password"><i class="mdi mdi-key text-warning"></i></a>\n\
                     </div>\n\
                     <div class="float-left ml-3">\n\
-                    <a href="update-kyc-status.php?associate_id=' + value.user_id + '" id="update-kyc-status" title="Update Kyc Status"><i class="mdi mdi-open-in-new"></i></a> \n\
+                    <a href="update-kyc-status.php?associate_id=' + value.user_id + '" id="update-kyc-status" title="Update Kyc Status"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
                     </div>\n\
                 </td>';
                     var joining_date = '';
                     if (value.joining_date !== null && value.joining_date !== '') {
                         joining_date = value.joining_date;
                     }
-                    table_data += '<tr id="tr_' + value.id + '">\n\
+                    table_data += '<tr id="tr_' + value.user_id + '">\n\
                                     <td>' + x + '</td>\n\
                                     <td>' + value.name + '</td>\n\
                                     <td>' + value.code + '</td>\n\
                                     <td>' + value.introducer_code + '</td>\n\
                                     <td>' + value.mobile_no + '</td>\n\
                                     <td>' + joining_date + '</td>\n\
-                                    <td>'+value.kyc_status+'</td>\n\
+                                    <td>'+ value.kyc_status + '</td>\n\
                                     ' + action_td + '\n\
                                 </tr>';
                     x++;
                 });
-                //table_data += '</tbody>';
-                $("#agents_list").html(table_data);
-                initDataTable('agents_list');
+                table_data += '</tbody>';
+                $("#associate_order_list").html(table_data);
+                generateDataTable('associate_order_list');
                 hideLoader();
             }
             else {

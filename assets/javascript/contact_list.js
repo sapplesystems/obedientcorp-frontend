@@ -22,7 +22,7 @@ function getAgentsList() {
                                     <td>' + value.email + '</td>\n\
                                     <td>' + value.phone + '</td>\n\
                                     <td>' + value.message + '</td>\n\
-                                    <td>' + value.created_at + '</td>\n\
+                                    <td>' + value.date + '</td>\n\
                                 </tr>';
                     x++;
                 });

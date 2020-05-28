@@ -59,10 +59,10 @@ function getDashboardInfo(user_id) {
             if (response.status == 'success') {
                 var data = response.data;
                 $('#pin_bonus').html(data.pin_bonus);
-                $('#matching_income').html(data.matching_income);
-                $('#total_income').html(data.total_income);
                 $('#total_left_business').html(data.total_left_business);
                 $('#total_right_business').html(data.total_right_business);
+                $('#matching_income').html(data.matching_income);
+                $('#total_earning').html(data.total_earning);
 
                 //chart
                 var month_wise_data = data.month_wise_data;

@@ -188,7 +188,7 @@ function setCompactView(user_active_range, members, node) {
         team_html += '<td> ' + member.associate_name + '</td>';
         team_html += '<td> ' + member.total_left_business + ' </td>';
         team_html += '<td> ' + member.total_right_business + ' </td>';
-        team_html += '<td> ' + member.matching_amount + ' </td>';
+        team_html += '<td> ' + member.total_matching_amount + ' </td>';
         team_html += '</tr>';
     });
     team_html += '</tbody></table></div></div>';

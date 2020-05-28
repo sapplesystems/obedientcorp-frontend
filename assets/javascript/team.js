@@ -93,14 +93,11 @@ function setMainView(user_active_range, members, node) {
     team_html += '<tbody>';
 
     $.each(members, function (key, member) {
-        var total_business = 0;
         var is_active_icon_class = '';
         var is_admin_active_style = '';
-        //total_business = (Number(member.total_left_business) + Number(member.total_right_business));
-        total_business = (Number(member.total_self_business));
-        if (total_business >= user_active_range) {
+        if (member.bv_status == '3') {
             is_active_icon_class = 'bg-success';
-        } else if (total_business > 0) {
+        } else if (member.bv_status == '2') {
             is_active_icon_class = 'bg-warning';
         } else {
             is_active_icon_class = 'bg-danger';
@@ -162,21 +159,6 @@ function setCompactView(user_active_range, members, node) {
     team_html += '<tbody>';
 
     $.each(members, function (key, member) {
-        var total_business = 0;
-        var is_active_icon_class = '';
-        var is_admin_active_style = '';
-        //total_business = (Number(member.total_left_business) + Number(member.total_right_business));
-        total_business = (Number(member.total_self_business));
-        if (total_business >= user_active_range) {
-            is_active_icon_class = 'bg-success';
-        } else if (total_business > 0) {
-            is_active_icon_class = 'bg-warning';
-        } else {
-            is_active_icon_class = 'bg-danger';
-        }
-        if (user_type == 'ADMIN' && user_id == member.id) {
-            is_admin_active_style = ' style="display:none !important;" ';
-        }
         var photo_src = media_url + 'profile_photo/default-img.png';
         if (member.photo)
         {

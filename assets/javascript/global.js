@@ -17,20 +17,14 @@ var MonthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 
 
 function checkUserActiveInactive() {
     if (user_type != 'ADMIN') {
-        var agent_total_business = localStorage.getItem('agent_total_business');
-        $('.availability-status').addClass('offline');
-        $('.avatar-status').addClass('Inactive_profile');
-        if (Number(agent_total_business) > 0) {
-            $('.availability-status').removeClass('offline');
-            $('.avatar-status').removeClass('Inactive_profile');
+        var bv_status = localStorage.getItem('bv_status');
+        if (bv_status == '1') {
+            $('.availability-status').addClass('offline');
+            $('.avatar-status').addClass('Inactive_profile');
+        } else if (bv_status == '2') {
             $('.availability-status').addClass('busy');
             $('.avatar-status').addClass('start_profile');
-        }
-        if (Number(agent_total_business) >= Number(user_active_range)) {
-            $('.availability-status').removeClass('offline');
-            $('.avatar-status').removeClass('Inactive_profile');
-            $('.availability-status').removeClass('busy');
-            $('.avatar-status').removeClass('start_profile');
+        } else if (bv_status == '3') {
             $('.availability-status').addClass('online');
             $('.avatar-status').addClass('active_profile');
         }

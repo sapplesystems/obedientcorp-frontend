@@ -114,11 +114,9 @@ function getTree(uid) {
 
 function setNode(object, node_id, link, user_active_range) {
     var is_active_icon_class = 'bg-danger';
-    //var total_business = (Number(object.total_left_business) + Number(object.total_right_business));
-    var total_business = Number(object.total_self_business);
-    if (total_business >= user_active_range) {
+    if (object.bv_status == '3') {
         is_active_icon_class = 'bg-success';
-    } else if (total_business > 0) {
+    } else if (object.bv_status == '2') {
         is_active_icon_class = 'bg-warning';
     } else {
         is_active_icon_class = 'bg-danger';

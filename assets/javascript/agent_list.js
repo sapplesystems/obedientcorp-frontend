@@ -29,21 +29,18 @@ function getAgentsList() {
             </thead><tbody>';
                 //table_data += '<tbody>';
                 $.each(response.data, function (key, value) {
-                    var display_activate = 'style="display: none;"';
-                    var display_deactivate = 'style="display: none;"';
+                    var change_agent_status = '';
                     if (value.is_activated == '1') {
-                        display_activate = '';
-                    }
-                    else {
-                        display_deactivate = '';
+                        change_agent_status = 'text-success';
+                    } else {
+                        change_agent_status = 'text-danger';
                     }
                     action_td = '<td>\n\
                     <div class="float-left ml-3">\n\
                     <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Agent Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
                     </div>\n\
                     <div class="float-left">\n\
-                        <i class="mdi mdi-check-circle text-success" '+ display_activate + ' onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Change Agent Status" ></i>\n\
-                        <i class="mdi mdi-close-circle  text-danger" '+ display_deactivate + ' onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Change Agent Status" ></i>\n\
+                        <i class="mdi mdi-check-circle ' + change_agent_status + '" id="change_agent_status_' + value.user_id + '" onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Change Agent Status" ></i>\n\
                     </div>\n\
                     <div class="float-left ml-3">\n\
                         <a href="javascript:void(0);" id="change_transaction_password_' + value.user_id + '" onclick="changeTransactionPassword(event, ' + value.user_id + ');" title="Change Transaction Password"><i class="mdi mdi-lock text-primary"></i></a>\n\
@@ -72,7 +69,7 @@ function getAgentsList() {
                                     <td>' + value.introducer_code + '</td>\n\
                                     <td>' + value.mobile_no + '</td>\n\
                                     <td>' + joining_date + '</td>\n\
-                                    <td>'+ value.kyc_status + '</td>\n\
+                                    <td>' + value.kyc_status + '</td>\n\
                                     ' + action_td + '\n\
                                 </tr>';
                     x++;
@@ -164,14 +161,21 @@ function changeAgentStatus(e, user_id) {
     $.ajax({
         url: url,
         type: 'post',
-        //dataType: 'json',
         data: {
             user_id: user_id
         },
         success: function (response) {
             if (response.status == 'success') {
                 showSwal('success', 'Change Status ', response.data);
-                getAgentsList();
+                //getAgentsList();
+                $('#change_agent_status_' + user_id).removeClass('text-success');
+                $('#change_agent_status_' + user_id).removeClass('text-danger');
+                if (response.chk_status == '1') {
+                    $('#change_agent_status_' + user_id).addClass('text-success');
+                }
+                if (response.chk_status == '0') {
+                    $('#change_agent_status_' + user_id).addClass('text-danger');
+                }
             }
         }
     });

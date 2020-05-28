@@ -31232,14 +31232,14 @@ color: #ffffff !important;
     background: linear-gradient(to right, #ffbf96, #fe7096);
     color: #ffffff;}
 	
-	.diff-color li:nth-child(1) a{    background: -webkit-gradient(linear, left top, right top, from(#90caf9), color-stop(99%, #047edf));
-    background: linear-gradient(to right, #90caf9, #047edf 99%) !important; color:#ffffff !important;}
-.diff-color li:nth-child(2) a{background: -webkit-gradient(linear, left top, right top, from(#f6e384), to(#ffd500));
-    background: linear-gradient(to right, #f6e384, #ffd500) !important; color:#ffffff !important;}
-.diff-color li:nth-child(3) a{background: -webkit-gradient(linear, left top, right top, from(#84d9d2), to(#07cdae));
-    background: linear-gradient(to right, #84d9d2, #07cdae) !important; color:#ffffff !important;}
-.diff-color li:nth-child(4) a{background: -webkit-gradient(linear, left top, right top, from(#ffbf96), to(#fe7096));
-    background: linear-gradient(to right, #ffbf96, #fe7096) !important; color:#ffffff !important;}
+	.bg_due{    background: -webkit-gradient(linear, left top, right top, from(#90caf9), color-stop(99%, #047edf));
+    background: linear-gradient(to right, #90caf9, #047edf 99%) !important; color:#ffffff !important; text-shadow: 0 1px 1px #777;}
+.bg_pending{background: -webkit-gradient(linear, left top, right top, from(#f6e384), to(#ffd500));
+    background: linear-gradient(to right, #f6e384, #ffd500) !important; color:#ffffff !important; text-shadow: 0 1px 1px #777;}
+.bg_approved{background: -webkit-gradient(linear, left top, right top, from(#84d9d2), to(#07cdae));
+    background: linear-gradient(to right, #84d9d2, #07cdae) !important; color:#ffffff !important; text-shadow: 0 1px 1px #777;}
+.bg_rejected{background: -webkit-gradient(linear, left top, right top, from(#ffbf96), to(#fe7096));
+    background: linear-gradient(to right, #ffbf96, #fe7096) !important; color:#ffffff !important; text-shadow: 0 1px 1px #777;}
 	
 	.pending_req .card .card-body {padding: 2rem 1.5rem !important;}
 	.font-32{font-size:42px !important; font-weight: bold;}

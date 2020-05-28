@@ -36,13 +36,16 @@ function getAgentsList() {
                         change_agent_status = 'text-danger';
                     }
                     action_td = '<td>\n\
-                    <div class="float-left ml-3">\n\
+                    <div class="float-left">\n\
                     <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Agent Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
                     </div>\n\
                     <div class="float-left">\n\
                         <i class="mdi mdi-check-circle ' + change_agent_status + '" id="change_agent_status_' + value.user_id + '" onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Change Agent Status" ></i>\n\
                     </div>\n\
-                    <div class="float-left ml-3">\n\
+                    <div class="float-left ml-2">\n\
+                        <i class="mdi mdi-checkbox-blank-circle" title="Change Status" ></i>\n\
+                    </div>\n\
+                    <div class="float-left ml-2">\n\
                         <a href="javascript:void(0);" id="change_transaction_password_' + value.user_id + '" onclick="changeTransactionPassword(event, ' + value.user_id + ');" title="Change Transaction Password"><i class="mdi mdi-lock text-primary"></i></a>\n\
                         <form class="form-inline" style="display:none;" name="change_transaction_password_form_' + value.user_id + '" id="change_transaction_password_form_' + value.user_id + '" method="post">\n\
                             <input type="password" class="required" name="password" id="password_' + value.user_id + '" placehoder="Password"/>\n\
@@ -51,10 +54,10 @@ function getAgentsList() {
                             <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="changePasswordCancel(event, ' + value.user_id + ');">Cancel</button>\n\
                         </form>\n\
                     </div>\n\
-                    <div class="float-left ml-3">\n\
+                    <div class="float-left ml-2">\n\
                         <a href="javascript:void(0);" id="change_password_' + value.user_id + '" onclick="changePassword(event,' + value.user_id + ');" title="Change Login Password"><i class="mdi mdi-key text-warning"></i></a>\n\
                     </div>\n\
-                    <div class="float-left ml-3">\n\
+                    <div class="float-left ml-2">\n\
                     <a href="update-kyc-status.php?associate_id=' + value.user_id + '" id="update-kyc-status" title="Update Kyc Status"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
                     </div>\n\
                 </td>';

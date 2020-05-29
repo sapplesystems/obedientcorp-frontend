@@ -3,7 +3,7 @@ include_once 'header.php';
 $agent_user_id = '';
 $agent_user_email = '';
 if ($_REQUEST) {
-    if ($user_type == 'ADMIN' && $_REQUEST['user_id'] && $_REQUEST['user_email']) {
+    if ($user_type == 'ADMIN' && $_REQUEST['user_id']) {
         $agent_user_id = $_REQUEST['user_id'];
         $agent_user_email = $_REQUEST['user_email'];
     }
@@ -262,25 +262,15 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Aadhaar Number <span class="text-danger">*</span></label>
+                                                            <label class="col-sm-2 col-form-label">User ID <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="adhar" name="adhar" onkeypress="return isNumberKey(event);">
+                                                                <input type="text" class="form-control required" placeholder="" id="username" name="username" readonly>
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Email ID <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
                                                                 <span id="emailid-error" class="error" style="display:none">Enter valid email-id.</span>
                                                                 <input type="text" class="form-control required" placeholder="" id="email" name="email">
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">User ID <span class="text-danger">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control required" placeholder="" id="username" name="username" readonly>
-                                                            </div>
-                                                            <!--<label class="col-sm-2 col-form-label transaction-password">Transaction Password <span class="text-danger"></span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control " placeholder="Transaction Password" id="transaction_password" name="transaction_password">
-                                                            </div>-->
                                                         </div>
                                                     </section>
                                                     <input type="submit" class="btn btn-primary" id="profile_update_submit" value="Save" />
@@ -580,128 +570,6 @@ if ($_REQUEST) {
                                                     <input type="hidden" id="kyc_id" value="" />
                                                     <input type="submit" class="btn btn-primary" id="kyc_update_submit" value="Save" />
                                                 </form>
-                                            </div>
-                                            <div class="tab-pane fade" id="activities-1" role="tabpanel" aria-labelledby="activities">
-                                                <div class="card">
-                                                    <div class="card-body p-0">
-                                                        <div class="mt-2">
-                                                            <div class="timeline">
-                                                                <div class="timeline-wrapper timeline-wrapper-warning">
-                                                                    <div class="timeline-badge"></div>
-                                                                    <div class="timeline-panel">
-                                                                        <div class="timeline-heading">
-                                                                            <h6 class="timeline-title">Bootstrap 4 Beta 2</h6>
-                                                                        </div>
-                                                                        <div class="timeline-body">
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                        </div>
-                                                                        <div class="timeline-footer d-flex align-items-center">
-                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                            <span>19</span>
-                                                                            <span class="ml-auto font-weight-bold">19 Oct 2017</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="timeline-wrapper timeline-inverted timeline-wrapper-danger">
-                                                                    <div class="timeline-badge"></div>
-                                                                    <div class="timeline-panel">
-                                                                        <div class="timeline-heading">
-                                                                            <h6 class="timeline-title">Bootstrap 4 Beta 1</h6>
-                                                                        </div>
-                                                                        <div class="timeline-body">
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                        </div>
-                                                                        <div class="timeline-footer d-flex align-items-center">
-                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                            <span>25</span>
-                                                                            <span class="ml-auto font-weight-bold">10th Aug 2017</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="timeline-wrapper timeline-wrapper-success">
-                                                                    <div class="timeline-badge"></div>
-                                                                    <div class="timeline-panel">
-                                                                        <div class="timeline-heading">
-                                                                            <h6 class="timeline-title">Bootstrap 4 alpha 6</h6>
-                                                                        </div>
-                                                                        <div class="timeline-body">
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                        </div>
-                                                                        <div class="timeline-footer d-flex align-items-center">
-                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                            <span>19</span>
-                                                                            <span class="ml-auto font-weight-bold">5th Sep 2016</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="timeline-wrapper timeline-inverted timeline-wrapper-info">
-                                                                    <div class="timeline-badge"></div>
-                                                                    <div class="timeline-panel">
-                                                                        <div class="timeline-heading">
-                                                                            <h6 class="timeline-title">Bootstrap 4 alpha 3</h6>
-                                                                        </div>
-                                                                        <div class="timeline-body">
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                        </div>
-                                                                        <div class="timeline-footer d-flex align-items-center">
-                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                            <span>19</span>
-                                                                            <span class="ml-auto font-weight-bold">27th July 2016</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="timeline-wrapper timeline-wrapper-primary">
-                                                                    <div class="timeline-badge"></div>
-                                                                    <div class="timeline-panel">
-                                                                        <div class="timeline-heading">
-                                                                            <h6 class="timeline-title">Bootstrap 3.3.7</h6>
-                                                                        </div>
-                                                                        <div class="timeline-body">
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                        </div>
-                                                                        <div class="timeline-footer d-flex align-items-center">
-                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                            <span>25</span>
-                                                                            <span class="ml-auto font-weight-bold">25th July 2016</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="timeline-wrapper timeline-inverted timeline-wrapper-info">
-                                                                    <div class="timeline-badge"></div>
-                                                                    <div class="timeline-panel">
-                                                                        <div class="timeline-heading">
-                                                                            <h6 class="timeline-title">Bootstrap 4 Alpha 1</h6>
-                                                                        </div>
-                                                                        <div class="timeline-body">
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                        </div>
-                                                                        <div class="timeline-footer d-flex align-items-center">
-                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                            <span>32</span>
-                                                                            <span class="ml-auto font-weight-bold">19th Aug 2015</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="timeline-wrapper timeline-wrapper-success">
-                                                                    <div class="timeline-badge"></div>
-                                                                    <div class="timeline-panel">
-                                                                        <div class="timeline-heading">
-                                                                            <h6 class="timeline-title">Bootstrap 3.3.5</h6>
-                                                                        </div>
-                                                                        <div class="timeline-body">
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue,</p>
-                                                                        </div>
-                                                                        <div class="timeline-footer d-flex align-items-center">
-                                                                            <i class="mdi mdi-heart-outline text-muted mr-1"></i>
-                                                                            <span>26</span>
-                                                                            <span class="ml-auto font-weight-bold">15th Jun 2015</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

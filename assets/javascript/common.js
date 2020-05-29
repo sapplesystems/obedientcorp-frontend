@@ -11,7 +11,7 @@ var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.g
 
 var user_profile_id = user_id;
 var user_profile_email = user_email;
-if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '' && agent_user_email && agent_user_email != '') {
+if (user_type == 'ADMIN' && agent_user_id && agent_user_id != '') { //  && agent_user_email && agent_user_email != ''
     user_profile_id = agent_user_id;
     user_profile_email = agent_user_email;
 }

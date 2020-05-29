@@ -35,6 +35,12 @@ function getAgentsList() {
                     } else {
                         change_agent_status = 'text-danger';
                     }
+                    var bv_status_class = 'text-danger';
+                    if (value.bv_status == '2') {
+                        bv_status_class = 'text-warning';
+                    } else if (value.bv_status == '3') {
+                        bv_status_class = 'text-success';
+                    }
                     action_td = '<td>\n\
                     <div class="float-left">\n\
                     <a href="profile.php?user_id=' + value.user_id + '&user_email=' + value.email + '" title="Edit Associate Detail"><i class="mdi mdi-pencil text-info"></i></a> &nbsp\n\
@@ -42,8 +48,8 @@ function getAgentsList() {
                     <div class="float-left">\n\
                         <i class="mdi mdi-check-circle ' + change_agent_status + '" id="change_agent_status_' + value.user_id + '" onclick="changeAgentStatus(event, ' + value.user_id + ');" title="Activate/Deactivate Associate" ></i>\n\
                     </div>\n\
-                    <div class="float-left ml-2" style="display: none;">\n\
-                        <i class="mdi mdi-checkbox-blank-circle" title="Change Status" ></i>\n\
+                    <div class="float-left ml-2">\n\
+                        <i class="mdi mdi-checkbox-blank-circle ' + bv_status_class + '" id="change_bv_status_' + value.user_id + '" onclick="changeBVStatus(event, ' + value.user_id + ', \'' + value.bv_status + '\');" title="Change Associate Status" ></i>\n\
                     </div>\n\
                     <div class="float-left ml-2">\n\
                         <a href="javascript:void(0);" id="change_transaction_password_' + value.user_id + '" onclick="changeTransactionPassword(event, ' + value.user_id + ');" title="Change Transaction Password"><i class="mdi mdi-lock text-primary"></i></a>\n\
@@ -169,7 +175,7 @@ function changeAgentStatus(e, user_id) {
         },
         success: function (response) {
             if (response.status == 'success') {
-                showSwal('success', 'Change Status ', response.data);
+                showSwal('success', 'Status Changed', response.data);
                 //getAgentsList();
                 $('#change_agent_status_' + user_id).removeClass('text-success');
                 $('#change_agent_status_' + user_id).removeClass('text-danger');
@@ -182,6 +188,40 @@ function changeAgentStatus(e, user_id) {
             }
         }
     });
-
 }
 
+function changeBVStatus(e, user_id, bv_status) {
+    e.preventDefault();
+    var bvs = '1';
+    if (bv_status == '1') {
+        bvs = '2';
+    } else if (bv_status == '2') {
+        bvs = '3';
+    } else if (bv_status == '3') {
+        bvs = '1';
+    }
+    $.ajax({
+        url: base_url + 'change-bv-status',
+        type: 'post',
+        data: {
+            user_id: user_id,
+            bv_status: bvs
+        },
+        success: function (response) {
+            if (response.status == 'success') {
+                showSwal('success', 'Status Changed', response.data);
+                $('#change_bv_status_' + user_id).removeClass('text-danger');
+                $('#change_bv_status_' + user_id).removeClass('text-warning');
+                $('#change_bv_status_' + user_id).removeClass('text-success');
+                if (response.bv_status == '1') {
+                    $('#change_bv_status_' + user_id).addClass('text-danger');
+                } else if (response.bv_status == '2') {
+                    $('#change_bv_status_' + user_id).addClass('text-warning');
+                } else if (response.bv_status == '3') {
+                    $('#change_bv_status_' + user_id).addClass('text-success');
+                }
+                $('#change_bv_status_' + user_id).attr('onclick', "changeBVStatus(event, " + user_id + ", '" + response.bv_status + "')");
+            }
+        }
+    });
+}

@@ -205,21 +205,21 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <div class="col-sm-4 plot_name_div" style="display:none;">
                                         <select class="form-control required" id="plot_name" name="plot_name"></select>
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Reference :</label>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="reference" name="reference" placeholder="Enter Reference">
-                                    </div>
-
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Registration Number :</label>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" type="text" id="registration_num" name="registration_num" placeholder="Enter Registration number" />
-                                    </div>
                                     <label class="col-sm-2 col-form-label">Plot Area : </label>
                                     <div class="col-sm-4">
                                         <input class="form-control" type="text" id="plot_area" name="plot_area" placeholder="Enter Plot Area">
                                     </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <!--label class="col-sm-2 col-form-label">Reference :</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="text" id="reference" name="reference" placeholder="Enter Reference">
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Registration Number :</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="text" id="registration_num" name="registration_num" placeholder="Enter Registration number" />
+                                    </div-->
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Unit :</label>

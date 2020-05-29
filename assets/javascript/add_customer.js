@@ -256,7 +256,7 @@ $(document).ready(function () {
             params.append('user_id', user_id);
             params.append('agent_id', $('#agent-id').val());
             //plan details
-            params.append('registration_number', $('#registration_num').val());
+            //params.append('registration_number', $('#registration_num').val());
             params.append('project_master_id', $('#project_name').val());
             var sub_project = 0;
             if ($('#sub_projects').val()) {
@@ -265,7 +265,7 @@ $(document).ready(function () {
             params.append('sub_project_id', sub_project);
             params.append('plot_master_id', $('#plot_name').val());
             params.append('plot_area', $('#plot_area').val());
-            params.append('reference', $('#reference').val());
+            //params.append('reference', $('#reference').val());
             params.append('unit_rate', $('#unit_rate').val());
             params.append('discount_rate', $('#discount_rate').val());
             params.append('total_amount', $('#total_amount').val());
@@ -374,7 +374,7 @@ $(document).ready(function () {
             params.append('nominee_sex', nominee_sex);
             params.append('nominee_address', $('#addressnominee').val());
             //plan details
-            params.append('registration_number', $('#registration_num').val());
+            //params.append('registration_number', $('#registration_num').val());
             params.append('project_master_id', $('#project_name').val());
             var sub_project = 0;
             if ($('#sub_projects').val()) {
@@ -383,7 +383,7 @@ $(document).ready(function () {
             params.append('sub_project_id', sub_project);
             params.append('plot_master_id', $('#plot_name').val());
             params.append('plot_area', $('#plot_area').val());
-            params.append('reference', $('#reference').val());
+            //params.append('reference', $('#reference').val());
             params.append('unit_rate', $('#unit_rate').val());
             params.append('discount_rate', $('#discount_rate').val());
             params.append('total_amount', $('#total_amount').val());

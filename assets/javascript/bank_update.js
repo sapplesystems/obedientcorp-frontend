@@ -9,6 +9,7 @@ $(document).ready(function () {
         });
 
         if ($("#bank_update").valid()) {
+            var is_cancel_cheque_uploaded = $('#is_cancel_cheque_uploaded').val();
             showLoader();
             var params = new FormData();
             var id = user_profile_id;
@@ -24,7 +25,12 @@ $(document).ready(function () {
             params.append("account_number", account_number);
             params.append("branch", branch);
             params.append("ifsc_code", ifsc_code);
-            params.append("cancel_cheque", cancel_cheque);
+            if(is_cancel_cheque_uploaded != ''){
+                params.append("old_cancel_cheque", is_cancel_cheque_uploaded);
+            }
+            if (cancel_cheque) {
+                params.append("cancel_cheque", cancel_cheque);
+            }
             $.ajax({
                 method: "POST",
                 url: base_url + 'bank/update',

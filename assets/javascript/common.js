@@ -39,8 +39,8 @@ $(document).ready(function () {
     $(document).on('change', '#ndob', function () {
         var value = $(this).val();
         var today = new Date(),
-            dob = new Date(value),
-            age = new Date(today - dob).getFullYear() - 1970;
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
         $('#nominee_age').val(age);
         $('#nominee_age').prop('readOnly', true);
         $('#nominee_age-error').css('display', 'none');
@@ -164,9 +164,15 @@ $(document).ready(function () {
                         else {
                             $('#kyc_detail_status').html('<i class="mdi mdi-adjust text-danger"></i>');
                         }
+
                         checkForBankSaveButton(bank);
                         checkForNomineeSaveButton(nominee);
                         checkForKYCSaveButton(kyc);
+                        if (user_type == 'ADMIN') {
+                            $('#bank_update_submit').css('display', '');
+                            $('#nominee_update_submit').css('display', '');
+                            $('#kyc_update_submit').css('display', '');
+                        }
                         hideLoader();
                     }
                 },
@@ -365,39 +371,46 @@ function checkForKYCSaveButton(v) {
 }
 
 function setKYCDetail(kyc) {
-    console.log(kyc);
     $('#kyc_id').val(kyc.id);
     if (kyc.nationality) {
         $('#nationality').val(kyc.nationality);
-        $('#nationality').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#nationality').prop('disabled', true);
     }
     if (kyc.occupation) {
         $('#koccupation').val(kyc.occupation);
-        $('#koccupation').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#koccupation').prop('disabled', true);
     }
     if (kyc.qualification) {
         $('#qualification').val(kyc.qualification);
-        $('#qualification').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#qualification').prop('disabled', true);
     }
     if (kyc.pan_number) {
         $('#pan_number').val(kyc.pan_number);
-        $('#pan_number').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#pan_number').prop('disabled', true);
     }
     if (kyc.passport_number) {
         $('#passport_number').val(kyc.passport_number);
-        $('#passport_number').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#passport_number').prop('disabled', true);
     }
     if (kyc.driving_licence_number) {
         $('#driving_licence_number').val(kyc.driving_licence_number);
-        $('#driving_licence_number').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#driving_licence_number').prop('disabled', true);
     }
     if (kyc.proposed_area_of_work) {
         $('#proposed_area_of_work').val(kyc.proposed_area_of_work);
-        $('#proposed_area_of_work').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#proposed_area_of_work').prop('disabled', true);
     }
     if (kyc.voter_id) {
         $('#voter_id').val(kyc.voter_id);
-        $('#voter_id').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#voter_id').prop('disabled', true);
     }
     if (kyc.join_date) {
 
@@ -414,63 +427,75 @@ function setKYCDetail(kyc) {
 
     if (kyc.adhar) {
         $('#adhar_number').val(kyc.adhar);
-        $('#adhar_number').prop('disabled', true);
+        $('#adhar_number').removeClass('required');
+        if (user_type != 'ADMIN')
+            $('#adhar_number').prop('disabled', true);
     }
     if (kyc.adhar_image) {
         var image = media_url + 'id_proof/' + kyc.adhar_image;
         $('#adhar_upload').attr('src', image);
         $('#a_adhar_upload').attr('href', image);
         $('#adhar_upload').css('display', 'block');
-        $('#adhar_image').prop('disabled', true);
+        $('#adhar_image').removeClass('required');
+        if (user_type != 'ADMIN')
+            $('#adhar_image').prop('disabled', true);
     }
     if (kyc.adhar_image_2) {
         var image = media_url + 'id_proof/' + kyc.adhar_image_2;
         $('#adhar_upload2').attr('src', image);
         $('#a_adhar_upload2').attr('href', image);
         $('#adhar_upload2').css('display', 'block');
-        $('#adhar_image2').prop('disabled', true);
+        $('#adhar_image2').removeClass('required');
+        if (user_type != 'ADMIN')
+            $('#adhar_image2').prop('disabled', true);
     }
     if (kyc.pan_image) {
         var image = media_url + 'id_proof/' + kyc.pan_image;
         $('#pan_upload').attr('src', image);
         $('#a_pan_upload').attr('href', image);
         $('#pan_upload').css('display', 'block');
-        $('#pan_image').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#pan_image').prop('disabled', true);
     }
     if (kyc.passport_image) {
         var image = media_url + 'id_proof/' + kyc.passport_image;
         $('#passport_upload').attr('src', image);
         $('#a_passport_upload').attr('href', image);
         $('#passport_upload').css('display', 'block');
-        $('#passport_image').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#passport_image').prop('disabled', true);
     }
     if (kyc.passport_image_2) {
         var image = media_url + 'id_proof/' + kyc.passport_image_2;
         $('#passport_upload2').attr('src', image);
         $('#a_passport_upload2').attr('href', image);
         $('#passport_upload2').css('display', 'block');
-        $('#passport_image2').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#passport_image2').prop('disabled', true);
     }
     if (kyc.driving_licence_image) {
         var image = media_url + 'id_proof/' + kyc.driving_licence_image;
         $('#driving_upload').attr('src', image);
         $('#a_driving_upload').attr('href', image);
         $('#driving_upload').css('display', 'block');
-        $('#driving_licence_image').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#driving_licence_image').prop('disabled', true);
     }
     if (kyc.driving_licence_image_2) {
         var image = media_url + 'id_proof/' + kyc.driving_licence_image_2;
         $('#driving_upload2').attr('src', image);
         $('#a_driving_upload2').attr('href', image);
         $('#driving_upload2').css('display', 'block');
-        $('#driving_licence_image2').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#driving_licence_image2').prop('disabled', true);
     }
     if (kyc.voter_image) {
         var image = media_url + 'id_proof/' + kyc.voter_image;
         $('#voter_upload').attr('src', image);
         $('#a_voter_upload').attr('href', image);
         $('#voter_upload').css('display', 'block');
-        $('#voter_image').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#voter_image').prop('disabled', true);
     }
 }
 
@@ -478,15 +503,18 @@ function setNomineeDetails(nominee) {
     $('#nominee_id').val(nominee.id);
     if (nominee.nominee_name != null && nominee.nominee_name) {
         $('#nominee_name').val(nominee.nominee_name);
-        $('#nominee_name').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#nominee_name').prop('disabled', true);
     }
     if (nominee.nominee_age != null && nominee.nominee_age) {
         $('#nominee_age').val(nominee.nominee_age);
-        $('#nominee_age').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#nominee_age').prop('disabled', true);
     }
     if (nominee.relation != null && nominee.relation) {
         $('#relation').val(nominee.relation);
-        $('#relation').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#relation').prop('disabled', true);
     }
     if (nominee.ndob != null && nominee.ndob) {
         var ndob = nominee.ndob;
@@ -499,7 +527,8 @@ function setNomineeDetails(nominee) {
         var nyear = ndatetime.getFullYear();
         var ndate = nday + "-" + nmonth + "-" + nyear;
         $('#ndob').val(ndate);
-        $('#ndob').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#ndob').prop('disabled', true);
     }
 
 }
@@ -507,32 +536,38 @@ function setNomineeDetails(nominee) {
 function setBankDetails(bank) {
     $('#bank_id').val(bank.id);
     if (bank.payee_name != null && bank.payee_name) {
-
         $('#payee_name').val(bank.payee_name);
-        $('#payee_name').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#payee_name').prop('disabled', true);
     }
     if (bank.bank_name != null && bank.bank_name) {
         $('#bank_name').val(bank.bank_name);
-        $('#bank_name').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#bank_name').prop('disabled', true);
     }
     if (bank.account_number != null && bank.account_number) {
         $('#account_number').val(bank.account_number);
-        $('#account_number').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#account_number').prop('disabled', true);
     }
     if (bank.branch != null && bank.branch) {
         $('#branch').val(bank.branch);
-        $('#branch').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#branch').prop('disabled', true);
     }
     if (bank.ifsc_code != null && bank.ifsc_code) {
         $('#ifsc_code').val(bank.ifsc_code);
-        $('#ifsc_code').prop('disabled', true);
+        if (user_type != 'ADMIN')
+            $('#ifsc_code').prop('disabled', true);
     }
     if (bank.cancel_cheque != null && bank.cancel_cheque) {
         var bank_cheque = media_url + 'cancel_cheque/' + bank.cancel_cheque;
         $('#cancel_cheque_uploded').attr('src', bank_cheque);
         $('#a_cancel_cheque_uploded').attr('href', bank_cheque);
         $('#cancel_cheque_uploded').css('display', 'block');
-        $('#cancel_cheque').prop('disabled', true);
+        $('#is_cancel_cheque_uploaded').val(bank.cancel_cheque);
+        if (user_type != 'ADMIN')
+            $('#cancel_cheque').prop('disabled', true);
     }
 
 }

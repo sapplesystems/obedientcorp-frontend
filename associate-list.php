@@ -7,8 +7,8 @@ if ($user_type != 'ADMIN') {
 <!-- partial -->
 <style>
 .custom_overflow{overflow:auto;}
-.custom_overflow table tr th:last-child, .custom_overflow table tr td:last-child{white-space: nowrap !important; width:200px !important}
-#associate_order_list{min-width: 1110px;}
+.custom_overflow table tr th:last-child, .custom_overflow table tr td:last-child{white-space: nowrap !important; width:200px;}
+#associate_order_list{min-width: 1200px;}
 </style>
 <div class="main-panel ">
     <div class="content-wrapper ">

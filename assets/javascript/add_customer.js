@@ -648,22 +648,22 @@ function payment_mode_change(value) {
                             <div class="col-sm-4 payment_number_div">\n\
                                 <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Transaction Number">\n\
                             </div>\n\
-                            <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
+                            <label class="col-sm-2 col-form-label">Account Holder Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
-                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter Name " onkeypress="return isAlphabetKey(event);">\n\
+                                <input class="form-control required" type="text" id="account_holder_name" name="account_holder_name" placeholder="Enter Account Holder Name " onkeypress="return isAlphabetKey(event);">\n\
                             </div>\n\
                         </div>\n\
                         <div class="form-group row" id="acount-ifsc-div">\n\
-                        <label class="col-sm-2 col-form-label account_label">Account Number :<span class="text-danger">*</span></label>\n\
-                        <div class="col-sm-4 account_label">\n\
-                             <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number" onkeypress="return isNumberKey(event);">\n\
+                            <label class="col-sm-2 col-form-label account_label">Account Number :<span class="text-danger">*</span></label>\n\
+                            <div class="col-sm-4 account_label">\n\
+                                 <input type="text" class="form-control required" id="accountnumber" name="accountnumber" placeholder="Enter Account Number" onkeypress="return isNumberKey(event);">\n\
+                            </div>\n\
+                            <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
+                            <div class="col-sm-4 ifsc_code_label">\n\
+                                 <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your IFSC Code">\n\
+                            </div>\n\
                         </div>\n\
-                        <label class="col-sm-2 col-form-label ifsc_code_label">IFSC Code :<span class="text-danger">*</span></label>\n\
-                        <div class="col-sm-4 ifsc_code_label">\n\
-                             <input type="text" class="form-control required" id="ifsc_code" name="ifsc_code" placeholder="Enter Your IFSC Code">\n\
-                        </div>\n\
-                    </div>\n\
-                    <div class="form-group row" id="bank-date-div">\n\
+                        <div class="form-group row" id="bank-date-div">\n\
                             <label class="col-sm-2 col-form-label">Date Of Payment :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
                             <div class="input-group date datepicker">\n\
@@ -673,15 +673,21 @@ function payment_mode_change(value) {
                               </span>\n\
                             </div>\n\
                             </div>\n\
-                            <label class="col-sm-2 col-form-label">Upload Image</label>\n\
-                            <div class="input-group col-sm-4">\n\
-                                <input type="file" name="payment_photo" class="file-upload-default" id="payment_photo">\n\
-                                <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">\n\
-                                <span class="input-group-append">\n\
-                                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>\n\
-                                </span>\n\
-                                <img src="" style="display:none;width:100px;" id="photo_id" />\n\
+                            <label class="col-sm-2 col-form-label bank_name">Bank Name :<span class="text-danger">*</span></label>\n\
+                            <div class="col-sm-4 bank_name">\n\
+                                <input class="form-control required" type="text" id="bank_name" name="bank_name" placeholder="Enter Bank Name">\n\
                             </div>\n\
+                     </div>\n\
+                     <div class="form-group row">\n\
+                     <label class="col-sm-2 col-form-label">Upload Image</label>\n\
+                                <div class="input-group col-sm-4">\n\
+                                    <input type="file" name="payment_photo" class="file-upload-default" id="payment_photo">\n\
+                                    <input type="text" class="form-control file-upload-info " disabled placeholder="Choose File">\n\
+                                    <span class="input-group-append">\n\
+                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>\n\
+                                    </span>\n\
+                                    <img src="" style="display:none;width:100px;" id="photo_id" />\n\
+                                </div>\n\
                      </div>';
         $("#branch").val('');
         $('.branch').css('display', 'none');

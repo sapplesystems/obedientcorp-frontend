@@ -30,7 +30,7 @@ $(document).ready(function () {
         });
 
         if ($("#kyc_update").valid()) {
-            //showLoader();
+            showLoader();
             var params = new FormData();
 
             var kyc_id = $('#kyc_id').val();

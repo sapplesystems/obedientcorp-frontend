@@ -314,6 +314,7 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <div class="input-group">
                                                                     <input type="file" name="img[]" class="file-upload-default" name="cancel_cheque" id="cancel_cheque">
+                                                                    <input type="hidden" id="is_cancel_cheque_uploaded" value="" />
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
                                                                     <span class="input-group-append">
                                                                         <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
@@ -330,7 +331,7 @@ if ($_REQUEST) {
                                                         </div>
                                                     </section>
                                                     <input type="hidden" id="bank_id" value="" />
-                                                    <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" style="display:none" ; />
+                                                    <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" style="display:none" />
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="nominee-1" role="tabpanel" aria-labelledby="nominee-tab">

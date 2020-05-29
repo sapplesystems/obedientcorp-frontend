@@ -74,13 +74,9 @@ $(document).ready(function () {
                 url: base_url + 'change-transaction-password',
                 data: {id: user_id, old_password: $('#tran_old_password').val(), new_password: $('#tran_new_password').val()},
                 success: function (response) {
-                    if(response.status == 'success')
-                    {
-                        showSwal(response.status, response.data);
-                        document.getElementById('change_transaction_password_form').reset();
-                        hideLoader();
-                    }
-                    
+                    showSwal(response.status, response.data);
+                    document.getElementById('change_transaction_password_form').reset();
+                    hideLoader();
                 },
                 error: function (response) {
                     error_html = '';

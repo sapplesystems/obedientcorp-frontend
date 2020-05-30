@@ -45,16 +45,41 @@ document.addEventListener("DOMContentLoaded", function () { // On DOM Load initi
         setTimeout(type, newTextDelay + 250);
 });
 //AUTOMATIC TYPING ON DASHBOARD CODE END HERE
-
-getDashboardInfo(user_id);
+if (user_type == 'ADMIN') {
+    getDashboardInfoAdmin(user_id)
+} else if (user_type == 'AGENT') {
+    getDashboardInfo(user_id);
+}
 getNewsList();
+
+function getDashboardInfoAdmin(user_id) {
+    showLoader();
+    $.ajax({
+        url: base_url + 'dashboard/info/admin',
+        type: 'post',
+        async: false,
+        data: {user_id: user_id},
+        success: function (response) {
+            if (response.status == 'success') {
+                var data = response.data;
+                $('#real_estate_pending_request').html(data.real_estate_pending_request);
+                $('#fmcg_pending_request').html(data.fmcg_pending_request);
+                $('#reward_pending_request').html(data.reward_pending_request);
+                $('#offer_pending_request').html(data.offer_pending_request);
+                $('#kyc_pending_request').html(data.kyc_pending_request);
+            }
+            hideLoader();
+        }
+    });
+}
+
 function getDashboardInfo(user_id) {
     showLoader();
     $.ajax({
         url: base_url + 'dashboard/info',
         type: 'post',
         async: false,
-        data: { user_id: user_id },
+        data: {user_id: user_id},
         success: function (response) {
             if (response.status == 'success') {
                 var data = response.data;
@@ -88,7 +113,7 @@ function getDashboardInfo(user_id) {
                 //localStorage.setItem("agent_total_business", Number(data.total_self_business));
                 localStorage.setItem("bv_status", Number(data.bv_status));
                 checkUserActiveInactive();
-                generateChart(total_left_business, total_right_business, total_self_business);
+                //generateChart(total_left_business, total_right_business, total_self_business);
 
                 //due_payment_list
                 var due_payment_list = data.due_payment_list;
@@ -138,7 +163,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                        data: total_left_business
+                                data: total_left_business
                     },
                     {
                         label: "Right BV",
@@ -150,7 +175,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                        data: total_right_business
+                                data: total_right_business
                     },
                     {
                         label: "Self Business",
@@ -162,7 +187,7 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                         fill: false,
                         borderWidth: 1,
                         fill: 'origin',
-                        data: total_self_business
+                                data: total_self_business
                     }
                 ]
             },
@@ -174,8 +199,8 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                     text.push('<ul>');
                     for (var i = 0; i < chart.data.datasets.length; i++) {
                         text.push('<li><span class="legend-dots" style="background:' +
-                            chart.data.datasets[i].legendColor +
-                            '"></span>');
+                                chart.data.datasets[i].legendColor +
+                                '"></span>');
                         if (chart.data.datasets[i].label) {
                             text.push(chart.data.datasets[i].label);
                         }
@@ -186,33 +211,33 @@ function generateChart(total_left_business, total_right_business, total_self_bus
                 },
                 scales: {
                     yAxes: [{
-                        ticks: {
-                            display: false,
-                            min: 0,
-                            stepSize: 20,
-                            max: 5000
-                        },
-                        gridLines: {
-                            drawBorder: false,
-                            color: '#322f2f',
-                            zeroLineColor: '#322f2f'
-                        }
-                    }],
+                            ticks: {
+                                display: false,
+                                min: 0,
+                                stepSize: 20,
+                                max: 5000
+                            },
+                            gridLines: {
+                                drawBorder: false,
+                                color: '#322f2f',
+                                zeroLineColor: '#322f2f'
+                            }
+                        }],
                     xAxes: [{
-                        gridLines: {
-                            display: false,
-                            drawBorder: false,
-                            color: 'rgba(0,0,0,1)',
-                            zeroLineColor: 'rgba(235,237,242,1)'
-                        },
-                        ticks: {
-                            padding: 20,
-                            fontColor: "#9c9fa6",
-                            autoSkip: true,
-                        },
-                        categoryPercentage: 0.5,
-                        barPercentage: 0.5
-                    }]
+                            gridLines: {
+                                display: false,
+                                drawBorder: false,
+                                color: 'rgba(0,0,0,1)',
+                                zeroLineColor: 'rgba(235,237,242,1)'
+                            },
+                            ticks: {
+                                padding: 20,
+                                fontColor: "#9c9fa6",
+                                autoSkip: true,
+                            },
+                            categoryPercentage: 0.5,
+                            barPercentage: 0.5
+                        }]
                 }
             },
             elements: {
@@ -255,52 +280,7 @@ function generateDuePaymentList(list) {
     });
     table_data += '</tbody>';
     $("#due_payment_list").html(table_data);
-    $("#due_payment_list").DataTable({ aaSorting: [] });
-}
-
-function setCurrentNextRewardOld(data) {
-    var title = '';
-    var reward = '';
-    var clearfix = '';
-    var view_more_text_right = 'text-right';
-    if (data.length == 1) {
-        title = '<div class="d-inline-block align-items-center text-muted font-weight-light">\n\
-                    <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
-                    <span>Next Reward</span>\n\
-                </div>';
-        reward = '<li><span>&#8377; ' + data[0].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[0].photo + '" /></div></li>';
-        clearfix = '<div class="clearfix"></div>';
-        view_more_text_right = '';
-    } else if (data.length == 2) {
-        title = '<div class="d-inline-block align-items-center text-muted font-weight-light ">\n\
-                        <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
-                        <span>Last Reward</span>\n\
-                    </div>\n\
-                    <div class="d-inline-block align-items-center text-muted font-weight-light float-right">\n\
-                        <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
-                        <span>Next Reward</span>\n\
-                    </div>';
-        reward = '<li><span>&#8377; ' + data[0].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[0].photo + '" /></div></li>\n\
-                <li><span>&#8377; ' + data[1].amount + ' &nbsp;-&nbsp;</span><div><img src="images/' + data[1].photo + '" /></div></li>';
-    }
-    var reward_html = '<h4 class="card-title ">Rewards</h4>\n\
-                        <div class="d-block mt-4">\n\
-                            ' + title + '\n\
-                        </div>\n\
-                        ' + clearfix + '\n\
-                        <div class="row mt-2">\n\
-                            <div class="col-sm-12">\n\
-                                <ul class="rewards_all">\n\
-                                    ' + reward + '\n\
-                                </ul>\n\
-                            </div>\n\
-                        </div>\n\
-                        <div class="row mt-3">\n\
-                            <div class="col-sm-12 ' + view_more_text_right + '">\n\
-                                <a href="rewards" class="btn btn-primary btn-sm">View More</a>\n\
-                            </div>\n\
-                        </div>';
-    $('#current_next_reward').html(reward_html);
+    $("#due_payment_list").DataTable({aaSorting: []});
 }
 
 function setCurrentNextReward(data) {
@@ -417,15 +397,15 @@ function getNewsList() {
 
                     html += '<div class="list-item">\n\
                     <div class="preview-image">\n\
-                        <img class="img-sm rounded-circle" src="'+path+'" alt="profile image">\n\
+                        <img class="img-sm rounded-circle" src="' + path + '" alt="profile image">\n\
                     </div>\n\
                     <div class="content">\n\
                         <div class="d-flex align-items-center">\n\
-                            <h6 class="product-name">'+ value.title + '</h6>\n\
-                            <small class="time ml-3">'+value.created_date+'</small>\n\
+                            <h6 class="product-name">' + value.title + '</h6>\n\
+                            <small class="time ml-3">' + value.created_date + '</small>\n\
                         </div>\n\
                         <div class="d-flex align-items-center">\n\
-                            <p class="review-text d-block textFull">'+ value.description + '</p>\n\
+                            <p class="review-text d-block textFull">' + value.description + '</p>\n\
                         </div>\n\
                     </div>\n\
                 </div>';

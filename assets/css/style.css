@@ -4616,6 +4616,7 @@ ul.top_row_members{margin-top:15px !important;}
 
 .wizard>.content>.body .col-form-label{margin-bottom:0px !important;}
 .form-group .col-form-label{margin-bottom:0px !important;}
+#info-1 .form-group .col-form-label, #bank-details-1 .form-group .col-form-label, #nominee-1 .form-group .col-form-label, #kyc-1 .form-group .col-form-label{ margin-top: 10px;}
 
 .table-responsive-sm {
 display: block;
@@ -30207,7 +30208,7 @@ overflow-x: hidden;
 #customer_add_form_submit .datepicker, #create_product .datepicker{padding:0px !important;}
 
 #plotbooking_form .datepicker{padding:0px !important;}
-
+.datepicker{padding:0px !important;}
 table tr td {
 white-space: inherit !important;
 }
@@ -31241,7 +31242,7 @@ color: #ffffff !important;
 .bg_rejected{background: -webkit-gradient(linear, left top, right top, from(#ffbf96), to(#fe7096));
     background: linear-gradient(to right, #ffbf96, #fe7096) !important; color:#ffffff !important; text-shadow: 0 1px 1px #777;}
 	
-	.pending_req .card .card-body {padding: 2rem 1.5rem !important;}
-	.font-32{font-size:42px !important; font-weight: bold;}
+	.pending_req .card .card-body {padding: 1.2rem 1rem !important;}
+	.font-32{font-size:32px !important; font-weight: bold;}
 	
 	

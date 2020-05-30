@@ -101,7 +101,7 @@
                                         <i class="mdi mdi-receipt text-warning icon-lg"></i>
                                     </div>
                                     <div class="float-right mt-3">
-                                        <p class="mb-0 text-right">Current Reward</p>
+                                        <p class="mb-0 text-right">Last Reward</p>
                                         <div class="fluid-container">
                                             <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>
                                         </div>

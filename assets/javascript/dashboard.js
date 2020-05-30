@@ -274,7 +274,7 @@ function setCurrentNextRewardOld(data) {
     } else if (data.length == 2) {
         title = '<div class="d-inline-block align-items-center text-muted font-weight-light ">\n\
                         <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
-                        <span>Current Reward</span>\n\
+                        <span>Last Reward</span>\n\
                     </div>\n\
                     <div class="d-inline-block align-items-center text-muted font-weight-light float-right">\n\
                         <i class="mdi mdi-trophy icon-sm mr-2 "></i>\n\
@@ -316,7 +316,7 @@ function setCurrentNextReward(data) {
                                         <i class="mdi mdi-receipt text-warning icon-lg"></i>\n\
                                     </div>\n\
                                     <div class="float-right mt-3">\n\
-                                        <p class="mb-0 text-right">Current Reward</p>\n\
+                                        <p class="mb-0 text-right">Last Reward</p>\n\
                                         <div class="fluid-container">\n\
                                             <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>\n\
                                         </div>\n\
@@ -355,7 +355,7 @@ function setCurrentNextReward(data) {
                                         <i class="mdi mdi-receipt text-warning icon-lg"></i>\n\
                                     </div>\n\
                                     <div class="float-right mt-3">\n\
-                                        <p class="mb-0 text-right">Current Reward</p>\n\
+                                        <p class="mb-0 text-right">Last Reward</p>\n\
                                         <div class="fluid-container">\n\
                                             <h3 class="font-weight-medium text-right mb-0">&#8377; ' + amount1.toFixed(2) + '</h3>\n\
                                         </div>\n\

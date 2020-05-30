@@ -56,7 +56,7 @@ include_once 'header.php';
                         var dynamic_msg = '';
                         $.each(response.data.rewards_list, function(key, value) {
                             var current_class = '';
-                            dynamic_msg = 'You need ' + value.right_more + ' more business on right and ' + value.left_more + ' more business on left to get this reward';
+                            dynamic_msg = 'You need ' + value.right_more + ' B.V. of more business on right and ' + value.left_more + ' B.V. of more business on left to get this reward';
                             if (value.current == 1) {
                                 current_class = 'rank2';
 

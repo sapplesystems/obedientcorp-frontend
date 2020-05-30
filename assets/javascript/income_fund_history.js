@@ -70,6 +70,7 @@ function getIncomeFundHistory(params) {
                 table_data += '<tbody>';
                 var counter = 0;
                 $('#available_income_fund').html(response.data.income_fund);
+                $('#balance_income_fund').html(response.data.balance_income);
                 $.each(response.data.income_fund_transaction, function (key, value) {
                     counter = counter + 1;
                     table_data += '<tr">\n\

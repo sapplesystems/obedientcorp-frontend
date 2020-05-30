@@ -1,8 +1,6 @@
 //MATCHING INCOME CODE START HERE
 function getMatchingAmountList(params) {
-    console.log('m1');
     showLoader();
-    console.log('m2');
     $.ajax({
         url: base_url + 'matching-amount-list',
         type: 'post',
@@ -41,12 +39,10 @@ function getMatchingAmountList(params) {
                 $("#matching_income_listing").html(table_data);
                 generateDataTable('matching_income_listing');
                 hideLoader();
-                console.log('m3');
             }
             else {
                 $("#matching_income_listing").html('');
                 hideLoader();
-                console.log('m4');
             }
 
         }
@@ -110,14 +106,11 @@ $(document).ready(function () {
 });
 
 function getPayoutHistoryList(params) {
-    console.log('1');
     showLoader();
-    console.log('2');
     $.ajax({
         url: base_url + 'payout-history',
         type: 'post',
         data: params,
-        async: false,
         success: function (response) {
             if (response.status == "success") {
                 var payout_week = response.payout_week;
@@ -186,13 +179,11 @@ function getPayoutHistoryList(params) {
                     aaSorting: []
                 });
                 $('.dt-button').removeClass().addClass('btn btn-gradient-primary');
-                console.log('3');
                 hideLoader();
             }
             else {
                 showSwal('error', 'Error', response.data);
                 $("#payout_history").html('');
-                console.log('4');
                 hideLoader();
             }
 

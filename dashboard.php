@@ -1,5 +1,21 @@
 <?php include_once 'header.php'; ?>
 
+<?php
+$news_part = '<div class="col-md-8 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="type_text">
+                            <p class="mb-0">Welcome to <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+                        </div>
+                        <div class="news_update mt-4">
+                            <marquee scrollamount="3" direction="up" onmouseover="stop();" onmouseout="start();" id="news-list">
+                            </marquee>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+?>
+
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -142,120 +158,125 @@
                 </div>
             </div>
         <?php } ?>
-        <div class="row">
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="row" id="current_next_reward">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
-                        <div class="card card-statistics">
-                            <div class="card-body aligner-wrapper">
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>
-                                <div class="clearfix">
-                                    <div class="float-left">
-                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>
-                                    </div>
-                                    <div class="float-right mt-3">
-                                        <p class="mb-0 text-right">Last Reward</p>
-                                        <div class="fluid-container">
-                                            <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
-                        <div class="card card-statistics">
-                            <div class="card-body aligner-wrapper">
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>
-                                <div class="clearfix">
-                                    <div class="float-left">
-                                        <i class="mdi mdi-cube text-danger icon-lg"></i>
-                                    </div>
-                                    <div class="float-right mt-3">
-                                        <p class="mb-0 text-right">Next Reward</p>
-                                        <div class="fluid-container">
-                                            <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
-                        <div class="card">
-                            <div class="card-body p-0">
-                                <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">
-                                    <a class="btn btn-success" href="rewards">View All Rewards</a>
-                                    <a class="btn btn-info" href="offers">View All Offers</a>
-                                    <a class="btn btn-warning" href="ranks">View All Ranks</a>
-                                    <a class="btn btn-primary" href="rankers">View All Rankers</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body ">
-                        <div class="type_text">
-                            <p class="mb-0">Welcome to <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
-                        </div>
-                        <div class="news_update mt-4">
-                            <marquee scrollamount="3" direction="up" onmouseover="stop();" onmouseout="start();" id="news-list">
-                            </marquee>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-		<!--PAYOUT DETAIL ROW START HERE-->
-		<div class="row">
+
+        <?php if ($user_type == 'ADMIN') { ?>
+            <!--PAYOUT DETAIL ROW START HERE-->
+            <div class="row">
                 <div class="col-md-12 mb-2 stretch-card">
                     <h4 class="card-title ">Payout Cycle Details</h4>
                 </div>
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="row" id="mansij_srivastava">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
-                        <div class="card card-statistics">
-                            <div class="card-body aligner-wrapper">
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>
-                                <div class="clearfix">
-                                    <div>
-										<h3 class="font-weight-medium mb-3 text-warning"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week 102</span></h3>
-                                        <div class="fluid-container">
-                                            <p class="mb-1">Last Cycle : <span class="text-muted">16th May - 22nd May 2020</span></p>
-											<p class="mb-1">Total Payout : <span class="text-muted">2,23,9077.56</span></p>
-											<p>Payout Date : <span class="text-muted">22nd May 2020</span></p>
+                <div class="col-md-4 grid-margin stretch-card">
+                    <div class="row" id="last_upcoming_payout_detail">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
+                            <div class="card card-statistics">
+                                <div class="card-body aligner-wrapper">
+                                    <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>
+                                    <div class="clearfix">
+                                        <div>
+                                            <h3 class="font-weight-medium mb-3 text-warning"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week 102</span></h3>
+                                            <div class="fluid-container">
+                                                <p class="mb-1">Last Cycle : <span class="text-muted">-</span></p>
+                                                <p class="mb-1">Total Payout : <span class="text-muted">00.00</span></p>
+                                                <p>Payout Date : <span class="text-muted">-</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
-                        <div class="card card-statistics">
-                            <div class="card-body aligner-wrapper">
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>
-                                <div class="clearfix">
-                                    <div>
-										<h3 class="font-weight-medium mb-3 text-danger"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week 103</span></h3>
-                                        <div class="fluid-container">
-                                            <p class="mb-1">Current Cycle : <span class="text-muted">23rd May - 29th May 2020</span></p>
-											<p class="mb-1">Estimated Payout : <span class="text-muted">21,9317.16</span></p>
-											<p>Upcoming Payout Date : <span class="text-muted">22nd May 2020</span></p>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
+                            <div class="card card-statistics">
+                                <div class="card-body aligner-wrapper">
+                                    <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>
+                                    <div class="clearfix">
+                                        <div>
+                                            <h3 class="font-weight-medium mb-3 text-danger"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week 103</span></h3>
+                                            <div class="fluid-container">
+                                                <p class="mb-1">Current Cycle : <span class="text-muted">-</span></p>
+                                                <p class="mb-1">Estimated Payout : <span class="text-muted">00.00</span></p>
+                                                <p>Upcoming Payout Date : <span class="text-muted">-</span></p>
+                                            </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">
+                                        <a class="btn btn-success" href="rewards">View All Rewards</a>
+                                        <a class="btn btn-info" href="offers">View All Offers</a>
+                                        <a class="btn btn-warning" href="ranks">View All Ranks</a>
+                                        <a class="btn btn-primary" href="rankers">View All Rankers</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php echo $news_part; ?>
             </div>
-        </div>
-		<!--PAYOUT DETAIL ROW END HERE-->
-		
+            <!--PAYOUT DETAIL ROW END HERE-->
+        <?php } else if ($user_type == 'AGENT') { ?>
+            <!--LAST/NEXT REWARD ROW START HERE-->
+            <div class="row">
+                <div class="col-md-4 grid-margin stretch-card">
+                    <div class="row" id="current_next_reward">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
+                            <div class="card card-statistics">
+                                <div class="card-body aligner-wrapper">
+                                    <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                                        </div>
+                                        <div class="float-right mt-3">
+                                            <p class="mb-0 text-right">Last Reward</p>
+                                            <div class="fluid-container">
+                                                <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
+                            <div class="card card-statistics">
+                                <div class="card-body aligner-wrapper">
+                                    <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                            <i class="mdi mdi-cube text-danger icon-lg"></i>
+                                        </div>
+                                        <div class="float-right mt-3">
+                                            <p class="mb-0 text-right">Next Reward</p>
+                                            <div class="fluid-container">
+                                                <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">
+                                        <a class="btn btn-success" href="rewards">View All Rewards</a>
+                                        <a class="btn btn-info" href="offers">View All Offers</a>
+                                        <a class="btn btn-warning" href="ranks">View All Ranks</a>
+                                        <a class="btn btn-primary" href="rankers">View All Rankers</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $news_part; ?>
+            </div>
+            <!--LAST/NEXT REWARD ROW END HERE-->
+        <?PHP } ?>
         <div class="row ">
             <div class="col-lg-12 grid-margin">
                 <div class="card">

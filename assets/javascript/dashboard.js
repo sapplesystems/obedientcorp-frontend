@@ -69,6 +69,7 @@ function getDashboardInfoAdmin(user_id) {
                 $('#kyc_pending_request').html(data.kyc_pending_request);
                 var due_payment_list = data.due_payment_list;
                 generateDuePaymentList(due_payment_list);
+                setLastUpcomingPayoutDetail(data.last_payout, data.upcoming_payout);
             }
             hideLoader();
         }
@@ -365,7 +366,51 @@ function setCurrentNextReward(data) {
                         </div>\n\
                     </div>';
     }
-    var reward_html = reward + '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">\n\
+    var reward_html = reward + allListDashboardMenu();
+    $('#current_next_reward').html(reward_html);
+}
+
+function setLastUpcomingPayoutDetail(last_payout, upcoming_payout) {
+    var payout_detail = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
+                            <div class="card card-statistics">\n\
+                                <div class="card-body aligner-wrapper">\n\
+                                    <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>\n\
+                                    <div class="clearfix">\n\
+                                        <div>\n\
+                                            <h3 class="font-weight-medium mb-3 text-warning"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week ' + last_payout.week_no + '</span></h3>\n\
+                                            <div class="fluid-container">\n\
+                                                <p class="mb-1">Last Cycle : <span class="text-muted">' + last_payout.from_date + ' - ' + last_payout.to_date + '</span></p>\n\
+                                                <p class="mb-1">Total Payout : <span class="text-muted">' + last_payout.total_payout + '</span></p>\n\
+                                                <p>Payout Date : <span class="text-muted">' + last_payout.to_date + '</span></p>\n\
+                                            </div>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
+                            <div class="card card-statistics">\n\
+                                <div class="card-body aligner-wrapper">\n\
+                                    <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>\n\
+                                    <div class="clearfix">\n\
+                                        <div>\n\
+                                            <h3 class="font-weight-medium mb-3 text-danger"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week '+upcoming_payout.week_no+'</span></h3>\n\
+                                            <div class="fluid-container">\n\
+                                                <p class="mb-1">Current Cycle : <span class="text-muted">'+upcoming_payout.from_date+' - '+upcoming_payout.to_date+'</span></p>\n\
+                                                <p class="mb-1">Estimated Payout : <span class="text-muted">'+upcoming_payout.to_date+'</span></p>\n\
+                                                <p>Upcoming Payout Date : <span class="text-muted">'+upcoming_payout.estimated_payout+'</span></p>\n\
+                                            </div>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>';
+    var payout_detail = payout_detail + allListDashboardMenu();
+    $('#last_upcoming_payout_detail').html(payout_detail);
+}
+
+function allListDashboardMenu() {
+    return '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">\n\
                         <div class="card">\n\
                             <div class="card-body p-0">\n\
                                 <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">\n\
@@ -377,7 +422,6 @@ function setCurrentNextReward(data) {
                             </div>\n\
                         </div>\n\
                     </div>';
-    $('#current_next_reward').html(reward_html);
 }
 
 //get all news list

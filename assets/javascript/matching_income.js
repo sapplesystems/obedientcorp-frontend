@@ -98,7 +98,7 @@ $(document).ready(function () {
 
 //PAYOUT HISTORY SCRIPT START HERE
 $(document).ready(function () {
-    $("#agent_id,#agent_list").html(down_the_line_members);
+    $("#agent_id").html(down_the_line_members);
 
     getPayoutHistoryList({user_id: (user_type == 'ADMIN') ? $('#agent_id').val() : user_id});
     $(document).on('change', '#week_range', function () {

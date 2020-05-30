@@ -67,6 +67,8 @@ function getDashboardInfoAdmin(user_id) {
                 $('#reward_pending_request').html(data.reward_pending_request);
                 $('#offer_pending_request').html(data.offer_pending_request);
                 $('#kyc_pending_request').html(data.kyc_pending_request);
+                var due_payment_list = data.due_payment_list;
+                generateDuePaymentList(due_payment_list);
             }
             hideLoader();
         }

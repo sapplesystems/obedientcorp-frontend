@@ -1,6 +1,9 @@
 getAgentsList();
 
 $(document).ready(function () {
+    $(document).on('change', '#kyc_status_dd', function () {
+        $('#associate_order_list').DataTable().search($(this).val()).columns(6).search( '' ).draw();
+    });
 });
 
 

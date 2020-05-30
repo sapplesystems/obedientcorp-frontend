@@ -6,9 +6,9 @@ if ($user_type != 'ADMIN') {
 ?>
 <!-- partial -->
 <style>
-.custom_overflow{overflow:auto;}
-.custom_overflow table tr th:last-child, .custom_overflow table tr td:last-child{white-space: nowrap !important; width:200px;}
-#associate_order_list{min-width: 1200px;}
+    .custom_overflow{overflow:auto;}
+    .custom_overflow table tr th:last-child, .custom_overflow table tr td:last-child{white-space: nowrap !important; width:200px;}
+    #associate_order_list{min-width: 1200px;}
 </style>
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -20,10 +20,22 @@ if ($user_type != 'ADMIN') {
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Associate List</h4>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label class="float-left col-form-label mr-3">Select KYC Status :</label>
+                                <div class="col-sm-3 float-left">
+                                    <select class="form-control" id="kyc_status_dd">
+                                        <option value="">Select</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Submitted">Submitted</option>
+                                        <option value="Approved">Approved</option>
+                                        <option value="Rejected">Rejected</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="overflowAuto custom_overflow">
-                            <table class="table table-bordered custom_action agents_list" id="associate_order_list" >
-
-                            </table>
+                            <table class="table table-bordered custom_action agents_list" id="associate_order_list"></table>
                         </div>
                     </div>
                 </div>

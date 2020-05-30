@@ -26,8 +26,6 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
                                 <thead>
                                     <tr>
                                         <th>Customer Name</th>
-                                        <th>Registration Number</th>
-                                        <th>Reference</th>
                                         <th>Project Name</th>
                                         <th>Sub Project Name</th>
                                         <th>Plot Number</th>

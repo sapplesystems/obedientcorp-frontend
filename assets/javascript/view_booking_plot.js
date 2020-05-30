@@ -48,8 +48,6 @@ function get_plot_booking_listing() {
                     }
                     html += '<tr id="tr_' + val.customer_id + '">\n\
                                       <td>' + val.display_name + '</td>\n\
-                                      <td>' + registration_number + '</td>\n\
-                                      <td>' + reference + '</td>\n\
                                       <td>' + val.project_master_name + '</td>\n\
                                       <td>' + val.sub_project_master_name + '</td>\n\
                                       <td>' + val.plot_master_name + '</td>\n\

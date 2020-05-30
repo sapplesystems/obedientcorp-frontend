@@ -7,6 +7,7 @@ if (isset($_SESSION['login_resp']['id']) && !empty($_SESSION['login_resp']['id']
 if (isset($_REQUEST['name']) && isset($_REQUEST['username'])) {
     $name = $_REQUEST['name'];
     $username = $_REQUEST['username'];
+    $password = $_REQUEST['password'];
 }
 include_once 'common_html.php';
 ?>
@@ -46,7 +47,7 @@ include_once 'common_html.php';
                                     <div class="thank-div">
                                         <div class="text-center"><i class="mdi mdi-check-circle"></i></div>
                                         <h2 class="text-center">THANK YOU</h2>
-                                        <p class="text-center">Hello <?php echo $name; ?>, Your registration has been successfully done. Your Username is: <?php echo $username; ?>. </p>
+                                        <p class="text-center">Hello <?php echo $name; ?>, Your registration has been successfully done. Your Username is: <?php echo $username; ?> and password is <?php echo $password; ?>. </p>
                                         <p class="text-center"><a href="login" class="btn btn-gradient-primary btn-fw">Login</a></p>
                                     </div>
                                 </div>

@@ -30925,6 +30925,8 @@ border-color: #b66dff;
 .hv-item-div{position:relative; /*margin:0px !important;*/}
 
 @media (max-width: 991px) {
+	
+	.custom_dashboard_card .col-12.grid-margin.pending_req{padding-left:20px !important; padding-right:20px !important;}
 
 .team_style #all-members .dataTables_wrapper, .team_style #members-in-left .dataTables_wrapper, .team_style #members-in-right .dataTables_wrapper, 
 .team_style #referral-members .dataTables_wrapper{width:1000px;}
@@ -31245,4 +31247,6 @@ color: #ffffff !important;
 	.pending_req .card .card-body {padding: 1.2rem 1rem !important;}
 	.font-32{font-size:32px !important; font-weight: bold;}
 	
+	
+	.custom_dashboard_card .col-12.grid-margin.pending_req{padding-left:10px; padding-right:10px;}
 	

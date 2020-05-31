@@ -69,7 +69,17 @@ function getDashboardInfoAdmin(user_id) {
                 $('#kyc_pending_request').html(data.kyc_pending_request);
                 var due_payment_list = data.due_payment_list;
                 generateDuePaymentList(due_payment_list);
-                setLastUpcomingPayoutDetail(data.last_payout, data.upcoming_payout);
+                var last_payout = data.last_payout;
+                var current_payout = data.upcoming_payout;
+                $('#last_week_no').html('Week ' + last_payout.week_no);
+                $('#last_cycle').html(last_payout.from_date + ' - ' + last_payout.to_date);
+                $('#total_payout').html(last_payout.total_payout);
+                $('#last_payout_date').html(last_payout.to_date);
+
+                $('#current_week_no').html('Week ' + current_payout.week_no);
+                $('#current_cycle').html(current_payout.from_date + ' - ' + current_payout.to_date);
+                $('#estimated_payout').html(current_payout.estimated_payout);
+                $('#upcoming_payout_date').html(current_payout.to_date);
             }
             hideLoader();
         }
@@ -122,7 +132,17 @@ function getDashboardInfo(user_id) {
                 var due_payment_list = data.due_payment_list;
                 generateDuePaymentList(due_payment_list);
 
-                setCurrentNextReward(data.current_next_reward);
+                var reward = data.current_next_reward;
+                var last_reward = 0;
+                var current_reward = 0;
+                if (reward.length == 1) {
+                    current_reward = reward[0].amount;
+                } else if (reward.length == 2) {
+                    last_reward = reward[0].amount;
+                    current_reward = reward[1].amount;
+                }
+                $('#last_reward').html(last_reward.toFixed(2));
+                $('#current_reward').html(current_reward.toFixed(2));
             }
             hideLoader();
         }
@@ -284,144 +304,6 @@ function generateDuePaymentList(list) {
     table_data += '</tbody>';
     $("#due_payment_list").html(table_data);
     $("#due_payment_list").DataTable({aaSorting: []});
-}
-
-function setCurrentNextReward(data) {
-    var reward = '';
-    if (data.length == 1) {
-        var amount = data[0].amount;
-        reward = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
-                        <div class="card card-statistics">\n\
-                            <div class="card-body aligner-wrapper">\n\
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>\n\
-                                <div class="clearfix">\n\
-                                    <div class="float-left">\n\
-                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>\n\
-                                    </div>\n\
-                                    <div class="float-right mt-3">\n\
-                                        <p class="mb-0 text-right">Last Reward</p>\n\
-                                        <div class="fluid-container">\n\
-                                            <h3 class="font-weight-medium text-right mb-0">&#8377; 0.00</h3>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </div>\n\
-                        </div>\n\
-                    </div>\n\
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
-                        <div class="card card-statistics">\n\
-                            <div class="card-body aligner-wrapper">\n\
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>\n\
-                                <div class="clearfix">\n\
-                                    <div class="float-left">\n\
-                                        <i class="mdi mdi-cube text-danger icon-lg"></i>\n\
-                                    </div>\n\
-                                    <div class="float-right mt-3">\n\
-                                        <p class="mb-0 text-right">Next Reward</p>\n\
-                                        <div class="fluid-container">\n\
-                                            <h3 class="font-weight-medium text-right mb-0">&#8377; ' + amount.toFixed(2) + '</h3>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </div>\n\
-                        </div>\n\
-                    </div>';
-    } else if (data.length == 2) {
-        var amount1 = data[0].amount;
-        var amount2 = data[1].amount;
-        reward = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
-                        <div class="card card-statistics">\n\
-                            <div class="card-body aligner-wrapper">\n\
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>\n\
-                                <div class="clearfix">\n\
-                                    <div class="float-left">\n\
-                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>\n\
-                                    </div>\n\
-                                    <div class="float-right mt-3">\n\
-                                        <p class="mb-0 text-right">Last Reward</p>\n\
-                                        <div class="fluid-container">\n\
-                                            <h3 class="font-weight-medium text-right mb-0">&#8377; ' + amount1.toFixed(2) + '</h3>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </div>\n\
-                        </div>\n\
-                    </div>\n\
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
-                        <div class="card card-statistics">\n\
-                            <div class="card-body aligner-wrapper">\n\
-                                <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>\n\
-                                <div class="clearfix">\n\
-                                    <div class="float-left">\n\
-                                        <i class="mdi mdi-cube text-danger icon-lg"></i>\n\
-                                    </div>\n\
-                                    <div class="float-right mt-3">\n\
-                                        <p class="mb-0 text-right">Next Reward</p>\n\
-                                        <div class="fluid-container">\n\
-                                            <h3 class="font-weight-medium text-right mb-0">&#8377; ' + amount2.toFixed(2) + '</h3>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </div>\n\
-                        </div>\n\
-                    </div>';
-    }
-    var reward_html = reward + allListDashboardMenu();
-    $('#current_next_reward').html(reward_html);
-}
-
-function setLastUpcomingPayoutDetail(last_payout, upcoming_payout) {
-    var payout_detail = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
-                            <div class="card card-statistics">\n\
-                                <div class="card-body aligner-wrapper">\n\
-                                    <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>\n\
-                                    <div class="clearfix">\n\
-                                        <div>\n\
-                                            <h3 class="font-weight-medium mb-3 text-warning"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week ' + last_payout.week_no + '</span></h3>\n\
-                                            <div class="fluid-container">\n\
-                                                <p class="mb-1">Last Cycle : <span class="text-muted">' + last_payout.from_date + ' - ' + last_payout.to_date + '</span></p>\n\
-                                                <p class="mb-1">Total Payout : <span class="text-muted">' + last_payout.total_payout + '</span></p>\n\
-                                                <p>Payout Date : <span class="text-muted">' + last_payout.to_date + '</span></p>\n\
-                                            </div>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </div>\n\
-                        </div>\n\
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">\n\
-                            <div class="card card-statistics">\n\
-                                <div class="card-body aligner-wrapper">\n\
-                                    <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>\n\
-                                    <div class="clearfix">\n\
-                                        <div>\n\
-                                            <h3 class="font-weight-medium mb-3 text-danger"><i class="mdi mdi-calendar-today menu-icon icon-lg"></i> <span class="float-right mt-4">Week '+upcoming_payout.week_no+'</span></h3>\n\
-                                            <div class="fluid-container">\n\
-                                                <p class="mb-1">Current Cycle : <span class="text-muted">'+upcoming_payout.from_date+' - '+upcoming_payout.to_date+'</span></p>\n\
-                                                <p class="mb-1">Estimated Payout : <span class="text-muted">'+upcoming_payout.to_date+'</span></p>\n\
-                                                <p>Upcoming Payout Date : <span class="text-muted">'+upcoming_payout.estimated_payout+'</span></p>\n\
-                                            </div>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </div>\n\
-                        </div>';
-    var payout_detail = payout_detail + allListDashboardMenu();
-    $('#last_upcoming_payout_detail').html(payout_detail);
-}
-
-function allListDashboardMenu() {
-    return '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">\n\
-                        <div class="card">\n\
-                            <div class="card-body p-0">\n\
-                                <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">\n\
-                                    <a class="btn btn-success" href="rewards">View All Rewards</a>\n\
-                                    <a class="btn btn-info" href="offers">View All Offers</a>\n\
-                                    <a class="btn btn-warning" href="ranks">View All Ranks</a>\n\
-                                    <a class="btn btn-primary" href="rankers">View All Rankers</a>\n\
-                                </div>\n\
-                            </div>\n\
-                        </div>\n\
-                    </div>';
 }
 
 //get all news list

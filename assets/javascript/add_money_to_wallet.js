@@ -159,7 +159,7 @@ function addMoneyToWallet(params) {
                     updateMoneyRequestStatus(params.payment_id, params.user_id, 'Approved', params.comment);
                 }
                 hideLoader();
-                showSwal('success', 'Success', 'Money has been added successfully.');
+                showSwal('success', 'Success', 'Transaction done successfully.');
             } else {
                 showSwal('error', 'Failed', response.data);
                 hideLoader();

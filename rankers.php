@@ -22,6 +22,7 @@ include_once 'header.php';
                                     <tr>
                                         <th>Sr.No</th>
                                         <th>Associate Name</th>
+                                        <th>State</th>
                                         <th>Associate Designation </th>
                                     </tr>
                                 </thead>
@@ -47,8 +48,13 @@ include_once 'header.php';
                     if (response.status == 'success') {
                         var html = '';
                         var x = 1;
+                        var state;
                         $.each(response.data, function (key, value) {
-                            html += '<tr"><td>' + x + '</td><td>' + value.display_name + '</td><td>' + value.designation + '</td></tr>';
+                            state = '-';
+                            if(value.state != null){
+                                state = value.state;
+                            }
+                            html += '<tr"><td>' + x + '</td><td>' + value.display_name + '</td><td>' + state + '</td><td>' + value.designation + '</td></tr>';
                             x++;
                         });
                         $("#rankers_list").html(html);

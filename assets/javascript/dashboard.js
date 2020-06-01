@@ -1,5 +1,5 @@
 //AUTOMATIC TYPING ON DASHBOARD CODE START HERE
-var typedTextSpan = document.querySelector(".typed-text");
+/*var typedTextSpan = document.querySelector(".typed-text");
 var cursorSpan = document.querySelector(".cursor");
 
 var textArray = ["Obedient Group", "Where dreams come true"];
@@ -43,7 +43,7 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
     if (textArray.length)
         setTimeout(type, newTextDelay + 250);
-});
+});*/
 //AUTOMATIC TYPING ON DASHBOARD CODE END HERE
 if (user_type == 'ADMIN') {
     getDashboardInfoAdmin(user_id)

@@ -10,7 +10,7 @@ function getMatchingAmountList(params) {
                 var table_data = '<thead>\n\
                                     <tr>\n\
                                         <th>Sr.No</th>\n\
-                                        <th>Amount</th>\n\
+                                        <th>Business Volume</th>\n\
                                         <th>Date</th>\n\
                                     </tr>\n\
                                 </thead>';

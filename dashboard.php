@@ -5,7 +5,7 @@ $news_part = '<div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body ">
                         <div class="type_text">
-                            <p class="mb-0">Welcome to <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+                            <p class="mb-0">News Update</p>
                         </div>
                         <div class="news_update mt-4">
                             <marquee scrollamount="3" direction="up" onmouseover="stop();" onmouseout="start();" id="news-list">

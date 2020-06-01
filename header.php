@@ -238,7 +238,7 @@ include_once 'common_html.php';
                                 </a>
                                 <div class="collapse" id="make_payout_nav">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="payout-generate">Payout Generate</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="payout-approve">Payout Approve</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="payout-history">Payout History</a></li>
                                     </ul>
                                 </div>

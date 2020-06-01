@@ -265,12 +265,13 @@ function get_goods_coupon_listing() {
                     }
                     goods_coupon_list += ' <tr role="row" class="' + classname + '">\n\
                                                 <td class="sorting_1">' + i + '</td>\n\
+                                                <td class="sorting_1">' + value.display_name + '</td>\n\
                                                 <td id="print_coupon_code_' + value.id + '"> ' + value.coupon_code + ' </td>\n\
                                                 <td id="print_coupon_type_' + value.id + '"> ' + value.coupon_type + ' </td>\n\
                                                 <td id="print_coupon_amount_' + value.id + '"> ' + value.coupon_amount + ' </td>\n\
                                                 <td id="print_generated_date_' + value.id + '"> ' + generated_date + ' </td>\n\
                                                 <td id="print_coupon_updated_date_' + value.id + '"> ' + expiry_date + ' </td>\n\
-                                                <td>' + value.status + '</td>\n\
+                                                <td id="coupon_status_' + value.id + '">' + value.status + '</td>\n\
                                                 ' + action_td + '\n\
                                             </tr>';
 
@@ -298,6 +299,8 @@ function changeCouponStatus(e, coupon_id) {
         success: function (response) {
             if (response.status == 'success') {
                 showSwal('success', 'Shopping Card ' + response.chk_status, response.data);
+                $('#coupon_status_' + coupon_id).html(response.chk_status);
+                $('#cb' + coupon_id).prop('checked', !$('#cb' + coupon_id).prop('checked'))
             }
         }
     });

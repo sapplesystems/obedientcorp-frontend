@@ -10,11 +10,17 @@ if ($user_type != 'ADMIN') {
         <div class="row">
             <div class="col-12">
                 <div class="form-group row">
-                    <label class="col-form-label col-sm-2">Associate ID</label>
                     <div class="col-sm-4">
+                        <label>Associate ID</label>
                         <select class="form-control" id="agent_list"></select>
                     </div>
+                    <div class="col-sm-3">
+                        <label class="d-block">&nbsp;</label>
+                        <label class="form-check-label text-muted ml-3 mt13">
+                        <input type="checkbox" id="associate_only_with_payout" class="form-check-input mt-0 checkBoxSize"> <span class="checkBoxLabel">Associates Only with Payout</span> <i class="input-helper"></i></label>
+                    </div>
                     <div class="col-sm-4">
+                        <label class="d-block">&nbsp;</label>
                         <input type="button" value="Approve Payout" class="btn btn-gradient-primary" onclick="generatePayout();" />
                     </div>
                 </div>
@@ -42,6 +48,13 @@ if ($user_type != 'ADMIN') {
                 $(document).on('change', '#agent_list', function () {
                     getPayoutList({user_id: $(this).val()});
                 });
+            });
+            $(document).on('change', '#associate_only_with_payout', function () {//$("#end-date").change(function () {
+                if ($(this).is(':checked') == true) {
+                    getPayoutList({user_id: $('#agent_list').val(), associate_only_with_payout: 1});
+                } else {
+                    getPayoutList({user_id: $('#agent_list').val()});
+                }
             });
         });
 

@@ -16,11 +16,16 @@ if ($user_type != 'ADMIN') {
                             <option value="">Select Week</option>
                         </select>
                     </div>
-                    <!--div class="col-sm-3">
+                    <div class="col-sm-3">
                         <label>Associate ID</label>
                         <select class="form-control" id="agent_list"></select>
                     </div>
                     <div class="col-sm-3">
+                        <label class="d-block">&nbsp;</label>
+                        <label class="form-check-label text-muted ml-3 mt13">
+                            <input type="checkbox" id="associate_only_with_payout" class="form-check-input mt-0 checkBoxSize"> <span class="checkBoxLabel">Associates Only with Payout</span> <i class="input-helper"></i></label>
+                    </div>
+                    <!--div class="col-sm-3">
                         <label>Start Date:</label>
                         <div class="input-group date datepicker p-0">
                             <input type="text required" class="form-control required" id="start-date" name="start-date" placeholder="From" readonly>
@@ -67,10 +72,10 @@ if ($user_type != 'ADMIN') {
             $("#agent_list").html(down_the_line_members);
             getPayoutHistoryList({user_id: 0});
             $(document).on('change', '#week_range', function () {
-                getPayoutHistoryList({week_range: $(this).val()});
+                getPayoutHistoryList({week_range: $(this).val(), user_id: $('#agent_list').val()});
             });
             $(document).on('change', '#agent_list', function () {
-                getPayoutHistoryList({user_id: $(this).val()});
+                getPayoutHistoryList({user_id: $(this).val(), week_range: $('#week_range').val()});
             });
 
             $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
@@ -79,6 +84,14 @@ if ($user_type != 'ADMIN') {
 
             $(document).on('change', '#end-date', function () {//$("#end-date").change(function () {
                 checkStartEndDate();
+            });
+
+            $(document).on('change', '#associate_only_with_payout', function () {//$("#end-date").change(function () {
+                if ($(this).is(':checked') == true) {
+                    getPayoutHistoryList({user_id: $('#agent_list').val(), week_range: $('#week_range').val(), associate_only_with_payout: 1});
+                } else {
+                    getPayoutHistoryList({user_id: $('#agent_list').val(), week_range: $('#week_range').val()});
+                }
             });
         });
 
@@ -102,6 +115,7 @@ if ($user_type != 'ADMIN') {
                             });
                         }
                         $('#week_range').html(week_range);
+                        $("#week_range option:last").attr("selected", "selected");
                         var table_data = '<thead>\n\
                                                 <tr>\n\
                                                     <th>Week No.</th>\n\

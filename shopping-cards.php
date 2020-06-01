@@ -1,6 +1,11 @@
 <?php include_once 'header.php'; ?>
 <!-- partial -->
 
+<style>
+    #order-listing tr th:last-child, #order-listing tr td:last-child{width:300px !important; white-space:nowrap !important;}
+    #order-listing{min-width:1500px;}
+</style>
+
 <div class="main-panel ">
     <div class="content-wrapper ">
 
@@ -76,12 +81,13 @@
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Manage Shopping Cards</h4>
 
-                        <div class="overflowAuto">
+                        <div class="overflowAuto custom_overflow">
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
                                     <tr>
                                         <?php if ($user_type == 'ADMIN') { ?>
                                             <th width="5%"> Sr No. </th>
+                                            <th width="5%"> Associate Name </th>
                                             <th width="7%">Code</th>
                                             <th width="8%">Code Type</th>
                                             <th width="10%">Price </th>
@@ -91,6 +97,7 @@
                                             <th width="45%"> Action </th>
                                         <?php } else { ?>
                                             <th width="5%"> Sr No. </th>
+                                            <th width="5%"> Associate Name </th>
                                             <th width="5%">Code</th>
                                             <th width="10%">Code Type</th>
                                             <th width="15%">Price </th>

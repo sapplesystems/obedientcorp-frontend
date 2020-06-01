@@ -111,7 +111,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                     <div class="card bg-gradient-primary card-img-holder text-white ">
                         <div class="card-body">
                             <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                            <h4 class="font-weight-normal mb-3 ">Self Business Volume <i class="mdi mdi-briefcase  mdi-24px float-right "></i></h4>
+                            <h4 class="font-weight-normal mb-3 ">Self Business Volume <i class="mdi mdi-chart-line mdi-24px float-right "></i></h4>
                             <h2 class="">
                                 <a href="self-business-volume" class="dashboard-box">
                                     <span id="pin_bonus">0.00</span>
@@ -146,7 +146,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                     <div class="card bg-gradient-success card-img-holder text-white ">
                         <div class="card-body">
                             <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                            <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-bank mdi-24px float-right "></i></h4>
+                            <h4 class="font-weight-normal mb-3 ">Matching Income <i class="fa fa-money font24"></i></h4>
                             <h2 class="">&#x20b9;
                                 <a href="matching-income" class="dashboard-box">
                                     <span id="matching_income">0.00</span>

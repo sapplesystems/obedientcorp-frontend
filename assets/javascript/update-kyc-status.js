@@ -1,4 +1,4 @@
-
+var kyc_status;
 $(document).ready(function () {
 
     if ($('#associate_id').val() != '' && $('#associate_id').val())
@@ -8,12 +8,30 @@ $(document).ready(function () {
     }
 
     $('#reject').click(function () {
-
-        updateKycStatus('Rejected');
+        kyc_status = 'Rejected';
+        showSwal('warning-message-and-cancel');
+        $('.payment_action').click(function () {
+            var comment = $('#payment_comment').val();
+            if (comment == '') {
+                $('#payment_comment').focus();
+                return false;
+            }
+            updateKycStatus();
+        });
+        return false;
     });
     $('#approve').click(function () {
-
-        updateKycStatus('Approved');
+        kyc_status = 'Approved';
+        showSwal('warning-message-and-cancel');
+        $('.payment_action').click(function () {
+            var comment = $('#payment_comment').val();
+            if (comment == '') {
+                $('#payment_comment').focus();
+                return false;
+            }
+            updateKycStatus();
+        });
+        return false;
     });
 
 });
@@ -28,13 +46,21 @@ function getAssociateKycDetails(agent_id)
             user_id: agent_id,
         },
         success: function (response) {
-            console.log(response);
             if (response.status == 'success') {
                 var path = '';
                 var status = 'Not Available'
                 if (response.data[0].kyc_status != null && response.data[0].kyc_status != '' && response.data[0].kyc_status != "undefined")
                 {
                     $('#kyc-status').html(response.data[0].kyc_status);
+                    if (response.data[0].kyc_status == 'Approved') {
+                        $('#kyc-status').addClass('text-success');
+                    } else if (response.data[0].kyc_status == 'Rejected') {
+                        $('#kyc-status').addClass('text-danger');
+                    } else if (response.data[0].kyc_status == 'Pending') {
+                        $('#kyc-status').addClass('text-info');
+                    } else if (response.data[0].kyc_status == 'Submitted') {
+                        $('#kyc-status').addClass('text-warning');
+                    }
                 }
                 else
                 {
@@ -172,17 +198,17 @@ function getAssociateKycDetails(agent_id)
     });
 }//end function
 
-function updateKycStatus(status)
+function updateKycStatus()
 {
-    var url = base_url + 'admin-kyc-action ';
-    var agent_id = $('#associate_id').val();
+    var url = base_url + 'admin-kyc-action';
     $.ajax({
         url: url,
         type: 'post',
         //dataType: 'json',
         data: {
-            user_id: agent_id,
-            kyc_status: status
+            user_id: $('#associate_id').val(),
+            kyc_status: kyc_status,
+            kyc_comment: $('#payment_comment').val(),
         },
         success: function (response) {
             if (response.status == 'success') {

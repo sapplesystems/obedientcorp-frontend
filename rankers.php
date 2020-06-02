@@ -50,7 +50,7 @@ include_once 'header.php';
                         var x = 1;
                         var state;
                         $.each(response.data, function (key, value) {
-                            state = '-';
+                            state = 'N/A';
                             if(value.state != null){
                                 state = value.state;
                             }

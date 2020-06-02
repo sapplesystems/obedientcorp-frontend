@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <a href="add-customer.php" class="btn btn-gradient-primary">Add Customer</a>
+                        <a href="add-customer" class="btn btn-gradient-primary">Add Customer</a>
                     </div>
                 </div>
             </div>

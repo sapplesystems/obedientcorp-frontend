@@ -59,7 +59,7 @@
 }
 ul.topMenu {
 	margin: 25px 0px 0px 0px;
-	overflow:hidden;
+	/*overflow:hidden;*/
 	padding: 0px;
 	padding-top: 10px;
 }
@@ -69,6 +69,8 @@ ul.topMenu li {
 	color:#fff;
 	transition:0.5s;
 }
+
+
 ul.topMenu li:hover{
 	color:#b66dff;
 }

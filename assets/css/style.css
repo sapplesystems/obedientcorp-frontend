@@ -31159,6 +31159,9 @@ padding:20px;
 .face.back {
 display: block;
 transform: rotateY(180deg);
+-webkit-transform:rotateY(180deg);
+-moz-transform:rotateY(180deg);
+-o-transform:rotateY(180deg);
 box-sizing: border-box;
 padding: 7px;
 color: #ffffff;

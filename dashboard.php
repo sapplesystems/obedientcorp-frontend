@@ -39,7 +39,9 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                             <div class="card-col col-md-4 border-right">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
-                                        <span class="mr-0 mr-sm-3 font-32 text-primary" id="real_estate_pending_request">0</span>
+                                        <a href="real-state-request">
+                                            <span class="mr-0 mr-sm-3 font-32 text-primary" id="real_estate_pending_request">0</span>
+                                        </a>
                                         <div class="wrapper text-center text-sm-left">
                                             <p class="card-text mb-0">Pending Requests</p>
                                             <div class="fluid-container">
@@ -52,7 +54,9 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                             <div class="card-col col-md-4 border-right">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
-                                        <span class="mr-0 mr-sm-3 font-32 text-danger" id="fmcg_pending_request">0</span>
+                                        <a href="consumer-goods-request">
+                                            <span class="mr-0 mr-sm-3 font-32 text-danger" id="fmcg_pending_request">0</span>
+                                        </a>
                                         <div class="wrapper text-center text-sm-left">
                                             <p class="card-text mb-0">Pending Requests</p>
                                             <div class="fluid-container">
@@ -65,7 +69,9 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                             <div class="card-col col-md-4 border-right">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
-                                        <span class="mr-0 mr-sm-3 font-32 text-success" id="reward_pending_request">0</span>
+                                        <a href="reward-request">
+                                            <span class="mr-0 mr-sm-3 font-32 text-success" id="reward_pending_request">0</span>
+                                        </a>
                                         <div class="wrapper text-center text-sm-left">
                                             <p class="card-text mb-0">Pending Requests</p>
                                             <div class="fluid-container">
@@ -78,7 +84,9 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                             <div class="card-col col-md-4 border-right">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
-                                        <span class="mr-0 mr-sm-3 font-32 text-warning" id="offer_pending_request">0</span>
+                                        <a href="offer-request">
+                                            <span class="mr-0 mr-sm-3 font-32 text-warning" id="offer_pending_request">0</span>
+                                        </a>
                                         <div class="wrapper text-center text-sm-left">
                                             <p class="card-text mb-0">Pending Requests</p>
                                             <div class="fluid-container">
@@ -91,7 +99,9 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                             <div class="card-col col-md-4">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
-                                        <span class="mr-0 mr-sm-3 font-32 text-warning" id="kyc_pending_request">0</span>
+                                        <a href="associate-list">
+                                            <span class="mr-0 mr-sm-3 font-32 text-warning" id="kyc_pending_request">0</span>
+                                        </a>
                                         <div class="wrapper text-center text-sm-left">
                                             <p class="card-text mb-0">Pending Requests</p>
                                             <div class="fluid-container">
@@ -146,7 +156,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                     <div class="card bg-gradient-success card-img-holder text-white ">
                         <div class="card-body">
                             <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                            <h4 class="font-weight-normal mb-3 ">Matching Income <i class="fa fa-money font24"></i></h4>
+                            <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-chart-bar font24 float-right"></i></h4>
                             <h2 class="">&#x20b9;
                                 <a href="matching-income" class="dashboard-box">
                                     <span id="matching_income">0.00</span>

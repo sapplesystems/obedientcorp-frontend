@@ -24723,11 +24723,11 @@ right: 1.2em;
 .dataTables_wrapper .dataTable thead .sorting_asc_disabled:after,
 .dataTables_wrapper .dataTable thead .sorting_desc_disabled:after {
 content: "\F045";
-right: 0.2em;
+right: 0.2em; 
 }
 
 .dataTables_wrapper .dataTables_paginate {
-margin-top: 20px;
+margin-top: 20px !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .pagination .page-link,
@@ -31181,6 +31181,8 @@ top: 8px !important;}
 
 .face.back .table thead th{border-bottom:1px solid rgba(255,255,255,0.3);}
 .face.back .table tbody td{border-top:1px solid rgba(255,255,255,0.3); padding:15px 5px;}
+.face.back > div{overflow:auto;}
+.face.back table{min-width:350px;}
 
 .rank1{background-color: #ebd6ff;border: 1px solid #ebd6ff;color: #000;}
 .rank2{background-color: #bfdef7;border: 1px solid #bfdef7;color: #000;}

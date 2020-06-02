@@ -156,7 +156,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                     <div class="card bg-gradient-success card-img-holder text-white ">
                         <div class="card-body">
                             <img src="assets/images/dashboard/circle.svg " class="card-img-absolute " alt="circle-image " />
-                            <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-chart-bar font24 float-right"></i></h4>
+                            <h4 class="font-weight-normal mb-3 ">Matching Income <i class="mdi mdi-wallet font24 float-right"></i></h4>
                             <h2 class="">&#x20b9;
                                 <a href="matching-income" class="dashboard-box">
                                     <span id="matching_income">0.00</span>

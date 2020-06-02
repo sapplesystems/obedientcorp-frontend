@@ -72,10 +72,12 @@ include_once 'header.php';
                         <div id="f1_container" class="height150">\n\
                         <div id="f1_card">\n\
                         <div class="front face '+add_class+'"><div class="row mt-40">\n\
-                        <div class="col-sm-4"><strong>Rank :</strong></div>\n\
-                        <div class="col-sm-8 text-left">'+value.rank_title+'</div></div></div>\n\
+                        <div class="col-sm-4 col-4"><strong>Rank :</strong></div>\n\
+                        <div class="col-sm-8 col-8 text-left">'+value.rank_title+'</div></div></div>\n\
                         <div class="back face center">\n\
+						<div>\n\
                         '+left_right_business+'\n\
+						</div>\n\
                        </div>\n\
                         </div></div></li>'
                     });

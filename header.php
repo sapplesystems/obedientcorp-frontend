@@ -72,7 +72,7 @@ include_once 'common_html.php';
                                     <span class="availability-status"></span>
                                 </div>
                                 <div class="nav-profile-text">
-                                    <p class="mb-1" id="user_login"><?php echo $associate_name.' ('.$username.')'; ?></p>
+                                    <p class="mb-1" id="user_login"><?php echo $associate_name . ' (' . $username . ')'; ?></p>
                                 </div>
                             </a>
                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -141,6 +141,14 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-wallet-giftcard menu-icon"></i>
                             </a>
                         </li>
+                        <?php /*if ($user_type == 'ADMIN') { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="reverse-shopping-card">
+                                    <span class="menu-title">Reverse Shopping Card</span>
+                                    <i class="mdi mdi-wallet-giftcard menu-icon"></i>
+                                </a>
+                            </li>
+                        <?php }*/ ?>
                         <?php if ($user_type != 'ADMIN') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="wallet-to-wallet-transfer">

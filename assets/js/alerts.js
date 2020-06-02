@@ -27,6 +27,19 @@
                 }
             })
 
+        } else if (type === 'info') {
+            swal({
+                title: title,
+                text: message,
+                icon: 'info',
+                button: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary info_swal_ok"
+                }
+            })
+
         } else if (type === 'success-message') {
             swal({
                 title: 'Approve Payment!',

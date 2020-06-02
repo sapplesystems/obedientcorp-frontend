@@ -45,15 +45,20 @@ $(document).ready(function () {
             }
         });
         if ($("#gallery-images-form").valid()) {
-            showLoader();
             var params = new FormData();
-            var name = $('#gallery-id').val();
+            params.append('gallery_id', $('#gallery-id').val());
             var image_file = document.getElementById('product_images');
             var totalfiles = image_file.children[0].children[0].files.length;
+            var filesie = 0;
             for (var index = 0; index < totalfiles; index++) {
+                filesie = (filesie + image_file.children[0].children[0].files[index].size / 1024 / 1024);
                 params.append("photo[]", image_file.children[0].children[0].files[index]);
             }
-            params.append('gallery_id', name);
+            if (filesie >= 10) {
+                showSwal('error', 'Image Size Limit Exceeds', 'You can only upload 10MB at one time');
+                return false;
+            }
+            showLoader();
             $.ajax({
                 url: base_url + 'gallery-image-upload',
                 type: 'post',
@@ -61,11 +66,12 @@ $(document).ready(function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
+                    console.log(response);
                     if (response.status == 'success') {
                         showSwal('success', 'Gallery Saved', response.data);
                         document.getElementById('gallery-images-form').reset();
                         $(".uploaded").children(".uploaded-image").remove();
-                        setTimeout(function(){ location.reload(); }, 2000);
+                        //setTimeout(function () { location.reload(); }, 2000);
                         getGalleryImages($('#gallery-id').val());
                         hideLoader();
                     } else {
@@ -80,6 +86,18 @@ $(document).ready(function () {
     });
 
     //end gallery images form submit
+    $("#photo").change(function () {
+        var file = $(this)[0].files[0];
+        var totalSizeMB = (file.size / Math.pow(1024, 2));
+        console.log(totalSizeMB);
+        if (totalSizeMB > 10) {
+            showSwal('error', 'Image Size Limit Exceeds', 'You can only upload 10MB at one time');
+            return false;
+        } else {
+            console.log("you can upload image");
+        }
+
+    });
 
 });//document ready
 
@@ -226,7 +244,7 @@ function getGalleryImages(id) {
     $.ajax({
         url: base_url + 'gallery-image-list',
         type: 'post',
-        data: {gallery_id: id},
+        data: { gallery_id: id },
         async: true,
         success: function (response) {
             console.log(response);
@@ -248,7 +266,7 @@ function getGalleryImages(id) {
                                 <td>' + response.gallery_title + '</td>\n\
                                 <td><img src="'+ media_url + 'gallery_photo/' + value.file_name + '" id="photo_id" /> </td>\n\
                                 <td>\n\
-                                <a href="javascript:void(0);" onclick="deletegalleryImages(event, ' + value.id + ','+id+');"><i class="mdi mdi-delete text-danger"></i></a>&nbsp\n\
+                                <a href="javascript:void(0);" onclick="deletegalleryImages(event, ' + value.id + ',' + id + ');"><i class="mdi mdi-delete text-danger"></i></a>&nbsp\n\
                                 </td>\n\
                             </tr>';
                     i = i + 1;
@@ -264,7 +282,7 @@ function getGalleryImages(id) {
 }//end function for get gallery images
 
 //function for delete gallery multiple Images 
-function deletegalleryImages(e, images_id,id) {
+function deletegalleryImages(e, images_id, id) {
 
     e.preventDefault();
     showLoader();

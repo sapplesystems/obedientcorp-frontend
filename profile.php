@@ -372,6 +372,7 @@ if ($_REQUEST) {
                                             <div class="tab-pane fade" id="kyc-1" role="tabpanel" aria-labelledby="kyc-tab">
                                                 <form id="kyc_update" name="kyc_update" method="post" enctype="multipart/form-data">
                                                     <section>
+                                                        <div class="form-group row"><div class="col-sm-12 text-center text-danger" id="kyc_rejected_messsage"></div></div>
                                                         <div class="form-group row">
                                                             <!--<label class="col-sm-2 col-form-label">Date of Birth <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
@@ -424,7 +425,7 @@ if ($_REQUEST) {
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Passport Image 1<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                            <span id="passport_image_error_1" class="error" style="display:none">This field is required.</span>
+                                                                <span id="passport_image_error_1" class="error" style="display:none">This field is required.</span>
                                                                 <input type="file" class="file-upload-default  " name="passport_image" id="passport_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
@@ -442,7 +443,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Passport Image 2<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                            <span id="passport_image_error_2" class="error" style="display:none">This field is required.</span>
+                                                                <span id="passport_image_error_2" class="error" style="display:none">This field is required.</span>
                                                                 <input type="file" class="file-upload-default " name="passport_image2" id="passport_image2">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
@@ -464,7 +465,7 @@ if ($_REQUEST) {
                                                             </div>
                                                             <label class="col-sm-2 col-form-label">Driving Licence Image 1<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                            <span id="driving_licence_image_error_1" class="error" style="display:none">This field is required.</span>
+                                                                <span id="driving_licence_image_error_1" class="error" style="display:none">This field is required.</span>
                                                                 <input type="file" class="file-upload-default " name="driving_licence_image" id="driving_licence_image">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
@@ -482,7 +483,7 @@ if ($_REQUEST) {
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Driving Licence Image 2<span class="text-danger"></span></label>
                                                             <div class=" input-group col-sm-4">
-                                                            <span id="driving_licence_image_error_2" class="error" style="display:none">This field is required.</span>
+                                                                <span id="driving_licence_image_error_2" class="error" style="display:none">This field is required.</span>
                                                                 <input type="file" class="file-upload-default" name="driving_licence_image2" id="driving_licence_image2">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">

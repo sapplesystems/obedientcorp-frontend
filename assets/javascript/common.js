@@ -77,6 +77,13 @@ $(document).ready(function () {
                         $('#user_code').html(profile.username);
                         if (kyc.kyc_status) {
                             $('#kyc_status').html('KYC ' + kyc.kyc_status);
+                            if (kyc.kyc_status == 'Approved') {
+                                $('#kyc_status').addClass('text-success');
+                            } else if (kyc.kyc_status == 'Rejected') {
+                                $('#kyc_status').addClass('text-danger');
+                            } else if (kyc.kyc_status == 'Submitted') {
+                                $('#kyc_status').addClass('text-warning');
+                            }
                         }
                         $('#house_no').val(profile.house_no);
                         $('#block').val(profile.block);
@@ -171,6 +178,9 @@ $(document).ready(function () {
                         if (user_type == 'ADMIN') {
                             $('#bank_update_submit').css('display', '');
                             $('#nominee_update_submit').css('display', '');
+                            $('#kyc_update_submit').css('display', '');
+                        }
+                        if (kyc.kyc_status == 'Rejected') {
                             $('#kyc_update_submit').css('display', '');
                         }
                         hideLoader();
@@ -372,44 +382,47 @@ function checkForKYCSaveButton(v) {
 
 function setKYCDetail(kyc) {
     $('#kyc_id').val(kyc.id);
+    if (kyc.kyc_status == 'Rejected') {
+        $('#kyc_rejected_messsage').html(kyc.kyc_comment);
+    }
     if (kyc.nationality) {
         $('#nationality').val(kyc.nationality);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#nationality').prop('disabled', true);
     }
     if (kyc.occupation) {
         $('#koccupation').val(kyc.occupation);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#koccupation').prop('disabled', true);
     }
     if (kyc.qualification) {
         $('#qualification').val(kyc.qualification);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#qualification').prop('disabled', true);
     }
     if (kyc.pan_number) {
         $('#pan_number').val(kyc.pan_number);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#pan_number').prop('disabled', true);
     }
     if (kyc.passport_number) {
         $('#passport_number').val(kyc.passport_number);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#passport_number').prop('disabled', true);
     }
     if (kyc.driving_licence_number) {
         $('#driving_licence_number').val(kyc.driving_licence_number);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#driving_licence_number').prop('disabled', true);
     }
     if (kyc.proposed_area_of_work) {
         $('#proposed_area_of_work').val(kyc.proposed_area_of_work);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#proposed_area_of_work').prop('disabled', true);
     }
     if (kyc.voter_id) {
         $('#voter_id').val(kyc.voter_id);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#voter_id').prop('disabled', true);
     }
     if (kyc.join_date) {
@@ -428,7 +441,7 @@ function setKYCDetail(kyc) {
     if (kyc.adhar) {
         $('#adhar_number').val(kyc.adhar);
         $('#adhar_number').removeClass('required');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#adhar_number').prop('disabled', true);
     }
     if (kyc.adhar_image) {
@@ -437,7 +450,7 @@ function setKYCDetail(kyc) {
         $('#a_adhar_upload').attr('href', image);
         $('#adhar_upload').css('display', 'block');
         $('#adhar_image').removeClass('required');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#adhar_image').prop('disabled', true);
     }
     if (kyc.adhar_image_2) {
@@ -446,7 +459,7 @@ function setKYCDetail(kyc) {
         $('#a_adhar_upload2').attr('href', image);
         $('#adhar_upload2').css('display', 'block');
         $('#adhar_image2').removeClass('required');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#adhar_image2').prop('disabled', true);
     }
     if (kyc.pan_image) {
@@ -454,7 +467,7 @@ function setKYCDetail(kyc) {
         $('#pan_upload').attr('src', image);
         $('#a_pan_upload').attr('href', image);
         $('#pan_upload').css('display', 'block');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#pan_image').prop('disabled', true);
     }
     if (kyc.passport_image) {
@@ -462,7 +475,7 @@ function setKYCDetail(kyc) {
         $('#passport_upload').attr('src', image);
         $('#a_passport_upload').attr('href', image);
         $('#passport_upload').css('display', 'block');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#passport_image').prop('disabled', true);
     }
     if (kyc.passport_image_2) {
@@ -470,7 +483,7 @@ function setKYCDetail(kyc) {
         $('#passport_upload2').attr('src', image);
         $('#a_passport_upload2').attr('href', image);
         $('#passport_upload2').css('display', 'block');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#passport_image2').prop('disabled', true);
     }
     if (kyc.driving_licence_image) {
@@ -478,7 +491,7 @@ function setKYCDetail(kyc) {
         $('#driving_upload').attr('src', image);
         $('#a_driving_upload').attr('href', image);
         $('#driving_upload').css('display', 'block');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#driving_licence_image').prop('disabled', true);
     }
     if (kyc.driving_licence_image_2) {
@@ -486,7 +499,7 @@ function setKYCDetail(kyc) {
         $('#driving_upload2').attr('src', image);
         $('#a_driving_upload2').attr('href', image);
         $('#driving_upload2').css('display', 'block');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#driving_licence_image2').prop('disabled', true);
     }
     if (kyc.voter_image) {
@@ -494,7 +507,7 @@ function setKYCDetail(kyc) {
         $('#voter_upload').attr('src', image);
         $('#a_voter_upload').attr('href', image);
         $('#voter_upload').css('display', 'block');
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#voter_image').prop('disabled', true);
     }
 }

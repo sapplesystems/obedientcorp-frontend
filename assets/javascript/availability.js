@@ -11,16 +11,22 @@ $(document).ready(function () {
         var search_value = $(this).val();
         if (search_value && search_value != '') {
             $('.aval-div').show();
+            var divids = [];
             $('.aval-span').each(function () {
                 var span_value = $(this).data('filter');
-                if (search_value.toLowerCase() == span_value.toLowerCase()) {
+                span_value = span_value.toLowerCase();
+                if(span_value.indexOf(search_value.toLowerCase()) > -1){
                     var spanid = $(this).attr('id');
                     var x = spanid.split('-')[2];
-                    var divid = 'aval-div-' + x;
-                    $('.aval-div').hide();
-                    $('#' + divid).show();
+                    var divid = '#aval-div-' + x;
+                    divids.push(divid);
                 }
             });
+            if(divids.length > 0){
+                $('.aval-div').hide();
+                $(divids.join()).show();
+            }
+            divids = [];
         } else {
             $('.aval-div').show();
         }

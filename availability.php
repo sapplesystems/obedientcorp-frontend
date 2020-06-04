@@ -32,11 +32,15 @@ if (isset($_REQUEST['spid']) && isset($_REQUEST['spid']) != '') {
     </div>
     <div class="t-center container">
         <div class="divider-4 font-22 uppercase container extrabold mt-5"><span id="project-name"></span></div>
-        <!-- Row for cols -->
-        <div class="row" id="plot-availability">
-            <input type="hidden" value="<?php echo $project_id; ?>" id="project-id" />
-            <input type="hidden" value="<?php echo $sub_project_id; ?>" id="sub-project-id" />
+        <div class="row">
+            <div class="col-md-3">
+                <labe>Search: <input type="text" class="form-control" id="searh_plot" value="" placeholder="Search Plot No." /></labe>
+            </div>
         </div>
+        <!-- Row for cols -->
+        <div class="row" id="plot-availability"></div>
+        <input type="hidden" value="<?php echo $project_id; ?>" id="project-id" />
+        <input type="hidden" value="<?php echo $sub_project_id; ?>" id="sub-project-id" />
     </div>
     <div class="clearfix"></div>
 

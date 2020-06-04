@@ -6,6 +6,25 @@ $(document).ready(function () {
         var sub_project_id = $('#sub-project-id').val();
         getPlotAvailability(project_id, sub_project_id);
     }
+
+    $(document).on('keyup', '#searh_plot', function () {
+        var search_value = $(this).val();
+        if (search_value && search_value != '') {
+            $('.aval-div').show();
+            $('.aval-span').each(function () {
+                var span_value = $(this).data('filter');
+                if (search_value.toLowerCase() == span_value.toLowerCase()) {
+                    var spanid = $(this).attr('id');
+                    var x = spanid.split('-')[2];
+                    var divid = 'aval-div-' + x;
+                    $('.aval-div').hide();
+                    $('#' + divid).show();
+                }
+            });
+        } else {
+            $('.aval-div').show();
+        }
+    });
 });
 function getPlotAvailability(project_id, sub_project_id) {
 
@@ -19,6 +38,7 @@ function getPlotAvailability(project_id, sub_project_id) {
                     var plot_availability = '';
                     var differ_class = '';
                     var project_name = '';
+                    var x = 1;
                     $.each(response.data, function (key, value) {
 
                         if (value.availability == 'Booked') {
@@ -32,9 +52,10 @@ function getPlotAvailability(project_id, sub_project_id) {
                         } else if (value.availability == 'Hold') {
                             differ_class = 'bg-colored2';
                         }
-                        plot_availability += '<div class="col-md-2 col-sm-6 col-6 sm-mt">\n\
-                                    <span class="stay icon-xl radius white m-auto ' + differ_class + ' ">' + value.name + ' <span>' + value.availability + '</span></span>\n\
+                        plot_availability += '<div class="col-md-2 col-sm-6 col-6 sm-mt aval-div" id="aval-div-' + x + '">\n\
+                                    <span class="stay aval-span icon-xl radius white m-auto ' + differ_class + ' " id="aval-span-' + x + '" data-filter="' + value.name + '">' + value.name + ' <span>' + value.availability + '</span></span>\n\
                                     </div>';
+                        x++;
 
                     });
 

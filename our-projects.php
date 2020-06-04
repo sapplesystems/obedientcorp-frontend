@@ -59,29 +59,34 @@ include_once 'header_frontend.php';
         $.ajax({
             url: base_url + 'get-all-sites',
             type: 'post',
-            success: function(response) {
+            success: function (response) {
                 console.log(response);
                 var all_sites = '';
-                var path='';
-                var pro_id ='';
-                var sub_pro_id ='';
+                var path = '';
+                var pro_id = '';
+                var sub_pro_id = '';
                 if (response.status == "success") {
-
-                    $.each(response.data, function(key, value) {
-                        path = media_url+'project_photo/'+value.photo;
+                    var map;
+                    $.each(response.data, function (key, value) {
+                        map = '';
+                        path = media_url + 'project_photo/' + value.photo;
+                        if (value.map != '') {
+                            map = '<a target="_blank" href="'+media_url + 'project_photo/' + value.map+'" class="btn btn-info btn-sm font-12 mt-3">Check Plot Availability</a>';
+                        }
                         pro_id = value.project_master_id;
                         sub_pro_id = value.sub_project_id;
                         all_sites += ' <li>\n\
-                    <div class="product_info">\n\
-                        <img src="'+path+'" alt="" />\n\
-                        <!--div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div-->\n\
-                    </div>\n\
-                    <div class="title">'+value.name+'</div>\n\
-                    <div class="price">\n\
-                        <span class="new">'+value.description+'</span>\n\
-                    </div>\n\
-                    <a href="availability.php?pid='+pro_id+'&spid='+sub_pro_id+'" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>\n\
-                </li>'
+                                            <div class="product_info">\n\
+                                                <img src="' + path + '" alt="" />\n\
+                                                <!--div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div-->\n\
+                                            </div>\n\
+                                            <div class="title">' + value.name + '</div>\n\
+                                            <div class="price">\n\
+                                                <span class="new">' + value.description + '</span>\n\
+                                            </div>\n\
+                                            <a href="availability.php?pid=' + pro_id + '&spid=' + sub_pro_id + '" class="btn btn-primary btn-sm font-12 mt-3">Check Plot Availability</a>\n\
+                                                    '+map+'\n\
+                                        </li>'
                     });
                     $('#all-site').html(all_sites);
 

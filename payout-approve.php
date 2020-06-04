@@ -17,11 +17,27 @@ if ($user_type != 'ADMIN') {
                     <div class="col-sm-3">
                         <label class="d-block">&nbsp;</label>
                         <label class="form-check-label text-muted ml-3 mt13">
-                        <input type="checkbox" id="associate_only_with_payout" class="form-check-input mt-0 checkBoxSize"> <span class="checkBoxLabel">Associates Only with Payout</span> <i class="input-helper"></i></label>
+                            <input type="checkbox" id="associate_only_with_payout" class="form-check-input mt-0 checkBoxSize"> <span class="checkBoxLabel">Associates Only with Payout</span> <i class="input-helper"></i></label>
                     </div>
-                    <div class="col-sm-4">
+                    <!--div class="col-sm-4">
                         <label class="d-block">&nbsp;</label>
                         <input type="button" value="Approve Payout" class="btn btn-gradient-primary" onclick="generatePayout();" />
+                    </div-->
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <table>
+                            <tr><th class="text-success">Last Payout Detail</th></tr>
+                            <tr><td>Week No. <span id="last_week_no"> - </span></td></tr>
+                            <tr><td>Cycle: <span id="last_week_cycle"> - </span></td></tr>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <table>
+                            <tr><th class="text-info">Upcoming Payout Detail</th></tr>
+                            <tr><td>Week No. <span id="upcoming_week_no"> - </span></td></tr>
+                            <tr><td>Cycle: <span id="upcoming_week_cycle"> - </span></td></tr>
+                        </table>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -66,6 +82,10 @@ if ($user_type != 'ADMIN') {
                 data: params,
                 success: function (response) {
                     if (response.status == "success") {
+                        $('#last_week_no').html(response.last_payout.week_no);
+                        $('#last_week_cycle').html(response.last_payout.from_date + ' - ' + response.last_payout.to_date);
+                        $('#upcoming_week_no').html(response.upcoming_payout.week_no);
+                        $('#upcoming_week_cycle').html(response.upcoming_payout.from_date + ' - ' + response.upcoming_payout.to_date);
                         var table_data = '<thead>\n\
                                     <tr>\n\
                                         <th>Date</th>\n\

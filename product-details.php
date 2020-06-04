@@ -71,6 +71,7 @@ if(isset($_REQUEST['pid']))
                     <!-- Quantity of product -->
                     <div>
                         <h5><span class="bold">Product Code:</span> <span id="sku-code"></span></h5>
+                        <h5 class="mt-2"><span class="bold">Contents:</span> <span id="contents"></span></h5>
                         <h5 class="mt-2"><span class="bold">Description:</span> <span id="description"></span></h5>
                     </div>
                 </div>
@@ -111,6 +112,10 @@ function getProductList(product_id) {
                 if(response.data.description)
                 {
                     $('#description').html(response.data.description);
+                }
+                if(response.data.contents)
+                {
+                    $('#contents').html(response.data.contents);
                 }
                 if(response.data.sku)
                 {

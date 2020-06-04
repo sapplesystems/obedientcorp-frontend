@@ -33,14 +33,14 @@ $(document).ready(function () {
 
 
         if ($("#create_product").valid()) {
-            showLoader();
             var params = new FormData();
             var image_file = document.getElementById('product_images');
             var doc_file = document.getElementById('product_docs');
             var totalfiles = image_file.children[0].children[0].files.length;
-            if(totalfiles == 0)
+            if($('#product_id').val() == '' && totalfiles == 0)
             {
                 showSwal('error', 'Upload Product Image', 'Please upload product image first.');
+                return false;
             }
             var docfiles = doc_file.children[0].children[0].files.length;
             for (var index = 0; index < totalfiles; index++) {
@@ -61,6 +61,7 @@ $(document).ready(function () {
             params.append('market_price', $('#market_price').val());
             params.append('bar_code', $('#bar_code').val());
             params.append('sku', $('#sku').val());
+            params.append('contents', $('#contents').val());
             params.append('expiry_date', $('#expiry_date').val());
             params.append('quantity', $('#quantity').val());
             //params.append('short_description', $('#nomineesname').val());
@@ -73,7 +74,7 @@ $(document).ready(function () {
                 params.append('updated_by', user_id);
                 params.append('id', $('#product_id').val());
             }
-
+            showLoader();
             $.ajax({
                 url: url,
                 type: 'post',
@@ -270,6 +271,7 @@ function editProduct(product_id) {
                 $('#market_price').val(product.market_price);
                 $('#bar_code').val(product.bar_code);
                 $('#sku').val(product.sku);
+                $('#contents').val(product.contents);
                 $('#expiry_date').val(product.expiry_date);
                 $('#description').val(product.description);
                 $('#updated_by').val(user_id);

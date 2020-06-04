@@ -76,6 +76,12 @@ if(isset($_REQUEST['pid'])){
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
+                                                <label>Contents</label>
+                                                <input type="text" class="form-control" placeholder="Contents" id="contents" name="contents">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
                                                 <label>Description</label>
                                                 <textarea class="form-control required" rows="7" id="description" name="description"></textarea>
                                             </div>

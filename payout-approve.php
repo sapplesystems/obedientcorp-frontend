@@ -120,7 +120,7 @@ if ($user_type != 'ADMIN') {
                         hideLoader();
                     }
                     else {
-                        showSwal('error', 'Failed', 'Payout Generation Failed');
+                        showSwal('error', 'Payout Failed', response.data);
                         hideLoader();
                     }
                 }

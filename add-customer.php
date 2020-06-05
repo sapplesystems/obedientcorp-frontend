@@ -211,16 +211,16 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     </div>
 
                                 </div>
-                                <div class="form-group row">
-                                    <!--label class="col-sm-2 col-form-label">Reference :</label>
+                                <!--<div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Reference :</label>
                                     <div class="col-sm-4">
                                         <input class="form-control" type="text" id="reference" name="reference" placeholder="Enter Reference">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Registration Number :</label>
                                     <div class="col-sm-4">
                                         <input class="form-control" type="text" id="registration_num" name="registration_num" placeholder="Enter Registration number" />
-                                    </div-->
-                                </div>
+                                    </div>
+                                </div>-->
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Unit :</label>
                                     <div class="col-sm-4">

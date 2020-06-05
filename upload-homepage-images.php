@@ -5,7 +5,7 @@ if ($user_type != 'ADMIN') {
 }
 ?>
 <div class="main-panel ">
-    <div class="content-wrapper ">
+    <div class="content-wrapper custom_images">
         <?php
         include_once 'upload-landing-image.php';
         include_once 'upload-slider-images.php';

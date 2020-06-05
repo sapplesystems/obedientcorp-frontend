@@ -71,7 +71,7 @@ include_once 'header_frontend.php';
                         map = '';
                         path = media_url + 'project_photo/' + value.photo;
                         if (value.map != '') {
-                            map = '<a target="_blank" href="'+media_url + 'project_photo/' + value.map+'" class="btn btn-info btn-sm font-12 mt-3">Check Plot Availability</a>';
+                            map = '<a target="_blank" href="'+media_url + 'project_photo/' + value.map+'" class="btn btn-info btn-sm font-12 mt-3">Download Map</a>';
                         }
                         pro_id = value.project_master_id;
                         sub_pro_id = value.sub_project_id;

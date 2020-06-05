@@ -305,8 +305,8 @@ if ($_REQUEST) {
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control " placeholder="" id="ifsc_code" name="ifsc_code">
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label"></label>
-                                                            <div class="col-sm-4">
+                                                            <label class="col-sm-2 col-form-label d-none d-sm-none d-md-block"></label>
+                                                            <div class="col-sm-4 d-none d-sm-none d-md-block">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">

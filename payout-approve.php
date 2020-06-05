@@ -25,18 +25,20 @@ if ($user_type != 'ADMIN') {
                     </div-->
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <table>
                             <tr><th class="text-success">Last Payout Detail</th></tr>
                             <tr><td>Week No. <span id="last_week_no"> - </span></td></tr>
                             <tr><td>Cycle: <span id="last_week_cycle"> - </span></td></tr>
+                            <tr><td>Last Payout at: <span id="last_payout_at"> - </span></td></tr>
                         </table>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6 mt-20-m">
                         <table>
                             <tr><th class="text-info">Upcoming Payout Detail</th></tr>
                             <tr><td>Week No. <span id="upcoming_week_no"> - </span></td></tr>
                             <tr><td>Cycle: <span id="upcoming_week_cycle"> - </span></td></tr>
+                            <tr><td>Upcoming Payout at: <span id="upcoming_payout_at"> - </span></td></tr>
                         </table>
                     </div>
                 </div>
@@ -84,8 +86,10 @@ if ($user_type != 'ADMIN') {
                     if (response.status == "success") {
                         $('#last_week_no').html(response.last_payout.week_no);
                         $('#last_week_cycle').html(response.last_payout.from_date + ' - ' + response.last_payout.to_date);
+                        $('#last_payout_at').html(response.last_payout.to_date + ' 23:59');
                         $('#upcoming_week_no').html(response.upcoming_payout.week_no);
                         $('#upcoming_week_cycle').html(response.upcoming_payout.from_date + ' - ' + response.upcoming_payout.to_date);
+                        $('#upcoming_payout_at').html(response.upcoming_payout.to_date + ' 23:59');
                         var table_data = '<thead>\n\
                                     <tr>\n\
                                         <th>Date</th>\n\

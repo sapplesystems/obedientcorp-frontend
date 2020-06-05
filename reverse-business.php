@@ -13,7 +13,7 @@ if ($user_type != 'ADMIN') {
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body p-3">
-                                <h4 class="card-title mb-4">Reverse Business</h4>
+                                <h4 class="card-title mb-4">Business Reverse</h4>
                                 <div id="errors_div"></div>
                                 <form class="forms-sample" id="reverse_shopping_card_form" name="reverse_shopping_card_form" method="post">
                                     <div class="form-group row">

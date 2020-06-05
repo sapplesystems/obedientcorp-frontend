@@ -154,7 +154,7 @@ function getDownTheLineMemberList() {
                 var list = '';
                 var i = 0;
                 if (user_id == 1) {
-                    list += '<option value="">Select</option>';
+                    list += '<option value="">All</option>';
                 }
                 $.each(response.data, function (key, value) {
                     list += '<option value="' + value.id + '">' + value.display_name + '</option>';

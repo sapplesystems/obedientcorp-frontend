@@ -29,7 +29,7 @@ include_once 'header.php';
                                             <label>Associate ID</label>
                                             <select class="form-control" id="agent_id"></select>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3 mt-20-m">
                                             <label>Week</label>
                                             <select class="form-control" id="week_range">
                                                 <option value="">Select Week</option>

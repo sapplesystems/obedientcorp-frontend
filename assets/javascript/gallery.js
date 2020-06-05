@@ -54,10 +54,10 @@ $(document).ready(function () {
                 filesie = (filesie + image_file.children[0].children[0].files[index].size / 1024 / 1024);
                 params.append("photo[]", image_file.children[0].children[0].files[index]);
             }
-            if (filesie >= 10) {
+            /*if (filesie >= 10) {
                 showSwal('error', 'Image Size Limit Exceeds', 'You can only upload 10MB at one time');
                 return false;
-            }
+            }*/
             showLoader();
             $.ajax({
                 url: base_url + 'gallery-image-upload',

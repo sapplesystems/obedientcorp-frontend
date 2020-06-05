@@ -69,17 +69,16 @@ include_once 'header.php';
                         }
                         //rewards += '<li><div id="f1_container" class="height100"><div id="f1_card"><i class="mdi mdi-check-circle"></i><div class="front face"><div class="row mt-3"><div class="col-sm-4"><strong>Rank Achieved :</strong></div><div class="col-sm-8 text-left">Distributer</div></div></div><div class="back face center"><div class="row mt-3"><div class="col-sm-4"><h5 class="border-bottom pb-1"> Target </h5> <div>33673.73</div></div><div class="col-sm-4"><h5 class="border-bottom pb-1"> Achieved </h5><div>500.00</div></div><div class="col-sm-4"><h5 class="border-bottom pb-1"> Required </h5><div>500.00</div></div></div></div></div></div></li>'
                         ranks += '<li>\n\
-                        <div id="f1_container" class="height150">\n\
-                        <div id="f1_card">\n\
-                        <div class="front face '+add_class+'"><div class="row mt-40">\n\
+                        <div class="main_hover">\n\
+                        <div class="hoverClass height150 '+add_class+'"><div class="row">\n\
                         <div class="col-sm-4 col-4"><strong>Rank :</strong></div>\n\
                         <div class="col-sm-8 col-8 text-left">'+value.rank_title+'</div></div></div>\n\
-                        <div class="back face center">\n\
+                        <div class="hoverText center">\n\
 						<div>\n\
                         '+left_right_business+'\n\
 						</div>\n\
                        </div>\n\
-                        </div></div></li>'
+                        </div></li>'
                     });
                     $('.rewards_all_main').append(ranks);
 

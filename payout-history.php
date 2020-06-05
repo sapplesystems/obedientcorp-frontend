@@ -16,7 +16,7 @@ if ($user_type != 'ADMIN') {
                             <option value="">Select Week</option>
                         </select>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-3 mt-20-m">
                         <label>Associate ID</label>
                         <select class="form-control" id="agent_list"></select>
                     </div>

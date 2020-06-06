@@ -17,14 +17,14 @@ if ($user_type != 'ADMIN') {
                                 <div id="errors_div"></div>
                                 <form class="forms-sample" id="reverse_shopping_card_form" name="reverse_shopping_card_form" method="post">
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Associates</label>
-                                        <div class="col-sm-4">
+                                        <label class="col-sm-2 col-form-label">Associate</label>
+                                        <div class="col-sm-6">
                                             <select class="form-control required" id="agent_id" name="agent_id"></select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Shopping Card Type</label>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <select class="form-control required" id="coupon_type_id" name="coupon_type_id">
                                                 <option value="">Select</option>
                                                 <option value="1">Consumer Goods Shopping Card</option>
@@ -34,19 +34,19 @@ if ($user_type != 'ADMIN') {
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Amount</label>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <input type="text" class="form-control required" id="amount" name="amount" placeholder="Enter Amount" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Transaction Password</label>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <input type="password" class="form-control required" id="transaction_password" name="transaction_password" placeholder="Transaction password" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Comments</label>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <textarea class="form-control required" id="comments" name="comments"></textarea>
                                         </div>
                                     </div>

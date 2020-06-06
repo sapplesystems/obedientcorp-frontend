@@ -45,7 +45,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                                         <div class="wrapper text-center text-sm-left">
                                             <p class="card-text mb-0">Pending Requests</p>
                                             <div class="fluid-container">
-                                                <h4 class="mb-0 font-weight-medium">Real Esate</h4>
+                                                <h4 class="mb-0 font-weight-medium">Real Estate</h4>
                                             </div>
                                         </div>
                                     </div>

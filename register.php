@@ -40,7 +40,6 @@ include_once 'common_html.php';
                         <div class="col-lg-12">
                             <h4>New here?</h4>
                             <h6 class="font-weight-light mb-4">Join us today! It takes only few steps</h6>
-                            <div id="register_error"></div>
                             <form id="example-form" class="register_form" action="#" enctype="multipart/form-data">
                                 <div>
                                     <h3>Personal Details</h3>
@@ -735,19 +734,19 @@ include_once 'common_html.php';
                                                                     if (response.status == "success") {
                                                                         $('#sponsor_detail').html(response.data.display_name);
                                                                     } else {
-                                                                        $('#register_error').css('display', 'block');
-                                                                        $('#register_error').html(response.data);
-
+                                                                        var se = document.getElementById('sponsor-error');
+                                                                        if(!se){
+                                                                            $('#sponsor').before('<label id="sponsor-error" class="error" for="sponsor">Introducer not found.</label>');
+                                                                        }
+                                                                        $('#sponsor_detail').html('');
+                                                                        $('#sponsor').val('');
+                                                                        $('#sponsor-error').show();
+                                                                        $('#sponsor-error').html('Introducer not found.');
+                                                                        $('#sponsor').addClass('error');
                                                                     }
-
                                                                 }
                                                             }); //ajax
-                                                        } //if
-                                                        else {
-                                                            $('#register_error').css('display', 'none');
                                                         }
-
-
                                                     } //close function get_sponser_detail
                                                     $(".terms_condition").scroll(function () {
                                                         var y = $('.terms_condition').scrollTop();

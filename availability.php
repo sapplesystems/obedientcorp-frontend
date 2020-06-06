@@ -33,7 +33,7 @@ if (isset($_REQUEST['spid']) && isset($_REQUEST['spid']) != '') {
     <div class="t-center container">
         <div class="divider-4 font-22 uppercase container extrabold mt-5"><span id="project-name"></span></div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 mt-3">
                 <input type="text" class="form-control" id="searh_plot" value="" placeholder="Search Plot No." />
             </div>
         </div>

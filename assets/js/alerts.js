@@ -32,11 +32,21 @@
                 title: title,
                 text: message,
                 icon: 'info',
-                button: {
-                    text: "OK",
-                    value: true,
-                    visible: true,
-                    className: "btn btn-primary info_swal_ok"
+                buttons: {
+                    cancel: {
+                        text: "Cancel",
+                        value: null,
+                        visible: true,
+                        className: "btn btn-danger",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "OK",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-primary info_swal_ok",
+                        closeModal: false,
+                    }
                 }
             })
 

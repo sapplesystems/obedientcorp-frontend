@@ -46,12 +46,14 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['spid'])) {
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Sub-project Map</label>
-                                <div class="input-group col-sm-4">
-                                    <input type="file" name="mapphoto" id="mapphoto" class="file-upload-default">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                                    </span>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <input type="file" name="mapphoto" id="mapphoto" class="file-upload-default">
+                                        <input type="text" class="form-control file-upload-info" disabled placeholder="Choose File">
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                        </span>
+                                    </div>
                                     <p id="mapphoto_id" class="mt-2"></p>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Description</label>

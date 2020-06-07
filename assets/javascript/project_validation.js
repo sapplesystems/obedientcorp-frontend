@@ -1,5 +1,5 @@
 var photo_image = '';
-var map_image = '';
+//var map_image = '';
 
 
 $(document).ready(function () {
@@ -19,18 +19,18 @@ $(document).ready(function () {
         }
     });
 
-    $image_crop_map = $('#image_demo_map').croppie({
-        enableExif: true,
-        viewport: {
-            width: 500,
-            height: 500,
-            type: 'square' //circle
-        },
-        boundary: {
-            width: 600,
-            height: 600
-        }
-    });
+    /*$image_crop_map = $('#image_demo_map').croppie({
+     enableExif: true,
+     viewport: {
+     width: 500,
+     height: 500,
+     type: 'square' //circle
+     },
+     boundary: {
+     width: 600,
+     height: 600
+     }
+     });*/
 
     $('#photo').on('change', function () {
         var reader = new FileReader();
@@ -44,18 +44,18 @@ $(document).ready(function () {
         reader.readAsDataURL(this.files[0]);
         $('#uploadphotoModal').modal('show');
     });
-    $('#mapphoto').on('change', function () {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            $image_crop_map.croppie('bind', {
-                url: event.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-        }
-        reader.readAsDataURL(this.files[0]);
-        $('#uploadmapModal').modal('show');
-    });
+    /*$('#mapphoto').on('change', function () {
+     var reader = new FileReader();
+     reader.onload = function (event) {
+     $image_crop_map.croppie('bind', {
+     url: event.target.result
+     }).then(function () {
+     console.log('jQuery bind complete');
+     });
+     }
+     reader.readAsDataURL(this.files[0]);
+     $('#uploadmapModal').modal('show');
+     });*/
 
     $('.crop_photo_image').click(function (event) {
         $image_crop.croppie('result', {
@@ -71,28 +71,28 @@ $(document).ready(function () {
         })
     });
 
-    $('.crop_map_image').click(function (event) {
-        $image_crop_map.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response) {
-
-            if ($('#mapphoto').val() != '')
-            {
-                map_image = response;
-            }
-            $('#uploadmapModal').modal('hide');
-        })
-    });
+    /*$('.crop_map_image').click(function (event) {
+     $image_crop_map.croppie('result', {
+     type: 'canvas',
+     size: 'viewport'
+     }).then(function (response) {
+     
+     if ($('#mapphoto').val() != '')
+     {
+     map_image = response;
+     }
+     $('#uploadmapModal').modal('hide');
+     })
+     });*/
 
     $(document).on('click', '.close_photo_image', function () {
         $('#photo').val('');
         $('.file-upload-info').val('');
     });
-    $(document).on('click', '.close_map_image', function () {
-        $('#mapphoto').val('');
-        $('.file-upload-info').val('');
-    });
+    /*$(document).on('click', '.close_map_image', function () {
+     $('#mapphoto').val('');
+     $('.file-upload-info').val('');
+     });*/
 
 
     //end crop image code
@@ -124,13 +124,14 @@ $(document).ready(function () {
             var unit_price = $('#unit_price').val();
             var desc = $('#description').val();
             //var photo = $('#photo')[0].files[0];
-            //var mapphoto = $('#mapphoto')[0].files[0];
+            var mapphoto = $('#mapphoto')[0].files[0];
             params.append('name', name);
             params.append('area', area);
             params.append('unit_price', unit_price);
             params.append('description', desc);
             params.append('photo', photo_image);
-            params.append('map', map_image);
+            params.append('map', mapphoto);
+            //params.append('map', map_image);
             update_or_insert_project(params);
 
         }//end if
@@ -251,12 +252,10 @@ function updateProject(project_id) {
                 }
                 if (data.map) {
                     var map_src = media_url + 'project_photo/' + data.map;
-                    $('#mapphoto_id').attr('src', map_src);
-                    $('#mapphoto_id').css('display', 'block');
+                    $('#mapphoto_id').html('<a class="btn btn-info btn-sm" href="' + map_src + '" target="_blank">Map</a>');
                 }
                 else {
-                    $('#mapphoto_id').attr('src', '');
-                    $('#mapphoto_id').css('display', 'none');
+                    $('#mapphoto_id').html('');
                 }
                 hideLoader();
             }

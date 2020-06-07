@@ -52,7 +52,7 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['spid'])) {
                                     <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                     </span>
-                                    <img src="" style="display:none;width:100px;" id="mapphoto_id" />
+                                    <p id="mapphoto_id" class="mt-2"></p>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-4">

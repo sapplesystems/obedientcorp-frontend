@@ -1,5 +1,5 @@
 var photo_image = '';
-var map_image = '';
+//var map_image = '';
 
 $(document).ready(function () {
     getProjectList();
@@ -18,7 +18,7 @@ $(document).ready(function () {
         }
     });
 
-    $image_crop_map = $('#image_demo_map').croppie({
+    /*$image_crop_map = $('#image_demo_map').croppie({
         enableExif: true,
         viewport: {
             width: 500,
@@ -29,7 +29,7 @@ $(document).ready(function () {
             width: 600,
             height: 600
         }
-    });
+    });*/
 
     $('#photo').on('change', function () {
         var reader = new FileReader();
@@ -44,7 +44,7 @@ $(document).ready(function () {
         $('#uploadphotoModal').modal('show');
     });
 
-    $('#mapphoto').on('change', function () {
+    /*$('#mapphoto').on('change', function () {
         var reader = new FileReader();
         reader.onload = function (event) {
             $image_crop_map.croppie('bind', {
@@ -55,7 +55,7 @@ $(document).ready(function () {
         }
         reader.readAsDataURL(this.files[0]);
         $('#uploadmapModal').modal('show');
-    });
+    });*/
     $('.crop_photo_image').click(function (event) {
         $image_crop.croppie('result', {
             type: 'canvas',
@@ -70,7 +70,7 @@ $(document).ready(function () {
         })
     });
 
-    $('.crop_map_image').click(function (event) {
+    /*$('.crop_map_image').click(function (event) {
         $image_crop_map.croppie('result', {
             type: 'canvas',
             size: 'viewport'
@@ -82,16 +82,16 @@ $(document).ready(function () {
             }
             $('#uploadmapModal').modal('hide');
         })
-    });
+    });*/
 
     $(document).on('click', '.close_photo_image', function () {
         $('#photo').val('');
         $('.file-upload-info').val('');
     });
-    $(document).on('click', '.close_map_image', function () {
+    /*$(document).on('click', '.close_map_image', function () {
         $('#mapphoto').val('');
         $('.file-upload-info').val('');
-    });
+    });*/
 
     if ($('#project_id').val() && $('#sub_project_id').val() != '') {
         updateProject($('#sub_project_id').val());
@@ -123,7 +123,7 @@ $(document).ready(function () {
             var unit_price = $('#unit_price').val();
             var desc = $('#description').val();
             //var photo = $('#photo')[0].files[0];
-            //var mapphoto = $('#mapphoto')[0].files[0];
+            var mapphoto = $('#mapphoto')[0].files[0];
             var project_id = $('#sub_project_id').val();
             var projects_id = $('#projects').val();
 
@@ -141,7 +141,8 @@ $(document).ready(function () {
             params.append('unit_price', unit_price);
             params.append('description', desc);
             params.append('photo', photo_image);
-            params.append('map', map_image);
+            params.append('map', mapphoto);
+            //params.append('map', map_image);
 
             $.ajax({
                 url: url,
@@ -289,13 +290,11 @@ function updateProject(project_id) {
                 }
                 if (data.map) {
                     var map_src = media_url + 'project_photo/' + data.map;
-                    $('#mapphoto_id').attr('src', map_src);
-                    $('#mapphoto_id').css('display', 'block');
+                    $('#mapphoto_id').html('<a class="btn btn-info btn-sm" href="' + map_src + '" target="_blank">Map</a>');
                 }
                 else
                 {
-                    $('#mapphoto_id').attr('src', '');
-                    $('#mapphoto_id').css('display', 'none');
+                    $('#mapphoto_id').html('');
                 }
             }
             hideLoader();

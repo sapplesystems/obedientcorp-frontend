@@ -980,7 +980,7 @@ include_once 'header_frontend.php';
             <div class="close fa fa-close" data-dismiss="modal"></div>
             <!-- Left, Image area -->
             <div class="block-img">
-                <img id="uploded_image"src="">
+                <img id="uploded_image" src="">
             </div>
             <!-- End Left, Image area -->
         </div>

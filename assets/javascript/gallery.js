@@ -86,7 +86,7 @@ $(document).ready(function () {
     });
 
     //end gallery images form submit
-    $("#photo").change(function () {
+    /*$("#photo").change(function () {
         var file = $(this)[0].files[0];
         var totalSizeMB = (file.size / Math.pow(1024, 2));
         console.log(totalSizeMB);
@@ -97,7 +97,7 @@ $(document).ready(function () {
             console.log("you can upload image");
         }
 
-    });
+    });*/
 
 });//document ready
 

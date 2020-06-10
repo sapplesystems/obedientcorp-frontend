@@ -1167,7 +1167,7 @@ include_once 'header_frontend.php';
 
     setTimeout(function () {
         document.getElementById('pop-on-load').click();
-    }, 7000);
+    }, 5000);
 </script>
 </body>
 <!-- Body End -->

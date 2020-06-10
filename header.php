@@ -144,7 +144,7 @@ include_once 'common_html.php';
                         <?php /*if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="reverse-business">
-                                    <span class="menu-title">Business Reverse</span>
+                                    <span class="menu-title">Reverse Business</span>
                                     <i class="mdi mdi-wallet-giftcard menu-icon"></i>
                                 </a>
                             </li>

@@ -17,7 +17,7 @@ include_once 'header_frontend.php';
 <!-- End Page Title --> 
 <!-- GALLERY -->
 <section id="shop" class="sm-pt container t-left shop shop-styled minHeight200 py">
-	<div class="t-center">
+    <div class="t-center">
         <h1 class="extrabold-title">All Products</h1>
         <div class="title-strips-over dark"></div>
     </div>
@@ -39,11 +39,39 @@ include_once 'header_frontend.php';
     <div class="clearfix"></div> 
 </section>
 <div class="clearfix"></div>
-<!-- END GALLERY -->
-<!-- FOOTER -->
+
+
+<!-- Modal 1 -->
+<div id="product_detail_modal" class="modal middle-modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog container bg-white radius o-hidden maxWidth1000" role="document">
+        <div class="modal-content">
+            <div class="close fa fa-close" data-dismiss="modal"></div>
+            <div class="modal-img col-md-6 col-12 opacity-hover-links">
+                <div id="images" class="cbp lightbox_gallery pro_list"></div>
+                <div id="thumbnails" class="project_lst"></div>
+            </div>
+            <div class="modal-details col-md-6 offset-md-6 col-12">
+                <h2 class="light" id="product-name"></h2>
+                <div class="xxs-mt">
+                    <span class="h1 bold-title xxs-mr">&#8377;<span id="price"></span></span>
+                    / Price
+                </div>
+
+                <div class="mt-3 clearfix">
+                    <div>
+                        <h5><span class="bold">Product Code:</span> <span id="sku-code"></span>></h5>
+                        <h5 class="mt-2"><span class="bold">Description:</span> <span id="contents"></span></h5>
+                        <h5 class="mt-2"><span class="bold">Description:</span> <span id="description"></span></h5>
+                    </div>
+                </div> 				    
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php include_once 'footer_frontend.php'; ?>  
 <!-- END FOOTER -->
- 
+
 
 <!-- SEARCH FORM FOR NAV -->
 <?php echo $common['search_form']; ?>

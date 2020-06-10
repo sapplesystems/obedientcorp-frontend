@@ -947,8 +947,8 @@ include_once 'header_frontend.php';
 			</div>
 				</div>
                 <!-- Titles -->
-				<div class="text-center">
-                <h2 class="uppercase">See our Products.</h2>
+				<div class="text-center t-center">
+                <h1 class="extrabold-title">See our Products.</h2>
                 <!--<h2 class="uppercase light">creative &amp; high quality.</h2>-->
                 <div class="title-strips-over dark marginAuto"></div>
 				</div>

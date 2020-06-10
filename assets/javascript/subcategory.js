@@ -60,6 +60,17 @@ $(document).ready(function () {
     if ($('#category_id').val() != '' && $('#subcategory_id').val() != '') {
         updateSubCategory($('#subcategory_id').val());
     }
+    
+    $(document).on('blur', '#cgst', function () {
+        $('#igst').val(0);
+    });
+    $(document).on('blur', '#sgst', function () {
+        $('#igst').val(0);
+    });
+    $(document).on('blur', '#igst', function () {
+        $('#cgst').val(0);
+        $('#sgst').val(0);
+    });
 
     $(document).on("click", "#submit_sub_category", function (e) {
         e.preventDefault();
@@ -80,6 +91,9 @@ $(document).ready(function () {
             params.append('name', $('#sub_category_title').val());
             params.append('description', $('#sub_category_description').val());
             params.append('image', sub_category_image);
+            params.append('cgst', $('#cgst').val());
+            params.append('sgst', $('#sgst').val());
+            params.append('igst', $('#igst').val());
             if ($('#subcategory_id').val())
             {
                 url = base_url + 'category/update';
@@ -200,6 +214,9 @@ function updateSubCategory(category_id) {
                 $('#subcategory_id').val(data.id);
                 $('#sub_category_title').val(data.name);
                 $('#sub_category_description').val(data.description);
+                $('#cgst').val(data.cgst);
+                $('#sgst').val(data.sgst);
+                $('#igst').val(data.igst);
                 if (data.image) {
                     var photo_src = media_url + 'category_images/' + data.image;
                     $('#photo_id').attr('src', photo_src);

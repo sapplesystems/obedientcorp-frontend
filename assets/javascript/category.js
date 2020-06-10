@@ -43,7 +43,7 @@ $(document).ready(function () {
 
         })
     });
-    
+
     $(document).on('click', '.close_crop_image', function () {
         $('#image').val('');
         $('.file-upload-info').val('');
@@ -56,6 +56,17 @@ $(document).ready(function () {
     if ($('#category_id').val() && $('#category_id').val() != '') {
         updateCategory($('#category_id').val());
     }
+
+    $(document).on('blur', '#cgst', function () {
+        $('#igst').val(0);
+    });
+    $(document).on('blur', '#sgst', function () {
+        $('#igst').val(0);
+    });
+    $(document).on('blur', '#igst', function () {
+        $('#cgst').val(0);
+        $('#sgst').val(0);
+    });
 
     $(document).on("click", "#submit_category", function (e) {
         e.preventDefault();
@@ -73,6 +84,9 @@ $(document).ready(function () {
             params.append('name', $('#title').val());
             params.append('description', $('#description').val());
             params.append('image', cat_image);
+            params.append('cgst', $('#cgst').val());
+            params.append('sgst', $('#sgst').val());
+            params.append('igst', $('#igst').val());
             if ($('#category_id').val()) {
                 url = base_url + 'category/update';
                 params.append('updated_by', user_id);
@@ -156,6 +170,9 @@ function updateCategory(category_id) {
                 $('#category_id').val(data.id);
                 $('#title').val(data.name);
                 $('#description').val(data.description);
+                $('#cgst').val(data.cgst);
+                $('#sgst').val(data.sgst);
+                $('#igst').val(data.igst);
                 if (data.image) {
                     var photo_src = media_url + 'category_images/' + data.image;
                     $('#photo_id').attr('src', photo_src);

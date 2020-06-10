@@ -246,7 +246,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                                     <div class="absolute left top bottom h-100 v-strock-2 bg-warning"></div>
                                     <div class="clearfix">
                                         <div class="float-left">
-                                            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                                            <i class="mdi mdi-trophy text-warning icon-lg"></i>
                                         </div>
                                         <div class="float-right mt-3">
                                             <p class="mb-0 text-right">Last Reward</p>
@@ -264,7 +264,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                                     <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>
                                     <div class="clearfix">
                                         <div class="float-left">
-                                            <i class="mdi mdi-cube text-danger icon-lg"></i>
+                                            <i class="mdi mdi-star-circle text-danger icon-lg"></i>
                                         </div>
                                         <div class="float-right mt-3">
                                             <p class="mb-0 text-right">Next Reward</p>

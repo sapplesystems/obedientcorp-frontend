@@ -363,7 +363,7 @@
 	.video-trigger iframe{ min-height: 300px; }
 	/* Video Trigger in slider */
 	.video-trigger.slick-slide img, .slick-slide .video-trigger img{ width: auto; height: auto; margin:0 auto; }
-	.thumbnail-img{ padding:4px; display: inline-block; position: relative; width:auto; max-width: 100%; background-color:transparent; border:1px solid #ddd; border-radius: 5px;}
+	.thumbnail-img{ padding:4px; display: inline-block; position: relative; width:auto; max-width: 100%; background-color:transparent; border:2px solid #b66dff; border-radius: 5px;}
 	.thumbnail-img.circle{ border-radius: 100%; padding:4px; }
 	.thumbnail-img.thumbnail-xxs{ max-width: 60px;}
 	.thumbnail-img.thumbnail-xs{ max-width: 90px;}
@@ -568,9 +568,9 @@
 	.t-center .title-strips-over{ margin:14px auto; }
 	.t-right .title-strips-over,.t-left .title-strips-over{ display: inline-block; }
 	.title-strips-over:before{ width: 115px; height: 1px; background-color:rgba(255,255,255,0.4); content: ''; position: absolute; left:0; top:0;}
-	.t-center .title-strips-over:before{ left:50%; margin-left:-57px; }
-	.t-right .title-strips-over:before{ right:0%; left:auto; }
-	.t-left .title-strips-over:before{ left:0%; right:auto; margin-left:0; }
+	.t-center .title-strips-over:before{ left:50%; margin-left:0px; transform:translateX(-50%);}
+	.t-right .title-strips-over:before{ left:50%; margin-left:0px; transform:translateX(-50%); }
+	.t-left .title-strips-over:before{ left:50%; margin-left:0px; transform:translateX(-50%); }
 	.title-strips-over.dark{ background-color:rgba(0,0,0,0.2); }
 	.title-strips-over.dark:before{ background-color:rgba(0,0,0,0.3); }
 	/* Hr spaces */
@@ -2674,8 +2674,8 @@
 	.gallery-type-1:not(.no-hover) .cbp-item img{ -webkit-transition: all 1s; -moz-transition: all 1s; transition: all 1s; }
 	.gallery-type-1:not(.no-hover) .cbp-item:hover img{ -ms-transform: scale(1.06); -webkit-transform: scale(1.06); transform: scale(1.06); }
 	/* Item options */
-	.gallery-type-1.with-texts .cbp-item .cbp-item-wrapper{ padding-bottom:10px; }
-	.gallery-type-1.with-texts .cbp-item .cbp-item-wrapper:before{ content:''; width: 100%; display: block; left:0; top:0; bottom:0; right: 0; background:none; position: absolute; border:1px solid #eee;}
+	.gallery-type-1.with-texts .cbp-item .cbp-item-wrapper{ padding-bottom:10px; padding-top:3px;}
+	.gallery-type-1.with-texts .cbp-item .cbp-item-wrapper:before{ content:''; width: 100%; display: block; left:0; top:0; bottom:0; right: 0; background:none; position: absolute; border:2px solid #b66dff;}
 	.gallery-type-1.with-texts .cbp-item .title{ color:#666; font-size: 17px; padding-left:10px; position: relative; z-index: 2; }
 	.gallery-type-1.with-texts .cbp-item .description{ font-size: 13px; padding-left:10px; }
 	.projects-white-buttons .cbp a{ font-size:11px; font-weight: bolder; text-transform: uppercase; background-color: white; margin-top: 1px; color:#333}

@@ -44,6 +44,26 @@ if (isset($_REQUEST['cid'])) {
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>CGST</label>
+                                        <input type="text" class="form-control" placeholder="CGST" id="cgst" name="cgst">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>SGST</label>
+                                        <input type="text" class="form-control" placeholder="SGST" id="sgst" name="sgst">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>IGST</label>
+                                        <input type="text" class="form-control" placeholder="IGST" id="igst" name="igst">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_category" value="submitcategory">Submit</button>
                                     <input type="hidden" id="category_id" value="<?php echo $cid; ?>">

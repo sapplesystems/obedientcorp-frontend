@@ -20,7 +20,7 @@ echo $common['dotted_navigation'];
 <section id="clients" class="pb">
 
     <!-- Divider -->
-    <div class="divider-1 font-11 uppercase container extrabold mt sm-my">
+    <div class="divider-1 font-11 container extrabold mt sm-my">
         <div class="t-center">
             <h1 class="extrabold-title">Amenities</h1>
             <div class="title-strips-over dark"></div>

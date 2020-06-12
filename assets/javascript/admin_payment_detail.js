@@ -115,16 +115,17 @@ function get_payment_details() {
 
                     //admin_comment = response.data.payment.admin_comment;
                 }
+                $("#payment_rs").html('Rs. ' + response.data.payment.amount);
                 $("#payment_mode").html(payment_mode);
                 $("#cheque_number").html(cheque_number);
                 $("#bank_name").html(bank_name);
-                if(status == 'Pending')
+                if (status == 'Pending')
                 {
                     $('#status').addClass('text-warning');
-                }else if(status == 'Approved')
+                } else if (status == 'Approved')
                 {
                     $('#status').addClass('text-success');
-                }else if(status == 'Rejected')
+                } else if (status == 'Rejected')
                 {
                     $('#status').addClass('text-danger');
                 }

@@ -23,8 +23,17 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['uid'])) {
                             <div class="col-md-12 customTabs">
 
                                 <table class="table table-striped payment_request_details" id="admin-payment-detail"></table>
-
                                 <div class="row mt-5">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mb-0">
+                                            <label class="col-form-label col-sm-4 text-right">Payment:</label>
+                                            <div class="col-sm-8">
+                                                <label class="col-form-label card-description mb-0" id="payment_rs"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group row mb-0">
                                             <label class="col-form-label col-sm-4 text-right">Payment Mode:</label>

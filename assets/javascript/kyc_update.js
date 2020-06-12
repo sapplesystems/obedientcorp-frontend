@@ -126,7 +126,7 @@ $(document).ready(function () {
                     if (response.status == 'success') {
                         showSwal('success', 'KYC Details Saved', 'KYC details saved successfully');
                     } else {
-                        showSwal('error', 'KYC Details Not Saved', 'KYC details could not be saved');
+                        showSwal('error', 'KYC Details Not Saved', response.data);
                     }
                     hideLoader();
                 },

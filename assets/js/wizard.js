@@ -15,8 +15,10 @@
       mobile: {
         minlength:10,
         maxlength:10,
+        number: true,
       },
       land_line_phone: {
+        minlength:10,
         number: true,
       },
       pin_code: {

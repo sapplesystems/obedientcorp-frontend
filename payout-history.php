@@ -121,10 +121,8 @@ if ($user_type != 'ADMIN') {
                         $('#week_range').html(week_range);
                         //$("#week_range option:last").attr("selected", "selected");
                         if (params.week_range) {
-                            console.log('in if');
                             $("#week_range option[value=" + params.week_range + "]").attr("selected", "selected");
                         } else {
-                            console.log('in else');
                             $("#week_range option:eq(1)").attr("selected", "selected");
                         }
                         var table_data = '<thead>\n\

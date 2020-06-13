@@ -72,10 +72,18 @@ if ($user_type != 'ADMIN') {
             $("#agent_list").html(down_the_line_members);
             getPayoutHistoryList({user_id: 0});
             $(document).on('change', '#week_range', function () {
-                getPayoutHistoryList({week_range: $(this).val(), user_id: $('#agent_list').val()});
+                if ($('#associate_only_with_payout').is(':checked') == true) {
+                    getPayoutHistoryList({week_range: $(this).val(), user_id: $('#agent_list').val(), associate_only_with_payout: 1});
+                } else {
+                    getPayoutHistoryList({week_range: $(this).val(), user_id: $('#agent_list').val()});
+                }
             });
             $(document).on('change', '#agent_list', function () {
-                getPayoutHistoryList({user_id: $(this).val(), week_range: $('#week_range').val()});
+                if ($('#associate_only_with_payout').is(':checked') == true) {
+                    getPayoutHistoryList({user_id: $(this).val(), week_range: $('#week_range').val(), associate_only_with_payout: 1});
+                } else {
+                    getPayoutHistoryList({user_id: $(this).val(), week_range: $('#week_range').val()});
+                }
             });
 
             $(document).on('change', '#start-date', function () {//$("#end-date").change(function () {
@@ -86,7 +94,7 @@ if ($user_type != 'ADMIN') {
                 checkStartEndDate();
             });
 
-            $(document).on('change', '#associate_only_with_payout', function () {//$("#end-date").change(function () {
+            $(document).on('click', '#associate_only_with_payout', function () {//$("#end-date").change(function () {
                 if ($(this).is(':checked') == true) {
                     getPayoutHistoryList({user_id: $('#agent_list').val(), week_range: $('#week_range').val(), associate_only_with_payout: 1});
                 } else {
@@ -107,15 +115,18 @@ if ($user_type != 'ADMIN') {
                         var week_range = '<option value="">Select Week</option>';
                         if (payout_week.length > 0) {
                             $.each(payout_week, function (k, v) {
-                                var sel = '';
-                                if (params.week_range == v.week_no) {
-                                    sel = 'selected';
-                                }
-                                week_range += '<option value="' + v.week_no + '" ' + sel + '>Week: ' + v.week_range + '</option>';
+                                week_range += '<option value="' + v.week_no + '">Week: ' + v.week_range + '</option>';
                             });
                         }
                         $('#week_range').html(week_range);
-                        $("#week_range option:last").attr("selected", "selected");
+                        //$("#week_range option:last").attr("selected", "selected");
+                        if (params.week_range) {
+                            console.log('in if');
+                            $("#week_range option[value=" + params.week_range + "]").attr("selected", "selected");
+                        } else {
+                            console.log('in else');
+                            $("#week_range option:eq(1)").attr("selected", "selected");
+                        }
                         var table_data = '<thead>\n\
                                                 <tr>\n\
                                                     <th>Week No.</th>\n\

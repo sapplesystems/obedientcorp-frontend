@@ -13,20 +13,20 @@ $common = array(
                                                     <div class="col-md-10 col-menu pull-left text-right paddLeftNone">
                                                         <ul class="topMenu" style="opacity:1;">
                                                             <li id="home" style="opacity:0"><a class="add-opacity" href="' . $home_url . '">Home</a></li>
-                                                            <li id="about" style="opacity:0"><a class="add-opacity" href="about">About Us</a></li>
-                                                            <li id="legal" style="opacity:0"><a class="add-opacity" href="legal">Legal</a></li>
-                                                            <li id="bankers" style="opacity:0"><a class="add-opacity" href="bankers">Bankers</a></li>
-                                                            <li id="products" style="opacity:0"><a class="add-opacity" href="products">Products</a></li>
+                                                            <li id="about" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'about">About Us</a></li>
+                                                            <li id="legal" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'legal">Legal</a></li>
+                                                            <li id="bankers" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'bankers">Bankers</a></li>
+                                                            <li id="products" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'products">Products</a></li>
                                                             <li id="realestate" style="opacity:0"><a class="add-opacity posR" href="javascript:void(0);">Real Estate <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                                                 <ul class="subMenu">
-                                                                    <li><a href="our-projects">Our Projects</a></li>
-                                                                    <li><a href="amenities">Amenities</a></li>
-                                                                    <li><a href="winners">Winners</a></li>
+                                                                    <li><a href="' . $home_url . 'our-projects">Our Projects</a></li>
+                                                                    <li><a href="' . $home_url . 'amenities">Amenities</a></li>
+                                                                    <li><a href="' . $home_url . 'winners">Winners</a></li>
                                                                 </ul>
                                                             </li>
-                                                            <li id="gallery" style="opacity:0"><a class="add-opacity" href="gallery">Gallery</a></li>
-                                                            <li id="contact_us" style="opacity:0"><a class="add-opacity" href="contact-us">Contact Us</a></li>
-							    <li id="login" style="opacity:0"><a class="add-opacity" href="login">Login</a></li>
+                                                            <li id="gallery" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'gallery">Gallery</a></li>
+                                                            <li id="contact_us" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'contact-us">Contact Us</a></li>
+							    <li id="login" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'login">Login</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -56,19 +56,19 @@ $common = array(
     'dotted_navigation' => '<div id="dotted-navigation" class="hide-on-home nav-menu">
                                 <ul id="side-dotted-navigation" class="spy font-11 extrabold nav uppercase">
                                     <li><a href="' . $home_url . '"><span>Home</span></a></li>
-                                    <li><a href="about"><span>About Us</span></a></li>
-                                    <li><a href="legal"><span>Legal</span></a></li>
-                                    <li><a href="bankers"><span>Bankers</span></a></li>
-                                    <li><a href="products"><span>Products</span></a></li>
+                                    <li><a href="' . $home_url . 'about"><span>About Us</span></a></li>
+                                    <li><a href="' . $home_url . 'legal"><span>Legal</span></a></li>
+                                    <li><a href="' . $home_url . 'bankers"><span>Bankers</span></a></li>
+                                    <li><a href="' . $home_url . 'products"><span>Products</span></a></li>
                                     <li><a href="javascript:void(0);"><span>Real Estate</span></a></li>
                                     <ul class="subMenu_dotted">
-                                        <li><a href="our-projects">Our Projects</a></li>
-                                        <li><a href="amenities">Amenities</a></li>
-                                        <li><a href="winners">Winners</a></li>
+                                        <li><a href="' . $home_url . 'our-projects">Our Projects</a></li>
+                                        <li><a href="' . $home_url . 'amenities">Amenities</a></li>
+                                        <li><a href="' . $home_url . 'winners">Winners</a></li>
                                     </ul>
-                                    <li><a href="gallery"><span>Gallery</span></a></li>
-                                    <li><a href="contact-us"><span>Contact Us</span></a></li>
-                                    <li><a href="login"><span>Login</span></a></li>
+                                    <li><a href="' . $home_url . 'gallery"><span>Gallery</span></a></li>
+                                    <li><a href="' . $home_url . 'contact-us"><span>Contact Us</span></a></li>
+                                    <li><a href="' . $home_url . 'login"><span>Login</span></a></li>
                                 </ul>
                             </div>',
     'search_form' => '<div class="fs-searchform">
@@ -79,11 +79,11 @@ $common = array(
                                     </button>
                                     <div class="recommended font-13 normal">
                                         <h5 class="rcm-title">Recommend Links;</h5>
-                                        <a href="demo-antares.html">Quadra, Antares version</a>
+                                        <a href="' . $home_url . 'demo-antares.html">Quadra, Antares version</a>
                                         <a href="' . $home_url . '">Beautiful Athena demo</a>
-                                        <a href="elements-all.html">Awesome Quadra Elements</a>
-                                        <a href="demo-feronia.html">Why i will use the Quadra?</a>
-                                        <a href="demo-sun.html">Checkout the Sun demo</a>
+                                        <a href="' . $home_url . 'elements-all.html">Awesome Quadra Elements</a>
+                                        <a href="' . $home_url . 'demo-feronia.html">Why i will use the Quadra?</a>
+                                        <a href="' . $home_url . 'demo-sun.html">Checkout the Sun demo</a>
                                         <a href="' . $home_url . '">See 700+ templates</a>
                                     </div>
                             </form>

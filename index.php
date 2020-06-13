@@ -136,7 +136,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style=""><a href="products">OUR PRODUCTS<a/> </div>
+                                         style=""><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
 
                                     <!-- LAYER NR. 4 - 2 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -158,7 +158,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style=""><a href="login">LOGIN</a> </div>
+                                         style=""><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 5 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -277,7 +277,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
 
                                     <!-- LAYER NR. 4 - 2 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -298,7 +298,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 10 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -505,7 +505,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
 
                                     <!-- LAYER NR. 4 - 2 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -527,7 +527,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 19 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -669,7 +669,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
 
                                     <!-- LAYER NR. 4 - 2 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -691,7 +691,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 25 -->
                                     <div class="tp-caption rev-scroll-btn "
@@ -836,7 +836,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="products">OUR PRODUCTS<a/> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
 
                                     <!-- LAYER NR. 4 - 2 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -858,7 +858,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="login">LOGIN</a> </div>
+                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
                                 </li>
                             </ul>
                             <div style="" class="tp-static-layers">

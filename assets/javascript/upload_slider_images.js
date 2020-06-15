@@ -52,8 +52,8 @@ $(document).ready(function () {
         img.onload = function () {
             imgwidth = this.width;
             imgheight = this.height;
-            if (imgwidth < 1366 || imgheight < 768) {
-                showSwal('error', 'Image dimension should be at least 1366 x 768');
+            if (imgwidth < 1366 || imgheight < 768 || imgwidth > 1920 || imgheight > 1080) {
+                showSwal('error', 'Image dimension should be at least 1366 x 768 and not more than 1920 x 1080');
                 $('#' + file_id).val('');
                 $('#' + file_id).siblings('.file-upload-info').val('');
                 return false;

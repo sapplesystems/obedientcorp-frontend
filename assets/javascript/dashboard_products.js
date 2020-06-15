@@ -70,14 +70,16 @@ function get_homepage_images() {
                 }
                 if (response.data.sliders.length > 0)
                 {
-                    $.each(response.data.sliders, function (key, value)
-                    {
-                        var id = value.id;
-                        $('#slider_image_' + id + ' .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + value.slider_image + ')');
-                        $('#slider_image_' + id + ' .defaultimg').attr('src', media_url + 'sliding_image/' + value.slider_image);
-                        $('#slider_title_' + id).html(value.slider_title);
-                        $('#slider_sub_title_' + id).html(value.slider_sub_title);
-                    });
+                    setTimeout(function () {
+                        $.each(response.data.sliders, function (key, value)
+                        {
+                            var id = value.id;
+                            $('#slider_image_' + id + ' .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + value.slider_image + ')');
+                            $('#slider_image_' + id + ' .defaultimg').attr('src', media_url + 'sliding_image/' + value.slider_image);
+                            $('#slider_title_' + id).html(value.slider_title);
+                            $('#slider_sub_title_' + id).html(value.slider_sub_title);
+                        });
+                    }, 2000);
                 }
                 $('#project_product_slider').html(response.data.project_product_slider);
             } else {

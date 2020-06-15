@@ -136,7 +136,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style=""><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
+                                         style="background: #ccc;"><a href="<?php echo $home_url; ?>products" style="color: #000;font-weight: bold;">OUR PRODUCTS<a/> </div>
 
                                     <!-- LAYER NR. 4 - 2 -->
                                     <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
@@ -158,7 +158,7 @@ include_once 'header_frontend.php';
                                          data-paddingbottom="[10,10,10,10]"
                                          data-paddingleft="[30,30,30,30]"
 
-                                         style=""><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
+                                         style="background: #ccc;"><a href="<?php echo $home_url; ?>login" style="color: #000;font-weight: bold;">LOGIN</a> </div>
 
                                     <!-- LAYER NR. 5 -->
                                     <div class="tp-caption rev-scroll-btn "

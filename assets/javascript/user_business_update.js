@@ -15,17 +15,17 @@ $(document).ready(function () {
         if ($("#user_business_form_submit").valid()) {
 
             var params = {
-                'user_id':$('#agent_id').val(),
-                'total_left_business':$('#total_left_business').val(),
-                'total_right_business':$('#total_right_business').val(),
-                'remaining_left_business':$('#remaining_left_business').val(),
-                'remaining_right_business':$('#remaining_right_business').val(),
-                'matching_amount':$('#matching_amount').val(),
-                'total_earning':$('#total_earning').val(),
-                'created_by':$('#agent_id').val()
+                'user_id': $('#agent_id').val(),
+                'total_left_business': $('#total_left_business').val(),
+                'total_right_business': $('#total_right_business').val(),
+                'remaining_left_business': $('#remaining_left_business').val(),
+                'remaining_right_business': $('#remaining_right_business').val(),
+                'matching_amount': $('#matching_amount').val(),
+                'total_earning': $('#total_earning').val(),
+                'created_by': $('#agent_id').val()
             };
             $.ajax({
-                url: base_url + 'manual-update-amount  ',
+                url: base_url + 'manual-update-amount',
                 type: 'post',
                 data: params,
                 success: function (response) {

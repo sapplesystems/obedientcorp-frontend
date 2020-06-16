@@ -21,7 +21,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-right">
-                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request_to_wallet">Make Request To Wallet</button>
+                                <button type="button" class="btn btn-gradient-success btn-sm mt-2" id="make_request_to_wallet">Request For Wallet</button>
                             </div>
                             <div class="col-md-12 tab-content tab-content-custom-pill  overflowAuto custom_overflow white_space" id="pills-tabContent">
                                 <div class="tab-pane fade active show" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab">

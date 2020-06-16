@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">E-Wallet History</h4>
+                        <h4 class="card-title mb-4">Wallet History</h4>
 
                         <h3 class="mb-4">Available Balance: <span id="available_wallet_balance" name="available_wallet_balance"></span></h3>
                         <?php if ($user_type == 'ADMIN') { ?>

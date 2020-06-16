@@ -23,14 +23,13 @@ include_once 'header.php';
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action " id="order-listing">
                                 <thead><tr>
-                                        <th width="10%">Sr No.</th>
-                                        <th width="20%">Offer Name</th>
-                                        <th width="10%">Amount</th>
-                                        <th width="10%">Business</th>
-                                        <th width="10%">Start Date</th>
-                                        <th width="10%">End Date</th>
+                                        <th>Sr No.</th>
+                                        <th>Offer Name</th>
+                                        <th>Business Value</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
                                         <?php if ($user_type == 'ADMIN') { ?>
-                                            <th width="10%">Action</th>
+                                            <th>Action</th>
                                         <?php } ?>
                                     </tr></thead>
                                 <tbody id="offers_list">

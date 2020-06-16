@@ -207,7 +207,7 @@ if ($_REQUEST) {
 
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Father Name <span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">Father/Husband Name <span class="text-danger"></span></label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" placeholder="" id="father_or_husband_name" name="father_or_husband_name" onkeypress="return isAlphabetKey(event);">
                                                             </div>

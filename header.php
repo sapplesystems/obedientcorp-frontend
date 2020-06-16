@@ -129,8 +129,8 @@ include_once 'common_html.php';
                                 </a>
                                 <div class="collapse" id="make_request_nav">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="collect-emi">Collect EMI</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="wallet-request">Make Request to Wallet</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="collect-emi">For EMI</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="wallet-request">For Wallet</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -159,7 +159,7 @@ include_once 'common_html.php';
                         <?php } ?>
                         <li class="nav-item">
                             <a class="nav-link" href="ewallet-history">
-                                <span class="menu-title">E-Wallet History</span>
+                                <span class="menu-title">Wallet History</span>
                                 <i class="mdi mdi-wallet-membership menu-icon"></i>
                             </a>
                         </li>

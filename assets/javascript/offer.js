@@ -180,7 +180,6 @@ function getOfferList() {
                     html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
                                 <td>' + value.offer+ '</td>\n\
-                                <td>' + value.amount + '</td>\n\
                                 <td>' + value.business + '</td>\n\
                                 <td>' + value.start_date + '</td>\n\
                                 <td>' + value.end_date + '</td>\n\

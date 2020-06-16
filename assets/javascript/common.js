@@ -160,7 +160,7 @@ $(document).ready(function () {
                         }
 
                         //bank detalis
-                        setBankDetails(bank);
+                        setBankDetails(bank, kyc.kyc_status);
                         //nominee
                         setNomineeDetails(nominee);
                         //kyc
@@ -181,6 +181,7 @@ $(document).ready(function () {
                             $('#kyc_update_submit').css('display', '');
                         }
                         if (kyc.kyc_status == 'Rejected') {
+                            $('#bank_update_submit').css('display', '');
                             $('#kyc_update_submit').css('display', '');
                         }
                         hideLoader();
@@ -546,31 +547,31 @@ function setNomineeDetails(nominee) {
 
 }
 
-function setBankDetails(bank) {
+function setBankDetails(bank, kyc_status) {
     $('#bank_id').val(bank.id);
     if (bank.payee_name != null && bank.payee_name) {
         $('#payee_name').val(bank.payee_name);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#payee_name').prop('disabled', true);
     }
     if (bank.bank_name != null && bank.bank_name) {
         $('#bank_name').val(bank.bank_name);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#bank_name').prop('disabled', true);
     }
     if (bank.account_number != null && bank.account_number) {
         $('#account_number').val(bank.account_number);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#account_number').prop('disabled', true);
     }
     if (bank.branch != null && bank.branch) {
         $('#branch').val(bank.branch);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#branch').prop('disabled', true);
     }
     if (bank.ifsc_code != null && bank.ifsc_code) {
         $('#ifsc_code').val(bank.ifsc_code);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#ifsc_code').prop('disabled', true);
     }
     if (bank.cancel_cheque != null && bank.cancel_cheque) {
@@ -579,7 +580,7 @@ function setBankDetails(bank) {
         $('#a_cancel_cheque_uploded').attr('href', bank_cheque);
         $('#cancel_cheque_uploded').css('display', 'block');
         $('#is_cancel_cheque_uploaded').val(bank.cancel_cheque);
-        if (user_type != 'ADMIN')
+        if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#cancel_cheque').prop('disabled', true);
     }
 

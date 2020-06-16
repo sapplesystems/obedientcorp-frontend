@@ -55,6 +55,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="bank_copy" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="bank_copy_pdf"></div>
                             </div>
                         </div>
                     </div>
@@ -70,6 +71,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="aadhar_image1" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="aadhar_image1_pdf"></div>
                             </div>
                             <label class="col-sm-2 col-form-label">Aadhaar Image 2:</label>
                             <div class="input-group col-sm-4">
@@ -78,6 +80,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="aadhar_image2" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="aadhar_image2_pdf"></div>
                             </div>
                         </div>
                     </div>
@@ -93,6 +96,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="pancard_image1" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="pancard_image1_pdf"></div>
                             </div>
                         </div>
                     </div>
@@ -108,6 +112,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="passport_image1" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="passport_image1_pdf"></div>
                             </div>
                             <label class="col-sm-2 col-form-label">Passport Image 2:</label>
                             <div class="input-group col-sm-4">
@@ -116,7 +121,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="passport_image2" />
                                     </a>
                                 </div>
-
+                                <div class="pdf_content" id="passport_image2_pdf"></div>
                             </div>
                         </div>
                     </div>
@@ -132,6 +137,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="dl_image1" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="dl_image1_pdf"></div>
                             </div>
                             <label class="col-sm-2 col-form-label">Driving Licence Image 2:</label>
                             <div class="input-group col-sm-4">
@@ -140,6 +146,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="dl_image2" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="dl_image2_pdf"></div>
                             </div>
                         </div>
                     </div>
@@ -155,6 +162,7 @@ if (isset($_REQUEST['associate_id'])) {
                                         <img src="" style="width:100px;" id="voter_image1" />
                                     </a>
                                 </div>
+                                <div class="pdf_content" id="voter_image1_pdf"></div>
                             </div>
                         </div>
                     </div>

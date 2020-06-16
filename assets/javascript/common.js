@@ -446,68 +446,116 @@ function setKYCDetail(kyc) {
             $('#adhar_number').prop('disabled', true);
     }
     if (kyc.adhar_image) {
+        var file = kyc.adhar_image;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.adhar_image;
-        $('#adhar_upload').attr('src', image);
-        $('#a_adhar_upload').attr('href', image);
-        $('#adhar_upload').css('display', 'block');
-        $('#adhar_image').removeClass('required');
+        if (ext == 'pdf') {
+            $('#adhar_upload_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#adhar_upload').attr('src', image);
+            $('#a_adhar_upload').attr('href', image);
+            $('#adhar_upload').css('display', 'block');
+            $('#adhar_image').removeClass('required');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#adhar_image').prop('disabled', true);
     }
     if (kyc.adhar_image_2) {
+        var file = kyc.adhar_image_2;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.adhar_image_2;
-        $('#adhar_upload2').attr('src', image);
-        $('#a_adhar_upload2').attr('href', image);
-        $('#adhar_upload2').css('display', 'block');
-        $('#adhar_image2').removeClass('required');
+        if (ext == 'pdf') {
+            $('#adhar_upload2_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#adhar_upload2').attr('src', image);
+            $('#a_adhar_upload2').attr('href', image);
+            $('#adhar_upload2').css('display', 'block');
+            $('#adhar_image2').removeClass('required');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#adhar_image2').prop('disabled', true);
     }
     if (kyc.pan_image) {
+        var file = kyc.pan_image;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.pan_image;
-        $('#pan_upload').attr('src', image);
-        $('#a_pan_upload').attr('href', image);
-        $('#pan_upload').css('display', 'block');
+        if (ext == 'pdf') {
+            $('#pan_upload_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#pan_upload').attr('src', image);
+            $('#a_pan_upload').attr('href', image);
+            $('#pan_upload').css('display', 'block');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#pan_image').prop('disabled', true);
     }
     if (kyc.passport_image) {
+        var file = kyc.passport_image;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.passport_image;
-        $('#passport_upload').attr('src', image);
-        $('#a_passport_upload').attr('href', image);
-        $('#passport_upload').css('display', 'block');
+        if (ext == 'pdf') {
+            $('#passport_upload_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#passport_upload').attr('src', image);
+            $('#a_passport_upload').attr('href', image);
+            $('#passport_upload').css('display', 'block');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#passport_image').prop('disabled', true);
     }
     if (kyc.passport_image_2) {
+        var file = kyc.passport_image_2;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.passport_image_2;
-        $('#passport_upload2').attr('src', image);
-        $('#a_passport_upload2').attr('href', image);
-        $('#passport_upload2').css('display', 'block');
+        if (ext == 'pdf') {
+            $('#passport_upload2_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#passport_upload2').attr('src', image);
+            $('#a_passport_upload2').attr('href', image);
+            $('#passport_upload2').css('display', 'block');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#passport_image2').prop('disabled', true);
     }
     if (kyc.driving_licence_image) {
+        var file = kyc.driving_licence_image;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.driving_licence_image;
-        $('#driving_upload').attr('src', image);
-        $('#a_driving_upload').attr('href', image);
-        $('#driving_upload').css('display', 'block');
+        if (ext == 'pdf') {
+            $('#driving_upload_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#driving_upload').attr('src', image);
+            $('#a_driving_upload').attr('href', image);
+            $('#driving_upload').css('display', 'block');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#driving_licence_image').prop('disabled', true);
     }
     if (kyc.driving_licence_image_2) {
+        var file = kyc.driving_licence_image_2;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.driving_licence_image_2;
-        $('#driving_upload2').attr('src', image);
-        $('#a_driving_upload2').attr('href', image);
-        $('#driving_upload2').css('display', 'block');
+        if (ext == 'pdf') {
+            $('#driving_upload2_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#driving_upload2').attr('src', image);
+            $('#a_driving_upload2').attr('href', image);
+            $('#driving_upload2').css('display', 'block');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#driving_licence_image2').prop('disabled', true);
     }
     if (kyc.voter_image) {
+        var file = kyc.voter_image;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var image = media_url + 'id_proof/' + kyc.voter_image;
-        $('#voter_upload').attr('src', image);
-        $('#a_voter_upload').attr('href', image);
-        $('#voter_upload').css('display', 'block');
+        if (ext == 'pdf') {
+            $('#voter_upload_pdf').html('<a target="_blank" href="' + image + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#voter_upload').attr('src', image);
+            $('#a_voter_upload').attr('href', image);
+            $('#voter_upload').css('display', 'block');
+        }
         if (user_type != 'ADMIN' && kyc.kyc_status != 'Rejected')
             $('#voter_image').prop('disabled', true);
     }
@@ -575,11 +623,17 @@ function setBankDetails(bank, kyc_status) {
             $('#ifsc_code').prop('disabled', true);
     }
     if (bank.cancel_cheque != null && bank.cancel_cheque) {
+        var file = bank.cancel_cheque;
+        var ext = file.substr((file.lastIndexOf('.') + 1));
         var bank_cheque = media_url + 'cancel_cheque/' + bank.cancel_cheque;
-        $('#cancel_cheque_uploded').attr('src', bank_cheque);
-        $('#a_cancel_cheque_uploded').attr('href', bank_cheque);
-        $('#cancel_cheque_uploded').css('display', 'block');
-        $('#is_cancel_cheque_uploaded').val(bank.cancel_cheque);
+        if (ext == 'pdf') {
+            $('#cancel_cheque_uploded_pdf').html('<a target="_blank" href="' + bank_cheque + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+        } else {
+            $('#cancel_cheque_uploded').attr('src', bank_cheque);
+            $('#a_cancel_cheque_uploded').attr('href', bank_cheque);
+            $('#cancel_cheque_uploded').css('display', 'block');
+            $('#is_cancel_cheque_uploaded').val(bank.cancel_cheque);
+        }
         if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#cancel_cheque').prop('disabled', true);
     }

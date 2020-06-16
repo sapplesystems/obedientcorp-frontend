@@ -109,9 +109,15 @@ function getAssociateKycDetails(agent_id)
                 //images
                 if (response.data[0].adhar_image != "undefined" && response.data[0].adhar_image != null && response.data[0].adhar_image != '')
                 {
+                    var file = response.data[0].adhar_image;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].adhar_image;
-                    $('#aadhar_image1').attr('src', path);
-                    $('#aadhar_upload1').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#aadhar_image1_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#aadhar_image1').attr('src', path);
+                        $('#aadhar_upload1').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -119,9 +125,15 @@ function getAssociateKycDetails(agent_id)
                 }
                 if (response.data[0].adhar_image_2 != "undefined" && response.data[0].adhar_image_2 != null && response.data[0].adhar_image_2 != '')
                 {
+                    var file = response.data[0].adhar_image_2;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].adhar_image_2;
-                    $('#aadhar_image2').attr('src', path);
-                    $('#aadhar_upload2').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#aadhar_image2_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#aadhar_image2').attr('src', path);
+                        $('#aadhar_upload2').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -129,9 +141,15 @@ function getAssociateKycDetails(agent_id)
                 }
                 if (response.data[0].pan_image != "undefined" && response.data[0].pan_image != null && response.data[0].pan_image != '')
                 {
+                    var file = response.data[0].pan_image;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].pan_image;
-                    $('#pancard_image1').attr('src', path);
-                    $('#pancard_upload1').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#pancard_image1_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#pancard_image1').attr('src', path);
+                        $('#pancard_upload1').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -139,9 +157,15 @@ function getAssociateKycDetails(agent_id)
                 }
                 if (response.data[0].passport_image != "undefined" && response.data[0].passport_image != null && response.data[0].passport_image != '')
                 {
+                    var file = response.data[0].passport_image;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].passport_image;
-                    $('#passport_image1').attr('src', path);
-                    $('#passport_upload1').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#passport_image1_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#passport_image1').attr('src', path);
+                        $('#passport_upload1').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -149,9 +173,15 @@ function getAssociateKycDetails(agent_id)
                 }
                 if (response.data[0].passport_image_2 != "undefined" && response.data[0].passport_image_2 != null && response.data[0].passport_image_2 != '')
                 {
+                    var file = response.data[0].passport_image_2;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].passport_image_2;
-                    $('#passport_image2').attr('src', path);
-                    $('#passport_upload2').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#passport_image2_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#passport_image2').attr('src', path);
+                        $('#passport_upload2').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -159,9 +189,15 @@ function getAssociateKycDetails(agent_id)
                 }
                 if (response.data[0].driving_licence_image != "undefined" && response.data[0].driving_licence_image != null && response.data[0].driving_licence_image != '')
                 {
+                    var file = response.data[0].driving_licence_image;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].driving_licence_image;
-                    $('#dl_image1').attr('src', path);
-                    $('#dl_upload1').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#dl_image1_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#dl_image1').attr('src', path);
+                        $('#dl_upload1').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -169,9 +205,15 @@ function getAssociateKycDetails(agent_id)
                 }
                 if (response.data[0].driving_licence_image_2 != "undefined" && response.data[0].driving_licence_image_2 != null && response.data[0].driving_licence_image_2 != '')
                 {
+                    var file = response.data[0].driving_licence_image_2;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].driving_licence_image_2;
-                    $('#dl_image2').attr('src', path);
-                    $('#dl_upload2').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#dl_image2_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#dl_image2').attr('src', path);
+                        $('#dl_upload2').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -180,9 +222,15 @@ function getAssociateKycDetails(agent_id)
 
                 if (response.data[0].voter_image != "undefined" && response.data[0].voter_image != null && response.data[0].voter_image != '')
                 {
+                    var file = response.data[0].voter_image;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
                     path = media_url + 'id_proof/' + response.data[0].voter_image;
-                    $('#voter_image1').attr('src', path);
-                    $('#voter_upload1').attr('href', path);
+                    if (ext == 'pdf') {
+                        $('#voter_image1_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#voter_image1').attr('src', path);
+                        $('#voter_upload1').attr('href', path);
+                    }
                 }
                 else
                 {
@@ -271,9 +319,15 @@ function getBankDetails(user_id)
                 }
                 if (response.data[0].cancel_cheque != "undefined" && response.data[0].cancel_cheque != null && response.data[0].cancel_cheque != '')
                 {
-                    path = media_url + 'cancel_cheque/' + response.data[0].cancel_cheque;
-                    $('#bank_copy').attr('src', path);
-                    $('#bnk-copy').attr('href', path);
+                    var file = response.data[0].cancel_cheque;
+                    var ext = file.substr((file.lastIndexOf('.') + 1));
+                    var path = media_url + 'cancel_cheque/' + response.data[0].cancel_cheque;
+                    if (ext == 'pdf') {
+                        $('#bank_copy_pdf').html('<a target="_blank" href="' + path + '"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>');
+                    } else {
+                        $('#bank_copy').attr('src', path);
+                        $('#bnk-copy').attr('href', path);
+                    }
                 } else {
                     $('#cancel_cheque').html('<span>' + data + '</span>');
                 }

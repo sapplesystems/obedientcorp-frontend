@@ -325,8 +325,7 @@ if ($_REQUEST) {
                                                                         <img src="" id="cancel_cheque_uploded" class="img-lg mb-3" style="display:none;" alt="small image" />
                                                                     </a>
                                                                 </div>
-
-                                                                <!--<input type="file" class="form-control" placeholder="" name="cancel_cheque" id="cancel_cheque">-->
+                                                                <div class="pdf_content" id="cancel_cheque_uploded_pdf"></div>
                                                             </div>
                                                         </div>
                                                     </section>
@@ -416,6 +415,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="pan_upload" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="pan_upload_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -438,6 +438,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="passport_upload" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="passport_upload_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -456,6 +457,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="passport_upload2" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="passport_upload2_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -478,6 +480,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="driving_upload" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="driving_upload_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -496,6 +499,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="driving_upload2" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="driving_upload2_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -517,6 +521,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="voter_upload" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="voter_upload_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -538,6 +543,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="adhar_upload" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="adhar_upload_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -555,6 +561,7 @@ if ($_REQUEST) {
                                                                         <img src="" style="display:none;width:100px;" id="adhar_upload2" />
                                                                     </a>
                                                                 </div>
+                                                                <div class="pdf_content" id="adhar_upload2_pdf"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">

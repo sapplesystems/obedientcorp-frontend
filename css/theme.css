@@ -748,11 +748,11 @@
 	.lg-outer .lg-thumb-item.active, .lg-outer .lg-thumb-item:hover{ border-color:rgba(180,180,180,0.5); }
 /* Parallax Styles */
 	.parallax{background-repeat: no-repeat; background-attachment: fixed !important; background-size:cover !important;}
-	.bg-parallax{width: 100%; min-height: 115%; will-change: transform; height: 80vh; position: absolute; left:0; top:0; background-size: cover; background-attachment: scroll !important; transform: translateZ(0); -webkit-transform: translateZ(0); background-position: center center; background-repeat: no-repeat; z-index: -1;}
+	.bg-parallax{width: 100%; /*min-height: 115%;*/ will-change: transform; height: 50vh; position: absolute; left:0; top:0; background-size: cover; background-attachment: scroll !important; transform: translateZ(0); -webkit-transform: translateZ(0); background-position: center center; background-repeat: no-repeat; z-index: -1;}
 	.bg-parallax.horizontal-parallax{ min-height: auto; height: 100%; }
 	.parallax.disabled{width: 100%; min-height: 100%; height: 100%; left:0; top:0; -webkit-transform: translateY(0px) !important; -moz-transform: translateY(0px) !important; -ms-transform: translateY(0px) !important; transform: translateY(0px) !important;}
 	.bg-parallax img{width: auto; min-width: 100%; height: auto; min-height: 100%;}
-	.bg-parallax-mobiled{width: 100%; height: 100%; min-height: 100%; background-size: cover !important; background-attachment: scroll !important;}
+	/*.bg-parallax-mobiled{width: 100%; height: 100%; min-height: 100%; background-size: cover !important; background-attachment: scroll !important;}*/
 	.bg-parallax-mobiled img{ width: 100%; min-height: auto; height: auto; min-width: auto; }
 		@media only screen and (max-width: 500px){
 			.bg-parallax-mobiled img{ width: auto; min-height: auto; height: 140%; min-width: auto; }

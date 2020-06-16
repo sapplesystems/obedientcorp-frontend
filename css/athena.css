@@ -454,6 +454,10 @@ ul.product_list li{width:48% !important;border: 1px solid #ccc; margin-left:4% !
 }
 
 @media only screen and (max-width: 480px){
+	
+	.gallery_pos{background-position:20% 100% !important;}
+	
+	.product_code span{display:block;}
 
 .slick-slide img{height:150px !important;}
 .bank_logos img{height: auto; width: 100%;}

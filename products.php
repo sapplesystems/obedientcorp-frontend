@@ -59,7 +59,7 @@ include_once 'header_frontend.php';
 
                 <div class="mt-3 clearfix">
                     <div>
-                        <h5><span class="bold">Product Code:</span> <span id="sku-code"></span>></h5>
+                        <h5><span class="bold">Product Code:</span> <span id="sku-code"></span></h5>
                         <h5 class="mt-2"><span class="bold">Description:</span> <span id="contents"></span></h5>
                         <h5 class="mt-2"><span class="bold">Description:</span> <span id="description"></span></h5>
                     </div>

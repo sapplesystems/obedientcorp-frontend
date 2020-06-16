@@ -7,7 +7,7 @@ echo $common['main_container_navigation'];
 <!-- Page Title -->
 <section id="home" class="xl-py t-center white fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
-    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/gallery-banner.jpg"></div>
+    <div class="bg-parallax skrollr gallery_pos" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/gallery-banner.jpg"></div>
 
 </section>
 <!-- End Page Title -->

@@ -56,7 +56,7 @@ function getProductsList(sub_category_id) {
                                              <!--div class="info_hover"><a href="javascript:void(0);">Add to cart</a></div-->\n\
                                         </div>\n\
                                         <div class="title">' + value.name + '</div>\n\
-                                        <div class="product_code">Product Code: ' + value.sku + '</div>\n\
+                                        <div class="product_code">Product Code: <span>' + value.sku + '</span></div>\n\
                                         <div class="price">\n\
                                             <span class="old">' + value.market_price + '</span>\n\
                                             <span class="new">' + value.dealer_price + '</span>\n\

@@ -25,7 +25,7 @@ include_once 'header.php';
                                 <thead><tr>
                                         <th>Sr No.</th>
                                         <th>Offer Name</th>
-                                        <th>Business Value</th>
+                                        <th>Business Volume</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <?php if ($user_type == 'ADMIN') { ?>

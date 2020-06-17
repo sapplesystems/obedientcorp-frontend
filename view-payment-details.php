@@ -12,7 +12,7 @@ if (isset($_REQUEST['booking_id'])) {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3 custom_overflow">
-                        <h4 class="card-title mb-4">View Payment Details</h4>
+                        <h4 class="card-title mb-4">View Payment Details <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-danger btn-sm">Back</a></h4>
                         <div class="overflowAuto">
                         <table class="table table-bordered custom_action view_payment_detail " id="order-listing">
                         </table>

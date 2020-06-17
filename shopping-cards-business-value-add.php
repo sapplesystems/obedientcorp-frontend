@@ -49,6 +49,7 @@ if (isset($_REQUEST['bvid'])) {
                                     <label>&nbsp;</label>
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="shopping_card_bv_frm_submit">Submit</button>
                                     <input type="hidden" id="bvid" value="<?php echo $bvid ?>" />
+                                    <a href="shopping-cards-business-value" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

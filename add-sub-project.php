@@ -73,6 +73,7 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['spid'])) {
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="sub_project_form">Submit</button>
                                     <input type="hidden" id="sub_project_id" value="<?php echo $sub_project_id; ?>" />
                                     <input type="hidden" id="project_id" value="<?php echo $project_id; ?>" />
+                                    <a href="project-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

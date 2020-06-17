@@ -3,6 +3,77 @@ getProductList();
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 $(document).ready(function () {
+    if (document.getElementById('description')) {
+        tinymce.init({
+            selector: '#description',
+            width: '100%',
+            height: 300,
+            plugins: 'image code',
+            browser_spellcheck: true,
+            menu: {
+                file: {
+                    title: 'File',
+                    items: 'newdocument restoredraft | preview | print'
+                },
+                edit: {
+                    title: 'Edit',
+                    items: 'undo redo | cut copy paste | selectall | searchreplace'
+                },
+                view: {
+                    title: 'View',
+                    items: 'code | visualaid visualchars visualblocks | preview fullscreen'
+                },
+                insert: {
+                    title: 'Insert',
+                    items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | insertdatetime'
+                },
+                format: {
+                    title: 'Format',
+                    items: 'bold italic underline strikethrough superscript subscript codeformat | formats blockformats fontformats fontsizes align | forecolor backcolor | removeformat'
+                },
+                tools: {
+                    title: 'Tools',
+                    items: 'code wordcount'
+                },
+                table: {
+                    title: 'Table',
+                    items: 'inserttable | cell row column | tableprops deletetable'
+                },
+                help: {
+                    title: 'Help', items: 'help'
+                }
+            },
+            branding: false,
+            mobile: {
+                menubar: true
+            },
+            // upload image functionality
+            images_upload_url: 'upload.php',
+            images_upload_handler: function (blobInfo, success, failure) {
+                var xhr, formData;
+                xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+                xhr.open('POST', 'upload.php');
+                xhr.onload = function () {
+                    var json;
+                    if (xhr.status != 200) {
+                        failure('HTTP Error: ' + xhr.status);
+                        return;
+                    }
+                    json = JSON.parse(xhr.responseText);
+                    if (!json || typeof json.location != 'string') {
+                        failure('Invalid JSON: ' + xhr.responseText);
+                        return;
+                    }
+                    success(json.location);
+                };
+                formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+                xhr.send(formData);
+            },
+        });
+    }
+
     if ($('#product_id').val() && $('#product_id').val() != '') {
         editProduct($('#product_id').val());
     }
@@ -37,7 +108,7 @@ $(document).ready(function () {
             var image_file = document.getElementById('product_images');
             var doc_file = document.getElementById('product_docs');
             var totalfiles = image_file.children[0].children[0].files.length;
-            if($('#product_id').val() == '' && totalfiles == 0)
+            if ($('#product_id').val() == '' && totalfiles == 0)
             {
                 showSwal('error', 'Upload Product Image', 'Please upload product image first.');
                 return false;
@@ -84,19 +155,22 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.status == "success") {
                         showSwal('success', 'Product Added', 'Product added successfully.');
+                        window.location.href = 'product-list';
                         hideLoader();
                         //getProductList();
-                        if($('#product_id').val() == '')
+                        if ($('#product_id').val() == '')
                         {
                             resetForm();
-                            setTimeout(function(){ window.location.href='product-list'; }, 2000);
-                            
+                            setTimeout(function () {
+                                window.location.href = 'product-list';
+                            }, 2000);
+
                         }
-                        
+
                     } else {
                         showSwal('error', 'Failed', 'Product could not be added.');
                         hideLoader();
-                        if($('#product_id').val() == '')
+                        if ($('#product_id').val() == '')
                         {
                             resetForm();
 
@@ -273,7 +347,8 @@ function editProduct(product_id) {
                 $('#sku').val(product.sku);
                 $('#contents').val(product.contents);
                 $('#expiry_date').val(product.expiry_date);
-                $('#description').val(product.description);
+                //$('#description').val(product.description);
+                setTimeout(function(){tinymce.get('description').setContent(product.description);},2000);
                 $('#updated_by').val(user_id);
                 $('.input-images-1 .uploaded').html(img);
                 $('.input-images-2 .uploaded').html(doc);

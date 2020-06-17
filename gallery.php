@@ -7,7 +7,7 @@ echo $common['main_container_navigation'];
 <!-- Page Title -->
 <section id="home" class="xl-py t-center white fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
-    <div class="bg-parallax skrollr gallery_pos" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/gallery-banner.jpg"></div>
+    <div style="background-position:center 0;background-size: 100% 110%;" class="bg-parallax skrollr gallery_pos" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/gallery-banner.jpg"></div>
 
 </section>
 <!-- End Page Title -->
@@ -23,7 +23,7 @@ echo $common['main_container_navigation'];
 
 
 <!-- GALLERY -->
-<section class="pb bt-1 border-gray t-center gallery-type-1 with-texts py">
+<section class="pb border-gray t-center gallery-type-1 with-texts py">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

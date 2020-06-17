@@ -16,20 +16,20 @@
     }
     #contact-form label.error{color:#ff0000; float:left; margin-bottom:3px;}
 </style>
-<footer id="footer" class="classic_footer">
+<footer id="footer" class="classic_footer custom_footer_div">
     <!-- Container -->
     <div class="container footer-body">
         <div class="row clearfix">
             <!-- Column -->
-            <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-mobile">
+            <div class="col-md-2 col-sm-6 col-xs-12 sm-mb-mobile">
                 <!-- Title -->
                 <h6 class="uppercase white extrabold mb-3">ABOUT US</h6>
                 <!--<h6 class="sm-mt bold gray8">WHO WE ARE</h6>-->
                 <p class="mini-mt">We are one of leading Indian Company in Site Development, Land Development, Construction etc. </p>
             </div>
             <!-- Column -->
-            <div class="col-md-3 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
-                <h6 class="uppercase white extrabold mb-3">ADDRESS</h6>
+            <div class="col-md-2 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
+                <h6 class="uppercase white extrabold mb-3">HEAD OFFICE</h6>
                 <!-- You can edit footer-news.html file in js/ajax folder. Will be changed on all website -->
                 <!--<h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>-->
                 <p class="mini-mt">17/23, 2nd Floor, Tulsiyani Shoppe, Near <br />PVR Civil Lines, Prayagraj, UP-211001</p>
@@ -38,9 +38,19 @@
                     Find us on Google Map
                 </a>
             </div>
+	    <div class="col-md-2 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
+                <h6 class="uppercase white extrabold mb-3">BRANCH OFFICE</h6>
+                <!-- You can edit footer-news.html file in js/ajax folder. Will be changed on all website -->
+                <!--<h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>-->
+                <p class="mini-mt">001, Grandeur Apartment 5, Butler road, Dalibagh <br />Colony, Lucknow, Uttar Pradesh, 226001</p>
+                <!-- Google Map -->
+                <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.685039259704!2d80.95803201499655!3d26.849968283154702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd1747c47f09%3A0x8ab46dccba5dca0b!2sGrandeur%20Apartment%206!5e0!3m2!1sen!2sin!4v1592314778288!5m2!1sen!2sin" data-iframe="true" class="lightbox underline-hover colored-hover">
+                    Find us on Google Map
+                </a>
+            </div>
             <!-- End Column -->
             <!-- Column -->
-            <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-mobile">
+            <div class="col-md-2 col-sm-6 col-xs-12 sm-mb-mobile">
                 <h6 class="uppercase white extrabold mb-3">TERMS & CONDITIONS</h6>
                 <!-- Clients Slider one - You can find details in footer-client-comments.html file, #post1 div -->
                 <!-- When you edit ajax file, the details will be changed on all website -->
@@ -52,7 +62,7 @@
             </div>
             <!-- End Column -->
             <!-- Column -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-2 col-sm-6 col-xs-12">
                 <!-- Title -->
                 <h6 class="uppercase white extrabold no-pm mb-3">CONNECT WITH US</h6>
                 <!-- Sub Title -->

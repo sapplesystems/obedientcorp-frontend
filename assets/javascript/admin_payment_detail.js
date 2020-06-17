@@ -125,9 +125,13 @@ function get_payment_details() {
                 } else if (status == 'Approved')
                 {
                     $('#status').addClass('text-success');
+                    $("#action_div").html('<div class="col-md-12 text-center"><a href="' + document.referrer + '" class="btn btn-gradient-info mb-2">Back</a></div>');
+                    $("#action_div").css("display", "block");
                 } else if (status == 'Rejected')
                 {
                     $('#status').addClass('text-danger');
+                    $("#action_div").html('<div class="col-md-12 text-center"><a href="' + document.referrer + '" class="btn btn-gradient-info mb-2">Back</a></div>');
+                    $("#action_div").css("display", "block");
                 }
                 $("#status").html(status);
                 $("#date_of_payment").html(date_of_payment);

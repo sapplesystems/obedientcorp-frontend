@@ -121,6 +121,7 @@ if(isset($_REQUEST['pid'])){
                                 <div class="col-sm-12">
                                     <input type="hidden" name="product_id" id="product_id" value="<?php echo $pid; ?>" />
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_project" value="submitproject">Submit</button>
+                                    <a href="product-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>
@@ -131,5 +132,7 @@ if(isset($_REQUEST['pid'])){
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
+    <script src="https://cdn.tiny.cloud/1/6sjufqx62vm2maslclaeoth8yurjg26m07aqau7hykcjwec5/tinymce/5.1.4/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.3.0/jquery.tinymce.min.js" referrerpolicy="origin"></script>
     <script src="assets/javascript/product.js"></script>
     <script src="assets/javascript/image-uploader.min.js"></script>

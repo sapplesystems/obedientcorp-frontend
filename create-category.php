@@ -67,6 +67,7 @@ if (isset($_REQUEST['cid'])) {
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_category" value="submitcategory">Submit</button>
                                     <input type="hidden" id="category_id" value="<?php echo $cid; ?>">
+                                    <a href="category-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

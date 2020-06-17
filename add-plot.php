@@ -55,6 +55,7 @@ if(isset($_REQUEST['plotid'])){
                 <div class="col-sm-12">
                   <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                   <input type="hidden" id="plot_id" value="<?php echo $plotid ?>" />
+                  <a href="plot-list" class="btn btn-gradient-danger mr-2">Back</a>
                 </div>
               </div>
             </form>

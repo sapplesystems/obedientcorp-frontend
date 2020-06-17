@@ -13,6 +13,9 @@ include_once 'header_frontend.php';
     }
     #pop-on-load{display: none;}
     .tp-kbimg-wrap{display: none !important;}
+    .display_none{
+        display: none;
+    }
 </style>
 
 <div id="Preloader" class="Preloader" /> <img style="height:200px;" class="Black" src="images/obedient-logo.png" alt="Logo" /> </div>
@@ -37,838 +40,81 @@ include_once 'header_frontend.php';
         <!-- HOME SECTION -->
 
 <!--<a href="index.php" class="logoHeaderMain"><img style="height:120px;" src="images/obedient-logo.png" alt="" /></a>-->
-        <!-- CONTENT -->
-        <section id="home" class="Intro" id="intro">
-            <div class="StevenCarousel">
-
-                <div class="CarouselItem" data-clip-mobile="center" data-clip-x="55%" data-clip-y="65%">	
-                    <div id="rev_slider_1066_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="notgeneric125" data-source="gallery" style="background-color:transparent;padding:0px;">
-                        <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
-                        <div id="rev_slider_1066_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
-                            <ul>	<!-- SLIDE -->
-                                <li id="slider_image_1" data-index="rs-3004" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="images/rs/img/notgeneric_bg1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                                    <!-- LAYERS -->
-
-                                    <!-- LAYER NR. 1 -->
-                                    <div class="tp-caption NotGeneric-Title tp-resizeme"
-                                         id="slide-3004-layer-1"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-                                         data-fontsize="['70','70','70','45']"
-                                         data-lineheight="['70','70','70','50']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 5; white-space: nowrap;text-transform:left;"><span id ="slider_title_1">Welcome to Obedient Group </span></div>
-
-                                    <!-- LAYER NR. 2 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme custom_subHead"
-                                         id="slide-3004-layer-4"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 6; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_1">Real Estate & Consumer Goods </span></div>
-
-                                    <!-- LAYER NR. 3 -->
-                                    <div class="tp-caption NotGeneric-Icon   tp-resizeme"
-                                         id="slide-3004-layer-8"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 7; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-compass"></i> </div>
-
-                                    <!-- LAYER NR. 4 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="background: #ccc;"><a href="<?php echo $home_url; ?>products" style="color: #000;font-weight: bold;">OUR PRODUCTS<a/> </div>
-
-                                    <!-- LAYER NR. 4 - 2 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="background: #ccc;"><a href="<?php echo $home_url; ?>login" style="color: #000;font-weight: bold;">LOGIN</a> </div>
-
-                                    <!-- LAYER NR. 5 -->
-                                    <div class="tp-caption rev-scroll-btn "
-                                         id="slide-3004-layer-9"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','50','50']"
-                                         data-width="35"
-                                         data-height="55"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"scrollbelow","offset":"0px","delay":""}]'
-                                         data-basealign="slide"
-                                         data-responsive_offset="off"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:50px;opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 9; min-width: 35px; max-width: 35px; max-width: 55px; max-width: 55px; white-space: nowrap; font-size: px; line-height: px; font-weight: 100;text-transform:left;border-color:rgba(255, 255, 255, 0.50);border-style:solid;border-width:1px;border-radius:23px 23px 23px 23px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                                        <span>
-                                        </span>
-                                    </div>
-                                </li>
-                                <!-- SLIDE -->
-                                <li id="slider_image_2" data-index="rs-3005" data-transition="fadetotopfadefrombottom" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1500"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Chill" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="images/rs/img/notgeneric_bg5.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                                    <!-- LAYERS -->
-
-                                    <!-- LAYER NR. 6 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-3 "
-                                         id="slide-3005-layer-1"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-                                         data-fontsize="['70','70','70','45']"
-                                         data-lineheight="['70','70','70','50']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 10; white-space: nowrap;text-transform:left;"><span id="slider_title_2">Where Dreams Come True</span> </div>
-
-                                    <!-- LAYER NR. 7 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-2 "
-                                         id="slide-3005-layer-4"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 11; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_2">Real Estate & Consumer Goods </span></div>
-
-                                    <!-- LAYER NR. 8 -->
-                                    <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-1"
-                                         id="slide-3005-layer-8"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 12; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-mouse"></i> </div>
-
-                                    <!-- LAYER NR. 9 -->
-                                    <!-- LAYER NR. 4 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
-
-                                    <!-- LAYER NR. 4 - 2 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
-
-                                    <!-- LAYER NR. 10 -->
-                                    <div class="tp-caption rev-scroll-btn "
-                                         id="slide-3005-layer-9"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','50','50']"
-                                         data-width="35"
-                                         data-height="55"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"scrollbelow","offset":"0px","delay":""}]'
-                                         data-basealign="slide"
-                                         data-responsive_offset="off"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:50px;opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 14; min-width: 35px; max-width: 35px; max-width: 55px; max-width: 55px; white-space: nowrap; font-size: px; line-height: px; font-weight: 100;text-transform:left;border-color:rgba(255, 255, 255, 0.50);border-style:solid;border-width:1px;border-radius:23px 23px 23px 23px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                                        <span>
-                                        </span>
-                                    </div>
-
-                                    <!-- LAYER NR. 11 -->
-                                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-8"
-                                         id="slide-3005-layer-10"
-                                         data-x="['left','left','left','left']" data-hoffset="['680','680','680','680']"
-                                         data-y="['top','top','top','top']" data-voffset="['632','632','632','632']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="image"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":2000,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 15;text-transform:left;border-width:0px;">
-                                        <div class="rs-looped rs-pendulum"  data-easing="linearEaseNone" data-startdeg="-20" data-enddeg="360" data-speed="35" data-origin="50% 50%"><img src="images/rs/img/blurflake4.png" alt="" data-ww="['240px','240px','240px','240px']" data-hh="['240px','240px','240px','240px']" width="240" height="240" data-no-retina> </div></div>
-
-                                    <!-- LAYER NR. 12 -->
-                                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-7"
-                                         id="slide-3005-layer-11"
-                                         data-x="['left','left','left','left']" data-hoffset="['948','948','948','948']"
-                                         data-y="['top','top','top','top']" data-voffset="['487','487','487','487']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="image"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":2000,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 16;text-transform:left;border-width:0px;">
-                                        <div class="rs-looped rs-wave"  data-speed="20" data-angle="0" data-radius="50px" data-origin="50% 50%"><img src="images/rs/img/blurflake3.png" alt="" data-ww="['170px','170px','170px','170px']" data-hh="['170px','170px','170px','170px']" width="170" height="170" data-no-retina> </div></div>
-
-                                    <!-- LAYER NR. 13 -->
-                                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-4"
-                                         id="slide-3005-layer-12"
-                                         data-x="['left','left','left','left']" data-hoffset="['719','719','719','719']"
-                                         data-y="['top','top','top','top']" data-voffset="['200','200','200','200']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="image"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":2000,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 17;text-transform:left;border-width:0px;">
-                                        <div class="rs-looped rs-rotate"  data-easing="Power2.easeInOut" data-startdeg="-20" data-enddeg="360" data-speed="20" data-origin="50% 50%"><img src="images/rs/img/blurflake2.png" alt="" data-ww="['50px','50px','50px','50px']" data-hh="['51px','51px','51px','51px']" width="50" height="51" data-no-retina> </div></div>
-
-                                    <!-- LAYER NR. 14 -->
-                                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-6"
-                                         id="slide-3005-layer-13"
-                                         data-x="['left','left','left','left']" data-hoffset="['187','187','187','187']"
-                                         data-y="['top','top','top','top']" data-voffset="['216','216','216','216']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="image"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":2000,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 18;text-transform:left;border-width:0px;">
-                                        <div class="rs-looped rs-wave"  data-speed="4" data-angle="0" data-radius="10" data-origin="50% 50%"><img src="images/rs/img/blurflake1.png" alt="" data-ww="['120px','120px','120px','120px']" data-hh="['120px','120px','120px','120px']" width="120" height="120" data-no-retina> </div></div>
-                                </li>
-                                <!-- SLIDE -->
-                                <li id="slider_image_3" data-index="rs-3006" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Enjoy Nature" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="images/rs/img/notgeneric_bg2.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                                    <!-- LAYERS -->
-
-                                    <!-- LAYER NR. 15 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme "
-                                         id="slide-3006-layer-1"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-                                         data-fontsize="['70','70','70','45']"
-                                         data-lineheight="['70','70','70','50']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 19; white-space: nowrap;text-transform:left;"><span id ="slider_title_3">Welcome to Obedient Group </span></div>
-
-                                    <!-- LAYER NR. 16 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
-                                         id="slide-3006-layer-4"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 20; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_3">Real Estate & Consumer Goods </span></div>
-
-                                    <!-- LAYER NR. 17 -->
-                                    <div class="tp-caption NotGeneric-Icon   tp-resizeme"
-                                         id="slide-3006-layer-8"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 21; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-expand1"></i> </div>
-
-                                    <!-- LAYER NR. 4 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
-
-                                    <!-- LAYER NR. 4 - 2 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
-
-                                    <!-- LAYER NR. 19 -->
-                                    <div class="tp-caption rev-scroll-btn "
-                                         id="slide-3006-layer-9"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','50','50']"
-                                         data-width="35"
-                                         data-height="55"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"scrollbelow","offset":"0px","delay":""}]'
-                                         data-basealign="slide"
-                                         data-responsive_offset="off"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:50px;opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 23; min-width: 35px; max-width: 35px; max-width: 55px; max-width: 55px; white-space: nowrap; font-size: px; line-height: px; font-weight: 100;text-transform:left;border-color:rgba(255, 255, 255, 0.50);border-style:solid;border-width:1px;border-radius:23px 23px 23px 23px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                                        <span>
-                                        </span>
-                                    </div>
-                                </li>
-                                <!-- SLIDE -->
-                                <li id="slider_image_4" data-index="rs-3007" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Iceberg" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="images/rs/img/iceberg.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                                    <!-- LAYERS -->
-
-                                    <!-- BACKGROUND VIDEO LAYER -->
-                                    <!-- LAYER NR. 20 -->
-                                    <div class="tp-caption tp-shape tp-shapewrapper "
-                                         id="slide-3007-layer-10"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-                                         data-width="full"
-                                         data-height="full"
-                                         data-whitespace="nowrap"
-
-                                         data-type="shape"
-                                         data-basealign="slide"
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"opacity:0;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 24;text-transform:left;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
-
-                                    <!-- LAYER NR. 21 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme"
-                                         id="slide-3007-layer-1"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-                                         data-fontsize="['70','70','70','45']"
-                                         data-lineheight="['70','70','70','50']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.05,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 25; white-space: nowrap;text-transform:left;"><span id="slider_title_4">Welcome to Obedient Group</span> </div>
-
-                                    <!-- LAYER NR. 22 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
-                                         id="slide-3007-layer-4"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 26; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_4">Real Estate & Consumer Goods</span> </div>
-
-                                    <!-- LAYER NR. 23 -->
-                                    <div class="tp-caption NotGeneric-Icon   tp-resizeme"
-                                         id="slide-3007-layer-8"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 27; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-anchor"></i> </div>
-
-                                    <!-- LAYER NR. 4 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
-
-                                    <!-- LAYER NR. 4 - 2 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
-
-                                    <!-- LAYER NR. 25 -->
-                                    <div class="tp-caption rev-scroll-btn "
-                                         id="slide-3007-layer-9"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','50','50']"
-                                         data-width="35"
-                                         data-height="55"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"scrollbelow","offset":"0px","delay":""}]'
-                                         data-basealign="slide"
-                                         data-responsive_offset="off"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:50px;opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 29; min-width: 35px; max-width: 35px; max-width: 55px; max-width: 55px; white-space: nowrap; font-size: px; line-height: px; font-weight: 100;text-transform:left;border-color:rgba(255, 255, 255, 0.50);border-style:solid;border-width:1px;border-radius:23px 23px 23px 23px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                                        <span>
-                                        </span>
-                                    </div>
-                                </li>
-                                <!-- SLIDE -->
-                                <li id="slider_image_5" data-index="rs-3008" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Hiking" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="images/rs/img/notgeneric_bg3.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                                    <!-- LAYERS -->
-
-                                    <!-- LAYER NR. 26 -->
-                                    <div class="tp-caption NotGeneric-Title   tp-resizeme "
-                                         id="slide-3008-layer-1"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
-                                         data-fontsize="['70','70','70','45']"
-                                         data-lineheight="['70','70','70','50']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1000,"split":"chars","splitdelay":0.1,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 30; white-space: nowrap;text-transform:left;"><span id="slider_title_5">Welcome to Obedient Group </span></div>
-
-                                    <!-- LAYER NR. 27 -->
-                                    <div class="tp-caption NotGeneric-SubTitle   tp-resizeme"
-                                         id="slide-3008-layer-4"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','51']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 31; white-space: nowrap;text-transform:left;"><span id="slider_sub_title_5">Real Estate & Consumer Goods </span></div>
-
-                                    <!-- LAYER NR. 28 -->
-                                    <div class="tp-caption NotGeneric-Icon   tp-resizeme"
-                                         id="slide-3008-layer-8"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="text"
-                                         data-responsive_offset="on"
-
-                                         data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 32; white-space: nowrap;text-transform:left;cursor:default;"><i class="pe-7s-diamond"></i> </div>
-
-                                    <!-- LAYER NR. 29 -->
-                                    <div class="tp-caption rev-scroll-btn "
-                                         id="slide-3008-layer-9"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','50','50']"
-                                         data-width="35"
-                                         data-height="55"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"scrollbelow","offset":"0px","delay":""}]'
-                                         data-basealign="slide"
-                                         data-responsive_offset="off"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:50px;opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"
-
-                                         style="z-index: 33; min-width: 35px; max-width: 35px; max-width: 55px; max-width: 55px; white-space: nowrap; font-size: px; line-height: px; font-weight: 100;text-transform:left;border-color:rgba(255, 255, 255, 0.50);border-style:solid;border-width:1px;border-radius:23px 23px 23px 23px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                                        <span>
-                                        </span>
-                                    </div>
-
-                                    <!-- LAYER NR. 4 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftProducts"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>products">OUR PRODUCTS<a/> </div>
-
-                                    <!-- LAYER NR. 4 - 2 -->
-                                    <div class="tp-caption NotGeneric-Button rev-btn marginLeftLogin"
-                                         id="slide-3004-layer-7"
-                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                         data-y="['middle','middle','middle','middle']" data-voffset="['124','124','124','123']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-
-                                         data-type="button"
-                                         data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-                                         data-responsive_offset="on"
-                                         data-responsive="off"
-                                         data-frames='[{"from":"y:50px;opacity:0;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[175%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[10,10,10,10]"
-                                         data-paddingright="[30,30,30,30]"
-                                         data-paddingbottom="[10,10,10,10]"
-                                         data-paddingleft="[30,30,30,30]"
-
-                                         style="z-index: 8; white-space: nowrap;text-transform:left;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;"><a href="<?php echo $home_url; ?>login">LOGIN</a> </div>
-                                </li>
-                            </ul>
-                            <div style="" class="tp-static-layers">
+       
+
+        <!-- Hero Slider -->
+		<div>
+        <div class="hero-slider height-760 custom-slider qdr-controls" data-slick='{"dots": true, "arrows": true, "autoplay": true, "autoplaySpeed": 3000, "speed": 700, "slidesToShow": 1, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 1}}]}'>
+            <!-- Slide -->
+            <div class="slide moving-container">
+                <!-- Your Image -->
+                <div class="slide-img bg-soft bg-soft-dark2" data-background="images/slider_image_1.jpg"></div>
+                <!-- Details -->
+                <div class="details">
+                    <!-- Centered Container -->
+                    <div class="container v-center">
+                        <div class="skrollr moving" data-0="opacity:1;" data-200="opacity:0;">
+                            <div class="translatez-sm">
+                                <h4 class="playfair italic animated font-14-mobile custom_subheading" data-animation="fadeInUp" data-animation-delay="600">
+                                    Real Estate & Consumer Goods
+                                </h4>
                             </div>
-                            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
-                    </div><!-- END REVOLUTION SLIDER -->
+                            <div class="translatez-xs">
+                                <h1 class="bold-title mini-mt animated font-16-mobile custom_heading" data-animation="fadeInUp" data-animation-delay="800">
+                                    Welcome to Obedient Group
+                                </h1>
+                            </div>
+                            <div class="translatez-md">
+                                <a href="products/" class="hero-slider-next lg-btn xxs-mt inline-block border-btn border-dashed border-gray3 radius-lg bold-subtitle font-12 white animated bg-colored1-hover border-colored1-hover slow bg_purple" data-animation="fadeInUp" data-animation-delay="1000">
+                                    OUR PRODUCTS
+                                </a>&nbsp;
+								<a href="login/" class="hero-slider-next lg-btn xxs-mt inline-block border-btn border-dashed border-gray3 radius-lg bold-subtitle font-12 white animated bg-colored1-hover border-colored1-hover slow bg_purple" data-animation="fadeInUp" data-animation-delay="1000">
+                                    LOGIN
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- End Details -->
             </div>
-        </section>
-        <!-- END CONTENT -->
+            <!-- End Slide -->
+            <!-- Slide -->
+            <div class="slide moving-container">
+                <!-- Your Image -->
+                <div class="slide-img bg-soft bg-soft-dark2" data-background="images/slider_image_2.jpg"></div>
+                <!-- Details -->
+                <div class="details">
+                    <!-- Centered Container -->
+                    <div class="container v-center">
+                        <div class="skrollr moving" data-0="opacity:1;" data-200="opacity:0;">
+                            <div class="translatez-sm">
+                                <h4 class="playfair italic animated font-14-mobile custom_subheading" data-animation="fadeInUp" data-animation-delay="600">
+                                    Real Estate & Consumer Goods
+                                </h4>
+                            </div>
+                            <div class="translatez-xs">
+                                <h1 class="bold-title mini-mt animated font-16-mobile custom_heading" data-animation="fadeInUp" data-animation-delay="800">
+                                    Welcome to Obedient Group
+                                </h1>
+                            </div>
+                            <div class="translatez-md">
+                                <a href="products" class="hero-slider-next lg-btn xxs-mt inline-block border-btn border-dashed border-gray3 radius-lg bold-subtitle font-12 white animated bg-colored1-hover border-colored1-hover slow bg_purple" data-animation="fadeInUp" data-animation-delay="1000">
+                                    OUR PRODUCTS
+                                </a>&nbsp;
+								<a href="login" class="hero-slider-next lg-btn xxs-mt inline-block border-btn border-dashed border-gray3 radius-lg bold-subtitle font-12 white animated bg-colored1-hover border-colored1-hover slow bg_purple" data-animation="fadeInUp" data-animation-delay="1000">
+                                    LOGIN
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Details -->
+            </div>
+            <!-- End Slide -->
+        </div>
+        <!-- End Hero Slider -->
+		<div class="icon_scroll"></div/>
+		</div>
 
         <!-- END HOME SECTION -->
 
@@ -877,26 +123,29 @@ include_once 'header_frontend.php';
             <!-- Left Texts, buttons and facts -->
             <div class="left-details bg-gradient white">
                 <!-- Texts -->
+                
+                <div class="display_none">
                 <h2 class="white no-pm uppercase">Who are we? What we do?
                     <div>
                         <a href="#" data-toggle="modal" data-target="#modal-11" id="pop-on-load" class="lg-btn bg-colored1 white radius-lg slow bs-lg-hover"> </a>
                     </div>
                 </h2>
                 <h2 class="white no-pm uppercase light">Read more about us.</h2>
-                <h4 class="description white light">Obedient Group is a customer oriented group with quality, high moral values and global vision. With Reach to global brands it stands No-1 in Prayagraj and very soon will become No-1 in India.</h4>
+                </div>
+                <h4 class="description white light">We are customer oriented organization with high moral values and global vision, we started our operation in 2018, in a very short span of time we have grown fast and rising rapidly, this reflect the  quality of our products, services and excellent team work.</h4>
                 <!-- Buttons -->
                 <div class="buttons light">
                     <!-- Button -->
                     <a href="#about" class="click-effect dark-effect">
-                        <span>Who are we?</span> About company.
+                        About Us
                     </a>
                     <!-- Button -->
                     <a href="#about" class="click-effect dark-effect">
-                        <span>Our Vision.</span> Why you choose us?
+                        Our Values
                     </a>
                     <!-- Button -->
                     <a href="#about" class="click-effect dark-effect">
-                        <span>What is our target?</span> We dreaming of the future.
+                       Vision & Mission
                     </a>
                 </div>
                 <div class="facts-container light">
@@ -905,8 +154,8 @@ include_once 'header_frontend.php';
                         <div class="texts">
                             <div>
                                 <h1 class="factor">0</h1>
-                                <h3>Real Estate Locations</h3>
-                                <p>Affordable, great locations</p>
+                                <h3>Real Estate Running Projects</h3>
+                                <p>At Affordable & Great Locations</p>
                             </div>
                         </div>
                     </div>
@@ -915,8 +164,8 @@ include_once 'header_frontend.php';
                         <div class="texts">
                             <div>
                                 <h1 class="factor">0</h1>
-                                <h3>Consumer Good products</h3>
-                                <p>Best Quality</p>
+                                <h3>Consumer Good Products</h3>
+                                <p> With Best Quality </p>
                             </div>
                         </div>
                     </div>
@@ -925,8 +174,8 @@ include_once 'header_frontend.php';
                         <div class="texts">
                             <div>
                                 <h1 class="factor">0</h1>
-                                <h3>Total Members</h3>
-                                <p>Happy Associates</p>
+                                <h3> Happy Obedient family</h3>
+                                <p>&nbsp;</p>
                             </div>
                         </div>
                     </div>

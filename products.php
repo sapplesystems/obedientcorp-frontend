@@ -12,7 +12,7 @@ include_once 'header_frontend.php';
 <!-- Page Title -->
 <section id="home" class="xl-py t-center white fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
-    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 200px, 0px);" data-background="images/landing_image.jpg" style="background-position: center 89%; height: 50vh;min-height: 100%;"></div>
+    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 200px, 0px);" data-background="images/landing_image.jpg" style="background-position: center 89%;"></div>
 </section>
 <!-- End Page Title --> 
 <!-- GALLERY -->

@@ -1,4 +1,5 @@
-get_listing();
+//get_listing();
+bvListing();
 //get_goods_coupon_listing();
 getWalletAmount(user_id);
 
@@ -44,7 +45,8 @@ $(document).ready(function () {
                 created_by: 1,
                 created_for: $('#agent').val(),
                 comments: 'Shopping cards generated',
-                denominations: denominations
+                denominations: denominations,
+                bv_type: $('#bv_type').val(),
             };
 
             $.ajax({
@@ -99,14 +101,14 @@ function getWalletAmount(user_id) {
     });
 }
 
-function get_listing() {
+function get_listing(bv_type) {
     showLoader();
     var url = base_url + 'coupon/denominations';
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        //data: params,
+        data: {bv_type: bv_type},
         success: function (response) {
             if (response.status == 'success') {
                 var table_data = '';
@@ -136,10 +138,14 @@ function get_listing() {
                     </div>\n\
                 </li>';
                 });
+                $('.coupon_denomination_div').css('display', 'block');
                 $("#denomination").html(table_data);
                 hideLoader();
+            } else {
+                $('.coupon_denomination_div').css('display', 'none');
+                $("#denomination").html('');
+                hideLoader();
             }
-
         }
     });
 }
@@ -212,9 +218,11 @@ function get_goods_coupon_listing() {
                 var cb_status = '';
                 var select_number_of_days = '';
                 var coupon_availability_div = '';
+                var coupon_cancel_div = '';
                 $.each(response.data, function (key, value) {
                     select_number_of_days = '';
                     coupon_availability_div = '';
+                    coupon_cancel_div = '';
                     var classname = 'odd';
                     if (i % 2 == 0) {
                         classname = 'even';
@@ -249,6 +257,11 @@ function get_goods_coupon_listing() {
                                                     </form>\n\
                                                 </div>';
                         }
+                        if (value.status == 'Active') {
+                            coupon_cancel_div = '<div class="float-left ml-3">\n\
+                                                    <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="cancel_coupon_' + value.id + '" onclick="cancelCoupon(event, ' + value.id + ');">Cancel</a>\n\
+                                                </div>';
+                        }
                         action_td = '<td>\n\
                                         <div class="float-left">\n\
                                             <input class="tgl tgl-skewed" id="cb' + value.id + '" type="checkbox" ' + cb_status + ' onclick="changeCouponStatus(event, ' + value.id + ');"/>\n\
@@ -258,14 +271,37 @@ function get_goods_coupon_listing() {
                                         <div class="float-left ml-3">\n\
                                             <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print</a>\n\
                                         </div>\n\
+                                        ' + coupon_cancel_div + '\n\
                                     </td>';
                     }
                     if (value.coupon_type_id != 1) {
                         action_td = '<td> -- </td>';
                     }
-                    goods_coupon_list += ' <tr role="row" class="' + classname + '">\n\
+                    var coupon_code_name = 'SC' + value.rs_per;
+                    var tr_class = '';
+                    if (value.coupon_type_id == 1) {
+                        coupon_code_name = 'SC' + value.fmcg_per;
+                        if (value.fmcg_per == '30') {
+                            tr_class = 'text-info';
+                        }
+                        if (value.fmcg_per == '40') {
+                            tr_class = 'text-warning';
+                        }
+                        if (value.fmcg_per == '50') {
+                            tr_class = 'text-danger';
+                        }
+                        if (value.fmcg_per == '60') {
+                            tr_class = 'text-success';
+                        }
+                        if (value.fmcg_per == '77') {
+                            tr_class = 'text-primary';
+                        }
+                    }
+                    goods_coupon_list += ' <tr role="row" class="' + classname + ' ' + tr_class + '">\n\
                                                 <td class="sorting_1">' + i + '</td>\n\
+                                                <td class="sorting_1"><i class="mdi mdi-ticket"></i></td>\n\
                                                 <td class="sorting_1">' + value.display_name + '</td>\n\
+                                                <td id="print_coupon_code_name_' + value.id + '"> ' + coupon_code_name + ' </td>\n\
                                                 <td id="print_coupon_code_' + value.id + '"> ' + value.coupon_code + ' </td>\n\
                                                 <td id="print_coupon_type_' + value.id + '"> ' + value.coupon_type + ' </td>\n\
                                                 <td id="print_coupon_amount_' + value.id + '"> ' + value.coupon_amount + ' </td>\n\
@@ -373,10 +409,65 @@ function printCoupon(e, coupon_id) {
     a.print();
 }
 
+function cancelCoupon(e, coupon_id) {
+    e.preventDefault();
+    showSwal('warning-message-and-cancel');
+    $('.payment_action').click(function () {
+        var comment = $('#payment_comment').val();
+        if (comment == '') {
+            $('#payment_comment').focus();
+            return false;
+        }
+        cancelCouponAction(coupon_id);
+    });
+}
+
+function cancelCouponAction(coupon_id) {
+    showLoader();
+    $.ajax({
+        url: base_url + 'cancel-coupon',
+        type: 'post',
+        data: {
+            coupon_id: coupon_id,
+            created_by: user_id,
+            comments: $('#payment_comment').val(),
+        },
+        success: function (response) {
+            if (response.status == "success") {
+                showSwal('success', 'Success', 'Shopping card cancelled successfully');
+                $('#cancel_coupon_' + coupon_id).css('display', 'none');
+                $('#cancel_coupon_' + coupon_id).removeAttr('onclick');
+            } else {
+                showSwal('error', 'Error', response.data);
+            }
+            hideLoader();
+        }
+    });
+}
+
 function daysOptions(id) {
     var options = '';
     for (var i = 2; i <= 30; i++) {
         options += '<option value="' + i + '">' + i + ' Days</option>';
     }
     return '<select class="form-control mr-sm-2 number_of_days" id="number_of_days_' + id + '"><option value="">Select Days</option><option value="1">1 Day</option>' + options + '</select>';
+}
+
+function bvListing() {
+    $.ajax({
+        url: base_url + 'coupon-business-values',
+        type: 'post',
+        data: {},
+        success: function (response) {
+            if (response.status == "success") {
+                var data = response.data;
+                var list = '<option value="">Select</option>';
+                $.each(data, function (key, val) {
+                    list += '<option value="' + val.business_value + '">' + val.name + '</option>';
+                });
+                $('#bv_type').html(list);
+            }
+
+        }
+    });
 }

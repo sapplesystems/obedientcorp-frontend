@@ -35,6 +35,7 @@ if (isset($_REQUEST['gid'])) {
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="gallery_form">Submit</button>
                                     <input type="hidden" id="gallery_id" value="<?php echo $gid; ?>">
+                                    <a href="gallery-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

@@ -52,6 +52,7 @@ if (isset($_REQUEST['wid'])) {
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="winner_form">Submit</button>
                                     <input type="hidden" id="winner_id" value="<?php echo $wid; ?>">
+                                    <a href="winners-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

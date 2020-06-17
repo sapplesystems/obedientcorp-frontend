@@ -16,17 +16,32 @@
                         <div class="card-body p-3 marginLR-m">
                             <!-- <h4 class="card-title mb-4">Add Coupon</h4> -->
                             <div class="row">
-                                <div class="col-sm-8">
+                                <div class="col-sm-4">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label mb-0">Generated For:</label>
-                                        <div class="col-sm-4 p-0">
+                                        <label class="col-sm-12 col-form-label mb-0">Generated For:</label>
+                                        <div class="col-sm-12">
                                             <select class="form-control blackOption" id="agent"></select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <div class="div-total text-right" style="display:none;" id="e_wallet_label">
-                                        <h5>Wallet Balance: <span id="rupee_sign"></span> <span id="e-wallet"></span></h5>
+                                    <div class="form-group row">
+                                        <label class="col-sm-12 col-form-label mb-0">Business Value Type:</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control blackOption" id="bv_type" onchange="get_listing(this.value);">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="div-total" style="display:none;" id="e_wallet_label">
+                                        <div class="form-group row">
+                                            <label class="col-sm-12 col-form-label mb-0">Wallet Balance:</label>
+                                            <div class="col-sm-12">
+                                                <span id="rupee_sign"></span> <span id="e-wallet"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +55,7 @@
                                         </ul>
                                     </div> -->
                                 <!--<div class="col-sm-1"></div> -->
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 coupon_denomination_div" style="display: none;">
                                     <h4 class="card-title mb-4">Amount Calculation</h4>
                                     <ul class="cal_amount" id="denomination">
                                     </ul>
@@ -62,7 +77,7 @@
                                 </div>
 
                             </div>
-                            <div class="row">
+                            <div class="row coupon_denomination_div" style="display: none;">
                                 <div class="col-sm-12 text-right">
                                     <button type="button" class="btn btn-success" id="coupon_generate">Submit</button>&nbsp;
                                     <button type="button" class="btn btn-light" id="cancel-coupon">Cancel</button>
@@ -85,7 +100,9 @@
                                     <tr>
                                         <?php if ($user_type == 'ADMIN') { ?>
                                             <th width="5%"> Sr No. </th>
+                                            <th width="5%"> Type </th>
                                             <th width="5%"> Associate Name </th>
+                                            <th width="7%">Code Name</th>
                                             <th width="7%">Code</th>
                                             <th width="8%">Code Type</th>
                                             <th width="10%">Price </th>
@@ -95,7 +112,9 @@
                                             <th width="45%"> Action </th>
                                         <?php } else { ?>
                                             <th width="5%"> Sr No. </th>
+                                            <th width="5%"> Type </th>
                                             <th width="5%"> Associate Name </th>
+                                            <th width="5%">Code Name</th>
                                             <th width="5%">Code</th>
                                             <th width="10%">Code Type</th>
                                             <th width="15%">Price </th>

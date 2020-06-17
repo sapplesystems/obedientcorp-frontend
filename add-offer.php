@@ -66,6 +66,7 @@ if (isset($_REQUEST['oid'])) {
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="offer_form">Submit</button>
                                     <input type="hidden" id="offer_id" value="<?php echo $oid; ?>">
+                                    <a href="offers" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

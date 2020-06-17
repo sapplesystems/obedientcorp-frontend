@@ -79,6 +79,7 @@ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_sub_category" value="submitsubcategory">Submit</button>
                                     <input type="hidden" id="subcategory_id" value="<?php echo $sub_category_id ?>">
                                     <input type="hidden" id="category_id" value="<?php echo $category_id ?>">
+                                    <a href="category-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

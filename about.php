@@ -12,7 +12,7 @@ include_once 'header_frontend.php';
 <!-- Page Title -->
 <section id="home" class="xl-py t-center white fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
-    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 200px, 0px);" data-background="images/about-us.jpg" style="background-position: center bottom"></div>
+    <div class="bg-parallax skrollr" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 200px, 0px);" data-background="images/about-banner.jpg" style="background-position: center center; background-size: 100% 160%;"></div>
 </section>
 <!-- End Page Title --> 
 <!-- GALLERY -->
@@ -25,15 +25,24 @@ include_once 'header_frontend.php';
                 <!-- Box -->
                 <div class="col-md-12 col-12 clearfix xs-mt-mobile">
                     <p class="gray7 font-15">
-                        We are one of leading Indian Company in Site Development, Land Development, Construction etc. Our Company is incorporated as 'Obedient Corporation' from 20 June 2018, and now this Company incorporated as Obedient Infra Development Pvt. Ltd. A Private Limited Company under the Companies Act, 2013 pursuant to Certificate of Incorporation dated September 29, 2018.
+                        We are customer oriented organization with high moral values and global vision, we started our operation in 2018, in a very short span of time we have grown fast and rising rapidly, this reflect the  quality of our products, services and excellent team work.
+                    </p>
+                    <p class="gray7 font-15 mt-2">
+                        We've pledged to offer high quality products to our consumers, we are continuously growing our range of high quality products, our products are manufactured in state of the art facilities with best in class quality standards.
+                    </p>
+                    <p class="gray7 font-15 mt-2">
+                        We believe in collaboration, empowerment and upliftment of underprivileged by providing the platform and opportunity to grow and fulfil their dreams, come and join the family, let's work together and make our lives better.
                     </p>
                 </div>
-            </div>
+</div>
     <div class="clearfix"></div>
 	  <div class="col-md-12 col-12 mt-5 pl-0">
-                    <h3 class="bold-subtitle lh-sm font-22">
-                        Why you should choose us!
-                    </h3>
+                <div class="t-center">
+                <h3 class="bold-subtitle lh-sm font-22">
+                        Our core values & statement
+                </h3>
+                <div class="title-strips-over dark"></div>
+                </div>
                 </div>
 	<div class="boxes container t-left t-center-sm clearfix pt-5 pb-5 mb-5">
             <div class="row">
@@ -46,11 +55,11 @@ include_once 'header_frontend.php';
                             <i class="icon-fire h2 colored1"></i>
                         </div>
                         <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Reliable</h4>
+                            <h4 class="bold-subtitle pt-2">Honesty</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
-                                You can rely on us for all your infrastructure developement needs.
+                            We believe in honesty and conduct our businesses morally, strong work principle is our core culture, at Obedient success is defined by credibility, respect and trust we receive.
                             </p>
                         </div>
                     </div>
@@ -64,11 +73,11 @@ include_once 'header_frontend.php';
                             <i class="icon-globe-alt h2 colored1"></i>
                         </div>
                         <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Punctual</h4>
+                            <h4 class="bold-subtitle pt-2">Excellence</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
-                                On time isvery good thing. We are very punctual and always deliver on time.
+                                Quality is the fundamental for us, our product line unveil that, we ensure high standard of quality for our consumers, we have zero tolerance on quality stand point/we make no compromise with our quality standard.
                             </p>
                         </div>
                     </div>
@@ -82,22 +91,115 @@ include_once 'header_frontend.php';
                             <i class="icon-home h2 colored1"></i>
                         </div>
                         <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">100% Satisfaction</h4>
+                            <h4 class="bold-subtitle pt-2">Innovation</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
-                                Our quality and on time work makes our customers 100% satisfied.
+                            At Obedient we promote innovation at every level, we welcome new ideas and reward them, feedbacks and suggestion are welcome from everyone, we believe in making ourselves better every day. 
                             </p>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+            <div class="row mt-2">
+             <!-- Box -->
+             <div class="col-md-4 col-12 sm-mt-mobile">
+                    <div class="row no-mx">
+                        <!-- Icon -->
+                        <div class="col-1 t-center-sm no-pm">
+                            <i class="icon-fire h2 colored1"></i>
+                        </div>
+                        <div class="col-11 no-pr">
+                            <h4 class="bold-subtitle pt-2">Freedom</h4>
+                        </div>
+                        <div class="col-12 xxs-mt no-pm">
+                            <p class="gray6 normal">
+                            Freedom gives liberty to follow our dreams, we believe everyone is creator of their own destiny, Obedient provides all the freedom of opportunity to create prosperity and fortune.                            </p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Box -->
+                 <div class="col-md-4 col-12 sm-mt-mobile">
+                    <div class="row no-mx">
+                        <!-- Icon -->
+                        <div class="col-1 t-center-sm no-pm">
+                            <i class="icon-globe-alt h2 colored1"></i>
+                        </div>
+                        <div class="col-11 no-pr">
+                            <h4 class="bold-subtitle pt-2">Respect</h4>
+                        </div>
+                        <div class="col-12 xxs-mt no-pm">
+                            <p class="gray6 normal">
+                            Respect and equality is culture at obedient, we ensure respect for everyone, we uphold the respect as a value across the function and level.                             </p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Box -->
+                 <div class="col-md-4 col-12 sm-mt-mobile">
+                    <div class="row no-mx">
+                        <!-- Icon -->
+                        <div class="col-1 t-center-sm no-pm">
+                            <i class="icon-home h2 colored1"></i>
+                        </div>
+                        <div class="col-11 no-pr">
+                            <h4 class="bold-subtitle pt-2">Teamwork/co-operation</h4>
+                        </div>
+                        <div class="col-12 xxs-mt no-pm">
+                            <p class="gray6 normal">
+                                Teamwork and cooperation is our mantra to success, together we achieve our goals, our victory means success to all, we cherish our success of joy with teamwork. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
 		  <div class="clearfix"></div>
 		 <!-- Background image - you can choose parallax ratio and offset -->
        
 		
+</section>
+
+<section>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="t-center">
+                <h1 class="bold-subtitle">
+                    Mission
+                </h1>
+                <div class="title-strips-over dark"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-12 clearfix xs-mt-mobile">
+            <div class="t-center">
+                <p class="gray7 font-15">
+                    To achieve pinnacle in Direct Selling and set the standards.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <div class="t-center">
+                <h1 class="bold-subtitle">
+                    Vision
+                </h1>
+                <div class="title-strips-over dark"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-12 col-12 clearfix xs-mt-mobile">
+            <div class="t-center">
+                <p class="gray7 font-15">
+                    Make people's life better by providing financial empowerment and healthy life solutions.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 
  <!-- TEAM SECTION -->

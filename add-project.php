@@ -64,6 +64,7 @@ if (isset($_REQUEST['pid'])) {
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="project_form">Submit</button>
                                     <input type="hidden" id="project_id" value="<?php echo $pid; ?>">
+                                    <a href="project-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

@@ -2,10 +2,12 @@
 include_once 'header.php';
 $agent_user_id = '';
 $agent_user_email = '';
+$back_btn = '';
 if ($_REQUEST) {
     if ($user_type == 'ADMIN' && $_REQUEST['user_id']) {
         $agent_user_id = $_REQUEST['user_id'];
         $agent_user_email = $_REQUEST['user_email'];
+        $back_btn = '<a href="associate-list" class="btn btn-gradient-danger mr-2">Back</a>';
     }
 }
 ?>
@@ -274,7 +276,7 @@ if ($_REQUEST) {
                                                         </div>
                                                     </section>
                                                     <input type="submit" class="btn btn-primary" id="profile_update_submit" value="Save" />
-
+                                                    <?php echo $back_btn; ?>
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="bank-details-1" role="tabpanel" aria-labelledby="bank-details-tab">
@@ -331,6 +333,7 @@ if ($_REQUEST) {
                                                     </section>
                                                     <input type="hidden" id="bank_id" value="" />
                                                     <input type="submit" class="btn btn-primary" id="bank_update_submit" value="Save" style="display:none" />
+                                                    <?php echo $back_btn; ?>
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="nominee-1" role="tabpanel" aria-labelledby="nominee-tab">
@@ -366,6 +369,7 @@ if ($_REQUEST) {
                                                     </section>
                                                     <input type="hidden" id="nominee_id" value="" />
                                                     <input type="submit" class="btn btn-primary" id="nominee_update_submit" value="Save" style="display:none" ; />
+                                                    <?php echo $back_btn; ?>
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="kyc-1" role="tabpanel" aria-labelledby="kyc-tab">
@@ -578,6 +582,7 @@ if ($_REQUEST) {
                                                     </section>
                                                     <input type="hidden" id="kyc_id" value="" />
                                                     <input type="submit" class="btn btn-primary" id="kyc_update_submit" value="Save" />
+                                                    <?php echo $back_btn; ?>
                                                 </form>
                                             </div>
                                         </div>

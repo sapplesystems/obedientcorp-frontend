@@ -62,6 +62,7 @@ $(document).ready(function () {
                         showSwal('error', 'Error', response.data);
                         hideLoader();
                     }
+                    $('#transfer-to').val('').trigger('change');
                 },
                 error: function (response) {
                     error_html = '';

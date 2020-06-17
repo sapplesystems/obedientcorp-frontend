@@ -164,6 +164,8 @@ function addMoneyToWallet(params) {
                 showSwal('error', 'Failed', response.data);
                 hideLoader();
             }
+            document.getElementById('add-money-to-wallet-form').reset();
+            $('#agents').val('').trigger('change');
         }
     });
 }

@@ -136,6 +136,7 @@ if ($user_type != 'ADMIN') {
                                 showSwal('error', 'Error', response.data);
                             }
                             document.getElementById('reverse_shopping_card_form').reset();
+                            $('#agent_id').val('').trigger('change');
                         }
                     });
                 }

@@ -70,16 +70,47 @@ function get_homepage_images() {
                 }
                 if (response.data.sliders.length > 0)
                 {
-                    setTimeout(function () {
-                        $.each(response.data.sliders, function (key, value)
-                        {
-                            var id = value.id;
-                            $('#slider_image_' + id + ' .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + value.slider_image + ')');
-                            $('#slider_image_' + id + ' .defaultimg').attr('src', media_url + 'sliding_image/' + value.slider_image);
-                            $('#slider_title_' + id).html(value.slider_title);
-                            $('#slider_sub_title_' + id).html(value.slider_sub_title);
-                        });
-                    }, 2000);
+                    //setTimeout(function () {
+                    var home_page_sliders = '';
+                    $.each(response.data.sliders, function (key, value)
+                    {
+                        if (value.slider_image != '') {
+                            home_page_sliders += '<div class="slide moving-container">\n\
+                                                    <div class="slide-img bg-soft bg-soft-dark2" data-background="' + media_url + 'sliding_image/' + value.slider_image + '"></div>\n\
+                                                    <div class="details">\n\
+                                                        <div class="container v-center">\n\
+                                                            <div class="skrollr moving" data-0="opacity:1;" data-200="opacity:0;">\n\
+                                                                <div class="translatez-sm">\n\
+                                                                    <h4 class="playfair italic animated font-14-mobile custom_subheading" data-animation="fadeInUp" data-animation-delay="600">\n\
+                                                                        ' + value.slider_title + '\n\
+                                                                    </h4>\n\
+                                                                </div>\n\
+                                                                <div class="translatez-xs">\n\
+                                                                    <h1 class="bold-title mini-mt animated font-16-mobile custom_heading" data-animation="fadeInUp" data-animation-delay="800">\n\
+                                                                        ' + value.slider_sub_title + '\n\
+                                                                    </h1>\n\
+                                                                </div>\n\
+                                                                <div class="translatez-md">\n\
+                                                                    <a href="products" class="hero-slider-next lg-btn xxs-mt inline-block border-btn bold-subtitle font-12 white animated bg-colored1-hover border-colored1-hover slow bg_purple" data-animation="fadeInUp" data-animation-delay="1000">\n\
+                                                                        OUR PRODUCTS\n\
+                                                                    </a>&nbsp;\n\
+                                                                    <a href="login" class="hero-slider-next lg-btn xxs-mt inline-block border-btn bold-subtitle font-12 white animated bg-colored1-hover border-colored1-hover slow bg_purple" data-animation="fadeInUp" data-animation-delay="1000">\n\
+                                                                        LOGIN\n\
+                                                                    </a>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                    </div>\n\
+                                                </div>';
+                        }
+                        /*var id = value.id;
+                         $('#slider_image_' + id + ' .defaultimg').css('background-image', 'url(' + media_url + 'sliding_image/' + value.slider_image + ')');
+                         $('#slider_image_' + id + ' .defaultimg').attr('src', media_url + 'sliding_image/' + value.slider_image);
+                         $('#slider_title_' + id).html(value.slider_title);
+                         $('#slider_sub_title_' + id).html(value.slider_sub_title);*/
+                    });
+                    $('#home_page_sliders_div').html(home_page_sliders);
+                    //}, 2000);
                 }
                 $('#project_product_slider').html(response.data.project_product_slider);
             } else {

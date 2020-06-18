@@ -11,8 +11,8 @@ $(document).ready(function () {
         checkStartEndDate();
         $(this).valid();
     });
-     //crop image code
-     $image_crop = $('#image_demo').croppie({
+    //crop image code
+    $image_crop = $('#image_demo').croppie({
         enableExif: true,
         viewport: {
             width: 200,
@@ -76,19 +76,19 @@ $(document).ready(function () {
             showLoader();
             var params = new FormData();
             var offer = $('#offer_name').val();
-            var photo  = photo_image;
+            var photo = photo_image;
             var amount = $('#amount').val();
             var business = $('#business').val();
             var start_date = $('#start-date').val();
             var end_date = $('#end-date').val();
-            var created_by = user_id; 
+            var created_by = user_id;
             params.append('offer', offer);
             params.append('photo', photo);
             params.append('amount', amount);
             params.append('business', business);
             params.append('start_date', start_date);
             params.append('end_date', end_date);
-            params.append('created_by',created_by);
+            params.append('created_by', created_by);
             update_or_insert_offer(params);
 
         }//end if
@@ -102,7 +102,7 @@ function update_or_insert_offer(params) {
     var offer_id = $('#offer_id').val();
     if (offer_id) {
         params.append('id', offer_id);
-        params.append('updated_by',user_id);
+        params.append('updated_by', user_id);
         url = base_url + 'offer/update';
     }
     $.ajax({
@@ -118,7 +118,7 @@ function update_or_insert_offer(params) {
                 document.getElementById('offer-form').reset();
                 $('#mapphoto_id,#photo_id').attr('src', '');
                 $('#mapphoto_id,#photo_id').css('display', 'none');
-               location.href = 'offers';
+                window.location.href = 'offer-list';
                 //getofferList();
                 hideLoader();
             } else {
@@ -159,12 +159,12 @@ function getOfferList() {
                 var i = 1;
                 var x = 1;
                 var CurrentDate = new Date();
-                var SelectedDate ='';
+                var SelectedDate = '';
                 $.each(response.data, function (key, value) {
                     var edit_url;
-                    var click_function='';
+                    var click_function = '';
                     SelectedDate = new Date(value.end_date);
-                    if(CurrentDate < SelectedDate){
+                    if (CurrentDate < SelectedDate) {
                         edit_url = 'add-offer.php?oid=' + value.id;
                     }
                     else
@@ -173,17 +173,17 @@ function getOfferList() {
                         click_function = 'onclick="showSwal(\'error\',\'You can not edit this offer as the end date is exceeded.\');"';
                     }
                     var action_td = '';
-                    if(user_type == 'ADMIN'){
-                        action_td = '<td><a href="' + edit_url + '" '+click_function+'> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteOffer(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>';
+                    if (user_type == 'ADMIN') {
+                        action_td = '<td><a href="' + edit_url + '" ' + click_function + '> <i class="mdi mdi-pencil text-info"></i></a> &nbsp <a href="javascript:void(0);" onclick="deleteOffer(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i></a> </td>';
                     }
 
                     html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                 <td class="sorting_1">' + i + '</td>\n\
-                                <td>' + value.offer+ '</td>\n\
+                                <td>' + value.offer + '</td>\n\
                                 <td>' + value.business + '</td>\n\
                                 <td>' + value.start_date + '</td>\n\
                                 <td>' + value.end_date + '</td>\n\
-                                '+action_td+'\n\
+                                ' + action_td + '\n\
                             </tr>';
                     i = i + 1;
                     x++;

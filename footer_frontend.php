@@ -21,14 +21,7 @@
     <div class="container footer-body">
         <div class="row clearfix">
             <!-- Column -->
-            <div class="col-md-2 col-sm-6 col-xs-12 sm-mb-mobile">
-                <!-- Title -->
-                <h6 class="uppercase white extrabold mb-3">ABOUT US</h6>
-                <!--<h6 class="sm-mt bold gray8">WHO WE ARE</h6>-->
-                <p class="mini-mt">We are one of leading Indian Company in Site Development, Land Development, Construction etc. </p>
-            </div>
-            <!-- Column -->
-            <div class="col-md-2 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
+            <div class="col-md-3 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
                 <h6 class="uppercase white extrabold mb-3">HEAD OFFICE</h6>
                 <!-- You can edit footer-news.html file in js/ajax folder. Will be changed on all website -->
                 <!--<h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>-->
@@ -38,7 +31,7 @@
                     Find us on Google Map
                 </a>
             </div>
-	    <div class="col-md-2 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
+	    <div class="col-md-3 col-sm-6 col-xs-12 all-block-links sm-mb-mobile">
                 <h6 class="uppercase white extrabold mb-3">BRANCH OFFICE</h6>
                 <!-- You can edit footer-news.html file in js/ajax folder. Will be changed on all website -->
                 <!--<h6 class="xs-mt bold gray8"><i class="fa fa-map-marker mini-mr"></i>OUR ADDRESS</h6>-->
@@ -50,7 +43,7 @@
             </div>
             <!-- End Column -->
             <!-- Column -->
-            <div class="col-md-2 col-sm-6 col-xs-12 sm-mb-mobile">
+            <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-mobile">
                 <h6 class="uppercase white extrabold mb-3">TERMS & CONDITIONS</h6>
                 <!-- Clients Slider one - You can find details in footer-client-comments.html file, #post1 div -->
                 <!-- When you edit ajax file, the details will be changed on all website -->
@@ -62,7 +55,7 @@
             </div>
             <!-- End Column -->
             <!-- Column -->
-            <div class="col-md-2 col-sm-6 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <!-- Title -->
                 <h6 class="uppercase white extrabold no-pm mb-3">CONNECT WITH US</h6>
                 <!-- Sub Title -->

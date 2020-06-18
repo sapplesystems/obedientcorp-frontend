@@ -15,7 +15,7 @@ include_once 'header.php';
                 <div class="clearfix"></div>
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Rankers List</h4>
+                        <h4 class="card-title mb-4">Rankers List <a href="dashboard" class="btn btn-danger btn-sm">Back</a></h4>
                         <div class="overflowAuto custom_overflow">
                             <table class="table table-bordered custom_action rankers_list" id="order-listing" >
                                 <thead>

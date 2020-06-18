@@ -8,7 +8,7 @@ include_once 'header.php';
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-0">Ranks</h4>
+                        <h4 class="card-title mb-0">Ranks <a href="dashboard" class="btn btn-danger btn-sm">Back</a></h4>
                     </div>
                 </div>
             </div>

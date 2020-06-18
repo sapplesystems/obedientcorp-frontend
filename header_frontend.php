@@ -4,16 +4,10 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Obedient</title>
-            <meta name="description" content="Quadra Theme Athena Version" />
             <!--Keywords -->
-            <meta name="keywords" content="modern, creative, website, html5, bootstrap responsive, parallax, soft, front-end, designer, coming soon, account, portfolio, photographer, grid, social, modules, design, personal, faq, one page, multi-purpose, branding, studio, agency, templates, css3, carousel, slider, corporate, theme, quadra, demos, blog, shop" />
-            <meta name="author" content="GoldEyes" />
             <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
             <!--Favicon -->
             <link rel="icon" type="image/png" href="images/favicon.png" />
-            <!-- Apple Touch Icon -->
-            <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
-            <meta name="theme-color" content="#040406">
 
                 <link type="text/css" media="all" href="css/autoptimize.css"  rel="stylesheet" />
 
@@ -21,10 +15,10 @@
                 <link rel="stylesheet" href="css/plugins.css?v=2.3.1"/>
                 <!-- Revolution Slider -->
                 <link rel="stylesheet" href="css/revolutionslider/settings.css" />
+				 <!-- Page Styles -->
+                <link rel="stylesheet" href="css/athena.css" />
                 <!-- Theme Styles -->
                 <link rel="stylesheet" href="css/theme.css?v=2.3.1"/>
-                <!-- Page Styles -->
-                <link rel="stylesheet" href="css/athena.css" />
                 <!-- Custom Styles -->
                 <link rel="stylesheet" href="css/custom.css" />
                 <!-- End Page Styles -->

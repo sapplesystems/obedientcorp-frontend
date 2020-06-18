@@ -44,18 +44,14 @@ include_once 'header_frontend.php';
                 <div class="title-strips-over dark"></div>
                 </div>
                 </div>
-	<div class="boxes container t-left t-center-sm clearfix pt-5 pb-5 mb-5">
+	<div class="boxes container t-left t-center-sm clearfix pt-5 mb-5 custom_icon_core">
             <div class="row">
 
                 <!-- Box -->
                 <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-fire h2 colored1"></i>
-                        </div>
-                        <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Honesty</h4>
+                        <div class="col-12 no-pr pl-0">
+                            <h4 class="bold-subtitle pt-2"><img src="images/honesty.png" />Honesty</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -68,12 +64,8 @@ include_once 'header_frontend.php';
                 <!-- Box -->
                 <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-globe-alt h2 colored1"></i>
-                        </div>
-                        <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Excellence</h4>
+                        <div class="col-12 no-pr pl-0">
+                            <h4 class="bold-subtitle pt-2"><img src="images/excellence.png" />Excellence</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -86,12 +78,8 @@ include_once 'header_frontend.php';
                 <!-- Box -->
                 <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-home h2 colored1"></i>
-                        </div>
-                        <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Innovation</h4>
+                        <div class="col-12 no-pr pl-0">
+                            <h4 class="bold-subtitle pt-2"><img src="images/innovation.png" />Innovation</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -106,12 +94,8 @@ include_once 'header_frontend.php';
              <!-- Box -->
              <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-fire h2 colored1"></i>
-                        </div>
-                        <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Freedom</h4>
+                        <div class="col-12 no-pr pl-0">
+                            <h4 class="bold-subtitle pt-2"><img src="images/freedom.png" />Freedom</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -122,12 +106,8 @@ include_once 'header_frontend.php';
                  <!-- Box -->
                  <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-globe-alt h2 colored1"></i>
-                        </div>
-                        <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Respect</h4>
+                        <div class="col-12 no-pr pl-0">
+                            <h4 class="bold-subtitle pt-2"><img src="images/respect.png" />Respect</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -138,12 +118,8 @@ include_once 'header_frontend.php';
                  <!-- Box -->
                  <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-home h2 colored1"></i>
-                        </div>
-                        <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Teamwork/co-operation</h4>
+                        <div class="col-12 no-pr pl-0">
+                            <h4 class="bold-subtitle pt-2"><img src="images/teamwork.png" />Teamwork/co-operation</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -164,7 +140,7 @@ include_once 'header_frontend.php';
     <div class="row">
         <div class="col-lg-12">
             <div class="t-center">
-                <h1 class="bold-subtitle">
+                <h1 class="bold-subtitle lh-sm font-22">
                     Mission
                 </h1>
                 <div class="title-strips-over dark"></div>
@@ -184,7 +160,7 @@ include_once 'header_frontend.php';
     <div class="row mt-5">
         <div class="col-lg-12">
             <div class="t-center">
-                <h1 class="bold-subtitle">
+                <h1 class="bold-subtitle lh-sm font-22">
                     Vision
                 </h1>
                 <div class="title-strips-over dark"></div>
@@ -224,7 +200,7 @@ include_once 'header_frontend.php';
                         <div class="team-progress">
                             <!-- Bar -->
                             <div class="progress-bar bg-colored t-left" data-value="72">
-                                <span class="nowrap light white">Chairman</span>
+                                <span class="nowrap light white lineHeightInit">Chairman</span>
                             </div>
                             <!-- Bar -->
                             <!--<div class="progress-bar bg-colored t-left" data-value="45">
@@ -236,7 +212,7 @@ include_once 'header_frontend.php';
                         <div class="member-description vertical-center">
                             <p class="fa fa-quote-left icon"></p>
                             <h2 class="light">Chairman</h2>
-                            <p class="description light">More than two decades of experience in network marketing and more than a decade in Real Estate</p>
+                            <p class="description light">A Visionary Man</p>
                         </div>
                     </div>
                     <!-- End Container for details -->
@@ -253,7 +229,7 @@ include_once 'header_frontend.php';
                         <div class="team-progress">
                             <!-- Bar -->
                             <div class="progress-bar bg-colored t-left" data-value="70">
-                                <span class="nowrap light white">Managing Director (MD)</span>
+                                <span class="nowrap light white lineHeightInit">Managing Director (MD)</span>
                             </div>
                             <!-- Bar -->
                             <!-- <div class="progress-bar bg-colored t-left" data-value="65">
@@ -265,7 +241,7 @@ include_once 'header_frontend.php';
                         <div class="member-description vertical-center">
                             <p class="fa fa-quote-left icon"></p>
                             <h2 class="light">Managing Director (MD)</h2>
-                            <p class="description light">More than two Years of experience in network marketing and two years in Real Estate</p>
+                            <p class="description light">An Example of Women Empowerment</p>
                         </div>
                     </div>
                     <!-- End Container for details -->
@@ -282,7 +258,7 @@ include_once 'header_frontend.php';
                         <div class="team-progress">
                             <!-- Bar -->
                             <div class="progress-bar bg-colored t-left" data-value="55">
-                                <span class="nowrap light white">Founder Leader</span>
+                                <span class="nowrap light white lineHeightInit">Founder Leader</span>
                             </div>
                             <!-- Bar -->
                             <!--<div class="progress-bar bg-colored t-left" data-value="55">
@@ -294,7 +270,7 @@ include_once 'header_frontend.php';
                         <div class="member-description vertical-center">
                             <p class="fa fa-quote-left icon"></p>
                             <h2 class="light">Founder Leader</h2>
-                            <p class="description light">More than a decade of experience in network marketing and five plus years in Real Estate</p>
+                            <p class="description light">Proven Track Record of Industry</p>
                         </div>
                     </div>
                     <!-- End Container for details -->

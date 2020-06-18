@@ -456,6 +456,8 @@ ul.product_list li{width:48% !important;border: 1px solid #ccc; margin-left:4% !
 }
 
 @media only screen and (max-width: 480px){
+	
+	.bg-parallax-mobiled{background-size:100% 130% !important;}
 	.qdr-controls ul.slick-dots{bottom: 10px !important;}
 	
 	.bg-parallax{height:260px !important;}

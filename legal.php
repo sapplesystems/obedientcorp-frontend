@@ -12,7 +12,7 @@ echo $common['dotted_navigation'];
 <!-- CONTENT -->
 <section id="home" class="xl-py t-center fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
-    <div class="bg-parallax skrollr" style="    background-size: 100% 160%;" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/legal1.jpg"></div>
+    <div class="bg-parallax skrollr" style="background-position: center 40%;" data-anchor-target="#home" data-0="transform:translate3d(0, 0px, 0px);" data-900="transform:translate3d(0px, 150px, 0px);" data-background="images/legal1.jpg"></div>
 
 </section>
 <!-- END CONTENT -->

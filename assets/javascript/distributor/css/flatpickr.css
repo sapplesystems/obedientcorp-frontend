@@ -1,0 +1,23 @@
+.flatpickr-wrapper{display:block;position:relative}.flatpickr-wrapper input{cursor:pointer;position:relative;z-index:1}.flatpickr-calendar{font-size:13px;background-color:#fff;color:#333;border-radius:4px;position:absolute;top:100%;left:0;margin-top:3px;opacity:0;padding:3px;border:1px solid #ddd;max-height:0;z-index:0;overflow:hidden;-webkit-transition:opacity 550ms cubic-bezier(.075,.82,.165,1);transition:opacity 550ms cubic-bezier(.075,.82,.165,1);-webkit-transition-timing-function:cubic-bezier(.075,.82,.165,1);transition-timing-function:cubic-bezier(.075,.82,.165,1)}.open .flatpickr-calendar{max-height:286px;z-index:100;opacity:1}.flatpickr-months{color:#000;padding:2px;text-align:center;font-size:135%}.flatpickr-prev-month,.flatpickr-next-month{text-decoration:none;padding:0 .4em;cursor:pointer}.flatpickr-prev-month{float:left}.flatpickr-next-month{float:right}.flatpickr-current-month{padding:0 .5em;font-weight:300}.flatpickr-current-month span{font-weight:700}.flatpickr-prev-month:hover,.flatpickr-next-month:hover{color:#b66dff}.flatpickr-calendar table{border-collapse:collapse;padding:0;width:100%}.flatpickr-calendar thead{font-size:90%}.flatpickr-calendar th,.flatpickr-calendar td{width:14.3%}.flatpickr-calendar th{text-align:center;padding:5px;font-weight:700;color:#ffffff; background-color:#198ae3;}.flatpickr-calendar .slot{cursor:pointer}.flatpickr-day{border:1px solid transparent;display:block;height:32px;line-height:31px;padding:0;text-align:center;width:32px;border-radius:150px;margin:1px}.flatpickr-calendar td:hover .flatpickr-day{background:#e6e6e6;border-color:#e6e6e6; color:#333333;}.today .flatpickr-day{border-color:#b66dff}td.today:hover .flatpickr-day{border-color:#b66dff;background-color:#b66dff;color:#fff}.selected .flatpickr-day{background-color:#b66dff;color:#fff;border-color:#b66dff}.flatpickr-calendar .disabled,.flatpickr-calendar .disabled .flatpickr-day,.flatpickr-calendar .disabled:hover .flatpickr-day{background:0 0;border-color:transparent;color:#ddd;cursor:default}
+
+.flatpickr-prev-month{display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;}
+	
+.flatpickr-prev-month:before{    content: "\f104";}
+
+.flatpickr-next-month{display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;}
+	
+.flatpickr-next-month:before{    content: "\f105";}
+
+.flatpickr-current-month{-webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+user-select: none; /* Standard syntax */}

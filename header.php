@@ -287,7 +287,7 @@ include_once 'common_html.php';
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="offers">
+                                <a class="nav-link" href="offer-list">
                                     <span class="menu-title">Offers</span>
                                     <i class="mdi mdi-settings menu-icon"></i>
                                 </a>

@@ -2,6 +2,7 @@ var sub_category_image = '';
 
 $(document).ready(function () {
     getCategoryList();
+    bvListing($('#subcategory_id').val());
     /*$(document).on('change', '#categories', function() {
      if ($(this).val()) {
      getSubCategoryList($(this).val());
@@ -48,7 +49,7 @@ $(document).ready(function () {
 
         })
     });
-    
+
     $(document).on('click', '.close_crop_image', function () {
         $('#image').val('');
         $('.file-upload-info').val('');
@@ -60,7 +61,7 @@ $(document).ready(function () {
     if ($('#category_id').val() != '' && $('#subcategory_id').val() != '') {
         updateSubCategory($('#subcategory_id').val());
     }
-    
+
     $(document).on('blur', '#cgst', function () {
         $('#igst').val(0);
     });
@@ -80,6 +81,7 @@ $(document).ready(function () {
                 sub_category_title: "required",
                 sub_category_image: "required",
                 sub_category_description: "required",
+                bv_type: "required",
             }
         });
         if ($("#create-sub-category").valid()) {
@@ -94,6 +96,7 @@ $(document).ready(function () {
             params.append('cgst', $('#cgst').val());
             params.append('sgst', $('#sgst').val());
             params.append('igst', $('#igst').val());
+            params.append('bv_type', $('#bv_type').val());
             if ($('#subcategory_id').val())
             {
                 url = base_url + 'category/update';
@@ -217,6 +220,8 @@ function updateSubCategory(category_id) {
                 $('#cgst').val(data.cgst);
                 $('#sgst').val(data.sgst);
                 $('#igst').val(data.igst);
+                document.getElementById('bv_type').selectedIndex = -1
+                $('#bv_type').val(response.bv_type);
                 if (data.image) {
                     var photo_src = media_url + 'category_images/' + data.image;
                     $('#photo_id').attr('src', photo_src);
@@ -247,3 +252,27 @@ function deleteSubCategory(e, category_id) {
         });
     }
 }//end function for subcategory
+
+function bvListing(cid) {
+    $.ajax({
+        url: base_url + 'coupon-business-values',
+        type: 'post',
+        data: {},
+        success: function (response) {
+            if (response.status == "success") {
+                var data = response.data;
+                var list = '<option value="">Select Business Value</option>';
+                var sel;
+                $.each(data, function (key, val) {
+                    sel = '';
+                    if (val.business_value == 77 && cid == '') {
+                        sel = 'selected';
+                    }
+                    list += '<option value="' + val.id + '" ' + sel + '>' + val.name + '</option>';
+                });
+                $('#bv_type').html(list);
+            }
+
+        }
+    });
+}

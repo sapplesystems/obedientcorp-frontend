@@ -23,7 +23,9 @@ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>Category</label>
-                                        <select class="form-control" id="categories" name="categories"></select>
+                                        <select class="form-control" id="categories" name="categories">
+                                            <option value="">Select Categories</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -75,7 +77,15 @@ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Shopping Card Business Value</label>
+                                        <select class="form-control" id="bv_type" name="bv_type">
+                                            <option value="">Select Business Value</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 mt-4">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_sub_category" value="submitsubcategory">Submit</button>
                                     <input type="hidden" id="subcategory_id" value="<?php echo $sub_category_id ?>">
                                     <input type="hidden" id="category_id" value="<?php echo $category_id ?>">

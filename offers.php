@@ -45,7 +45,7 @@ include_once 'header.php';
                         $.each(response.data, function (key, value) {
                             var path = media_url + 'offer_photos/' + value.offer_photo;
                             var message = value.detail.message
-                            offers += '<li><div id="f1_container"><div id="f1_card"><div class="front face "><span>&#8377; ' + value.offer_business + ' &nbsp;-&nbsp;</span><img src="' + path + '" /></div><div class="back face center"><p class="head_p">' + message + '</p></div></div></div></li>'
+                            offers += '<li><div id="f1_container"><div id="f1_card"><div class="front face "><span>' + value.offer_business + ' &nbsp;-&nbsp;</span><img src="' + path + '" /></div><div class="back face center"><p class="head_p">' + message + '</p></div></div></div></li>'
                         });
                         $('.rewards_all_main').append(offers);
 

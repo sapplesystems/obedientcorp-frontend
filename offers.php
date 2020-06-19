@@ -1,6 +1,12 @@
 <?php
 include_once 'header.php';
 ?>
+<style>
+    ul.rewards_all_main li img{max-height: 120px;margin-bottom: 20px;margin-top: 10px;}
+    ul.rewards_all_main li p span{color:#b66dff;font-size: .9375rem !important;margin-right: 0 !important;}
+    ul.rewards_all_main li h3{ margin-bottom: 10px;font-size: 20px;}
+    ul.rewards_all_main li .mdi.mdi-trophy-award{position:inherit !important;}
+</style>
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -45,7 +51,18 @@ include_once 'header.php';
                         $.each(response.data, function (key, value) {
                             var path = media_url + 'offer_photos/' + value.offer_photo;
                             var message = value.detail.message
-                            offers += '<li><div id="f1_container"><div id="f1_card"><div class="front face "><span>' + value.offer_business + ' &nbsp;-&nbsp;</span><img src="' + path + '" /></div><div class="back face center"><p class="head_p">' + message + '</p></div></div></div></li>'
+                            offers += '<li>\n\
+                                            <div id="f1_container"><div id="f1_card">\n\
+                                                <div class="front face ">\n\
+                                                    <h3><i class="mdi mdi-trophy-award"></i> Thiland Contest</h3>\n\
+                                                    <span>' + value.offer_business + ' &nbsp;-&nbsp;</span><img src="' + path + '" />\n\
+                                                    <p><span>Offer Duration:</span> 16-May-2020 till 30-June-2020</p>\n\
+                                                </div>\n\
+                                                <div class="back face center">\n\
+                                                    <p class="head_p">' + message + '</p>\n\
+                                                </div>\n\
+                                            </div>\n\
+                                        </li>';
                         });
                         $('.rewards_all_main').append(offers);
 

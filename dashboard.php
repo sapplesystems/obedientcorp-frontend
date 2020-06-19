@@ -14,16 +14,13 @@ $news_part = '<div class="col-md-8 grid-margin stretch-card">
                     </div>
                 </div>
             </div>';
-$offer_url = 'offers';
-if ($user_type == 'ADMIN') {
-    $offer_url = 'offer-list';
-}
+
 $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                     <div class="card">
                         <div class="card-body p-0">
                             <div class="btn-group-vertical custom__vertical" role="group" aria-label="Basic example">
                                 <a class="btn btn-success" href="rewards">View All Rewards</a>
-                                <a class="btn btn-info" href="' . $offer_url . '">View All Offers</a>
+                                <a class="btn btn-info" href="offers">View All Offers</a>
                                 <a class="btn btn-warning" href="ranks">View All Ranks</a>
                                 <a class="btn btn-primary" href="rankers">View All Rankers</a>
                             </div>

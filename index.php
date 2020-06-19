@@ -15,6 +15,8 @@ include_once 'header_frontend.php';
     .display_none{
         display: none;
     }
+	#home_page_sliders_div .slick-arrow{display:none !important;}
+.qdr-controls ul.slick-dots{display:none !important;}
 </style>
 
 <div id="Preloader" class="Preloader" /> <img style="height:200px;" class="Black" src="images/obedient-logo.png" alt="Logo" /> </div>
@@ -37,15 +39,11 @@ include_once 'header_frontend.php';
                     <h2 class="white no-pm uppercase light">Read more about us.</h2>
                 </div>
                 <h4 class="description white light">We are customer oriented organization with high moral values and global vision, we started our operation in 2018, in a very short span of time we have grown fast and rising rapidly, this reflect the  quality of our products, services and excellent team work.</h4>
-                <div class="buttons light">
-                    <a href="#about" class="click-effect dark-effect">About Us</a>
-                    <a href="#about" class="click-effect dark-effect">Our Values</a>
-                    <a href="#about" class="click-effect dark-effect">Vision & Mission</a>
-                </div>
-                <div class="facts-container light">
+                <div class="facts-container light buttons">
                     <div class="fact" id="real_estate_locations" data-source="0">
                         <div class="texts">
                             <div>
+							<a href="#about" class="click-effect dark-effect">About Us</a>
                                 <h1 class="factor">0</h1>
                                 <h3>Real Estate Running Projects</h3>
                                 <p>At Affordable & Great Locations</p>
@@ -55,6 +53,7 @@ include_once 'header_frontend.php';
                     <div class="fact" id="consumer_goods_products" data-source="0">
                         <div class="texts">
                             <div>
+							<a href="#about" class="click-effect dark-effect">Our Values</a>
                                 <h1 class="factor">0</h1>
                                 <h3>Consumer Good Products</h3>
                                 <p> With Best Quality </p>
@@ -64,6 +63,7 @@ include_once 'header_frontend.php';
                     <div class="fact" id="total_members" data-source="0">
                         <div class="texts">
                             <div>
+							<a href="#about" class="click-effect dark-effect">Vision & Mission</a>
                                 <h1 class="factor">0</h1>
                                 <h3> Happy Obedient family</h3>
                                 <p>&nbsp;</p>

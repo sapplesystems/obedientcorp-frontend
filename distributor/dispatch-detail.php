@@ -6,8 +6,10 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 }
 
 $dispatch_id = 0;
-if (isset($_REQUEST['dispatch_id'])) {
+$distributor_id =0;
+if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
     $dispatch_id = $_REQUEST['dispatch_id'];
+    $distributor_id=$_REQUEST['dist_id'];
 }
 ?>
 <!-- partial -->
@@ -17,7 +19,7 @@ if (isset($_REQUEST['dispatch_id'])) {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Dispatch Items Details</h4>
+                        <h4 class="card-title mb-4">Dispatch Item Details</h4>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="dispatch-detail">
                             </table>
@@ -36,6 +38,7 @@ if (isset($_REQUEST['dispatch_id'])) {
     <?php include_once 'footer-copy.php'; ?>
     <script type="text/javascript">
         var dispatch_id = "<?php echo $dispatch_id; ?>";
+        var distributor_id = "<?php echo $distributor_id; ?>";
         getDistributorDetail(dispatch_id);
 
         function getDistributorDetail(dispatch_id) {
@@ -44,7 +47,8 @@ if (isset($_REQUEST['dispatch_id'])) {
                 url: base_url + 'dispatch/details',
                 type: 'post',
                 data: {
-                    dispatch_id: dispatch_id
+                    dispatch_id: dispatch_id,
+                    distributor_id:distributor_id
                 },
                 success: function(response) {
                     var html = '<thead>\n\

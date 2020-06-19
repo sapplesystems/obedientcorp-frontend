@@ -443,7 +443,7 @@ input[type=number] {
 	 background-color: #b66dff;
 }
  .select-styled:active:after, .select-styled.active:after {
-	 top: 9px;
+	 top: 5px;
 	 border-color: transparent transparent #fff transparent;
 }
  .select-options {

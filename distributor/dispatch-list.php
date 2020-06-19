@@ -8,6 +8,15 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
+        <div class="row grid-margin">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <a href="dispatch-generation" class="btn btn-gradient-primary">Dispatch Generate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -27,6 +36,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     <?php include_once 'footer-copy.php'; ?>
     <script>
         getDispatchList();
+
         function getDispatchList() {
             showLoader();
             $.ajax({
@@ -50,7 +60,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                         $.each(response.data, function(key, value) {
                             var action_td = '';
                             action_td = '<td>\n\
-          <a href="dispatch-detail.php?dispatch_id=' + value.id + '" id="dispatch-detail" title="Dispatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
+          <a href="dispatch-detail.php?dispatch_id=' + value.id + '&dist_id='+value.distributor_id_to+'" id="dispatch-detail" title="Dispatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
                       </td>';
                             html += '<tr id="tr_' + value.id + '" role="row" >\n\
                               <td class="sorting_1">' + i + '</td>\n\
@@ -65,9 +75,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                         $('#dispatch-list').html(html);
                         generateDataTable('dispatch-list');
                         hideLoader();
-                    }
-                    else
-                    {
+                    } else {
                         showSwal('error', 'NO Dispatch', response.data);
                         hideLoader();
                     }

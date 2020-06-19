@@ -4,10 +4,10 @@ var maxField = 10; //Input fields increment limitation
 var validCoupons = [];
 var cashAmount = 0;
 var couponAmount = 0;
-var duePayment = 0;
 var sub_total = 0;
 var total_tax = 0;
 var total = 0;
+var isVerifyOTP = 0;
 $(document).ready(function () {
   getProductList();
   var datetime = new Date();
@@ -159,7 +159,7 @@ $(document).ready(function () {
   $(document).on('click', '#pay-cash', function () {
     var totalRowCount = $("#item-list li").length;
     if (totalRowCount <= 0) {
-      showSwal('error', 'No Product Selected', 'Please select product');
+      showSwal('error', 'Product Not Selected', 'Please select product');
       $('.cd-popup').removeClass('is-visible');
       return false;
     }
@@ -199,10 +199,10 @@ $(document).ready(function () {
         id: user_id
       },
       success: function (response) {
-        console.log(response);
         var html = '';
         if (response.status == 'success') {
           if (response.data.length > 0) {
+            isVerifyCoupons = 1;
             $('#coupons').css('display', '');
             $('.due_amount').css('display', '');
             $.each(response.data, function (key, value) {
@@ -216,21 +216,10 @@ $(document).ready(function () {
               x++;
             });
             couponAmount = amount;
-            var total_bal = $('#totalPayment').html();
-            if (total_bal > couponAmount) {
-              duePayment = Number(total_bal) - Number(couponAmount);
-            } else {
-              duePayment = Number(couponAmount) - Number(total_bal);
-              $('.due_amount').html('EXTRA AMOUNT: &#8377;<span id="due_payment">0</span>');
-            }
-            if (cashAmount) {
-              var tot_amt = Number(couponAmount) + Number(cashAmount);
-              duePayment = (Number(total_bal) - tot_amt);
-            }
             html += '</tbody>';
             $('#coupon-data').append(html);
             $('.cd-popup').removeClass('is-visible');
-            $('#due_payment').html(duePayment);
+            calcAmountDue();
           }
           else {
             showSwal('error', 'Coupon Not Valid');
@@ -315,15 +304,14 @@ function verifyCoupons() {
   var totalRowCount = $("#item-list li").length;
   var customer_name = $('#associate_name').attr('data-value');
   if (customer_name == undefined) {
-    showSwal('error', 'No Customer Selected', 'Please select customer');
+    showSwal('error', 'Customer Not Selected', 'Please select customer');
     return false;
   }
   else if (totalRowCount <= 0) {
-    showSwal('error', 'No Product Selected', 'Please select product');
+    showSwal('error', 'Product Not Selected', 'Please select product');
     return false;
-  }else if($('#coupon-data tr').length == 0)
-  {
-    showSwal('error', 'Coupon Not Added', 'Please add coupons code');
+  } else if (isVerifyOTP == 0) {
+    showSwal('error', 'Coupon Not Selected', 'Please apply coupons');
     return false;
   }
   var url = base_url + 'invoice/send-coupon-otp';
@@ -361,6 +349,7 @@ function verifyOTP() {
     },
     success: function (response) {
       if (response.status == "success") {
+        isVerifyOTP = 1;
         $('.cd-popup').removeClass('is-visible');
         showSwal('success', 'Verify OTP', response.data);
       }
@@ -387,18 +376,14 @@ function SubTotal() {
   $('#total-tax').html(tax.toFixed(2));
   $('#total-amount').html(total.toFixed(2));
   $('#totalPayment').html(total.toFixed(2));
-  if(duePayment!=0)
-  {
-    var payment = total - duePayment;
-    duePayment = payment;
-    $('#due_payment').html(payment);
-  }
+  calcAmountDue();
 }
 
 //function for get cash payment value
 function PayCash() {
   if ($('#cash').val() != '') {
     $('.due_amount').css('display', 'block');
+    isVerifyOTP = 1;
     var html = '';
     var cash = $('#cash').val();
     cashAmount = $('#cash').val();
@@ -410,10 +395,7 @@ function PayCash() {
 </tr>';
     $('.cd-popup').removeClass('is-visible');
     $('#coupon-data').append(html);
-    var total_bal = $('#totalPayment').html();
-    var tot_amt = Number(couponAmount) + Number(cash);
-    duePayment = (Number(total_bal) - tot_amt);
-    $('#due_payment').html(duePayment);
+    calcAmountDue();
     x++;
   } else {
     showSwal('error', 'Please enter amount');
@@ -426,12 +408,12 @@ function validate_customer_product() {
   var totalRowCount = $("#item-list li").length;
   var customer_name = $('#associate_name').attr('data-value');
   if (customer_name == undefined) {
-    showSwal('error', 'No Customer Selected', 'Please select customer');
+    showSwal('error', 'Customer Not Selected', 'Please select customer');
     $('.cd-popup').removeClass('is-visible');
     return false;
   }
   else if (totalRowCount <= 0) {
-    showSwal('error', 'No Product Selected', 'Please select product');
+    showSwal('error', 'Product Not Selected', 'Please select product');
     $('.cd-popup').removeClass('is-visible');
     return false;
   }
@@ -449,13 +431,18 @@ function generateInvoice() {
   var totalRowCount = $("#item-list li").length;
   var customer_name = $('#associate_name').attr('data-value');
   if (customer_name == undefined) {
-    showSwal('error', 'No Customer Selected', 'Please select customer');
+    showSwal('error', 'Customer Not Selected', 'Please select customer');
     return false;
   }
   else if (totalRowCount <= 0) {
-    showSwal('error', 'No Product Selected', 'Please select product');
+    showSwal('error', 'Product Not Selected', 'Please select product');
+    return false;
+  }else if(isVerifyOTP == 0)
+  {
+    showSwal('error', 'OTP Not Verified', 'Please Verify OTP');
     return false;
   }
+
   if ($('#associate_name').attr('data-value') == 0) {
     user_id = $('#associate_name').attr('data-value');
     name = $('#associate_name').val();
@@ -503,20 +490,12 @@ function generateInvoice() {
     success: function (response) {
       if (response.status == "success") {
         showSwal('success', 'Invoice Generated', response.data);
-        $('#search-customer').val('');
-        $('#coupon-data').html('');
-        $('#item-list').html('');
-        $('#associate-name').html('<button type="submit" class="btn btn-gradient-primary mr-2" id="dist-payment-submit">Search</button>');
-        $('#subTotal-amount').html('0');
-        $('#total-tax').html('0');
-        $('#total-amount').html('0');
-        $('#totalPayment').html('0');
-        $('#due_payment').html('0');
-        $('#sale-note').val('');
+        CancelInvoice();
         enableCouponBtn();
       }
       else {
         showSwal('error', response.data);
+        CancelInvoice();
       }
     }
   });
@@ -550,19 +529,17 @@ function removeCoupon(id, type) {
   else if (totalRow == 1 && type == 1) {
     $('#coupon_tr_' + id).remove();
     $('.due_amount').css('display', 'none');
+    couponAmount = 0;
+    calcAmountDue();
   }
   else if (totalRow > 1 && type == 1) {
     var coupon_amt = $('#coupon_' + id).html();
-    duePayment = Number(duePayment) + Number(coupon_amt);
-    $('#due_payment').html(duePayment);
     $('#coupon_tr_' + id).remove();
-    cashAmount = 0;
-  }
+    couponAmount = couponAmount - Number(coupon_amt);
+    calcAmountDue(); 
+   }
   else if (totalRow > 1 && type == 0) {
-    console.log(duePayment);
-    duePayment = Number(duePayment) + Number(cashAmount);
     $('#cash').remove();
-    $('#due_payment').html(duePayment);
     cashAmount = 0;
   }
 
@@ -577,8 +554,9 @@ function CancelInvoice() {
   $('#total-tax').html('0');
   $('#total-amount').html('0');
   $('#totalPayment').html('0');
-  $('#due_payment').html('0');
+  $('.due_amount').css('display', 'none');
   $('#sale-note').val('');
+  $('#coupons').css('display','none');
 
   enableCouponBtn();
 }
@@ -608,4 +586,13 @@ function itemsAlreadyExits(id) {
     return true;
   }
   return true;
+}
+
+function calcAmountDue() {
+  var tot = $('#total-amount').html();
+  var amount = (Number(cashAmount) + Number(couponAmount));
+  var duePayment = (Number(tot) - Number(amount));
+  $('.due_amount').css('display', '');
+  $('#due_payment').html(duePayment);
+  
 }

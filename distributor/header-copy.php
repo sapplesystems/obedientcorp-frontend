@@ -99,15 +99,15 @@ $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
                             <i class="menu-arrow"></i>
                             <i class="mdi mdi-view-grid menu-icon"></i>
                         </a>
-                        <div class="collapse" id="manage-inventory">
+                        <div class="collapse" id="manage-inventory" class="collapse show">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="item-received-list">Recieve Items</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="dispatch-list">Dispatch Items</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="#">Return Items</a></li>
                             </ul>
                         </div>
-                    </li-->
-                    <!--li class="nav-item">
+</li>
+                    <li class="nav-item">
                         <a class="nav-link" href="dispatch-generation">
                             <span class="menu-title">Dispatch Generation</span>
                             <i class="mdi mdi-repeat menu-icon"></i>
@@ -116,19 +116,19 @@ $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
                     <li class="nav-item">
                         <a class="nav-link" href="item-received-list">
                             <span class="menu-title">Recieve Items</span>
-                            <i class="mdi mdi-wallet menu-icon"></i>
+                            <i class="mdi mdi-view-grid menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="dispatch-list">
                             <span class="menu-title">Dispatch Items</span>
-                            <i class="mdi mdi-wallet menu-icon"></i>
+                            <i class="mdi mdi-view-grid menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">
                             <span class="menu-title">Return Items</span>
-                            <i class="mdi mdi-wallet menu-icon"></i>
+                            <i class="mdi mdi-view-grid menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">

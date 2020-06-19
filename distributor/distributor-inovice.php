@@ -7,6 +7,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 ?>
 
 <div id="global-viewport" class='global-viewport m-pikabu-viewport'>
+<a class="btnBack" href="dashboard">Back</a>
     <div class="global-viewport-container m-pikabu-container">
 
         <div id="mainContent" role="main" class="content" tabindex="-1">

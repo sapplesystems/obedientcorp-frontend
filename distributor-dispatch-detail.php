@@ -1,10 +1,10 @@
 <?php
 include_once 'header.php';
 $dispatch_id = 0;
-$distributor_id =0;
-if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
+$distributor_id = 0;
+if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
     $dispatch_id = $_REQUEST['dispatch_id'];
-    $distributor_id=$_REQUEST['dist_id'];
+    $distributor_id = $_REQUEST['dist_id'];
 }
 ?>
 <!-- partial -->
@@ -14,7 +14,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Dispatch Items Details</h4>
+                        <h4 class="card-title mb-4">Items Details</h4>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="dispatch-detail">
                             </table>
@@ -23,10 +23,14 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                 </div>
             </div>
             <div class="col-sm-12 text-right">
-                <a class="btn btn-danger btn-sm" href="distributor-dispatch-list">Back</a>&nbsp;
+
+            </div>
+            <div class="col-sm-12 text-right">
+                <a class="btn btn-gradient-primary mr-2" href="distributor-dispatch-list">OK</a>&nbsp;
+                <a class="btn btn-danger btn-sm" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Back</a>&nbsp;
             </div>
         </div>
-       
+
     </div>
 
     <!-- content-wrapper ends -->
@@ -43,16 +47,20 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                 type: 'post',
                 data: {
                     dispatch_id: dispatch_id,
-                    distributor_id:distributor_id
+                    distributor_id: distributor_id
                 },
                 success: function(response) {
+                    console.log(response);
+
                     var html = '<thead>\n\
                                 <tr>\n\
                                 <th>Sr.No.</th>\n\
                                 <th>Product Name</th>\n\
                                 <th>Product Price</th>\n\
-                                <th>Product Quantity</th>\n\
+                                <th>Dispatched Item Quantity</th>\n\
+                                <th>Received Item Quantity</th>\n\
                                 <th>Lot Number</th>\n\
+                                <th>Action</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
                     if (response.status == "success") {
@@ -62,12 +70,19 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                             if (value.lot_no != null && value.lot_no != '') {
                                 lot_no = value.lot_no;
                             }
+                            var status = '<select>\n\
+                                        <option value="">--Select--</option>\n\
+                                        <option value="approved">Approved</option>\n\
+                                        <option value="disapproved">Disapproved</option>\n\
+                                        </select>';
                             html += '<tr id="tr_' + value.id + '" role="row" >\n\
                               <td class="sorting_1">' + i + '</td>\n\
                               <td>' + value.product_name + '</td>\n\
                               <td>' + value.product_price + '</td>\n\
                               <td>' + value.dispatched_items_quantity + '</td>\n\
+                              <td>' + value.received_items_quantity + '</td>\n\
                               <td>' + lot_no + '</td>\n\
+                              <td>' + status + '</td>\n\
                           </tr>';
                             i = i + 1;
                         });
@@ -75,9 +90,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                         $('#dispatch-detail').html(html);
                         generateDataTable('dispatch-detail');
                         hideLoader();
-                    }
-                    else
-                    {
+                    } else {
                         showSwal('error', response.data);
                         hideLoader();
                     }

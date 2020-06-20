@@ -31,17 +31,20 @@ if ($user_type != 'ADMIN') {
             $.ajax({
                 url: base_url + 'admin/statustype-list',
                 type: 'post',
-                data: {status:'Mismatch'},
+                data: {
+                    status: 'Mismatch'
+                },
                 success: function(response) {
                     var html = '<thead>\n\
-                    <tr>\n\
-          <th>Sr.No.</th>\n\
-              <th>Distibutor Name</th>\n\
-              <th>Dispatch Number</th>\n\
-              <th>Date Of Dispatch</th>\n\
-              <th>Action</th>\n\
-          </tr>\n\
-      </thead><tbody>';
+                                <tr>\n\
+                                <th>Sr.No.</th>\n\
+                                <th>Dispatched By</th>\n\
+                                <th>Received By</th>\n\
+                                <th>Dispatch Number</th>\n\
+                                <th>Date Of Dispatch</th>\n\
+                                <th>Action</th>\n\
+                                </tr>\n\
+                                </thead><tbody>';
                     if (response.status == "success") {
                         console.log(response);
                         var i = 1;
@@ -49,10 +52,11 @@ if ($user_type != 'ADMIN') {
                             console.log(value);
                             var action_td = '';
                             action_td = '<td>\n\
-          <a href="distributor-dispatch-detail.php?dispatch_id=' + value.id + '" id="dispatch-detail" title="Mismatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
+          <a href="distributor-dispatch-detail.php?dispatch_id=' + value.id + '&dist_id='+value.distributor_id_to+'" id="dispatch-detail" title="Mismatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
                       </td>';
                             html += '<tr id="tr_' + value.id + '" role="row" >\n\
                               <td class="sorting_1">' + i + '</td>\n\
+                              <td>' + value.distributor_name_from + '</td>\n\
                               <td>' + value.distributor_name_to + '</td>\n\
                               <td>' + value.dispatch_no + '</td>\n\
                               <td>' + value.dispatch_date + '</td>\n\

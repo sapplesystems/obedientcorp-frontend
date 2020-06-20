@@ -38,7 +38,8 @@ if ($user_type != 'ADMIN') {
                     var html = '<thead>\n\
                         <tr>\n\
                         <th>Sr.No.</th>\n\
-                        <th>Distibutor Name</th>\n\
+                        <th>Dispatch By</th>\n\
+                        <th>Recived By</th>\n\
                         <th>Dispatch Number</th>\n\
                         <th>Date Of Dispatch</th>\n\
                         <th>Action</th>\n\
@@ -49,10 +50,11 @@ if ($user_type != 'ADMIN') {
                         $.each(response.data, function(key, value) {
                             var action_td = '';
                             action_td = '<td>\n\
-          <a href="distributor-dispatch-detail.php?dispatch_id=' + value.id + '&dist_id='+value.distributor_id_to+'" id="dispatch-detail" title="Dispatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
+                            <a href="distributor-dispatch-detail.php?dispatch_id=' + value.id + '&dist_id='+value.distributor_id_to+'" id="dispatch-detail" title="Dispatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
                       </td>';
                             html += '<tr id="tr_' + value.id + '" role="row" >\n\
                               <td class="sorting_1">' + i + '</td>\n\
+                              <td>' + value.distributor_name_from + '</td>\n\
                               <td>' + value.distributor_name_to + '</td>\n\
                               <td>' + value.dispatch_no + '</td>\n\
                               <td>' + value.dispatch_date + '</td>\n\

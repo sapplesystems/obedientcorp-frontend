@@ -135,14 +135,14 @@ include_once 'common_html.php';
                                 </div>
                             </li>
                         <?php } ?>
-                        <?php if ($user_type == 'ADMIN') { ?>
+                        <?php /*if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="shopping-cards-business-value">
                                     <span class="menu-title">Manage Shopping Cards Business Value</span>
                                     <i class="mdi mdi-wallet-giftcard menu-icon"></i>
                                 </a>
                             </li>
-                        <?php } ?>
+                        <?php }*/ ?>
                         <li class="nav-item">
                             <a class="nav-link" href="shopping-cards">
                                 <span class="menu-title">Manage Shopping Cards</span>

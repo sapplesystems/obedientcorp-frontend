@@ -132,7 +132,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                     </div><span data-cid="jibbitz-choking-hazard-message"></span>
                                     <div class="minHeightCoupon">
                                     <dl class="js-cx-accordion cx-accordion js-cx-accordion-no-hash" id="coupons" style="display:none;">
-                                    <dt><a href="#" class="promotionsHeader text-gray-dark" >Coupon Code</a></dt>
+                                    <dt><a href="#" class="promotionsHeader text-gray-dark" >Shopping Card</a></dt>
                                         <dd class="is-closed">
                                             <div class="cx-copy clearfix js-coupon coupon" >
                                                 <div id="couponField" aria-labelledby="promo-accordion-link" class="couponField ">

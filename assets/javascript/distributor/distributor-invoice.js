@@ -199,7 +199,7 @@ $(document).ready(function () {
                             <input type="hidden" id="camnt_'+ value.id + '" value="' + value.coupon_amount + '" />\n\
                             <i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeCoupon('+ value.id + ');"></i>\n\
                           </td>\n\
-                          <td width="62%">COUPON CODE: '+ value.coupon_code + ' - ' + value.coupon_business_name + '</td>\n\
+                          <td width="62%">CODE: '+ value.coupon_code + ' - ' + value.coupon_business_name + '</td>\n\
                           <td width="30%" class="text-right"><strong>&#8377;<span id="coupon_'+ value.id + '">' + value.coupon_amount + '</span></strong></td>\n\
                       </tr>';
                 validCoupons.push(value.id);

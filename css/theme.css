@@ -507,7 +507,7 @@
 		@media only screen and (max-height: 700px){
 			.md-py{ padding-top:110px !important; padding-bottom:110px !important; }
 			.lg-py{ padding-top:130px !important; padding-bottom:130px !important; }
-			.xl-py{ padding-top:150px !important; padding-bottom:150px !important; }
+			.xl-py{ padding-top:130px !important; padding-bottom:130px !important; }
 			.xxl-py{ padding-top:230px !important; padding-bottom:230px !important; }
 		}
 		@media only screen and (max-width: 992px){

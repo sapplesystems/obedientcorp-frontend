@@ -313,6 +313,7 @@ function verifyCoupons() {
     success: function (response) {
       if (response.status == "success") {
         showSwal('success', 'OTP SEND', response.data);
+        resetOtps();
         $('#verify_Coupon').addClass('is-visible');
         //$('#info').val(response.info.id);
         //setTimeout(function(){ $('#verifyOtpRequest').modal(); }, 1000);
@@ -687,4 +688,8 @@ function makeUniqueBvTypeAmount(obj) {
     obj2.push({ name: prop, value: Number(holder[prop]) });
   }
   return obj2;
+}
+
+function resetOtps(){
+  $('#textotp1','#textotp2','#textotp3','#textotp4','#textotp5','#textotp6').val();
 }

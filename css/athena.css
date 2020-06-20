@@ -462,9 +462,8 @@ ul.product_list li{width:48% !important;border: 1px solid #ccc; margin-left:4% !
 @media only screen and (max-width: 480px){
 	
 
-	
+	.py{padding-top:50px !important; padding-bottom:50px !important;}
 	/*.bg-parallax-mobiled{background-size:100% 130% !important;}*/
-	.custom_banner_pos_contact{background-position:30% 100% !important; background-size:cover !important;}
 	.qdr-controls ul.slick-dots{bottom: 10px !important;}
 	
 	.bg-parallax{height:260px !important;}
@@ -867,3 +866,4 @@ margin-top: 5px;}
 .tp-bgimg.defaultimg{background-size:100% 100% !important;}
 .custom_icon_core .bold-subtitle img{height:40px; margin-right:10px;}
 .lineHeightInit{line-height:initial !important;}
+.custom_icon_boxes h4 i{margin-right: 5px;position: relative;top: 3px;}

@@ -36,17 +36,13 @@ include_once 'header_frontend.php';
                     </h3>
                 </div>
 	<div class="boxes container t-left t-center-sm clearfix pt-5 pb-5 mb-5">
-            <div class="row">
+            <div class="row custom_icon_boxes">
 
                 <!-- Box -->
                 <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-fire h2 colored1"></i>
-                        </div>
                         <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Reliable</h4>
+                            <h4 class="bold-subtitle pt-2"><i class="icon-fire h2 colored1"></i> Reliable</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -59,12 +55,8 @@ include_once 'header_frontend.php';
                 <!-- Box -->
                 <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-globe-alt h2 colored1"></i>
-                        </div>
                         <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">Punctual</h4>
+                            <h4 class="bold-subtitle pt-2"><i class="icon-globe-alt h2 colored1"></i> Punctual</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">
@@ -77,12 +69,8 @@ include_once 'header_frontend.php';
                 <!-- Box -->
                 <div class="col-md-4 col-12 sm-mt-mobile">
                     <div class="row no-mx">
-                        <!-- Icon -->
-                        <div class="col-1 t-center-sm no-pm">
-                            <i class="icon-home h2 colored1"></i>
-                        </div>
                         <div class="col-11 no-pr">
-                            <h4 class="bold-subtitle pt-2">100% Satisfaction</h4>
+                            <h4 class="bold-subtitle pt-2"><i class="icon-home h2 colored1"></i> 100% Satisfaction</h4>
                         </div>
                         <div class="col-12 xxs-mt no-pm">
                             <p class="gray6 normal">

@@ -316,6 +316,26 @@ include_once 'common_html.php';
                                     <i class="mdi mdi-home menu-icon"></i>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="manage-distributor">
+                                    <span class="menu-title">Manage Distributor</span>
+                                    <i class="mdi mdi-settings menu-icon"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#manage_inventory" aria-expanded="false" aria-controls="category">
+                                    <span class="menu-title">Manage Inventory</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-view-grid menu-icon"></i>
+                                </a>
+                                <div class="collapse" id="manage_inventory">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item"> <a class="nav-link" href="distributor-dispatch-list">Dispatch Item List</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="#">Receive Item List</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="distributor-mismatch-item-list">Mismatch Item List</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                         <?php } ?>
                     </ul>
                 </nav>

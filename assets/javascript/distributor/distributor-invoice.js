@@ -691,5 +691,10 @@ function makeUniqueBvTypeAmount(obj) {
 }
 
 function resetOtps(){
-  $('#textotp1','#textotp2','#textotp3','#textotp4','#textotp5','#textotp6').val();
+  $('#textotp1').val('');
+  $('#textotp2').val('');
+  $('#textotp3').val('');
+  $('#textotp4').val('');
+  $('#textotp5').val('');
+  $('#textotp6').val('');
 }

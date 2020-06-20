@@ -79,6 +79,11 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                         generateDataTable('recieve-list');
                         hideLoader();
                     }
+                    else
+                    {
+                        showSwal('error', response.data);
+                        hideLoader();
+                    }
                 }
             });
         }

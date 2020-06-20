@@ -101,7 +101,7 @@ if ($user_type != 'ADMIN') {
                                 per = $('#bv_type').val()/100;
                             }
                             var deducted_amount = ($('#amount').val() * per);
-                            showSwal('info', 'BV Deduction', 'BV of ' + deducted_amount + ' wii be deducted from ' + $("#agent_id option:selected").text());
+                            showSwal('info', 'BV Deduction', 'BV of ' + deducted_amount + ' will be deducted from ' + $("#agent_id option:selected").text());
                             $('.info_swal_ok').click(function () {
                                 reverseShoppingCard();
                             });

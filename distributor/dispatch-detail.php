@@ -56,6 +56,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                                 <th>Sr.No.</th>\n\
                                 <th>Product Name</th>\n\
                                 <th>Product Price</th>\n\
+                                <th>Product Code</th>\n\
                                 <th>Product Quantity</th>\n\
                                 <th>Lot Number</th>\n\
                                 </tr>\n\
@@ -71,6 +72,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                               <td class="sorting_1">' + i + '</td>\n\
                               <td>' + value.product_name + '</td>\n\
                               <td>' + value.product_price + '</td>\n\
+                              <td>' + value.sku + '</td>\n\
                               <td>' + value.dispatched_items_quantity + '</td>\n\
                               <td>' + lot_no + '</td>\n\
                           </tr>';

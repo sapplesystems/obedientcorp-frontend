@@ -9,7 +9,6 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 <div id="global-viewport" class='global-viewport m-pikabu-viewport'>
 <a class="btnBack" href="dashboard">Back</a>
     <div class="global-viewport-container m-pikabu-container">
-
         <div id="mainContent" role="main" class="content" tabindex="-1">
 
             <!-- Report any requested source code -->
@@ -29,7 +28,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                 <div class="top_info">
                                     <div>Customer Phone</div>
                                     <div><input type="text" id="search-customer" name="search_customer" placeholder="Enter customer phone number" class="required" /></div>
-                                    <div >
+                                    <div>
                                         <button type="submit" class="btn btn-gradient-primary mr-2" id="dist-payment-submit">Search</button>
                                         <div id="associate-name">
                                        </div>
@@ -54,10 +53,10 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                             <h1 class="text-uppercase">Product Code</h1>
                                         </div>
                                         <div class="columnCell column3 titleQuantity">
-                                            <h6 class="quantity text-uppercase">Quantity</h6>
+                                            <h6 class="quantity text-uppercase">Qty</h6>
                                         </div>
                                         <div class="columnCell column1 titleQuantity">
-                                            <h6 class="quantity text-uppercase">DP</h6>
+                                            <h6 class="quantity text-uppercase">Price/Qty</h6>
                                         </div>
                                         <div class="columnCell column4 titleTotalPrice">
                                             <h6 class="totalPrice text-uppercase">Total</h6>
@@ -129,7 +128,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                             <div class="cart-footer-main">
                                 <div class="cart-footer-table totalsTbl">
                                     <div class="clearfix subTotal">
-                                        <div class="js-cost cost text-gray-dark"><span id="orderSubTotal" role="alert" aria-live="assertive">&#8377;<span id="totalPayment">0</span></span><span class="due_amount" style="display:none;">AMOUNT DUE: &#8377;<span id="due_payment">0</span></span></div>
+                                        <div class="js-cost cost text-gray-dark"><span id="orderSubTotal" role="alert" aria-live="assertive">TOTAL DUE:&#8377;<span id="totalPayment">0</span></span><span class="due_amount" style="display:none;">BALANCE DUE: &#8377;<span id="due_payment">0</span></span></div>
                                     </div><span data-cid="jibbitz-choking-hazard-message"></span>
                                     <div class="minHeightCoupon">
                                     <dl class="js-cx-accordion cx-accordion js-cx-accordion-no-hash" id="coupons" style="display:none;">
@@ -162,6 +161,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                 <label>Sale Notes</label>
                                 <textarea id="sale-note"></textarea>
                             </div>
+                            <a class="btnBack" href="#">Print</a>
                         </div>
                     </div>
 
@@ -180,7 +180,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     <div class="cd-popup-container">
         <h3 class="headPopup">Pay Cash <a href="#0" class="cd-popup-close img-replace">Close</a></h3>
         <div class="popup_input" id="cash-popup">
-            <input type="text" placeholder="Amount" id="cash" name="cash" /> <button onclick="PayCash();">Pay</button>
+            <input type="text" placeholder="Amount" id="cash" name="cash" value="" /> <button onclick="PayCash();">Pay</button>
         </div>
         <!--<ul class="cd-buttons">
 			<li><a href="javascript:void(0);">Yes</a></li>
@@ -211,7 +211,14 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     <div class="cd-popup-container">
         <h3 class="headPopup">Verify Coupon OTP <a href="#0" class="cd-popup-close img-replace">Close</a></h3>
         <div class="verify_input">
-            <div><input type="text" placeholder="" class="otp" /> <input type="text" placeholder="" class="otp" /> <input type="text" placeholder="" class="otp" /> <input type="text" placeholder="" class="otp" /> <input type="text" placeholder="" class="otp" /><input type="text" placeholder="" class="otp" /></div>
+            <div>
+                <input type="text" id="textotp1" class="otp text-center" onkeyup="changeOtpTab(1,2);" minlength="1" maxlength="1" />
+                <input type="text" id="textotp2" class="otp text-center" onkeyup="changeOtpTab(2,3);" minlength="1" maxlength="1" />
+                <input type="text" id="textotp3" class="otp text-center" onkeyup="changeOtpTab(3,4);" minlength="1" maxlength="1" />
+                <input type="text" id="textotp4" class="otp text-center" onkeyup="changeOtpTab(4,5);" minlength="1" maxlength="1" />
+                <input type="text" id="textotp5" class="otp text-center" onkeyup="changeOtpTab(5,6);" minlength="1" maxlength="1" />
+                <input type="text" id="textotp6" class="otp text-center" minlength="1" maxlength="1" />
+            </div>
             <div class="mt10"><a href="javascript:void(0);" onclick="verifyOTP();" id="verify-otp">Resend OTP</a></div>
         </div>
         <ul class="cd-buttons">
@@ -243,6 +250,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 
         //close popup
         $('.cd-popup').on('click', function(event) {
+            console.log(event.target);
             if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
                 event.preventDefault();
                 $(this).removeClass('is-visible');

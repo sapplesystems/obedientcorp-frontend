@@ -20,15 +20,14 @@ include_once 'header.php';
             <div class="cartProductsContainer text-gray-dark cx-copy">
               <div class="distributor_info">
                 <div><label>Select Distributer</label></div>
-                <div>
-                  <select id="mounth" class="dist-list">
-                    <option value="">-- Select --</option>
+                <div >
+                  <select id="distributor-list" class="dist-list ">
                     
                   </select>
                 </div>
                 <div class="ml5percent"><label>Distributer Name and Address</label></div>
                 <div>
-                  <input type="text" placeholder="" id="distributor" data-value="" />
+                  <input type="text" placeholder="" id="distributor" data-value="" readonly/>
                 </div>
               </div>
               <div class="clearfix"></div>
@@ -46,10 +45,10 @@ include_once 'header.php';
                       <h1 class="text-uppercase">Product Code</h1>
                     </div>
                     <div class="columnCell column3 titleQuantity">
-                      <h6 class="quantity text-uppercase">Quantity</h6>
+                      <h6 class="quantity text-uppercase">Qty</h6>
                     </div>
                     <div class="columnCell column1 titleQuantity">
-                      <h6 class="quantity text-uppercase">DP</h6>
+                      <h6 class="quantity text-uppercase">Price/Qty</h6>
                     </div>
                     <div class="columnCell column4 titleTotalPrice">
                       <h6 class="totalPrice text-uppercase">Total</h6>
@@ -138,15 +137,14 @@ include_once 'header.php';
                 <div class="widthHalf">
                   <label>Date</label>
                   <div class="expected_input">
-                    <i class="fa fa-calendar icon_calendar" aria-hidden="true"></i>
-                    <input type="text" id="current-date" placeholder="Select Date">
+                    <input type="text" id="current-date" placeholder="Select Date" readonly>
                   </div>
                 </div>
                 <div class="widthHalf ml4percent">
                   <label>Expected Delivery Date</label>
                   <div class="expected_input">
                     <i class="fa fa-calendar icon_calendar" aria-hidden="true"></i>
-                    <input type="text" id="delivery-date" placeholder="Select Date">
+                    <input type="text" id="delivery-date" placeholder="Select Date" onchange="checkStartEndDate();">
                   </div>
                 </div>
               </div>
@@ -159,7 +157,7 @@ include_once 'header.php';
                 <label>Shipping Details: (Optional)</label>
                 <textarea class="textarea64" id="shipping-detail"></textarea>
               </div>
-              <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel full-width text-bold marginTop20" type="button" name="" value="true" onclick="CancelInvoice();"><span>CLEAR</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN full-width text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="generationDispatch();"><span>GENERATION DISPATCH</span></button>
+              <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel full-width text-bold marginTop20" type="button" name="" value="true" onclick="CancelInvoice();"><span>CLEAR</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN full-width text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="generationDispatch();"><span>GENERATE DISPATCH</span></button>
             </div>
           </div>
 
@@ -176,7 +174,7 @@ include_once 'header.php';
 <?php include_once 'footer.php'; ?>
 <script src="<?php echo $home_url; ?>assets/javascript/distributor/dispatch-generate.js"></script>
 <script>
-  $('select').each(function() {
+ /* $('select').each(function() {
     var $this = $(this),
       numberOfOptions = $(this).children('option').length;
 
@@ -223,11 +221,10 @@ include_once 'header.php';
       $list.hide();
     });
 
-  });
+  });*/
 </script>
 
 <script>
-  var example = flatpickr('#current-date');
   var example1 = flatpickr('#delivery-date');
 </script>
 </body>

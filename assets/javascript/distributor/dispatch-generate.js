@@ -7,10 +7,9 @@ var total_tax = 0;
 var total = 0;
 getDistributorList();
 $(document).ready(function () {
+  $("#test2").attr('checked', true);
   getProductList();
-  var today = new Date();
-  todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-  $('#date').html(todays_date);
+  getCurrentDate();
   //search product
   $("#search-product").autocomplete({
     multiple: true,
@@ -57,7 +56,7 @@ $(document).ready(function () {
           </div>\n\
           <div class="columnCell column2">\n\
               <div class="price">\n\
-                  <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_'+ ui.item.id + '">' + dealer_price_without_tax + '</div>\n\
+                  <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_'+ ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
               </div>\n\
           </div>\n\
           <div class="columnCell column2 productPriceTotal">\n\
@@ -79,13 +78,8 @@ $(document).ready(function () {
       <input type="hidden" class="items" value="'+ ui.item.id + '" />\n\
   </li>';
         $('#item-list').append(html); // save selected id to input
-        sub_total = (Number(sub_total) + Number(dealer_price_without_tax));
-        total = total + Number(ui.item.dealer_price);
-        $('#subTotal-amount').html(sub_total.toFixed(2));
-        $('#total-tax').html(total_tax.toFixed(2));
-        $('#total-amount').html(total.toFixed(2));
-        $('#totalPayment').html(total.toFixed(2));
       }
+      SubTotal();
 
       $('#search-product').val('');
       return false;
@@ -94,8 +88,8 @@ $(document).ready(function () {
 
   });
 
-  $(document).on('click', '#distributor-list li', function () {
-    var dist_id = this.id;
+  $(document).on('change', '#distributor-list', function () {
+    var dist_id = $(this).val();
     var html = '';
     $.each(distributor_data.data, function (key, value) {
       if (value.id == dist_id) {
@@ -124,7 +118,7 @@ function SubValue(id) {
     var sgst = Number($('#org_sgst_' + id).val()) * Number(qty);
     var igst = Number($('#org_igst_' + id).val()) * Number(qty);
     $('#dp_' + id).val(dp);
-    $('#dealer_price_' + id).html(dp);
+    //$('#dealer_price_' + id).html(dp);
     $('#tot_' + id).html(total);
     $('#cgst_' + id).val(cgst);
     $('#sgst_' + id).val(sgst);
@@ -143,9 +137,8 @@ function AddValue(id) {
   var cgst = Number($('#org_cgst_' + id).val()) * Number(qty);
   var sgst = Number($('#org_sgst_' + id).val()) * Number(qty);
   var igst = Number($('#org_igst_' + id).val()) * Number(qty);
-  console.log('additional--' + total);
   $('#dp_' + id).val(dp);
-  $('#dealer_price_' + id).html(dp);
+  //$('#dealer_price_' + id).html(dp);
   $('#tot_' + id).html(total.toFixed(2));
   $('#cgst_' + id).val(cgst);
   $('#sgst_' + id).val(sgst);
@@ -215,7 +208,7 @@ function generationDispatch() {
     dispatch_type = $("input[name='dispatch_type']:checked").val();
     var params = {
       distributor_id_from: distributor_id,
-      distributor_id_to: $('#distributor-list li').attr('id'),
+      distributor_id_to: $('#distributor-list').val(),
       dispatch_date: $('#current-date').val(),
       subtotal: $('#total-amount').html(),
       total: $('#total-amount').html(),
@@ -232,7 +225,6 @@ function generationDispatch() {
       type: 'post',
       data: params,
       success: function (response) {
-        console.log(response);
         if (response.status == "success") {
           showSwal('success', 'Dispatch Generate', response.data);
           CancelInvoice();
@@ -257,11 +249,11 @@ function getDistributorList() {
     data: {},
     success: function (response) {
       distributor_data = response;
-      var html = '';
+      var html = '<option value="">-- Select --</option>';
       if (response.status == "success") {
         $.each(response.data, function (key, value) {
           if (value.id != distributor_id) {
-            html += '<li id="' + value.id + '">' + value.name + '</li>';
+            html += '<option value="' + value.id + '">' + value.name + '</option>';
           }
 
         });
@@ -312,7 +304,8 @@ function validateDispatchForm() {
 
 function CancelInvoice() {
   $('#distributor').val('');
-  $("input[name='dispatch_type']").attr('checked', false);
+  $('#distributor-list').val('');
+  //$("input[name='dispatch_type']").attr('checked', false);
   $('#item-list').html('');
   $('#current-date').val('');
   $('#delivery-date').val('');
@@ -321,6 +314,7 @@ function CancelInvoice() {
   $('#subTotal-amount').html('0');
   $('#total-tax').html('0');
   $('#total-amount').html('0');
+  getCurrentDate();
 
 }
 
@@ -336,6 +330,29 @@ function removeProduct(id) {
   $('#tr_' + id).remove();
   SubTotal();
 
+}
+
+function getCurrentDate()
+{
+  var datetime = new Date();
+  var day = datetime.getDate();
+  day = (day < 10) ? '0' + day : day;
+  var month = MonthArr[datetime.getMonth()];
+  var year = datetime.getFullYear();
+  var todays_date = day + "-" + month + "-" + year;
+  //var time = datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds();
+  var current_date_time = todays_date;
+  $('#current-date').val(current_date_time);
+}
+
+function checkStartEndDate() {
+  var startDate = document.getElementById("current-date").value;
+  var endDate = document.getElementById("delivery-date").value;
+  if ((Date.parse(startDate.split(/\-/).reverse().join('-')) > Date.parse(endDate.split(/\-/).reverse().join('-')))) {
+      showSwal('error', 'Invalid Expected Date', 'Expected date should be greater than or equal to date');
+      document.getElementById("delivery-date").value = "";
+      return false;
+  }
 }
 
 

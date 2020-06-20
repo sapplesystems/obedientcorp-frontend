@@ -136,7 +136,7 @@ function update_or_insert_distributor(params) {
                
                 $('#mapphoto_id,#photo_id').attr('src', '');
                 $('#mapphoto_id,#photo_id').css('display', 'none');
-                //window.location.href = 'manage-distibutor';
+                window.location.href = 'manage-distributor';
                 //getdistributorList();
                 hideLoader();
             } else {

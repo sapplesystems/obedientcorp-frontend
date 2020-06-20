@@ -1,5 +1,4 @@
 var products = [];
-var x = 1; //Initial field counter is 1
 var maxField = 10; //Input fields increment limitation
 var validCoupons = [];
 var cashAmount = 0;
@@ -8,6 +7,7 @@ var sub_total = 0;
 var total_tax = 0;
 var total = 0;
 var isVerifyOTP = 0;
+var x = 0;
 $(document).ready(function () {
   getProductList();
   var datetime = new Date();
@@ -50,12 +50,12 @@ $(document).ready(function () {
               rank = response.data.rank;
             }
             $('#associate-name').html('<span id="associate_name" data-value="' + response.data.id + '" class="editable">' + response.data.associate_name + '</span>  <span>' + rank + '</span>');
-            enableCouponBtn();
+            //enableCouponBtn();
           }
           else {
             var html = '<input type="text" name="associate_name" data-value="0" id="associate_name" class="customer_input" placeholder="Enter customer name"/>';
             $('#associate-name').html(html);
-            disableCouponBtn();
+            //disableCouponBtn();
           }
         }
       });
@@ -96,6 +96,7 @@ $(document).ready(function () {
           <div class="columnCell column2 productDetails">\n\
               <div class="">\n\
                   <p class=""><span>'+ ui.item.code + '</span></p>\n\
+                  <p class="">LotNo:<span>123</span></p>\n\
               </div>\n\
           </div>\n\
           <div class="columnCell column4 productQuantity">\n\
@@ -107,7 +108,7 @@ $(document).ready(function () {
           </div>\n\
           <div class="columnCell column2">\n\
               <div class="price">\n\
-                  <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_'+ ui.item.id + '">' + dealer_price_without_tax + '</div>\n\
+                  <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_'+ ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
               </div>\n\
           </div>\n\
           <div class="columnCell column2 productPriceTotal">\n\
@@ -128,15 +129,9 @@ $(document).ready(function () {
       <input type="hidden" id="org_igst_'+ ui.item.id + '" value="' + igst + '" />\n\
       <input type="hidden" class="items" value="'+ ui.item.id + '" />\n\
   </li>';
-        $('#item-list').append(html); // save selected id to input
-        sub_total = (Number(sub_total) + Number(dealer_price_without_tax));
-        total = total + Number(ui.item.dealer_price);
-        $('#subTotal-amount').html(sub_total.toFixed(2));
-        $('#total-tax').html(total_tax.toFixed(2));
-        $('#total-amount').html(total.toFixed(2));
-        $('#totalPayment').html(total.toFixed(2));
+        $('#item-list').append(html);
       }
-
+      SubTotal();
       $('#search-product').val('');
       return false;
 
@@ -145,29 +140,16 @@ $(document).ready(function () {
   });
 
   $(document).on('click', '#add-coupon', function () {
-    var validate = validate_customer_product();
-    if (validate == true) {
-      $('#CouponCode').html('<div>\n\
+    $('#CouponCode').html('<div>\n\
       <input type="text" placeholder="Enter Coupon Code"  id="coupon_code_1" class="width85 couponCode" />\n\
       <div class="action_apply"><span class="plus_Icon add_button" aria-hidden="true">&#43;</span></div>\n\
   </div>');
-      $('#apply_Coupon').addClass('is-visible');
-    }
-
+    $('#apply_Coupon').addClass('is-visible');
   });
 
   $(document).on('click', '#pay-cash', function () {
-    var totalRowCount = $("#item-list li").length;
-    if (totalRowCount <= 0) {
-      showSwal('error', 'Product Not Selected', 'Please select product');
-      $('.cd-popup').removeClass('is-visible');
-      return false;
-    }
-    else {
-      $('#cash').val(' ');
-      $('#cash-popup').html('<input type="text" placeholder="Amount" id="cash" name="cash" /> <button onclick="PayCash();">Pay</button>');
-      $('#pay_Cash').addClass('is-visible');
-    }
+    $('#cash-popup').html('<input type="text" placeholder="Amount" id="cash" name="cash" value="" /> <button onclick="PayCash();">Pay</button>');
+    $('#pay_Cash').addClass('is-visible');
 
   });
 
@@ -182,7 +164,6 @@ $(document).ready(function () {
     }
   });
 
-  var amount = 0;//for sum of coupon amount
   $('#save_value').click(function () {
     var arrayCoupon = [];
     $('.couponCode').each(function () {
@@ -196,26 +177,25 @@ $(document).ready(function () {
       dataType: "json",
       data: {
         coupon_code: couponCode,
-        id: user_id
       },
       success: function (response) {
         var html = '';
         if (response.status == 'success') {
           if (response.data.length > 0) {
-            isVerifyCoupons = 1;
+            isVerifyOTP = 1;
             $('#coupons').css('display', '');
             $('.due_amount').css('display', '');
+            var c_amount = 0;//for sum of coupon amount
             $.each(response.data, function (key, value) {
-              amount = amount + Number(value.coupon_amount);
+              c_amount = c_amount + Number(value.coupon_amount);
               html += '<tr id="coupon_tr_' + value.id + '"class="coupon_tot_amount">\n\
-              <td width="8%"><i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeCoupon('+ value.id + ',1);"></i></td>\n\
+              <td width="8%"><i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeCoupon('+ value.id + ');"></i></td>\n\
               <td width="62%">COUPON CODE: '+ value.coupon_code + '</td>\n\
-              <td width="30%"><strong>&#8377;<span id="coupon_'+ value.id + '">' + value.coupon_amount + '</span></strong></td>\n\
+              <td width="30%" class="text-right"><strong>&#8377;<span id="coupon_'+ value.id + '">' + value.coupon_amount + '</span></strong></td>\n\
           </tr>';
               validCoupons.push(value.id);
-              x++;
             });
-            couponAmount = amount;
+            couponAmount = (couponAmount + c_amount);
             html += '</tbody>';
             $('#coupon-data').append(html);
             $('.cd-popup').removeClass('is-visible');
@@ -247,7 +227,7 @@ function SubValue(id) {
     var sgst = Number($('#org_sgst_' + id).val()) * Number(qty);
     var igst = Number($('#org_igst_' + id).val()) * Number(qty);
     $('#dp_' + id).val(dp);
-    $('#dealer_price_' + id).html(dp);
+    //$('#dealer_price_' + id).html(dp);
     $('#tot_' + id).html(total);
     $('#cgst_' + id).val(cgst);
     $('#sgst_' + id).val(sgst);
@@ -267,7 +247,7 @@ function AddValue(id) {
   var sgst = Number($('#org_sgst_' + id).val()) * Number(qty);
   var igst = Number($('#org_igst_' + id).val()) * Number(qty);
   $('#dp_' + id).val(dp);
-  $('#dealer_price_' + id).html(dp);
+  //$('#dealer_price_' + id).html(dp);
   $('#tot_' + id).html(total.toFixed(2));
   $('#cgst_' + id).val(cgst);
   $('#sgst_' + id).val(sgst);
@@ -301,24 +281,20 @@ function removeButton(i) {
 }
 
 function verifyCoupons() {
-  var totalRowCount = $("#item-list li").length;
-  var customer_name = $('#associate_name').attr('data-value');
-  if (customer_name == undefined) {
-    showSwal('error', 'Customer Not Selected', 'Please select customer');
+  var customer_phoneno = $('#search-customer').val();
+  if (customer_phoneno == '') {
+    showSwal('error', 'Please Enter Customer Phone Number');
     return false;
   }
-  else if (totalRowCount <= 0) {
-    showSwal('error', 'Product Not Selected', 'Please select product');
-    return false;
-  } else if (isVerifyOTP == 0) {
-    showSwal('error', 'Coupon Not Selected', 'Please apply coupons');
+  else if (isVerifyOTP == 0) {
+    showSwal('error', 'Coupon Not Selected', 'Coupons not selected');
     return false;
   }
   var url = base_url + 'invoice/send-coupon-otp';
   $.ajax({
     url: url,
     type: 'post',
-    data: { id: $('#associate_name').attr('data-value') },
+    data: { mobile_no: $('#search-customer').val() },
     success: function (response) {
       if (response.status == "success") {
         showSwal('success', 'OTP SEND', response.data);
@@ -345,7 +321,8 @@ function verifyOTP() {
     type: 'post',
     data: {
       otp: otp_array.join(''),
-      id: $('#associate_name').attr('data-value')
+      id: $('#associate_name').attr('data-value'),
+      mobile_no: $('#search-customer').val()
     },
     success: function (response) {
       if (response.status == "success") {
@@ -383,20 +360,24 @@ function SubTotal() {
 function PayCash() {
   if ($('#cash').val() != '') {
     $('.due_amount').css('display', 'block');
-    isVerifyOTP = 1;
     var html = '';
-    var cash = $('#cash').val();
-    cashAmount = $('#cash').val();
+    var cash = Number($('#cash').val());
+    cash = cash.toFixed(2);
+    if (cashAmount > 0) {
+      cashAmount = (Number(cashAmount) + Number($('#cash').val()));
+    } else {
+      cashAmount = Number($('#cash').val());
+    }
     $('#coupons').css('display', '');
-    html += '<tr id="cash"class="coupon_tot_amount">\n\
-    <td width="8%"><i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeCoupon('+ x + ',0);"></i></td>\n\
+    var t = new Date().getTime();
+    html += '<tr id="cash_tr_' + t + '" class="coupon_tot_amount">\n\
+    <td width="8%"><i onclick="removeCashTr(event, '+ t + ', ' + cash + ');" style="cursor:pointer;" class="fa fa-trash-o trash_icon"></i></td>\n\
     <td width="62%">CASH:</td>\n\
-    <td width="30%"><strong>&#8377;<span id="cash">'+ cash + '</span></strong></td>\n\
+    <td width="30%" class="text-right"><strong>&#8377;<span> '+ cash + '</span></strong></td>\n\
 </tr>';
     $('.cd-popup').removeClass('is-visible');
     $('#coupon-data').append(html);
     calcAmountDue();
-    x++;
   } else {
     showSwal('error', 'Please enter amount');
   }
@@ -425,24 +406,25 @@ function validate_customer_product() {
 
 //generate invoice function
 function generateInvoice() {
+  var total_amount = $('#totalPayment').html();
+  var due_payment = $('#due_payment').html();
+  if (total_amount && total_amount != '') {
+    total_amount = Number(total_amount);
+  }
+  if (due_payment && due_payment != '') {
+    due_payment = Number(due_payment);
+  }
+
   var name = '';
   var mobile_no = '';
   var user_id = '';
-  var totalRowCount = $("#item-list li").length;
-  var customer_name = $('#associate_name').attr('data-value');
-  if (customer_name == undefined) {
-    showSwal('error', 'Customer Not Selected', 'Please select customer');
-    return false;
-  }
-  else if (totalRowCount <= 0) {
-    showSwal('error', 'Product Not Selected', 'Please select product');
-    return false;
-  }else if(isVerifyOTP == 0)
-  {
+  if (couponAmount > 0 && isVerifyOTP == 0) {
     showSwal('error', 'OTP Not Verified', 'Please Verify OTP');
     return false;
+  } else if (due_payment > 0) {
+    showSwal('error', 'Balance Due', 'You need to pay Rs. ' + due_payment);
+    return false;
   }
-
   if ($('#associate_name').attr('data-value') == 0) {
     user_id = $('#associate_name').attr('data-value');
     name = $('#associate_name').val();
@@ -453,52 +435,59 @@ function generateInvoice() {
     name = $('#associate_name').html();
     mobile_no = $('#search-customer').val();
   }
-  var items = [];
-  $('.items').each(function () {
-    var items_ids = $(this).val();
-    items_ids = Number(items_ids);
-    if (items_ids && items_ids > 0) {
-      var item_qty = $('#qty_' + items_ids).val();
-      items.push({
-        item_id: items_ids,
-        qty: item_qty,
-        cgst: $('#cgst_' + items_ids).val(),
-        sgst: $('#sgst_' + items_ids).val(),
-        igst: $('#igst_' + items_ids).val()
-      });
-    }
-  });
-  var params = {
-    invoice_coupon_code: validCoupons,
-    invoice_item: items,
-    user_id: user_id,
-    name: name,
-    mobile_no: mobile_no,
-    distributor_id: distributor_id,
-    subtotal_amount: $('#total-amount').html(),
-    total_amount: $('#total-amount').html(),
-    coupon_amount: couponAmount,
-    cash_amount: cashAmount,
-    sale_note: $('#sale-note').val(),
-  };
-  console.log(params);
-  var url = base_url + 'invoice/generate-invoice';
-  $.ajax({
-    url: url,
-    type: 'post',
-    data: params,
-    success: function (response) {
-      if (response.status == "success") {
-        showSwal('success', 'Invoice Generated', response.data);
-        CancelInvoice();
-        enableCouponBtn();
+  if (name == '' || mobile_no == '') {
+    showSwal('error', 'No customer selected', 'No customer selected');
+    return false;
+  }
+
+  if (total_amount > 0 && due_payment <= 0) {
+    var items = [];
+    $('.items').each(function () {
+      var items_ids = $(this).val();
+      items_ids = Number(items_ids);
+      if (items_ids && items_ids > 0) {
+        var item_qty = $('#qty_' + items_ids).val();
+        items.push({
+          item_id: items_ids,
+          qty: item_qty,
+          cgst: $('#cgst_' + items_ids).val(),
+          sgst: $('#sgst_' + items_ids).val(),
+          igst: $('#igst_' + items_ids).val()
+        });
       }
-      else {
-        showSwal('error', response.data);
-        CancelInvoice();
+    });
+    var params = {
+      invoice_coupon_code: validCoupons,
+      invoice_item: items,
+      user_id: user_id,
+      name: name,
+      mobile_no: mobile_no,
+      distributor_id: distributor_id,
+      subtotal_amount: $('#total-amount').html(),
+      total_amount: $('#total-amount').html(),
+      coupon_amount: couponAmount,
+      cash_amount: cashAmount,
+      sale_note: $('#sale-note').val(),
+    };
+
+    var url = base_url + 'invoice/generate-invoice';
+    $.ajax({
+      url: url,
+      type: 'post',
+      data: params,
+      success: function (response) {
+        if (response.status == "success") {
+          showSwal('success', 'Invoice Generated', response.data);
+          CancelInvoice();
+          enableCouponBtn();
+        }
+        else {
+          showSwal('error', response.data);
+          CancelInvoice();
+        }
       }
-    }
-  });
+    });
+  }
 
 }
 
@@ -519,30 +508,15 @@ function removeProduct(id) {
   SubTotal();
 
 }
-function removeCoupon(id, type) {
+function removeCoupon(id) {
   var totalRow = $('#coupon-data tr').length;
-  if (totalRow == 1 && type == 0) {
-    $('#cash').remove();
-    $('.due_amount').css('display', 'none');
-    cashAmount = 0;
-  }
-  else if (totalRow == 1 && type == 1) {
-    $('#coupon_tr_' + id).remove();
-    $('.due_amount').css('display', 'none');
+  var coupon_amt = $('#coupon_' + id).html();
+  $('#coupon_tr_' + id).remove();
+  couponAmount = (Number(couponAmount) - Number(coupon_amt));
+  if (couponAmount < 0) {
     couponAmount = 0;
-    calcAmountDue();
   }
-  else if (totalRow > 1 && type == 1) {
-    var coupon_amt = $('#coupon_' + id).html();
-    $('#coupon_tr_' + id).remove();
-    couponAmount = couponAmount - Number(coupon_amt);
-    calcAmountDue(); 
-   }
-  else if (totalRow > 1 && type == 0) {
-    $('#cash').remove();
-    cashAmount = 0;
-  }
-
+  calcAmountDue();
 }
 
 function CancelInvoice() {
@@ -556,7 +530,7 @@ function CancelInvoice() {
   $('#totalPayment').html('0');
   $('.due_amount').css('display', 'none');
   $('#sale-note').val('');
-  $('#coupons').css('display','none');
+  $('#coupons').css('display', 'none');
 
   enableCouponBtn();
 }
@@ -581,6 +555,7 @@ function itemsAlreadyExits(id) {
   var totalRowCount = $("#item-list li").length;
   if (totalRowCount) {
     if ($('#tr_' + id).attr('id')) {
+      AddValue(id);
       return false;
     }
     return true;
@@ -589,10 +564,40 @@ function itemsAlreadyExits(id) {
 }
 
 function calcAmountDue() {
+  var temp_due = 0;
   var tot = $('#total-amount').html();
-  var amount = (Number(cashAmount) + Number(couponAmount));
-  var duePayment = (Number(tot) - Number(amount));
-  $('.due_amount').css('display', '');
-  $('#due_payment').html(duePayment);
-  
+  var duePayment = 0;
+  if (cashAmount < tot || couponAmount < tot) {
+    var amount = (Number(cashAmount) + Number(couponAmount));
+    duePayment = (Number(tot) - Number(amount));
+  }
+  temp_due = duePayment;
+  if (duePayment < 0) {
+    temp_due = 0;
+  }
+  if (temp_due > 0) {
+    $('.due_amount').css('display', '');
+  }
+  $('#due_payment').html(temp_due);
+  if (amount <= 0) {
+    $('.due_amount,#coupons').css('display', 'none');
+  }
+
+}
+
+function removeCashTr(e, t, amnt) {
+  e.preventDefault();
+  $('#cash_tr_' + t).remove();
+  cashAmount = (Number(cashAmount) - Number(amnt));
+  if (cashAmount < 0) {
+    cashAmount = 0;
+  }
+  calcAmountDue();
+}
+
+
+function changeOtpTab(a, b) {
+  if (document.getElementById('textotp' + a).value != '') {
+    document.getElementById('textotp' + b).focus();
+  }
 }

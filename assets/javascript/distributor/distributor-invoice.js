@@ -49,7 +49,7 @@ $(document).ready(function () {
         },
         success: function (response) {
           if (response.status == 'success') {
-            var rank = 'Developer';
+            var rank = response.rank;
             if (response.data.rank != null) {
               rank = response.data.rank;
             }

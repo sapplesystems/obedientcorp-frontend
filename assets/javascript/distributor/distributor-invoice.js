@@ -554,6 +554,17 @@ function removeCoupon(id) {
 }
 
 function CancelInvoice() {
+  validCoupons = [];
+  cashAmount = 0;
+  couponAmount = 0;
+  sub_total = 0;
+  total_tax = 0;
+  total = 0;
+  coupon_added = 0;
+  isVerifyOTP = 0;
+  x = 0;
+  ProductCouponType = [];
+  CouponCodeType = [];
   $('#search-customer').val('');
   $('#coupon-data').html('');
   $('#item-list').html('');
@@ -563,6 +574,7 @@ function CancelInvoice() {
   $('#total-amount').html('0');
   $('#totalPayment').html('0');
   $('#sale-note').val('');
+  $('#due_payment').html(0);
   enableCouponBtn();
 }
 
@@ -690,7 +702,7 @@ function makeUniqueBvTypeAmount(obj) {
   return obj2;
 }
 
-function resetOtps(){
+function resetOtps() {
   $('#textotp1').val('');
   $('#textotp2').val('');
   $('#textotp3').val('');

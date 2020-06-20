@@ -128,7 +128,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                             <div class="cart-footer-main">
                                 <div class="cart-footer-table totalsTbl">
                                     <div class="clearfix subTotal">
-                                        <div class="js-cost cost text-gray-dark"><span id="orderSubTotal" role="alert" aria-live="assertive">TOTAL DUE:&#8377;<span id="totalPayment">0</span></span><span class="due_amount" style="display:none;">BALANCE DUE: &#8377;<span id="due_payment">0</span></span></div>
+                                        <div class="js-cost cost text-gray-dark"><span id="orderSubTotal" role="alert" aria-live="assertive">TOTAL DUE:&#8377; <span id="totalPayment">0</span></span><span class="due_amount" style="display:none;">BALANCE DUE: &#8377; <span id="due_payment">0</span></span></div>
                                     </div><span data-cid="jibbitz-choking-hazard-message"></span>
                                     <div class="minHeightCoupon">
                                     <dl class="js-cx-accordion cx-accordion js-cx-accordion-no-hash" id="coupons" style="display:none;">

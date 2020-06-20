@@ -208,7 +208,6 @@ $(document).ready(function () {
             couponAmount = (couponAmount + c_amount);
 
             $('#coupon-data').append(html);
-            $('.cd-popup').removeClass('is-visible');
             calcAmountDue();
             if (response.message) {
               showSwal('error', response.message);
@@ -219,6 +218,7 @@ $(document).ready(function () {
               showSwal('error', response.message);
             }
           }
+          $('.cd-popup').removeClass('is-visible');
         } else {
           showSwal('error', 'Coupon Not Valid');
         }

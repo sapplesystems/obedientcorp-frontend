@@ -128,9 +128,11 @@ function openProductDetail(e, product_id) {
                 $('.project_lst').html(pro_slider);
                 if (cubeportfolio_flag == 0) {
                     cubeportfolio_flag = 1;
-                    setProductDetailSlider();
+                }else{
+                    $('#images').cubeportfolio('destroy');
                 }
-                $('#product_detail_modal').modal();
+                $('#product_detail_modal').show();
+                setTimeout(function(){setProductDetailSlider();},1000);
             }
         }
     });

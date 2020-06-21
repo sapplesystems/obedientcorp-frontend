@@ -103,6 +103,7 @@ function getProductList(product_id) {
     $.ajax({
         url: url,
         type: 'post',
+        async:false,
         data: {id: product_id},
         success: function (response) {
             if (response.status == "success") 
@@ -145,10 +146,6 @@ function getProductList(product_id) {
                 });
                 $('.pro_list').append(pro_html);
                 $('.project_lst').append(pro_slider);
-                setProductDetailSlider();
-               
-            } else {
-                
             }
         }
     });
@@ -232,6 +229,7 @@ function getProductList(product_id) {
 
             });
         }
+        setProductDetailSlider();
     </script>
 
 

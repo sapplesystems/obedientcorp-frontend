@@ -201,7 +201,6 @@ $(document).ready(function () {
                           <td width="62%">CODE: ' + value.coupon_code + ' - ' + value.coupon_business_name + '</td>\n\
                           <td width="30%" class="text-right"><strong>&#8377;<span id="coupon_' + value.id + '">' + value.coupon_amount + '</span></strong></td>\n\
                       </tr>';
-                                validCoupons.push(value.id);
                             }
                         });
                         couponAmount = (couponAmount + c_amount);
@@ -379,8 +378,10 @@ function SubTotal() {
 
 function totalAppliedCoupon() {
     var ctype = [];
+    validCoupons = [];
     $('.bvcc').each(function () {
         var id = $(this).val();
+        validCoupons.push(id);
         var ccode = $('#ccode_' + id).val();
         var camnt = $('#camnt_' + id).val();
         ctype.push({'bv_type': ccode, 'amount': camnt});
@@ -450,7 +451,7 @@ function generateInvoice() {
     var mobile_no = '';
     var user_id = '';
     if (couponAmount > 0 && isVerifyOTP == 0) {
-        showSwal('error', 'OTP Not Verified', 'Please Verify OTP');
+        showSwal('error', 'Coupon Verification', 'Please verify the applid coupon with otp sent to your given mobile number.');
         return false;
     } else if (due_payment > 0) {
         showSwal('error', 'Balance Due', 'You need to pay Rs. ' + due_payment);
@@ -570,12 +571,12 @@ function CancelInvoice() {
     $('#coupon-data').html('');
     $('#item-list').html('');
     $('#associate-name').html('');
-    $('#subTotal-amount').html('0');
-    $('#total-tax').html('0');
-    $('#total-amount').html('0');
-    $('#totalPayment').html('0');
+    $('#subTotal-amount').html('0.00');
+    $('#total-tax').html('0.00');
+    $('#total-amount').html('0.00');
+    $('#totalPayment').html('0.00');
     $('#sale-note').val('');
-    $('#due_payment').html(0);
+    $('#due_payment').html('0.00');
     enableCouponBtn();
 }
 
@@ -611,19 +612,15 @@ function calcAmountDue() {
     totalAppliedCoupon();
     var temp_due = 0;
     var temp_coupon_amount = 0;
-    var tot = $('#total-amount').html();
+    var tot = Number($('#total-amount').html());
     var duePayment = 0;
 
-    console.log(ProductCouponType);
-    console.log(CouponCodeType);
     if (CouponCodeType.length > 0) {
         $('#coupons').css('display', '');
         var bv_len = CouponCodeType.length;
         for (var i = 0; i < bv_len; i++) {
             var ccode = CouponCodeType[i].name;
             var camnt = CouponCodeType[i].value;
-            console.log(ccode);
-            console.log(camnt);
             if (ProductCouponType.length > 0) {
                 var bvp_len = ProductCouponType.length;
                 for (var j = 0; j < bvp_len; j++) {
@@ -652,7 +649,7 @@ function calcAmountDue() {
     if (temp_due > 0) {
         $('.due_amount').css('display', '');
     }
-    $('#due_payment').html(temp_due);
+    $('#due_payment').html(temp_due.toFixed(2));
 
 }
 
@@ -707,4 +704,53 @@ function resetOtps() {
     $('#textotp4').val('');
     $('#textotp5').val('');
     $('#textotp6').val('');
+}
+
+function checkBeforeGenerateInvoice() {
+    var flag = 0;
+    var coupon_amount_msg = '';
+    var coupon_len = CouponCodeType.length;
+    var product_len = ProductCouponType.length;
+    if (coupon_len > 0) {
+        for (var i = 0; i < coupon_len; i++) {
+            var ccode = CouponCodeType[i].name;
+            var camnt = CouponCodeType[i].value;
+            if (product_len > 0) {
+                for (var j = 0; j < product_len; j++) {
+                    var pccode = ProductCouponType[j].name;
+                    var pcamnt = ProductCouponType[j].value;
+                    if (pccode === ccode && Number(camnt) > Number(pcamnt)) {
+                        flag = 1;
+                        var extra_coupon_amnt = (Number(camnt) - Number(pcamnt));
+                        var p_class = 'text-primary';
+                        if (ccode == 'SC30') {
+                            p_class = 'text-info';
+                        }
+                        if (ccode == 'SC40') {
+                            p_class = 'text-warning';
+                        }
+                        if (ccode == 'SC50') {
+                            p_class = 'text-danger';
+                        }
+                        if (ccode == 'SC60') {
+                            p_class = 'text-success';
+                        }
+                        if (ccode == 'SC77') {
+                            p_class = 'text-primary';
+                        }
+                        coupon_amount_msg += '<div class="' + p_class + '">' + ccode + ': ' + extra_coupon_amnt.toFixed(2) + '</div>';
+                    }
+                }
+            }
+        }
+    }
+    var msg = '';
+    if (flag == 1) {
+        msg = '<div>You can purchase more item using your already applied coupon:</div>' + coupon_amount_msg;
+        msg += '<div>Click <strong>Yes</strong> to generate invoice.</div>';
+        $('#before_inovice_generate_message').html(msg);
+        $('#before_inovice_generate').addClass('is-visible');
+    }else{
+        generateInvoice();
+    }
 }

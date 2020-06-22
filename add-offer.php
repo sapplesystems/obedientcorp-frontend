@@ -37,7 +37,7 @@ if (isset($_REQUEST['oid'])) {
                                 </div>
                                 <label class="col-sm-2 col-form-label">Business Volume</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control required" placeholder="Business" id="business" name="business" onkeypress="return isNumberKey(event);">
+                                    <input type="text" class="form-control required" placeholder="Business Volume" id="business" name="business" onkeypress="return isNumberKey(event);">
                                 </div>
                             </div>
                             <div class="form-group row">

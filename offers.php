@@ -56,7 +56,7 @@ include_once 'header.php';
                                                 <div class="front face ">\n\
                                                     <h3><i class="mdi mdi-trophy-award"></i> ' + value.offer_name + '</h3>\n\
                                                     <span>' + value.offer_business + ' BV &nbsp;-&nbsp;</span><img src="' + path + '" />\n\
-                                                    <p><span>Offer Duration:</span> ' + value.offer_start_date + ' till ' + value.offer_end_date + '</p>\n\
+                                                    <p><span>Offer Duration:</span> ' + value.offer_start_date + ' Till ' + value.offer_end_date + '</p>\n\
                                                 </div>\n\
                                                 <div class="back face center">\n\
                                                     <p class="head_p">' + message + '</p>\n\

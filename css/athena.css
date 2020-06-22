@@ -461,6 +461,13 @@ ul.product_list li{width:48% !important;border: 1px solid #ccc; margin-left:4% !
 
 @media only screen and (max-width: 480px){
 	
+	.details_popup h2{padding-right:0px !important;}
+	
+	span#description{margin-bottom:20px; display:block;}
+	
+	.details_popup{height:80vh; overflow:auto;}
+	.pos_div{width:85% !important;}
+	
 
 	.py{padding-top:50px !important; padding-bottom:50px !important;}
 	/*.bg-parallax-mobiled{background-size:100% 130% !important;}*/
@@ -867,3 +874,4 @@ margin-top: 5px;}
 .custom_icon_core .bold-subtitle img{height:40px; margin-right:10px;}
 .lineHeightInit{line-height:initial !important;}
 .custom_icon_boxes h4 i{margin-right: 5px;position: relative;top: 3px;}
+.bg_overlay_details{z-index:99999 !important;}

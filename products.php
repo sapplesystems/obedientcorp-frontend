@@ -11,7 +11,8 @@ include_once 'header_frontend.php';
 <!-- End Dotted Navigation -->
 <style>
     .bg_overlay_details{position:fixed; left:0; top:0; right:0; bottom:0; z-index:1; background-color:rgba(0,0,0,0.7);}
-    .details_popup{max-width:1000px; width:100%; background-color:#ffffff; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); z-index:2; padding:15px;}
+    .details_popup{background-color:#ffffff; padding:15px;}
+	.pos_div{position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); z-index:2;max-width:1000px; width:100%;}
 		.details_popup h2{padding-right: 50px;}
     .close_icon_popup{    opacity: 1;
                           display: block;
@@ -21,8 +22,8 @@ include_once 'header_frontend.php';
                           border-radius: 100%;
                           position: absolute;
                           background-color: #d82950;
-                          top: 15px;
-                          right: 15px;
+                          top: -20px;
+                          right: -20px;
                           color: #ffffff;
                           z-index: 20;
                           line-height: 40px;
@@ -68,8 +69,9 @@ include_once 'header_frontend.php';
 <div class="clearfix"></div>
 
 <div class="bg_overlay_details" id="product_detail_modal" style="display:none;">
+<div class="pos_div">
+<span class="close_icon_popup"></span>
     <div class="details_popup">
-        <span class="close_icon_popup"></span>
         <div class="row">
             <div class="col-md-6 col-12 opacity-hover-links">
                 <div id="images" class="cbp lightbox_gallery pro_list"></div>
@@ -92,6 +94,7 @@ include_once 'header_frontend.php';
             </div>
         </div>
     </div>
+	</div>
 </div>
 
 

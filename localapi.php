@@ -2,13 +2,22 @@
 
 session_start();
 if (isset($_POST['create_session'])) {
+    unset($_SESSION['distributor_login_resp']);
     $_SESSION['login_resp'] = json_decode($_POST['login_resp'], true);//$_POST['login_resp'];
+    echo true;
+    exit;
+}
+
+if (isset($_POST['create_distributor_session'])) {
+    unset($_SESSION['login_resp']);
+    $_SESSION['distributor_login_resp'] = json_decode($_POST['distributor_login_resp'], true);//$_POST['login_resp'];
     echo true;
     exit;
 }
 
 if (isset($_POST['destroy_session'])) {
     unset($_SESSION['login_resp']);
+    unset($_SESSION['distributor_login_resp']);
     session_destroy();
     echo true;
     exit;

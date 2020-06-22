@@ -104,7 +104,7 @@ echo $common['main_container_navigation'];
                 console.log(response);
                 if (response.status == "success") {
                     var path = '';
-                    var html = '<div id="two-' + i + '" class="collapse" data-parent="#two">\n\
+                    var html = '<div id="two-' + i + '" class="collapse" data-parent="#two" onclick="event.stopPropagation();">\n\
                     <div class="card-body">\n\
                     <div class="qdr-col-3 gap-3 lightbox_gallery clearfix lightboxed">';
                     $.each(response.data, function (key, value) {

@@ -54,9 +54,9 @@ include_once 'header.php';
                             offers += '<li>\n\
                                             <div id="f1_container"><div id="f1_card">\n\
                                                 <div class="front face ">\n\
-                                                    <h3><i class="mdi mdi-trophy-award"></i> Thiland Contest</h3>\n\
-                                                    <span>' + value.offer_business + ' &nbsp;-&nbsp;</span><img src="' + path + '" />\n\
-                                                    <p><span>Offer Duration:</span> 16-May-2020 till 30-June-2020</p>\n\
+                                                    <h3><i class="mdi mdi-trophy-award"></i> ' + value.offer_name + '</h3>\n\
+                                                    <span>' + value.offer_business + ' BV &nbsp;-&nbsp;</span><img src="' + path + '" />\n\
+                                                    <p><span>Offer Duration:</span> ' + value.offer_start_date + ' till ' + value.offer_end_date + '</p>\n\
                                                 </div>\n\
                                                 <div class="back face center">\n\
                                                     <p class="head_p">' + message + '</p>\n\

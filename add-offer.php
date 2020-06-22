@@ -35,7 +35,7 @@ if (isset($_REQUEST['oid'])) {
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control required" placeholder="Amount" id="amount" name="amount" onkeypress="return isNumberKey(event);">
                                 </div>
-                                <label class="col-sm-2 col-form-label">Business Amount</label>
+                                <label class="col-sm-2 col-form-label">Business Volume</label>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control required" placeholder="Business" id="business" name="business" onkeypress="return isNumberKey(event);">
                                 </div>
@@ -66,7 +66,7 @@ if (isset($_REQUEST['oid'])) {
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-gradient-primary mr-2" id="offer_form">Submit</button>
                                     <input type="hidden" id="offer_id" value="<?php echo $oid; ?>">
-                                    <a href="offers" class="btn btn-gradient-danger mr-2">Back</a>
+                                    <a href="offer-list" class="btn btn-gradient-danger mr-2">Back</a>
                                 </div>
                             </div>
                         </form>

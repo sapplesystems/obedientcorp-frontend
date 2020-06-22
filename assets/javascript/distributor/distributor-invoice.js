@@ -279,7 +279,7 @@ function getProductList() {
                 if (response.data) {
                     $.each(response.data, function (i, value) {
                         var search_prod = value.search_product + ' - ' + value.coupon_business_name;
-                        products.push({id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name});
+                        products.push({ id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name });
                     });
                 }
             }
@@ -307,7 +307,7 @@ function verifyCoupons() {
     $.ajax({
         url: url,
         type: 'post',
-        data: {mobile_no: $('#search-customer').val()},
+        data: { mobile_no: $('#search-customer').val() },
         success: function (response) {
             if (response.status == "success") {
                 showSwal('success', 'OTP SEND', response.data);
@@ -363,7 +363,7 @@ function SubTotal() {
         sub_total = (sub_total + Number($('#dp_' + id).val()));
         tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()) + Number($('#igst_' + id).val()));
         total = (total + Number($('#tot_' + id).html()));
-        ProductCouponType.push({'bv_type': bv_type, 'amount': Number($('#tot_' + id).html())});
+        ProductCouponType.push({ 'bv_type': bv_type, 'amount': Number($('#tot_' + id).html()) });
     });
 
     ProductCouponType = makeUniqueBvTypeAmount(ProductCouponType);
@@ -384,7 +384,7 @@ function totalAppliedCoupon() {
         validCoupons.push(id);
         var ccode = $('#ccode_' + id).val();
         var camnt = $('#camnt_' + id).val();
-        ctype.push({'bv_type': ccode, 'amount': camnt});
+        ctype.push({ 'bv_type': ccode, 'amount': camnt });
     });
 
     CouponCodeType = makeUniqueBvTypeAmount(ctype);
@@ -403,12 +403,14 @@ function PayCash() {
         }
         var t = new Date().getTime();
         html += '<tr id="cash_tr_' + t + '" class="coupon_tot_amount">\n\
-    <td width="8%"><i onclick="removeCashTr(event, ' + t + ', ' + cash + ');" style="cursor:pointer;" class="fa fa-trash-o trash_icon"></i></td>\n\
-    <td width="62%">CASH:</td>\n\
-    <td width="30%" class="text-right"><strong>&#8377;<span> ' + cash + '</span></strong></td>\n\
-</tr>';
+                    <td width="8%"><i onclick="removeCashTr(event, ' + t + ', ' + cash + ');" style="cursor:pointer;" class="fa fa-trash-o trash_icon"></i></td>\n\
+                    <td width="62%">CASH:</td>\n\
+                    <td width="30%" class="text-right"><strong>&#8377;<span> ' + cash + '</span></strong></td>\n\
+                </tr>';
+
         $('.cd-popup').removeClass('is-visible');
         $('#coupon-data').append(html);
+        $('#coupons').css('display', '');
         calcAmountDue();
     } else {
         showSwal('error', 'Please enter amount');
@@ -438,25 +440,11 @@ function validate_customer_product() {
 
 //generate invoice function
 function generateInvoice() {
-    var total_amount = $('#totalPayment').html();
-    var due_payment = $('#due_payment').html();
-    if (total_amount && total_amount != '') {
-        total_amount = Number(total_amount);
-    }
-    if (due_payment && due_payment != '') {
-        due_payment = Number(due_payment);
-    }
-
+    var total_amount = Number($('#totalPayment').html());
+    var due_payment = Number($('#due_payment').html());
     var name = '';
     var mobile_no = '';
     var user_id = '';
-    if (couponAmount > 0 && isVerifyOTP == 0) {
-        showSwal('error', 'Coupon Verification', 'Please verify the applid coupon with otp sent to your given mobile number.');
-        return false;
-    } else if (due_payment > 0) {
-        showSwal('error', 'Balance Due', 'You need to pay Rs. ' + due_payment);
-        return false;
-    }
     if ($('#associate_name').attr('data-value') == 0) {
         user_id = $('#associate_name').attr('data-value');
         name = $('#associate_name').val();
@@ -467,11 +455,6 @@ function generateInvoice() {
         name = $('#associate_name').html();
         mobile_no = $('#search-customer').val();
     }
-    if (name == '' || mobile_no == '') {
-        showSwal('error', 'No customer selected', 'No customer selected');
-        return false;
-    }
-
     if (total_amount > 0 && due_payment <= 0) {
         var items = [];
         $('.items').each(function () {
@@ -509,7 +492,11 @@ function generateInvoice() {
             data: params,
             success: function (response) {
                 if (response.status == "success") {
-                    showSwal('success', 'Invoice Generated', response.data);
+                    $('#before_inovice_generate').removeClass('is-visible');
+                    $('#success_generate_invoice').addClass('is-visible');
+                    //showSwal('success', 'Invoice Generated', response.data);
+                    var msg = '<span>' + response.data + '</span>';
+                    $('#success_generate_invoice_msg').html(msg);
                     CancelInvoice();
                     enableCouponBtn();
                 }
@@ -577,6 +564,7 @@ function CancelInvoice() {
     $('#totalPayment').html('0.00');
     $('#sale-note').val('');
     $('#due_payment').html('0.00');
+    $('#coupons').css('display', 'none');
     enableCouponBtn();
 }
 
@@ -649,6 +637,7 @@ function calcAmountDue() {
     if (temp_due > 0) {
         $('.due_amount').css('display', '');
     }
+    $('.due_amount').css('display', '');
     $('#due_payment').html(temp_due.toFixed(2));
 
 }
@@ -692,7 +681,7 @@ function makeUniqueBvTypeAmount(obj) {
     var obj2 = [];
 
     for (var prop in holder) {
-        obj2.push({name: prop, value: Number(holder[prop])});
+        obj2.push({ name: prop, value: Number(holder[prop]) });
     }
     return obj2;
 }
@@ -707,6 +696,41 @@ function resetOtps() {
 }
 
 function checkBeforeGenerateInvoice() {
+    $('#before_inovice_generate').removeClass('is-visible');
+    var total_amount = Number($('#totalPayment').html());
+    var due_payment = Number($('#due_payment').html());
+    if (total_amount && total_amount != '') {
+        total_amount = Number(total_amount);
+    }
+    if (due_payment && due_payment != '') {
+        due_payment = Number(due_payment);
+    }
+
+    var name = '';
+    var mobile_no = '';
+    var user_id = '';
+    if (couponAmount > 0 && isVerifyOTP == 0) {
+        showSwal('error', 'Coupon Verification', 'Please verify the applid coupon with otp sent to your given mobile number.');
+        return false;
+    } else if (due_payment > 0) {
+        showSwal('error', 'Balance Due', 'You need to pay Rs. ' + due_payment);
+        return false;
+    }
+    if ($('#associate_name').attr('data-value') == 0) {
+        user_id = $('#associate_name').attr('data-value');
+        name = $('#associate_name').val();
+        mobile_no = $('#search-customer').val();
+    }
+    else {
+        user_id = $('#associate_name').attr('data-value');
+        name = $('#associate_name').html();
+        mobile_no = $('#search-customer').val();
+    }
+    if (name == '' || mobile_no == '') {
+        showSwal('error', 'No customer selected', 'No customer selected');
+        return false;
+    }
+
     var flag = 0;
     var coupon_amount_msg = '';
     var coupon_len = CouponCodeType.length;
@@ -750,7 +774,13 @@ function checkBeforeGenerateInvoice() {
         msg += '<div>Click <strong>Yes</strong> to generate invoice.</div>';
         $('#before_inovice_generate_message').html(msg);
         $('#before_inovice_generate').addClass('is-visible');
-    }else{
+        //return false;
+    } else {
+        //return true;
         generateInvoice();
     }
+}
+
+function printInvoice(e) {
+    e.preventDefault();
 }

@@ -38,10 +38,11 @@ if ($user_type != 'ADMIN') {
                     var html = '<thead>\n\
                                 <tr>\n\
                                 <th>Sr.No.</th>\n\
-                                <th>Dispatched By</th>\n\
+                                <th>Dispatch By</th>\n\
                                 <th>Received By</th>\n\
                                 <th>Dispatch Number</th>\n\
                                 <th>Date Of Dispatch</th>\n\
+                                <th>Date Of Received</th>\n\
                                 <th>Action</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
@@ -60,6 +61,7 @@ if ($user_type != 'ADMIN') {
                               <td>' + value.distributor_name_to + '</td>\n\
                               <td>' + value.dispatch_no + '</td>\n\
                               <td>' + value.dispatch_date + '</td>\n\
+                              <td>' + value.expected_delivery_date + '</td>\n\
                               ' + action_td + '\n\
                           </tr>';
                             i = i + 1;

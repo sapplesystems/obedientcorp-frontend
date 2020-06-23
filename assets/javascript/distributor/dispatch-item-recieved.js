@@ -13,14 +13,15 @@ function getDispatchReceivedItems() {
         success: function (response) {
             var html = '<thead>\n\
                                 <tr>\n\
-                                <th>Sr.No.</th>\n\
-                                <th>Product Name</th>\n\
-                                <th>Product Price</th>\n\
-                                <th>Dispatched Items Quantity</th>\n\
-                                <th>Recieved Items Quantity</th>\n\
-                                <th>Lot Number</th>\n\
-                                <th>Status</th>\n\
-                                <th>Comment</th>\n\
+                                <th width="5%">Sr.No.</th>\n\
+                                <th width="20%">Product Name</th>\n\
+                                <th width="8%">Product Code</th>\n\
+                                <th width="8%">Product Price</th>\n\
+                                <th width="10%">Dispatched Items Quantity</th>\n\
+                                <th width="10%">Recieved Items Quantity</th>\n\
+                                <th width="8%">Lot Number</th>\n\
+                                <th width="19%">Status</th>\n\
+                                <th width="20%">Comment</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
             if (response.status == "success") {
@@ -36,29 +37,61 @@ function getDispatchReceivedItems() {
                 }
                 $.each(response.data, function (key, value) {
                     var comment = '';
-                    comment = '<td><textarea class="form-control" rows="5" id="comment_' + value.id + '"></textarea></td>';
-                    var status = '<select id ="status_' + value.id + '"><option value="">Select Status</option>\n\
-                    <option value="OK">OK</option>\n\
-                    <option value="Less Items Received">Less Items Received</option>\n\
-                    <option value="More Items Received">More Items Received</option>\n\
-                    <option value="Expired">Expired</option>\n\
-                    <option value="Damaged">Damaged</option>\n\
-                    <option value="Wrong Item">Wrong Item</option>\n\
-                    <option value="others">Others</option>';
+                    var recevied_status1='';
+                    var recevied_status2='';
+                    var recevied_status3='';
+                    var recevied_status4='';
+                    var recevied_status5='';
+                    var recevied_status6='';
+                    var recevied_status7='';
+                    if(value.status == 'OK')
+                    {
+                        recevied_status1 = 'selected';
+                    }else if(value.status == 'Less Items Received')
+                    {
+                        recevied_status2 = 'selected';
+
+                    }else if(value.status == 'More Items Received')
+                    {
+                        recevied_status3 = 'selected';
+                    }else if(value.status == 'Expired')
+                    {
+                        recevied_status4 = 'selected';
+                    }else if(value.status == 'Damaged')
+                    {
+                        recevied_status5 = 'selected';
+                    }else if(value.status == 'Wrong Item')
+                    {
+                        recevied_status6 = 'selected';
+                    }
+                    else if(value.status == 'others')
+                    {
+                        recevied_status7 = 'selected';
+                    }
+                    comment = '<td><textarea class="form-control" rows="1" id="comment_' + value.id + '"></textarea></td>';
+                    var status = '<select class="form-control" id ="status_' + value.id + '"><option value="">Select Status</option>\n\
+                    <option value="OK" '+recevied_status1+'>OK</option>\n\
+                    <option value="Less Items Received" '+recevied_status2+' >Less Items Received</option>\n\
+                    <option value="More Items Received" '+recevied_status3+'>More Items Received</option>\n\
+                    <option value="Expired" '+recevied_status4+'>Expired</option>\n\
+                    <option value="Damaged" '+recevied_status5+'>Damaged</option>\n\
+                    <option value="Wrong Item" '+recevied_status6+'>Wrong Item</option>\n\
+                    <option value="others" '+recevied_status7+'>Others</option>';
                     html += '<tr id="tr_' + value.id + '" role="row" >\n\
                               <td class="sorting_1">' + i + '</td>\n\
                               <td>' + value.product_name + '</td>\n\
+                              <td>' + value.sku + '</td>\n\
                               <td>' + value.product_price + '</td>\n\
                               <td id="dispatch-qty_'+ value.id + '">' + value.dispatched_items_quantity + '</td>\n\
                               <td>\n\
                                 <i class="mdi mdi-minus-circle" id="sub_' + value.id + '" onclick="SubtractValue(' + value.id + ');"></i>\n\
-                                <input type="text" value="' + value.received_items_quantity + '" id="receive-item-qty_' + value.id + '" onblur="setItemStatus(' + value.id + ');">\n\
+                                <input class="form-control width_50" type="text" value="' + value.received_items_quantity + '" id="receive-item-qty_' + value.id + '" onblur="setItemStatus(' + value.id + ');">\n\
                                 <i class="mdi mdi-plus-circle" id="add_' + value.id + '" onclick="AddValue(' + value.id + ');"></i></td>\n\
-                                <td><input type="text" value="" id="lot_no_'+value.id+'" onkeypress="searchLotNumber('+value.id+');"/></td>\n\
+                                <td><input class="form-control" type="text" value="" id="lot_no_'+value.id+'" onkeypress="searchLotNumber('+value.id+');"/></td>\n\
                               <td>' + status + '</td>\n\
                               ' + comment + '\n\
-                              <input type="hidden" class="received_items" value="'+ value.id + '" />\n\
-                              <input type="hidden" id="product_id_'+ value.id + '" value="' + value.product_id + '" />\n\
+                              <input class="form-control" type="hidden" class="received_items" value="'+ value.id + '" />\n\
+                              <input class="form-control" type="hidden" id="product_id_'+ value.id + '" value="' + value.product_id + '" />\n\
                           </tr>';
                     i = i + 1;
                 });
@@ -141,6 +174,7 @@ function updateDispatchItems() {
         success: function (response) {
             if (response.status == "success") {
                 showSwal('success', 'Items Updated', response.data);
+                window.location.href='item-received-list';
               }
               else {
                 showSwal('error', response.data);

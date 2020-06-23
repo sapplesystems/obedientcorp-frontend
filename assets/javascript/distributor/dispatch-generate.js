@@ -228,6 +228,7 @@ function generationDispatch() {
         if (response.status == "success") {
           showSwal('success', 'Dispatch Generate', response.data);
           CancelInvoice();
+          window.location.href = 'dispatch-list';
         }
         else {
           showSwal('error', response.data);

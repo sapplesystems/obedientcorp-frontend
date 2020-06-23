@@ -47,14 +47,17 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                 },
                 success: function(response) {
                     var html = '<thead>\n\
-          <tr>\n\
-          <th>Sr.No.</th>\n\
-              <th>Distibutor Name</th>\n\
-              <th>Dispatch Number</th>\n\
-              <th>Date Of Dispatch</th>\n\
-              <th>Action</th>\n\
-          </tr>\n\
-      </thead><tbody>';
+                                <tr>\n\
+                                <th>Sr.No.</th>\n\
+                                    <th>Received By</th>\n\
+                                    <th>Dispatch Number</th>\n\
+                                    <th>Dispatch Type</th>\n\
+                                    <th>Date Of Dispatch</th>\n\
+                                    <th>Date Of Received</th>\n\
+                                    <th>Status</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>\n\
+                            </thead><tbody>';
                     if (response.status == "success") {
                         var i = 1;
                         $.each(response.data, function(key, value) {
@@ -66,7 +69,10 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                               <td class="sorting_1">' + i + '</td>\n\
                               <td>' + value.distributor_name_to + '</td>\n\
                               <td>' + value.dispatch_no + '</td>\n\
+                              <td>' + value.dispatch_type + '</td>\n\
                               <td>' + value.dispatch_date + '</td>\n\
+                              <td>' + value.expected_delivery_date + '</td>\n\
+                              <td>' + value.status + '</td>\n\
                               ' + action_td + '\n\
                           </tr>';
                             i = i + 1;

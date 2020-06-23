@@ -57,7 +57,8 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                                 <th>Product Name</th>\n\
                                 <th>Product Price</th>\n\
                                 <th>Product Code</th>\n\
-                                <th>Product Quantity</th>\n\
+                                <th>Dispatch Product Quantity</th>\n\
+                                <th>Received Product Quantity</th>\n\
                                 <th>Lot Number</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
@@ -74,6 +75,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
                               <td>' + value.product_price + '</td>\n\
                               <td>' + value.sku + '</td>\n\
                               <td>' + value.dispatched_items_quantity + '</td>\n\
+                              <td>' + value.received_items_quantity + '</td>\n\
                               <td>' + lot_no + '</td>\n\
                           </tr>';
                             i = i + 1;

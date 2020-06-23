@@ -12,7 +12,7 @@ include_once 'header.php';
       <!-- Report the active source code -->
 
       <div class="responsiveCenteredContent js-cart">
-      <a class="btnBack" href="dispatch-list">Back</a>
+      <div class="backbtn_pos"><a class="btnBack" href="dispatch-list"><img src="<?php echo $home_url; ?>assets/javascript/distributor/images/backto.png" /> Back</a></div>
         <div class="shoppingCartContainer">
           <h1 class="headTop">Dispatch Generation</h1>
           <!-- Start of cart's first part -->

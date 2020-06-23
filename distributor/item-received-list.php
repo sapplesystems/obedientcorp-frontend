@@ -40,7 +40,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     var html = '<thead>\n\
                                 <tr>\n\
                                 <th>Sr.No.</th>\n\
-                                <th>Distributor Name</th>\n\
+                                <th>Dispatch By</th>\n\
                                 <th>Dispatch Type</th>\n\
                                 <th>Dispatch Date</th>\n\
                                 <th>Dispatch Number</th>\n\

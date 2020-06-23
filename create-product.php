@@ -1,7 +1,7 @@
-<?php 
-include_once 'header.php'; 
+<?php
+include_once 'header.php';
 $pid = '';
-if(isset($_REQUEST['pid'])){
+if (isset($_REQUEST['pid'])) {
     $pid = $_REQUEST['pid'];
 }
 ?>
@@ -12,29 +12,29 @@ if(isset($_REQUEST['pid'])){
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                    <form class="forms-sample" id="create_product" name="create_product" method="post" action="" enctype="multipart/form-data">
-                        <div class="row">
-                            <h4 class="card-title mb-4 col-md-5">Create Product</h4>
-                            <div class="col-md-3">
-                                <div class="form-group float-right">
-                                    <label class="col-form-label float-left mr-3">Category</label>
-                                    <div class="float-left">
-                                        <select class="form-control required" id="categories" name="categories">
-                                        </select>
+                        <form class="forms-sample" id="create_product" name="create_product" method="post" action="" enctype="multipart/form-data">
+                            <div class="row">
+                                <h4 class="card-title mb-4 col-md-5">Create Product</h4>
+                                <div class="col-md-3">
+                                    <div class="form-group float-right">
+                                        <label class="col-form-label float-left mr-3">Category</label>
+                                        <div class="float-left">
+                                            <select class="form-control required" id="categories" name="categories">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="subcategory_div" style="display:none">
+                                    <div class="form-group float-right">
+                                        <label class="col-form-label float-left mr-3">Sub-Category</label>
+                                        <div class="float-left">
+                                            <select class="form-control required" id="subcategory" name="subcategory">
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3" id="subcategory_div" style="display:none">
-                                <div class="form-group float-right">
-                                    <label class="col-form-label float-left mr-3">Sub-Category</label>
-                                    <div class="float-left">
-                                        <select class="form-control required" id="subcategory" name="subcategory">
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
+                            <div class="clearfix"></div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="row">
@@ -132,7 +132,7 @@ if(isset($_REQUEST['pid'])){
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script src="https://cdn.tiny.cloud/1/6sjufqx62vm2maslclaeoth8yurjg26m07aqau7hykcjwec5/tinymce/5.1.4/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.3.0/jquery.tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/<?php echo $tiny_mce_key; ?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.3.0/jquery.tinymce.min.js" referrerpolicy="origin"></script-->
     <script src="assets/javascript/product.js"></script>
     <script src="assets/javascript/image-uploader.min.js"></script>

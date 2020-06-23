@@ -69,11 +69,12 @@ include_once 'header.php';
                 </div>
             </div>
         </div>
-        
+
 
     </div>
 
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
+    <script src="https://cdn.tiny.cloud/1/<?php echo $tiny_mce_key; ?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.3.0/jquery.tinymce.min.js" referrerpolicy="origin"></script-->
     <script src="assets\javascript\news-update.js"></script>
-   

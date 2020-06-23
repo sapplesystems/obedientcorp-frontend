@@ -31479,5 +31479,14 @@ color: #ffffff !important;
 .main_hover:hover .hoverText{display:block;}
 
 .pdf_content i{font-size: 48px;color: #ffffff;}
+.datepicker.datepicker-dropdown{z-index:9999 !important;}  
+.width_50{width:50%; display:inline-block;}
+
+/* calendar plugin css change */
+
+.datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.dow:first-child, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.dow:first-child{text-align:center !important;}
+.datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.dow:last-child, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.dow:last-child{text-align:center !important;}
+.datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.prev, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.prev{text-align:center !important;}
+.datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.next, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.next{text-align:center !important;}
 
 	

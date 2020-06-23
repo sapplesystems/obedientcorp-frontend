@@ -31,7 +31,7 @@
 							<li id="all_member"><span><strong>Total Members</strong><br><img class="members_img"  src="assets/images/members.png" /> 0</span></li>
 							<li id="total_right_member"><span><strong>Right Members</strong><br><img class="members_img"  src="assets/images/members.png" /> 0</span></li>
 						</ul>
-                        <button class="btn btn-sm btn-gradient-primary back_to_me" type="button" onclick="getTree(user_id);">Back to me</button>
+                        <button class="btn btn-sm btn-gradient-primary back_to_me" type="button">Back to me</button>
                         <div class="hv-item-parent" id="node1"></div>
                         <div class="hv-item-children">
                             <div class="hv-item-child">

@@ -1,5 +1,7 @@
 //getTree(user_id);
 
+var tree_travelling = [];
+
 $(document).ready(function () {
     $(document).on('click', '.info_click', function (e) {
         e.preventDefault();
@@ -12,6 +14,11 @@ $(document).ready(function () {
     });
     $(document).on('click', '#tree-view', function () {
         getTree(user_id);
+    });
+    
+    $(document).on('click', '.back_to_me', function () {
+        tree_travelling.pop();
+        getTree(tree_travelling.pop());
     });
 });
 
@@ -49,6 +56,10 @@ function associateId() {
 }
 
 function getTree(uid) {
+    if(uid == user_id){
+        tree_travelling = [];
+    }
+    tree_travelling.push(Number(uid));
     $('.back_to_me').css('display', 'none');
     if (user_id != uid) {
         $('.back_to_me').css('display', '');

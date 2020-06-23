@@ -12,7 +12,7 @@ $(document).ready(function () {
         $(this).valid();
     });
     //crop image code
-    $image_crop = $('#image_demo').croppie({
+    /*$image_crop = $('#image_demo').croppie({
         enableExif: true,
         viewport: {
             width: 200,
@@ -54,7 +54,7 @@ $(document).ready(function () {
     $(document).on('click', '.close_photo_image', function () {
         $('#photo').val('');
         $('.file-upload-info').val('');
-    });
+    });*/
 
     if ($('#offer_id').val() && $('#offer_id').val() != '') {
 
@@ -76,7 +76,7 @@ $(document).ready(function () {
             showLoader();
             var params = new FormData();
             var offer = $('#offer_name').val();
-            var photo = photo_image;
+            var photo = $('#photo')[0].files[0];//photo_image;
             var amount = $('#amount').val();
             var business = $('#business').val();
             var start_date = $('#start-date').val();

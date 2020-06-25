@@ -428,4 +428,6 @@ iframe {
     opacity: 1;
   }
 }
-label.error{color:#f00;font-size:12px;}
+label.error{color:#f00;font-size:12px;position: absolute;
+right: 10px;
+top: 18px;}

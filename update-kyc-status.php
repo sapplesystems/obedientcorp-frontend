@@ -169,11 +169,11 @@ if (isset($_REQUEST['associate_id'])) {
                 </div>
                 <div class="row mt-4">
                     <label class="col-sm-4"></label>
-                    <div class="col-sm-8">
-                        <button type="button" class="btn btn-gradient-danger mr-2" id="reject">Reject</button>
-                        <button type="button" class="btn btn-gradient-primary mr-2" id="approve">Approve</button>
-                        <a href="associate-list" class="btn btn-gradient-info mr-2">Back</a>
-                        <input type="hidden" id="associate_id" value="<?php echo $associate_id; ?>">
+                    <div class="col-sm-8 text-right">
+					<a href="associate-list" class="btn btn-gradient-danger">Back</a>
+					<input type="hidden" id="associate_id" value="<?php echo $associate_id; ?>">
+                        <button type="button" class="btn btn-gradient-warning ml-2" id="reject">Reject</button>
+                        <button type="button" class="btn btn-gradient-success ml-2" id="approve">Approve</button>
                     </div>
                 </div>
 

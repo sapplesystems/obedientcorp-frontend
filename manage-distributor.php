@@ -21,7 +21,7 @@ if ($user_type != 'ADMIN') {
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Edit/View Distributor</h4>
-                        <div class="overflowAuto">
+                        <div class="overflowAuto custom_overflow">
                             <table class="table table-bordered custom_action" id="distributor-list">
                             </table>
                         </div>

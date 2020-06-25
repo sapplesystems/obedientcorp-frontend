@@ -30211,8 +30211,11 @@ height: 2.875rem;
 font-size: 22px;
 cursor: pointer;
 }
-
+.custom_action_shopping th:last-child{min-width:350px !important;}
+.extend_coupon_avail select{height:30px;}
+.extend_coupon_avail{margin-bottom:10px;}
 #customers_list tr td:last-child{white-space:nowrap !important;}
+#associate_order_list th:last-child{min-width:200px !important;}
 
 #order-listing_paginate .pagination {
 overflow-x: hidden;
@@ -31491,8 +31494,11 @@ color: #ffffff !important;
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.prev, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.prev{text-align:center !important;}
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.next, .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.next{text-align:center !important;}
 
-.dataTable th{white-space:normal !important; vertical-align:middle !Important;}
+.dataTable th{white-space:normal !important; vertical-align:middle !important;padding-left:10px !important; padding-top:10px !important; padding-bottom:10px !important;}
 .dataTable th:after, .dataTable th:before{line-height:3.7 !important;}
+.dataTable td{padding:10px !important;}
+#distributor-list{min-width:1000px;}
+#distributor-list th:last-child{min-width:80px !important;}
 
 
 /* lightbox css start here */
@@ -31696,4 +31702,6 @@ color: #ffffff !important;
     padding: 0;
     margin: 0;
 }
+
+
 	

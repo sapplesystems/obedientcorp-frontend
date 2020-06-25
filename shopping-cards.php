@@ -90,7 +90,7 @@
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Manage Shopping Cards</h4>
                         <div class="overflowAuto custom_overflow">
-                            <table class="table table-bordered custom_action" id="order-listing">
+                            <table class="table table-bordered custom_action_shopping" id="order-listing">
                                 <thead>
                                     <tr>
                                         <?php if ($user_type == 'ADMIN') { ?>

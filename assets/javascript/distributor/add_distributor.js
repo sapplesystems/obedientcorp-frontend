@@ -206,7 +206,7 @@ function getdistributorList() {
                     {
                         edit_url = 'add-distributor.php?distributor_id=' + value.id;
                         action_td = '<td>\n\
-                        <a href="' + edit_url + '"> <i class="mdi mdi-pencil text-info"></i></a> &nbsp \n\
+                        <a href="' + edit_url + '"> <i class="mdi mdi-pencil text-info"></i></a>\n\
                         <a href="javascript:void(0);" onclick="deletedistributor(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i>\n\
                         </a>\n\
                         <i class="mdi mdi-check-circle ' + change_agent_status + '" id="change_dist_status_' + value.id + '" onclick="changeDistributorStatus(event, ' + value.id + ');" title="Activate/Deactivate Distributor " ></i>\n\

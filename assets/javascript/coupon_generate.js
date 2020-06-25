@@ -248,9 +248,9 @@ function get_goods_coupon_listing() {
                         }
                         select_number_of_days = daysOptions(value.id);
                         if (value.coupon_type_id == 1) {
-                            coupon_availability_div = '<div class="float-left ml-3">\n\
+                            coupon_availability_div = '<div class="float-left ml-2">\n\
                                                     <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="extend_coupon_availability_' + value.id + '" onclick="extendCouponAvailability(event, ' + value.id + ');">Extend Availability</a>\n\
-                                                    <form class="form-inline" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
+                                                    <form class="form-inline extend_coupon_avail" style="display:none;" name="extend_coupon_availability_form_' + value.id + '" id="extend_coupon_availability_form_' + value.id + '" method="post">\n\
                                                         ' + select_number_of_days + '\n\
                                                         <button type="submit" class="btn btn-gradient-success btn-sm" onclick="extendCouponAvailabilitySubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
                                                         <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="extendCouponAvailabilityCancel(event, ' + value.id + ');">Cancel</button>\n\
@@ -258,7 +258,7 @@ function get_goods_coupon_listing() {
                                                 </div>';
                         }
                         if (value.status == 'Active') {
-                            coupon_cancel_div = '<div class="float-left ml-3">\n\
+                            coupon_cancel_div = '<div class="float-left ml-2">\n\
                                                     <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="cancel_coupon_' + value.id + '" onclick="cancelCoupon(event, ' + value.id + ');">Cancel</a>\n\
                                                 </div>';
                         }
@@ -268,7 +268,7 @@ function get_goods_coupon_listing() {
                                             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb' + value.id + '"></label>\n\
                                         </div>\n\
                                         ' + coupon_availability_div + '\n\
-                                        <div class="float-left ml-3">\n\
+                                        <div class="float-left ml-2">\n\
                                             <a href="javascript:void(0);" class="btn btn-gradient-primary btn-sm" id="print_coupon_' + value.id + '" onclick="printCoupon(event, ' + value.id + ');">Print</a>\n\
                                         </div>\n\
                                         ' + coupon_cancel_div + '\n\

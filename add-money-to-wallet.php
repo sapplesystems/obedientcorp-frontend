@@ -35,7 +35,7 @@ if ($user_type != 'ADMIN') {
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2"></label>
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-4 text-right">
                                             <button type="submit" class="btn btn-gradient-success" id="add-money-to-wallet-submit">Submit</button>
                                         </div>
                                     </div>

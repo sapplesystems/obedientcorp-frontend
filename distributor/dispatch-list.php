@@ -12,7 +12,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <a href="dispatch-generation" class="btn btn-gradient-primary">Dispatch Generate</a>
+                        <a href="dispatch-generation" class="btn btn-gradient-primary">Create New Dispatch</a>
                     </div>
                 </div>
             </div>

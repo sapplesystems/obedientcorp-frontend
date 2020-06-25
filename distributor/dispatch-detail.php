@@ -1,5 +1,5 @@
 <?php
-include_once 'header-copy.php';
+include_once 'header.php';
 if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_login_resp']['id'] == '') {
     echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
@@ -12,52 +12,125 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
     $distributor_id = $_REQUEST['dist_id'];
 }
 ?>
-<!-- partial -->
-<div class="main-panel ">
-    <div class="content-wrapper ">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <h5 class="card-title mb-4">Received To: <span id="dist-to"></span></h5>
-                        <div class="row mb-4">
-                                <div class="col-4">SubTotal: <span id="subtotal"></span></div>
-                                <div class="col-4">Tax: <span id="tax">0</span></div>
-                                <div class="col-4">Total: <span id="total"></span></div>
-                            </div>
-                        <h4 class="card-title mb-4">Dispatch Item Details</h4>
-                        <div class="overflowAuto">
-                            <table class="table table-bordered custom_action" id="dispatch-detail">
+<style>
+
+</style>
+<div id="global-viewport" class='global-viewport m-pikabu-viewport'>
+    <div class="global-viewport-container m-pikabu-container">
+        <div id="mainContent" role="main" class="content" tabindex="-1">
+            <!-- Report any requested source code -->
+
+            <!-- Report the active source code -->
+            <div class="responsiveCenteredContent js-cart">
+                <div class="shoppingCartContainer">
+                    <h1 class="headTop">Dispatch Items</h1>
+                    <!-- Start of cart's first part -->
+                    <div>
+					<div class="left_sec">
+                        <div class="distributor_info">
+                            <div><strong>Dipatch By:</strong> </div>
+                            <div><span class="" id="dist-from"></span></div>
+                            <div><strong>Address:</strong> </div>
+                            <div><span class="" id="dist-add-from"></span></div>
+                        </div>
+						<div class="clear_both"></div>
+                        <div class="distributor_info marginTop10">
+                            <div><strong>Dipatch To:</strong> </div>
+                            <div><span class="" id="dist-to"></span></div>
+                            <div><strong>Address:</strong> </div>
+                            <div><span class="" id="dist-add-to"></span></div>
+                        </div>
+						<div class="clear_both"></div>
+                        <div class="distributor_info marginTop10">
+                            <div><strong>Dispatch Number:</strong> </div>
+                            <div><span class="" id="dispatch-no"></span></div>
+                            <div><strong>Dispatch Type:</strong> </div>
+                            <div><span class="" id="dispatch-type"></span></div>
+							</div>
+							<div class="clear_both"></div>
+                        <div class="overflow_auto marginTop20">
+                            <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="dispatch-detail">
                             </table>
                         </div>
+						</div>
+						<div class="right_sec">
+						<div class="sales_notes mtNone">
+							<label>Status:</label>
+							<div><span class="" id="dispatch-status"></span></div>
+							</div>
+							
+							
+							<div class="sales_notes marginTop20">
+							<div class="widthHalf">
+								<label>Date Of Dispatch:</label>
+								<div><span class="" id="dispatch-date"></span></div>
+							</div>
+							<div class="widthHalf ml4percent">
+							<label>Date Of Receive:</label>
+							<div><span class="" id="receive-date"></span></div>
+							</div>
+						</div>
+						<div class="clear_both"></div>
+						<div class="bottom_note marginTop20">
+                                    <label>Notes:</label>
+                                    <textarea id="note"></textarea>
+                                </div>
+								<div class="bottom_note marginTop20">
+                                    <label>Shipping Details:</label>
+                                    <textarea id="note"></textarea>
+                                </div>
+								<div class="bottom_tax">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td width="35%"><strong>Subtotal</strong></td>
+                                                <td>&#8377;<span id="subtotal"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Tax</strong></td>
+                                                <td>&#8377;<span id="tax">0</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Total</strong></td>
+                                                <td>&#8377;<span id="total"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+						</div>
+						</div>
+                        <div class="clear_both"></div>
+                        <div class="mt-20-items">
+                            <a class="btn-back-items" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Back</a>
+                        </div>
                     </div>
+                    <!-- ====================== snippet ends here ======================== -->
                 </div>
             </div>
-            <div class="col-sm-12 text-right">
-                <a class="btn btn-danger mt-3" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Back</a>&nbsp;
-            </div>
+
+            <div class="clear"></div>
         </div>
 
     </div>
+</div>
+<!-- content-wrapper ends -->
+<?php include_once 'footer.php'; ?>
+<script type="text/javascript">
+    var dispatch_id = "<?php echo $dispatch_id; ?>";
+    var distributor_id = "<?php echo $distributor_id; ?>";
+    getDistributorDetail(dispatch_id);
 
-    <!-- content-wrapper ends -->
-    <?php include_once 'footer-copy.php'; ?>
-    <script type="text/javascript">
-        var dispatch_id = "<?php echo $dispatch_id; ?>";
-        var distributor_id = "<?php echo $distributor_id; ?>";
-        getDistributorDetail(dispatch_id);
-
-        function getDistributorDetail(dispatch_id) {
-            showLoader();
-            $.ajax({
-                url: base_url + 'dispatch/details',
-                type: 'post',
-                data: {
-                    dispatch_id: dispatch_id,
-                    distributor_id: distributor_id
-                },
-                success: function(response) {
-                    var html = '<thead>\n\
+    function getDistributorDetail(dispatch_id) {
+        showLoader();
+        $.ajax({
+            url: base_url + 'dispatch/details',
+            type: 'post',
+            data: {
+                dispatch_id: dispatch_id,
+                distributor_id: distributor_id
+            },
+            success: function(response) {
+                var html = '<thead>\n\
                                 <tr>\n\
                                 <th>Sr.No.</th>\n\
                                 <th>Product Name</th>\n\
@@ -68,14 +141,14 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                                 <th>Lot Number</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
-                    if (response.status == "success") {
-                        var i = 1;
-                        $.each(response.data, function(key, value) {
-                            var lot_no = '';
-                            if (value.lot_no != null && value.lot_no != '') {
-                                lot_no = value.lot_no;
-                            }
-                            html += '<tr id="tr_' + value.id + '" role="row" >\n\
+                if (response.status == "success") {
+                    var i = 1;
+                    $.each(response.data, function(key, value) {
+                        var lot_no = '';
+                        if (value.lot_no != null && value.lot_no != '') {
+                            lot_no = value.lot_no;
+                        }
+                        html += '<tr id="tr_' + value.id + '" role="row" >\n\
                               <td class="sorting_1">' + i + '</td>\n\
                               <td>' + value.product_name + '</td>\n\
                               <td>' + value.product_price + '</td>\n\
@@ -84,22 +157,29 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                               <td>' + value.received_items_quantity + '</td>\n\
                               <td>' + lot_no + '</td>\n\
                           </tr>';
-                            i = i + 1;
-                        });
-                        html += '</tbody>';
-                        $('#dispatch-detail').html(html);
-                        $('#dist-from').html(response.DispatcheDetails.distributor_name_from);
-                        $('#dist-to').html(response.DispatcheDetails.distributor_name_to);
-                        $('#subtotal').html(response.DispatcheDetails.subtotal);
-                        $('tax').html(0);
-                        $('#total').html(response.DispatcheDetails.total);
-                        generateDataTable('dispatch-detail');
-                        hideLoader();
-                    } else {
-                        showSwal('error', response.data);
-                        hideLoader();
-                    }
+                        i = i + 1;
+                    });
+                    html += '</tbody>';
+                    $('#dispatch-detail').html(html);
+                    $('#dist-from').html(response.DispatcheDetails.distributor_name_from);
+                    $('#dist-to').html(response.DispatcheDetails.distributor_name_to);
+                    $('#subtotal').html(response.DispatcheDetails.subtotal);
+                    $('tax').html(0);
+                    $('#dist-add-to').html(response.DispatcheDetails.distributor_address_to);
+                    $('#dist-add-from').html(response.DispatcheDetails.distributor_address_from);
+                    $('#dispatch-no').html(response.DispatcheDetails.dispatch_no);
+                    $('#dispatch-type').html(response.DispatcheDetails.dispatch_type);
+                    $('#dispatch-date').html(response.DispatcheDetails.dispatch_date);
+                    $('#total').html(response.DispatcheDetails.total);
+                    $('#dispatch-status').html(response.DispatcheDetails.status);
+                    $('#receive-date').html(response.DispatcheDetails.received_date);
+                    //generateDataTable('dispatch-detail');
+                    hideLoader();
+                } else {
+                    showSwal('error', response.data);
+                    hideLoader();
                 }
-            });
-        }
-    </script>
+            }
+        });
+    }
+</script>

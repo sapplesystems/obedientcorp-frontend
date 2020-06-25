@@ -1,124 +1,94 @@
 <?php
-session_start();
-if (isset($_SESSION['distributor_login_resp']['id']) && !empty($_SESSION['distributor_login_resp']['id'])) {
-    echo '<script type="text/javascript">window.location.href = "dashboard";</script>';
-    exit;
-}
 include_once '../config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Obedient</title>
-        <!-- plugins:css -->
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/mdi/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/css/vendor.bundle.base.css">
-        <!-- endinject -->
-        <!-- Plugin css for this page -->
-        <!-- End plugin css for this page -->
-        <!-- inject:css -->
-        <!-- endinject -->
-        <!-- Layout styles -->
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/css/style.css">
-        <!-- End layout styles -->
-        <link rel="shortcut icon" href="<?php echo $home_url; ?>assets/images/favicon.png" />
-    </head>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="<?php echo $home_url; ?>assets/images/favicon.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo $home_url; ?>assets/javascript/distributor/css/main.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $home_url; ?>assets/css/style.css">
+    <!--===============================================================================================-->
+</head>
 
-    <body>
-        <div id="loader_bg">
-            <div class="flip-square-loader mx-auto" id="loader_div"></div>
-        </div>
-        <div class="container-scroller">
-            <div class="container-fluid page-body-wrapper full-page-wrapper">
-                <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
-                    <div class="row flex-grow">
-                        <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                            <div class="auth-form-transparent text-left p-3">
-                                <div class="brand-logo">
-                                    <a href="<?php echo $home_url; ?>"><img src="<?php echo $home_url; ?>assets/images/logo.png" alt="logo"></a>
-                                </div>
-                                <h4>Welcome back!</h4>
-                                <h6 class="font-weight-light">Happy to see you again!</h6>
-                                <form class="pt-3" id="login_form">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail"></label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend bg-transparent">
-                                                <span class="input-group-text bg-transparent border-right-0">
-                                                    <i class="mdi mdi-account-outline text-primary"></i>
-                                                </span>
-                                            </div>
-                                            <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="User ID">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword"></label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend bg-transparent">
-                                                <span class="input-group-text bg-transparent border-right-0">
-                                                    <i class="mdi mdi-lock-outline text-primary"></i>
-                                                </span>
-                                            </div>
-                                            <input type="password" class="form-control form-control-lg border-left-0" id="password" name="password" placeholder="Password">
-                                        </div>
-                                    </div>
-                                    <div class="my-2 d-flex justify-content-between align-items-center">
-                                        <div class="form-check">
-                                            <label class="form-check-label text-muted">
-                                                <input type="checkbox" class="form-check-input"> Keep me signed in </label>
-                                        </div>
-                                        <a href="forgot-password" class="auth-link">Forgot Password?</a>
-                                    </div>
-                                    <div class="my-3">
-                                        <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login">LOGIN</button>
-                                    </div>
-                                    <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register" class="text-primary">Create</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 login-half-bg d-flex flex-row bg_none">
-                            <p class="text-white font-weight-medium text-center flex-grow align-self-end">
-                                &copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by Obedient Group
-                            </p>
-                        </div>
-                    </div>
+<body>
+    <div id="loader_bg">
+        <div class="flip-square-loader mx-auto" id="loader_div"></div>
+    </div>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="<?php echo $home_url; ?>assets/javascript/distributor/images/img-01.png" alt="IMG">
                 </div>
-                <!-- content-wrapper ends -->
-            </div>
-            <!-- page-body-wrapper ends -->
-        </div>
-        <!-- container-scroller -->
-        <!-- plugins:js -->
-        <script src="<?php echo $home_url; ?>assets/vendors/js/vendor.bundle.base.js"></script>
-        <!-- endinject -->
-        <!-- Plugin js for this page -->
-        <!-- End plugin js for this page -->
-        <!-- inject:js -->
-        <script src="<?php echo $home_url; ?>assets/js/off-canvas.js"></script>
-        <script src="<?php echo $home_url; ?>assets/js/hoverable-collapse.js"></script>
-        <script src="<?php echo $home_url; ?>assets/js/misc.js"></script>
-        <script src="<?php echo $home_url; ?>assets/js/settings.js"></script>
-        <script src="<?php echo $home_url; ?>assets/js/todolist.js"></script>
-        <!-- endinject -->
-        <script src="<?php echo $home_url; ?>assets/vendors/sweetalert/sweetalert.min.js "></script>
-        <script src="<?php echo $home_url; ?>assets/js/alerts.js "></script>
-        <!--Validate jquery-->
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    </body>
 
+                <form class="login100-form validate-form" id="login_form">
+                    <span class="login100-form-title">
+                        Member Login
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" id="username" name="username" placeholder="Email">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" id="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" id="login">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <span class="txt1">
+                            Forgot
+                        </span>
+                        <a class="txt2" href="javascript:void(0);">
+                            Username / Password?
+                        </a>
+                    </div>
+
+                    <div class="text-center mt-2">
+                        <a class="txt2" href="javascript:void(0);">
+                            Create your Account
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="<?php echo $home_url; ?>assets/vendors/sweetalert/sweetalert.min.js "></script>
+<script src="<?php echo $home_url; ?>assets/js/alerts.js"></script>
+<!--Validate jquery-->
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script>
     var base_url = "<?php echo $base_url; ?>";
     //function for login
-    $(function () {
+    $(function() {
 
         //checkCookie();
-        $("#login").click(function (e) {
+        $("#login").click(function(e) {
             e.preventDefault();
             $("#login_form").validate({
                 rules: {
@@ -141,13 +111,13 @@ include_once '../config.php';
                     url: url,
                     type: 'post',
                     data: params,
-                    success: function (response) {
+                    success: function(response) {
                         console.log(response);
                         if (response.status == "success") {
                             $.post('../localapi.php', {
                                 create_distributor_session: 1,
-                                distributor_login_resp: JSON.stringify(response.data)//response.data
-                            }, function (resp) {
+                                distributor_login_resp: JSON.stringify(response.data) //response.data
+                            }, function(resp) {
                                 var customObject = {};
                                 customObject.id = response.data.id;
                                 customObject.username = response.data.username;
@@ -163,20 +133,18 @@ include_once '../config.php';
                                 setCookie(jsonString);
                                 hideLoader();
                             });
-                        }
-                        else
-                        {
+                        } else {
                             var error = response.data;
                             showSwal('error', 'Login Failed', error);
                             hideLoader();
                         }
                     }, //success function
-                    error: function (response) {
+                    error: function(response) {
                         error_html = '';
                         var error_object = JSON.parse(response.responseText);
                         var message = error_object.message;
                         var errors = error_object.errors;
-                        $.each(errors, function (key, value) {
+                        $.each(errors, function(key, value) {
                             error_html += '<div class="alert alert-danger" role="alert">' + value[0] + '</div>';
                         });
                         $('#errors_div').html(error_html);
@@ -241,7 +209,7 @@ include_once '../config.php';
     function logout() {
         $.post('../localapi.php', {
             destroy_session: 1
-        }, function (resp) {
+        }, function(resp) {
             document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             //window.location.href = 'login';
         });

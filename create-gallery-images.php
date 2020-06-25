@@ -24,10 +24,10 @@ if (isset($_REQUEST['gallery_id']) && isset($_REQUEST['title'])) {
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2"></label>
-                                <div class="col-sm-10">
-                                    <a class="btn btn-gradient-danger mr-2" href="gallery-list">Back</a>
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="gallery_images_submit">Submit</button>
-                                    <input type="hidden" id="gallery-id" value="<?php echo $galleryid; ?>">
+                                <div class="col-sm-10 text-right">
+                                    <a class="btn btn-gradient-danger" href="gallery-list">Back</a>
+									<input type="hidden" id="gallery-id" value="<?php echo $galleryid; ?>">
+                                    <button type="submit" class="btn btn-gradient-success ml-2" id="gallery_images_submit">Submit</button>
                                 </div>
                             </div>
                         </form>

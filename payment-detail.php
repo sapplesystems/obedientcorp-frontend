@@ -104,24 +104,24 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['uid'])) {
                                 </div>
                                 <?php if (isset($_REQUEST['flag']) && $_REQUEST['flag'] == 'rs') { ?>
                                     <div class="row mt-3" id="action_div" style="display: none;">
-                                        <div class="col-md-12 text-center">
-                                            <input type="button" class="btn btn-gradient-primary" value="Approve" onclick="paymentApprove(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />&nbsp;
-                                            <input type="button" class="btn btn-gradient-danger" value="Reject" onclick="paymentReject(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />&nbsp;
-                                            <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-gradient-info">Back</a>
+                                        <div class="col-md-12 text-right">
+										<a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-gradient-danger">Back</a>
+										<input type="button" class="btn btn-gradient-warning ml-2" value="Reject" onclick="paymentReject(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />
+                                            <input type="button" class="btn btn-gradient-success ml-2" value="Approve" onclick="paymentApprove(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />
                                         </div>
                                     </div>
                                 <?php } else if (isset($_REQUEST['flag']) && $_REQUEST['flag'] == 'f') { ?>
                                     <div class="row mt-3" id="action_div" style="display: none;">
-                                        <div class="col-md-12 text-center">
-                                            <input type="button" class="btn btn-gradient-primary" value="Approve" onclick="approveRequest(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />&nbsp;
-                                            <input type="button" class="btn btn-gradient-danger" value="Reject" onclick="rejectRequest(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />&nbsp;
-                                            <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-gradient-info">Back</a>
+                                        <div class="col-md-12 text-right">
+										<a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-gradient-danger">Back</a>
+										<input type="button" class="btn btn-gradient-danger ml-2" value="Reject" onclick="rejectRequest(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />
+                                            <input type="button" class="btn btn-gradient-success ml-2" value="Approve" onclick="approveRequest(<?php echo $payment_id; ?>,<?php echo $id; ?>);" />
                                         </div>
                                     </div>
                                 <?php } else { ?>
                                     <div class="row mt-3">
-                                        <div class="col-md-12 text-center">
-                                            <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-gradient-info">Back</a>
+                                        <div class="col-md-12 text-right">
+                                            <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-gradient-danger">Back</a>
                                         </div>
                                     </div>
                                 <?php } ?>

@@ -13,7 +13,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Recieved Items List</h4>
-                        <div class="overflowAuto">
+                        <div class="overflowAuto custom_overflow">
                             <table class="table table-bordered custom_action" id="recieve-list">
                             </table>
                         </div>
@@ -59,7 +59,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                         </td>';
                             } else { //if(value.status == 'Received')
                                 action_td = '<td>\n\
-                                        <a href="recieved-item-detail.php?dispatch_id=' + value.id + '" id="dispatch-detail" title="Items Detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
+                                        <a href="dispatch-detail.php?dispatch_id=' + value.id + '&dist_id='+value.distributor_id_to+'" id="dispatch-detail" title="Items Detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
                                         </td>';
                             }
 

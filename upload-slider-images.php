@@ -15,7 +15,7 @@
                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                     </span>
                                 </div>
-                                <img src="" style="display:none;width:100px;" id="uploded_image1" />
+                                <img class="mBox" src="" style="display:none;width:100px;" id="uploded_image1" />
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Enter Title 1</label>
@@ -36,7 +36,7 @@
                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                     </span>
                                 </div>
-                                <img src="" style="display:none;width:100px;" id="uploded_image2" />
+                                <img class="mBox" src="" style="display:none;width:100px;" id="uploded_image2" />
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Enter Title 2</label>
@@ -57,7 +57,7 @@
                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                     </span>
                                 </div>
-                                <img src="" style="display:none;width:100px;" id="uploded_image3" />
+                                <img class="mBox" src="" style="display:none;width:100px;" id="uploded_image3" />
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Enter Title 3</label>
@@ -78,7 +78,7 @@
                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                     </span>
                                 </div>
-                                <img src="" style="display:none;width:100px;" id="uploded_image4" />
+                                <img class="mBox" src="" style="display:none;width:100px;" id="uploded_image4" />
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Enter Title 4</label>
@@ -99,7 +99,7 @@
                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                     </span>
                                 </div>
-                                <img src="" style="display:none;width:100px;" id="uploded_image5" />
+                                <img class="mBox" src="" style="display:none;width:100px;" id="uploded_image5" />
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Enter Title 5</label>
@@ -114,7 +114,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2"></label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="upload_form">Submit</button>
+                                    <button type="submit" class="btn btn-gradient-success" id="upload_form">Submit</button>
                                 </div>
                             </div>
                         </form>

@@ -129,7 +129,7 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                             </span>
-                                            <img src="" style="display:none;width:100px;" id="upload_photo" />
+                                            <img class="mBox" src="" style="display:none;width:100px;" id="upload_photo" />
                                         </div>
                                     </div>
                                 </div>
@@ -299,8 +299,8 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) && isset($_R
                                     <input type="hidden" id="customer_id" value="<?php echo $customer_id; ?>" />
                                     <input type="hidden" id="agent-id" value="<?php echo $agent_id; ?>" />
                                     <input type="hidden" id="status" value="<?php echo $status; ?>" />
-                                    <a class="btn btn-danger btn-sm" href="manage-customer">Back</a>&nbsp;
-                                    <input type="submit" class="btn btn-info btn-sm" id="customer_add_submit_button" name="customer_add_submit_button" value="Submit" />&nbsp;
+                                    <a class="btn btn-gradient-danger" href="manage-customer">Back</a>
+                                    <input type="submit" class="btn btn-gradient-success ml-2" id="customer_add_submit_button" name="customer_add_submit_button" value="Submit" />&nbsp;
                                 </div>
                             </div>
                         </form>

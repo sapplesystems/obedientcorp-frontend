@@ -125,6 +125,7 @@ echo $common['main_container_navigation'];
                     $('#gallery_images_' + i).html(html);
                     $('.collapse').removeClass('show');
                     $('#two-' + i).addClass('show');
+                    if ($(".lightbox_gallery").exists()) { $(window).callLightboxGallery(); }
                 }
             }
         });
@@ -138,41 +139,6 @@ echo $common['main_container_navigation'];
 <!-- END JS FILES -->
 
 <script type='text/javascript' src='js/site.js'></script>
-
-<script type="text/javascript">
-    // init cubeportfolio
-    $('#gallery_box').cubeportfolio({
-        filters: '#gallery-filter1, #gallery-filter2',
-        loadMoreAction: 'auto',
-        layoutMode: 'grid',
-        defaultFilter: '*',
-        animationType: 'quicksand',
-        gapHorizontal: 10,
-        gapVertical: 10,
-        gridAdjustment: 'responsive',
-        mediaQueries: [{
-                width: 1500,
-                cols: 5,
-            }, {
-                width: 1100,
-                cols: 4,
-            }, {
-                width: 800,
-                cols: 3
-            }, {
-                width: 480,
-                cols: 1,
-                options: {
-                    caption: '',
-                    gapHorizontal: 10,
-                    gapVertical: 10,
-                }
-            }],
-        caption: 'zoom',
-        displayType: 'fadeIn',
-        displayTypeSpeed: 300,
-    });
-</script>
 
 
 

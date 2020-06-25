@@ -12,7 +12,7 @@ if (isset($_REQUEST['booking_id'])) {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3 custom_overflow">
-                        <h4 class="card-title mb-4">View Payment Details <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-danger btn-sm">Back</a></h4>
+                        <h4 class="card-title mb-4">View Payment Details</h4>
                         <div class="overflowAuto">
                         <table class="table table-bordered custom_action view_payment_detail " id="order-listing">
                         </table>
@@ -21,6 +21,11 @@ if (isset($_REQUEST['booking_id'])) {
                 </div>
             </div>
         </div>
+		<div class="row mt-4">
+		<div class="col-md-12 text-right">
+			<a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-gradient-danger">Back</a>
+		</div>
+		</div>
     </div>
     <input type="hidden" id="plot_booking_id" value="<?php echo $plot_booking_id;?>"/>
     <!-- content-wrapper ends -->

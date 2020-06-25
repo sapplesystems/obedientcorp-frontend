@@ -10,7 +10,7 @@ include_once 'header.php';
                     <div class="card">
                         <div class="card-body p-3">
                             <a href="add-offer" class="btn btn-gradient-primary">Add New Offer</a>
-                            <a href="dashboard" class="btn btn-gradient-danger">Back</a>
+                            <!--<a href="dashboard" class="btn btn-gradient-danger">Back</a>-->
                         </div>
                     </div>
                 </div>

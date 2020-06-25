@@ -7,9 +7,7 @@ if ($user_type != 'ADMIN') {
 
 <div class="main-panel ">
     <div class="content-wrapper ">
-        <div class="main-panel ">
-            <div class="content-wrapper ">
-                <div class="row ">
+                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body p-3">
@@ -38,7 +36,7 @@ if ($user_type != 'ADMIN') {
                                     <div class="form-group row">
                                         <label class="col-sm-2"></label>
                                         <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-gradient-primary mr-2" id="add-money-to-wallet-submit">Submit</button>
+                                            <button type="submit" class="btn btn-gradient-success" id="add-money-to-wallet-submit">Submit</button>
                                         </div>
                                     </div>
                                 </form>

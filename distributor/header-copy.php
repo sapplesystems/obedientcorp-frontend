@@ -121,7 +121,7 @@ $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="dispatch-list">
-                            <span class="menu-title">Dispatch Items</span>
+                            <span class="menu-title">Dispatches</span>
                             <i class="mdi mdi-view-grid menu-icon"></i>
                         </a>
                     </li>

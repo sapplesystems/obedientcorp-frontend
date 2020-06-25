@@ -7,8 +7,6 @@ if ($user_type != 'ADMIN') {
 
 <div class="main-panel ">
     <div class="content-wrapper ">
-        <div class="main-panel ">
-            <div class="content-wrapper ">
                 <div class="row ">
                     <div class="col-12">
                         <div class="card">
@@ -53,8 +51,8 @@ if ($user_type != 'ADMIN') {
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3"></label>
-                                        <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-gradient-primary mr-2" id="reverse_shopping_card_form_submit">Submit</button>
+                                        <div class="col-sm-6 text-right">
+                                            <button type="submit" class="btn btn-gradient-success" id="reverse_shopping_card_form_submit">Submit</button>
                                         </div>
                                     </div>
                                 </form>

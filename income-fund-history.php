@@ -7,8 +7,10 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Income History</h4>
-                        <h3 class="card-title mb-4">Total Income: <span id="available_income_fund" name="available_income_fund"></span></h3>
-                        <h3 class="card-title mb-4">Balance Income: <span id="balance_income_fund" name="balance_income_fund"></span></h3>
+						<div class="row">
+						<div class="col-md-6"><h3 class="card-title mb-4">Total Income: <span class="text-success" id="available_income_fund" name="available_income_fund"></span></h3></div>
+						<div class="col-md-6"><h3 class="card-title mb-4">Balance Income: <span class="text-success" id="balance_income_fund" name="balance_income_fund"></span></h3></div>
+						</div>
                         <?php if ($user_type == 'ADMIN') { ?>
                         <div class="form-group">
                             <label class="col-form-label float-left mr-3">Associate ID</label>
@@ -48,7 +50,7 @@
                             </div>
                             <div class="col-sm-2 pr-0">
                                 <label class="d-block">&nbsp;</label>
-                                <input type="button" class="btn btn-info" id="search_by_type" name="search_by_type" value="Search" />&nbsp;
+                                <input type="button" class="btn btn-gradient-success" id="search_by_type" name="search_by_type" value="Search" />
                             </div>
                         </div>
                         

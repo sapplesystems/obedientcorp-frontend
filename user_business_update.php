@@ -83,7 +83,7 @@ if ($user_type != 'ADMIN') {
                             <!--personal details end-->
                             <div class="row">
                                 <div class="col-sm-12 text-right">
-                                    <input type="submit" class="btn btn-info btn-sm" id="user_business_submit_button" name="user_business_submit_button" value="Submit" />&nbsp;
+                                    <input type="submit" class="btn btn-gradient-success" id="user_business_submit_button" name="user_business_submit_button" value="Submit" />&nbsp;
                                 </div>
                             </div>
                         </form>

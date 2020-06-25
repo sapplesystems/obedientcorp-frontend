@@ -30,9 +30,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                                    <input type="hidden" id="plot_id" />
+                                <div class="col-sm-12 text-right">
+								<input type="hidden" id="plot_id" />
+                                    <button type="submit" class="btn btn-gradient-success">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -68,8 +68,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+                                <div class="col-sm-12 text-right">
+                                    <button type="submit" class="btn btn-gradient-success">Submit</button>
                                 </div>
                             </div>
                         </form>

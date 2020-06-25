@@ -51,11 +51,11 @@ if(isset($_REQUEST['plotid'])){
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                  <input type="hidden" id="plot_id" value="<?php echo $plotid ?>" />
-                  <a href="plot-list" class="btn btn-gradient-danger mr-2">Back</a>
+              <div class="row mt-4">
+                <div class="col-sm-12 text-right">
+				<a href="plot-list" class="btn btn-gradient-danger">Back</a>
+				<input type="hidden" id="plot_id" value="<?php echo $plotid ?>" />
+                  <button type="submit" class="btn btn-gradient-success ml-2">Submit</button>
                 </div>
               </div>
             </form>

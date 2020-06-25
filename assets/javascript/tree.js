@@ -16,7 +16,7 @@ $(document).ready(function () {
         getTree(user_id);
     });
     
-    $(document).on('click', '.back_to_me', function () {
+    $(document).on('click', '#step_back', function () {
         tree_travelling.pop();
         getTree(tree_travelling.pop());
     });

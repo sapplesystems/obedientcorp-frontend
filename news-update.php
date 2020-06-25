@@ -15,15 +15,7 @@ include_once 'header.php';
                                 <div class="col-sm-4">
                                     <input class="form-control required" type="text" id="news_title" name="news_title" placeholder="Enter News Title">
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Description</label>
-                                <div class="col-sm-4">
-                                    <textarea id="description" name="description" class="form-control required" placeholder="Enter Description"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Photo</label>
+								<label class="col-sm-2 col-form-label">Photo</label>
                                 <div class="col-sm-4">
                                     <input type="file" name="photo" class="file-upload-default" id="photo">
                                     <div class="input-group">
@@ -31,15 +23,21 @@ include_once 'header.php';
                                         <span class="input-group-append">
                                             <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                         </span>
-                                        <img src="" style="display:none;width:100px;" id="upload_photo" />
+                                        <img class="mBox" src="" style="display:none;width:100px;" id="upload_photo" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2"></label>
+                                <label class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="news_update_submit">Submit</button>
-                                    <input type="hidden" id="news-id" value=""/>
+                                    <textarea id="description" name="description" class="form-control required" placeholder="Enter Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2"></label>
+                                <div class="col-sm-10 text-right">
+								<input type="hidden" id="news-id" value=""/>
+                                    <button type="submit" class="btn btn-gradient-success ml-2" id="news_update_submit">Submit</button>
                                 </div>
                             </div>
                         </form>

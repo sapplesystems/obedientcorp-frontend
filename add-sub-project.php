@@ -37,7 +37,7 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['spid'])) {
                                     <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                     </span>
-                                    <img src="" style="display:none;width:100px;" id="photo_id" />
+                                    <img class="mBox" src="" style="display:none;width:100px;" id="photo_id" />
                                 </div>
                                 <label class="col-sm-2 col-form-label">Unit Price</label>
                                 <div class="col-sm-4">
@@ -69,11 +69,11 @@ if (isset($_REQUEST['pid']) && isset($_REQUEST['spid'])) {
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2"></label>
-                                <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="sub_project_form">Submit</button>
-                                    <input type="hidden" id="sub_project_id" value="<?php echo $sub_project_id; ?>" />
+                                <div class="col-sm-10 text-right">
+								<a href="project-list" class="btn btn-gradient-danger">Back</a>
+								<input type="hidden" id="sub_project_id" value="<?php echo $sub_project_id; ?>" />
                                     <input type="hidden" id="project_id" value="<?php echo $project_id; ?>" />
-                                    <a href="project-list" class="btn btn-gradient-danger mr-2">Back</a>
+                                    <button type="submit" class="btn btn-gradient-success ml-2" id="sub_project_form">Submit</button>
                                 </div>
                             </div>
                         </form>

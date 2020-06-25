@@ -43,7 +43,7 @@ if ($user_type != 'ADMIN') {
 
                         <div class="col-sm-3">
                             <label class="d-block">&nbsp;</label>
-                            <button type="submit" id="agent_form" class="btn btn-gradient-primary">Submit</button>
+                            <button type="submit" id="agent_form" class="btn btn-gradient-success">Submit</button>
                         </div>
                     </div>
                 </div>

@@ -15,12 +15,10 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
     <div class="content-wrapper ">
         <div class="row">
             <div class="col-12">
-                <div class="form-group row">
-                </div>
                 <div class="card">
                     <div class="card-body p-3 custom_overflow">
-                        <h4 class="card-title mb-4">View Plot Booking <a class="btn btn-danger btn-sm" href="manage-customer">Back</a></h4>
-                        <h3 class="mb-4">Associate Name:  <span id="agent-name"></span></h3>
+                        <h4 class="card-title mb-4">View Plot Booking</h4>
+                        <h3 class="mb-4">Associate Name:  <span class="text-primary" id="agent-name"></span></h3>
                         <div class="overflowAuto">
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
@@ -50,6 +48,8 @@ if (isset($_REQUEST['customer_id']) && isset($_REQUEST['agent_id']) ) {
                 </div>
             </div>
         </div>
+		
+		<div class="row mt-4"><div class="col-md-12 text-right"><a class="btn btn-gradient-danger" href="manage-customer">Back</a></div></div>
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->

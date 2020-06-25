@@ -22,7 +22,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                 <div class="card">
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Dispatch List</h4>
-                        <div class="overflowAuto">
+                        <div class="overflowAuto custom_overflow">
                             <table class="table table-bordered custom_action" id="dispatch-list">
                             </table>
                         </div>
@@ -49,11 +49,12 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     var html = '<thead>\n\
                                 <tr>\n\
                                 <th>Sr.No.</th>\n\
-                                    <th>Received By</th>\n\
+                                    <th>Received To</th>\n\
                                     <th>Dispatch Number</th>\n\
                                     <th>Dispatch Type</th>\n\
                                     <th>Date Of Dispatch</th>\n\
                                     <th>Date Of Received</th>\n\
+                                    <th>Dispatch Amount</th>\n\
                                     <th>Status</th>\n\
                                     <th>Action</th>\n\
                                 </tr>\n\
@@ -72,6 +73,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                               <td>' + value.dispatch_type + '</td>\n\
                               <td>' + value.dispatch_date + '</td>\n\
                               <td>' + value.expected_delivery_date + '</td>\n\
+                              <td>' + value.total + '</td>\n\
                               <td>' + value.status + '</td>\n\
                               ' + action_td + '\n\
                           </tr>';

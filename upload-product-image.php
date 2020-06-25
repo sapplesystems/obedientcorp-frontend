@@ -16,12 +16,12 @@
                                     </span>
 
                                 </div>
-                                <img src="" style="display:none;width:100px;" id="product_uploded_image" />
+                                <img class="mBox" src="" style="display:none;width:100px;" id="product_uploded_image" />
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2"></label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="product_upload_form">Submit</button>
+                                    <button type="submit" class="btn btn-gradient-success" id="product_upload_form">Submit</button>
                                 </div>
                             </div>
                         </form>

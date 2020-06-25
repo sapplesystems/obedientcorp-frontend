@@ -14,7 +14,7 @@ if (isset($_REQUEST['pid'])) {
                     <div class="card-body p-3">
                         <form class="forms-sample" id="create_product" name="create_product" method="post" action="" enctype="multipart/form-data">
                             <div class="row">
-                                <h4 class="card-title mb-4 col-md-5">Create Product</h4>
+                                <h4 class="card-title mb-4 col-md-12">Create Product</h4>
                                 <div class="col-md-3">
                                     <div class="form-group float-right">
                                         <label class="col-form-label float-left mr-3">Category</label>
@@ -117,11 +117,11 @@ if (isset($_REQUEST['pid'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12">
+                            <div class="row mt-4">
+                                <div class="col-sm-12 text-right">
+								<a href="product-list" class="btn btn-gradient-danger">Back</a>
                                     <input type="hidden" name="product_id" id="product_id" value="<?php echo $pid; ?>" />
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_project" value="submitproject">Submit</button>
-                                    <a href="product-list" class="btn btn-gradient-danger mr-2">Back</a>
+                                    <button type="submit" class="btn btn-gradient-success ml-2" id="submit_project" value="submitproject">Submit</button>
                                 </div>
                             </div>
                         </form>

@@ -43,7 +43,7 @@ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                             </span>
-                                            <img src="" style="display:none;width:100px;" id="photo_id" />
+                                            <img class="mBox" src="" style="display:none;width:100px;" id="photo_id" />
                                         </div>
                                     </div>
                                 </div>
@@ -85,13 +85,17 @@ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-8 mt-4">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_sub_category" value="submitsubcategory">Submit</button>
-                                    <input type="hidden" id="subcategory_id" value="<?php echo $sub_category_id ?>">
-                                    <input type="hidden" id="category_id" value="<?php echo $category_id ?>">
-                                    <a href="category-list" class="btn btn-gradient-danger mr-2">Back</a>
-                                </div>
+								<div class="col-sm-4"></div>
                             </div>
+							<div class="row">
+							 <div class="col-sm-12 text-right mt-4">
+							 <a href="category-list" class="btn btn-gradient-danger">Back</a>
+							 <input type="hidden" id="subcategory_id" value="<?php echo $sub_category_id ?>">
+                                    <input type="hidden" id="category_id" value="<?php echo $category_id ?>">
+                                    <button type="submit" class="btn btn-gradient-success ml-2" id="submit_sub_category" value="submitsubcategory">Submit</button>
+                                    
+                                </div>
+							</div>
                         </form>
                     </div>
                 </div>

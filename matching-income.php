@@ -79,7 +79,7 @@ include_once 'header.php';
                                     </div>
                                     <div class="col-sm-3 pr-0">
                                         <label class="d-block">&nbsp;</label>
-                                        <input type="button" class="btn btn-info" id="search_matching" name="search_matching" value="Search" />&nbsp;
+                                        <input type="button" class="btn btn-gradient-success" id="search_matching" name="search_matching" value="Search" />
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>

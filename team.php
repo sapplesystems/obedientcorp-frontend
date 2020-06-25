@@ -24,7 +24,7 @@
                                 </ul>
                                 <div class="tab-content border-0 p-0 mt-3">
                                     <div class="tab-pane fade show active" id="detail-view-1" role="tabpanel" aria-labelledby="detail-view">
-                                        <ul class="nav nav-pills nav-pills-custom" id="pills-tab" role="tablist">
+                                        <ul class="nav nav-pills nav-pills-custom pl-3" id="pills-tab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="all_members" data-toggle="pill" href="#all-members" role="tab" aria-controls="pills-detail-view" aria-selected="true"> All Members List </a>
                                             </li>

@@ -8,7 +8,7 @@ include_once 'header.php';
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-0">Rewards <a href="dashboard" class="btn btn-danger btn-sm">Back</a></h4>
+                        <h4 class="card-title mb-0">Rewards</h4>
                     </div>
                 </div>
             </div>
@@ -32,6 +32,7 @@ include_once 'header.php';
             </div>
         </div>
         <div class="clearfix"></div>
+		<div class="row mt-4"><div class="col-md-12 text-right"><a href="dashboard" class="btn btn-gradient-danger">Back</a></div></div>
 
     </div>
     <!-- content-wrapper ends -->

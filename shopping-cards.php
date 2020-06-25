@@ -1,11 +1,6 @@
 <?php include_once 'header.php'; ?>
 <!-- partial -->
 
-<style>
-    #order-listing tr th:last-child, #order-listing tr td:last-child{width:300px !important; white-space:nowrap !important;}
-    #order-listing{min-width:1500px;}
-</style>
-
 <div class="main-panel ">
     <div class="content-wrapper ">
 

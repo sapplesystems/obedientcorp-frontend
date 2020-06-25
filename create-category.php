@@ -30,7 +30,7 @@ if (isset($_REQUEST['cid'])) {
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                             </span>
-                                            <img src="" style="display:none;width:100px;" id="photo_id" />
+                                            <img class="mBox" src="" style="display:none;width:100px;" id="photo_id" />
                                         </div>
                                     </div>
                                 </div>
@@ -64,10 +64,10 @@ if (isset($_REQUEST['cid'])) {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-gradient-primary mr-2" id="submit_category" value="submitcategory">Submit</button>
-                                    <input type="hidden" id="category_id" value="<?php echo $cid; ?>">
-                                    <a href="category-list" class="btn btn-gradient-danger mr-2">Back</a>
+                                <div class="col-sm-12 text-right">
+								<a href="category-list" class="btn btn-gradient-danger">Back</a>
+								<input type="hidden" id="category_id" value="<?php echo $cid; ?>">
+                                    <button type="submit" class="btn btn-gradient-success ml-2" id="submit_category" value="submitcategory">Submit</button>
                                 </div>
                             </div>
                         </form>

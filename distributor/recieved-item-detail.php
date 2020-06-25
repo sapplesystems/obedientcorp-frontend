@@ -6,8 +6,10 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 }
 
 $dispatch_id = 0;
-if (isset($_REQUEST['dispatch_id'])) {
+$distributor_id =0;
+if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id']) ) {
     $dispatch_id = $_REQUEST['dispatch_id'];
+    $distributor_id=$_REQUEST['dist_id'];
 }
 ?>
 <!-- partial -->
@@ -17,16 +19,17 @@ if (isset($_REQUEST['dispatch_id'])) {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Recieved Item Details</h4>
+                    <h5 class="card-title mb-4">Dispatch By: <span id="dist-from"></span></h5>
+                        <h4 class="card-title mb-4">Dispatch Item Details</h4>
                         <div class="overflowAuto">
-                            <table class="table table-bordered custom_action" id="recieved-detail">
+                            <table class="table table-bordered custom_action" id="dispatch-detail">
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 text-right">
-                <a class="btn btn-danger btn-sm" href="item-received-list">Back</a>&nbsp;
+                <a class="btn btn-danger btn-sm" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Back</a>&nbsp;
             </div>
         </div>
        
@@ -36,6 +39,7 @@ if (isset($_REQUEST['dispatch_id'])) {
     <?php include_once 'footer-copy.php'; ?>
     <script type="text/javascript">
         var dispatch_id = "<?php echo $dispatch_id; ?>";
+        var distributor_id = "<?php echo $distributor_id; ?>";
         getDistributorDetail(dispatch_id);
 
         function getDistributorDetail(dispatch_id) {
@@ -44,7 +48,8 @@ if (isset($_REQUEST['dispatch_id'])) {
                 url: base_url + 'dispatch/details',
                 type: 'post',
                 data: {
-                    dispatch_id: dispatch_id
+                    dispatch_id: dispatch_id,
+                    distributor_id:distributor_id
                 },
                 success: function(response) {
                     var html = '<thead>\n\
@@ -52,7 +57,9 @@ if (isset($_REQUEST['dispatch_id'])) {
                                 <th>Sr.No.</th>\n\
                                 <th>Product Name</th>\n\
                                 <th>Product Price</th>\n\
-                                <th>Product Quantity</th>\n\
+                                <th>Product Code</th>\n\
+                                <th>Dispatch Product Qty</th>\n\
+                                <th>Received Product Qty</th>\n\
                                 <th>Lot Number</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
@@ -67,14 +74,22 @@ if (isset($_REQUEST['dispatch_id'])) {
                               <td class="sorting_1">' + i + '</td>\n\
                               <td>' + value.product_name + '</td>\n\
                               <td>' + value.product_price + '</td>\n\
+                              <td>' + value.sku + '</td>\n\
                               <td>' + value.dispatched_items_quantity + '</td>\n\
+                              <td>' + value.received_items_quantity + '</td>\n\
                               <td>' + lot_no + '</td>\n\
                           </tr>';
                             i = i + 1;
                         });
                         html += '</tbody>';
-                        $('#recieved-detail').html(html);
-                        generateDataTable('recieved-detail');
+                        $('#dispatch-detail').html(html);
+                        $('#dist-from').html(response.DispatcheDetails.distributor_name_from);
+                        generateDataTable('dispatch-detail');
+                        hideLoader();
+                    }
+                    else
+                    {
+                        showSwal('error', response.data);
                         hideLoader();
                     }
                 }

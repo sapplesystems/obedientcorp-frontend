@@ -116,7 +116,7 @@ if (isset($_REQUEST['distributor_id'])) {
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                             </span>
-                                            <img src="" style="display:none;width:100px;" id="upload_pan" />
+                                            <img class="mBox" src="" style="display:none;width:100px;" id="upload_pan" />
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@ if (isset($_REQUEST['distributor_id'])) {
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-gradient-primary btn-sm" type="button">Upload</button>
                                             </span>
-                                            <img src="" style="display:none;width:100px;" id="upload_gst" />
+                                            <img class="mBox" src="" style="display:none;width:100px;" id="upload_gst" />
                                         </div>
                                     </div>
                                 </div>
@@ -164,8 +164,8 @@ if (isset($_REQUEST['distributor_id'])) {
                             <div class="row">
                                 <div class="col-sm-12 text-right">
                                     <input type="hidden" id="distributor_id" value="<?php echo $distributor_id; ?>" />
-                                    <a class="btn btn-danger btn-sm" href="manage-distributor">Back</a>&nbsp;
-                                    <input type="submit" class="btn btn-info btn-sm" id="distributor_add_submit_button" name="distributor_add_submit_button" value="Submit" />&nbsp;
+                                    <a class="btn btn-gradient-danger" href="manage-distributor">Back</a>&nbsp;
+                                    <input type="submit" class="btn btn-gradient-success" id="distributor_add_submit_button" name="distributor_add_submit_button" value="Submit" />&nbsp;
                                 </div>
                             </div>
                         </form>

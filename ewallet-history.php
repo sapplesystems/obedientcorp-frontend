@@ -8,7 +8,7 @@
                     <div class="card-body p-3">
                         <h4 class="card-title mb-4">Wallet History</h4>
 
-                        <h3 class="mb-4">Available Balance: <span id="available_wallet_balance" name="available_wallet_balance"></span></h3>
+                        <h3 class="mb-4">Available Balance: <span class="text-primary" id="available_wallet_balance" name="available_wallet_balance"></span></h3>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <div class="form-group">
                                 <label class="col-form-label float-left mr-3">Associate ID</label>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-sm-2 pr-0">
                                 <label class="d-block">&nbsp;</label>
-                                <input type="button" class="btn btn-info" id="search_by_type" name="search_by_type" value="Search" />&nbsp;
+                                <input type="button" class="btn btn-gradient-success" id="search_by_type" name="search_by_type" value="Search" />
                             </div>
                         </div>
                         <div class="overflowAuto">

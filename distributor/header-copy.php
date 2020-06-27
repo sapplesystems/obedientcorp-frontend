@@ -132,8 +132,14 @@ $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="current-stock">
                             <span class="menu-title">Reports</span>
+                            <i class="mdi mdi-wallet menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="stock-flow">
+                            <span class="menu-title">Stock Flow</span>
                             <i class="mdi mdi-wallet menu-icon"></i>
                         </a>
                     </li>

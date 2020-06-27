@@ -20,7 +20,7 @@ include_once 'header.php';
 
       <div class="responsiveCenteredContent js-cart">
         <div class="shoppingCartContainer mt-0">
-          <h1 class="headTop">Dispatch Generation <a class="btnBack pull-right" href="dispatch-list"><img src="<?php echo $home_url; ?>assets/javascript/distributor/images/backto.png" /> Back</a></h1>
+          <h1 class="headTop">Dispatch Generation <a class="btnBack pull-right" href="distributor-dispatch-list"><img src="<?php echo $home_url; ?>assets/javascript/distributor/images/backto.png" /> Back </a></h1>
           <!-- Start of cart's first part -->
           <div class="js-cart-items">
             <div class="cartProductsContainer text-gray-dark cx-copy">

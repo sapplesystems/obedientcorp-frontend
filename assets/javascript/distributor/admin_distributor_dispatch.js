@@ -45,7 +45,7 @@ function setDispatchListTab(response, status) {
                 <tr>\n\
                 <th>Sr.No.</th>\n\
                 <th>Dispatch By</th>\n\
-                <th>Received By</th>\n\
+                <th>Dispatch To</th>\n\
                 <th>Dispatch Number</th>\n\
                 <th>Date Of Dispatch</th>\n\
                 <th>Date Of Received</th>\n\

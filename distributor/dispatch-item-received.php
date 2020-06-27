@@ -25,10 +25,38 @@ if (isset($_REQUEST['dispatch_id'])) {
           <h1 class="headTop">Dispatch Item Received</h1>
           <!-- Start of cart's first part -->
           <div>
-            <div class="dispatch_by">
-              <div>Dispatch By: </div>
-              <div><span class="colorTheme" id="dist-name"></span></div>
+		  <div class="left_sec">
+                        <div class="distributor_info">
+                            <div><strong>Dipatch By:</strong> </div>
+                            <div><span class="" id="dist-name"></span></div>
+                            <div><strong>Address:</strong> </div>
+                            <div><span class="" id="dist-add-from"></span></div>
+                        </div>
+						<div class="clear_both"></div>
+                        <div class="distributor_info marginTop10">
+                            <div><strong>Dipatch To:</strong> </div>
+                            <div><span class="" id="dist-to"></span></div>
+                            <div><strong>Address:</strong> </div>
+                            <div><span class="" id="dist-add-to"></span></div>
+                        </div>
+						<div class="clear_both"></div>
+                        <div class="distributor_info marginTop10">
+                            <div><strong>Dispatch Number:</strong> </div>
+                            <div><span class="" id="dispatch-no"></span></div>
+                            <div><strong>Dispatch Type:</strong> </div>
+                            <div><span class="" id="dispatch-type"></span></div>
+							</div>
+							<div class="clear_both"></div>
+            <div class="overflow_auto marginTop20">
+              <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="recieved-detail">
+              </table>
             </div>
+							<!--<div class="clear_both"></div>
+                        <div class="overflow_auto marginTop20">
+                            <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="dispatch-detail">
+                            </table>
+                        </div> -->
+						</div>
             <div class="clear_both"></div>
             <div class="overflow_auto">
               <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="recieved-detail">
@@ -42,6 +70,23 @@ if (isset($_REQUEST['dispatch_id'])) {
                 </div>
               </div>
               <div class="right_sec">
+			  <div class="sales_notes mtNone">
+							<label>Status:</label>
+							<div><span class="" id="dispatch-status"></span></div>
+							</div>
+							
+							
+							<div class="sales_notes marginTop20">
+							<div class="widthHalf">
+								<label>Date Of Dispatch:</label>
+								<div><span class="" id="dispatch-date"></span></div>
+							</div>
+							<div class="widthHalf ml4percent">
+							<label>Date Of Receive:</label>
+							<div><span class="" id="receive-date"></span></div>
+							</div>
+						</div>
+						<div class="clear_both"></div>
                 <div class="bottom_tax">
                   <table cellspacing="0" cellpadding="0" border="0" width="100%">
                   <tbody>

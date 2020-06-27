@@ -46,7 +46,7 @@ if (isset($_REQUEST['distributor_id'])) {
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Distributor Name :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" placeholder="Enter distributor Name" class="form-control required" id="distributorname" name="distributorname" value="">
+                                        <input type="text" placeholder="Enter distributor Name" class="form-control required" id="distributorname" name="distributorname" value="" onkeypress="return isAlphabetKey(event);">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Is Head Quator:<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
@@ -69,7 +69,7 @@ if (isset($_REQUEST['distributor_id'])) {
                                     </div>
                                     <label class="col-sm-2 col-form-label">Contact Name :<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="contact_name" name="contact_name" placeholder="Enter Contact Name">
+                                        <input type="text" class="form-control required" id="contact_name" name="contact_name" placeholder="Enter Contact Name" onkeypress="return isAlphabetKey(event);">
                                     </div>
                                 </div>
                                 <div class="form-group row">

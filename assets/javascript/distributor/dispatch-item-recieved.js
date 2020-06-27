@@ -103,6 +103,14 @@ function getDispatchReceivedItems() {
                 html += '</tbody>';
                 $('#recieved-detail').html(html);
                 $('#dist-name').html(response.DispatcheDetails.distributor_name_from)
+                $('#dist-to').html(response.DispatcheDetails.distributor_name_to);
+                $('#dist-add-to').html(response.DispatcheDetails.distributor_address_to);
+                $('#dist-add-from').html(response.DispatcheDetails.distributor_address_from);
+                $('#dispatch-no').html(response.DispatcheDetails.dispatch_no);
+                $('#dispatch-type').html(response.DispatcheDetails.dispatch_type);
+                $('#dispatch-date').html(response.DispatcheDetails.dispatch_date);
+                $('#dispatch-status').html(response.DispatcheDetails.status);
+                $('#receive-date').html(response.DispatcheDetails.received_date);
                 $('#subtotal').html(response.DispatcheDetails.subtotal);
                 $('#tax').html(0);
                 $('#total').html(response.DispatcheDetails.total);

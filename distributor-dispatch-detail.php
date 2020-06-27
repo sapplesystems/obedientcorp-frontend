@@ -21,7 +21,14 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                     <div class="card-body p-3">
 					<div class="row mb-4">
 						<div class="col-md-6"><h3 class="card-title">Dispatch By: <span class="text-primary" id="dist-from"></span></h4></div>
-						<div class="col-md-6"><h3 class="card-title">Received By: <span class="text-primary" id="dist-id"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Address: <span class="text-primary" id="dist-add-from"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Dispatch To: <span class="text-primary" id="dist-id"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Address: <span class="text-primary" id="dist-add-to"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Dispatch Number: <span class="text-primary" id="dispatch-no"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Dispatch Type: <span class="text-primary" id="dispatch-type"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Status: <span class="text-primary" id="dispatch-status"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Date Of Dispatch: <span class="text-primary" id="dispatch-date"></span></h4></div>
+						<div class="col-md-6"><h3 class="card-title">Date Of Receive: <span class="text-primary" id="receive-date"></span></h4></div>
 					</div>
                         <div class="row mb-4">
                                 <div class="col-2">SubTotal: <span id="subtotal"></span></div>
@@ -109,6 +116,13 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                         $('#dispatch-detail').html(html);
                         $('#dist-from').html(response.DispatcheDetails.distributor_name_from);
                         $('#dist-id').html(response.DispatcheDetails.distributor_name_to);
+						$('#dist-add-to').html(response.DispatcheDetails.distributor_address_to);
+                        $('#dist-add-from').html(response.DispatcheDetails.distributor_address_from);
+                        $('#dispatch-no').html(response.DispatcheDetails.dispatch_no);
+                        $('#dispatch-type').html(response.DispatcheDetails.dispatch_type);
+                        $('#dispatch-date').html(response.DispatcheDetails.dispatch_date);
+                        $('#dispatch-status').html(response.DispatcheDetails.status);
+                        $('#receive-date').html(response.DispatcheDetails.expected_delivery_date);
                         $('#subtotal').html(response.DispatcheDetails.subtotal);
                         $('tax').html(0);
                         $('#total').html(response.DispatcheDetails.total);

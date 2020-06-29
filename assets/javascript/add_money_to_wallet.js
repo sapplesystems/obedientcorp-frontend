@@ -42,6 +42,7 @@ $(document).ready(function () {
                 transaction_password: $('#transaction_password').val(),
             };
             addMoneyToWallet(params);//ajax
+            setTimeout(function(){getEwalletHistory({});},1000);
         }//end if
 
 

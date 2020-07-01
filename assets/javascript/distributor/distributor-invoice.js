@@ -11,6 +11,7 @@ var isVerifyOTP = 0;
 var x = 0;
 var ProductCouponType = [];
 var CouponCodeType = [];
+var global_ui = {};
 
 $(document).ready(function () {
     getProductList();
@@ -70,73 +71,23 @@ $(document).ready(function () {
         multiple: true,
         source: products,
         select: function (event, ui) {
-            var itemalreadyexits = itemsAlreadyExits(ui.item.id);
-            if (itemalreadyexits == true) {
-                $('#items').css('display', '');
-                var html = '';
-                var cgst = 0;
-                var sgst = 0;
-                var igst = 0;
-                var gst_tax = 0;
-                var dealer_price_without_tax = 0;
-                if (ui.item.cgst != 0) {
-                    cgst = (Number(ui.item.dealer_price) * (Number(ui.item.cgst) / 100)).toFixed(2);
+            var item_lot_number = ui.item.lot_no;
+            if (item_lot_number.length > 0) {
+                if (item_lot_number.length == 1) {
+                    itemsAlreadyExits(ui.item.id, item_lot_number[0], ui);
+                } else {
+                    var set_lot_numbers = '';
+                    $.each(item_lot_number, function (key, value) {
+                        set_lot_numbers += '<input type="radio" name="lot_no_radio" value="' + value + '" style="position: inherit;"> ' + value + '<br/>';
+                    });
+                    global_ui = ui;
+                    set_lot_numbers += '<button onclick="selectLotNo(\'' + ui.item.id + '\');">Select</button>';
+                    $('#lot_numbers_content').html(set_lot_numbers);
+                    $('#lot_numbers_popup').addClass('is-visible');
                 }
-                if (ui.item.sgst != 0) {
-                    sgst = (Number(ui.item.dealer_price) * (Number(ui.item.sgst) / 100)).toFixed(2);
-                }
-                if (ui.item.igst != 0) {
-                    igst = (Number(ui.item.dealer_price) * (Number(ui.item.igst) / 100)).toFixed(2);
-                }
-                gst_tax = Number(cgst) + Number(sgst) + Number(igst);
-                total_tax = (total_tax + gst_tax);
-                dealer_price_without_tax = (Number(ui.item.dealer_price) - gst_tax).toFixed(2);
-                // Set selection
-                html += '<li class="js-productContainer productContainer products " id="tr_' + ui.item.id + '" data-pid="204592-066-M11" data-pidmaster="204592">\n\
-      <div class="productContainerRow">\n\
-          <div class="columnCell column1 productImage text-center"><i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeProduct(' + ui.item.id + ');"></i></div>\n\
-          <div class="columnCell column1 productImage text-left"><span  tabindex="-1" aria-hidden="true">' + ui.item.value + '</span></div>\n\
-          <div class="columnCell column2 productDetails">\n\
-              <div class="">\n\
-                  <p class=""><span>' + ui.item.code + '</span></p>\n\
-              </div>\n\
-          </div>\n\
-          <div class="columnCell column4 productQuantity">\n\
-              <form>\n\
-                  <div class="value-button" id="sub_' + ui.item.id + '" onclick="SubValue(' + ui.item.id + ');" value="Decrease Value"><i class="fa fa-minus"></i></div>\n\
-                  <input type="number" id="qty_' + ui.item.id + '" value="1" readonly />\n\
-                  <div class="value-button" id="add_' + ui.item.id + '" onclick="AddValue(' + ui.item.id + ');"value="Increase Value"><i class="fa fa-plus"></i></div>\n\
-              </form>\n\
-          </div>\n\
-          <div class="columnCell column2">\n\
-              <div class="price">\n\
-                  <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_' + ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
-              </div>\n\
-          </div>\n\
-          <div class="columnCell column2 productPriceTotal">\n\
-              <div class="price">\n\
-                  <div class="text-gray-dark cx-heavy-brand-font mt3 total_pay" id="tot_' + ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
-              </div>\n\
-          </div>\n\
-      </div>\n\
-      <div class="clear hidden-lg"></div>\n\
-      <input type="hidden" id="product_coupon_type_' + ui.item.id + '" value="' + ui.item.coupon_type + '" />\n\
-      <input type="hidden" class="dp" id="dp_' + ui.item.id + '" value="' + dealer_price_without_tax + '" />\n\
-      <input type="hidden" id="cgst_' + ui.item.id + '" value="' + cgst + '" />\n\
-      <input type="hidden" id="sgst_' + ui.item.id + '" value="' + sgst + '" />\n\
-      <input type="hidden" id="igst_' + ui.item.id + '" value="' + igst + '" />\n\
-      <input type="hidden" id="org_tot_' + ui.item.id + '" value="' + ui.item.dealer_price + '" />\n\
-      <input type="hidden" id="org_dp_' + ui.item.id + '" value="' + dealer_price_without_tax + '" />\n\
-      <input type="hidden" id="org_cgst_' + ui.item.id + '" value="' + cgst + '" />\n\
-      <input type="hidden" id="org_sgst_' + ui.item.id + '" value="' + sgst + '" />\n\
-      <input type="hidden" id="org_igst_' + ui.item.id + '" value="' + igst + '" />\n\
-      <input type="hidden" class="items" value="' + ui.item.id + '" />\n\
-  </li>';
-                $('#item-list').append(html);
+            } else {
+                itemsAlreadyExits(ui.item.id, '0', ui);
             }
-            SubTotal();
-            $('#search-product').val('');
-            return false;
 
         }
 
@@ -268,17 +219,17 @@ function AddValue(id) {
 }
 
 function getProductList() {
-    var url = base_url + 'products';
+    var url = base_url + 'distributor/products';
     $.ajax({
         url: url,
         type: 'post',
-        data: {},
+        data: {distributor_id: distributor_id},
         success: function (response) {
             if (response.status == "success") {
                 if (response.data) {
                     $.each(response.data, function (i, value) {
                         var search_prod = value.search_product + ' - ' + value.coupon_business_name;
-                        products.push({ id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name });
+                        products.push({id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name, lot_no: value.lot_no});
                     });
                 }
             }
@@ -306,7 +257,7 @@ function verifyCoupons() {
     $.ajax({
         url: url,
         type: 'post',
-        data: { mobile_no: $('#search-customer').val() },
+        data: {mobile_no: $('#search-customer').val()},
         success: function (response) {
             if (response.status == "success") {
                 showSwal('success', 'OTP SEND', response.data);
@@ -362,7 +313,7 @@ function SubTotal() {
         sub_total = (sub_total + Number($('#dp_' + id).val()));
         tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()) + Number($('#igst_' + id).val()));
         total = (total + Number($('#tot_' + id).html()));
-        ProductCouponType.push({ 'bv_type': bv_type, 'amount': Number($('#tot_' + id).html()) });
+        ProductCouponType.push({'bv_type': bv_type, 'amount': Number($('#tot_' + id).html())});
     });
 
     ProductCouponType = makeUniqueBvTypeAmount(ProductCouponType);
@@ -383,7 +334,7 @@ function totalAppliedCoupon() {
         validCoupons.push(id);
         var ccode = $('#ccode_' + id).val();
         var camnt = $('#camnt_' + id).val();
-        ctype.push({ 'bv_type': ccode, 'amount': camnt });
+        ctype.push({'bv_type': ccode, 'amount': camnt});
     });
 
     CouponCodeType = makeUniqueBvTypeAmount(ctype);
@@ -458,18 +409,20 @@ function generateInvoice() {
         var items = [];
         $('.items').each(function () {
             var items_ids = $(this).val();
-            items_ids = Number(items_ids);
-            if (items_ids && items_ids > 0) {
+            if (items_ids && items_ids != '') {
                 var item_qty = $('#qty_' + items_ids).val();
+                var item_id = $('#item_id_' + items_ids).val();
                 items.push({
-                    item_id: items_ids,
+                    item_id: item_id,
                     qty: item_qty,
                     cgst: $('#cgst_' + items_ids).val(),
                     sgst: $('#sgst_' + items_ids).val(),
-                    igst: $('#igst_' + items_ids).val()
+                    igst: $('#igst_' + items_ids).val(),
+                    lot_no: $('#lotNo_' + items_ids).val(),
                 });
             }
         });
+
         var params = {
             invoice_coupon_code: validCoupons,
             invoice_item: items,
@@ -583,16 +536,24 @@ function disableCouponBtn() {
     $('.verify-coupon').css('background-color', '#9c92a7');
 }
 
-function itemsAlreadyExits(id) {
+function itemsAlreadyExits(id, lot_no, ui) {
+    var elmid = id + '_' + lot_no;
     var totalRowCount = $("#item-list li").length;
     if (totalRowCount) {
-        if ($('#tr_' + id).attr('id')) {
-            AddValue(id);
-            return false;
+        var li_elm = document.getElementById('tr_' + elmid);
+        var lot_elm = document.getElementById('lotNo_' + elmid);
+        if (li_elm && lot_elm && lot_elm.value == lot_no) {
+            AddValue(elmid);
+        } else {
+            setItemUiList(ui, lot_no);
         }
-        return true;
+    } else {
+        setItemUiList(ui, lot_no);
     }
-    return true;
+    setTimeout(function () {
+        $('#search-product').val('');
+    }, 100);
+    SubTotal();
 }
 
 function calcAmountDue() {
@@ -680,7 +641,7 @@ function makeUniqueBvTypeAmount(obj) {
     var obj2 = [];
 
     for (var prop in holder) {
-        obj2.push({ name: prop, value: Number(holder[prop]) });
+        obj2.push({name: prop, value: Number(holder[prop])});
     }
     return obj2;
 }
@@ -782,4 +743,84 @@ function checkBeforeGenerateInvoice() {
 
 function printInvoice(e) {
     e.preventDefault();
+}
+
+function selectLotNo(item_id, ui) {
+    var lot_no = $("input[name='lot_no_radio']:checked").val();
+    if (!lot_no || lot_no == '' || lot_no == undefined) {
+        showSwal('error', 'Select lot number', 'Select lot number');
+        return false;
+    }
+    itemsAlreadyExits(item_id, lot_no, global_ui);
+    global_ui = {};
+    $('#lot_numbers_popup').removeClass('is-visible');
+}
+
+function setItemUiList(ui, lot_no) {
+    $('#items').css('display', '');
+    var html = '';
+    var cgst = 0;
+    var sgst = 0;
+    var igst = 0;
+    var gst_tax = 0;
+    var dealer_price_without_tax = 0;
+    if (ui.item.cgst != 0) {
+        cgst = (Number(ui.item.dealer_price) * (Number(ui.item.cgst) / 100)).toFixed(2);
+    }
+    if (ui.item.sgst != 0) {
+        sgst = (Number(ui.item.dealer_price) * (Number(ui.item.sgst) / 100)).toFixed(2);
+    }
+    if (ui.item.igst != 0) {
+        igst = (Number(ui.item.dealer_price) * (Number(ui.item.igst) / 100)).toFixed(2);
+    }
+    gst_tax = Number(cgst) + Number(sgst) + Number(igst);
+    total_tax = (total_tax + gst_tax);
+    dealer_price_without_tax = (Number(ui.item.dealer_price) - gst_tax).toFixed(2);
+
+    var unique_id = ui.item.id + '_' + lot_no;
+    var lot_style = (lot_no == '0') ? ' style="display:none;" ' : '';
+    html += '<li class="js-productContainer productContainer products " id="tr_' + unique_id + '" data-pid="204592-066-M11" data-pidmaster="204592">\n\
+                <div class="productContainerRow">\n\
+                    <div class="columnCell column1 productImage text-center"><i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeProduct(\'' + unique_id + '\');"></i></div>\n\
+                    <div class="columnCell column1 productImage text-left"><span  tabindex="-1" aria-hidden="true">' + ui.item.value + '</span></div>\n\
+                    <div class="columnCell column2 productDetails">\n\
+                        <div class="">\n\
+                            <p><span>' + ui.item.code + '</span></p>\n\
+                            <p ' + lot_style + ' id="display_lot_number_' + unique_id + '">Lot: ' + lot_no + '</p>\n\
+                            <input type="hidden" id="lotNo_' + unique_id + '" value="' + lot_no + '" />\n\
+                        </div>\n\
+                    </div>\n\
+                    <div class="columnCell column4 productQuantity">\n\
+                        <form>\n\
+                            <div class="value-button" id="sub_' + unique_id + '" onclick="SubValue(\'' + unique_id + '\');" value="Decrease Value"><i class="fa fa-minus"></i></div>\n\
+                            <input type="number" id="qty_' + unique_id + '" value="1" readonly />\n\
+                            <div class="value-button" id="add_' + unique_id + '" onclick="AddValue(\'' + unique_id + '\');"value="Increase Value"><i class="fa fa-plus"></i></div>\n\
+                        </form>\n\
+                    </div>\n\
+                    <div class="columnCell column2">\n\
+                        <div class="price">\n\
+                            <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
+                        </div>\n\
+                    </div>\n\
+                    <div class="columnCell column2 productPriceTotal">\n\
+                        <div class="price">\n\
+                            <div class="text-gray-dark cx-heavy-brand-font mt3 total_pay" id="tot_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
+                        </div>\n\
+                    </div>\n\
+                </div>\n\
+                <div class="clear hidden-lg"></div>\n\
+                <input type="hidden" id="product_coupon_type_' + unique_id + '" value="' + ui.item.coupon_type + '" />\n\
+                <input type="hidden" class="dp" id="dp_' + unique_id + '" value="' + dealer_price_without_tax + '" />\n\
+                <input type="hidden" id="cgst_' + unique_id + '" value="' + cgst + '" />\n\
+                <input type="hidden" id="sgst_' + unique_id + '" value="' + sgst + '" />\n\
+                <input type="hidden" id="igst_' + unique_id + '" value="' + igst + '" />\n\
+                <input type="hidden" id="org_tot_' + unique_id + '" value="' + ui.item.dealer_price + '" />\n\
+                <input type="hidden" id="org_dp_' + unique_id + '" value="' + dealer_price_without_tax + '" />\n\
+                <input type="hidden" id="org_cgst_' + unique_id + '" value="' + cgst + '" />\n\
+                <input type="hidden" id="org_sgst_' + unique_id + '" value="' + sgst + '" />\n\
+                <input type="hidden" id="org_igst_' + unique_id + '" value="' + igst + '" />\n\
+                <input type="hidden" class="items" value="' + unique_id + '" />\n\
+                <input type="hidden" id="item_id_' + unique_id + '" value="' + ui.item.id + '" />\n\
+            </li>';
+    $('#item-list').append(html);
 }

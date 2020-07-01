@@ -235,46 +235,54 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
         <div class="popup_input" id="success_generate_invoice_msg"></div>
         <!--<div class="backbtn_pos"><a class="btnBack" href="#" onclick="printInvoice(event);">Print</a></div>-->
         <ul class="cd-buttons">
-		<li><a class="" href="javascript:void(0);" onclick="window.print();">Print Bill</a></li>
+            <li><a class="" href="javascript:void(0);" onclick="window.print();">Print Bill</a></li>
             <li><a href="javascript:void(0);" onclick="closePopUP();">OK</a></li>
         </ul>
     </div>
 </div>
+
+<div class="cd-popup" role="alert" id="lot_numbers_popup">
+    <div class="cd-popup-container">
+        <h3 class="headPopup">Select Lot Number<a href="#0" class="cd-popup-close img-replace">Close</a></h3>
+        <div class="popup_input" id="lot_numbers_content"></div>
+    </div>
+</div>
+
 <div id="print_coupon_div" style="display: none;">
     <script src="<?php echo $home_url; ?>assets/javascript/JsBarcode.all.min.js"></script>
     <?php include_once 'footer.php'; ?>
     <script>
-        jQuery(document).ready(function($) {
-            //open popup
-            $('#paycash').on('click', function(event) {
-                event.preventDefault();
-                $('#cash').val('');
-                $('#pay_Cash').addClass('is-visible');
+                jQuery(document).ready(function ($) {
+                    //open popup
+                    $('#paycash').on('click', function (event) {
+                        event.preventDefault();
+                        $('#cash').val('');
+                        $('#pay_Cash').addClass('is-visible');
 
-            });
-            $('#applyCoupon').on('click', function(event) {
-                event.preventDefault();
-                $('#apply_Coupon').addClass('is-visible');
-            });
-            $('#verifyCoupon').on('click', function(event) {
-                event.preventDefault();
-                $('#verify_Coupon').addClass('is-visible');
-            });
+                    });
+                    $('#applyCoupon').on('click', function (event) {
+                        event.preventDefault();
+                        $('#apply_Coupon').addClass('is-visible');
+                    });
+                    $('#verifyCoupon').on('click', function (event) {
+                        event.preventDefault();
+                        $('#verify_Coupon').addClass('is-visible');
+                    });
 
-            //close popup
-            $('.cd-popup').on('click', function(event) {
-                if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
-                    event.preventDefault();
-                    $(this).removeClass('is-visible');
-                }
-            });
-            //close popup when clicking the esc keyboard button
-            $(document).keyup(function(event) {
-                if (event.which == '27') {
-                    $('.cd-popup').removeClass('is-visible');
-                }
-            });
-        });
+                    //close popup
+                    $('.cd-popup').on('click', function (event) {
+                        if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
+                            event.preventDefault();
+                            $(this).removeClass('is-visible');
+                        }
+                    });
+                    //close popup when clicking the esc keyboard button
+                    $(document).keyup(function (event) {
+                        if (event.which == '27') {
+                            $('.cd-popup').removeClass('is-visible');
+                        }
+                    });
+                });
     </script>
 
 

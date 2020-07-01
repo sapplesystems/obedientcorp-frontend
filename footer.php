@@ -21,6 +21,7 @@
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <!-- Plugin js for this page -->
 <script src="assets/vendors/chart.js/Chart.min.js "></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js "></script>
 <script src="assets/vendors/sweetalert/sweetalert.min.js "></script>
 <script src="assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>

@@ -16,7 +16,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
             <!-- Report the active source code -->
             <div class="responsiveCenteredContent js-cart">
                 <div class="shoppingCartContainer">
-                    <h1 class="headTop">Stock Flow</h1>
+                    <h1 class="headTop">Sales Report</h1>
                     <!-- Start of cart's first part -->
                     <div>
                     <h2 class="headTop"><?php echo $name.'(' .$username . ')';?></h2>
@@ -39,43 +39,22 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                             </div>
                             <div class="clear_both"></div>
                             <div class="distributor_info marginTop10">
+                                <div><strong>Category:</strong> </div>
+                                <div><select id="categories"><select></div>
                                 <div><strong>Items:</strong> </div>
                                 <div>
                                     <input type="text" id="search-product" name="search_product" value="">
-                                    <input type="hidden" id="item-name" value="" />
-                                </div>
-                                <div><strong>Item Code:</strong> </div>
-                                <div>
-                                    <input type="text" id="item-code" name="item_code" value="">
+                                    <input type="hidden" id="item-id" value="" />
                                 </div>
                             </div>
                             <div class="clear_both"></div>
                             <div class="distributor_info marginTop10">
-                                <div><strong>Category:</strong> </div>
-                                <div><select id="categories"><select></div>
-                                <div><strong>Type:</strong> </div>
-                                <div>
-                                    <select id="type">
-                                        <option value="">--Select--</option>
-                                        <option value="all">All</option>
-                                        <option value="incoming">Incoming </option>
-                                        <option value="outgoing">Outgoing</option>
-                                        <select>
-                                </div>
-                            </div>
-                            <div class="clear_both"></div>
-                            <div class="distributor_info marginTop10">
-                                <div><strong>Lot Number:</strong> </div>
-                                <div><input type="text" id="lot-no" name="lot_no" value=""/></div>
-                            </div>
-                            <div class="clear_both"></div>
-                            <div class="distributor_info marginTop10">
-                                <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel  text-bold marginTop20" type="button" name="" value="true" onclick="CancelSearch();"><span>Clear</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="searchItemsStock();"><span>Search</span></button>
+                                <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel text-bold marginTop20" type="button" name="" value="true" onclick="CancelSalesReport();"><span>Clear</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="searchSalesReport();"><span>Search</span></button>
                             </div>
                             <div class="clear_both"></div>
                             <div class="overflow_auto marginTop20">
                                 <div><strong>Items List:</strong> </div>
-                                <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="stock-flow">
+                                <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="sales-report">
                                 </table>
                             </div>
                         </div>
@@ -85,7 +64,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     <div class="clear_both"></div>
                     <div class="mt-20-items">
                         <a class="btn-back-items" href="dashboard">Back</a>
-                        <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel('stock-flow','stock_flow');">Download Excel</a>
+                        <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel('sales-report','sales_report');">Download Excel</a>
                     </div>
                 </div>
                 <!-- ====================== snippet ends here ======================== -->

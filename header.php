@@ -35,6 +35,7 @@ include_once 'common_html.php';
         <link rel="stylesheet" href="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
         <!-- Plugin css for this page -->
         <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
         <link rel="stylesheet" href="assets/vendors/lightgallery/css/lightgallery.css">
         <!-- End plugin css for this page -->
@@ -330,9 +331,21 @@ include_once 'common_html.php';
                                 </a>
                                 <div class="collapse" id="manage_inventory">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="distributor-dispatch-list">Dispatch Item List</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="#">Receive Item List</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="distributor-mismatch-item-list">Mismatch Item List</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="distributor-dispatch-list">Dispatches</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+							 <li class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#reports" aria-expanded="false" aria-controls="category">
+                                    <span class="menu-title">Reports</span>
+                                    <i class="menu-arrow"></i>
+                                    <i class="mdi mdi-view-grid menu-icon"></i>
+                                </a>
+                                <div class="collapse" id="reports">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item"> <a class="nav-link" href="current-stock">Current Stock</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="sales-report">Sales Report</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="stock-flow">Stock Flow</a></li>
                                     </ul>
                                 </div>
                             </li>

@@ -23,6 +23,7 @@ $(document).ready(function () {
         var sgst = 0;
         var igst = 0;
         var gst_tax = 0;
+        var show_lot_number = '<input type="text" id="lotNo_' + ui.item.id + '"/>';
         var dealer_price_without_tax = 0;
         if (ui.item.cgst != 0) {
           cgst = (Number(ui.item.dealer_price) * (Number(ui.item.cgst) / 100)).toFixed(2);
@@ -36,6 +37,21 @@ $(document).ready(function () {
         gst_tax = Number(cgst) + Number(sgst) + Number(igst);
         total_tax = (total_tax + gst_tax);
         dealer_price_without_tax = (Number(ui.item.dealer_price) - gst_tax).toFixed(2);
+        //set lot number
+        if (ui.item.lot_no.length > 0) {
+          if (ui.item.lot_no.length == 1) {
+            show_lot_number = '<span>' + ui.item.lot_no[0] + '</span>';
+            show_lot_number += '<input type="hidden" id="lotNo_' + ui.item.id + '" value="' + ui.item.lot_no[0] + '" />';
+          }
+          else {
+            show_lot_number = '<select id="lotNo_' + ui.item.id + '"><option value="">--Select Lot No--</option>';
+            $.each(ui.item.lot_no, function (key, value) {
+              show_lot_number += '<option value="' + value + '">' + value + '</option>';
+            });
+            show_lot_number += '</select>';
+          }
+        }
+        //end lot number
         // Set selection
         html += '<li class="js-productContainer productContainer products " id="tr_' + ui.item.id + '" data-pid="204592-066-M11" data-pidmaster="204592">\n\
       <div class="productContainerRow">\n\
@@ -44,7 +60,7 @@ $(document).ready(function () {
           <div class="columnCell column2 productDetails">\n\
               <div class="">\n\
                   <p class=""><span>'+ ui.item.code + '</span></p>\n\
-                  <p class="">LotNo:<span>123</span></p>\n\
+                  <p class="">'+ show_lot_number + '</p>\n\
               </div>\n\
           </div>\n\
           <div class="columnCell column4 productQuantity">\n\
@@ -147,16 +163,17 @@ function AddValue(id) {
 }
 
 function getProductList() {
-  var url = base_url + 'products';
+  var url = base_url + 'distributor/products';
   $.ajax({
     url: url,
     type: 'post',
-    data: {},
+    data: { distributor_id: distributor_id },
     success: function (response) {
       if (response.status == "success") {
         if (response.data) {
           $.each(response.data, function (i, value) {
-            products.push({ id: value.id, label: value.search_product, value: value.search_product, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku });
+            var search_prod = value.search_product + ' - ' + value.coupon_business_name;
+            products.push({ id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name, lot_no: value.lot_no });
           });
         }
       }
@@ -191,17 +208,24 @@ function generationDispatch() {
   if (validate == true) {
     var items = [];
     var dispatch_type = '';
+    var total_cgst = 0;
+    var total_sgst = 0;
+    var total_igst = 0;
     $('.items').each(function () {
       var items_ids = $(this).val();
       items_ids = Number(items_ids);
       if (items_ids && items_ids > 0) {
         var item_qty = $('#qty_' + items_ids).val();
+        total_cgst = (total_cgst + Number($('#cgst_' + items_ids).val()));
+        total_sgst = (total_sgst + Number($('#sgst_' + items_ids).val()));
+        total_igst = (total_igst + Number($('#igst_' + items_ids).val()));
         items.push({
           item_id: items_ids,
           qty: item_qty,
           cgst: $('#cgst_' + items_ids).val(),
           sgst: $('#sgst_' + items_ids).val(),
-          igst: $('#igst_' + items_ids).val()
+          igst: $('#igst_' + items_ids).val(),
+          lot_no: $('#lotNo_' + items_ids).val(),
         });
       }
     });
@@ -210,8 +234,11 @@ function generationDispatch() {
       distributor_id_from: distributor_id,
       distributor_id_to: $('#distributor-list').val(),
       dispatch_date: $('#current-date').val(),
-      subtotal: $('#total-amount').html(),
-      total: $('#total-amount').html(),
+      cgst: total_cgst,
+      sgst: total_sgst,
+      igst: total_igst,
+      subtotal: Number($('#subTotal-amount').html()),
+      total: Number($('#total-amount').html()),
       note: $('#note').val(),
       shipping_details: $('#shipping-detail').val(),
       expected_delivery_date: $('#delivery-date').val(),
@@ -333,8 +360,7 @@ function removeProduct(id) {
 
 }
 
-function getCurrentDate()
-{
+function getCurrentDate() {
   var datetime = new Date();
   var day = datetime.getDate();
   day = (day < 10) ? '0' + day : day;
@@ -350,9 +376,9 @@ function checkStartEndDate() {
   var startDate = document.getElementById("current-date").value;
   var endDate = document.getElementById("delivery-date").value;
   if ((Date.parse(startDate.split(/\-/).reverse().join('-')) > Date.parse(endDate.split(/\-/).reverse().join('-')))) {
-      showSwal('error', 'Invalid Expected Date', 'Expected date should be greater than or equal to date');
-      document.getElementById("delivery-date").value = "";
-      return false;
+    showSwal('error', 'Invalid Expected Date', 'Expected date should be greater than or equal to date');
+    document.getElementById("delivery-date").value = "";
+    return false;
   }
 }
 

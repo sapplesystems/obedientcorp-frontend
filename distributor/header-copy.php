@@ -131,9 +131,15 @@ $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
                             <i class="mdi mdi-view-grid menu-icon"></i>
                         </a>
                     </li>
+                    <!--li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="menu-title">Reports</span>
+                            <i class="mdi mdi-wallet menu-icon"></i>
+                        </a>
+                    </li-->
                     <li class="nav-item">
                         <a class="nav-link" href="current-stock">
-                            <span class="menu-title">Reports</span>
+                            <span class="menu-title">Current Stock</span>
                             <i class="mdi mdi-wallet menu-icon"></i>
                         </a>
                     </li>
@@ -144,14 +150,26 @@ $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="sales-report">
+                            <span class="menu-title">Sales Report</span>
+                            <i class="mdi mdi-wallet menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="invoice-detail">
+                            <span class="menu-title">Invoice Details</span>
+                            <i class="mdi mdi-wallet menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="">
                             <span class="menu-title">Profile</span>
                             <i class="mdi mdi-account menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
-                            <span class="menu-title">Change Passwords</span>
+                        <a class="nav-link" href="change-password">
+                            <span class="menu-title">Change Password</span>
                             <i class="mdi mdi-lock menu-icon"></i>
                         </a>
                     </li>

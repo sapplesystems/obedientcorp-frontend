@@ -162,7 +162,7 @@ if ($user_type != 'ADMIN') {
                                     <td>' + value.amount + '</td>\n\
                                     <td>' + value.type + '</td>\n\
                                     <td>' + value.date + '</td>\n\
-                                    <td>' + value.description + '</td>\n\
+                                    <td>Rs. '+value.amount+' has been credited in ' + value.associate_display_name + ' wallet by the Admin.</td>\n\
                                 </tr>';
                         });
                         table_html += '</tbody>';

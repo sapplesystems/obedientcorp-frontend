@@ -92,35 +92,47 @@ function searchItemsStock() {
     type: 'post',
     data: params,
     success: function (response) {
+      var html = '<thead>\n\
+                  <tr>\n\
+                  <th>Sr.No.</th>\n\
+                  <th>Category Name</th>\n\
+                  <th>Date</th>\n\
+                  <th>Item Code</th>\n\
+                  <th>Item Name</th>\n\
+                  <th>BV Type</th>\n\
+                  <th>Batch</th>\n\
+                  <th>Qty</th>\n\
+                  <th>Expiry Date</th>\n\
+                  </tr>\n\
+                  </thead><tbody>';
       if (response.status == "success") {
         var i =1;
-        var html = '<thead>\n\
-                    <tr>\n\
-                    <th>Sr.No.</th>\n\
-                    <th>Date</th>\n\
-                    <th>Item Code</th>\n\
-                    <th>Item Name</th>\n\
-                    <th>Batch</th>\n\
-                    <th>Qty</th>\n\
-                    </tr>\n\
-                    </thead><tbody>';
         $.each(response.data, function (key, value) {
+          var lot_no = value.lot_no;
+          if(value.lot_no == null)
+          {
+            lot_no = '';
+          }
           html += '<tr id="tr_' + value.id + '" role="row" >\n\
                 <td class="sorting_1">' + i + '</td>\n\
+                <td>' + value.category_name + '</td>\n\
                 <td>' + value.date + '</td>\n\
                 <td>' + value.sku + '</td>\n\
                 <td>' + value.name + '</td>\n\
-                <td>' + value.lot_no + '</td>\n\
+                <td>' + value.bv_type + '</td>\n\
+                <td>' + lot_no + '</td>\n\
                 <td>' + value.quantity + '</td>\n\
+                <td>' + value.expiry_date + '</td>\n\
             </tr>';
           i = i + 1;
         });
         html += '</tbody>';
         $('#stock-detail').html(html);
+        $('#stock-detail').DataTable();
       }
       else {
-        showSwal('error', response.data);
-        hideLoader();
+        $('#stock-detail').html(html);
+        $('#stock-detail').DataTable();
       }
     }
   });
@@ -134,4 +146,35 @@ function CancelSearch()
   $('#stock-items').prop('checked',false);
   $('#item-code').val('');
   searchItemsStock();
+}
+
+function exportTableToExcel(tableID, filename = ''){
+  var downloadLink;
+  var dataType = 'application/vnd.ms-excel';
+  var tableSelect = document.getElementById(tableID);
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+  
+  // Specify file name
+  filename = filename?filename+'.xls':'excel_data.xls';
+  
+  // Create download link element
+  downloadLink = document.createElement("a");
+  
+  document.body.appendChild(downloadLink);
+  
+  if(navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['\ufeff', tableHTML], {
+          type: dataType
+      });
+      navigator.msSaveOrOpenBlob( blob, filename);
+  }else{
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+  
+      // Setting the file name
+      downloadLink.download = filename;
+      
+      //triggering the function
+      downloadLink.click();
+  }
 }

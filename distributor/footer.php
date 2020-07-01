@@ -14,6 +14,7 @@
 <script src="<?php echo $home_url; ?>assets/javascript/distributor/dist_global.js"></script>
 <!-- JS for autocomplete search-->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo $home_url; ?>assets/javascript/distributor/js/flatpickr.js"></script>
 
 </body>

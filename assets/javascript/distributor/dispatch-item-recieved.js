@@ -25,7 +25,6 @@ function getDispatchReceivedItems() {
                             </tr>\n\
                         </thead>';
             if (response.status == "success") {
-                console.log(response);
                 var i = 1;
                 if(response.lot_no)
                 {
@@ -33,7 +32,6 @@ function getDispatchReceivedItems() {
                     $.each(response.lot_no, function (i, value) {
                         lot_number.push({label:value,value:value});
                     });
-                    
                 }
                 $.each(response.data, function (key, value) {
                     var comment = '';
@@ -68,7 +66,12 @@ function getDispatchReceivedItems() {
                     {
                         recevied_status7 = 'selected';
                     }
-                    comment = '<td><textarea class="form-control" rows="1" id="comment_' + value.id + '"></textarea></td>';
+                    var lot_number = value.lot_no;
+                    if(value.lot_no == null)
+                    {
+                        lot_number ='';
+                    }
+                    comment = '<td><textarea class="form-control" value="'+value.comments+'" rows="1" id="comment_' + value.id + '"></textarea></td>';
                     var status = '<select class="form-control" form="carform" id ="status_' + value.id + '">\n\
                                     <option value="">Select Status</option>\n\
                                     <option value="OK" '+recevied_status1+'>OK</option>\n\
@@ -88,11 +91,11 @@ function getDispatchReceivedItems() {
                               <td class="productQuantity">\n\
                                     <form>\n\
                                     <div class="value-button"><i class="fa fa-minus" id="sub_' + value.id + '" onclick="SubtractValue(' + value.id + ');"></i></div>\n\
-                                    <input type="number" value="' + value.received_items_quantity + '" id="receive-item-qty_' + value.id + '" onblur="setItemStatus(' + value.id + ');">\n\
+                                    <input type="number" class="qty" value="' + value.received_items_quantity + '" id="receive-item-qty_' + value.id + '" onblur="setItemStatus(' + value.id + ');">\n\
                                     <div class="value-button"><i class="fa fa-plus" id="add_' + value.id + '" onclick="AddValue(' + value.id + ');"></i></div>\n\
                                     </form>\n\
                               </td>\n\
-                              <td><input type="text" value="" id="lot_no_'+value.id+'" onkeypress="searchLotNumber('+value.id+');"/></td>\n\
+                              <td><input type="text" class="lotNumber" value="'+lot_number+'" id="lot_no_'+value.id+'" onkeypress="searchLotNumber('+value.id+');"/></td>\n\
                               <td>' + status + '</td>\n\
                               ' + comment + '\n\
                               <input class="form-control received_items" type="hidden" value="'+ value.id + '" />\n\
@@ -110,9 +113,15 @@ function getDispatchReceivedItems() {
                 $('#dispatch-type').html(response.DispatcheDetails.dispatch_type);
                 $('#dispatch-date').html(response.DispatcheDetails.dispatch_date);
                 $('#dispatch-status').html(response.DispatcheDetails.status);
-                $('#receive-date').html(response.DispatcheDetails.received_date);
+                if(response.DispatcheDetails.received_date == null)
+                {
+                    $('#receive-date').html(response.DispatcheDetails.expected_delivery_date);
+                }
+                else{
+                    $('#receive-date').html(response.DispatcheDetails.received_date);
+                }
                 $('#subtotal').html(response.DispatcheDetails.subtotal);
-                $('#tax').html(0);
+                $('#tax').html((Number(response.DispatcheDetails.cgst) + Number(response.DispatcheDetails.sgst) + Number(response.DispatcheDetails.igst)));
                 $('#total').html(response.DispatcheDetails.total);
                 // generateDataTable('recieved-detail');
                 hideLoader();
@@ -141,6 +150,20 @@ function AddValue(id) {
 }
 
 function updateDispatchItems() {
+    $('.lotNumber').each(function(){
+        if($(this).val() == '')
+        {
+            showSwal('error', 'Please Enter Lot Number');
+            return false;
+        }
+    });
+    $('.qty').each(function(){
+        if($(this).val()==0)
+        {
+            showSwal('error', 'Please Enter Quantity');
+            return false;
+        }
+    });
     var recieve_item = [];
     var note = '';
     var dispatch_status = 'Received';

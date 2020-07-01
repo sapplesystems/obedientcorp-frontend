@@ -77,7 +77,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                                 </div>
 								<div class="bottom_note marginTop20">
                                     <label>Shipping Details:</label>
-                                    <textarea id="note"></textarea>
+                                    <textarea id="ship-detail"></textarea>
                                 </div>
 								<div class="bottom_tax">
                                     <table cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -164,7 +164,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                     $('#dist-from').html(response.DispatcheDetails.distributor_name_from);
                     $('#dist-to').html(response.DispatcheDetails.distributor_name_to);
                     $('#subtotal').html(response.DispatcheDetails.subtotal);
-                    $('tax').html(0);
+                    $('#tax').html((Number(response.DispatcheDetails.cgst) + Number(response.DispatcheDetails.sgst) + Number(response.DispatcheDetails.igst)));
                     $('#dist-add-to').html(response.DispatcheDetails.distributor_address_to);
                     $('#dist-add-from').html(response.DispatcheDetails.distributor_address_from);
                     $('#dispatch-no').html(response.DispatcheDetails.dispatch_no);
@@ -172,7 +172,16 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                     $('#dispatch-date').html(response.DispatcheDetails.dispatch_date);
                     $('#total').html(response.DispatcheDetails.total);
                     $('#dispatch-status').html(response.DispatcheDetails.status);
-                    $('#receive-date').html(response.DispatcheDetails.received_date);
+                    if(response.DispatcheDetails.received_date == null)
+                    {
+                        $('#receive-date').html(response.DispatcheDetails.expected_delivery_date);
+                    }
+                    else{
+                        $('#receive-date').html(response.DispatcheDetails.received_date);
+                    }
+                    
+                    $('#ship-detail').html(response.DispatcheDetails.shipping_details);
+                    $('#note').html(response.DispatcheDetails.note);
                     //generateDataTable('dispatch-detail');
                     hideLoader();
                 } else {

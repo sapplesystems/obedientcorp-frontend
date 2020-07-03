@@ -109,14 +109,14 @@ function searchItemsStock() {
         var i =1;
         $.each(response.data, function (key, value) {
           var lot_no = value.lot_no;
-          if(value.lot_no == null)
+          if(value.lot_no == 0)
           {
-            lot_no = '';
+            lot_no = '-';
           }
           html += '<tr id="tr_' + value.id + '" role="row" >\n\
                 <td class="sorting_1">' + i + '</td>\n\
                 <td>' + value.category_name + '</td>\n\
-                <td>' + value.date + '</td>\n\
+                <td>' + value.inventory_date + '</td>\n\
                 <td>' + value.sku + '</td>\n\
                 <td>' + value.name + '</td>\n\
                 <td>' + value.bv_type + '</td>\n\
@@ -128,10 +128,13 @@ function searchItemsStock() {
         });
         html += '</tbody>';
         $('#stock-detail').html(html);
+        $('#stock-detail').DataTable().destroy();
         $('#stock-detail').DataTable();
       }
       else {
+        html += '</tbody>';
         $('#stock-detail').html(html);
+        $('#stock-detail').DataTable().destroy();
         $('#stock-detail').DataTable();
       }
     }

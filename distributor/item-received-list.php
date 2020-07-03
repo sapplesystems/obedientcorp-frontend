@@ -52,7 +52,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                         var i = 1;
                         $.each(response.data, function(key, value) {
                             var action_td = '';
-                            if (value.status == 'Dispatched' || value.status =='Mismatch') // || value.status =='Mismatch' 
+                            if (value.status == 'Dispatched') // || value.status =='Mismatch' 
                             {
                                 action_td = '<td>\n\
                                         <a href="dispatch-item-received.php?dispatch_id=' + value.id + '" id="dispatch-detail" title="Recieved Items"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\

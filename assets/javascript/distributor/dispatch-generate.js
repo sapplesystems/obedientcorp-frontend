@@ -12,6 +12,7 @@ $(document).ready(function () {
         if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
             event.preventDefault();
             $(this).removeClass('is-visible');
+            $('#search-product').val('');
         }
     });
 

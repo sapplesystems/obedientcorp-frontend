@@ -5,7 +5,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     exit;
 }
 $product_id = 0;
-$stock_date= '';
+$stock_date = '';
 if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
     $product_id = $_REQUEST['pro_id'];
     $stock_date = date('Y-m-d', strtotime($_REQUEST['stock_d']));
@@ -25,7 +25,7 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
                     <h1 class="headTop">Stock Flow Detail</h1>
                     <!-- Start of cart's first part -->
                     <div>
-                    <h2 class="headTop"><?php echo $name.'(' .$username . ')';?></h2>
+                        <h2 class="headTop"><?php echo $name . '(' . $username . ')'; ?></h2>
                         <div class="left_sec">
                             <div class="distributor_info">
                                 <div><strong>Start Date:</strong> </div>
@@ -59,39 +59,19 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
                             <div class="distributor_info marginTop10">
                                 <div><strong>Category:</strong> </div>
                                 <div><select id="categories"><select></div>
-                                <div><strong>Type:</strong> </div>
-                                <div>
-                                    <select id="type">
-                                        <option value="">--Select--</option>
-                                        <option value="all">All</option>
-                                        <option value="incoming">Incoming </option>
-                                        <option value="outgoing">Outgoing</option>
-                                        <select>
-                                </div>
-                            </div>
-                            <div class="clear_both"></div>
-                            <div class="distributor_info marginTop10">
                                 <div><strong>Lot Number:</strong> </div>
                                 <div><input type="text" id="lot-no" name="lot_no" value="" /></div>
-                                <div><strong>QTY:</strong> </div>
-                                <div>
-                                    <i class="fa fa-minus" id="subtract" onclick="SubtractValue();"></i>
-                                    <input type="number" value="0" id="qty">
-                                    <i class="fa fa-plus" id="add" onclick="AddValue();"></i>
-                                </div>
                             </div>
                             <div class="clear_both"></div>
                             <div class="distributor_info marginTop10">
                                 <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel  text-bold marginTop20" type="button" name="" value="true" onclick="CancelSearch();"><span>Clear</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN  text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="searchItemsStock();"><span>Search</span></button>
                             </div>
-                            <div class="clear_both"></div>
-                            <div class="overflow_auto marginTop20">
-                                <div><strong>Items List:</strong> </div>
-                                <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="stock-flow-detail">
-                                </table>
-                            </div>
                         </div>
-                        <div class="right_sec">
+                        <div class="clear_both"></div>
+                        <div class="overflow_auto marginTop20">
+                            <div><strong>Items List:</strong> </div>
+                            <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="stock-flow-detail">
+                            </table>
                         </div>
                     </div>
                     <div class="clear_both"></div>
@@ -117,9 +97,9 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
     var example1 = flatpickr('#end-date');
     var product_id = "<?php echo $product_id; ?>";
     var stock_date = "<?php echo $stock_date; ?>";
-    getStockFlowDetail(product_id,stock_date);
+    getStockFlowDetail(product_id, stock_date);
     //function for show stock detail
-    function getStockFlowDetail(product_id,stock_date) {
+    function getStockFlowDetail(product_id, stock_date) {
         var start_date = '';
         var end_date = '';
         var item_name = '';
@@ -169,8 +149,7 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
             product_id: product_id,
             date: stock_date
         };
-        console.log(params)
-        var url = base_url + 'distributor/stock-flow';
+        var url = base_url + 'distributor/stock-flow-detail';
         $.ajax({
             url: url,
             type: 'post',
@@ -182,67 +161,65 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
                                 <tr>\n\
                                 <th>Sr.No</th>\n\
                                 <th>Dispatched To/By</th>\n\
+                                <th>Customer Name</th>\n\
+                                <th>Customer Mobile Number</th>\n\
                                 <th>Dispatch Number</th>\n\
+                                <th>Invoice Number</th>\n\
                                 <th>Category</th>\n\
                                 <th>Item Code</th>\n\
                                 <th>Item Name</th>\n\
-                                <th>Batch</th>\n\
-                                <th>Date</th>\n\
                                 <th>Qty</th>\n\
+                                <th>Batch</th>\n\
+                                <th>BV Type</th>\n\
                                 <th>Type</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
-                    if (response.data.incoming_stock.length != 0 || response.data.outgoing_stock.length != 0) {
+                    if (response.data.length != 0) {
                         var i = 1;
-                        if (response.data.incoming_stock.length != 0) {
-                            $.each(response.data.incoming_stock, function(key, value) {
-                                var lot_no_incoming = value.lot_no;
-                                if(value.lot_no==null)
-                                {
-                                    lot_no_incoming = '';
-                                }
-                                html += '<tr id="tr_incoming_' + i + '" role="row" class="tr_incoming" >\n\
+                        $.each(response.data, function(key, value) {
+                            var lot_no_outgoing = value.lot_no;
+                            var customer_name = '';
+                            var customer_mobile = '';
+                            var invoice_no = '';
+                            var dispatch_no = '';
+                            var dispatch_distributor = 'By-' + value.distributor_name + '';
+                            if (value.lot_no == 0) {
+                                lot_no_outgoing = '-';
+                            }
+                            if (value.customer_name && value.customer_mobile && value.invoice_no) {
+                                customer_name = value.customer_name;
+                                customer_mobile = value.customer_mobile;
+                                invoice_no = value.invoice_no;
+                            } else {
+                                dispatch_no = value.dispatch_no;
+                            }
+                            if (value.by_distributor && value.to_distributor) {
+                                dispatch_distributor = 'By-' + value.by_distributor + ' To-' + value.to_distributor;
+                            }
+                            html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
                                     <td>' + i + '</td>\n\
-                                    <td>By - ' + value.dispathed_by + '</td>\n\
-                                    <td>' + value.dispatch_no + '</td>\n\
+                                    <td>' + dispatch_distributor + '</td>\n\
+                                    <td>' + customer_name + '</td>\n\
+                                    <td>' + customer_mobile + '</td>\n\
+                                    <td>' + dispatch_no + '</td>\n\
+                                    <td>' + invoice_no + '</td>\n\
                                     <td>' + value.category_name + '</td>\n\
                                     <td>' + value.sku + '</td>\n\
                                     <td>' + value.product_name + '</td>\n\
-                                    <td>' + lot_no_incoming + '</td>\n\
-                                    <td>' + value.date + '</td>\n\
                                     <td>' + value.quantity + '</td>\n\
-                                    <td>Incoming</td>\n\
-                                </tr>';
-                                i = i + 1;
-                            });
-                        }
-                        if (response.data.outgoing_stock.length != 0) {
-                            $.each(response.data.outgoing_stock, function(key, value) {
-                                var lot_no_outgoing = value.lot_no;
-                                if(value.lot_no==null)
-                                {
-                                    lot_no_outgoing = '';
-                                }
-                                html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
-                                    <td>' + i + '</td>\n\
-                                    <td>To - ' + value.dispathed_to + '</td>\n\
-                                    <td>' + value.dispatch_no + '</td>\n\
-                                    <td>' + value.category_name + '</td>\n\
-                                    <td>' + value.sku + '</td>\n\
-                                    <td>' + value.product_name + '</td>\n\
                                     <td>' + lot_no_outgoing + '</td>\n\
-                                    <td>' + value.date + '</td>\n\
-                                    <td>' + value.quantity + '</td>\n\
-                                    <td>Outgoing</td>\n\
+                                    <td>' + value.bv_type + '</td>\n\
+                                    <td>' + value.type + '</td>\n\
                                 </tr>';
-                                i = i + 1;
-                            });
-                        }
+                            i = i + 1;
+                        });
                         html += '</tbody>';
                         $('#stock-flow-detail').html(html);
+                        $('#stock-flow-detail').DataTable().destroy();
                         $('#stock-flow-detail').DataTable();
                     } else {
                         $('#stock-flow-detail').html(html);
+                        $('#stock-flow-detail').DataTable().destroy();
                         $('#stock-flow-detail').DataTable();
                     }
                 }

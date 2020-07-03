@@ -99,19 +99,20 @@ function searchItemsStock() {
     type: 'post',
     data: params,
     success: function (response) {
+      var html = '<thead>\n\
+                  <tr>\n\
+                  <th>Sr.No.</th>\n\
+                  <th>Distributor Name</th>\n\
+                  <th>Date</th>\n\
+                  <th>Item Code</th>\n\
+                  <th>Item Name</th>\n\
+                  <th>BV Type</th>\n\
+                  <th>Batch</th>\n\
+                  <th>Qty</th>\n\
+                  </tr>\n\
+                  </thead><tbody>';
       if (response.status == "success") {
         var i = 1;
-        var html = '<thead>\n\
-                    <tr>\n\
-                    <th>Sr.No.</th>\n\
-                    <th>Distributor Name</th>\n\
-                    <th>Date</th>\n\
-                    <th>Item Code</th>\n\
-                    <th>Item Name</th>\n\
-                    <th>Batch</th>\n\
-                    <th>Qty</th>\n\
-                    </tr>\n\
-                    </thead><tbody>';
         $.each(response.data, function (key, value) {
           var lot_no = value.lot_no;
           if (value.lot_no == null) {
@@ -123,6 +124,7 @@ function searchItemsStock() {
                 <td>' + value.date + '</td>\n\
                 <td>' + value.sku + '</td>\n\
                 <td>' + value.name + '</td>\n\
+                <td>' + value.bv_type + '</td>\n\
                 <td>' + lot_no + '</td>\n\
                 <td>' + value.quantity + '</td>\n\
             </tr>';
@@ -133,7 +135,8 @@ function searchItemsStock() {
         generateDataTable('stock-detail');
       }
       else {
-        showSwal('error', response.data);
+        $('#stock-detail').html(html);
+        generateDataTable('stock-detail');
         hideLoader();
       }
     }
@@ -173,6 +176,7 @@ function getDistributorList() {
 //function for sales report
 
 function searchSalesReport() {
+  showLoader();
   var start_date = '';
   var end_date = '';
   var item_id = '';
@@ -207,10 +211,7 @@ function searchSalesReport() {
     type: 'post',
     data: params,
     success: function (response) {
-      if (response.status == "success") {
-        if (response.data.length != 0) {
-          var i = 1;
-          var html = '<thead>\n\
+      var html = '<thead>\n\
                               <tr>\n\
                               <th>Sr.No</th>\n\
                               <th>Distributor Name</th>\n\
@@ -222,6 +223,9 @@ function searchSalesReport() {
                               <th>Coupon Amount</th>\n\
                               </tr>\n\
                               </thead><tbody>';
+      if (response.status == "success") {
+        if (response.data.length != 0) {
+          var i = 1;
           $.each(response.data, function (key, value) {
             html += '<tr id="tr_incoming_' + i + '" role="row" class="tr_incoming" >\n\
                                   <td>'+ i + '</td>\n\
@@ -238,9 +242,12 @@ function searchSalesReport() {
           html += '</tbody>';
           $('#sales-report').html(html);
           generateDataTable('sales-report');
+          hideLoader();
         }
       } else {
-        showSwal('error', response.data);
+        $('#sales-report').html(html);
+        generateDataTable('sales-report');
+        hideLoader();
       }
 
     }
@@ -259,6 +266,7 @@ function CancelSalesReport() {
 }
 
 function searchItemsStockFlow() {
+  showLoader();
   var start_date = '';
   var end_date = '';
   var item_name = '';
@@ -321,21 +329,22 @@ function searchItemsStockFlow() {
     type: 'post',
     data: params,
     success: function (response) {
-      if (response.status == "success") {
-        if (response.data.incoming_stock.length != 0 || response.data.outgoing_stock.length != 0) {
-          var i = 1;
-          var html = '<thead>\n\
+      var html = '<thead>\n\
                               <tr>\n\
                               <th>Sr.No</th>\n\
                               <th>Distributor Name</th>\n\
                               <th>Category</th>\n\
                               <th>Item Code</th>\n\
                               <th>Item Name</th>\n\
+                              <th>BV Type</th>\n\
                               <th>Date</th>\n\
                               <th>Qty</th>\n\
                               <th>Action</th>\n\
                               </tr>\n\
                               </thead><tbody>';
+      if (response.status == "success") {
+        if (response.data.incoming_stock.length != 0 || response.data.outgoing_stock.length != 0) {
+          var i = 1;
           if (response.data.incoming_stock.length != 0) {
             $.each(response.data.incoming_stock, function (key, value) {
               html += '<tr id="tr_incoming_' + i + '" role="row" class="tr_incoming" >\n\
@@ -344,6 +353,7 @@ function searchItemsStockFlow() {
                                   <td>'+ value.category_name + '</td>\n\
                                   <td>' + value.sku + '</td>\n\
                                   <td>' + value.product_name + '</td>\n\
+                                  <td>' + value.bv_type + '</td>\n\
                                   <td>' + value.date + '</td>\n\
                                   <td>' + value.quantity + '</td>\n\
                                   <td><a href="stock-flow-detail.php?pro_id='+ value.product_id + '&stock_d=' + value.date + '" id="detail_' + i + '">Detail</a></td>\n\
@@ -359,6 +369,7 @@ function searchItemsStockFlow() {
                                   <td>'+ value.category_name + '</td>\n\
                                   <td>' + value.sku + '</td>\n\
                                   <td>' + value.product_name + '</td>\n\
+                                  <td>' + value.bv_type + '</td>\n\
                                   <td>' + value.date + '</td>\n\
                                   <td>' + value.quantity + '</td>\n\
                                   <td><a href="stock-flow-detail.php?pro_id='+ value.product_id + '&stock_d=' + value.date + '" id="detail_' + i + '">Detail</a></td>\n\
@@ -369,9 +380,12 @@ function searchItemsStockFlow() {
           html += '</tbody>';
           $('#stock-flow').html(html);
           generateDataTable('stock-flow');
+          hideLoader();
         }
         else {
-          showSwal('error', 'No Data Found');
+          $('#stock-flow').html(html);
+          generateDataTable('stock-flow');
+          hideLoader();
         }
       }
 

@@ -117,6 +117,7 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
         getStockFlowDetail(product_id, stock_date);
         //function for show stock detail
         function getStockFlowDetail(product_id, stock_date) {
+            showLoader();
             var start_date = '';
             var end_date = '';
             var item_name = '';
@@ -182,21 +183,21 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
                 type: 'post',
                 data: params,
                 success: function(response) {
-                    console.log(response);
-                    if (response.status == "success") {
-                        if (response.data.incoming_stock.length != 0 || response.data.outgoing_stock.length != 0) {
-                            var i = 1;
-                            var html = '<thead>\n\
+                    var html = '<thead>\n\
                                 <tr>\n\
                                 <th>Sr.No</th>\n\
                                 <th>Distributor Name</th>\n\
                                 <th>Category</th>\n\
                                 <th>Item Code</th>\n\
                                 <th>Item Name</th>\n\
+                                <th>BV Type</th>\n\
                                 <th>Date</th>\n\
                                 <th>Qty</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
+                    if (response.status == "success") {
+                        if (response.data.incoming_stock.length != 0 || response.data.outgoing_stock.length != 0) {
+                            var i = 1;
                             if (response.data.incoming_stock.length != 0) {
                                 $.each(response.data.incoming_stock, function(key, value) {
                                     html += '<tr id="tr_incoming_' + i + '" role="row" class="tr_incoming" >\n\
@@ -205,6 +206,7 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
                                     <td>' + value.category_name + '</td>\n\
                                     <td>' + value.sku + '</td>\n\
                                     <td>' + value.product_name + '</td>\n\
+                                    <td>' + value.bv_type + '</td>\n\
                                     <td>' + value.date + '</td>\n\
                                     <td>' + value.quantity + '</td>\n\
                                 </tr>';
@@ -219,6 +221,7 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
                                     <td>' + value.category_name + '</td>\n\
                                     <td>' + value.sku + '</td>\n\
                                     <td>' + value.product_name + '</td>\n\
+                                    <td>' + value.bv_type + '</td>\n\
                                     <td>' + value.date + '</td>\n\
                                     <td>' + value.quantity + '</td>\n\
                                 </tr>';
@@ -228,8 +231,11 @@ if (isset($_REQUEST['pro_id']) && isset($_REQUEST['stock_d'])) {
                             html += '</tbody>';
                             $('#stock-flow-detail').html(html);
                             generateDataTable('stock-flow-detail');
+                            hideLoader();
                         } else {
-                            showSwal('error', 'No Data Found');
+                            $('#stock-flow-detail').html(html);
+                            generateDataTable('stock-flow-detail');
+                            hideLoader();
                         }
                     }
 

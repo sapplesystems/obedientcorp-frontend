@@ -95,7 +95,7 @@ function getDispatchReceivedItems() {
                                     <div class="value-button"><i class="fa fa-plus" id="add_' + value.id + '" onclick="AddValue(' + value.id + ');"></i></div>\n\
                                     </form>\n\
                               </td>\n\
-                              <td><input type="text" class="lotNumber" value="' + lot_number + '" id="lot_no_' + value.id + '" onkeypress="searchLotNumber(' + value.id + ');"/></td>\n\
+                              <td><input type="text" class="lotNumber" value="' + lot_number + '" id="lot_no_' + value.id + '" readonly onkeypress="searchLotNumber(' + value.id + ');"/></td>\n\
                               <td>' + status + '</td>\n\
                               ' + comment + '\n\
                               <input class="form-control received_items" type="hidden" value="' + value.id + '" />\n\
@@ -203,12 +203,8 @@ function updateDispatchItems() {
         status: dispatch_status,
         note2: note,
         status: dispatch_status,
-        distributor_id: distributor_id,
+                distributor_id: distributor_id,
     };
-    if($('#dispatch-status').html() == 'Mismatch')
-    {
-        param.was_mismatch = '1';
-    }
     var url = base_url + 'recieve/update-items';
     $.ajax({
         url: url,

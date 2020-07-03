@@ -53,18 +53,6 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                             <div class="distributor_info marginTop10">
                                 <div><strong>Category:</strong> </div>
                                 <div><select id="categories"><select></div>
-                                <div><strong>Type:</strong> </div>
-                                <div>
-                                    <select id="type">
-                                        <option value="">--Select--</option>
-                                        <option value="all">All</option>
-                                        <option value="incoming">Incoming </option>
-                                        <option value="outgoing">Outgoing</option>
-                                        <select>
-                                </div>
-                            </div>
-                            <div class="clear_both"></div>
-                            <div class="distributor_info marginTop10">
                                 <div><strong>Lot Number:</strong> </div>
                                 <div><input type="text" id="lot-no" name="lot_no" value=""/></div>
                             </div>

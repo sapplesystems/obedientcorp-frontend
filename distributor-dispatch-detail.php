@@ -32,7 +32,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
 					</div>
                         <div class="row mb-4">
                                 <div class="col-2">SubTotal: <span id="subtotal"></span></div>
-                                <div class="col-2">Tax: <span id="tax">0</span></div>
+                                <div class="col-2">Tax: <span id="tax"></span></div>
                                 <div class="col-2">Total: <span id="total"></span></div>
                             </div>
                             <h4 class="card-title mb-4">Items Details</h4>
@@ -89,7 +89,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                         var i = 1;
                         $.each(response.data, function(key, value) {
                             var lot_no = '';
-                            if (value.lot_no != null && value.lot_no != '') {
+                            if (value.lot_no != null && value.lot_no != '' && value.lot_no != '0') {
                                 lot_no = value.lot_no;
                             }
                             var status = '<select id="status_' + value.id + '">\n\
@@ -124,7 +124,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                         $('#dispatch-status').html(response.DispatcheDetails.status);
                         $('#receive-date').html(response.DispatcheDetails.expected_delivery_date);
                         $('#subtotal').html(response.DispatcheDetails.subtotal);
-                        $('tax').html(0);
+                        $('#tax').html((Number(response.DispatcheDetails.cgst) + Number(response.DispatcheDetails.sgst) + Number(response.DispatcheDetails.igst)));
                         $('#total').html(response.DispatcheDetails.total);
                         generateDataTable('dispatch-detail');
                         hideLoader();
@@ -162,7 +162,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                     mismatch_item: mismatch_item
                 },
                 success: function(response) {
-                    console.log(response);
+                    window.location.href = 'distributor-dispatch-list';
                 }
             });
         }

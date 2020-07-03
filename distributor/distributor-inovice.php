@@ -274,6 +274,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                         if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
                             event.preventDefault();
                             $(this).removeClass('is-visible');
+                            $('#search-product').val('');
                         }
                     });
                     //close popup when clicking the esc keyboard button

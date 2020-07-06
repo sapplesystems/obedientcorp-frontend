@@ -6,21 +6,33 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 }
 ?>
 <!-- partial -->
-<div class="main-panel ">
-    <div class="content-wrapper ">
+<div class="main-content">
+        <section class="section">
+    <div class="row grid-margin">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="direct-received" class="btn btn-dark">Direct Recieved</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Recieved Items List</h4>
-                        <div class="overflowAuto custom_overflow">
-                            <table class="table table-bordered custom_action" id="recieve-list">
+                    <div class="card-header">
+                        <h4>Recieved Items List</h4>
+						</div>
+						<div class="card-body">
+                        <div>
+                            <table class="table table-bordered" id="recieve-list">
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+		</section>
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
@@ -55,11 +67,11 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                             if (value.status == 'Dispatched') // || value.status =='Mismatch' 
                             {
                                 action_td = '<td>\n\
-                                        <a href="dispatch-item-received.php?dispatch_id=' + value.id + '" id="dispatch-detail" title="Recieved Items"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
+                                        <a href="dispatch-item-received.php?dispatch_id=' + value.id + '" id="dispatch-detail" title="Recieved Items">Item Detail</a> \n\
                                         </td>';
                             } else { //if(value.status == 'Received')
                                 action_td = '<td>\n\
-                                        <a href="dispatch-detail.php?dispatch_id=' + value.id + '&dist_id='+value.distributor_id_to+'" id="dispatch-detail" title="Items Detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
+                                        <a href="dispatch-detail.php?dispatch_id=' + value.id + '&dist_id='+value.distributor_id_to+'" id="dispatch-detail" title="Items Detail">Item Detail</a> \n\
                                         </td>';
                             }
 

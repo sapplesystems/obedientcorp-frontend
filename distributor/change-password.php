@@ -1,12 +1,14 @@
 <?php include_once 'header-copy.php'; ?>
 <!-- partial -->
-<div class="main-panel">
-    <div class="content-wrapper ">
+<div class="main-content">
+        <section class="section">
         <div class="row grid-margin">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-body p-3">
-                        <h4 class="card-title mb-4">Change Login Password</h4>
+					<div class="card-header">
+                        <h4>Change Login Password</h4>
+						</div>
+						<div class="card-body">
                         <div id="errors_div"></div>
                         <form class="forms-sample" method="post" action="" id="change_password_form" name="change_password_form">
                             <div class="row">
@@ -28,18 +30,20 @@
                                         <input type="password" class="form-control required" placeholder="Confirm Password" id="confirm_password" name="confirm_password">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 text-right">
-                                    <input type="hidden" id="plot_id" />
-                                    <button type="submit" class="btn btn-gradient-success">Submit</button>
+								<div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>&nbsp;</label>
+                                        <input type="hidden" id="plot_id" />
+										<button type="submit" class="btn btn-dark">Submit</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
-                    </div>
+						</div>
                 </div>
             </div>
         </div>
+		</section>
     </div>
 
 

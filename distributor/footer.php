@@ -9,6 +9,8 @@
     var base_url = "<?php echo $base_url; ?>";
     var media_url = "<?php echo $media_url; ?>";
     var distributor_id = "<?php echo $distributor_id; ?>";
+    var distributor_name = "<?php echo $name;?>";
+    var distributor_address = "<?php echo $address;?>";
 </script>
 
 <script src="<?php echo $home_url; ?>assets/javascript/distributor/dist_global.js"></script>

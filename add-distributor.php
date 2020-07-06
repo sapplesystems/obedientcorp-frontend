@@ -48,7 +48,7 @@ if (isset($_REQUEST['distributor_id'])) {
                                     <div class="col-sm-4">
                                         <input type="text" placeholder="Enter distributor Name" class="form-control required" id="distributorname" name="distributorname" value="" onkeypress="return isAlphabetKey(event);">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Is Head Quator:<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">Is Headquarter:<span class="text-danger">*</span></label>
                                     <div class="col-sm-4">
                                         <div class="form-group mb-0">
                                             <div class="form-check d-inline-block">

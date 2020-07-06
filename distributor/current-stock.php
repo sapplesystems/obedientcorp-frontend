@@ -67,7 +67,8 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                             <div class="clear_both"></div>
                             <div class="mt-20-items">
                                 <a class="btn-back-items" href="dashboard">Back</a>
-                                <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel('stock-detail','current_stock');">Download Excel</a>
+                                <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel();">Download Excel</a>
+                                <a class="btn_placeOrder cx-button bgBTN" href="javascript:void(0);" onclick="print();">Print</a>
                             </div>
                         </div>
                         <!-- ====================== snippet ends here ======================== -->
@@ -82,7 +83,16 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; 
     ?>
+    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
     <script src="<?php echo $home_url; ?>assets/javascript/distributor/inventory-report.js"></script>
     <script>
         var example1 = flatpickr('#search-date');
+        function print() {
+        var tab = document.getElementById('stock-detail');
+        var win = window.open('', '', 'height=700,width=700');
+        win.document.write(tab.outerHTML);
+        win.document.close();
+        win.print();
+
+    }
     </script>

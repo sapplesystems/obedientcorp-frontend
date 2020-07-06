@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_login_resp']['id'] == '') {
-    echo '<script type="text/javascript">window.location.href = "login";</script>';
-    exit;
+  echo '<script type="text/javascript">window.location.href = "login";</script>';
+  exit;
 }
 include_once '../config.php';
 $distributor_id = $_SESSION['distributor_login_resp']['id'];
@@ -12,172 +12,93 @@ $name = $_SESSION['distributor_login_resp']['name'];
 $user_type = $_SESSION['distributor_login_resp']['user_type'];
 $pan_image = $_SESSION['distributor_login_resp']['pan_image'];
 $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
+$address = $_SESSION['distributor_login_resp']['address'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Obedient</title>
-        <!-- plugins:css -->
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/mdi/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/css/vendor.bundle.base.css">
-        <!-- endinject -->
-        <!-- Plugin css for this page -->
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-        <!-- Plugin css for this page -->
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/font-awesome/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/vendors/lightgallery/css/lightgallery.css">
-        <!-- End plugin css for this page -->
-        <!-- inject:css -->
-        <!-- endinject -->
-        <!-- Layout styles -->
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/css/style.css">
-        <!-- End layout styles -->
-        <link rel="shortcut icon" href="<?php echo $home_url; ?>assets/images/favicon.png" />
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/css/croppie.css" />
-        <link rel="stylesheet" href="<?php echo $home_url; ?>assets/css/image-uploader.min.css">
-        <!--Css for autocomplete search -->
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    </head>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Obedient</title>
+  <link rel="shortcut icon" href="<?php echo $home_url; ?>assets/images/favicon.png" />
 
-    <body>
-        <div id="loader_bg">
-            <div class="flip-square-loader mx-auto" id="loader_div"></div>
-        </div>
-        <div class="container-scroller">
-            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="javascript:void();"><img src="<?php echo $home_url; ?>images/logo_header.png" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="javascript:void();"><img src="<?php echo $home_url; ?>images/footer_logo.png" alt="logo" /></a>
-                </div>
-                <div class="navbar-menu-wrapper d-flex align-items-stretch">
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                        <span class="mdi mdi-menu"></span>
-                    </button>
+  <link rel="stylesheet" href="<?php echo $home_url; ?>assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $home_url; ?>assets/javascript/distributor/css/all.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $home_url; ?>assets/javascript/distributor/css/flatpickr.css" />
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="<?php echo $home_url; ?>assets/css/style-theme.css">
+</head>
 
-
-                    <ul class="navbar-nav navbar-nav-right">
-                        <li class="nav-item nav-profile dropdown">
-                            <a class="dropdown-item" href="#" onclick="logout()">
-                                <?php echo $name . ' (' . $username . ')'; ?> <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
-                        </li>
-                        <!--li class="nav-item nav-logout d-none d-lg-block">
-                                <a class="nav-link" href="#" onclick="logout()">
-                                    <i class="mdi mdi-power"></i>
-                                </a>
-                            </li-->
-                    </ul>
-                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                        <span class="mdi mdi-menu"></span>
-                    </button>
-                </div>
-            </nav>
-            <!-- partial -->
-            <div class="container-fluid page-body-wrapper">
-                <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
-                                <span class="menu-title">Dashboard</span>
-                                <i class="mdi mdi-home menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="distributor-inovice">
-                                <span class="menu-title">POS</span>
-                                <i class="mdi mdi-wallet-giftcard menu-icon"></i>
-                            </a>
-                        </li>
-                        <!--li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#manage-inventory" aria-expanded="false" aria-controls="category">
-                                <span class="menu-title">Manage Inventory</span>
-                                <i class="menu-arrow"></i>
-                                <i class="mdi mdi-view-grid menu-icon"></i>
-                            </a>
-                            <div class="collapse" id="manage-inventory" class="collapse show">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="item-received-list">Recieve Items</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="dispatch-list">Dispatch Items</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="#">Return Items</a></li>
-                                </ul>
-                            </div>
-    </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dispatch-generation">
-                                <span class="menu-title">Dispatch Generation</span>
-                                <i class="mdi mdi-repeat menu-icon"></i>
-                            </a>
-                        </li-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="item-received-list">
-                                <span class="menu-title">Recieve Items</span>
-                                <i class="mdi mdi-view-grid menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dispatch-list">
-                                <span class="menu-title">Dispatches</span>
-                                <i class="mdi mdi-view-grid menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <span class="menu-title">Return Items</span>
-                                <i class="mdi mdi-view-grid menu-icon"></i>
-                            </a>
-                        </li>
-                        <!--li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span class="menu-title">Reports</span>
-                                <i class="mdi mdi-wallet menu-icon"></i>
-                            </a>
-                        </li-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="current-stock">
-                                <span class="menu-title">Current Stock</span>
-                                <i class="mdi mdi-wallet menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="stock-flow">
-                                <span class="menu-title">Stock Flow</span>
-                                <i class="mdi mdi-wallet menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sales-report">
-                                <span class="menu-title">Sales Report</span>
-                                <i class="mdi mdi-wallet menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="invoice-detail">
-                                <span class="menu-title">Invoice Details</span>
-                                <i class="mdi mdi-wallet menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <span class="menu-title">Profile</span>
-                                <i class="mdi mdi-account menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="change-password">
-                                <span class="menu-title">Change Password</span>
-                                <i class="mdi mdi-lock menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="logout();">
-                                <span class="menu-title">Logout</span>
-                                <i class="mdi mdi-settings menu-icon"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="javscript:void(0);" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+          </ul>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown"><a href="javscript:void(0);" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+              <img alt="image" src="<?php echo $home_url; ?>assets/images/avatar-1.png" class="rounded-circle mr-1">
+              <div class="d-sm-none d-lg-inline-block"><?php echo $name; ?></div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="javscript:void(0);" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="change-password" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Change Password
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="javscript:void(0);" onclick="logout();" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="dashboard"><img style="height:80px;" src="<?php echo $home_url; ?>assets/images/obedient-logo.png" /></a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="dashboard"><img style="height:40px;" src="<?php echo $home_url; ?>assets/images/obedient-logo.png" /></a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="nav-item active">
+              <a href="dashboard" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="distributor-inovice" class="nav-link"><i class="fas fa-columns"></i> <span>POS</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="item-received-list" class="nav-link"><i class="far fa-square"></i> <span>Recieve Items</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="dispatch-list" class="nav-link"><i class="fas fa-th"></i> <span>Dispatches</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="item-return-list" class="nav-link"><i class="fas fa-th-large"></i> <span>Return Items</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="javascript:void(0);" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Reports</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="current-stock">Current Stock</a></li>
+                <li><a class="nav-link" href="stock-flow">Stock Flow</a></li>
+                <li><a class="nav-link" href="sales-report">Sales Report</a></li>
+                <li><a class="nav-link" href="invoice-detail">Invoice Details</a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+      </div>

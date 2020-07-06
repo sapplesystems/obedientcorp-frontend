@@ -41,6 +41,7 @@ function getDispatchList() {
 }
 
 function setDispatchListTab(response, status) {
+    var i = 1;
     var html = '<thead>\n\
                 <tr>\n\
                 <th>Sr.No.</th>\n\
@@ -55,17 +56,20 @@ function setDispatchListTab(response, status) {
                 </thead><tbody>';
     $.each(response, function (key, value) {
         var action_td = '';
-        var i = 1;
         action_td = '<td>\n\
                     <a href="distributor-dispatch-detail.php?dispatch_id=' + value.id + '&dist_id=' + value.distributor_id_to + '" id="dispatch-detail" title="Dispatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
               </td>';
+        var ddate = value.expected_delivery_date;
+        if (status == 'receive' || status == 'mismatch') {
+            var ddate = value.received_date;
+        }
         html += '<tr id="tr_' + value.id + '" role="row" >\n\
                       <td class="sorting_1">' + i + '</td>\n\
                       <td>' + value.distributor_name_from + '</td>\n\
                       <td>' + value.distributor_name_to + '</td>\n\
                       <td>' + value.dispatch_no + '</td>\n\
                       <td>' + value.dispatch_date + '</td>\n\
-                      <td>' + value.expected_delivery_date + '</td>\n\
+                      <td>' + ddate + '</td>\n\
                       <td>' + value.status + '</td>\n\
                       ' + action_td + '\n\
                   </tr>';

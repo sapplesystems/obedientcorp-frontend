@@ -102,6 +102,7 @@ $(function () {
             params.append('due_list_payments', due_list_payments);
             params.append('booking_ids', booking_ids);
             params.append('customer_ids', customer_ids);
+            params.append('date_of_payment', $('#date_of_payment').val());
 
             $.ajax({
                 url: url,

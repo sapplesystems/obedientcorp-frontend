@@ -2,13 +2,29 @@
 include_once 'header.php';
 ?>
 <style>
+body{color:#ffffff !important;}
 [type="radio"]:checked + label::before, [type="radio"]:not(:checked) + label::before{width: 20px !important;height: 20px !important;}
+.content{background:transparent !important;}
+.productContainerBody{background:transparent !important;}
+input[type="text"], select, textarea{border:1px solid #555555 !important; background-color:transparent !important; color:#999999 !important;}
+input[type="text"]:hover, input[type="text"]:focus{outline:1px solid #555555 !important; border:1px solid #555555 !important;}
+input[readonly=""]{background-color: #333333 !important;}
+.distributor_info > div label{color:#ffffff !important; font-weight:normal !important;}
+.headTop{color:#ffffff !important;}
+.sales_notes label{color:#ffffff !important;}
+.sales_notes label{color:#ffffff !important;}
+.shoppingCartContainer .columnHeads{border:#322f2f 1px solid !important;background-color: transparent !important;}
+.productContainerBody{border: 1px solid #322f2f !important;}
+.shoppingCartContainer .columnCell{line-height:20px;}
+.value-button{border: 1px solid #555 !important;background: transparent !important;}
+.sales_notes form label{font-weight:normal !important;}
+.flatpickr-calendar{left:initial !important; right:0;}
 </style>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $home_url; ?>assets/javascript/distributor/css/all.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $home_url; ?>assets/javascript/distributor/css/flatpickr.css" />
 <div class="main-panel ">
-    <div class="content-wrapper bgColorNone p-3">
+    <div class="content-wrapper p-3">
 <div id="global-viewport" class='global-viewport m-pikabu-viewport'>
   <div class="global-viewport-container m-pikabu-container">
 
@@ -20,10 +36,10 @@ include_once 'header.php';
 
       <div class="responsiveCenteredContent js-cart">
         <div class="shoppingCartContainer mt-0">
-          <h1 class="headTop">Dispatch Generation <a class="btnBack pull-right" href="distributor-dispatch-list"><img src="<?php echo $home_url; ?>assets/javascript/distributor/images/backto.png" /> Back </a></h1>
+          <h1 class="headTop">Dispatch Generation</h1>
           <!-- Start of cart's first part -->
           <div class="js-cart-items">
-            <div class="cartProductsContainer text-gray-dark cx-copy">
+            <div class="cartProductsContainer cx-copy">
               <div class="distributor_info">
                 <div><label>Select Distributer From</label></div>
                 <div >
@@ -37,7 +53,7 @@ include_once 'header.php';
                 </div>
               </div>
 			  <div class="clearfix"></div>
-              <div class="distributor_info">
+              <div class="distributor_info mt-2">
                 <div><label>Select Distributer To</label></div>
                 <div >
                   <select id="distributor-list-to" class="dist-list-to ">
@@ -78,7 +94,7 @@ include_once 'header.php';
 
                 </ul>
 
-                <div class="columnHeads bt-None">
+                <div class="columnHeads bt-None" style="border-bottom:0px !important; border-top:0px !important;">
                   <div class="columnHeadsRow">
                     <div class="columnCell column1 titleItems"></div>
                     <div class="columnCell column1 titleItems">
@@ -96,7 +112,7 @@ include_once 'header.php';
                   </div>
                 </div>
 
-                <div class="columnHeads taxDiv">
+                <div class="columnHeads taxDiv" style="border-bottom:0px !important; border-top:0px !important;">
                   <div class="columnHeadsRow">
                     <div class="columnCell column1 titleItems"></div>
                     <div class="columnCell column1 titleItems">
@@ -175,8 +191,9 @@ include_once 'header.php';
                 <label>Shipping Details: (Optional)</label>
                 <textarea class="textarea64" id="shipping-detail"></textarea>
               </div>
-              <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel full-width text-bold marginTop20" type="button" name="" value="true" onclick="CancelInvoice();"><span>CLEAR</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN full-width text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="generationDispatch();"><span>GENERATE DISPATCH</span></button>
-            </div>
+              <button id="loginCheckout" class="btn btn-gradient-warning cx-button full-width text-bold marginTop20" type="button" name="" value="true" onclick="CancelInvoice();"><span>CLEAR</span></button><button id="loginCheckout" class="btn btn-gradient-success cx-button full-width text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="generationDispatch();"><span>GENERATE DISPATCH</span></button>
+			  <a class="btn btn-gradient-danger pull-right" href="distributor-dispatch-list">Back </a>
+            </div> 
           </div>
 
           <!-- ====================== snippet ends here ======================== -->

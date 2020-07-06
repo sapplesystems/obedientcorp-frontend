@@ -73,6 +73,9 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                         <div class="columnCell column1 titleItems">
                                             <h1 class="fontNormal"></h1>
                                         </div>
+										<div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
+                                        </div>
                                         <div class="columnCell column3 titleQuantity">
                                             <h6 class="quantity fontNormal"></h6>
                                         </div>
@@ -91,6 +94,9 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                         <div class="columnCell column1 titleItems">
                                             <h1 class="fontNormal"></h1>
                                         </div>
+										<div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
+                                        </div>
                                         <div class="columnCell column3 titleQuantity">
                                             <h6 class="quantity fontNormal"></h6>
                                         </div>
@@ -107,6 +113,9 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                             <h1>Total</h1>
                                         </div>
                                         <div class="columnCell column1 titleItems">
+                                            <h1></h1>
+                                        </div>
+										<div class="columnCell column1 titleItems">
                                             <h1></h1>
                                         </div>
                                         <div class="columnCell column3 titleQuantity">

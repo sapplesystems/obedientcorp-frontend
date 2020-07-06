@@ -1,7 +1,7 @@
 <?php include_once 'header.php'; ?>
 <!-- partial -->
 <style>
-.white_space tr th, .white_space tr td{white-space: nowrap !important;}
+    .white_space tr th, .white_space tr td{white-space: nowrap !important;}
 </style>
 <div class="main-panel ">
     <div class="content-wrapper ">
@@ -130,6 +130,19 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row ">
+                                                            <label class="col-form-label col-sm-4 text-right">Date of Payment:</label>
+                                                            <div class="col-sm-8">
+                                                                <div class="input-group date datepicker p-0">
+                                                                    <input type="text required" class="form-control required" id="date_of_payment" name="date_of_payment" value="<?php echo date('d-M-Y'); ?>" readonly>
+                                                                    <span class="input-group-addon input-group-append border-left">
+                                                                        <span class="mdi mdi-calendar input-group-text bg-dark"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
@@ -142,8 +155,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer text-center">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                                     <button type="submit" class="btn btn-success" id="save_value">Submit</button>
-                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </form>
                                         </div>

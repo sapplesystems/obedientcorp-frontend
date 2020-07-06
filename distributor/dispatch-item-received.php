@@ -100,7 +100,7 @@ if (isset($_REQUEST['dispatch_id'])) {
                         <div class="clear_both"></div>
                         <div class="mt-20-items">
                             <a class="btn-update-items" onclick="updateDispatchItems();" id="update-items">Update Items</a>&nbsp;
-                            <a class="btn-back-items" href="item-received-list">Back</a>
+                            <a class="btn-back-items" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Back</a>
                         </div>
                     </div>
 

@@ -1,7 +1,15 @@
 <?php
 include_once 'header.php';
 ?>
-
+<style>
+    .shoppingCartContainer .productContainerRow {
+    grid-template-columns: 4.8% 25.2% 16% 15% 15% 10% 10%;
+}
+.cartProductsContainer .columnHeadsRow {
+    grid-template-columns: 0.5fr 2.2fr 1.3fr 1.3fr 1.3fr 0.9fr 0.9fr;
+}
+.columnCell.column2.productDetails p input[type="text"]{width: 60px;margin-left: 5px;}
+</style>
 <div id="global-viewport" class='global-viewport m-pikabu-viewport'>
     <div class="global-viewport-container m-pikabu-container">
 
@@ -12,23 +20,30 @@ include_once 'header.php';
             <!-- Report the active source code -->
 
             <div class="responsiveCenteredContent js-cart">
-                <div class="backbtn_pos"><a class="btnBack" href="dispatch-list"><img src="<?php echo $home_url; ?>assets/javascript/distributor/images/backto.png" /> Back</a></div>
+                <div class="backbtn_pos"><a class="btnBack" href="item-received-list"><img src="<?php echo $home_url; ?>assets/javascript/distributor/images/backto.png" /> Back</a></div>
                 <div class="shoppingCartContainer">
-                    <h1 class="headTop">Dispatch Generation</h1>
+                    <h1 class="headTop">Direct Receiving</h1>
                     <!-- Start of cart's first part -->
                     <div class="js-cart-items">
                         <div class="cartProductsContainer text-gray-dark cx-copy">
                             <div class="distributor_info">
-                                <div><label>Select Distributer</label></div>
-                                <div >
-                                    <select id="distributor-list" class="dist-list ">
-
-                                    </select>
-                                </div>
-                                <div class="ml5percent"><label>Distributer Name and Address</label></div>
+                                <div><label>Company Name</label></div>
                                 <div>
-                                    <input type="text" placeholder="" id="distributor" data-value="" readonly/>
+                                    <input type="text" placeholder="" id="company_name" />
+                                    <input type="hidden" placeholder="" id="dispatch_company_id" value="0"/>
                                 </div>
+                                <div class="ml5percent"><label>Company Address</label></div>
+                                <div>
+                                    <input type="text" placeholder="" id="company_address"  />
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="distributor_info marginTop10" >
+                                <div><label>Challan/Invoice Number</label></div>
+                                <div>
+                                    <input type="text" placeholder="" id="challan_invoice" />
+                                </div>
+                                
                             </div>
                             <div class="clearfix"></div>
                             <div class="marginTop8">
@@ -44,11 +59,20 @@ include_once 'header.php';
                                         <div class="columnCell column1 titleItems">
                                             <h1 class="text-uppercase">Product Code</h1>
                                         </div>
-                                        <div class="columnCell column3 titleQuantity">
-                                            <h6 class="quantity text-uppercase">Qty</h6>
+                                        <div class="columnCell column1 titleQuantity">
+                                            <h6 class="quantity text-uppercase">Dispatched Qty</h6>
+                                        </div>
+                                        <div class="columnCell column1 titleQuantity">
+                                            <h6 class="quantity text-uppercase">Received Qty</h6>
                                         </div>
                                         <div class="columnCell column1 titleQuantity">
                                             <h6 class="quantity text-uppercase">Price/Qty</h6>
+                                        </div>
+                                        <div class="columnCell column1 titleQuantity">
+                                            <h6 class="quantity text-uppercase">Status</h6>
+                                        </div>
+                                        <div class="columnCell column1 titleQuantity">
+                                            <h6 class="quantity text-uppercase">Comment</h6>
                                         </div>
                                         <div class="columnCell column4 titleTotalPrice">
                                             <h6 class="totalPrice text-uppercase">Total</h6>
@@ -65,6 +89,12 @@ include_once 'header.php';
                                         <div class="columnCell column1 titleItems"></div>
                                         <div class="columnCell column1 titleItems">
                                             <h1 class="fontNormal">Subtotal</h1>
+                                        </div>
+                                        <div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
+                                        </div>
+                                        <div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
                                         </div>
                                         <div class="columnCell column1 titleItems">
                                             <h1 class="fontNormal"></h1>
@@ -87,6 +117,12 @@ include_once 'header.php';
                                         <div class="columnCell column1 titleItems">
                                             <h1 class="fontNormal"></h1>
                                         </div>
+                                        <div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
+                                        </div>
+                                        <div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
+                                        </div>
                                         <div class="columnCell column3 titleQuantity">
                                             <h6 class="quantity fontNormal"></h6>
                                         </div>
@@ -104,6 +140,12 @@ include_once 'header.php';
                                         </div>
                                         <div class="columnCell column1 titleItems">
                                             <h1></h1>
+                                        </div>
+                                        <div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
+                                        </div>
+                                        <div class="columnCell column1 titleItems">
+                                            <h1 class="fontNormal"></h1>
                                         </div>
                                         <div class="columnCell column3 titleQuantity">
                                             <h6 class="quantity"></h6>
@@ -124,27 +166,23 @@ include_once 'header.php';
                                 <label>Dispatch Type</label>
                                 <form action="#" class="marginTop10">
                                     <p>
-                                        <input type="radio" id="test2" name="dispatch_type" value="Normal">
-                                        <label for="test2">Normal</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="test3" name="dispatch_type" value="Return">
-                                        <label for="test3">Return</label>
+                                        <input type="radio" id="test2" name="dispatch_type" value="Direct">
+                                        <label for="test2">Direct</label>
                                     </p>
                                 </form>
                             </div>
                             <div class="sales_notes marginTop20">
                                 <div class="widthHalf">
-                                    <label>Date</label>
+                                    <label>Receiving Date</label>
                                     <div class="expected_input">
                                         <input type="text" id="current-date" placeholder="Select Date" readonly>
                                     </div>
                                 </div>
                                 <div class="widthHalf ml4percent">
-                                    <label>Expected Delivery Date</label>
+                                    <label>Dispatch Date</label>
                                     <div class="expected_input">
                                         <i class="fa fa-calendar icon_calendar" aria-hidden="true"></i>
-                                        <input type="text" id="delivery-date" placeholder="Select Date" onchange="checkStartEndDate();">
+                                        <input type="text" id="dispatch_date" placeholder="Select Date" onchange="checkStartEndDate();">
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +195,7 @@ include_once 'header.php';
                                 <label>Shipping Details: (Optional)</label>
                                 <textarea class="textarea64" id="shipping-detail"></textarea>
                             </div>
-                            <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel full-width text-bold marginTop20" type="button" name="" value="true" onclick="CancelInvoice();"><span>CLEAR</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN full-width text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="generationDispatch();"><span>GENERATE DISPATCH</span></button>
+                            <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel full-width text-bold marginTop20" type="button" name="" value="true" onclick="CancelInvoice();"><span>CLEAR</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN full-width text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="generationDispatch();"><span>Update Items</span></button>
                         </div>
                     </div>
 
@@ -179,10 +217,10 @@ include_once 'header.php';
     </div>
 </div>
 <?php include_once 'footer.php'; ?>
-<script src="<?php echo $home_url; ?>assets/javascript/distributor/dispatch-generate.js"></script>
+<script src="<?php echo $home_url; ?>assets/javascript/distributor/direct-dispatch-generate.js"></script>
 
 <script>
-    var example1 = flatpickr('#delivery-date');
+    var example1 = flatpickr('#dispatch_date');
 </script>
 </body>
 

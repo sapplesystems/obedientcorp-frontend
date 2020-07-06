@@ -12,6 +12,7 @@ $name = $_SESSION['distributor_login_resp']['name'];
 $user_type = $_SESSION['distributor_login_resp']['user_type'];
 $pan_image = $_SESSION['distributor_login_resp']['pan_image'];
 $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
+$address = $_SESSION['distributor_login_resp']['address'];
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,5 @@ $gst_image = $_SESSION['distributor_login_resp']['gst_image'];
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $home_url; ?>assets/javascript/distributor/css/all.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $home_url; ?>assets/javascript/distributor/css/flatpickr.css" />
 	</head>
-	
     <body>
 

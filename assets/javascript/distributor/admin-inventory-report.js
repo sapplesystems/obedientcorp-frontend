@@ -103,30 +103,34 @@ function searchItemsStock() {
                   <tr>\n\
                   <th>Sr.No.</th>\n\
                   <th>Distributor Name</th>\n\
+                  <th>Category Name</th>\n\
                   <th>Date</th>\n\
                   <th>Item Code</th>\n\
                   <th>Item Name</th>\n\
                   <th>BV Type</th>\n\
-                  <th>Batch</th>\n\
+                  <th>Lot No</th>\n\
                   <th>Qty</th>\n\
+                  <th>Expiry Date</th>\n\
                   </tr>\n\
                   </thead><tbody>';
       if (response.status == "success") {
         var i = 1;
         $.each(response.data, function (key, value) {
-          var lot_no = value.lot_no;
-          if (value.lot_no == null) {
-            lot_no = '';
+          var lot_no = '-';
+          if(value.lot_no!= null && value.lot_no!=0) {
+            lot_no = value.lot_no;
           }
           html += '<tr id="tr_' + value.id + '" role="row" >\n\
                 <td class="sorting_1">' + i + '</td>\n\
                 <td>'+ value.distributor_name + '</td>\n\
+                <td>'+ value.category_name + '</td>\n\
                 <td>' + value.date + '</td>\n\
                 <td>' + value.sku + '</td>\n\
                 <td>' + value.name + '</td>\n\
                 <td>' + value.bv_type + '</td>\n\
                 <td>' + lot_no + '</td>\n\
                 <td>' + value.quantity + '</td>\n\
+                <td>' + value.expiry_date + '</td>\n\
             </tr>';
           i = i + 1;
         });
@@ -221,6 +225,7 @@ function searchSalesReport() {
                               <th>Tax Amount</th>\n\
                               <th>Cash Amount</th>\n\
                               <th>Coupon Amount</th>\n\
+                              <th></th>\n\
                               </tr>\n\
                               </thead><tbody>';
       if (response.status == "success") {
@@ -236,6 +241,7 @@ function searchSalesReport() {
                                   <td>' + value.tax_amount + '</td>\n\
                                   <td>' + value.cash_amount + '</td>\n\
                                   <td>' + value.coupon_amount + '</td>\n\
+                                  <td><a href="javascript:void(0)">Item Detail</a></td>\n\
                               </tr>';
             i = i + 1;
           });
@@ -274,9 +280,8 @@ function searchItemsStockFlow() {
   var item_code = '';
   var lot_no = '';
   var qty = '';
-  var view = 'all';
   var distributor_id = '';
-  var dispatch_type='';
+  var dispatch_type = '';
   if ($('#start-date').val() != '') {
     start_date = $('#start-date').val();
   }
@@ -298,12 +303,6 @@ function searchItemsStockFlow() {
   if ($('#qty').val() != '') {
     qty = $('#qty').val();
   }
-  if ($('#type').val() == 'incoming') {
-    view = 'incoming';
-  }
-  if ($('#type').val() == 'outgoing') {
-    view = 'outgoing';
-  }
   if ($('#distributor').val() != '') {
     distributor_id = $('#distributor').val();
   }
@@ -319,11 +318,11 @@ function searchItemsStockFlow() {
     start_date: start_date,
     end_date: end_date,
     item_code: item_code,
-    view: view,
-    is_admin:1,
-    dispatch_type:dispatch_type
+    is_admin: 1,
+    dispatch_type: dispatch_type,
+    stock_flow: 1,
   };
-  var url = base_url + 'distributor/stock-flow';
+  var url = base_url + 'distributor/current-stock';
   $.ajax({
     url: url,
     type: 'post',
@@ -338,55 +337,49 @@ function searchItemsStockFlow() {
                               <th>Item Name</th>\n\
                               <th>BV Type</th>\n\
                               <th>Date</th>\n\
+                              <th>Lot No</th>\n\
                               <th>Qty</th>\n\
+                              <th>In</th>\n\
+                              <th>Out</th>\n\
                               <th>Action</th>\n\
                               </tr>\n\
                               </thead><tbody>';
       if (response.status == "success") {
-        if (response.data.incoming_stock.length != 0 || response.data.outgoing_stock.length != 0) {
+        if (response.data.length != 0) {
           var i = 1;
-          if (response.data.incoming_stock.length != 0) {
-            $.each(response.data.incoming_stock, function (key, value) {
-              html += '<tr id="tr_incoming_' + i + '" role="row" class="tr_incoming" >\n\
-                                  <td>'+ i + '</td>\n\
-                                  <td>'+ value.distributor_name + '</td>\n\
-                                  <td>'+ value.category_name + '</td>\n\
-                                  <td>' + value.sku + '</td>\n\
-                                  <td>' + value.product_name + '</td>\n\
-                                  <td>' + value.bv_type + '</td>\n\
-                                  <td>' + value.date + '</td>\n\
-                                  <td>' + value.quantity + '</td>\n\
-                                  <td><a href="stock-flow-detail.php?pro_id='+ value.product_id + '&stock_d=' + value.date + '" id="detail_' + i + '">Detail</a></td>\n\
-                              </tr>';
-              i = i + 1;
-            });
-          }
-          if (response.data.outgoing_stock.length != 0) {
-            $.each(response.data.outgoing_stock, function (key, value) {
-              html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
-                                  <td>'+ i + '</td>\n\
-                                  <td>'+ value.distributor_name + '</td>\n\
-                                  <td>'+ value.category_name + '</td>\n\
-                                  <td>' + value.sku + '</td>\n\
-                                  <td>' + value.product_name + '</td>\n\
-                                  <td>' + value.bv_type + '</td>\n\
-                                  <td>' + value.date + '</td>\n\
-                                  <td>' + value.quantity + '</td>\n\
-                                  <td><a href="stock-flow-detail.php?pro_id='+ value.product_id + '&stock_d=' + value.date + '" id="detail_' + i + '">Detail</a></td>\n\
-                              </tr>';
-              i = i + 1;
-            });
-          }
-          html += '</tbody>';
+          var lotNumber = '';
+          $.each(response.data, function (key, value) {
+            var lot_no_outgoing = '-';
+            lotNumber = value.lot_no;
+            if (value.lot_no!= 0 && value.lot_no!=null) {
+              lot_no_outgoing = value.lot_no;
+            }
+            html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
+                     <td>'+ i + '</td>\n\
+                     <td>'+ value.distributor_name + '</td>\n\
+                    <td>'+ value.category_name + '</td>\n\
+                    <td>' + value.sku + '</td>\n\
+                    <td>' + value.product_name + '</td>\n\
+                    <td>' + value.bv_type + '</td>\n\
+                    <td>' + value.date + '</td>\n\
+                    <td>' + lot_no_outgoing + '</td>\n\
+                    <td>' + value.inventory_quantity + '</td>\n\
+                    <td>'+ value.total_in + '</td>\n\
+                    <td>'+ value.total_out + '</td>\n\
+                    <td><a href="javascript:void(0)" onclick="getStockFlowDetail('+ distributor_id + ',' + value.product_id + ',' + lotNumber + ');"id="detail_' + i + '">Detail</a></td>\n\
+                    </tr>';
+            i = i + 1;
+          });
+
           $('#stock-flow').html(html);
           generateDataTable('stock-flow');
           hideLoader();
         }
-        else {
-          $('#stock-flow').html(html);
-          generateDataTable('stock-flow');
-          hideLoader();
-        }
+      }
+      else {
+        $('#stock-flow').html(html);
+        generateDataTable('stock-flow');
+        hideLoader();
       }
 
     }
@@ -405,4 +398,104 @@ function CancelSearchStockFlow() {
   $('#search-product').val('');
   $('#distributor').val('');
   searchItemsStockFlow();
+}
+
+function getStockFlowDetail(id, pro_id, lot_no) {
+  var params = {
+    distributor_id: id,
+    product_id: pro_id,
+    lot_no: lot_no,
+  }
+  if ($('#start-date').val() != '') {
+    params.start_date = $('#start-date').val();
+  }
+  if ($('#end-date').val() != '') {
+    params.end_date = $('#end-date').val();
+  }
+
+  var url = base_url + 'distributor/stock-flow-detail';
+  $.ajax({
+    url: url,
+    type: 'post',
+    data: params,
+    success: function (response) {
+      var html = '<thead>\n\
+                      < tr >\n\
+                      <th>Sr.No</th>\n\
+                      <th>Dispatched By</th>\n\
+                      <th>Dispatched To</th>\n\
+                      <th>Customer Name</th>\n\
+                      <th>Customer Mobile Number</th>\n\
+                      <th>Dispatch Number</th>\n\
+                      <th>Invoice Number</th>\n\
+                      <th>Category</th>\n\
+                      <th>Item Code</th>\n\
+                      <th>Item Name</th>\n\
+                      <th>Qty</th>\n\
+                      <th>Lot No</th>\n\
+                      <th>BV Type</th>\n\
+                      <th>Type</th>\n\
+                      </tr >\n\
+                      </thead > <tbody>';
+      $('#stock-flow-detail').html('');
+      if (response.status == "success") {
+        if (response.data.length != 0) {
+          var i = 1;
+          $.each(response.data, function (key, value) {
+            var lot_no_outgoing = value.lot_no;
+            var customer_name = '';
+            var customer_mobile = '';
+            var invoice_no = '';
+            var dispatch_no = '';
+            var distributor_by = '';
+            var distributor_to = '';
+            if (value.lot_no == 0) {
+              lot_no_outgoing = '-';
+            }
+            if (value.customer_name && value.customer_mobile && value.invoice_no) {
+              customer_name = value.customer_name;
+              customer_mobile = value.customer_mobile;
+              invoice_no = value.invoice_no;
+            } else {
+              dispatch_no = value.dispatch_no;
+            }
+            if (value.by_distributor && value.to_distributor) {
+              distributor_by = value.by_distributor;
+              distributor_to = value.to_distributor;
+            }
+            html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
+                              <td>' + i + '</td>\n\
+                              <td>' + distributor_by + '</td>\n\
+                              <td>' + distributor_to + '</td>\n\
+                              <td>' + customer_name + '</td>\n\
+                              <td>' + customer_mobile + '</td>\n\
+                              <td>' + dispatch_no + '</td>\n\
+                              <td>' + invoice_no + '</td>\n\
+                              <td>' + value.category_name + '</td>\n\
+                              <td>' + value.sku + '</td>\n\
+                              <td>' + value.product_name + '</td>\n\
+                              <td>' + value.quantity + '</td>\n\
+                              <td>' + lot_no_outgoing + '</td>\n\
+                              <td>' + value.bv_type + '</td>\n\
+                              <td>' + value.type + '</td>\n\
+                          </tr>';
+            i = i + 1;
+          });
+          html += '</tbody>';
+          $('#stock-flow-detail').html(html);
+          $('#stock-flow-detail-modal').modal();
+         generateDataTable('stock-flow-detail');
+        }
+      } else {
+        html += '</tbody>';
+        $('#stock-flow-detail').html(html);
+        $('#stock-flow-detail-modal').modal();
+        generateDataTable('stock-flow-detail');
+      }
+
+    }
+  });
+
+
+
 }

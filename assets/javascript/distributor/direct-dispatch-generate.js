@@ -1,4 +1,5 @@
 var products = [];
+var company_list = [];
 var x = 1; //Initial field counter is 1
 var maxField = 10; //Input fields increment limitation
 var distributor_data = '';
@@ -6,8 +7,14 @@ var sub_total = 0;
 var total_tax = 0;
 var total = 0;
 var global_ui = {};
-getDistributorList();
 $(document).ready(function () {
+
+
+    //show current distributor name and address
+    $('#distributor-to').val(distributor_name);
+    $('#address-to').val(distributor_address);
+
+    //end
     $('.cd-popup').on('click', function (event) {
         if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
             event.preventDefault();
@@ -19,6 +26,7 @@ $(document).ready(function () {
     $("#test2").attr('checked', true);
     getProductList();
     getCurrentDate();
+    getCompanyList();
     //search product
     $("#search-product").autocomplete({
         multiple: true,
@@ -30,14 +38,20 @@ $(document).ready(function () {
                     itemsAlreadyExits(ui.item.id, item_lot_number[0], ui);
                 } else {
                     var set_lot_numbers = '';
-                    var lq=0;
+                    var lq = 0;
                     var lot_quantity = ui.item.lot_quantity;
+                    var test_id = 3;
                     $.each(item_lot_number, function (key, value) {
-                        set_lot_numbers += '<label><input type="radio" name="lot_no_radio" value="' + value + '" style="position: inherit;"> ' + value + ' Quantity: '+lot_quantity[lq]+'</label><br/>';
-                        lq++
+                        //set_lot_numbers += '<label><input type="radio" name="lot_no_radio" value="' + value + '" style="position: inherit;"> ' + value + ' Quantity: ' + lot_quantity[lq] + '</label><br/>';
+                        set_lot_numbers+='<p>\n\
+                                    <input type="radio" id="test'+test_id+'" name="lot_no_radio" value="' + value + '">\n\
+                                    <label for="test'+test_id+'">' + value + ' Quantity: ' + lot_quantity[lq] + '</label>\n\
+                                    </p>';
+                                lq++
+                                test_id++;
                     });
                     global_ui = ui;
-                    set_lot_numbers += '<button onclick="selectLotNo(\'' + ui.item.id + '\');">Select</button>';
+                    set_lot_numbers += '<div class="text-center"><button onclick="selectLotNo(\'' + ui.item.id + '\');">Select</button></div>';
                     $('#lot_numbers_content').html(set_lot_numbers);
                     $('#lot_numbers_popup').addClass('is-visible');
                 }
@@ -48,30 +62,34 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('change', '#distributor-list', function () {
-        var dist_id = $(this).val();
-        var html = '';
-        $.each(distributor_data.data, function (key, value) {
-            if (value.id == dist_id) {
-                html = value.display_name + ' ' + value.address;
-
-                // html += '<span>' + value.name + '<span> &npbs <span>' + value.address + '</span>';
-            }
-        });
-        $('#distributor').val(html);
-        //$('#distributor').html(html);
-
+    //search company
+    $("#company_name").autocomplete({
+        multiple: true,
+        source: company_list,
+        select: function (event, ui) {
+            $('#company_name').val(ui.item.label);
+            $('#company_address').val(ui.item.address);
+            $('#dispatch_company_id').val(ui.item.id);
+            //$('#challan_invoice').val(ui.item.challan_invoice_no);
+            return false;
+        }
     });
 
+
+    $('#company_name').on('keyup', function () {
+        $('#company_address').val('');
+        $('#dispatch_company_id').val('');
+        $('#challan_invoice').val('');
+    });
 
 });//document ready
 
 function SubValue(id) {
-    var qty = $('#qty_' + id).val();
+    var qty = $('#received_qty_' + id).val();
     qty = Number(qty);
     qty--;
     if (qty > 0) {
-        $('#qty_' + id).val(qty);
+        $('#received_qty_' + id).val(qty);
         var total = Number($('#org_tot_' + id).val()) * Number(qty);
         var dp = Number($('#org_dp_' + id).val()) * Number(qty);
         var cgst = Number($('#org_cgst_' + id).val()) * Number(qty);
@@ -88,10 +106,10 @@ function SubValue(id) {
 
 }
 function AddValue(id) {
-    var qty = $('#qty_' + id).val();
+    var qty = $('#received_qty_' + id).val();
     qty = Number(qty);
     qty++;
-    $('#qty_' + id).val(qty);
+    $('#received_qty_' + id).val(qty);
     var total = Number($('#org_tot_' + id).val()) * Number(qty);
     var dp = Number($('#org_dp_' + id).val()) * Number(qty);
     var cgst = Number($('#org_cgst_' + id).val()) * Number(qty);
@@ -111,13 +129,31 @@ function getProductList() {
     $.ajax({
         url: url,
         type: 'post',
-        data: {distributor_id: distributor_id},
+        data: { distributor_id: distributor_id },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data) {
                     $.each(response.data, function (i, value) {
                         var search_prod = value.search_product + ' - ' + value.coupon_business_name;
-                        products.push({id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name, lot_no: value.lot_no, lot_quantity: value.lot_quantity});
+                        products.push({ id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name, lot_no: value.lot_no, lot_quantity: value.lot_quantity });
+                    });
+                }
+            }
+        }
+    });
+}//end function
+//get company list
+function getCompanyList() {
+    var url = base_url + 'dispatch-company-list ';
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {},
+        success: function (response) {
+            if (response.status == "success") {
+                if (response.data) {
+                    $.each(response.data, function (i, value) {
+                        company_list.push({ id: value.id, label: value.name, value: value.id, address: value.address, challan_invoice_no: value.challan_invoice_no });
                     });
                 }
             }
@@ -151,33 +187,52 @@ function generationDispatch() {
     var validate = validateDispatchForm();
     if (validate == true) {
         var items = [];
-        var dispatch_type = '';
+        var dispatch_type = 'Direct';
         var total_cgst = 0;
         var total_sgst = 0;
         var total_igst = 0;
+        var dispatch_status = 'Received';
         $('.items').each(function () {
+            var status = '';
+            var comment = '';
             var items_ids = $(this).val();
             if (items_ids && items_ids != '') {
                 var item_qty = $('#qty_' + items_ids).val();
+                var received_item_qty = $('#received_qty_' + items_ids).val();
                 var item_id = $('#item_id_' + items_ids).val();
                 total_cgst = (total_cgst + Number($('#cgst_' + items_ids).val()));
                 total_sgst = (total_sgst + Number($('#sgst_' + items_ids).val()));
                 total_igst = (total_igst + Number($('#igst_' + items_ids).val()));
+                if ($('#status_' + items_ids).val()) {
+                    status = $('#status_' + items_ids).val();
+                }
+                if ($('#comment_' + items_ids).val()) {
+                    comment = $('#comment_' + items_ids).val();
+                }
                 items.push({
                     item_id: item_id,
                     qty: item_qty,
+                    received_qty: received_item_qty,
                     cgst: $('#cgst_' + items_ids).val(),
                     sgst: $('#sgst_' + items_ids).val(),
                     igst: $('#igst_' + items_ids).val(),
                     lot_no: $('#lotNo_' + items_ids).val(),
+                    status: status,
+                    comment: comment
                 });
+                if (item_qty != received_item_qty) {
+                    dispatch_status = 'Mismatch';
+                }
             }
         });
-        dispatch_type = $("input[name='dispatch_type']:checked").val();
+
         var params = {
-            distributor_id_from: distributor_id,
-            distributor_id_to: $('#distributor-list').val(),
-            dispatch_date: $('#current-date').val(),
+            distributor_id_to: distributor_id,
+            company_name: $('#company_name').val(),
+            company_address: $('#company_address').val(),
+            dispatch_company_id: $('#dispatch_company_id').val(),
+            challan_invoice: $('#challan_invoice').val(),
+            received_date: $('#current-date').val(),
             cgst: total_cgst,
             sgst: total_sgst,
             igst: total_igst,
@@ -185,9 +240,10 @@ function generationDispatch() {
             total: Number($('#total-amount').html()),
             note: $('#note').val(),
             shipping_details: $('#shipping-detail').val(),
-            expected_delivery_date: $('#delivery-date').val(),
+            dispatch_date: $('#dispatch_date').val(),
             dispatch_item: items,
-            dispatch_type: dispatch_type
+            dispatch_type: dispatch_type,
+            status: dispatch_status,
         };
         var url = base_url + 'dispatch/generate-dispatch';
         $.ajax({
@@ -198,7 +254,7 @@ function generationDispatch() {
                 if (response.status == "success") {
                     showSwal('success', 'Dispatch Generate', response.data);
                     CancelInvoice();
-                    window.location.href = 'dispatch-list';
+                    window.location.href = 'item-received-list';
                 }
                 else {
                     showSwal('error', response.data);
@@ -211,30 +267,6 @@ function generationDispatch() {
 
 
 }
-
-function getDistributorList() {
-    showLoader();
-    $.ajax({
-        url: base_url + 'distributor/list',
-        type: 'post',
-        data: {},
-        success: function (response) {
-            distributor_data = response;
-            var html = '<option value="">-- Select --</option>';
-            if (response.status == "success") {
-                $.each(response.data, function (key, value) {
-                    if (value.id != distributor_id) {
-                        html += '<option value="' + value.id + '">' + value.display_name + '</option>';
-                    }
-
-                });
-                $('#distributor-list').html(html);
-                hideLoader();
-            }
-        }
-    });
-}
-
 function itemsAlreadyExits(id, lot_no, ui) {
     var elmid = id + '_' + lot_no;
     var totalRowCount = $("#item-list li").length;
@@ -258,23 +290,20 @@ function itemsAlreadyExits(id, lot_no, ui) {
 //validate dispatch form
 function validateDispatchForm() {
     var totalRowCount = $("#item-list li").length;
-    var customer_name = $('#distributor').val();
-    if (customer_name == '') {
-        showSwal('error', 'Distributor Not Selected', 'Please select distributor');
+    var company_name = $('#company_name').val();
+    if (company_name == '') {
+        showSwal('error', 'Company Name Not Selected', 'Please select company name');
         return false;
     }
     else if (totalRowCount <= 0) {
         showSwal('error', 'Items Not Selected', 'Please select product');
         return false;
-    } else if ($("input[name='dispatch_type']:checked").val() == undefined) {
-        showSwal('error', 'Dispatch Type Not Selected', 'Please select dispatch type');
-        return false;
     } else if ($('#current-date').val() == '') {
         showSwal('error', 'Date Not Selected', 'Please select Date');
         return false;
 
-    } else if ($('#delivery-date').val() == '') {
-        showSwal('error', 'Expected Date Not Selected', 'Please select expected date');
+    } else if ($('#dispatch_date').val() == '') {
+        showSwal('error', 'Dispatch Date Not Selected', 'Please select dispatch date');
         return false;
     }
     else {
@@ -283,12 +312,13 @@ function validateDispatchForm() {
 }
 
 function CancelInvoice() {
-    $('#distributor').val('');
-    $('#distributor-list').val('');
-    //$("input[name='dispatch_type']").attr('checked', false);
+    $('#company_address').val('');
+    $('#company_name').val('');
+    $('#dispatch_company_id').val('');
+    $('#challan_invoice').val('');
     $('#item-list').html('');
     $('#current-date').val('');
-    $('#delivery-date').val('');
+    $('#dispatch_date').val('');
     $('#shipping-detail').val('');
     $('#note').val('');
     $('#subTotal-amount').html('0');
@@ -326,14 +356,13 @@ function getCurrentDate() {
 
 function checkStartEndDate() {
     var startDate = document.getElementById("current-date").value;
-    var endDate = document.getElementById("delivery-date").value;
-    if ((Date.parse(startDate.split(/\-/).reverse().join('-')) > Date.parse(endDate.split(/\-/).reverse().join('-')))) {
-        showSwal('error', 'Invalid Expected Date', 'Expected date should be greater than or equal to date');
-        document.getElementById("delivery-date").value = "";
+    var endDate = document.getElementById("dispatch_date").value;
+    if ((Date.parse(startDate.split(/\-/).reverse().join('-')) < Date.parse(endDate.split(/\-/).reverse().join('-')))) {
+        showSwal('error', 'Invalid Dispatch Date', 'Dispatch date can not be greater than receiving date');
+        document.getElementById("dispatch_date").value = "";
         return false;
     }
 }
-
 function selectLotNo(item_id, ui) {
     var lot_no = $("input[name='lot_no_radio']:checked").val();
     if (!lot_no || lot_no == '' || lot_no == undefined) {
@@ -368,9 +397,26 @@ function setItemUiList(ui, lot_no) {
 
     //end lot number
     // Set selection
+    var lot_display = '';
     var unique_id = ui.item.id + '_' + lot_no;
     var lot_style = (lot_no == '0') ? ' style="display:none;" ' : '';
-
+    if (lot_no == '0') {
+        lot_display = '<p>Lot No:<input type="text" id="lotNo_' + unique_id + '" value="' + lot_no + '" /></p>';
+    }
+    else {
+        lot_display = '<p ' + lot_style + ' id="display_lot_number_' + unique_id + '">Lot: <input type="text" id="lotNo_' + unique_id + '" value="' + lot_no + '" /></p>';
+    }
+    comment = '<textarea class="form-control" value="" rows="1" id="comment_' + unique_id + '"></textarea>';
+    var status = '<select class="form-control" form="carform" id ="status_' + unique_id + '">\n\
+                    <option value="">Select Status</option>\n\
+                    <option value="OK" >OK</option>\n\
+                    <option value="Less Items Received"  >Less Items Received</option>\n\
+                    <option value="More Items Received" >More Items Received</option>\n\
+                    <option value="Expired" >Expired</option>\n\
+                    <option value="Damaged" >Damaged</option>\n\
+                    <option value="Wrong Item" >Wrong Item</option>\n\
+                    <option value="others" >Others</option>\n\
+                    </select>';
     html += '<li class="js-productContainer productContainer products" id="tr_' + unique_id + '" data-pid="204592-066-M11" data-pidmaster="204592">\n\
                             <div class="productContainerRow">\n\
                                 <div class="columnCell column1 productImage text-center"><i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeProduct(\'' + unique_id + '\');"></i></div>\n\
@@ -378,15 +424,21 @@ function setItemUiList(ui, lot_no) {
                                 <div class="columnCell column2 productDetails">\n\
                                     <div class="">\n\
                                         <p><span>' + ui.item.code + '</span></p>\n\
-                                        <p ' + lot_style + ' id="display_lot_number_' + unique_id + '">Lot: ' + lot_no + '</p>\n\
-                                        <input type="hidden" id="lotNo_' + unique_id + '" value="' + lot_no + '" />\n\
+                                        '+ lot_display + '\n\
                                     </div>\n\
                                 </div>\n\
                                 <div class="columnCell column4 productQuantity">\n\
                                     <form>\n\
-                                        <div class="value-button" id="sub_' + unique_id + '" onclick="SubValue(\'' + unique_id + '\');" value="Decrease Value"><i class="fa fa-minus"></i></div>\n\
+                                        <div class="value-button" onclick="SubtractValue(\'' + unique_id + '\');" value="Decrease Value"><i class="fa fa-minus"></i></div>\n\
                                         <input type="number" id="qty_' + unique_id + '" value="1" />\n\
-                                        <div class="value-button" id="add_' + unique_id + '" onclick="AddValue(\'' + unique_id + '\');"value="Increase Value"><i class="fa fa-plus"></i></div>\n\
+                                        <div class="value-button" onclick="AdditionValue(\'' + unique_id + '\');" value="Increase Value"><i class="fa fa-plus"></i></div>\n\
+                                    </form>\n\
+                                </div>\n\
+                                <div class="columnCell column4 productQuantity">\n\
+                                    <form>\n\
+                                        <div class="value-button" id="sub_' + unique_id + '" onclick="SubValue(\'' + unique_id + '\');" value="Decrease Value"><i class="fa fa-minus"></i></div>\n\
+                                        <input type="number" id="received_qty_' + unique_id + '" value="1" />\n\
+                                        <div class="value-button" id="add_' + unique_id + '" onclick="AddValue(\'' + unique_id + '\');" value="Increase Value"><i class="fa fa-plus"></i></div>\n\
                                     </form>\n\
                                 </div>\n\
                                 <div class="columnCell column2">\n\
@@ -395,10 +447,20 @@ function setItemUiList(ui, lot_no) {
                                     </div>\n\
                                 </div>\n\
                                 <div class="columnCell column2 productPriceTotal">\n\
-                                    <div class="price">\n\
-                                        <div class="text-gray-dark cx-heavy-brand-font mt3 total_pay" id="tot_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
-                                    </div>\n\
+                                <div class="price">\n\
+                                    <div class="text-gray-dark cx-heavy-brand-font mt3">'+ status + '</div>\n\
                                 </div>\n\
+                            </div>\n\
+                            <div class="columnCell column2 productPriceTotal">\n\
+                            <div class="price">\n\
+                                <div class="text-gray-dark cx-heavy-brand-font mt3">'+ comment + '</div>\n\
+                            </div>\n\
+                        </div>\n\
+                        <div class="columnCell column2 productPriceTotal">\n\
+                             <div class="price">\n\
+                                <div class="text-gray-dark cx-heavy-brand-font mt3 total_pay" id="tot_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
+                            </div>\n\
+                        </div>\n\
                             </div>\n\
                             <div class="clear hidden-lg"></div>\n\
                             <input type="hidden" class="dp" id="dp_' + unique_id + '" value="' + dealer_price_without_tax + '" />\n\
@@ -414,4 +476,21 @@ function setItemUiList(ui, lot_no) {
                             <input type="hidden" id="item_id_' + unique_id + '" value="' + ui.item.id + '" />\n\
                         </li>';
     $('#item-list').append(html);
+    SubTotal();
+}
+
+function SubtractValue(id) {
+    var qty = $('#qty_' + id).val();
+    qty = Number(qty);
+    qty--;
+    if (qty > 0) {
+        $('#qty_' + id).val(qty);
+    }
+
+}
+function AdditionValue(id) {
+    var qty = $('#qty_' + id).val();
+    qty = Number(qty);
+    qty++;
+    $('#qty_' + id).val(qty);
 }

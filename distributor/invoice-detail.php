@@ -5,6 +5,15 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     exit;
 }
 ?>
+<style>
+    #item-detail-popup .cd-popup-container {
+        max-width: 1200px;
+    }
+
+    #item-detail-popup .cd-popup-content {
+        padding: 20px;
+    }
+</style>
 
 <div id="global-viewport" class='global-viewport m-pikabu-viewport'>
     <div class="global-viewport-container m-pikabu-container">
@@ -66,7 +75,8 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     <div class="clear_both"></div>
                     <div class="mt-20-items">
                         <a class="btn-back-items" href="dashboard">Back</a>
-                        <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel('invoice-detail','invoice_detail');">Download Excel</a>
+                        <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel();">Download Excel</a>
+                        <a class="btn_placeOrder cx-button bgBTN" href="javascript:void(0);" onclick="print();">Print</a>
                     </div>
                 </div>
                 <!-- ====================== snippet ends here ======================== -->
@@ -81,24 +91,15 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 <div class="cd-popup" role="alert" id="item-detail-popup">
     <div class="cd-popup-container">
         <h3 class="headPopup">Item Details<a href="#0" class="cd-popup-close img-replace">Close</a></h3>
-        <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>Sr.No</th>
-                    <th>Item Name</th>
-                    <th>Item Code</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total Price</th>
-                </tr>
-            </thead>
-            <tbody id="item-detail">
-            </tbody>
-        </table>
+        <div class="cd-popup-content">
+            <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="item-detail">
+            </table>
+        </div>
     </div>
 </div>
 <!-- content-wrapper ends -->
 <?php include_once 'footer.php'; ?>
+<script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
 <script>
     var example = flatpickr('#start-date');
     var example1 = flatpickr('#end-date');
@@ -134,7 +135,6 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
             end_date: end_date,
             invoice_no: invoice_no
         };
-        console.log(params);
         var url = base_url + 'distributor/invoice-detail';
         $.ajax({
             url: url,
@@ -206,28 +206,69 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                 invoice_id: invoice_id
             },
             success: function(response) {
+                var items = '<thead>\n\
+                            <tr>\n\
+                            <th>Sr.No</th>\n\
+                            <th>Invoice Number</th>\n\
+                            <th>Invoice Date & Time</th>\n\
+                            <th>Customer Name</th>\n\
+                            <th>Customer Mobile No</th>\n\
+                            <th>Total Amount</th>\n\
+                            <th>Tax Amount</th>\n\
+                            <th>Cash Amount</th>\n\
+                            <th>Coupon Amount</th>\n\
+                            <th>Category Name</th>\n\
+                            <th>Item Name</th>\n\
+                            <th>Item Code</th>\n\
+                            <th>BV Type</th>\n\
+                            <th>Quantity</th>\n\
+                            <th>Price</th>\n\
+                            <th>Total Price</th>\n\
+                            </tr>\n\
+                        </thead><tbody>';
                 $('#item-detail').html('');
                 if (response.status == "success") {
+                    console.log(response);
                     if (response.data.length != 0) {
                         var i = 1;
-                        var items = '';
-                        $.each(response.data, function(key, value) {
+                        $.each(response.data.invoice, function(key, value) {
                             console.log(value);
                             items += '<tr id="item_' + i + '" role="row">\n\
                                      <td>' + i + '</td>\n\
-                                     <td>' + value.product_name + '</td>\n\
+                                     <td>' + value.invoice_no + '</td>\n\
+                                     <td>' + value.invoice_date_time + '</td>\n\
+                                     <td>' + value.customer_name + '</td>\n\
+                                     <td>' + value.customer_mobile + '</td>\n\
+                                     <td>' + value.total_amount + '</td>\n\
+                                     <td>' + value.tax_amount + '</td>\n\
+                                     <td>' + value.cash_amount + '</td>\n\
+                                     <td>' + value.coupon_amount + '</td>';
+                        });
+                        $.each(response.data.invoice_items, function(key, value) {
+                            console.log(value);
+                            items += '<td>' + value.category_name + '</td>\n\
+                                    <td>' + value.business_value + '</td>\n\
+                                    <td>' + value.product_name + '</td>\n\
                                      <td>' + value.sku + '</td>\n\
                                      <td>' + value.quantity + '</td>\n\
                                      <td>' + value.price + '</td>\n\
                                      <td>' + value.item_total + '</td>\n\
-                                 </tr>';
+                                     </tr>';
+                                     
+                                
                         });
-                        console.log(items);
+                        items += '</tbody>';
                         $('#item-detail').html(items);
                         $('#item-detail-popup').addClass('is-visible');
+                        $('#item-detail').DataTable().destroy();
+                        $('#item-detail').DataTable();
                     }
                 } else {
-                    showSwal('error', 'No Data Found');
+                    items += '</tbody>';
+                    $('#item-detail').html(items);
+                    $('#item-detail-popup').addClass('is-visible');
+                    $('#item-detail').DataTable().destroy();
+                    $('#item-detail').DataTable();
                 }
 
             }
@@ -243,34 +284,18 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
         });
     });
 
-    function exportTableToExcel(tableID, filename = '') {
-        var downloadLink;
-        var dataType = 'application/vnd.ms-excel';
-        var tableSelect = document.getElementById(tableID);
-        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    function exportTableToExcel() {
+        $("#invoice-detail").table2excel({
+            filename: "invoice_detail.xls"
+        });
+    }
 
-        // Specify file name
-        filename = filename ? filename + '.xls' : 'excel_data.xls';
+    function print() {
+        var tab = document.getElementById('invoice-detail');
+        var win = window.open('', '', 'height=700,width=700');
+        win.document.write(tab.outerHTML);
+        win.document.close();
+        win.print();
 
-        // Create download link element
-        downloadLink = document.createElement("a");
-
-        document.body.appendChild(downloadLink);
-
-        if (navigator.msSaveOrOpenBlob) {
-            var blob = new Blob(['\ufeff', tableHTML], {
-                type: dataType
-            });
-            navigator.msSaveOrOpenBlob(blob, filename);
-        } else {
-            // Create a link to the file
-            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-
-            // Setting the file name
-            downloadLink.download = filename;
-
-            //triggering the function
-            downloadLink.click();
-        }
     }
 </script>

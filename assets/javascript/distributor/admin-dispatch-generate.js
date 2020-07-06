@@ -56,12 +56,12 @@ $(document).ready(function () {
           </div>\n\
           <div class="columnCell column2">\n\
               <div class="price">\n\
-                  <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_'+ ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
+                  <div class="cx-heavy-brand-font mt3" id="dealer_price_'+ ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
               </div>\n\
           </div>\n\
           <div class="columnCell column2 productPriceTotal">\n\
               <div class="price">\n\
-                  <div class="text-gray-dark cx-heavy-brand-font mt3 total_pay" id="tot_'+ ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
+                  <div class="cx-heavy-brand-font mt3 total_pay" id="tot_'+ ui.item.id + '">' + ui.item.dealer_price + '</div>\n\
               </div>\n\
           </div>\n\
       </div>\n\

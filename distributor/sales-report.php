@@ -64,7 +64,8 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     <div class="clear_both"></div>
                     <div class="mt-20-items">
                         <a class="btn-back-items" href="dashboard">Back</a>
-                        <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel('sales-report','sales_report');">Download Excel</a>
+                        <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel();">Download Excel</a>
+                        <a class="btn_placeOrder cx-button bgBTN" href="javascript:void(0);" onclick="print();">Print</a>
                     </div>
                 </div>
                 <!-- ====================== snippet ends here ======================== -->
@@ -76,40 +77,35 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 
 </div>
 </div>
+<div class="cd-popup" role="alert" id="item-detail-popup">
+    <div class="cd-popup-container">
+        <h3 class="headPopup">Item Details<a href="#0" class="cd-popup-close img-replace">Close</a></h3>
+        <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody id="item-detail">
+            </tbody>
+        </table>
+    </div>
+</div>
 <!-- content-wrapper ends -->
 <?php include_once 'footer.php'; ?>
+<script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
 <script src="<?php echo $home_url; ?>assets/javascript/distributor/stock-flow.js"></script>
 <script>
     var example = flatpickr('#start-date');
     var example1 = flatpickr('#end-date');
-    function exportTableToExcel(tableID, filename = '') {
-        var downloadLink;
-        var dataType = 'application/vnd.ms-excel';
-        var tableSelect = document.getElementById(tableID);
-        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    function exportTableToExcel() {
+        $("#sales-report").table2excel({
+            filename: "sales_report.xls"
+        });
+    }
 
-        // Specify file name
-        filename = filename ? filename + '.xls' : 'excel_data.xls';
+    function print() {
+        var tab = document.getElementById('sales-report');
+        var win = window.open('', '', 'height=700,width=700');
+        win.document.write(tab.outerHTML);
+        win.document.close();
+        win.print();
 
-        // Create download link element
-        downloadLink = document.createElement("a");
-
-        document.body.appendChild(downloadLink);
-
-        if (navigator.msSaveOrOpenBlob) {
-            var blob = new Blob(['\ufeff', tableHTML], {
-                type: dataType
-            });
-            navigator.msSaveOrOpenBlob(blob, filename);
-        } else {
-            // Create a link to the file
-            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-
-            // Setting the file name
-            downloadLink.download = filename;
-
-            //triggering the function
-            downloadLink.click();
-        }
     }
 </script>

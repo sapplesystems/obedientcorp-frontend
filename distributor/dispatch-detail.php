@@ -144,8 +144,8 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                 if (response.status == "success") {
                     var i = 1;
                     $.each(response.data, function(key, value) {
-                        var lot_no = '';
-                        if (value.lot_no != null && value.lot_no != '') {
+                        var lot_no = '-';
+                        if (value.lot_no != null && value.lot_no != '' && value.lot_no != '0') {
                             lot_no = value.lot_no;
                         }
                         html += '<tr id="tr_' + value.id + '" role="row" >\n\

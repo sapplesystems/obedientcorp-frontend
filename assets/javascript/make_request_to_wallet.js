@@ -45,6 +45,7 @@ $(function () {
             params.append('created_by', user_id);
             params.append('created_for', user_id);
             params.append('payment_type', '2');
+            params.append('date_of_payment', $('#date_of_payment').val());
 
             $.ajax({
                 url: url,

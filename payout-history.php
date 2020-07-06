@@ -168,7 +168,7 @@ if ($user_type != 'ADMIN') {
                         var table = $('#payout_history').DataTable();
                         table.destroy();
                         $('#payout_history').DataTable({
-                            dom: 'Bfrtip',
+                            dom: 'Blfrtip',
                             buttons: [
                                 {
                                     extend: 'excelHtml5',

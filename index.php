@@ -43,7 +43,7 @@ include_once 'header_frontend.php';
                     <div class="fact" id="real_estate_locations" data-source="0">
                         <div class="texts">
                             <div>
-							<a href="#about" class="click-effect dark-effect">About Us</a>
+							<a href="about" class="click-effect dark-effect">About Us</a>
                                 <h1 class="factor">0</h1>
                                 <h3>Real Estate Running Projects</h3>
                                 <p>At Affordable & Great Locations</p>
@@ -53,7 +53,7 @@ include_once 'header_frontend.php';
                     <div class="fact" id="consumer_goods_products" data-source="0">
                         <div class="texts">
                             <div>
-							<a href="#about" class="click-effect dark-effect">Our Values</a>
+							<a href="about.php#values_section" class="click-effect dark-effect">Our Values</a>
                                 <h1 class="factor">0</h1>
                                 <h3>Consumer Good Products</h3>
                                 <p> With Best Quality </p>
@@ -63,7 +63,7 @@ include_once 'header_frontend.php';
                     <div class="fact" id="total_members" data-source="0">
                         <div class="texts">
                             <div>
-							<a href="#about" class="click-effect dark-effect">Vision & Mission</a>
+							<a href="about.php#vision_section" class="click-effect dark-effect">Vision & Mission</a>
                                 <h1 class="factor">0</h1>
                                 <h3> Happy Obedient family</h3>
                                 <p>&nbsp;</p>

@@ -94,7 +94,7 @@
                                                         <div class="form-group row payment-number-div">
                                                             <label class="col-form-label col-sm-4 text-right " id="payment-number-div">Cheque Number:</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter cheque number.">
+                                                                <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter Cheque Number.">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -104,7 +104,7 @@
                                                         <div class="form-group row ">
                                                             <label class="col-form-label col-sm-4 text-right">Bank Name:</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control required" id="bank_name" name="bank_name" placeholder="Enter bank name">
+                                                                <input type="text" class="form-control required" id="bank_name" name="bank_name" placeholder="Enter Bank Name">
                                                             </div>
                                                         </div>
                                                     </div>

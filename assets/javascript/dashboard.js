@@ -1,49 +1,49 @@
 //AUTOMATIC TYPING ON DASHBOARD CODE START HERE
 /*var typedTextSpan = document.querySelector(".typed-text");
-var cursorSpan = document.querySelector(".cursor");
-
-var textArray = ["Obedient Group", "Where dreams come true"];
-var typingDelay = 200;
-var erasingDelay = 100;
-var newTextDelay = 2000; // Delay between current and next text
-var textArrayIndex = 0;
-var charIndex = 0;
-
-function type() {
-    if (charIndex < textArray[textArrayIndex].length) {
-        if (!cursorSpan.classList.contains("typing"))
-            cursorSpan.classList.add("typing");
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
-    }
-    else {
-        cursorSpan.classList.remove("typing");
-        setTimeout(erase, newTextDelay);
-    }
-}
-
-function erase() {
-    if (charIndex > 0) {
-        if (!cursorSpan.classList.contains("typing"))
-            cursorSpan.classList.add("typing");
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, erasingDelay);
-    }
-    else {
-        cursorSpan.classList.remove("typing");
-        textArrayIndex++;
-        if (textArrayIndex >= textArray.length)
-            textArrayIndex = 0;
-        setTimeout(type, typingDelay + 1100);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
-    if (textArray.length)
-        setTimeout(type, newTextDelay + 250);
-});*/
+ var cursorSpan = document.querySelector(".cursor");
+ 
+ var textArray = ["Obedient Group", "Where dreams come true"];
+ var typingDelay = 200;
+ var erasingDelay = 100;
+ var newTextDelay = 2000; // Delay between current and next text
+ var textArrayIndex = 0;
+ var charIndex = 0;
+ 
+ function type() {
+ if (charIndex < textArray[textArrayIndex].length) {
+ if (!cursorSpan.classList.contains("typing"))
+ cursorSpan.classList.add("typing");
+ typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+ charIndex++;
+ setTimeout(type, typingDelay);
+ }
+ else {
+ cursorSpan.classList.remove("typing");
+ setTimeout(erase, newTextDelay);
+ }
+ }
+ 
+ function erase() {
+ if (charIndex > 0) {
+ if (!cursorSpan.classList.contains("typing"))
+ cursorSpan.classList.add("typing");
+ typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+ charIndex--;
+ setTimeout(erase, erasingDelay);
+ }
+ else {
+ cursorSpan.classList.remove("typing");
+ textArrayIndex++;
+ if (textArrayIndex >= textArray.length)
+ textArrayIndex = 0;
+ setTimeout(type, typingDelay + 1100);
+ }
+ }
+ 
+ document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+ if (textArray.length)
+ setTimeout(type, newTextDelay + 250);
+ });*/
 //AUTOMATIC TYPING ON DASHBOARD CODE END HERE
 if (user_type == 'ADMIN') {
     getDashboardInfoAdmin(user_id)
@@ -80,6 +80,8 @@ function getDashboardInfoAdmin(user_id) {
                 $('#current_cycle').html(current_payout.from_date + ' - ' + current_payout.to_date);
                 $('#estimated_payout').html(current_payout.estimated_payout);
                 $('#upcoming_payout_date').html(current_payout.to_date);
+                
+                setCurrentWeekMonth(data.current_week_month);
             }
             hideLoader();
         }
@@ -101,6 +103,8 @@ function getDashboardInfo(user_id) {
                 $('#total_right_business').html(data.total_right_business);
                 $('#matching_income').html(data.matching_income);
                 $('#total_earning').html(data.total_earning);
+
+                setCurrentWeekMonth(data.current_week_month);
 
                 //chart
                 var month_wise_data = data.month_wise_data;
@@ -147,6 +151,13 @@ function getDashboardInfo(user_id) {
             hideLoader();
         }
     });
+}
+
+function setCurrentWeekMonth(data) {
+    $('#running_week_no').html('Week ' + data.current_week_no);
+    $('#current_week_cycle').html(data.current_week_cycle);
+    $('#current_month_no').html('Month ' + data.current_month_no);
+    $('#current_month_cycle').html(data.current_month_cycle);
 }
 
 function generateChart(total_left_business, total_right_business, total_self_business) {

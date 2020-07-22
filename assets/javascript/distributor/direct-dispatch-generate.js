@@ -7,6 +7,8 @@ var sub_total = 0;
 var total_tax = 0;
 var total = 0;
 var global_ui = {};
+var company_name = '';
+var company_addrs = '';
 $(document).ready(function () {
 
 
@@ -43,16 +45,17 @@ $(document).ready(function () {
                     var test_id = 3;
                     $.each(item_lot_number, function (key, value) {
                         //set_lot_numbers += '<label><input type="radio" name="lot_no_radio" value="' + value + '" style="position: inherit;"> ' + value + ' Quantity: ' + lot_quantity[lq] + '</label><br/>';
-                        set_lot_numbers+='<p>\n\
-                                    <input type="radio" id="test'+test_id+'" name="lot_no_radio" value="' + value + '">\n\
-                                    <label for="test'+test_id+'">' + value + ' Quantity: ' + lot_quantity[lq] + '</label>\n\
-                                    </p>';
+                        set_lot_numbers += '<tr>\n\
+                                            <td><input style="position:inherit;" type="radio" id="test'+ test_id + '" name="lot_no_radio" value="' + value + '" data-value="' + lot_quantity[lq] + '"></td>\n\
+                                            <td><label for="test'+ test_id + '">' + value + '</label></td>\n\
+                                            <td><label>' + lot_quantity[lq] + '</label></td>\n\
+                                            </tr>>';
                                 lq++
                                 test_id++;
                     });
                     global_ui = ui;
-                    set_lot_numbers += '<div class="text-center"><button onclick="selectLotNo(\'' + ui.item.id + '\');">Select</button></div>';
-                    $('#lot_numbers_content').html(set_lot_numbers);
+                    $('#lot_quantity').html(set_lot_numbers);
+                    $('#lot_select').html('<button onclick="selectLotNo(\'' + ui.item.id + '\');">Select</button>');
                     $('#lot_numbers_popup').addClass('is-visible');
                 }
             } else {
@@ -67,6 +70,8 @@ $(document).ready(function () {
         multiple: true,
         source: company_list,
         select: function (event, ui) {
+            company_name = ui.item.label;
+            company_addrs = ui.item.address;
             $('#company_name').val(ui.item.label);
             $('#company_address').val(ui.item.address);
             $('#dispatch_company_id').val(ui.item.id);
@@ -76,10 +81,17 @@ $(document).ready(function () {
     });
 
 
-    $('#company_name').on('keyup', function () {
-        $('#company_address').val('');
-        $('#dispatch_company_id').val('');
-        $('#challan_invoice').val('');
+    $('#company_name').on('blur', function () {
+        if(company_name != $('#company_name').val() && $('#dispatch_company_id').val() != ''){
+            $('#dispatch_company_id').val('');
+            company_name = $('#company_name').val();
+        }
+    });
+    $('#company_address').on('blur', function () {
+        if(company_addrs != $('#company_address').val()){
+            $('#dispatch_company_id').val('');
+            company_addrs = $('#company_address').val();
+        }
     });
 
 });//document ready
@@ -295,6 +307,11 @@ function validateDispatchForm() {
         showSwal('error', 'Company Name Not Selected', 'Please select company name');
         return false;
     }
+    else if($('#challan_invoice').val() =='')
+    {
+        showSwal('error', 'Challan/Invoice', 'Please enter challan/invoice number');
+        return false;
+    }
     else if (totalRowCount <= 0) {
         showSwal('error', 'Items Not Selected', 'Please select product');
         return false;
@@ -366,8 +383,7 @@ function checkStartEndDate() {
 function selectLotNo(item_id, ui) {
     var lot_no = $("input[name='lot_no_radio']:checked").val();
     if (!lot_no || lot_no == '' || lot_no == undefined) {
-        showSwal('error', 'Select lot number', 'Select lot number');
-        return false;
+        lot_no = '';
     }
     itemsAlreadyExits(item_id, lot_no, global_ui);
     global_ui = {};
@@ -443,22 +459,22 @@ function setItemUiList(ui, lot_no) {
                                 </div>\n\
                                 <div class="columnCell column2">\n\
                                     <div class="price">\n\
-                                        <div class="text-gray-dark cx-heavy-brand-font mt3" id="dealer_price_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
+                                        <div class="cx-heavy-brand-font mt3" id="dealer_price_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
                                     </div>\n\
                                 </div>\n\
                                 <div class="columnCell column2 productPriceTotal">\n\
                                 <div class="price">\n\
-                                    <div class="text-gray-dark cx-heavy-brand-font mt3">'+ status + '</div>\n\
+                                    <div class="cx-heavy-brand-font mt3">'+ status + '</div>\n\
                                 </div>\n\
                             </div>\n\
                             <div class="columnCell column2 productPriceTotal">\n\
                             <div class="price">\n\
-                                <div class="text-gray-dark cx-heavy-brand-font mt3">'+ comment + '</div>\n\
+                                <div class="cx-heavy-brand-font mt3">'+ comment + '</div>\n\
                             </div>\n\
                         </div>\n\
                         <div class="columnCell column2 productPriceTotal">\n\
                              <div class="price">\n\
-                                <div class="text-gray-dark cx-heavy-brand-font mt3 total_pay" id="tot_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
+                                <div class="cx-heavy-brand-font mt3 total_pay" id="tot_' + unique_id + '">' + ui.item.dealer_price + '</div>\n\
                             </div>\n\
                         </div>\n\
                             </div>\n\

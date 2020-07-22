@@ -27,6 +27,7 @@ function getAgentsList() {
                     <th>Mobile</th>\n\
                     <th>Joining Date</th>\n\
                     <th>Kyc Status</th>\n\
+                    <th>Password</th>\n\
                     <th>Action</th>\n\
                 </tr>\n\
             </thead><tbody>';
@@ -82,6 +83,7 @@ function getAgentsList() {
                                     <td>' + value.mobile_no + '</td>\n\
                                     <td>' + joining_date + '</td>\n\
                                     <td>' + value.kyc_status + '</td>\n\
+                                    <td>' + value.org_password + '</td>\n\
                                     ' + action_td + '\n\
                                 </tr>';
                     x++;
@@ -145,7 +147,7 @@ function changePasswordSubmit(e, user_id) {
                 success: function (response) {
                     if (response.status == 'success') {
                         showSwal('success', 'Change Password ', response.data);
-                        getAgentsList();
+                        changePasswordCancel(e, user_id);
                     }
                     else {
                         showSwal('error', 'Password Not Changed ', 'Password not changed');

@@ -263,7 +263,7 @@ function disableTransactionPassword() {
 
 }
 function getCitiesList(state_id) {
-    var cities_list_html = '<option>-- Select One --</option>';
+    var cities_list_html = '<option value="">-- Select One --</option>';
     $.each(state_list[state_id].cities, function (key, val) {
         cities_list_html += '<option value="' + val.id + '">' + val.city + '</option>';
     });

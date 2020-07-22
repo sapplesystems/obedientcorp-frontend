@@ -1,5 +1,10 @@
 <?php
 include_once '../config.php';
+$token = '';
+if(isset($_REQUEST['token']) && $_REQUEST['token']!='')
+{
+    $token = $_REQUEST['token'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,13 +34,13 @@ include_once '../config.php';
                     <img src="<?php echo $home_url; ?>assets/javascript/distributor/images/img-01.png" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form" id="login_form">
+                <form class="login100-form validate-form" id="reset_password_form">
                     <span class="login100-form-title">
-                        Member Login
+                      Reset Password
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" id="username" name="username" placeholder="Username">
+                        <input class="input100" type="email" id="email" name="email" placeholder="Email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -51,17 +56,13 @@ include_once '../config.php';
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" id="login">
-                            Login
+                        <button class="login100-form-btn" id="reset_password">
+                           Reset Password
                         </button>
                     </div>
-
                     <div class="text-center mt-3">
-                        <span class="txt1">
-                            Forgot
-                        </span>
-                        <a class="txt2" href="forgot-password">
-                            Password?
+                        <a class="txt2" href="login">
+                            Login
                         </a>
                     </div>
                 </form>
@@ -77,15 +78,16 @@ include_once '../config.php';
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script>
     var base_url = "<?php echo $base_url; ?>";
+    var token = "<?php echo $token;?>";
     //function for login
     $(function() {
 
         //checkCookie();
-        $("#login").click(function(e) {
+        $("#reset_password").click(function(e) {
             e.preventDefault();
-            $("#login_form").validate({
+            $("#reset_password_form").validate({
                 rules: {
-                    username: {
+                    email: {
                         required: true,
                     },
                     password: {
@@ -93,11 +95,12 @@ include_once '../config.php';
                     },
                 },
             });
-            if ($("#login_form").valid()) {
+            if ($("#reset_password_form").valid()) {
                 showLoader();
-                var url = base_url + 'distributor/login';
+                var url = base_url + 'distributor/reset-password';
                 var params = {
-                    username: $("#username").val(),
+                    token:token,
+                    email: $("#email").val(),
                     password: $("#password").val(),
                 };
                 $.ajax({
@@ -107,25 +110,10 @@ include_once '../config.php';
                     success: function(response) {
                         console.log(response);
                         if (response.status == "success") {
-                            $.post('../localapi.php', {
-                                create_distributor_session: 1,
-                                distributor_login_resp: JSON.stringify(response.data) //response.data
-                            }, function(resp) {
-                                var customObject = {};
-                                customObject.id = response.data.id;
-                                customObject.username = response.data.username;
-                                customObject.email = response.data.email;
-                                customObject.name = response.data.name;
-                                customObject.user_type = response.data.user_type;
-                                customObject.pan_image = response.data.pan_image;
-                                customObject.gst_image = response.data.gst_image;
-                                if (response.data.photo) {
-                                    customObject.photo = response.data.photo;
-                                }
-                                var jsonString = JSON.stringify(customObject);
-                                setCookie(jsonString);
-                                hideLoader();
-                            });
+                            document.getElementById('reset_password_form').reset();
+                            showSwal('success', 'Reset Password', response.data);
+                            hideLoader();
+                           
                         } else {
                             var error = response.data;
                             showSwal('error', 'Login Failed', error);
@@ -148,47 +136,6 @@ include_once '../config.php';
             } //end if
         });
 
-        //function for set cookies
-        function setCookie(jsonString) {
-            var d = new Date();
-            var cname = "UserCookie";
-            d.setTime(d.getTime() + (1 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toGMTString();
-            document.cookie = cname + "=" + jsonString + ";" + expires + ";path=/";
-            checkCookie();
-        } //end function set cookies
-
-        //function for checkcookies
-        function checkCookie() {
-
-            var UserCookie = getCookie("UserCookie");
-            if (UserCookie !== '') {
-                console.log('in if');
-                var data = JSON.parse(UserCookie);
-                window.location.href = "dashboard";
-            } else {
-                console.log('in else');
-                logout();
-            }
-        } //end function checkcookies
-
-        //function for get cookies
-        function getCookie(cname) {
-
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-
     });
 
     function showLoader() {
@@ -199,15 +146,7 @@ include_once '../config.php';
         $('#loader_bg').css('display', 'none');
     }
 
-    function logout() {
-        $.post('../localapi.php', {
-            destroy_session: 1
-        }, function(resp) {
-            document.cookie = 'UserCookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            window.location.href = 'login';
-        });
-        hideLoader();
-    }
+    
 
     hideLoader();
 </script>

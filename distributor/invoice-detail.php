@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once 'header-copy.php';
 if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_login_resp']['id'] == '') {
     echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
@@ -7,14 +7,25 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 ?>
 <style>
     #item-detail-popup .cd-popup-container {
-        max-width: 1200px;
+        max-width: 1300px;
+		margin-top: 20px;
     }
 
     #item-detail-popup .cd-popup-content {
         padding: 20px;
     }
+	.distributor_info > div:first-child, .distributor_info > div:nth-child(3){width:15%;}
+.distributor_info > div:nth-child(3){width:15%; margin-left:10%;}
 </style>
-
+<div class="main-content"> 
+        <section class="section">
+    <div class="row grid-margin">
+            <div class="col-12">
+                <div class="card">
+				<div class="card-header">
+					 <h4>Invoice Detail</h4>
+				</div>
+				<div class="card-body">
 <div id="global-viewport" class='global-viewport m-pikabu-viewport'>
     <div class="global-viewport-container m-pikabu-container">
         <div id="mainContent" role="main" class="content" tabindex="-1">
@@ -22,12 +33,11 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 
             <!-- Report the active source code -->
             <div class="responsiveCenteredContent js-cart">
-                <div class="shoppingCartContainer">
-                    <h1 class="headTop">Invoice Detail</h1>
+                <div class="shoppingCartContainer mt-0">
                     <!-- Start of cart's first part -->
                     <div>
                         <h2 class="headTop"><?php echo $name . '(' . $username . ')'; ?></h2>
-                        <div class="left_sec">
+                        <div class="">
                             <div class="distributor_info">
                                 <div><strong>Start Date:</strong> </div>
                                 <div>
@@ -59,24 +69,24 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                 <div><input type="text" id="invoice-no" name="invoice_no" value=""></div>
                             </div>
                             <div class="clear_both"></div>
-                            <div class="distributor_info marginTop10">
-                                <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel text-bold marginTop20" type="button" name="" value="true" onclick="CancelInvoiceDetail();"><span>Clear</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN  text-bold ml2Percent marginTop20" type="button" name="" value="true" id="generate-invoice" onclick="getInvoiceDetail();"><span>Search</span></button>
+                            <div class="distributor_info marginTop10 text-right">
+                                <button id="loginCheckout" class="btn btn-light" type="button" name="" value="true" onclick="CancelInvoiceDetail();"><span>Clear</span></button><button id="loginCheckout" class="btn btn-dark ml-2" type="button" name="" value="true" id="generate-invoice" onclick="getInvoiceDetail();"><span>Search</span></button>
                             </div>
                             <div class="clear_both"></div>
-                            <div class="overflow_auto marginTop20">
+                            <div class="marginTop20">
                                 <div><strong>Items List:</strong> </div>
+								<div class="scroll-m">
                                 <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="invoice-detail">
                                 </table>
+								</div>
                             </div>
                         </div>
-                        <div class="right_sec">
+                        <div class="">
                         </div>
                     </div>
                     <div class="clear_both"></div>
                     <div class="mt-20-items">
-                        <a class="btn-back-items" href="dashboard">Back</a>
-                        <a class="btn-back-items" href="javascript:void(0);" onclick="exportTableToExcel();">Download Excel</a>
-                        <a class="btn_placeOrder cx-button bgBTN" href="javascript:void(0);" onclick="print();">Print</a>
+                        <a class="btn btn-warning" href="dashboard">Back</a><a class="btn btn-info ml-2" href="javascript:void(0);" onclick="exportTableToExcel();">Download Excel</a><a class="btn btn-success ml-2" href="javascript:void(0);" onclick="print();">Print</a>
                     </div>
                 </div>
                 <!-- ====================== snippet ends here ======================== -->
@@ -88,17 +98,25 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 
 </div>
 </div>
+</div>
+</div>
+</div>
+</section>
+</div>
 <div class="cd-popup" role="alert" id="item-detail-popup">
     <div class="cd-popup-container">
         <h3 class="headPopup">Item Details<a href="#0" class="cd-popup-close img-replace">Close</a></h3>
         <div class="cd-popup-content">
+		<div class="scroll-m">
             <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="item-detail">
             </table>
+			</div>
         </div>
+        <a class="btn btn-info mb-4" href="javascript:void(0);" onclick="exportTableToExcelOnPopup();">Download Excel</a>
     </div>
 </div>
 <!-- content-wrapper ends -->
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footer-copy.php'; ?>
 <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
 <script>
     var example = flatpickr('#start-date');
@@ -107,6 +125,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     getInvoiceDetail();
 
     function getInvoiceDetail() {
+        showLoader();
         var start_date = '';
         var end_date = '';
         var customer_name = '';
@@ -143,16 +162,16 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
             success: function(response) {
                 var html = '<thead>\n\
                                 <tr>\n\
-                                <th>Sr.No</th>\n\
-                                <th>Invoice Number</th>\n\
-                                <th>Invoice Date & Time</th>\n\
-                                <th>Customer Name</th>\n\
-                                <th>Customer Mobile No</th>\n\
-                                <th>Total Amount</th>\n\
-                                <th>Tax Amount</th>\n\
-                                <th>Cash Amount</th>\n\
-                                <th>Coupon Amount</th>\n\
-                                <th></th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Sr.No</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Invoice Number</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Invoice Date & Time</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Customer Name</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Customer Mobile No</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Total Amount</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Tax Amount</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Cash Amount</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Coupon Amount</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;" class="invoiceDetail">Action</th>\n\
                                 </tr>\n\
                                 </thead><tbody>';
                 if (response.status == "success") {
@@ -160,28 +179,45 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                         var i = 1;
                         $.each(response.data, function(key, value) {
                             html += '<tr id="tr_' + value.id + '" role="row" >\n\
-                                    <td>' + i + '</td>\n\
-                                    <td>' + value.invoice_no + '</td>\n\
-                                    <td>' + value.invoice_date_time + '</td>\n\
-                                    <td>' + value.customer_name + '</td>\n\
-                                    <td>' + value.customer_mobile + '</td>\n\
-                                    <td>' + value.total_amount + '</td>\n\
-                                    <td>' + value.tax_amount + '</td>\n\
-                                    <td>' + value.cash_amount + '</td>\n\
-                                    <td>' + value.coupon_amount + '</td>\n\
-                                    <td>\n\
-                                        <a href="javascript:void(0);" onclick="itemDetail(' + value.id + ');">Item Details</a>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + i + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.invoice_no + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.invoice_date_time + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.customer_name + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.customer_mobile + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.total_amount + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.tax_amount + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.cash_amount + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.coupon_amount + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">\n\
+                                        <a style="background-color: #191d21;border-color: #191d21;color: #fff;white-space: nowrap;border-radius: .2rem;text-align: center;vertical-align: middle;width: 50px;height: 28px;line-height: 28px;text-decoration:none;font-size: 12px;padding:0px;display:inline-block;"  class="btn btn-dark btn-sm invoiceDetail" href="javascript:void(0);" onclick="itemDetail(' + value.id + ');">Details</a>\n\
                                     </td>\n\
                                 </tr>';
                             i = i + 1;
                         });
                         html += '</tbody>';
                         $('#invoice-detail').html(html);
-                        $('#invoice-detail').DataTable();
+                        $('#invoice-detail').DataTable().destroy();
+                        $('#invoice-detail').DataTable({
+                            dom: 'Blfrtip',
+                            buttons: [{
+                                extend: 'excelHtml5',
+                                title: 'invoice-detail' + Date.now(),
+                                text: 'Export to Excel',
+                                exportOptions: {
+                                    columns: [0, 1, 2, 3, 4, 5, 6,7,8]
+                                }
+                            }],
+                            aaSorting: []
+                        });
+                        $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+                        $('.download-excel').css('display', 'none');
+                        hideLoader();
                     }
                 } else {
                     $('#invoice-detail').html(html);
+                    $('#invoice-detail').DataTable().destroy();
                     $('#invoice-detail').DataTable();
+                    hideLoader();
                 }
 
             }
@@ -208,51 +244,48 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
             success: function(response) {
                 var items = '<thead>\n\
                             <tr>\n\
-                            <th>Sr.No</th>\n\
-                            <th>Invoice Number</th>\n\
-                            <th>Invoice Date & Time</th>\n\
-                            <th>Customer Name</th>\n\
-                            <th>Customer Mobile No</th>\n\
-                            <th>Total Amount</th>\n\
-                            <th>Tax Amount</th>\n\
-                            <th>Cash Amount</th>\n\
-                            <th>Coupon Amount</th>\n\
-                            <th>Category Name</th>\n\
-                            <th>Item Name</th>\n\
-                            <th>Item Code</th>\n\
-                            <th>BV Type</th>\n\
-                            <th>Quantity</th>\n\
-                            <th>Price</th>\n\
-                            <th>Total Price</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Sr.No</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Invoice Number</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Invoice Date & Time</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Customer Name</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Customer Mobile No</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Total Amount</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Tax Amount</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Cash Amount</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Coupon Amount</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Category Name</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Name</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Code</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">BV Type</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Quantity</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Price</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Total Price</th>\n\
                             </tr>\n\
                         </thead><tbody>';
                 $('#item-detail').html('');
                 if (response.status == "success") {
-                    console.log(response);
+                    var invoice_data = response.data.invoice[0];
                     if (response.data.length != 0) {
                         var i = 1;
-                        $.each(response.data.invoice, function(key, value) {
-                            console.log(value);
-                            items += '<tr id="item_' + i + '" role="row">\n\
-                                     <td>' + i + '</td>\n\
-                                     <td>' + value.invoice_no + '</td>\n\
-                                     <td>' + value.invoice_date_time + '</td>\n\
-                                     <td>' + value.customer_name + '</td>\n\
-                                     <td>' + value.customer_mobile + '</td>\n\
-                                     <td>' + value.total_amount + '</td>\n\
-                                     <td>' + value.tax_amount + '</td>\n\
-                                     <td>' + value.cash_amount + '</td>\n\
-                                     <td>' + value.coupon_amount + '</td>';
-                        });
                         $.each(response.data.invoice_items, function(key, value) {
                             console.log(value);
-                            items += '<td>' + value.category_name + '</td>\n\
-                                    <td>' + value.business_value + '</td>\n\
-                                    <td>' + value.product_name + '</td>\n\
-                                     <td>' + value.sku + '</td>\n\
-                                     <td>' + value.quantity + '</td>\n\
-                                     <td>' + value.price + '</td>\n\
-                                     <td>' + value.item_total + '</td>\n\
+                            items += '<tr id="item_' + i + '" role="row">\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + i + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.invoice_no + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.invoice_date_time + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.customer_name + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.customer_mobile + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.total_amount + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.tax_amount + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.cash_amount + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.coupon_amount + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.category_name + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.business_value + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.product_name + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.sku + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.quantity + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.price + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.item_total + '</td>\n\
                                      </tr>';
                                      
                                 
@@ -261,7 +294,17 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                         $('#item-detail').html(items);
                         $('#item-detail-popup').addClass('is-visible');
                         $('#item-detail').DataTable().destroy();
-                        $('#item-detail').DataTable();
+                        $('#item-detail').DataTable({
+                            dom: 'Blfrtip',
+                            buttons: [{
+                                extend: 'excelHtml5',
+                                title: 'invoice-item-detail' + Date.now(),
+                                text: 'Export to Excel',
+                            }],
+                            aaSorting: []
+                        });
+                        $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel-item');
+                        $('.download-excel-item').css('display', 'none');
                     }
                 } else {
                     items += '</tbody>';
@@ -285,9 +328,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     });
 
     function exportTableToExcel() {
-        $("#invoice-detail").table2excel({
-            filename: "invoice_detail.xls"
-        });
+        $('.download-excel').click();
     }
 
     function print() {
@@ -297,5 +338,8 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
         win.document.close();
         win.print();
 
+    }
+    function exportTableToExcelOnPopup() {
+        $('.download-excel-item').click();
     }
 </script>

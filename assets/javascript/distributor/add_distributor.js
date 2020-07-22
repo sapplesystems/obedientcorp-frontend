@@ -210,6 +210,13 @@ function getdistributorList() {
                         <a href="javascript:void(0);" onclick="deletedistributor(event, ' + value.id + ');"><i class="mdi mdi-delete text-danger"></i>\n\
                         </a>\n\
                         <i class="mdi mdi-check-circle ' + change_agent_status + '" id="change_dist_status_' + value.id + '" onclick="changeDistributorStatus(event, ' + value.id + ');" title="Activate/Deactivate Distributor " ></i>\n\
+                        <form class="form-inline" style="display:none;" name="change_password_form_' + value.id + '" id="change_password_form_' + value.id + '" method="post">\n\
+                        <input type="password" class="required" name="password" id="password_' + value.id + '" placehoder="Password"/>\n\
+                        <input type="hidden" name="path" value="" id="url_path_' + value.id + '"/>\n\
+                        <button type="submit" class="btn btn-gradient-success btn-sm" onclick="changePasswordSubmit(event, ' + value.id + ');">Submit</button>&nbsp;\n\
+                        <button type="submit" class="btn btn-gradient-danger btn-sm" onclick="changePasswordCancel(event, ' + value.id + ');">Cancel</button>\n\
+                    </form>\n\
+                        <a href="javascript:void(0);" id="change_password_' + value.id + '" onclick="changePassword(event,' + value.id + ');" title="Change Login Password"><i class="mdi mdi-key text-warning"></i>\n\
                         </td>';
                     }
                     
@@ -351,9 +358,6 @@ function getStatesCities() {
             if (response.status == "success") {
                 state_list = response.data.list;
                 var states = '<option value="">-- Select State--</option>';
-                if (response.data.username != '') {
-                    $("#username").val(response.data.username);
-                }
                 $.each(state_list, function (key, value) {
                     states += '<option value="' + value.state.id + '">' + value.state.state + '</option>';
                 });
@@ -397,4 +401,64 @@ function getCitiesList(state_id) {
         cities_list_html += '<option value="' + val.id + '">' + val.city + '</option>';
     });
     return cities_list_html;
+}
+
+function changePassword(e, user_id) {
+    e.preventDefault();
+    $('#change_password_' + user_id).css('display', 'none');
+    $('#change_password_form_' + user_id).css('display', 'block');
+   //$('#url_path_' + user_id).val('change-agent-password');
+}
+
+function changePasswordSubmit(e, user_id) {
+    $("#change_password_form_" + user_id).submit(function (e) {
+        e.preventDefault();
+        var password_frm = $("#change_password_form_" + user_id);
+        password_frm.validate({
+            rules: {
+                password: {
+                    minlength: 8
+                },
+            },
+            errorPlacement: function errorPlacement(error, element) {
+                element.before(error);
+            }
+        });
+        if ($("#change_password_form_" + user_id).valid()) {
+            var password = document.getElementById('password_' + user_id);
+            if (password.value == '') {
+                password.focus();
+                return false;
+            }
+            var url = base_url + 'distributor/admin-change-password';
+            $.ajax({
+                url: url,
+                type: 'post',
+                //dataType: 'json',
+                data: {
+                    distributor_id: user_id,
+                    password: password.value
+                },
+                success: function (response) {
+                    if (response.status == 'success') {
+                        showSwal('success', 'Change Password ', response.data);
+                        getdistributorList();
+                    }
+                    else {
+                        showSwal('error', 'Password Not Changed ', 'Password not changed');
+
+                    }
+                }
+            });
+        }
+    });
+}//end function
+
+function changePasswordCancel(e, user_id) {
+    e.preventDefault();
+    $('#change_password_' + user_id).css('display', '');
+    $('#change_password_form_' + user_id).css('display', 'none');
+    document.getElementById('change_password_form_' + user_id).reset();
+    //getAgentsList();
+
 }

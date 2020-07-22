@@ -29,8 +29,8 @@ function getCookie(cname) {
     return "";
 }
 
-function logout() {
-    localStorage.removeItem('down_the_line_members');
+function logout(e) {
+    e.preventDefault();
     $.post('../localapi.php', {
         destroy_session: 1
     }, function (resp) {

@@ -34,6 +34,12 @@ if (isset($_POST['udpate_photo'])) {
     exit;
 }
 
+if (isset($_POST['udpate_distributor_photo'])) {
+    $_SESSION['distributor_login_resp']['profile_image'] = $_POST['photo'];
+    echo true;
+    exit;
+}
+
 if (isset($_POST['udpate_name'])) {
     $_SESSION['login_resp']['associate_name'] = $_POST['name'];
     echo true;

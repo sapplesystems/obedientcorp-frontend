@@ -141,10 +141,27 @@ if ($user_type != 'ADMIN') {
                                                     <th>Processing Fee</th>\n\
                                                     <th>Other Charges</th>\n\
                                                     <th>Payout Amount</th>\n\
+                                                    <th>Account Holder Name</th>\n\
+                                                    <th>Bank Name</th>\n\
+                                                    <th>Account Number</th>\n\
+                                                    <th>Branch Name</th>\n\
+                                                    <th>IFSC Code</th>\n\
+                                                    <th>Aadhaar</th>\n\
+                                                    <th>Pan Number</th>\n\
+                                                    <th>Mobile</th>\n\
+                                                    <th>Email</th>\n\
                                                 </tr>\n\
                                             </thead>';
                         table_data += '<tbody>';
                         $.each(response.data, function (key, value) {
+                            var account_number = '';
+                            if(value.account_number != ''){
+                                account_number = "'" + value.account_number;
+                            }
+                            var adhar = '';
+                            if(value.adhar != ''){
+                                adhar = "'" + value.adhar;
+                            }
                             table_data += '<tr>\n\
                                             <td>' + value.week_no + '</td>\n\
                                             <td>' + value.from_date + ' To ' + value.to_date + '</td>\n\
@@ -160,6 +177,15 @@ if ($user_type != 'ADMIN') {
                                             <td>' + value.processing_fee + '</td>\n\
                                             <td>' + value.other_charges + '</td>\n\
                                             <td>' + value.payout_amount + '</td>\n\
+                                            <td>' + value.payee_name + '</td>\n\
+                                            <td>' + value.bank_name + '</td>\n\
+                                            <td>' + account_number + '</td>\n\
+                                            <td>' + value.branch + '</td>\n\
+                                            <td>' + value.ifsc_code + '</td>\n\
+                                            <td>' + adhar + '</td>\n\
+                                            <td>' + value.pan_number + '</td>\n\
+                                            <td>' + value.mobile_no + '</td>\n\
+                                            <td>' + value.email + '</td>\n\
                                         </tr>';
                         });
                         table_data += '</tbody>';

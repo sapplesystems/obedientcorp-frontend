@@ -32,7 +32,7 @@
                                 </div>
 								<div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>&nbsp;</label>
+                                        <label class="d-none-m">&nbsp;</label>
                                         <input type="hidden" id="plot_id" />
 										<button type="submit" class="btn btn-dark">Submit</button>
                                     </div>

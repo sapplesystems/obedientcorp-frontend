@@ -139,18 +139,18 @@ $(function () {
 
         if ($(this).val() == 'Cash') {
 
-            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Reciept Number:</label>\n\
+            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Receipt Number:</label>\n\
                    <div class="col-sm-8">\n\
-                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter reciept number.">\n\
+                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter Receipt Number.">\n\
                                                             </div>';
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'none');
 
         } else if ($(this).val() == 'Online') {
 
-            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Online Transaction Number:</label>\n\
+            var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Online UTR/Transaction Number:</label>\n\
                    <div class="col-sm-8">\n\
-                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter transaction number.">\n\
+                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter UTR/Transaction Number.">\n\
                                                             </div>';
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'block');
@@ -158,7 +158,7 @@ $(function () {
         } else if ($(this).val() == 'Cheque') {
             var payment_number = '<label class="col-form-label col-sm-4 text-right payment-number-div">Cheque Number:</label>\n\
                    <div class="col-sm-8">\n\
-                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter cheque number.">\n\
+                     <input type="text" class="form-control required" id="payment_number" name="payment_number" placeholder="Enter Cheque Number.">\n\
                                                             </div>';
             $('.payment-number-div').html(payment_number);
             $('.bank-name').css('display', 'block');

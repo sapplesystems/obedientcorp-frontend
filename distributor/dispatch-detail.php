@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once 'header-copy.php';
 if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_login_resp']['id'] == '') {
     echo '<script type="text/javascript">window.location.href = "login";</script>';
     exit;
@@ -15,6 +15,15 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
 <style>
 
 </style>
+<div class="main-content">
+        <section class="section">
+    <div class="row grid-margin">
+            <div class="col-12">
+                <div class="card">
+				<div class="card-header">
+					 <h4>Dispatch Items</h4>
+				</div>
+				<div class="card-body">
 <div id="global-viewport" class='global-viewport m-pikabu-viewport'>
     <div class="global-viewport-container m-pikabu-container">
         <div id="mainContent" role="main" class="content" tabindex="-1">
@@ -23,7 +32,6 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
             <!-- Report the active source code -->
             <div class="responsiveCenteredContent js-cart">
                 <div class="shoppingCartContainer">
-                    <h1 class="headTop">Dispatch Items</h1>
                     <!-- Start of cart's first part -->
                     <div>
 					<div class="left_sec">
@@ -48,7 +56,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
                             <div><span class="" id="dispatch-type"></span></div>
 							</div>
 							<div class="clear_both"></div>
-                        <div class="overflow_auto marginTop20">
+                        <div class="marginTop20 scroll-m">
                             <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="dispatch-detail">
                             </table>
                         </div>
@@ -101,7 +109,7 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
 						</div>
                         <div class="clear_both"></div>
                         <div class="mt-20-items">
-                            <a class="btn-back-items" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Back</a>
+                            <a class="btn btn-warning" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Back</a>
                         </div>
                     </div>
                     <!-- ====================== snippet ends here ======================== -->
@@ -113,8 +121,13 @@ if (isset($_REQUEST['dispatch_id']) && isset($_REQUEST['dist_id'])) {
 
     </div>
 </div>
+</div>
+</div>
+</div>
+</section>
+</div>
 <!-- content-wrapper ends -->
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footer-copy.php'; ?>
 <script type="text/javascript">
     var dispatch_id = "<?php echo $dispatch_id; ?>";
     var distributor_id = "<?php echo $distributor_id; ?>";

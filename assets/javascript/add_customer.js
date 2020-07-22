@@ -558,9 +558,9 @@ function deleteCustomerList(e, customer_id) {
 function payment_mode_change(value) {
     if (value == 'Cash') {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
-                            <label class="col-sm-2 col-form-label">Reciept Number :<span class="text-danger">*</span></label>\n\
+                            <label class="col-sm-2 col-form-label">Receipt Number :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Reciept Number">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Receipt Number">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\
@@ -644,9 +644,9 @@ function payment_mode_change(value) {
     }
     else if (value == 'Online') {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
-                            <label class="col-sm-2 col-form-label">Online Transaction No :<span class="text-danger">*</span></label>\n\
+                            <label class="col-sm-2 col-form-label">Online UTR/Transaction No :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4 payment_number_div">\n\
-                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter Transaction Number">\n\
+                                <input class="form-control required " type="text" id="payment_number" name="payment_number" placeholder="Enter UTR/Transaction Number">\n\
                             </div>\n\
                             <label class="col-sm-2 col-form-label">Account Holder Name :<span class="text-danger">*</span></label>\n\
                             <div class="col-sm-4">\n\

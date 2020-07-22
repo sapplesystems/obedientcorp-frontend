@@ -67,7 +67,7 @@
                                                         <div class="form-group row payment-number-div-wallet">
                                                             <label class="col-form-label col-sm-4 text-right " id="payment-number-div-wallet">Cheque Number:</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control required" id="payment_number_wallet" placeholder="Enter cheque number" name="payment_number_wallet">
+                                                                <input type="text" class="form-control required" id="payment_number_wallet" placeholder="Enter Cheque Number" name="payment_number_wallet">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -77,7 +77,7 @@
                                                         <div class="form-group row ">
                                                             <label class="col-form-label col-sm-4 text-right">Bank Name:</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control required" id="bank_name_wallet" placeholder="Enter back name" name="bank_name_wallet">
+                                                                <input type="text" class="form-control required" id="bank_name_wallet" placeholder="Enter Bank Name" name="bank_name_wallet">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -99,7 +99,7 @@
                                                         <div class="form-group row ">
                                                             <label class="col-form-label col-sm-4 text-right">Amount:</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control required" id="amount_wallet" placeholder="Enter amount" name="amount_wallet">
+                                                                <input type="text" class="form-control required" id="amount_wallet" placeholder="Enter Amount" name="amount_wallet">
                                                             </div>
                                                         </div>
                                                     </div>

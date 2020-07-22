@@ -188,15 +188,15 @@ if ($_REQUEST) {
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">State <span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="state" name="state">
+                                                                <select class="form-control required" id="state" name="state">
                                                                     <option value="">-- Select One --</option>
                                                                 </select>
                                                             </div>
-                                                            <label class="col-sm-2 col-form-label">District <span class="text-danger"></span></label>
+                                                            <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control" id="city" name="city">
+                                                                <select class="form-control required" id="city" name="city">
                                                                     <option value="">-- Select One --</option>
                                                                 </select>
                                                             </div>

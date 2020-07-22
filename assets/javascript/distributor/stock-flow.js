@@ -2,7 +2,6 @@ var products = [];
 getAllCategory();
 getProductList();
 searchItemsStock();
-searchSalesReport();
 $(document).ready(function () {
     jQuery(document).ready(function ($) {
         //close popup
@@ -117,17 +116,17 @@ function searchItemsStock() {
         success: function (response) {
             var html = '<thead>\n\
                             <tr>\n\
-                            <th>Sr.No</th>\n\
-                            <th>Category</th>\n\
-                            <th>Item Code</th>\n\
-                            <th>Item Name</th>\n\
-                            <th>BV Type</th>\n\
-                            <th>Date</th>\n\
-                            <th>Lot No</th>\n\
-                            <th>Qty</th>\n\
-                            <th>In</th>\n\
-                            <th>Out</th>\n\
-                            <th>Action</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Sr.No</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Category</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Code</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Name</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">BV Type</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Date</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Lot No</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Qty</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">In</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Out</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;" class="stockDetail">Action</th>\n\
                             </tr>\n\
                             </thead><tbody>';
             if (response.status == "success") {
@@ -141,17 +140,17 @@ function searchItemsStock() {
                             lot_no_outgoing = '-';
                         }
                         html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
-                                    <td>'+ i + '</td>\n\
-                                    <td>'+ value.category_name + '</td>\n\
-                                    <td>' + value.sku + '</td>\n\
-                                    <td>' + value.product_name + '</td>\n\
-                                    <td>' + value.bv_type + '</td>\n\
-                                    <td>' + value.date + '</td>\n\
-                                    <td>' + lot_no_outgoing + '</td>\n\
-                                    <td>' + value.inventory_quantity + '</td>\n\
-                                    <td>'+ value.total_in + '</td>\n\
-                                    <td>'+ value.total_out + '</td>\n\
-                                    <td><a href="javascript:void(0)" onclick="getStockFlowDetail('+ distributor_id + ',' + value.product_id + ',' + lotNumber + ');"id="detail_' + i + '">Detail</a></td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ i + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ value.category_name + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.sku + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.product_name + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.bv_type + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.date + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + lot_no_outgoing + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.inventory_quantity + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ value.total_in + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ value.total_out + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;" class="stockDetail"><a style="background-color: #191d21;border-color: #191d21;color: #fff;white-space: nowrap;border-radius: .2rem;text-align: center;vertical-align: middle;width: 50px;height: 28px;line-height: 28px;text-decoration:none;font-size: 12px;padding:0px;display:inline-block;" class="btn btn-dark btn-sm" href="javascript:void(0)" onclick="getStockFlowDetail('+ distributor_id + ',' + value.product_id + ',' + lotNumber + ');"id="detail_' + i + '">Details</a></td>\n\
                                 </tr>';
                         i = i + 1;
                     });
@@ -159,7 +158,23 @@ function searchItemsStock() {
                     html += '</tbody>';
                     $('#stock-flow').html(html);
                     $('#stock-flow').DataTable().destroy();
-                    $('#stock-flow').DataTable();
+                    //$('#stock-flow').DataTable();
+                    $('#stock-flow').DataTable({
+                        dom: 'Blfrtip',
+                        buttons: [
+                            {
+                                extend: 'excelHtml5',
+                                title: 'stock-flow' + Date.now(),
+                                text: 'Export to Excel',
+                                exportOptions: {
+                                    columns: [0,1, 2, 3,4,5,6,7,8,9]
+                                  }
+                            }
+                        ],
+                        aaSorting: []
+                    });
+                    $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+                    $('.download-excel').css('display','none');
                 }
             }
             else {
@@ -211,90 +226,7 @@ function AddValue() {
     }
 }
 
-//function for sales report
 
-function searchSalesReport() {
-    var start_date = '';
-    var end_date = '';
-    var item_id = '';
-    var category_id = '';
-    if ($('#start-date').val() != '') {
-        start_date = $('#start-date').val();
-    }
-    if ($('#end-date').val() != '') {
-        end_date = $('#end-date').val();
-    }
-    if ($('#item-id').val() != '') {
-        item_id = $('#item-id').val();
-    }
-    if ($('#categories').val() != '') {
-        category_id = $('#categories').val();
-    }
-    var params = {
-        distributor_id: distributor_id,
-        category_id: category_id,
-        product_id: item_id,
-        start_date: start_date,
-        end_date: end_date,
-    };
-    var url = base_url + 'distributor/sales-report';
-    $.ajax({
-        url: url,
-        type: 'post',
-        data: params,
-        success: function (response) {
-            var html = '<thead>\n\
-                                <tr>\n\
-                                <th>Sr.No</th>\n\
-                                <th>Invoice Number</th>\n\
-                                <th>Invoice Date & Time</th>\n\
-                                <th>Total Amount</th>\n\
-                                <th>Tax Amount</th>\n\
-                                <th>Cash Amount</th>\n\
-                                <th>Coupon Amount</th>\n\
-                                </tr>\n\
-                                </thead><tbody>';
-            if (response.status == "success") {
-                if (response.data.length != 0) {
-                    var i = 1;
-                    $.each(response.data, function (key, value) {
-                        html += '<tr id="tr_incoming_' + i + '" role="row" class="tr_incoming" >\n\
-                                    <td>'+ i + '</td>\n\
-                                    <td>'+ value.invoice_no + '</td>\n\
-                                    <td>' + value.invoice_date_time + '</td>\n\
-                                    <td>' + value.total_amount + '</td>\n\
-                                    <td>' + value.tax_amount + '</td>\n\
-                                    <td>' + value.cash_amount + '</td>\n\
-                                    <td>' + value.coupon_amount + '</td>\n\
-                                </tr>';
-                        i = i + 1;
-                    });
-                    html += '</tbody>';
-                    $('#sales-report').html(html);
-                    $('#sales-report').DataTable().destroy();
-                    $('#sales-report').DataTable();
-                }
-            } else {
-                html += '</tbody>';
-                $('#sales-report').html(html);
-                $('#sales-report').DataTable().destroy();
-                $('#sales-report').DataTable();
-                //showSwal('error', response.data);
-            }
-
-        }
-    });
-
-}
-
-function CancelSalesReport() {
-    $('#start-date').val('');
-    $('#end-date').val('');
-    $('#item-id').val('');
-    $('#categories').val('');
-    $('#search-product').val('');
-    searchSalesReport();
-}
 
 
 function itemDetail(invoice_id) {
@@ -308,12 +240,12 @@ function itemDetail(invoice_id) {
         success: function (response) {
             items='<thead>\n\
                     <tr>>\n\
-                    <th>Sr.No</th>>\n\
-                    <th>Item Name</th>>\n\
-                    <th>Item Code</th>>\n\
-                    <th>Quantity</th>>\n\
-                    <th>Price</th>>\n\
-                    <th>Total Price</th>>\n\
+                    <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Sr.No</th>>\n\
+                    <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Name</th>>\n\
+                    <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Code</th>>\n\
+                    <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Quantity</th>>\n\
+                    <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Price</th>>\n\
+                    <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Total Price</th>>\n\
                     </tr>>\n\
                     </thead></tbody>';
             $('#item-detail').html('');
@@ -335,7 +267,17 @@ function itemDetail(invoice_id) {
                     $('#item-detail').html(items);
                     $('#item-detail-popup').addClass('is-visible');
                     $('#item-detail').DataTable().destroy();
-                    $('#item-detail').DataTable();
+                    $('#item-detail').DataTable({
+                        dom: 'Blfrtip',
+                        buttons: [{
+                            extend: 'excelHtml5',
+                            title: 'stock-flow-detail' + Date.now(),
+                            text: 'Export to Excel',
+                        }],
+                        aaSorting: []
+                    });
+                    $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel-item');
+                    $('.download-excel-item').css('display', 'none');
                 }
             } 
             else {
@@ -371,20 +313,21 @@ function getStockFlowDetail(id, pro_id, lot_no) {
         success: function (response) {
             var html = '<thead>\n\
                         < tr >\n\
-                        <th>Sr.No</th>\n\
-                        <th>Dispatched By</th>\n\
-                        <th>Dispatched To</th>\n\
-                        <th>Customer Name</th>\n\
-                        <th>Customer Mobile Number</th>\n\
-                        <th>Dispatch Number</th>\n\
-                        <th>Invoice Number</th>\n\
-                        <th>Category</th>\n\
-                        <th>Item Code</th>\n\
-                        <th>Item Name</th>\n\
-                        <th>Qty</th>\n\
-                        <th>Lot No</th>\n\
-                        <th>BV Type</th>\n\
-                        <th>Type</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Sr.No</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Dispatched By</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Dispatched To</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Customer Name</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Customer Mobile Number</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Dispatch Number</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Invoice Number</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Category</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Code</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Name</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Date</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Qty</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Lot No</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">BV Type</th>\n\
+                        <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Type</th>\n\
                         </tr >\n\
                         </thead > <tbody>';
             $('#stock-detail').html('');
@@ -414,20 +357,21 @@ function getStockFlowDetail(id, pro_id, lot_no) {
                             distributor_to = value.to_distributor;
                         }
                         html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
-                                <td>' + i + '</td>\n\
-                                <td>' + distributor_by + '</td>\n\
-                                <td>' + distributor_to + '</td>\n\
-                                <td>' + customer_name + '</td>\n\
-                                <td>' + customer_mobile + '</td>\n\
-                                <td>' + dispatch_no + '</td>\n\
-                                <td>' + invoice_no + '</td>\n\
-                                <td>' + value.category_name + '</td>\n\
-                                <td>' + value.sku + '</td>\n\
-                                <td>' + value.product_name + '</td>\n\
-                                <td>' + value.quantity + '</td>\n\
-                                <td>' + lot_no_outgoing + '</td>\n\
-                                <td>' + value.bv_type + '</td>\n\
-                                <td>' + value.type + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + i + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + distributor_by + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + distributor_to + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + customer_name + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + customer_mobile + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + dispatch_no + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_no + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.category_name + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.sku + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.product_name + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.ddate + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.quantity + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + lot_no_outgoing + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.bv_type + '</td>\n\
+                                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.type + '</td>\n\
                             </tr>';
                         i = i + 1;
                     });
@@ -435,7 +379,17 @@ function getStockFlowDetail(id, pro_id, lot_no) {
                     $('#stock-detail').html(html);
                     $('#stock-detail-popup').addClass('is-visible');
                     $('#stock-detail').DataTable().destroy();
-                    $('#stock-detail').DataTable();
+                    $('#stock-detail').DataTable({
+                        dom: 'Blfrtip',
+                        buttons: [{
+                            extend: 'excelHtml5',
+                            title: 'stock-item-detail' + Date.now(),
+                            text: 'Export to Excel',
+                        }],
+                        aaSorting: []
+                    });
+                    $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel-item');
+                    $('.download-excel-item').css('display', 'none');
                 }
             } else {
                 html+='</tbody>';
@@ -448,8 +402,9 @@ function getStockFlowDetail(id, pro_id, lot_no) {
         }
     });
 
-
-
 }
+
+
+
 
 

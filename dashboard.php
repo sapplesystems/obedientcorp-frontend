@@ -27,6 +27,33 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                         </div>
                     </div>
                 </div>';
+
+$current_month_week = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
+                            <div class="card card-statistics">
+                                <div class="card-body aligner-wrapper">
+                                    <div class="absolute left top bottom h-100 v-strock-2 bg-danger"></div>
+                                    <div class="clearfix">
+                                        <div>
+                                            <h3 class="font-weight-medium mb-3 text-danger">
+                                                <i class="mdi mdi-calendar-today menu-icon"></i>
+                                                <span id="current_month_no">Month 0</span>
+                                            </h3>
+                                            <div class="fluid-container">
+                                                <p class="mb-1">Month Cycle : <span class="text-muted" id="current_month_cycle">-</span></p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <h3 class="font-weight-medium mb-2 mt-3 text-danger">
+                                                <i class="mdi mdi-calendar-today menu-icon"></i>
+                                                <span id="running_week_no">Week 0</span>
+                                            </h3>
+                                            <div class="fluid-container">
+                                                <p class="mb-1">Week Cycle : <span class="text-muted" id="current_week_cycle">-</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>';
 ?>
 
 <!-- partial -->
@@ -190,6 +217,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
                 </div>
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="row">
+                        <?php echo $current_month_week; ?>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
                             <div class="card card-statistics">
                                 <div class="card-body aligner-wrapper">
@@ -241,6 +269,7 @@ $all_menus = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 stretch-card">
             <div class="row">
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="row">
+                        <?php echo $current_month_week; ?>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-margin stretch-card">
                             <div class="card card-statistics">
                                 <div class="card-body aligner-wrapper">

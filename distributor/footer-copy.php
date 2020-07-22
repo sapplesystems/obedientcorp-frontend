@@ -1,9 +1,9 @@
 <!-- partial:partials/_footer.html -->
 <footer class="main-footer">
-    <div class="footer-left">
-        &copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by Obedient Group
+  <div class="footer-left">
+    &copy; 2020 Obedient Marketing Universal Private Limited. All rights reserved | Design by Obedient Group
 
-    </div>
+  </div>
 </footer>
 <!-- partial -->
 </div>
@@ -11,22 +11,22 @@
 </div>
 <!-- page-body-wrapper ends -->
 <!-- General JS Scripts -->
-  <script src="<?php echo $home_url; ?>assets/js/jquery-3.3.1.min.js"></script>
-  <script src="<?php echo $home_url; ?>assets/js/bootstrap.min.js"></script>
-  <script src="<?php echo $home_url; ?>assets/js/jquery.nicescroll.min.js"></script>
-  <script src="<?php echo $home_url; ?>assets/js/stisla.js"></script>
-   <!-- Template JS File -->
-  <script src="<?php echo $home_url; ?>assets/js/scripts.js"></script>
+<script src="<?php echo $home_url; ?>assets/js/jquery-3.3.1.min.js"></script>
+<script src="<?php echo $home_url; ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo $home_url; ?>assets/js/jquery.nicescroll.min.js"></script>
+<script src="<?php echo $home_url; ?>assets/js/stisla.js"></script>
+<!-- Template JS File -->
+<script src="<?php echo $home_url; ?>assets/js/scripts.js"></script>
 
-  <!-- Template JS File -->
+
+<!-- Template JS File -->
 
 <script type="text/javascript">
-
-    var base_url = "<?php echo $base_url; ?>";
-    var media_url = "<?php echo $media_url; ?>";
-    var distributor_id = "<?php echo $distributor_id; ?>";
-    var distributor_name = "<?php echo $name;?>";
-    var distributor_address = "<?php echo $address;?>";
+  var base_url = "<?php echo $base_url; ?>";
+  var media_url = "<?php echo $media_url; ?>";
+  var distributor_id = "<?php echo $distributor_id; ?>";
+  var distributor_name = "<?php echo $name; ?>";
+  var distributor_address = "<?php echo $address; ?>";
 </script>
 <script src="<?php echo $home_url; ?>assets/vendors/sweetalert/sweetalert.min.js "></script>
 <script src="<?php echo $home_url; ?>assets/js/alerts.js"></script>
@@ -37,12 +37,21 @@
 <!-- JS for autocomplete search-->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<!-- Js for download excel-->
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+<!-- Js for download excel-->
 <script src="<?php echo $home_url; ?>assets/javascript/distributor/js/flatpickr.js"></script>
+<script src="<?php echo $home_url; ?>assets/js/chart.min.js"></script>
 <script>
-$('body').on('click', 'li', function() {
-      $('li.active').removeClass('active');
-      $(this).addClass('active');
-});
+  function showLoader() {
+    $('#loader_bg').css('display', 'block');
+  }
+
+  function hideLoader() {
+    $('#loader_bg').css('display', 'none');
+  }
 </script>
 </body>
 

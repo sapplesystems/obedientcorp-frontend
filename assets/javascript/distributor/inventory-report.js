@@ -94,15 +94,15 @@ function searchItemsStock() {
     success: function (response) {
       var html = '<thead>\n\
                   <tr>\n\
-                  <th>Sr.No.</th>\n\
-                  <th>Category Name</th>\n\
-                  <th>Date</th>\n\
-                  <th>Item Code</th>\n\
-                  <th>Item Name</th>\n\
-                  <th>BV Type</th>\n\
-                  <th>Lot No</th>\n\
-                  <th>Qty</th>\n\
-                  <th>Expiry Date</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Sr.No.</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Category Name</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Date</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Code</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Name</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">BV Type</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Lot No</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Qty</th>\n\
+                  <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Expiry Date</th>\n\
                   </tr>\n\
                   </thead><tbody>';
       if (response.status == "success") {
@@ -114,15 +114,15 @@ function searchItemsStock() {
             lot_no = '-';
           }
           html += '<tr id="tr_' + value.id + '" role="row" >\n\
-                <td class="sorting_1">' + i + '</td>\n\
-                <td>' + value.category_name + '</td>\n\
-                <td>' + value.inventory_date + '</td>\n\
-                <td>' + value.sku + '</td>\n\
-                <td>' + value.name + '</td>\n\
-                <td>' + value.bv_type + '</td>\n\
-                <td>' + lot_no + '</td>\n\
-                <td>' + value.quantity + '</td>\n\
-                <td>' + value.expiry_date + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;" class="sorting_1">' + i + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.category_name + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.inventory_date + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.sku + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.name + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.bv_type + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + lot_no + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.quantity + '</td>\n\
+                <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.expiry_date + '</td>\n\
             </tr>';
           i = i + 1;
         });

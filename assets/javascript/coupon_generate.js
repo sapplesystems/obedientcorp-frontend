@@ -277,7 +277,7 @@ function get_goods_coupon_listing() {
                     if (value.coupon_type_id != 1) {
                         action_td = '<td> -- </td>';
                     }
-                    var coupon_code_name = 'SC' + value.rs_per;
+                    var coupon_code_name = 'RE' + value.rs_per;
                     var tr_class = '';
                     if (value.coupon_type_id == 1) {
                         coupon_code_name = 'SC' + value.fmcg_per;

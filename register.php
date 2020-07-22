@@ -107,13 +107,13 @@ include_once 'common_html.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">State <span class="text-danger"></span></label>
+                                            <label class="col-sm-2 col-form-label">State <span class="text-danger">*</span></label>
                                             <div class="col-sm-4">
-                                                <select class="form-control states" id="states" name="states"> </select>
+                                                <select class="form-control required states" id="states" name="states"> </select>
                                             </div>
-                                            <label class="col-sm-2 col-form-label">District <span class="text-danger"></span></label>
+                                            <label class="col-sm-2 col-form-label">District <span class="text-danger">*</span></label>
                                             <div class="col-sm-4">
-                                                <select class="form-control " id="city" name="city"></select>
+                                                <select class="form-control required " id="city" name="city"></select>
                                             </div>
                                         </div>
                                         <div class="form-group row">

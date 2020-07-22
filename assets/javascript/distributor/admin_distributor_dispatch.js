@@ -57,7 +57,7 @@ function setDispatchListTab(response, status) {
     $.each(response, function (key, value) {
         var action_td = '';
         action_td = '<td>\n\
-                    <a href="distributor-dispatch-detail.php?dispatch_id=' + value.id + '&dist_id=' + value.distributor_id_to + '" id="dispatch-detail" title="Dispatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
+                    <a class="btn btn-dark btn-sm" href="distributor-dispatch-detail.php?dispatch_id=' + value.id + '&dist_id=' + value.distributor_id_to + '" id="dispatch-detail" title="Dispatch detail"><i class="mdi mdi-open-in-new text-secondary"></i></a> \n\
               </td>';
         var ddate = value.expected_delivery_date;
         if (status == 'receive' || status == 'mismatch') {

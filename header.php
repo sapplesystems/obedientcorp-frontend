@@ -190,12 +190,12 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-wallet menu-icon"></i>
                             </a>
                         </li>
-                        <!--li class="nav-item">
-                            <a class="nav-link" href="customer-list">
-                                <span class="menu-title">Customer List</span>
-                                <i class="mdi mdi-account-box-outline menu-icon"></i>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sponsor-income-history">
+                                <span class="menu-title">Sponsor Income History</span>
+                                <i class="mdi mdi-wallet menu-icon"></i>
                             </a>
-                        </li-->
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="manage-customer">
                                 <span class="menu-title">Manage Customer</span>
@@ -318,6 +318,14 @@ include_once 'common_html.php';
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="receipt-list">
+                                    <span class="menu-title">Receipt List</span>
+                                    <i class="mdi mdi-home menu-icon"></i>
+                                </a>
+                            </li>
+							  <?php } ?>
+							  <?php if ($user_type == 'ADMIN' || $user_type == 'ADMIN2') { ?>
+                            <li class="nav-item">
                                 <a class="nav-link" href="manage-distributor">
                                     <span class="menu-title">Manage Distributor</span>
                                     <i class="mdi mdi-settings menu-icon"></i>
@@ -346,9 +354,10 @@ include_once 'common_html.php';
                                         <li class="nav-item"> <a class="nav-link" href="current-stock">Current Stock</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="sales-report">Sales Report</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="stock-flow">Stock Flow</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="negative-reports">Negative Reports</a></li>
                                     </ul>
                                 </div>
                             </li>
-                        <?php } ?>
+                       <?php } ?>
                     </ul>
                 </nav>

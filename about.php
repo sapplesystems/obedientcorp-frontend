@@ -9,6 +9,10 @@ include_once 'header_frontend.php';
 <!-- Dotted Navigation -->
 <?php echo $common['dotted_navigation']; ?>
 <!-- End Dotted Navigation -->
+<style>
+#values_section{padding:50px 0;}
+#vision_section{padding:50px 0;}
+</style>
 <!-- Page Title -->
 <section id="home" class="xl-py t-center white fullwidth">
     <!-- Background image - you can choose parallax ratio and offset -->
@@ -36,6 +40,7 @@ include_once 'header_frontend.php';
                 </div>
 </div>
     <div class="clearfix"></div>
+	<section id="values_section">
 	  <div class="col-md-12 col-12 mt-5 pl-0">
                 <div class="t-center">
                 <h3 class="bold-subtitle lh-sm font-22">
@@ -130,13 +135,14 @@ include_once 'header_frontend.php';
                 </div>
             </div>
     </div>
+	</section>
 		  <div class="clearfix"></div>
 		 <!-- Background image - you can choose parallax ratio and offset -->
        
 		
 </section>
 
-<section>
+<section id="vision_section">
     <div class="row">
         <div class="col-lg-12">
             <div class="t-center">
@@ -179,7 +185,7 @@ include_once 'header_frontend.php';
 </section>
 
  <!-- TEAM SECTION -->
-        <section id="team" class="team-type-3 t-center">
+        <section id="team" class="team-type-3 t-center mt-5">
 
             <!-- Title -->
             <h1 class="uppercase light">

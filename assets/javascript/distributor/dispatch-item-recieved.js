@@ -90,9 +90,9 @@ function getDispatchReceivedItems() {
                               <td id="dispatch-qty_' + value.id + '">' + value.dispatched_items_quantity + '</td>\n\
                               <td class="productQuantity">\n\
                                     <form>\n\
-                                    <div class="value-button"><i class="fa fa-minus" id="sub_' + value.id + '" onclick="SubtractValue(' + value.id + ');"></i></div>\n\
+                                    <div class="value-button"><i class="fa fa-minus" id="sub_' + value.id + '" onclick="SubtractValue(' + value.id + ',event);"></i></div>\n\
                                     <input type="number" class="qty" value="' + value.received_items_quantity + '" id="receive-item-qty_' + value.id + '" onblur="setItemStatus(' + value.id + ');">\n\
-                                    <div class="value-button"><i class="fa fa-plus" id="add_' + value.id + '" onclick="AddValue(' + value.id + ');"></i></div>\n\
+                                    <div class="value-button"><i class="fa fa-plus" id="add_' + value.id + '" onclick="AddValue(' + value.id + ',event);"></i></div>\n\
                                     </form>\n\
                               </td>\n\
                               <td><input type="text" class="lotNumber" value="' + lot_number + '" id="lot_no_' + value.id + '" readonly onkeypress="searchLotNumber(' + value.id + ');"/></td>\n\
@@ -131,7 +131,8 @@ function getDispatchReceivedItems() {
 }
 
 
-function SubtractValue(id) {
+function SubtractValue(id,e) {
+    e.preventDefault();
     var val = '';
     if ($('#receive-item-qty_' + id).val() != 0) {
         val = parseInt($('#receive-item-qty_' + id).val()) - 1;
@@ -140,7 +141,8 @@ function SubtractValue(id) {
     }
     setItemStatus(id);
 }
-function AddValue(id) {
+function AddValue(id,e) {
+    e.preventDefault();
     var val = '';
     if ($('#receive-item-qty_' + id).val()) {
         val = parseInt($('#receive-item-qty_' + id).val()) + 1;

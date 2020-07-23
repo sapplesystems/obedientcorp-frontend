@@ -134,7 +134,11 @@ include_once 'header.php';
 
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <!-- Js for download excel-->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <!-- Js for download excel-->
     <script src="<?php echo $home_url; ?>assets/javascript/distributor/admin-inventory-report.js"></script>
     <script>
         searchItemsStockFlow();
@@ -244,13 +248,28 @@ include_once 'header.php';
                             });
 
                             $('#stock-flow').html(html);
-                            generateDataTable('stock-flow');
+                            $('#stock-flow').DataTable().destroy();
+                            $('#stock-flow').DataTable({
+                                dom: 'Blfrtip',
+                                buttons: [{
+                                    extend: 'excelHtml5',
+                                    title: 'StockFlow' + Date.now(),
+                                    text: 'Export to Excel',
+                                    exportOptions: {
+                                    columns: [0,1, 2, 3,4,5,6,7,8,9,10]
+                                  }
+                                }],
+                                aaSorting: []
+                            });
+                            $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+                            $('.download-excel').css('display', 'none');
                             hideLoader();
                         }
                     } else {
                         //showSwal('error',response.data);
                         $('#stock-flow').html(html);
-                        generateDataTable('stock-flow');
+                        $('#stock-flow').DataTable().destroy();
+                        $('#stock-flow').DataTable();
                         hideLoader();
                     }
 
@@ -273,16 +292,15 @@ include_once 'header.php';
         }
 
         function exportTableToExcel() {
-            $("#stock-flow").table2excel({
-                exclude: ".stockDetail",
-                filename: "StockFlow.xls"
-            });
+            $('.download-excel').click();
 
         }
 
         function print() {
             var tab = document.getElementById('stock-flow');
             var win = window.open('', '', 'height=700,width=700');
+            win.document.write("<style> th:nth-child(12){display:none;} </style>");
+            win.document.write("<style> td:nth-child(12){display:none;} </style>");
             win.document.write(tab.outerHTML);
             win.document.close();
             win.print();
@@ -290,9 +308,7 @@ include_once 'header.php';
         }
 
         function exportTableToExcelToModal() {
-            $("#stock-flow-detail").table2excel({
-                filename: "StockFlowDetail.xls"
-            });
+            $('.download-excel-item').click();
 
         }
 

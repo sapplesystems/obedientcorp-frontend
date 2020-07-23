@@ -170,6 +170,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                 <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Total Amount</th>\n\
                                 <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Tax Amount</th>\n\
                                 <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Cash Amount</th>\n\
+                                <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Cash Note</th>\n\
                                 <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Coupon Amount</th>\n\
                                 <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;" class="invoiceDetail">Action</th>\n\
                                 </tr>\n\
@@ -178,6 +179,11 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     if (response.data.length != 0) {
                         var i = 1;
                         $.each(response.data, function(key, value) {
+                            var cash_note = '';
+                            if(value.cash_note!=null)
+                            {
+                                cash_note = value.cash_note;
+                            }
                             html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + i + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.invoice_no + '</td>\n\
@@ -187,6 +193,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.total_amount + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.tax_amount + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.cash_amount + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + cash_note + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.coupon_amount + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">\n\
                                         <a style="background-color: #191d21;border-color: #191d21;color: #fff;white-space: nowrap;border-radius: .2rem;text-align: center;vertical-align: middle;width: 50px;height: 28px;line-height: 28px;text-decoration:none;font-size: 12px;padding:0px;display:inline-block;"  class="btn btn-dark btn-sm invoiceDetail" href="javascript:void(0);" onclick="itemDetail(' + value.id + ');">Details</a>\n\
@@ -252,6 +259,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                             <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Total Amount</th>\n\
                             <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Tax Amount</th>\n\
                             <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Cash Amount</th>\n\
+                            <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Cash Note</th>\n\
                             <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Coupon Amount</th>\n\
                             <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Category Name</th>\n\
                             <th style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial;background-color: #d9edf7;">Item Name</th>\n\
@@ -268,7 +276,11 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     if (response.data.length != 0) {
                         var i = 1;
                         $.each(response.data.invoice_items, function(key, value) {
-                            console.log(value);
+                            var cash_note = '';
+                            if(invoice_data.cash_note!=null)
+                            {
+                                cash_note = invoice_data.cash_note;
+                            }
                             items += '<tr id="item_' + i + '" role="row">\n\
                                      <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + i + '</td>\n\
                                      <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.invoice_no + '</td>\n\
@@ -278,6 +290,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                      <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.total_amount + '</td>\n\
                                      <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.tax_amount + '</td>\n\
                                      <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.cash_amount + '</td>\n\
+                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + cash_note + '</td>\n\
                                      <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + invoice_data.coupon_amount + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.category_name + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.business_value + '</td>\n\
@@ -333,7 +346,9 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 
     function print() {
         var tab = document.getElementById('invoice-detail');
-        var win = window.open('', '', 'height=700,width=700');
+        var win = window.open('', '', 'height=900,width=900');
+        win.document.write("<style> th:nth-child(11){display:none;} </style>");
+        win.document.write("<style> td:nth-child(11){display:none;} </style>");
         win.document.write(tab.outerHTML);
         win.document.close();
         win.print();

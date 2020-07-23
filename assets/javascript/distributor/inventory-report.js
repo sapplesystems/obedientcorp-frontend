@@ -129,7 +129,19 @@ function searchItemsStock() {
         html += '</tbody>';
         $('#stock-detail').html(html);
         $('#stock-detail').DataTable().destroy();
-        $('#stock-detail').DataTable();
+        $('#stock-detail').DataTable({
+          dom: 'Blfrtip',
+          buttons: [
+              {
+                  extend: 'excelHtml5',
+                  title: 'current-stock' + Date.now(),
+                  text: 'Export to Excel',
+              }
+          ],
+          aaSorting: []
+      });
+      $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+      $('.download-excel').css('display','none');
       }
       else {
         html += '</tbody>';
@@ -152,8 +164,6 @@ function CancelSearch()
 }
 
 function exportTableToExcel(){
-  $("#stock-detail").table2excel({
-    filename: "current_stock.xls"
-});
+  $('.download-excel').click();
   
 }

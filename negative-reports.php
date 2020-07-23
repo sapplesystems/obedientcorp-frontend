@@ -85,7 +85,11 @@ include_once 'header.php';
 
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <!-- Js for download excel-->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <!-- Js for download excel-->
     <script src="<?php echo $home_url; ?>assets/javascript/distributor/admin-inventory-report.js"></script>
     <script>
         searchNegativeStock();
@@ -163,17 +167,29 @@ include_once 'header.php';
                                         <td>' + lot_no_outgoing + '</td>\n\
                                         <td>' + value.negative_qty + '</td>\n\
                                         </tr>';
-                                         i = i + 1;
+                                i = i + 1;
                             });
 
                             $('#negative-stock').html(html);
-                            generateDataTable('negative-stock');
+                            $('#negative-stock').DataTable().destroy();
+                            $('#negative-stock').DataTable({
+                                dom: 'Blfrtip',
+                                buttons: [{
+                                    extend: 'excelHtml5',
+                                    title: 'NegativeReport' + Date.now(),
+                                    text: 'Export to Excel',
+                                }],
+                                aaSorting: []
+                            });
+                            $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+                            $('.download-excel').css('display', 'none');
                             hideLoader();
                         }
                     } else {
                         //showSwal('error', response.data);
                         $('#negative-stock').html(html);
-                        generateDataTable('negative-stock');
+                        $('#negative-stock').DataTable().destroy();
+                        $('#negative-stock').DataTable();
                         hideLoader();
                     }
 
@@ -193,10 +209,7 @@ include_once 'header.php';
         }
 
         function exportTableToExcel() {
-            $("#negative-stock").table2excel({
-                filename: "NegativeStock.xls"
-            });
-
+            $('.download-excel').click();
         }
 
         function print() {

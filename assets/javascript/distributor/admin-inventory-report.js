@@ -70,7 +70,7 @@ function getDistributorList() {
       var html = '<option value="">-- Select --</option>';
       if (response.status == "success") {
         $.each(response.data, function (key, value) {
-          html += '<option value="' + value.id + '">' + value.name + '</option>';
+          html += '<option value="' + value.id + '">' + value.display_name + '</option>';
         });
         $('#distributor').html(html);
         hideLoader();
@@ -165,13 +165,25 @@ function getStockFlowDetail(id, pro_id, lot_no) {
           html += '</tbody>';
           $('#stock-flow-detail').html(html);
           $('#stock-flow-detail-modal').modal();
-          generateDataTable('stock-flow-detail');
+          $('#stock-flow-detail').DataTable().destroy();
+          $('#stock-flow-detail').DataTable({
+              dom: 'Blfrtip',
+              buttons: [{
+                  extend: 'excelHtml5',
+                  title: 'StockFlowDetail' + Date.now(),
+                  text: 'Export to Excel',
+              }],
+              aaSorting: []
+          });
+          $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel-item');
+          $('.download-excel-item').css('display', 'none');
         }
       } else {
         html += '</tbody>';
         $('#stock-flow-detail').html(html);
         $('#stock-flow-detail-modal').modal();
-        generateDataTable('stock-flow-detail');
+        $('#stock-flow-detail').DataTable().destroy();
+        $('#stock-flow-detail').DataTable();
       }
 
     }

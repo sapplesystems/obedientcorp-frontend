@@ -352,7 +352,7 @@ include_once 'common_html.php';
                                 <div class="collapse" id="reports">
                                     <ul class="nav flex-column sub-menu">
                                         <li class="nav-item"> <a class="nav-link" href="current-stock">Current Stock</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="sales-report">Sales Report</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="sales-report">Invoice Report</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="stock-flow">Stock Flow</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="negative-reports">Negative Reports</a></li>
                                     </ul>

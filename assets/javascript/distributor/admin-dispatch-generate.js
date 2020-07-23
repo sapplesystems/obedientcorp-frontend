@@ -288,7 +288,7 @@ function getDistributorList() {
       var html = '<option value="">-- Select --</option>';
       if (response.status == "success") {
         $.each(response.data, function (key, value) {
-          html += '<option value="' + value.id + '">' + value.name + '</option>';
+          html += '<option value="' + value.id + '">' + value.display_name + '</option>';
         });
         $('#distributor-list-from').html(html);
         $('#distributor-list-to').html(html);

@@ -220,17 +220,19 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     <div class="cd-popup-container">
         <h3 class="headPopup">Pay Cash <a href="#0" class="cd-popup-close img-replace">Close</a></h3>
         <div class="popup_input" id="cash-popup">
-            <input type="text" placeholder="Amount" id="cash" name="cash" value="" /> <button onclick="PayCash();">Pay</button>
+            <input type="text" placeholder="Amount" id="cash" name="cash" value="" /> <br>
+            <input type="text" placeholder="comment" id="cash_note" name="cash_note" value="" />
+            <button onclick="PayCash();">Pay</button>
         </div>
     </div>
 </div>
 
 <div class="cd-popup" role="alert" id="apply_Coupon">
     <div class="cd-popup-container">
-        <h3 class="headPopup">Apply Coupon <a href="#0" class="cd-popup-close img-replace">Close</a></h3>
+        <h3 class="headPopup">Apply Shopping Card <a href="#0" class="cd-popup-close img-replace">Close</a></h3>
         <div class="popup_input textLeft" id="CouponCode">
             <div>
-                <input type="text" placeholder="Enter Coupon Code" id="coupon_code_1" class="width85 couponCode" />
+                <input type="text" placeholder="Enter Shopping Card Code" id="coupon_code_1" class="width85 couponCode" />
                 <div class="action_apply"><span class="plus_Icon add_button" aria-hidden="true">&#43;</span></div>
             </div>
         </div>

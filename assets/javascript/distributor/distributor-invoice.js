@@ -12,6 +12,7 @@ var x = 0;
 var ProductCouponType = [];
 var CouponCodeType = [];
 var global_ui = {};
+var cash_note = '';
 
 $(document).ready(function () {
     getProductList();
@@ -84,11 +85,10 @@ $(document).ready(function () {
                     var test_id = 3;
                     $.each(item_lot_number, function (key, value) {
                         var style_css = '';
-                        if(lot_quantity[lq] < 0 || lot_quantity[lq] == 0)
-                        {
-                             style_css = 'style="background: red; color: #fff; font-weight: bold"';
+                        if (lot_quantity[lq] < 0 || lot_quantity[lq] == 0) {
+                            style_css = 'style="background: red; color: #fff; font-weight: bold"';
                         }
-                        set_lot_numbers += '<tr '+style_css+'>\n\
+                        set_lot_numbers += '<tr ' + style_css + '>\n\
                         <td><input style="position:inherit;" type="radio" id="test'+ test_id + '" name="lot_no_radio" value="' + value + '" data-value="' + lot_quantity[lq] + '"></td>\n\
                         <td><label for="test'+ test_id + '">' + value + '</label></td>\n\
                         <td><label>' + lot_quantity[lq] + '</label></td>\n\
@@ -113,14 +113,18 @@ $(document).ready(function () {
 
     $(document).on('click', '#add-coupon', function () {
         $('#CouponCode').html('<div>\n\
-      <input type="text" placeholder="Enter Coupon Code"  id="coupon_code_1" class="width85 couponCode" />\n\
+      <input type="text" placeholder="Enter Shopping Card Code"  id="coupon_code_1" class="width85 couponCode" />\n\
       <div class="action_apply"><span class="plus_Icon add_button" aria-hidden="true">&#43;</span></div>\n\
   </div>');
         $('#apply_Coupon').addClass('is-visible');
     });
 
     $(document).on('click', '#pay-cash', function () {
-        $('#cash-popup').html('<input type="text" placeholder="Amount" id="cash" name="cash" value="" /> <button onclick="PayCash();">Pay</button>');
+        var html = '<div class="payDiv"><div><input type="text" placeholder="Amount" id="cash" name="cash" value="" /></div>\n\
+        <div><button onclick="PayCash();">Pay</button></div>\n\
+        <div><textarea placeholder="Comment" id="cash_note" name="cash_note" /></textarea></div></div>';
+        $('#cash-popup').html(html);
+        $('#cash_note').val(cash_note);
         $('#pay_Cash').addClass('is-visible');
 
     });
@@ -129,7 +133,7 @@ $(document).ready(function () {
         if (x < maxField) {
             x++; //Increment field counter
             var fieldHTML = '<div id="divCode_' + x + '" class="marginTop10">\n\
-       <input type="text" placeholder="Enter Coupon Code"  id="coupon_code_' + x + '" name="code" class="width85 couponCode" />\n\
+       <input type="text" placeholder="Enter Shopping Card Code"  id="coupon_code_' + x + '" name="code" class="width85 couponCode" />\n\
        <div class="action_apply"><span  class="minus_Icon"><i style="cursor:pointer;" class="fa fa-trash-o icon_trash" onclick="removeButton(' + x + ');"></i></span></div>\n\
        </div>';
             $('#CouponCode').append(fieldHTML); //Add field html
@@ -138,9 +142,17 @@ $(document).ready(function () {
 
     $('#save_value').click(function () {
         var arrayCoupon = [];
+        var total_coupon = [];
         $('.couponCode').each(function () {
             arrayCoupon.push($(this).val());
+            total_coupon.push($(this).val());
         });
+
+        $('.applied_coupon_code').each(function () {
+            var cc = $(this).html();
+            total_coupon.push(cc.trim());
+        });
+
         var couponCode = arrayCoupon.toString();
         var user_id = $('#associate_name').attr('data-value');
         $.ajax({
@@ -148,7 +160,7 @@ $(document).ready(function () {
             type: 'post',
             dataType: "json",
             data: {
-                coupon_code: couponCode,
+                coupon_code: couponCode, total_coupon_code: total_coupon
             },
             success: function (response) {
                 var html = '';
@@ -159,14 +171,15 @@ $(document).ready(function () {
                             if (isCouponAlreadyExits(value.id) == true) {
                                 coupon_added = 1;
                                 c_amount = c_amount + Number(value.coupon_amount);
-                                html += '<tr id="coupon_tr_' + value.id + '" class="coupon_tot_amount">\n\
+                                html += '<tr id="coupon_tr_' + value.id + '" class="coupon_tot_amount total_coupon">\n\
                           <td width="8%">\n\
                             <input type="hidden" class="bvcc" value="' + value.id + '" />\n\
                             <input type="hidden" id="ccode_' + value.id + '" value="' + value.coupon_business_name + '" />\n\
                             <input type="hidden" id="camnt_' + value.id + '" value="' + value.coupon_amount + '" />\n\
+                            <input type="hidden" class="coupon_user_id" id="" value="' + response.coupon_user_id + '" />\n\
                             <i style="cursor:pointer;" class="fa fa-trash-o trash_icon" onclick="removeCoupon(' + value.id + ');"></i>\n\
                           </td>\n\
-                          <td width="62%">CODE: ' + value.coupon_code + ' - ' + value.coupon_business_name + '</td>\n\
+                          <td width="62%">CODE: <span class="applied_coupon_code">' + value.coupon_code + '</span> - ' + value.coupon_business_name + '</td>\n\
                           <td width="30%" class="text-right"><strong>&#8377;<span id="coupon_' + value.id + '">' + value.coupon_amount + '</span></strong></td>\n\
                       </tr>';
                             }
@@ -186,7 +199,7 @@ $(document).ready(function () {
                     }
                     $('.cd-popup').removeClass('is-visible');
                 } else {
-                    showSwal('error', 'Coupon Not Valid');
+                    showSwal('error', response.data);
                 }
             }
         });
@@ -222,9 +235,6 @@ function AddValue(id) {
     var inv_item_qty = $('#inv_item_qty_' + id).val();
     qty = Number(qty);
     inv_item_qty = Number(inv_item_qty);
-    console.log(qty);
-    console.log(inv_item_qty);
-    console.log((qty - inv_item_qty));
     if (qty == inv_item_qty && (qty - inv_item_qty) == 0) {
         $('#id_add_qty').val(id);
         $('#items_qty_popup_add_qty').addClass('is-visible');
@@ -266,7 +276,7 @@ function getProductList() {
     $.ajax({
         url: url,
         type: 'post',
-        data: {distributor_id: distributor_id},
+        data: { distributor_id: distributor_id },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data) {
@@ -287,6 +297,7 @@ function removeButton(i) {
 }
 
 function verifyCoupons() {
+    var coupon_user_id = '';
     var customer_phoneno = $('#search-customer').val();
     if (customer_phoneno == '') {
         showSwal('error', 'Please Enter Customer Phone Number');
@@ -296,11 +307,16 @@ function verifyCoupons() {
         showSwal('error', 'Coupon Not Selected', 'Coupons not selected');
         return false;
     }
+
+    if($('.coupon_user_id').val())
+    {
+        coupon_user_id = $('.coupon_user_id').val();
+    }
     var url = base_url + 'invoice/send-coupon-otp';
     $.ajax({
         url: url,
         type: 'post',
-        data: {mobile_no: $('#search-customer').val()},
+        data: { coupon_user_id: coupon_user_id },
         success: function (response) {
             if (response.status == "success") {
                 showSwal('success', 'OTP SEND', response.data);
@@ -309,7 +325,7 @@ function verifyCoupons() {
                 //$('#info').val(response.info.id);
                 //setTimeout(function(){ $('#verifyOtpRequest').modal(); }, 1000);
             }
-            else{
+            else {
                 showSwal('error', response.data);
             }
         }
@@ -318,6 +334,7 @@ function verifyCoupons() {
 
 function verifyOTP() {
     var otp_array = [];
+    var coupon_user_id='';
     if ($('.otp').val() == '') {
         showSwal('error', 'NO OTP', 'Please Enter OTP');
         return false;
@@ -325,14 +342,17 @@ function verifyOTP() {
     $('.otp').each(function () {
         otp_array.push($(this).val());
     });
+    if($('.coupon_user_id').val())
+    {
+        coupon_user_id = $('.coupon_user_id').val();
+    }
     var url = base_url + 'invoice/verify-otp';
     $.ajax({
         url: url,
         type: 'post',
         data: {
             otp: otp_array.join(''),
-            id: $('#associate_name').attr('data-value'),
-            mobile_no: $('#search-customer').val()
+            coupon_user_id: coupon_user_id,
         },
         success: function (response) {
             if (response.status == "success") {
@@ -359,7 +379,7 @@ function SubTotal() {
         sub_total = (sub_total + Number($('#dp_' + id).val()));
         tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()) + Number($('#igst_' + id).val()));
         total = (total + Number($('#tot_' + id).html()));
-        ProductCouponType.push({'bv_type': bv_type, 'amount': Number($('#tot_' + id).html())});
+        ProductCouponType.push({ 'bv_type': bv_type, 'amount': Number($('#tot_' + id).html()) });
     });
 
     ProductCouponType = makeUniqueBvTypeAmount(ProductCouponType);
@@ -380,7 +400,7 @@ function totalAppliedCoupon() {
         validCoupons.push(id);
         var ccode = $('#ccode_' + id).val();
         var camnt = $('#camnt_' + id).val();
-        ctype.push({'bv_type': ccode, 'amount': camnt});
+        ctype.push({ 'bv_type': ccode, 'amount': camnt });
     });
 
     CouponCodeType = makeUniqueBvTypeAmount(ctype);
@@ -397,6 +417,7 @@ function PayCash() {
         } else {
             cashAmount = Number($('#cash').val());
         }
+        cash_note = $('#cash_note').val();
         var t = new Date().getTime();
         html += '<tr id="cash_tr_' + t + '" class="coupon_tot_amount">\n\
                     <td width="8%"><i onclick="removeCashTr(event, ' + t + ', ' + cash + ');" style="cursor:pointer;" class="fa fa-trash-o trash_icon"></i></td>\n\
@@ -481,6 +502,7 @@ function generateInvoice() {
             coupon_amount: couponAmount,
             cash_amount: cashAmount,
             sale_note: $('#sale-note').val(),
+            cash_note:cash_note,
         };
 
         var url = base_url + 'invoice/generate-invoice';
@@ -552,6 +574,7 @@ function CancelInvoice() {
     x = 0;
     ProductCouponType = [];
     CouponCodeType = [];
+    cash_note = '';
     $('#search-customer').val('');
     $('#coupon-data').html('');
     $('#item-list').html('');
@@ -687,7 +710,7 @@ function makeUniqueBvTypeAmount(obj) {
     var obj2 = [];
 
     for (var prop in holder) {
-        obj2.push({name: prop, value: Number(holder[prop])});
+        obj2.push({ name: prop, value: Number(holder[prop]) });
     }
     return obj2;
 }

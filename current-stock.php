@@ -87,10 +87,15 @@ include_once 'header.php';
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <!-- Js for download excel-->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <!-- Js for download excel-->
     <script src="<?php echo $home_url; ?>assets/javascript/distributor/admin-inventory-report.js"></script>
     <script>
-    searchItemsStock();
+        searchItemsStock();
+
         function searchItemsStock() {
             var search_date = ''
             var item_name = '';
@@ -102,9 +107,8 @@ include_once 'header.php';
                 search_date = $('#search-date').val();
             }
             if ($('#item-name').val() != '') {
-                if($('#distributor').val() == '')
-                {
-                    showSwal('error','Please Select Distributor');
+                if ($('#distributor').val() == '') {
+                    showSwal('error', 'Please Select Distributor');
                     $('#search-product').val('');
                 }
                 item_name = $('#item-name').val();
@@ -173,10 +177,22 @@ include_once 'header.php';
                         });
                         html += '</tbody>';
                         $('#stock-detail').html(html);
-                        generateDataTable('stock-detail');
+                        $('#stock-detail').DataTable().destroy();
+                        $('#stock-detail').DataTable({
+                            dom: 'Blfrtip',
+                            buttons: [{
+                                extend: 'excelHtml5',
+                                title: 'current-stock' + Date.now(),
+                                text: 'Export to Excel',
+                            }],
+                            aaSorting: []
+                        });
+                        $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+                        $('.download-excel').css('display', 'none');
                     } else {
                         $('#stock-detail').html(html);
-                        generateDataTable('stock-detail');
+                        $('#stock-detail').DataTable().destroy();
+                        $('#stock-detail').DataTable();
                         hideLoader();
                     }
                 }
@@ -193,9 +209,7 @@ include_once 'header.php';
         }
 
         function exportTableToExcel() {
-            $("#stock-detail").table2excel({
-                filename: "CurrentStock.xls"
-            });
+            $('.download-excel').click();
 
         }
 

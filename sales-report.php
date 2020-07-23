@@ -2,29 +2,31 @@
 include_once 'header.php';
 ?>
 <style>
-#sales-report tr td:last-child{white-space:nowrap !important;}
+    #sales-report tr td:last-child {
+        white-space: nowrap !important;
+    }
 </style>
 <!-- partial -->
 <div class="main-panel ">
     <div class="content-wrapper ">
         <div class="row grid-margin">
             <div class="col-12">
-			<div class="card">
-				<div class="card-body p-3 space-m">
-				<h4 class="card-title mb-4">Invoice Report</h4>
-                <div class="form-group row">
-                    <div class="col-sm-3">
-                        <label>Distributor:</label>
-                        <select id="distributor" name="distributor" class="form-control">
-                        </select>
-                    </div>
-                    <div class="col-sm-12 text-right mt-4">
-                        <button type="button" class="btn btn-gradient-danger" onclick="CancelSalesReport();">Cancel</button><button type="submit" class="btn btn-gradient-success ml-2" onclick="searchSalesReport();">Search</button>
+                <div class="card">
+                    <div class="card-body p-3 space-m">
+                        <h4 class="card-title mb-4">Invoice Report</h4>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label>Distributor:</label>
+                                <select id="distributor" name="distributor" class="form-control">
+                                </select>
+                            </div>
+                            <div class="col-sm-12 text-right mt-4">
+                                <button type="button" class="btn btn-gradient-danger" onclick="CancelSalesReport();">Cancel</button><button type="submit" class="btn btn-gradient-success ml-2" onclick="searchSalesReport();">Search</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-		</div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -49,11 +51,16 @@ include_once 'header.php';
 
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
-    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <!-- Js for download excel-->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <!-- Js for download excel-->
     <script src="<?php echo $home_url; ?>assets/javascript/distributor/admin-inventory-report.js"></script>
     <script>
         searchSalesReport();
-         function searchSalesReport() {
+
+        function searchSalesReport() {
             showLoader();
             var distributor_id = '';
             if ($('#distributor').val() != '') {
@@ -90,18 +97,33 @@ include_once 'header.php';
                                   <td>' + value.total_tax + '</td>\n\
                                   <td>' + value.cash_amount + '</td>\n\
                                   <td>' + value.coupon_amount + '</td>\n\
-                                  <td><a class="btn btn-gradient-primary btn-sm salesReport" href="sales-report-detail.php?dist_id='+value.distributor_id+'">Sales Detail</a></td>\n\
+                                  <td><a class="btn btn-gradient-primary btn-sm salesReport" href="sales-report-detail.php?dist_id=' + value.distributor_id + '">Sales Detail</a></td>\n\
                               </tr>';
                                 i = i + 1;
                             });
                             html += '</tbody>';
                             $('#sales-report').html(html);
-                            generateDataTable('sales-report');
+                            $('#sales-report').DataTable().destroy();
+                            $('#sales-report').DataTable({
+                                dom: 'Blfrtip',
+                                buttons: [{
+                                    extend: 'excelHtml5',
+                                    title: 'SalesReport' + Date.now(),
+                                    text: 'Export to Excel',
+                                    exportOptions: {
+                                        columns: [0, 1, 2, 3, 4, 5]
+                                    }
+                                }],
+                                aaSorting: []
+                            });
+                            $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+                            $('.download-excel').css('display', 'none');
                             hideLoader();
                         }
                     } else {
                         $('#sales-report').html(html);
-                        generateDataTable('sales-report');
+                        $('#sales-report').DataTable().destroy();
+                        $('#sales-report').DataTable();
                         hideLoader();
                     }
 
@@ -109,17 +131,16 @@ include_once 'header.php';
             });
 
         }
-        function exportTableToExcel() {
-            $("#sales-report").table2excel({
-                exclude:".salesReport",
-                filename: "SalesReport.xls"
-            });
-            generateDataTable('sales-report');
 
+        function exportTableToExcel() {
+            $('.download-excel').click();
         }
+
         function print() {
             var tab = document.getElementById('sales-report');
             var win = window.open('', '', 'height=700,width=700');
+            win.document.write("<style> th:nth-child(7){display:none;} </style>");
+            win.document.write("<style> td:nth-child(7){display:none;} </style>");
             win.document.write(tab.outerHTML);
             win.document.close();
             win.print();

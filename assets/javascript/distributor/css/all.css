@@ -682,3 +682,9 @@ table.table_recieved tr td, table.table_recieved tr th{    border: #ebebeb 1px s
     font-size: 13px;
 }
 .cd-popup{z-index:9999;}
+
+.payDiv > div{padding:0 10px;}
+	.payDiv > div:nth-child(1){width:50%;display:inline-block;}
+	.payDiv > div:nth-child(2){width:auto;display:inline-block;}
+	.payDiv > div:nth-child(3){width:100%; margin-top:15px;}
+	.payDiv > div textarea{width:74%;border: 1px solid #cccccc; padding:3px;}

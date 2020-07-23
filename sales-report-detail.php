@@ -295,7 +295,11 @@ if (isset($_REQUEST['dist_id'])) {
     </div>
     <!-- End Popup-->
     <?php include_once 'footer.php'; ?>
-    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <!-- Js for download excel-->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <!-- Js for download excel-->
     <script src="<?php echo $home_url; ?>assets/javascript/distributor/admin-inventory-report.js"></script>
     <script>
         var distributor_id = "<?php echo $dist_id; ?>";
@@ -365,12 +369,27 @@ if (isset($_REQUEST['dist_id'])) {
                             });
                             html += '</tbody>';
                             $('#sales-report-detail').html(html);
-                            generateDataTable('sales-report-detail');
+                            $('#sales-report-detail').DataTable().destroy();
+                            $('#sales-report-detail').DataTable({
+                                dom: 'Blfrtip',
+                                buttons: [{
+                                    extend: 'excelHtml5',
+                                    title: 'SalesReportDetail' + Date.now(),
+                                    text: 'Export to Excel',
+                                    exportOptions: {
+                                    columns: [0,1, 2, 3,4,5,6,7]
+                                  }
+                                }],
+                                aaSorting: []
+                            });
+                            $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
+                            $('.download-excel').css('display', 'none');
                             hideLoader();
                         }
                     } else {
                         $('#sales-report-detail').html(html);
-                        generateDataTable('sales-report-detail');
+                        $('#sales-report-detail').DataTable().destroy();
+                        $('#sales-report-detail').DataTable();
                         hideLoader();
                     }
 
@@ -390,16 +409,15 @@ if (isset($_REQUEST['dist_id'])) {
         }
 
         function exportTableToExcel() {
-            $(".sales-report-detail").table2excel({
-                exclude: ".salesDetail",
-                filename: "SalesReportDetail.xls"
-            });
+            $('.download-excel').click();
 
         }
 
         function print() {
             var tab = document.getElementById('sales-report-detail');
             var win = window.open('', '', 'height=700,width=700');
+            win.document.write("<style> th:nth-child(9){display:none;} </style>");
+            win.document.write("<style> td:nth-child(9){display:none;} </style>");
             win.document.write(tab.outerHTML);
             win.document.close();
             win.print();

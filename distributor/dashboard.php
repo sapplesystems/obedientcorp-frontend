@@ -63,16 +63,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
           <div class="card-header">
             <h4>Top 10 Selling Items</h4>
           </div>
-          <div class="card-body" id="top-sell-items">
-            <div class="mb-4">
-              <div class="text-small float-right font-weight-bold text-muted">2,100</div>
-              <div class="font-weight-bold mb-1">Item 1</div>
-              <div class="progress" data-height="3" style="height: 3px;">
-                <div class="progress-bar" role="progressbar" data-width="80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-              </div>
-            </div>
-
-          </div>
+          <div class="card-body" id="top-sell-items"></div>
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-12 d-flex">

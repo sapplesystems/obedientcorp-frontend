@@ -13,6 +13,7 @@
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
+
 <script src="assets/vendors/js/vendor.bundle.base.js "></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
@@ -81,10 +82,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js"></script>
 <!--Down the line member drop donw typing search end here-->
 <script type="text/javascript" src="assets/javascript/global.js" /></script>
-	<script src="assets/js/mBox.js"></script>
-	<script>
-	  $('.mBox').mBox();
-	</script>
+<script src="assets/js/mBox.js"></script>
+<script>
+  $('.mBox').mBox();
+</script>
+        
+<script type="text/javascript">
+/*if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker
+        .register("sw.js")
+        .then(res => console.log("service worker registered"))
+        .catch(err => console.log("service worker not registered", err))
+    })
+  }*/
+</script>
 </body>
 
 </html>

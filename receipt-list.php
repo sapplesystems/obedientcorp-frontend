@@ -133,7 +133,11 @@ include_once 'header.php';
                         </tr>
                         <tr>
                             <td style="padding: 8px;color: #000000;font-size: 14px; border:1px solid #322f2f;" colspan="3">Received sum of <strong>Rs. </strong><strong id="received-amount"></strong><strong>(In Words-</strong><strong id="number-into-words">Four Thousand Only</strong><strong>.)</strong><br>
-                                by <strong>Cheque/UTR No.:</strong> <span id="payment-mode"></span>  <strong>Dated:</strong> <span id="cheque-date"></span>  <strong>Account Holder Name:</strong> <span id="holder-name"></span>  <strong>Bank:</strong> <span id="bank-name"></span>
+                                by <strong>Cheque/UTR No.: </strong> <span id="cheque_no"></span>  
+                                <strong>Payment Mode: </strong> <span id="payment-mode"></span>  
+                                <strong>Dated: </strong> <span id="cheque-date"></span>  
+                                <strong>Account Holder Name: </strong> <span id="holder-name"></span>  
+                                <strong>Bank: </strong> <span id="bank-name"></span>
                             </td>
                         </tr>
                         <tr>

@@ -242,7 +242,7 @@ include_once 'header.php';
                     <td>' + value.inventory_quantity + '</td>\n\
                     <td>' + value.total_in + '</td>\n\
                     <td>' + value.total_out + '</td>\n\
-                    <td><a class="btn btn-gradient-primary btn-sm stockDetail" href="javascript:void(0)" onclick="getStockFlowDetail(' + distributor_id + ',' + value.product_id + ',' + lotNumber + ');"id="detail_' + i + '">Item Detail</a></td>\n\
+                    <td><a class="btn btn-gradient-primary btn-sm stockDetail" href="javascript:void(0)" onclick="getStockFlowDetail(' + distributor_id + ',' + value.product_id + ',\'' + lotNumber + '\');"id="detail_' + i + '">Item Detail</a></td>\n\
                     </tr>';
                                 i = i + 1;
                             });

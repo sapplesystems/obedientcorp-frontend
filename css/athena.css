@@ -805,7 +805,7 @@ margin-top: 5px;}
 
 .real-estate-slider .slick-slide img{height:300px; margin-bottom:0px;}
 
-.bg_careImg{height:300px; background-size:cover; background-repeat:no-repeat; background-position:center center;}
+.bg_careImg{height:300px; background-size:100% 100%; background-repeat:no-repeat; background-position:center center;}
 .custom_CareImgs .imgCare1{background-image:url(../images/All1.png);}
 .custom_CareImgs .imgCare2{background-image:url(../images/All.png);}
 .custom_CareImgs .imgCare3{background-image:url(../images/IMG-20200531-WA0010.png);}

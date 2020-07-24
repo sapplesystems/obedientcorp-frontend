@@ -23,6 +23,15 @@ include_once 'common_html.php';
 <html lang="en">
 
     <head>
+        <!--manifest detail start here-->
+        <!--link rel="manifest" href="manifest.json" />
+        <meta name="apple-mobile-web-app-title" content="MyObedient">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#1976d2">
+        <link rel="apple-touch-startup-image" href="images/logo_header.png">
+        <link rel="apple-touch-icon" href="images/logo_header.png"-->
+        <!--manifest detail end here-->
+        
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,7 +44,7 @@ include_once 'common_html.php';
         <link rel="stylesheet" href="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
         <!-- Plugin css for this page -->
         <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
         <link rel="stylesheet" href="assets/vendors/lightgallery/css/lightgallery.css">
         <!-- End plugin css for this page -->
@@ -136,14 +145,14 @@ include_once 'common_html.php';
                                 </div>
                             </li>
                         <?php } ?>
-                        <?php /*if ($user_type == 'ADMIN') { ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="shopping-cards-business-value">
-                                    <span class="menu-title">Manage Shopping Cards Business Value</span>
-                                    <i class="mdi mdi-wallet-giftcard menu-icon"></i>
-                                </a>
-                            </li>
-                        <?php }*/ ?>
+                        <?php /* if ($user_type == 'ADMIN') { ?>
+                          <li class="nav-item">
+                          <a class="nav-link" href="shopping-cards-business-value">
+                          <span class="menu-title">Manage Shopping Cards Business Value</span>
+                          <i class="mdi mdi-wallet-giftcard menu-icon"></i>
+                          </a>
+                          </li>
+                          <?php } */ ?>
                         <li class="nav-item">
                             <a class="nav-link" href="shopping-cards">
                                 <span class="menu-title">Manage Shopping Cards</span>
@@ -196,6 +205,12 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-wallet menu-icon"></i>
                             </a>
                         </li>
+                        <!--li class="nav-item">
+                            <a class="nav-link" href="customer-list">
+                                <span class="menu-title">Customer List</span>
+                                <i class="mdi mdi-account-box-outline menu-icon"></i>
+                            </a>
+                        </li-->
                         <li class="nav-item">
                             <a class="nav-link" href="manage-customer">
                                 <span class="menu-title">Manage Customer</span>
@@ -323,8 +338,8 @@ include_once 'common_html.php';
                                     <i class="mdi mdi-home menu-icon"></i>
                                 </a>
                             </li>
-							  <?php } ?>
-							  <?php if ($user_type == 'ADMIN' || $user_type == 'ADMIN2') { ?>
+                        <?php } ?>
+                        <?php if ($user_type == 'ADMIN' || $user_type == 'ADMIN2') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="manage-distributor">
                                     <span class="menu-title">Manage Distributor</span>
@@ -343,7 +358,7 @@ include_once 'common_html.php';
                                     </ul>
                                 </div>
                             </li>
-							 <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#reports" aria-expanded="false" aria-controls="category">
                                     <span class="menu-title">Reports</span>
                                     <i class="menu-arrow"></i>
@@ -358,6 +373,6 @@ include_once 'common_html.php';
                                     </ul>
                                 </div>
                             </li>
-                       <?php } ?>
+                        <?php } ?>
                     </ul>
                 </nav>

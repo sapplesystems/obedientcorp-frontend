@@ -263,15 +263,17 @@ if (isset($_REQUEST['dist_id'])) {
                                                 <div class="cartNav cartNavBottom js-cartNavBottom">
                                                     <div class="cartNavButtons">
                                                         <div class="btn_action">
-                                                            <a href="javascript:void(0);" class="cd-popup-trigger" id="pay-cash">Pay Cash</a>&nbsp;
-                                                            <a href="javascript:void(0);" class="cd-popup-trigger add-coupon" id="add-coupon">Apply Coupon</a>&nbsp;
-                                                            <a href="javascript:void(0);" class="cd-popup-trigger m-mt-10 verify-coupon" onclick="verifyCoupons();" id="verify-coupon">Verify Coupon OTP</a>
+                                                            <a href="javascript:void(0);" class="cd-popup-trigger">Pay Cash</a>&nbsp;
+                                                            <a href="javascript:void(0);" class="cd-popup-trigger add-coupon">Apply Coupon</a>&nbsp;
+                                                            <a href="javascript:void(0);" class="cd-popup-trigger m-mt-10 verify-coupon">Verify Coupon OTP</a>
                                                         </div>
                                                         <span class="line-seperate "></span>
-                                                        <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel full-width text-bold" type="button" name="" value="true" onclick="CancelInvoice();"><span>CANCEL</span></button><button id="loginCheckout" class="btn_placeOrder cx-button bgBTN full-width text-bold ml2Percent" type="button" name="" value="true" onclick="printInvoice();"><span>PRINT</span></button>
+                                                        <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN-cancel full-width text-bold" type="button" name="" value="true" onclick="CancelInvoice();"><span>CANCEL</span></button>
+                                                        <button id="loginCheckout" class="btn_placeOrder cx-button bgBTN full-width text-bold ml2Percent" type="button" name="" value="true" onclick="printInvoice();"><span>PRINT</span></button>
+                                                        <input type="hidden" id="generated_invoice_id" value="" />
                                                     </div>
                                                 </div>
-												<div class="clearfix"></div>
+                                                <div class="clearfix"></div>
                                                 <div class="sales_notes marginTop10">
                                                     <label>Sale Notes</label>
                                                     <textarea id="sale-note"></textarea>
@@ -425,12 +427,15 @@ if (isset($_REQUEST['dist_id'])) {
         }
 
         function printInvoice() {
-            var tab = document.getElementById('posInvoice');
+            /*var tab = document.getElementById('posInvoice');
             var win = window.open('', '', 'height=800,width=800');
             win.document.write(tab.outerHTML);
             win.document.close();
-            win.print();
-
+            win.print();*/
+            var invoice_id = $('#generated_invoice_id').val();
+            if (invoice_id) {
+                var win = window.open('distributor/print-invoice.php?invoice_id=' + invoice_id, '', 'height=1000,width=1000');
+            }
         }
 
         function getSalesDetail(id) {
@@ -522,6 +527,7 @@ if (isset($_REQUEST['dist_id'])) {
                         }
                         $('#item-list').append(html);
                         $('#today_date').html(response.data.created_at);
+                        $('#generated_invoice_id').val(id);
                         $('#posInvoice').modal('show');
 
                     }

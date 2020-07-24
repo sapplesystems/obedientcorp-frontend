@@ -89,15 +89,17 @@ $(document).ready(function () {
                             style_css = 'style="background: red; color: #fff; font-weight: bold"';
                         }
                         set_lot_numbers += '<tr ' + style_css + '>\n\
-                        <td><input style="position:inherit;" type="radio" id="test'+ test_id + '" name="lot_no_radio" value="' + value + '" data-value="' + lot_quantity[lq] + '"></td>\n\
-                        <td><label for="test'+ test_id + '">' + value + '</label></td>\n\
+                        <td><input style="position:inherit;" type="radio" id="test' + test_id + '" name="lot_no_radio" value="' + value + '" data-value="' + lot_quantity[lq] + '"></td>\n\
+                        <td><label for="test' + test_id + '">' + value + '</label></td>\n\
                         <td><label>' + lot_quantity[lq] + '</label></td>\n\
                         </tr>>';
-                        qty_array.push({ radio: '#test' + test_id, qty: lot_quantity[lq] });
+                        qty_array.push({radio: '#test' + test_id, qty: lot_quantity[lq]});
                         lq++
                         test_id++;
                     });
-                    qty_array.sort(function (a, b) { return b.qty - a.qty; });
+                    qty_array.sort(function (a, b) {
+                        return b.qty - a.qty;
+                    });
                     $('#lot_quantity').html(set_lot_numbers);
                     $(qty_array[0].radio).prop('checked', true);
                     $('#lot_select').html('<button onclick="selectLotNo(\'' + ui.item.id + '\');">Select</button>');
@@ -276,13 +278,13 @@ function getProductList() {
     $.ajax({
         url: url,
         type: 'post',
-        data: { distributor_id: distributor_id },
+        data: {distributor_id: distributor_id},
         success: function (response) {
             if (response.status == "success") {
                 if (response.data) {
                     $.each(response.data, function (i, value) {
                         var search_prod = value.search_product + ' - ' + value.coupon_business_name;
-                        products.push({ id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name, lot_no: value.lot_no, lot_quantity: value.lot_quantity });
+                        products.push({id: value.id, label: search_prod, value: search_prod, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku, coupon_type: value.coupon_business_name, lot_no: value.lot_no, lot_quantity: value.lot_quantity});
                     });
                 }
             }
@@ -308,15 +310,14 @@ function verifyCoupons() {
         return false;
     }
 
-    if($('.coupon_user_id').val())
-    {
+    if ($('.coupon_user_id').val()) {
         coupon_user_id = $('.coupon_user_id').val();
     }
     var url = base_url + 'invoice/send-coupon-otp';
     $.ajax({
         url: url,
         type: 'post',
-        data: { coupon_user_id: coupon_user_id },
+        data: {coupon_user_id: coupon_user_id},
         success: function (response) {
             if (response.status == "success") {
                 showSwal('success', 'OTP SEND', response.data);
@@ -334,7 +335,7 @@ function verifyCoupons() {
 
 function verifyOTP() {
     var otp_array = [];
-    var coupon_user_id='';
+    var coupon_user_id = '';
     if ($('.otp').val() == '') {
         showSwal('error', 'NO OTP', 'Please Enter OTP');
         return false;
@@ -342,8 +343,7 @@ function verifyOTP() {
     $('.otp').each(function () {
         otp_array.push($(this).val());
     });
-    if($('.coupon_user_id').val())
-    {
+    if ($('.coupon_user_id').val()) {
         coupon_user_id = $('.coupon_user_id').val();
     }
     var url = base_url + 'invoice/verify-otp';
@@ -379,7 +379,7 @@ function SubTotal() {
         sub_total = (sub_total + Number($('#dp_' + id).val()));
         tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()) + Number($('#igst_' + id).val()));
         total = (total + Number($('#tot_' + id).html()));
-        ProductCouponType.push({ 'bv_type': bv_type, 'amount': Number($('#tot_' + id).html()) });
+        ProductCouponType.push({'bv_type': bv_type, 'amount': Number($('#tot_' + id).html())});
     });
 
     ProductCouponType = makeUniqueBvTypeAmount(ProductCouponType);
@@ -400,7 +400,7 @@ function totalAppliedCoupon() {
         validCoupons.push(id);
         var ccode = $('#ccode_' + id).val();
         var camnt = $('#camnt_' + id).val();
-        ctype.push({ 'bv_type': ccode, 'amount': camnt });
+        ctype.push({'bv_type': ccode, 'amount': camnt});
     });
 
     CouponCodeType = makeUniqueBvTypeAmount(ctype);
@@ -502,7 +502,7 @@ function generateInvoice() {
             coupon_amount: couponAmount,
             cash_amount: cashAmount,
             sale_note: $('#sale-note').val(),
-            cash_note:cash_note,
+            cash_note: cash_note,
         };
 
         var url = base_url + 'invoice/generate-invoice';
@@ -512,12 +512,12 @@ function generateInvoice() {
             data: params,
             success: function (response) {
                 if (response.status == "success") {
+                    $('#generated_invoice_id').val(response.invoice_id);
                     $('#before_inovice_generate').removeClass('is-visible');
                     $('#success_generate_invoice').addClass('is-visible');
                     //showSwal('success', 'Invoice Generated', response.data);
                     var msg = '<span>' + response.data + '</span>';
                     $('#success_generate_invoice_msg').html(msg);
-                    CancelInvoice();
                     enableCouponBtn();
                 }
                 else {
@@ -531,6 +531,12 @@ function generateInvoice() {
 }
 
 function closePopUP() {
+    $('.cd-popup').removeClass('is-visible');
+}
+
+function successInvoice()
+{
+    CancelInvoice();
     $('.cd-popup').removeClass('is-visible');
 }
 
@@ -710,7 +716,7 @@ function makeUniqueBvTypeAmount(obj) {
     var obj2 = [];
 
     for (var prop in holder) {
-        obj2.push({ name: prop, value: Number(holder[prop]) });
+        obj2.push({name: prop, value: Number(holder[prop])});
     }
     return obj2;
 }
@@ -812,6 +818,15 @@ function checkBeforeGenerateInvoice() {
 
 function printInvoice(e) {
     e.preventDefault();
+    var invoice_id = $('#generated_invoice_id').val();
+    if (invoice_id) {
+        var win = window.open('print-invoice.php?invoice_id=' + invoice_id, '', 'height=1000,width=1000');
+    }
+    //var tab = document.getElementById('mainContent');
+    
+    //win.document.write(tab.outerHTML);
+    //win.document.close();
+    //win.print();
 }
 
 function selectLotNo(item_id) {

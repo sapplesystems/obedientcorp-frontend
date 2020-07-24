@@ -27,7 +27,7 @@ function getReceiptList() {
     if ($('#customer-list').val()) {
         customer_id = $('#customer-list').val();
     }
-    if($('#start-date').val())
+    if ($('#start-date').val())
     {
         receipt_date = $('#start-date').val();
     }
@@ -38,7 +38,7 @@ function getReceiptList() {
         project_id: project_id,
         sub_project_id: sub_project_id,
         plot_id: plot_id,
-        date:receipt_date
+        date: receipt_date
     };
     var url = base_url + 'real-estate-receipt';
     $.ajax({
@@ -61,7 +61,7 @@ function getReceiptList() {
                       </thead><tbody>';
             if (response.status == "success") {
                 if (response.data.length != 0) {
-                    var i = 1;
+                    var i = 0;
                     receiptDetail = response.data;
                     $.each(response.data, function (key, value) {
                         var plot = '';
@@ -69,7 +69,7 @@ function getReceiptList() {
                             plot = value.plot_name;
                         }
                         html += '<tr  role="row" >\n\
-                                    <td>' + i + '</td>\n\
+                                    <td>' + (i + 1) + '</td>\n\
                                     <td>' + value.customer_name + '</td>\n\
                                     <td>' + value.receipt_no + '</td>\n\
                                     <td>' + value.receipt_date + '</td>\n\
@@ -77,11 +77,9 @@ function getReceiptList() {
                                     <td>' + value.sub_project_name + '</td>\n\
                                     <td>' + plot + '</td>\n\
                                     <td>' + value.payment_mode + '</td>\n\
-                                    <td><a class="btn btn-gradient-primary btn-sm" href="javascript:void(0)" onclick="getReceiptDetail('+ i + ');"id="detail_' + i + '">Receipt</a>\n\
-                                    <input type="hidden" value="'+ value.receipt_no + '" id="receipt_' + i + '"/>\n\
-                                    </td>\n\
+                                    <td><a class="btn btn-gradient-primary btn-sm" href="javascript:void(0)" onclick="getReceiptDetail(' + i + ');"id="detail_' + i + '">Receipt</a></td>\n\
                                 </tr>';
-                        i = i + 1;
+                        i++;
                     });
 
                     $('#receipt-list').html(html);
@@ -98,74 +96,70 @@ function getReceiptList() {
     });
 } //end function
 
-function getReceiptDetail(no) {
-    var receipt_no = $('#receipt_' + no).val();
-    $.each(receiptDetail, function (key, value) {
-        if (value.receipt_no == receipt_no) {
-            var emi = '';
-            var bank_name = '-';
-            var holder_name = '-';
-            var cheque_date = '-';
-            $('#receipt-no').html(value.receipt_no);
-            $('#receipt-date').html(value.receipt_date);
-            $('#customer-id').html(value.customer_id);
-            $('#date-of-booking').html(value.date_of_booking);
-            $('#name').html(value.customer_name);
-            $('#due-date').html(value.next_due_date);
-            $('#father-name').html(value.customer_father_name);
-            $('#address').html(value.customer_address);
-            $('#mobile').html(value.customer_mobile);
-            $('#project-name').html(value.project_name);
-            $('#plot').html(value.plot_name);
-            $('#size').html(value.plot_size);
-            $('#rate').html(value.unit_rate);
-            $('#amount').html(value.amount);
-            $('#balance').html(value.balance);
-            $('#emi-amount').html(value.received_emi_amount);
-            $('#payment-mode').html(value.payment_mode);
-            if(value.cheque_date)
-            {
-                cheque_date=value.cheque_date;
-            }
-            $('#cheque-date').html(cheque_date);
-            if(value.account_holder_name)
-            {
-                holder_name = value.account_holder_name;
-            }
-            $('#holder-name').html(holder_name);
-            if(value.bank_name!='undefined')
-            {
-                bank_name = value.bank_name;
-            }
-            $('#bank-name').html(bank_name);
-            $('#received-amount').html(value.received_emi_amount);
-            if (value.installment == 12) {
-                emi = 'EMI-1 YEAR';
-            }
-            else if (value.installment == 24) {
-                emi = 'EMI-2 YEAR';
-            }
-            else if (value.installment == 36) {
-                emi = 'EMI-3 YEAR';
-            }
-            else if (value.installment == 60) {
-                emi = 'EMI-5 YEAR';
-            }
-            else if (value.installment == 84) {
-                emi = 'EMI-7 YEAR';
-            }
-            else if (value.installment == 120) {
-                emi = 'EMI-10 YEAR';
-            }
-            else {
-                emi = 'SINGLE PAYMENT';
-            }
+function getReceiptDetail(i) {
+    var value = receiptDetail[i];
+    var emi = '';
+    var bank_name = '-';
+    var holder_name = '-';
+    var cheque_date = '-';
+    $('#receipt-no').html(value.receipt_no);
+    $('#receipt-date').html(value.receipt_date);
+    $('#customer-id').html(value.customer_id);
+    $('#date-of-booking').html(value.date_of_booking);
+    $('#name').html(value.customer_name);
+    $('#due-date').html(value.next_due_date);
+    $('#father-name').html(value.customer_father_name);
+    $('#address').html(value.customer_address);
+    $('#mobile').html(value.customer_mobile);
+    $('#project-name').html(value.project_name);
+    $('#plot').html(value.plot_name);
+    $('#size').html(value.plot_size);
+    $('#rate').html(value.unit_rate);
+    $('#amount').html(value.amount);
+    $('#balance').html(value.balance);
+    $('#emi-amount').html(value.received_emi_amount);
+    $('#cheque_no').html(value.cheque_number);
+    $('#payment-mode').html(value.payment_mode);
+    if (value.cheque_date)
+    {
+        cheque_date = value.cheque_date;
+    }
+    $('#cheque-date').html(cheque_date);
+    if (value.account_holder_name)
+    {
+        holder_name = value.account_holder_name;
+    }
+    $('#holder-name').html(holder_name);
+    if (value.bank_name != 'undefined')
+    {
+        bank_name = value.bank_name;
+    }
+    $('#bank-name').html(bank_name);
+    $('#received-amount').html(value.received_emi_amount);
+    if (value.installment == 12) {
+        emi = 'EMI-1 YEAR';
+    }
+    else if (value.installment == 24) {
+        emi = 'EMI-2 YEAR';
+    }
+    else if (value.installment == 36) {
+        emi = 'EMI-3 YEAR';
+    }
+    else if (value.installment == 60) {
+        emi = 'EMI-5 YEAR';
+    }
+    else if (value.installment == 84) {
+        emi = 'EMI-7 YEAR';
+    }
+    else if (value.installment == 120) {
+        emi = 'EMI-10 YEAR';
+    }
+    else {
+        emi = 'SINGLE PAYMENT';
+    }
 
-            $('#emi').html(emi);
-            document.getElementById('number-into-words').innerHTML = number2text(value.received_emi_amount);
-        }
-
-    });
+    $('#emi').html(emi);
+    document.getElementById('number-into-words').innerHTML = number2text(value.received_emi_amount);
     $('#receipt-detail').modal('show');
 }
 
@@ -211,14 +205,14 @@ function print() {
 }
 
 function number2text(value) {
-    var fraction = Math.round(frac(value)*100);
-    var f_text  = "";
+    var fraction = Math.round(frac(value) * 100);
+    var f_text = "";
 
-    if(fraction > 0) {
-        f_text = "AND "+convert_number(fraction)+" PAISE";
+    if (fraction > 0) {
+        f_text = "AND " + convert_number(fraction) + " PAISE";
     }
 
-    return convert_number(value)+" RUPEE "+f_text+" ONLY";
+    return convert_number(value) + " RUPEE " + f_text + " ONLY";
 }
 
 function frac(f) {
@@ -227,72 +221,72 @@ function frac(f) {
 
 function convert_number(number)
 {
-    if ((number < 0) || (number > 999999999)) 
-    { 
+    if ((number < 0) || (number > 999999999))
+    {
         return "NUMBER OUT OF RANGE!";
     }
-    var Gn = Math.floor(number / 10000000);  /* Crore */ 
-    number -= Gn * 10000000; 
-    var kn = Math.floor(number / 100000);     /* lakhs */ 
-    number -= kn * 100000; 
-    var Hn = Math.floor(number / 1000);      /* thousand */ 
-    number -= Hn * 1000; 
-    var Dn = Math.floor(number / 100);       /* Tens (deca) */ 
-    number = number % 100;               /* Ones */ 
-    var tn= Math.floor(number / 10); 
-    var one=Math.floor(number % 10); 
-    var res = ""; 
+    var Gn = Math.floor(number / 10000000);  /* Crore */
+    number -= Gn * 10000000;
+    var kn = Math.floor(number / 100000);     /* lakhs */
+    number -= kn * 100000;
+    var Hn = Math.floor(number / 1000);      /* thousand */
+    number -= Hn * 1000;
+    var Dn = Math.floor(number / 100);       /* Tens (deca) */
+    number = number % 100;               /* Ones */
+    var tn = Math.floor(number / 10);
+    var one = Math.floor(number % 10);
+    var res = "";
 
-    if (Gn>0) 
-    { 
-        res += (convert_number(Gn) + " CRORE"); 
-    } 
-    if (kn>0) 
-    { 
-            res += (((res=="") ? "" : " ") + 
-            convert_number(kn) + " LAKH"); 
-    } 
-    if (Hn>0) 
-    { 
-        res += (((res=="") ? "" : " ") +
-            convert_number(Hn) + " THOUSAND"); 
-    } 
-
-    if (Dn) 
-    { 
-        res += (((res=="") ? "" : " ") + 
-            convert_number(Dn) + " HUNDRED"); 
-    } 
-
-
-    var ones = Array("", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX","SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN","FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN","NINETEEN"); 
-var tens = Array("", "", "TWENTY", "THIRTY", "FOURTY", "FIFTY", "SIXTY","SEVENTY", "EIGHTY", "NINETY"); 
-
-    if (tn>0 || one>0) 
-    { 
-        if (!(res=="")) 
-        { 
-            res += " AND "; 
-        } 
-        if (tn < 2) 
-        { 
-            res += ones[tn * 10 + one]; 
-        } 
-        else 
-        { 
-
-            res += tens[tn];
-            if (one>0) 
-            { 
-                res += ("-" + ones[one]); 
-            } 
-        } 
+    if (Gn > 0)
+    {
+        res += (convert_number(Gn) + " CRORE");
+    }
+    if (kn > 0)
+    {
+        res += (((res == "") ? "" : " ") +
+                convert_number(kn) + " LAKH");
+    }
+    if (Hn > 0)
+    {
+        res += (((res == "") ? "" : " ") +
+                convert_number(Hn) + " THOUSAND");
     }
 
-    if (res=="")
-    { 
-        res = "zero"; 
-    } 
+    if (Dn)
+    {
+        res += (((res == "") ? "" : " ") +
+                convert_number(Dn) + " HUNDRED");
+    }
+
+
+    var ones = Array("", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN");
+    var tens = Array("", "", "TWENTY", "THIRTY", "FOURTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY");
+
+    if (tn > 0 || one > 0)
+    {
+        if (!(res == ""))
+        {
+            res += " AND ";
+        }
+        if (tn < 2)
+        {
+            res += ones[tn * 10 + one];
+        }
+        else
+        {
+
+            res += tens[tn];
+            if (one > 0)
+            {
+                res += ("-" + ones[one]);
+            }
+        }
+    }
+
+    if (res == "")
+    {
+        res = "zero";
+    }
     return res;
 }
 

@@ -279,9 +279,10 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
         <h3 class="headPopup">Message<a href="#0" class="cd-popup-close img-replace">Close</a></h3>
         <div class="popup_input" id="success_generate_invoice_msg"></div>
         <!--<div class="backbtn_pos"><a class="btnBack" href="#" onclick="printInvoice(event);">Print</a></div>-->
+        <input type="hidden" id="generated_invoice_id" value="" />
         <ul class="cd-buttons">
-            <li><a class="" href="javascript:void(0);" onclick="window.print();">Print Bill</a></li>
-            <li><a href="javascript:void(0);" onclick="closePopUP();">OK</a></li>
+            <li><a class="" href="javascript:void(0);" onclick="printInvoice(event);">Print Bill</a></li>
+            <li><a href="javascript:void(0);" onclick="successInvoice();">OK</a></li>
         </ul>
     </div>
 </div>

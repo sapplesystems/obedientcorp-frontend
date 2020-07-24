@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
+        <!--manifest detail start here-->
+        <!--link rel="manifest" href="manifest.json" />
+        <meta name="apple-mobile-web-app-title" content="MyObedient">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#1976d2">
+        <link rel="apple-touch-startup-image" href="images/logo_header.png">
+        <link rel="apple-touch-icon" href="images/logo_header.png"-->
+        <!--manifest detail end here-->
+        
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Obedient Marketing Universal Private Limited</title>

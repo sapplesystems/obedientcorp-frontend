@@ -46,7 +46,7 @@ function getProductList() {
             if (response.status == "success") {
                 if (response.data) {
                     $.each(response.data, function (i, value) {
-                        products.push({ id: value.id, label: value.search_product, value: value.name, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku });
+                        products.push({id: value.id, label: value.search_product, value: value.name, dealer_price: value.dealer_price, cgst: value.cgst, igst: value.igst, sgst: value.sgst, code: value.sku});
                     });
                 }
             }
@@ -140,17 +140,17 @@ function searchItemsStock() {
                             lot_no_outgoing = '-';
                         }
                         html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
-                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ i + '</td>\n\
-                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ value.category_name + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + i + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.category_name + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.sku + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.product_name + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.bv_type + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.date + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + lot_no_outgoing + '</td>\n\
                                     <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.inventory_quantity + '</td>\n\
-                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ value.total_in + '</td>\n\
-                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">'+ value.total_out + '</td>\n\
-                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;" class="stockDetail"><a style="background-color: #191d21;border-color: #191d21;color: #fff;white-space: nowrap;border-radius: .2rem;text-align: center;vertical-align: middle;width: 50px;height: 28px;line-height: 28px;text-decoration:none;font-size: 12px;padding:0px;display:inline-block;" class="btn btn-dark btn-sm" href="javascript:void(0)" onclick="getStockFlowDetail('+ distributor_id + ',' + value.product_id + ',' + lotNumber + ');"id="detail_' + i + '">Details</a></td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.total_in + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;">' + value.total_out + '</td>\n\
+                                    <td style="border: #ebebeb 1px solid; padding: 5px 10px;font-size: 13px; text-align:left;font-family:arial; color:#444444;" class="stockDetail"><a style="background-color: #191d21;border-color: #191d21;color: #fff;white-space: nowrap;border-radius: .2rem;text-align: center;vertical-align: middle;width: 50px;height: 28px;line-height: 28px;text-decoration:none;font-size: 12px;padding:0px;display:inline-block;" class="btn btn-dark btn-sm" href="javascript:void(0)" onclick="getStockFlowDetail(' + distributor_id + ',' + value.product_id + ',\'' + lotNumber + '\');"id="detail_' + i + '">Details</a></td>\n\
                                 </tr>';
                         i = i + 1;
                     });
@@ -167,14 +167,14 @@ function searchItemsStock() {
                                 title: 'stock-flow' + Date.now(),
                                 text: 'Export to Excel',
                                 exportOptions: {
-                                    columns: [0,1, 2, 3,4,5,6,7,8,9]
-                                  }
+                                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                                }
                             }
                         ],
                         aaSorting: []
                     });
                     $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel');
-                    $('.download-excel').css('display','none');
+                    $('.download-excel').css('display', 'none');
                 }
             }
             else {
@@ -286,8 +286,8 @@ function getStockFlowDetail(id, pro_id, lot_no) {
                         } else {
                             dispatch_no = value.dispatch_no;
                         }
-                        if (value.by_distributor && value.to_distributor) {
-                            distributor_by = value.by_distributor;
+                        distributor_by = value.by_distributor;
+                        if (value.to_distributor) {
                             distributor_to = value.to_distributor;
                         }
                         html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
@@ -309,24 +309,24 @@ function getStockFlowDetail(id, pro_id, lot_no) {
                             </tr>';
                         i = i + 1;
                     });
-                    html+='</tbody>';
+                    html += '</tbody>';
                     $('#stock-detail').html(html);
                     $('#stock-detail-popup').addClass('is-visible');
                     $('#stock-detail').DataTable().destroy();
                     $('#stock-detail').DataTable({
                         dom: 'Blfrtip',
                         buttons: [{
-                            extend: 'excelHtml5',
-                            title: 'stock-item-detail' + Date.now(),
-                            text: 'Export to Excel',
-                        }],
+                                extend: 'excelHtml5',
+                                title: 'stock-item-detail' + Date.now(),
+                                text: 'Export to Excel',
+                            }],
                         aaSorting: []
                     });
                     $('.dt-button').removeClass().addClass('btn btn-info ml-2 download-excel-item');
                     $('.download-excel-item').css('display', 'none');
                 }
             } else {
-                html+='</tbody>';
+                html += '</tbody>';
                 $('#stock-detail').html(html);
                 $('#stock-detail-popup').addClass('is-visible');
                 $('#stock-detail').DataTable().destroy();

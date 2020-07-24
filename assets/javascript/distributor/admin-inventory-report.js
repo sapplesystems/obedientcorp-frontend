@@ -102,20 +102,20 @@ function getStockFlowDetail(id, pro_id, lot_no) {
     success: function (response) {
       var html = '<thead>\n\
                       < tr >\n\
-                      <th>Sr.No</th>\n\
-                      <th>Dispatched By</th>\n\
-                      <th>Dispatched To</th>\n\
-                      <th>Customer Name</th>\n\
-                      <th>Customer Mobile Number</th>\n\
-                      <th>Dispatch Number</th>\n\
-                      <th>Invoice Number</th>\n\
-                      <th>Category</th>\n\
-                      <th>Item Code</th>\n\
-                      <th>Item Name</th>\n\
-                      <th>Qty</th>\n\
-                      <th>Lot No</th>\n\
-                      <th>BV Type</th>\n\
-                      <th>Type</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Sr.No</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Dispatched By</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Dispatched To</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Customer Name</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Customer Mobile Number</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Dispatch Number</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Invoice Number</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Category</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Item Code</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Item Name</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Qty</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Lot No</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">BV Type</th>\n\
+                      <th style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;background-color:rgba(0,0,0,.05)">Type</th>\n\
                       </tr >\n\
                       </thead > <tbody>';
       $('#stock-flow-detail').html('');
@@ -145,20 +145,20 @@ function getStockFlowDetail(id, pro_id, lot_no) {
               distributor_to = value.to_distributor;
             }
             html += '<tr id="tr_outgoing_' + i + '" role="row" class="tr_outgoing" >\n\
-                              <td>' + i + '</td>\n\
-                              <td>' + distributor_by + '</td>\n\
-                              <td>' + distributor_to + '</td>\n\
-                              <td>' + customer_name + '</td>\n\
-                              <td>' + customer_mobile + '</td>\n\
-                              <td>' + dispatch_no + '</td>\n\
-                              <td>' + invoice_no + '</td>\n\
-                              <td>' + value.category_name + '</td>\n\
-                              <td>' + value.sku + '</td>\n\
-                              <td>' + value.product_name + '</td>\n\
-                              <td>' + value.quantity + '</td>\n\
-                              <td>' + lot_no_outgoing + '</td>\n\
-                              <td>' + value.bv_type + '</td>\n\
-                              <td>' + value.type + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + i + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + distributor_by + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + distributor_to + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + customer_name + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + customer_mobile + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + dispatch_no + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + invoice_no + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + value.category_name + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + value.sku + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + value.product_name + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + value.quantity + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + lot_no_outgoing + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + value.bv_type + '</td>\n\
+                              <td style="border: 1px solid #322f2f; padding: 5px 10px;font-size: 13px;text-align: left;font-family: arial;">' + value.type + '</td>\n\
                           </tr>';
             i = i + 1;
           });

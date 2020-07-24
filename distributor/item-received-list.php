@@ -168,7 +168,9 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     initDataTable('recieve-list');
                     hideLoader();
                 } else {
-                    showSwal('error', response.data);
+                    initDataTable('dispatch-list');
+                    initDataTable('mismatch-list');
+                    initDataTable('recieve-list');
                     hideLoader();
                 }
             }

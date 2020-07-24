@@ -10,13 +10,13 @@ include_once '../config.php';
 <body>
     <div style="max-width:800px; margin:20px auto;">
         <table cellpadding="0" cellspacing="0" border="0" width="100%">
-            <tr><td width="20%"><img style="height:80px;" src="http://zxcvbnm.myobedient.com/obedient/assets/images/obedient-logo.png" /></td>
+            <tr><td width="20%"><img style="height:80px;" src="<?php echo $home_url; ?>assets/images/obedient-logo.png" /></td>
                 <td width="60%" style="color:#000000; font-size:22px; font-family:arial; text-align:center; font-weight:bold;">TAX INVOICE</td>
                 <td width="20%"></td>
             </tr>
         </table>
         <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:30px;">
-            <tr><td style="color:#b66dff; font-size:20px; font-family:arial; text-align:center; font-weight:bold;">Distributor Firm Name</td></tr>
+            <tr><td style="color:#b66dff; font-size:20px; font-family:arial; text-align:center; font-weight:bold;" id="firm_name"></td></tr>
             <tr><td style="color:#444444; font-size:14px; font-family:arial; text-align:center; font-weight:normal; padding-top:5px;" id="distributor_add_city_pin"></td></tr>
         </table>
         <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:10px;">
@@ -33,7 +33,7 @@ include_once '../config.php';
             <tr>
                 <td width="25%" style="border:1px solid #999999; color:#000000; font-size:12px; font-weight:bold; padding:5px; vertical-align:middle;font-family:arial;">Name</td>
                 <td colspan="2" width="50%" style="border:1px solid #999999; color:#000000; font-size:12px; font-weight:normal; padding:5px; vertical-align:middle;font-family:arial;" id="name"></td>
-                <td width="25%" style="border:1px solid #999999; color:#000000; font-size:12px; font-weight:normal; padding:5px; vertical-align:middle;font-family:arial;">Associate ID</td>
+                <td width="25%" style="border:1px solid #999999; color:#000000; font-size:12px; font-weight:normal; padding:5px; vertical-align:middle;font-family:arial;">Associate ID <span id="associate_id"></span></td>
             </tr>
             <tr>
                 <td width="25%" style="border:1px solid #999999; color:#000000; font-size:12px; font-weight:bold; padding:5px; vertical-align:middle;font-family:arial;">Address</td>
@@ -96,12 +96,14 @@ include_once '../config.php';
                     var cash_html = '';
                     if (response.status == 'success') {
                         var data = response.data;
-                        $('#distributor_add_city_pin').html(data.associate_address);
-                        $('#gstin_no').html('');
-                        $('#distributor_code').html(data.associate_id);
+                        $('#firm_name').html(data.firm_name);
+                        $('#distributor_add_city_pin').html(data.distributor_address);
+                        $('#gstin_no').html(data.gstin_no);
+                        $('#distributor_code').html(data.distributor_id);
                         $('#invoice_no').html(data.invoice_no);
                         $('#invoice_date').html(data.created_at);
                         $('#name').html(data.customer_name);
+                        $('#associate_id').html(data.associate_id);
                         $('#address').html(data.associate_address);
                         $('#mobile').html(data.customer_mobile);
                         $('#gstin_no2').html('');

@@ -19,7 +19,7 @@ if ($user_type != 'ADMIN') {
                     <div class="form-group row">
                         <div class="col-sm-3">
                             <label>Associate ID:</label>
-                            <select class="form-control required" id="agent_listing" name="agent_listing"></select>
+                            <select class="form-control" id="agent_listing" name="agent_listing"></select>
                         </div>
 
                         <div class="col-sm-3">
@@ -58,12 +58,12 @@ if ($user_type != 'ADMIN') {
                             <table class="table table-bordered custom_action" id="order-listing">
                                 <thead>
                                     <tr>
+                                        <th>Name</th>
                                         <th>Date</th>
                                         <th>Amount</th>
                                         <th>Shopping Card Code</th>
                                         <th>Shopping Card Type</th>
                                     </tr>
-
                                 </thead>
                                 <tbody id="agent-business-list">
 

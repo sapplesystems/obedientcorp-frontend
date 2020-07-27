@@ -24,6 +24,8 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
         width: 15%;
         margin-left: 10%;
     }
+	.scroll-all{max-height:400px; overflow:auto;}
+	.scroll-all #stock-detail_wrapper{ margin-bottom:15px;}
 </style>
 <div class="main-content">
     <section class="section">
@@ -120,7 +122,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
     <div class="cd-popup-container">
         <h3 class="headPopup">Stock Flow Detail<a href="#0" class="cd-popup-close img-replace">Close</a></h3>
         <div class="cd-popup-content">
-            <div class="scroll-m">
+            <div class="scroll-m scroll-all">
                 <table class="table_recieved" cellpadding="0" cellspacing="0" width="100%" id="stock-detail">
 
                 </table>

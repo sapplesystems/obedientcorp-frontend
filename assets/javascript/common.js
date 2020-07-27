@@ -73,9 +73,6 @@ $(document).ready(function () {
                         $('#introducer_code').val(profile.introducer_code);
                         $('#orientation').val(profile.orientation);
                         $('#associate_name').val(profile.associate_name);
-                        if (profile.kyc_status == 'Approved'){
-                            $('#associate_name').prop('disabled', true);
-                        }
                         $('#profile_user').html(profile.associate_name);
                         $('#user_code').html(profile.username);
                         if (kyc.kyc_status) {
@@ -112,6 +109,13 @@ $(document).ready(function () {
                         $('#marital_status').val(profile.marital_status);
                         $('#occupation').val(profile.occupation);
                         $('#koccupation').val(profile.occupation);
+                        if (profile.kyc_status == 'Approved'){
+                            $('#associate_name').prop('disabled', true);
+                            $('#father_or_husband_name').prop('disabled', true);
+                            $('#mothers_name').prop('disabled', true);
+                            $('#gender').prop('disabled', true);
+                            $('#dob').prop('disabled', true);
+                        }
                         if (profile.state) {
                             $('#state').val(profile.state);
                             $('#city').html(getCitiesList(profile.state));
@@ -601,16 +605,12 @@ function setNomineeDetails(nominee) {
 function setBankDetails(bank, kyc_status) {
     $('#bank_id').val(bank.id);
     if (bank.payee_name != null && bank.payee_name) {
-        var payee_name = bank.payee_name;
-        payee_name = payee_name.toUpperCase();
-        $('#payee_name').val(payee_name);
+        $('#payee_name').val(bank.payee_name);
         if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#payee_name').prop('disabled', true);
     }
     if (bank.bank_name != null && bank.bank_name) {
-        var bank_name = bank.bank_name;
-        bank_name = bank_name.toUpperCase();
-        $('#bank_name').val(bank_name);
+        $('#bank_name').val(bank.bank_name);
         if (user_type != 'ADMIN' && kyc_status != 'Rejected')
             $('#bank_name').prop('disabled', true);
     }

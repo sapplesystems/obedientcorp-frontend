@@ -74,11 +74,13 @@ function getDashboardInfoAdmin(user_id) {
                 $('#last_week_no').html('Week ' + last_payout.week_no);
                 $('#last_cycle').html(last_payout.from_date + ' - ' + last_payout.to_date);
                 $('#total_payout').html(last_payout.total_payout);
+                $('#total_turnover').html(last_payout.total_turnover);
                 $('#last_payout_date').html(last_payout.to_date);
 
                 $('#current_week_no').html('Week ' + current_payout.week_no);
                 $('#current_cycle').html(current_payout.from_date + ' - ' + current_payout.to_date);
                 $('#estimated_payout').html(current_payout.estimated_payout);
+                $('#estimated_turnover').html(current_payout.estimated_turnover);
                 $('#upcoming_payout_date').html(current_payout.to_date);
                 
                 setCurrentWeekMonth(data.current_week_month);

@@ -232,7 +232,7 @@ $current_month_week = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-m
                                                 <p class="mb-1">Last Cycle : <span class="text-muted" id="last_cycle">-</span></p>
                                                 <p class="mb-1">Total Payout : <span class="text-muted" id="total_payout">00.00</span></p>
                                                 <p class="mb-1">Total Turnover : <span class="text-muted" id="total_turnover">00.00</span></p>
-                                                <p>Payout Date : <span class="text-muted" id="last_payout_date">-</span></p>
+                                                <p>Closing Date : <span class="text-muted" id="last_payout_date">-</span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -253,7 +253,7 @@ $current_month_week = '<div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 grid-m
                                                 <p class="mb-1">Current Cycle : <span class="text-muted" id="current_cycle">-</span></p>
                                                 <p class="mb-1">Estimated Payout : <span class="text-muted" id="estimated_payout">00.00</span></p>
                                                 <p class="mb-1">Estimated Turnover : <span class="text-muted" id="estimated_turnover">00.00</span></p>
-                                                <p>Upcoming Payout Date : <span class="text-muted" id="upcoming_payout_date">-</span></p>
+                                                <p>Upcoming Closing Date : <span class="text-muted" id="upcoming_payout_date">-</span></p>
                                             </div>
                                         </div>
                                     </div>

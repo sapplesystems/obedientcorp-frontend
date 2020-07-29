@@ -377,7 +377,7 @@ function SubTotal() {
         var id = $(this).val();
         var bv_type = $('#product_coupon_type_' + id).val();
         sub_total = (sub_total + Number($('#dp_' + id).val()));
-        tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()) + Number($('#igst_' + id).val()));
+        tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()));// + Number($('#igst_' + id).val())
         total = (total + Number($('#tot_' + id).html()));
         ProductCouponType.push({'bv_type': bv_type, 'amount': Number($('#tot_' + id).html())});
     });

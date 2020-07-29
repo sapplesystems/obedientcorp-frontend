@@ -1,5 +1,6 @@
 getCategoryList();
 getProductList();
+bvListing();
 var today = new Date();
 var todays_date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 $(document).ready(function () {
@@ -137,6 +138,10 @@ $(document).ready(function () {
             params.append('quantity', $('#quantity').val());
             //params.append('short_description', $('#nomineesname').val());
             params.append('description', $('#description').val());
+            params.append('cgst', $('#cgst').val());
+            params.append('sgst', $('#sgst').val());
+            params.append('igst', $('#igst').val());
+            params.append('bv_type', $('#bv_type').val());
             params.append('created_by', user_id);
 
             var url = base_url + 'product/add';
@@ -180,6 +185,26 @@ $(document).ready(function () {
             });
         }
 
+    });
+    
+    /*$(document).on('blur', '#cgst', function () {
+        $('#igst').val(0);
+        $('#sgst').val($(this).val());
+    });
+    $(document).on('blur', '#sgst', function () {
+        $('#igst').val(0);
+        $('#cgst').val($(this).val());
+    });
+    $(document).on('blur', '#igst', function () {
+        $('#cgst').val(0);
+        $('#sgst').val(0);
+    });*/
+
+    $(document).on('blur', '#igst', function () {
+        var igst = Number($(this).val());
+        var half = igst/2;
+        $('#cgst').val(half);
+        $('#sgst').val(half);
     });
 }); //end document ready
 
@@ -348,7 +373,13 @@ function editProduct(product_id) {
                 $('#contents').val(product.contents);
                 $('#expiry_date').val(product.expiry_date);
                 //$('#description').val(product.description);
-                setTimeout(function(){tinymce.get('description').setContent(product.description);},2000);
+                setTimeout(function () {
+                    tinymce.get('description').setContent(product.description);
+                }, 2000);
+                $('#cgst').val(product.cgst);
+                $('#sgst').val(product.sgst);
+                $('#igst').val(product.igst);
+                $('#bv_type').val(product.bv_type);
                 $('#updated_by').val(user_id);
                 $('.input-images-1 .uploaded').html(img);
                 $('.input-images-2 .uploaded').html(doc);
@@ -385,4 +416,24 @@ function resetForm() {
     $('#subcategory_div').css('display', 'none');
     $('#subcategory').html('');
     $(".uploaded").children(".uploaded-image").remove();
+}
+
+function bvListing() {
+    $.ajax({
+        url: base_url + 'coupon-business-values',
+        type: 'post',
+        data: {},
+        success: function (response) {
+            if (response.status == "success") {
+                var data = response.data;
+                var list = '<option value="">Select Business Value</option>';
+                var sel;
+                $.each(data, function (key, val) {
+                    list += '<option value="' + val.name + '">' + val.name + '</option>';
+                });
+                $('#bv_type').html(list);
+            }
+
+        }
+    });
 }

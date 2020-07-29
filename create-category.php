@@ -43,7 +43,7 @@ if (isset($_REQUEST['cid'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!--div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>CGST</label>
@@ -62,11 +62,11 @@ if (isset($_REQUEST['cid'])) {
                                         <input type="text" class="form-control" placeholder="IGST" id="igst" name="igst">
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             <div class="row">
                                 <div class="col-sm-12 text-right">
-								<a href="category-list" class="btn btn-gradient-danger">Back</a>
-								<input type="hidden" id="category_id" value="<?php echo $cid; ?>">
+                                    <a href="category-list" class="btn btn-gradient-danger">Back</a>
+                                    <input type="hidden" id="category_id" value="<?php echo $cid; ?>">
                                     <button type="submit" class="btn btn-gradient-success ml-2" id="submit_category" value="submitcategory">Submit</button>
                                 </div>
                             </div>

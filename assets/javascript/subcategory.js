@@ -2,7 +2,7 @@ var sub_category_image = '';
 
 $(document).ready(function () {
     getCategoryList();
-    bvListing($('#subcategory_id').val());
+    //bvListing($('#subcategory_id').val());
     /*$(document).on('change', '#categories', function() {
      if ($(this).val()) {
      getSubCategoryList($(this).val());
@@ -93,10 +93,10 @@ $(document).ready(function () {
             params.append('name', $('#sub_category_title').val());
             params.append('description', $('#sub_category_description').val());
             params.append('image', sub_category_image);
-            params.append('cgst', $('#cgst').val());
+            /*params.append('cgst', $('#cgst').val());
             params.append('sgst', $('#sgst').val());
             params.append('igst', $('#igst').val());
-            params.append('bv_type', $('#bv_type').val());
+            params.append('bv_type', $('#bv_type').val());*/
             if ($('#subcategory_id').val())
             {
                 url = base_url + 'category/update';
@@ -217,10 +217,10 @@ function updateSubCategory(category_id) {
                 $('#subcategory_id').val(data.id);
                 $('#sub_category_title').val(data.name);
                 $('#sub_category_description').val(data.description);
-                $('#cgst').val(data.cgst);
+                /*$('#cgst').val(data.cgst);
                 $('#sgst').val(data.sgst);
                 $('#igst').val(data.igst);
-                document.getElementById('bv_type').selectedIndex = -1
+                document.getElementById('bv_type').selectedIndex = -1*/
                 $('#bv_type').val(response.bv_type);
                 if (data.image) {
                     var photo_src = media_url + 'category_images/' + data.image;

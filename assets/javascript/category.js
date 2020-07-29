@@ -84,9 +84,9 @@ $(document).ready(function () {
             params.append('name', $('#title').val());
             params.append('description', $('#description').val());
             params.append('image', cat_image);
-            params.append('cgst', $('#cgst').val());
+            /*params.append('cgst', $('#cgst').val());
             params.append('sgst', $('#sgst').val());
-            params.append('igst', $('#igst').val());
+            params.append('igst', $('#igst').val());*/
             if ($('#category_id').val()) {
                 url = base_url + 'category/update';
                 params.append('updated_by', user_id);

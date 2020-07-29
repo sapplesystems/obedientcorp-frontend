@@ -114,12 +114,38 @@ if (isset($_REQUEST['pid'])) {
                                                 <div class="input-images-2" id="product_docs"></div>
                                             </div>
                                         </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>CGST</label>
+                                                <input type="text" class="form-control" placeholder="0" id="cgst" value="0" name="cgst" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>SGST</label>
+                                                <input type="text" class="form-control" placeholder="0" id="sgst" value="0" name="sgst" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>IGST</label>
+                                                <input type="text" class="form-control" placeholder="0" id="igst" value="0" name="igst" onkeypress="return isNumberKey(event);">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Shopping Card Business Value</label>
+                                                <select class="form-control" id="bv_type" name="bv_type">
+                                                    <option value="">Select Business Value</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col-sm-12 text-right">
-								<a href="product-list" class="btn btn-gradient-danger">Back</a>
+                                    <a href="product-list" class="btn btn-gradient-danger">Back</a>
                                     <input type="hidden" name="product_id" id="product_id" value="<?php echo $pid; ?>" />
                                     <button type="submit" class="btn btn-gradient-success ml-2" id="submit_project" value="submitproject">Submit</button>
                                 </div>

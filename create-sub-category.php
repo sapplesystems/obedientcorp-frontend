@@ -56,7 +56,7 @@ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!--div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label>CGST</label>
@@ -85,17 +85,17 @@ if (isset($_REQUEST['cid']) && isset($_REQUEST['scid'])) {
                                         </select>
                                     </div>
                                 </div>
-								<div class="col-sm-4"></div>
-                            </div>
-							<div class="row">
-							 <div class="col-sm-12 text-right mt-4">
-							 <a href="category-list" class="btn btn-gradient-danger">Back</a>
-							 <input type="hidden" id="subcategory_id" value="<?php echo $sub_category_id ?>">
+                                <div class="col-sm-4"></div>
+                            </div-->
+                            <div class="row">
+                                <div class="col-sm-12 text-right mt-4">
+                                    <a href="category-list" class="btn btn-gradient-danger">Back</a>
+                                    <input type="hidden" id="subcategory_id" value="<?php echo $sub_category_id ?>">
                                     <input type="hidden" id="category_id" value="<?php echo $category_id ?>">
                                     <button type="submit" class="btn btn-gradient-success ml-2" id="submit_sub_category" value="submitsubcategory">Submit</button>
-                                    
+
                                 </div>
-							</div>
+                            </div>
                         </form>
                     </div>
                 </div>

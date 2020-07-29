@@ -182,7 +182,7 @@ function SubTotal() {
     $('.items').each(function () {
         var id = $(this).val();
         sub_total = (sub_total + Number($('#dp_' + id).val()));
-        tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()) + Number($('#igst_' + id).val()));
+        tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()));// + Number($('#igst_' + id).val())
         total = (total + Number($('#tot_' + id).html()));
     });
     total_tax = tax;

@@ -44,6 +44,12 @@ echo $common['dotted_navigation'];
                     <div class="img-overlay"><div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div></div>
                 </a>
             </div>
+			<div>
+                <a href="images/quality-certificate.jpg" class="thumbnail-img block-img">
+                    <img src="images/quality-certificate.jpg" alt="">
+                    <div class="img-overlay"><div class="overlay-wrap"><i class="fa fa-expand font-20"></i></div></div>
+                </a>
+            </div>
             <div>
                 <a href="images/legal-1.jpg" class="thumbnail-img block-img">
                     <img src="images/legal-1.jpg" alt="">

@@ -136,10 +136,10 @@ function getPayoutHistoryList(params) {
                                                     <th>Balance Right BV</th>\n\
                                                     <th>Matching BV</th>\n\
                                                     <th>Commission</th>\n\
+                                                    <th>BDE</th>\n\
                                                     <th>Sponsor Income</th>\n\
                                                     <th>Reward</th>\n\
                                                     <th>Offer</th>\n\
-                                                    <th>BDE</th>\n\
                                                     <th>Income Fund</th>\n\
                                                     <th>TDS</th>\n\
                                                     <th>Processing Fee</th>\n\
@@ -158,11 +158,11 @@ function getPayoutHistoryList(params) {
                                             <td>' + value.remaining_left_business + '</td>\n\
                                             <td>' + value.remaining_right_business + '</td>\n\
                                             <td>' + value.matching_amount + '</td>\n\
-                                            <td>' + value.commission + '</td>\n\\n\
+                                            <td>' + value.commission + '</td>\n\
+                                            <td>' + value.bde + '</td>\n\
                                             <td>' + value.sponsor + '</td>\n\
                                             <td>' + value.reward + '</td>\n\
                                             <td>' + value.offer + '</td>\n\
-                                            <td>' + value.bde + '</td>\n\
                                             <td>' + value.income_fund + '</td>\n\
                                             <td>' + value.tds + '</td>\n\
                                             <td>' + value.processing_fee + '</td>\n\

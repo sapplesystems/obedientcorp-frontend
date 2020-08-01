@@ -57,7 +57,7 @@ include_once 'header.php';
                         var dynamic_msg = '';
                         $.each(response.data.rewards_list, function(key, value) {
                             var current_class = '';
-                            dynamic_msg = 'You need ' + value.right_more + ' B.V. of more business on right and ' + value.left_more + ' B.V. of more business on left to get this reward';
+                            dynamic_msg = value.days_left + 'You need ' + value.right_more + ' B.V. of more business on right and ' + value.left_more + ' B.V. of more business on left to get this reward';
                             if (value.current == 1) {
                                 current_class = 'rank2';
 
@@ -66,6 +66,9 @@ include_once 'header.php';
                                 dynamic_msg = 'You have already achieved this reward';
                             } else if (value.achieved == 0 && value.current == 0) {
                                 current_class = 'rank3';
+                                if(value.not_achieved != ''){
+                                    dynamic_msg = value.not_achieved;
+                                }
                             }
                             var path = 'images/' + value.photo;
                             

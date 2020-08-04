@@ -158,14 +158,14 @@ if ($user_type != 'ADMIN') {
                                             </thead>';
                         table_data += '<tbody>';
                         $.each(response.data, function (key, value) {
-                            /*var account_number = '';
+                            var account_number = '';
                             if(value.account_number != ''){
                                 account_number = "'" + value.account_number;
                             }
                             var adhar = '';
                             if(value.adhar != ''){
                                 adhar = "'" + value.adhar;
-                            }*/
+                            }
                             table_data += '<tr>\n\
                                             <td>' + value.week_no + '</td>\n\
                                             <td>' + value.from_date + ' To ' + value.to_date + '</td>\n\
@@ -187,10 +187,10 @@ if ($user_type != 'ADMIN') {
                                             <td>' + value.payout_amount + '</td>\n\
                                             <td>' + value.payee_name + '</td>\n\
                                             <td>' + value.bank_name + '</td>\n\
-                                            <td>' + value.account_number + '</td>\n\
+                                            <td>' + account_number + '</td>\n\
                                             <td>' + value.branch + '</td>\n\
                                             <td>' + value.ifsc_code + '</td>\n\
-                                            <td>' + value.adhar + '</td>\n\
+                                            <td>' + adhar + '</td>\n\
                                             <td>' + value.pan_number + '</td>\n\
                                             <td>' + value.mobile_no + '</td>\n\
                                             <td>' + value.email + '</td>\n\

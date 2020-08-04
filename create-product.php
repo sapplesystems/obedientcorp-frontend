@@ -44,12 +44,12 @@ if (isset($_REQUEST['pid'])) {
                                                 <input type="text" class="form-control required" placeholder="Title" id="title" name="title">
                                             </div>
                                         </div>
-                                        <div class="col-sm-12">
+                                        <!--div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Quantity</label>
                                                 <input type="text" class="form-control" placeholder="Quantity" id="quantity" name="quantity" onkeypress="return isNumberKey(event);">
                                             </div>
-                                        </div>
+                                        </div-->
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Dealer Price</label>

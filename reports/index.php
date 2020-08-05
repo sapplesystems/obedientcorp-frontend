@@ -113,7 +113,7 @@ for ($i = 0; $i < $row_count; $i++) {
             ->setCellValue('R' . $row_number, $row[$i]->payout_amount)
             ->setCellValue('S' . $row_number, $row[$i]->payee_name)
             ->setCellValue('T' . $row_number, $row[$i]->bank_name)
-            ->setCellValue('U' . $row_number, $row[$i]->account_number)
+            ->setCellValue('U' . $row_number, chunk_split($row[$i]->account_number,4,' '))
             ->setCellValue('V' . $row_number, $row[$i]->branch)
             ->setCellValue('W' . $row_number, $row[$i]->ifsc_code)
             ->setCellValue('X' . $row_number, $row[$i]->adhar)
@@ -121,7 +121,7 @@ for ($i = 0; $i < $row_count; $i++) {
             ->setCellValue('Z' . $row_number, $row[$i]->mobile_no)
             ->setCellValue('AA' . $row_number, $row[$i]->email);
 
-    $excel->getActiveSheet()->getStyle('U' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
+    //$excel->getActiveSheet()->getStyle('U' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
     $excel->getActiveSheet()->getStyle('X' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
     $excel->getActiveSheet()->getStyle('Z' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
 

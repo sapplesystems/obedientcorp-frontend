@@ -54,6 +54,7 @@ if ($user_type != 'ADMIN') {
                     <div class="card-body p-3 custom_overflow">
                         <h4 class="card-title mb-4">Payout History</h4>
                         <div class="overflowAuto">
+                            <a href="#" onclick="downloadReport(event);" class="btn btn-gradient-primary">Export to excel</a>
                             <table class="table table-bordered custom_action" id="payout_history"></table>
                         </div>
                     </div>
@@ -158,14 +159,6 @@ if ($user_type != 'ADMIN') {
                                             </thead>';
                         table_data += '<tbody>';
                         $.each(response.data, function (key, value) {
-                            var account_number = '';
-                            if(value.account_number != ''){
-                                account_number = "'" + value.account_number;
-                            }
-                            var adhar = '';
-                            if(value.adhar != ''){
-                                adhar = "'" + value.adhar;
-                            }
                             table_data += '<tr>\n\
                                             <td>' + value.week_no + '</td>\n\
                                             <td>' + value.from_date + ' To ' + value.to_date + '</td>\n\
@@ -187,10 +180,10 @@ if ($user_type != 'ADMIN') {
                                             <td>' + value.payout_amount + '</td>\n\
                                             <td>' + value.payee_name + '</td>\n\
                                             <td>' + value.bank_name + '</td>\n\
-                                            <td>' + account_number + '</td>\n\
+                                            <td>' + value.account_number + '</td>\n\
                                             <td>' + value.branch + '</td>\n\
                                             <td>' + value.ifsc_code + '</td>\n\
-                                            <td>' + adhar + '</td>\n\
+                                            <td>' + value.adhar + '</td>\n\
                                             <td>' + value.pan_number + '</td>\n\
                                             <td>' + value.mobile_no + '</td>\n\
                                             <td>' + value.email + '</td>\n\
@@ -198,8 +191,8 @@ if ($user_type != 'ADMIN') {
                         });
                         table_data += '</tbody>';
                         $("#payout_history").html(table_data);
-                        //generateDataTable('payout_history');
-                        var table = $('#payout_history').DataTable();
+                        generateDataTable('payout_history');
+                        /*var table = $('#payout_history').DataTable();
                         table.destroy();
                         $('#payout_history').DataTable({
                             dom: 'Blfrtip',
@@ -212,7 +205,7 @@ if ($user_type != 'ADMIN') {
                             ],
                             aaSorting: []
                         });
-                        $('.dt-button').removeClass().addClass('btn btn-gradient-primary');
+                        $('.dt-button').removeClass().addClass('btn btn-gradient-primary');*/
                         hideLoader();
                     }
                     else {
@@ -250,5 +243,41 @@ if ($user_type != 'ADMIN') {
 
             };
             getPayoutHistoryList(params);
+        }
+        
+        function downloadReport(e){
+            e.preventDefault();
+            var week_range = '';
+            var user_id = 0;
+            var start_date = '';
+            var end_date = '';
+            if ($('#week_range').val()) {
+                week_range = $('#week_range').val();
+            }
+            if ($('#agent_list').val()) {
+                user_id = $('#agent_list').val();
+            }
+            if ($('#start-date').val()) {
+                start_date = $('#start-date').val();
+            }
+            if ($('#end-date').val()) {
+                end_date = $('#end-date').val();
+            }
+            
+            var params = {
+                week_range: week_range,
+                user_id: user_id,
+                start_date: start_date,
+                end_date: end_date
+            };
+            if($('#associate_only_with_payout').is(':checked')){
+                params.associate_only_with_payout = 1;
+            }
+
+            showLoader();
+            $.post('reports/index.php',params,function(resp){
+                window.open(resp, '_blank');
+                hideLoader();
+            });
         }
     </script>

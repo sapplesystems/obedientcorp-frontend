@@ -59,31 +59,45 @@ function paymentApprove(pid, agent_id) {
             $('#payment_comment').focus();
             return false;
         }
-        paymentAction(pid, agent_id, '1');
+        paymentAction(pid, agent_id, '1', '');
     });
 }
 
-function paymentReject(pid, agent_id) {
-    showSwal('warning-message-and-cancel');
+function paymentReject(pid, agent_id, payment_type) {
+    if (payment_type == 'Advance') {
+        showSwal('reject-warning-message-and-cancel');
+    } else {
+        showSwal('warning-message-and-cancel');
+    }
     $('.payment_action').click(function () {
         var comment = $('#payment_comment').val();
         if (comment == '') {
             $('#payment_comment').focus();
             return false;
         }
-        paymentAction(pid, agent_id, '0');
+        paymentAction(pid, agent_id, '0', '');
+    });
+    $('.payment_action2').click(function () {
+        var comment = $('#payment_comment').val();
+        if (comment == '') {
+            $('#payment_comment').focus();
+            return false;
+        }
+        paymentAction(pid, agent_id, '0', 'Free');
     });
 }
 //function for approvedadmin pament
-function paymentAction(pid, agent_id, status_emi) {
+function paymentAction(pid, agent_id, status_emi, is_free) {
     showLoader();
     var params = {
         created_by: user_id,
         created_for: agent_id,
         comments: $('#payment_comment').val(),
         status: status_emi,
-        payment_master_id: pid
+        payment_master_id: pid,
+        is_plot_free: is_free
     };
+
     $.ajax({
         url: base_url + 'coupon/emi/generate',
         type: 'post',
@@ -97,7 +111,7 @@ function paymentAction(pid, agent_id, status_emi) {
                 if (status_emi == '0') {
                     showSwal('success', 'Payment Rejected', 'Payment is rejected.');
                 }
-                if(payment_detail_screen == 1){
+                if (payment_detail_screen == 1) {
                     get_payment_details(); // function declaired in admin_payment_detail.js which is included into payment-detail.php
                 }
                 hideLoader();
@@ -136,7 +150,7 @@ function setPendingListTab(response, agent_id) {
                             <td>' + value.date_of_payment + '</td>\n\
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\
-                            <td> <i class="mdi mdi-check-circle" onclick="paymentApprove(' + value.id + ',' + value.user_id + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="paymentReject(' + value.id + ',' + value.user_id + ');"></i> </td>\n\
+                            <td> <i class="mdi mdi-check-circle" onclick="paymentApprove(' + value.id + ',' + value.user_id + ');"></i> &nbsp;<i class="mdi mdi-close-circle" onclick="paymentReject(' + value.id + ',' + value.user_id + ', \'' + payment_type + '\');"></i> </td>\n\
                             <td><a class="btn btn-link p-0" href="payment-detail.php?pid=' + value.id + '&uid=' + value.user_id + '&flag=rs">Details</a></td>\n\
                         </tr>';
     });

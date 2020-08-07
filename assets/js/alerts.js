@@ -125,6 +125,49 @@
                 }
             })
 
+        } else if (type === 'reject-warning-message-and-cancel') {
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3f51b5',
+                cancelButtonColor: '#ff4081',
+                confirmButtonText: 'Great ',
+                content: {
+                    element: "textarea",
+                    attributes: {
+                        placeholder: "Type your reason",
+                        class: 'form-control',
+                        rows: 5,
+                        id: 'payment_comment',
+                    },
+                },
+                buttons: {
+                    cancel: {
+                        text: "Cancel",
+                        value: null,
+                        visible: true,
+                        className: "btn btn-danger btn-sm payment_reject",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "Save & Retain Plot",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-primary btn-sm payment_action",
+                        closeModal: false,
+                    },
+                    catch : {
+                        text: "Save & Free Plot",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-info btn-sm payment_action2",
+                        closeModal: false,
+                    }
+                }
+            })
+
         } else if (type === 'transaction_password') {
             swal({
                 title: 'Transaction Password!',

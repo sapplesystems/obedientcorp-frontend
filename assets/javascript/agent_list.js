@@ -28,6 +28,7 @@ function getAgentsList() {
                     <th>Joining Date</th>\n\
                     <th>Kyc Status</th>\n\
                     <th>Password</th>\n\
+                    <th>Transaction Password</th>\n\
                     <th>Action</th>\n\
                 </tr>\n\
             </thead><tbody>';
@@ -84,6 +85,7 @@ function getAgentsList() {
                                     <td>' + joining_date + '</td>\n\
                                     <td>' + value.kyc_status + '</td>\n\
                                     <td>' + value.org_password + '</td>\n\
+                                    <td>' + value.org_transaction_password + '</td>\n\
                                     ' + action_td + '\n\
                                 </tr>';
                     x++;

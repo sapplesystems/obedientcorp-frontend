@@ -24,12 +24,12 @@ include_once 'common_html.php';
 
     <head>
         <!--manifest detail start here-->
-        <!--link rel="manifest" href="manifest.json" />
+        <link rel="manifest" href="manifest.json" />
         <meta name="apple-mobile-web-app-title" content="MyObedient">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#1976d2">
         <link rel="apple-touch-startup-image" href="images/logo_header.png">
-        <link rel="apple-touch-icon" href="images/logo_header.png"-->
+        <link rel="apple-touch-icon" href="images/logo_header.png">
         <!--manifest detail end here-->
         
         <!-- Required meta tags -->
@@ -274,6 +274,12 @@ include_once 'common_html.php';
                                         <li class="nav-item"> <a class="nav-link" href="payout-history">Payout History</a></li>
                                     </ul>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="turnover">
+                                    <span class="menu-title">Turnover</span>
+                                    <i class="mdi mdi-wallet menu-icon"></i>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#approve_request" aria-expanded="false" aria-controls="category">

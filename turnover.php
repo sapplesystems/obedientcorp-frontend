@@ -42,6 +42,9 @@ include_once 'header.php';
     </div>
     <!-- content-wrapper ends -->
     <?php include_once 'footer.php'; ?>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#agent-list").html(down_the_line_members);
@@ -99,7 +102,21 @@ include_once 'header.php';
                             });
 
                             $('#turnover-list').html(html);
-                            generateDataTable('turnover-list');
+                            //generateDataTable('turnover-list');
+                            var table = $('#turnover-list').DataTable();
+                            table.destroy();
+                            $('#turnover-list').DataTable({
+                                dom: 'Blfrtip',
+                                buttons: [
+                                    {
+                                        extend: 'excelHtml5',
+                                        title: 'Turnover-History-' + Date.now(),
+                                        text: 'Export to excel'
+                                    }
+                                ],
+                                aaSorting: []
+                            });
+                            $('.dt-button').removeClass().addClass('btn btn-gradient-primary');
                             hideLoader();
                         }
                     } else {

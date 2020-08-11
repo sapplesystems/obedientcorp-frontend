@@ -305,7 +305,7 @@ function generateDuePaymentList(list) {
 
         table_data += '<tr>\n\
                             <td>' + value.customer_display_name + '</td>\n\
-                            <td>' + value.emi_amount + '</td>\n\
+                            <td>' + value.formated_emi_amount + '</td>\n\
                             <td>' + value.due_date + '</td>\n\
                             <td>' + value.project_master_name + '</td>\n\
                             <td>' + value.sub_project_master_name + '</td>\n\

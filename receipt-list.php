@@ -35,17 +35,17 @@ include_once 'header.php';
                     <div class="card-body p-3 space-m">
                         <h4 class="card-title mb-4">Receipt</h4>
                         <div class="form-group row">
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <label>Associate ID:</label>
                                 <select id="agent-list" onchange="get_customer_list(this.value);" class="form-control">
                                 </select>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <label>Customer ID:</label>
                                 <select id="customer-list" class="form-control">
                                 </select>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <label>Receipt Date:</label>
                                 <div class="input-group date datepicker p-0">
                                     <input type="text required" class="form-control" id="start-date" name="start-date" placeholder="" readonly>
@@ -54,7 +54,7 @@ include_once 'header.php';
                                     </span>
                                 </div>
                             </div>
-                            <div class="col-sm-12 text-right">
+                            <div class="col-sm-12 mt-4 text-right">
                             <button type="button" class="btn btn-gradient-danger" onclick="CancelReceipt();">Cancel</button><button type="submit" class="btn btn-gradient-success ml-2" onclick="getReceiptList();">Search</button>
                             </div>
                         </div>

@@ -57,7 +57,7 @@ function getplotlist(project_id, sub_project_id) {
     $.ajax({
         url: base_url + 'get-plot',
         type: 'post',
-        data: { project_master_id: project_id, sub_project_id: sub_project_id },
+        data: {project_master_id: project_id, sub_project_id: sub_project_id},
         success: function (response) {
             var option = '<option value="">Select Plots</option>';
             if (response.status == "success") {
@@ -81,7 +81,7 @@ function getPlotAreaUnit(plot_id) {
     $.ajax({
         url: base_url + 'plot-area-unit ',
         type: 'post',
-        data: { id: plot_id, },
+        data: {id: plot_id, },
         success: function (response) {
             if (response.status == "success") {
                 if (response.data.plot_area) {
@@ -148,21 +148,21 @@ $(document).ready(function () {
     $(document).on('change', '#dateofbirth', function () {
         var value = $(this).val();
         var today = new Date(),
-            dob = new Date(value),
-            age = new Date(today - dob).getFullYear() - 1970;
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
         $('#age').val(age);
         $('#age').prop('readOnly', true);
-        $('#age-error').css('display','none');
+        $('#age-error').css('display', 'none');
     });
 
     $(document).on('change', '#date_of_birth_nominee', function () {
         var value = $(this).val();
         var today = new Date(),
-            dob = new Date(value),
-            age = new Date(today - dob).getFullYear() - 1970;
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
         $('#ageN').val(age);
         $('#ageN').prop('readOnly', true);
-        $('#ageN-error').css('display','none');
+        $('#ageN-error').css('display', 'none');
     });
     //end calculate age
 
@@ -181,8 +181,8 @@ $(document).ready(function () {
         setEMI();
     });
 
-    $(document).on('change','#agent_id',function(){
-        $('#agent_id-error').css('display','none');
+    $(document).on('change', '#agent_id', function () {
+        $('#agent_id-error').css('display', 'none');
     });
 
 
@@ -213,7 +213,7 @@ $(document).ready(function () {
         initDatepicker();
     });//end payment mode change
 
-   // $('#payment_cheque').click();
+    // $('#payment_cheque').click();
 
 
     $("#project_name").change(function () {
@@ -338,7 +338,7 @@ $(document).ready(function () {
                 },
             },
             errorPlacement: function errorPlacement(error, element) {
-                    element.before(error);
+                element.before(error);
             }
         });
 
@@ -540,6 +540,14 @@ function updateCustomerDetail(customer_id, agent_id, status) {
 
 function deleteCustomerList(e, customer_id) {
     e.preventDefault();
+    showSwal('delete-customer');
+    $('.delete_customer').click(function () {
+        deleteCustomer(e, customer_id);
+    });
+}
+
+function deleteCustomer(e, customer_id) {
+    e.preventDefault();
     showLoader();
     $.ajax({
         url: base_url + 'customer/delete',
@@ -553,9 +561,11 @@ function deleteCustomerList(e, customer_id) {
                 $("#tr_" + customer_id).remove();
             }
             hideLoader();
+            showSwal(response.status, '', response.data);
         }
     });
 }
+
 function payment_mode_change(value) {
     if (value == 'Cash') {
         var append_div = '<div class="form-group row" id="payment_number_div">\n\
@@ -746,7 +756,7 @@ function getCustomersList(user_id) {
                                         <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + val.agent_id + '&f=1" title="Edit Customer Detail"><i class="mdi mdi-pencil text-info"></i></a> \n\
                                         <a href="add-customer.php?customer_id=' + val.id + '&agent_id=' + val.agent_id + '&f=2" id="add_new_booking" title="Add New Booking" target="_blank"><i class="mdi mdi-open-in-new"></i></a> \n\
                                         <a href="view-booking.php?customer_id=' + val.id + '&agent_id=' + val.agent_id + '" id="view_booking" title="View Bookings"><i class="mdi mdi-view-list"></i></a> \n\
-                                        <!--<i class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>-->\n\
+                                        <i title="Delete Customer" class="mdi mdi-delete text-danger" onclick="deleteCustomerList(event, ' + val.id + ');"></i>\n\
                                   </td>\n\
                               </tr>';
                     customer_list += '<option value="' + val.id + '">' + val.display_name + '</option>';
@@ -805,27 +815,26 @@ function initDatepicker() {
             format: 'dd-M-yyyy',
             autoclose: true,
             endDate: todays_date,
-           
-        }).change(function() {
-            $('#dateofbirth-error').css('display','none');  // triggers the validation test        
-      });
+        }).change(function () {
+            $('#dateofbirth-error').css('display', 'none');  // triggers the validation test        
+        });
         $('#date_of_birth_nominee').datepicker({
             enableOnReadonly: true,
             todayHighlight: true,
             format: 'dd-M-yyyy',
             autoclose: true,
             endDate: todays_date
-        }).change(function() {
-            $('#date_of_birth_nominee-error').css('display','none');  // triggers the validation test        
-      });
+        }).change(function () {
+            $('#date_of_birth_nominee-error').css('display', 'none');  // triggers the validation test        
+        });
         $('#date_of_payment').datepicker({
             enableOnReadonly: true,
             todayHighlight: true,
             format: 'dd-M-yyyy',
             autoclose: true,
-        }).change(function() {
-            $('#date_of_payment-error').css('display','none');  // triggers the validation test        
-      });
+        }).change(function () {
+            $('#date_of_payment-error').css('display', 'none');  // triggers the validation test        
+        });
     }
 }
 
@@ -847,7 +856,7 @@ function setEMI() {
         $('#received_booking_amount').val(amount.toFixed(2));
         var html = '<label class="col-sm-2 col-form-label"></label>\n\
                                     <div class="col-sm-4"></div>\n\
-                                        '+ payment_div + '\n\
+                                        ' + payment_div + '\n\
             <div class="col-sm-4">\n\
            <label class="col-form-label card-description mb-0">Rs. ' + amount.toFixed(2) + '</label>\n\
            </div>';
@@ -856,7 +865,7 @@ function setEMI() {
         var emi_amount = Number(amount / value);
         var html = '<label class="col-sm-2 col-form-label"></label>\n\
                                     <div class="col-sm-4"></div>\n\
-                                        '+ payment_div + '\n\
+                                        ' + payment_div + '\n\
             <div class="col-sm-4">\n\
            <label class="col-form-label card-description mb-0">Rs. ' + emi_amount.toFixed(2) + '</label>\n\
            </div>';

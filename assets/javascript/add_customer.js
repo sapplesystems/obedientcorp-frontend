@@ -452,6 +452,7 @@ $(document).ready(function () {
 
                     } else {
                         hideLoader();
+                        showSwal('error', 'Oops', response.data);
                     }
                 }
             });

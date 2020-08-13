@@ -289,13 +289,15 @@ function generateDuePaymentList(list) {
     var table_data = '<thead>\n\
                         <tr>\n\
                         <th> Customer </th>\n\
-                        <th> Amount </th>\n\
+                        <th> Due Amount </th>\n\
                         <th>Due Date </th>\n\
                         <th>Project</th>\n\\n\
                         <th>Sub Project</th>\n\
                         <th>Plot ID</th>\n\
                         <th>Over Due</th>\n\
+                        <th>Total Amount</th>\n\
                         <th>Total Paid</th>\n\
+                        <th>Total Remaining</th>\n\
                         </tr>\n\
                     </thead>';
     table_data += '<tbody>';
@@ -311,7 +313,9 @@ function generateDuePaymentList(list) {
                             <td>' + value.sub_project_master_name + '</td>\n\
                             <td>' + value.plot_master_name + '</td>\n\
                             <td>' + value.overdue + '</td>\n\
+                            <td>' + value.total_amount + '</td>\n\
                             <td>' + value.total_paid + '</td>\n\
+                            <td>' + value.balance_emi_amount + '</td>\n\
                         </tr>';
     });
     table_data += '</tbody>';

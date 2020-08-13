@@ -268,6 +268,48 @@ function deletePlot(e, plot_id) {
 
 function updateAvailability(plot_id) {
     var availability = $("#availability_" + plot_id).val();
+    if (availability === 'Free') {
+        $.ajax({
+            url: base_url + 'check-before-plot-free',
+            type: 'post',
+            data: {plot_id: plot_id},
+            success: function (response) {
+                if (response.status == "success") {
+                    var data = response.data;
+                    if (response.customer_count > 0) {
+                        showSwal('info', 'Info', data);
+                        $('.info_swal_ok').click(function () {
+                            deleteCustomerBookings(plot_id);
+                        });
+                    } else {
+                        updatePlotAvailability(plot_id);
+                    }
+                }
+            }
+        });
+    } else {
+        updatePlotAvailability(plot_id);
+    }
+}
+
+function deleteCustomerBookings(plot_id) {
+    $.ajax({
+        url: base_url + 'delete-customer-bookings',
+        type: 'post',
+        data: {plot_id: plot_id},
+        success: function (response) {
+            if (response.status == "success") {
+                updatePlotAvailability(plot_id)
+            } else {
+                showSwal('error', 'Oops', 'Something went wrong, booking could not be deleted.');
+            }
+        }
+    });
+}
+
+function updatePlotAvailability(plot_id) {
+    var availability = $("#availability_" + plot_id).val();
+    showLoader();
     $.ajax({
         url: base_url + 'plot/update',
         type: 'post',
@@ -275,7 +317,9 @@ function updateAvailability(plot_id) {
         success: function (response) {
             if (response.status == "success") {
                 var data = response.data;
-                getplotlist();
+                //getplotlist();
+                hideLoader();
+                showSwal('success', 'Success', 'Plot availability changed successfully');
             }
         }
     });

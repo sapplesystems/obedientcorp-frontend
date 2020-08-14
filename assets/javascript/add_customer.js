@@ -496,7 +496,8 @@ function updateCustomerDetail(customer_id, agent_id, status) {
                     $('.plan_details').css('display', 'none');
                     $('.payment_details').css('display', 'none');
                     $('#customer_id').val(data.customer.id);
-                    $('#agent_id').val(data.customer.user_id);
+                    $("#agent_id option[value='" + data.customer.user_id + "']").attr("selected", true);
+                    $('#agent_id').val(data.customer.user_id).trigger('change');//$('#agent_id').val(data.customer.user_id);
                     $('#agent_id').prop('disabled', true);
                     $('#customer-list-select').val(data.customer.id)
                     $('#customer-list-select').prop('disabled', true);

@@ -46,7 +46,7 @@ function get_plot_booking_listing() {
                     } else {
                         emi_tenure = 'Single Payment';
                     }
-                    html += '<tr id="tr_' + val.customer_id + '">\n\
+                    html += '<tr id="tr_' + val.customer_plot_booking_detail_id + '">\n\
                                       <td>' + val.display_name + '</td>\n\
                                       <td>' + val.project_master_name + '</td>\n\
                                       <td>' + val.sub_project_master_name + '</td>\n\
@@ -59,7 +59,9 @@ function get_plot_booking_listing() {
                                       <td>' + val.balance_emi_amount + '</td>\n\
                                       <td>' + val.emi_amount + '</td>\n\
                                       <td>' + emi_tenure + '</td>\n\
-                                      <td><a href="view-payment-details.php?booking_id=' + val.customer_plot_booking_detail_id + '" id="view_payment" title="View Payment Details"><i class="mdi mdi-view-list"></i></a> \n\
+                                      <td>\n\
+                                            <a href="view-payment-details.php?booking_id=' + val.customer_plot_booking_detail_id + '" id="view_payment" title="View Payment Details"><i class="mdi mdi-view-list"></i></a> \n\
+                                            <i title="Delete Customer" class="mdi mdi-delete text-danger" onclick="deleteCustomerBooking(event, ' + val.customer_plot_booking_detail_id + ');"></i>\n\
                                       </td>\n\
                                   </tr>';
 
@@ -75,6 +77,33 @@ function get_plot_booking_listing() {
         }
     });
 
+}
+
+function deleteCustomerBooking(e, booking_id) {
+    e.preventDefault();
+    showSwal('delete-booking');
+    $('.delete_booking').click(function () {
+        deleteBooking(e, booking_id);
+    });
+}
+
+function deleteBooking(e, booking_id) {
+    e.preventDefault();
+    showLoader();
+    $.ajax({
+        url: base_url + 'delete-customer-booking',
+        type: 'post',
+        data: {
+            booking_id: booking_id,
+        },
+        success: function (response) {
+            if (response.status == "success") {
+                $("#tr_" + booking_id).remove();
+            }
+            hideLoader();
+            showSwal(response.status, '', response.data);
+        }
+    });
 }
 
 function get_agent_name() {

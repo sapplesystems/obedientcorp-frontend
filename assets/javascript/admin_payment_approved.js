@@ -130,7 +130,8 @@ function setPendingListTab(response, agent_id) {
                                 <th> Type </th>\n\
                                 <th> Amount </th>\n\
                                 <th> Associate  </th>\n\
-                                <th> Date Requested </th>\n\
+                                <th> Date of Request </th>\n\
+                                <th> Date of Payment </th>\n\
                                 <th> Payment Mode </th>\n\
                                 <th> Payment Type </th>\n\
                                 <th> Action </th>\n\
@@ -147,6 +148,7 @@ function setPendingListTab(response, agent_id) {
                             <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                             <td>' + value.amount + '</td>\n\
                             <td >' + value.associate_name + ' (' + value.username + ')</td>\n\
+                            <td>' + value.date_of_request + '</td>\n\
                             <td>' + value.date_of_payment + '</td>\n\
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\
@@ -165,7 +167,8 @@ function setApprovedListTab(response, agent_id) {
                                 <th> Type </th>\n\
                                 <th> Amount </th>\n\
                                 <th> Associate  </th>\n\
-                                <th> Date Requested </th>\n\
+                                <th> Date of Request </th>\n\
+                                <th> Date of Payment </th>\n\
                                 <th> Payment Mode </th>\n\
                                 <th> Payment Type </th>\n\
                                 <th></th>\n\
@@ -181,6 +184,7 @@ function setApprovedListTab(response, agent_id) {
                             <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                             <td>' + value.amount + '</td>\n\
                             <td >' + value.associate_name + ' (' + value.username + ')</td>\n\
+                            <td>' + value.date_of_request + '</td>\n\
                             <td>' + value.date_of_payment + '</td>\n\
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\
@@ -198,7 +202,8 @@ function setRejectedListTab(response, agent_id) {
                             <th> Type </th>\n\
                             <th> Amount </th>\n\
                             <th> Associate  </th>\n\
-                            <th> Date Requested </th>\n\
+                            <th> Date of Request </th>\n\
+                            <th> Date of Payment </th>\n\
                             <th> Payment Mode </th>\n\
                             <th> Payment Type </th>\n\
                             <th></th>\n\
@@ -214,6 +219,7 @@ function setRejectedListTab(response, agent_id) {
                             <td class="py-1"><i class="mdi mdi-ticket"></i></td>\n\
                             <td>' + value.amount + '</td>\n\
                             <td >' + value.associate_name + ' (' + value.username + ')</td>\n\
+                            <td>' + value.date_of_request + '</td>\n\
                             <td>' + value.date_of_payment + '</td>\n\
                             <td>' + value.payment_mode + '</td>\n\
                             <td>' + payment_type + '</td>\n\

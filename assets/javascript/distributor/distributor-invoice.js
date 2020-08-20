@@ -641,9 +641,15 @@ function calcAmountDue() {
     if (CouponCodeType.length > 0) {
         $('#coupons').css('display', '');
         var bv_len = CouponCodeType.length;
+        var is_free_coupon = 0;
+        var free_coupon_amount = 0;
         for (var i = 0; i < bv_len; i++) {
             var ccode = CouponCodeType[i].name;
             var camnt = CouponCodeType[i].value;
+            if(ccode === 'SC0'){
+                is_free_coupon = 1;
+                free_coupon_amount = camnt;
+            }
             if (ProductCouponType.length > 0) {
                 var bvp_len = ProductCouponType.length;
                 for (var j = 0; j < bvp_len; j++) {
@@ -659,12 +665,16 @@ function calcAmountDue() {
                 }
             }
         }
+        if(is_free_coupon === 1){
+            temp_coupon_amount = (temp_coupon_amount + Number(free_coupon_amount));
+        }
     }
 
     if (cashAmount < tot || couponAmount < tot) {
         var amount = (Number(cashAmount) + Number(temp_coupon_amount));
         duePayment = (Number(tot) - Number(amount));
     }
+    
     temp_due = duePayment;
     if (duePayment < 0) {
         temp_due = 0;

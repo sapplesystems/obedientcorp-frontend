@@ -745,7 +745,7 @@ function checkBeforeGenerateInvoice() {
     var mobile_no = '';
     var user_id = '';
     if (couponAmount > 0 && isVerifyOTP == 0) {
-        showSwal('error', 'Coupon Verification', 'Please verify the applid coupon with otp sent to your given mobile number.');
+        showSwal('error', 'Coupon Verification', 'Please verify the applied coupon with otp sent to your given mobile number.');
         return false;
     } else if (due_payment > 0) {
         showSwal('error', 'Balance Due', 'You need to pay Rs. ' + due_payment);

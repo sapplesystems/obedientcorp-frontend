@@ -163,7 +163,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
 
                         </div>
                         <div class="cart-footer">
-                            <p class="Date_format"><?php echo date('d-M-Y h:i:s A') ?></p>
+                            <p class="Date_format"><?php date_default_timezone_set('Asia/Kolkata'); echo date('d-M-Y h:i:s A') ?></p>
                             <div class="cart-footer-main">
                                 <div class="cart-footer-table totalsTbl">
                                     <div class="clearfix subTotal">

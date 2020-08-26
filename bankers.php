@@ -23,8 +23,18 @@ echo $common['dotted_navigation'];
     </div>
     <!-- BOXES -->
     <div class="t-center container qdr-col-2 bank_logos">
+	 <!-- Box -->
+        <div class="qdr-hover-container slide-in-fwd-left mt-3">
+            <!-- Icon -->
+            <div class="mb-4">
+                <img style="height:84px;" src="images/hdfc.png" />
+            </div> 
+            <p class="gray9"><strong>Obedient Marketing Universal Pvt. Ltd.</strong></p>
+            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 50200051188845<br><strong>IFSC Code</strong> : HDFC0001464<br><strong>Branch</strong> - JLN Road Prayagraj.</p>
+        </div>
+        <!-- End Box -->
 	<!-- Box -->
-        <div class="qdr-hover-container slide-in-fwd-left">
+        <div class="qdr-hover-container slide-in-fwd-right">
             <!-- Icon -->
             <div class="mb-4">
                 <img src="images/canara.png" />
@@ -34,7 +44,7 @@ echo $common['dotted_navigation'];
         </div>
         <!-- End Box -->
         <!-- Box -->
-        <div class="qdr-hover-container slide-in-fwd-right">
+        <div class="qdr-hover-container slide-in-fwd-left">
             <!-- Icon -->
             <div class="mb-4">
                 <img src="images/canara.png" />
@@ -43,16 +53,7 @@ echo $common['dotted_navigation'];
             <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 0627214000013<br><strong>IFSC Code</strong> : CNRB0000627<br><strong>Branch</strong> - Civil Lines, Prayagraj.</p>
         </div>
         <!-- End Box -->
-        <!-- Box -->
-        <div class="qdr-hover-container slide-in-fwd-left mt-3">
-            <!-- Icon -->
-            <div class="mb-4">
-                <img src="images/yes.png" />
-            </div> 
-            <p class="gray9"><strong>Obedient Infra Development Pvt. Ltd.</strong></p>
-            <p class="xxs-mt gray6 font15"><strong>Account No.</strong> - 011663300001143<br><strong>IFSC Code</strong> : YESB0000116<br><strong>Branch</strong> - Civil Lines Prayagraj.</p>
-        </div>
-        <!-- End Box -->
+       
 		 <!-- Box -->
         <div class="qdr-hover-container slide-in-fwd-right mt-3">
             <!-- Icon -->

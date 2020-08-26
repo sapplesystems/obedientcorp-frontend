@@ -119,12 +119,17 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                     var received_html = '';
                     $.each(response.data, function(key, value) {
                         var action_td = '';
+                        var dispatch_no = value.dispatch_no;
+                        if(value.challan_invoice_no !== ''){
+                            dispatch_no = value.challan_invoice_no;
+                        }
+                        
                         if (value.status == 'Dispatched') {
                             dispatch_html += '<tr id="tr_' + value.id + '" role="row" >\n\
                                                 <td>' + value.distributor_name_from + '</td>\n\
                                                 <td>' + value.dispatch_type + '</td>\n\
                                                 <td>' + value.dispatch_date + '</td>\n\
-                                                <td>' + value.dispatch_no + '</td>\n\
+                                                <td>' + dispatch_no + '</td>\n\
                                                 <td>' + value.status + '</td>\n\
                                                 <td>\n\
                                                     <a  class="btn btn-dark btn-sm" href="dispatch-item-received.php?dispatch_id=' + value.id + '" id="dispatch-detail" title="Recieved Items">Item Detail</a> \n\
@@ -137,7 +142,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                                 <td>' + value.distributor_name_from + '</td>\n\
                                                 <td>' + value.dispatch_type + '</td>\n\
                                                 <td>' + value.dispatch_date + '</td>\n\
-                                                <td>' + value.dispatch_no + '</td>\n\
+                                                <td>' + dispatch_no + '</td>\n\
                                                 <td>' + value.status + '</td>\n\
                                                 <td>\n\
                                                 <a class="btn btn-dark btn-sm" href="dispatch-detail.php?dispatch_id=' + value.id + '&dist_id=' + value.distributor_id_to + '" id="dispatch-detail" title="Items Detail">Item Detail</a> \n\
@@ -150,7 +155,7 @@ if (empty($_SESSION['distributor_login_resp']['id']) || $_SESSION['distributor_l
                                                 <td>' + value.distributor_name_from + '</td>\n\
                                                 <td>' + value.dispatch_type + '</td>\n\
                                                 <td>' + value.dispatch_date + '</td>\n\
-                                                <td>' + value.dispatch_no + '</td>\n\
+                                                <td>' + dispatch_no + '</td>\n\
                                                 <td>' + value.status + '</td>\n\
                                                 <td>\n\
                                                 <a class="btn btn-dark btn-sm" href="dispatch-detail.php?dispatch_id=' + value.id + '&dist_id=' + value.distributor_id_to + '" id="dispatch-detail" title="Items Detail">Item Detail</a> \n\

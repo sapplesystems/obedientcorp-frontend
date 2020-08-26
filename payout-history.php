@@ -130,6 +130,7 @@ if ($user_type != 'ADMIN') {
                                                 <tr>\n\
                                                     <th>Week No.</th>\n\
                                                     <th>Date</th>\n\
+                                                    <th>Introducer Name</th>\n\
                                                     <th>Associate Name</th>\n\
                                                     <th>Left BV</th>\n\
                                                     <th>Right BV</th>\n\
@@ -162,6 +163,7 @@ if ($user_type != 'ADMIN') {
                             table_data += '<tr>\n\
                                             <td>' + value.week_no + '</td>\n\
                                             <td>' + value.from_date + ' To ' + value.to_date + '</td>\n\
+                                            <td>' + value.introducer_display_name + '</td>\n\
                                             <td>' + value.display_name + '</td>\n\
                                             <td>' + value.total_left_business + '</td>\n\
                                             <td>' + value.total_right_business + '</td>\n\

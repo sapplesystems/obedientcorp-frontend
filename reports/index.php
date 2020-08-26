@@ -36,7 +36,9 @@ if (!empty($_REQUEST['start_date']) && !empty($_REQUEST['end_date'])) {
     $condition .= " and Date(payouts.created_at) <= '$end_date' ";
 }
 
-$query = $db->query("select CONCAT(users.associate_name,' (',users.username, ')') as display_name, total_left_business, 
+$query = $db->query("select 
+    (SELECT CONCAT(associate_name,' (',username, ')') FROM users WHERE username=(SELECT introducer_code FROM users WHERE id=payouts.user_id)) AS introducer_display_name,
+    CONCAT(users.associate_name,' (',users.username, ')') as display_name, total_left_business, 
                 total_right_business, total_self_business, remaining_left_business, remaining_right_business, matching_amount, commission, 
                 sponsor, reward, offer, bde, income_fund, 
                 tds, processing_fee, other_charges, payout_amount, week_no, DATE_FORMAT(DATE_ADD(payouts.from_date, INTERVAL 1 DAY), '%d-%b-%Y') as from_date, 
@@ -66,64 +68,66 @@ $styleThinBlackBorderOutline = array(
 $excel->setActiveSheetIndex(0)
         ->setCellValue('A' . $row_number, 'Week No.')
         ->setCellValue('B' . $row_number, 'Date')
-        ->setCellValue('C' . $row_number, 'Associate Name')
-        ->setCellValue('D' . $row_number, 'Left BV')
-        ->setCellValue('E' . $row_number, 'Right BV')
-        ->setCellValue('F' . $row_number, 'Balance Left BV')
-        ->setCellValue('G' . $row_number, 'Balance Right BV')
-        ->setCellValue('H' . $row_number, 'Matching BV')
-        ->setCellValue('I' . $row_number, 'Commission')
-        ->setCellValue('J' . $row_number, 'BDE')
-        ->setCellValue('K' . $row_number, 'Sponsor Income')
-        ->setCellValue('L' . $row_number, 'Reward')
-        ->setCellValue('M' . $row_number, 'Offer')
-        ->setCellValue('N' . $row_number, 'Total Payout')
-        ->setCellValue('O' . $row_number, 'TDS')
-        ->setCellValue('P' . $row_number, 'Processing Fee')
-        ->setCellValue('Q' . $row_number, 'Other Charges')
-        ->setCellValue('R' . $row_number, 'Payout Amount')
-        ->setCellValue('S' . $row_number, 'Account Holder Name')
-        ->setCellValue('T' . $row_number, 'Bank Name')
-        ->setCellValue('U' . $row_number, 'Account Number')
-        ->setCellValue('V' . $row_number, 'Branch Name')
-        ->setCellValue('W' . $row_number, 'IFSC Code')
-        ->setCellValue('X' . $row_number, 'Aadhaar')
-        ->setCellValue('Y' . $row_number, 'Pan Number')
-        ->setCellValue('Z' . $row_number, 'Mobile')
-        ->setCellValue('AA' . $row_number, 'Email');
+        ->setCellValue('C' . $row_number, 'Introducer Name')
+        ->setCellValue('D' . $row_number, 'Associate Name')
+        ->setCellValue('E' . $row_number, 'Left BV')
+        ->setCellValue('F' . $row_number, 'Right BV')
+        ->setCellValue('G' . $row_number, 'Balance Left BV')
+        ->setCellValue('H' . $row_number, 'Balance Right BV')
+        ->setCellValue('I' . $row_number, 'Matching BV')
+        ->setCellValue('J' . $row_number, 'Commission')
+        ->setCellValue('K' . $row_number, 'BDE')
+        ->setCellValue('L' . $row_number, 'Sponsor Income')
+        ->setCellValue('M' . $row_number, 'Reward')
+        ->setCellValue('N' . $row_number, 'Offer')
+        ->setCellValue('O' . $row_number, 'Total Payout')
+        ->setCellValue('P' . $row_number, 'TDS')
+        ->setCellValue('Q' . $row_number, 'Processing Fee')
+        ->setCellValue('R' . $row_number, 'Other Charges')
+        ->setCellValue('S' . $row_number, 'Payout Amount')
+        ->setCellValue('T' . $row_number, 'Account Holder Name')
+        ->setCellValue('U' . $row_number, 'Bank Name')
+        ->setCellValue('V' . $row_number, 'Account Number')
+        ->setCellValue('W' . $row_number, 'Branch Name')
+        ->setCellValue('X' . $row_number, 'IFSC Code')
+        ->setCellValue('Y' . $row_number, 'Aadhaar')
+        ->setCellValue('Z' . $row_number, 'Pan Number')
+        ->setCellValue('AA' . $row_number, 'Mobile')
+        ->setCellValue('AB' . $row_number, 'Email');
 $row_number++;
 for ($i = 0; $i < $row_count; $i++) {
     $excel->getActiveSheet()->setCellValue('A' . $row_number, $row[$i]->week_no)
             ->setCellValue('B' . $row_number, $row[$i]->from_date . ' To ' . $row[$i]->to_date)
-            ->setCellValue('C' . $row_number, $row[$i]->display_name)
-            ->setCellValue('D' . $row_number, $row[$i]->total_left_business)
-            ->setCellValue('E' . $row_number, $row[$i]->total_right_business)
-            ->setCellValue('F' . $row_number, $row[$i]->remaining_left_business)
-            ->setCellValue('G' . $row_number, $row[$i]->remaining_right_business)
-            ->setCellValue('H' . $row_number, $row[$i]->matching_amount)
-            ->setCellValue('I' . $row_number, $row[$i]->commission)
-            ->setCellValue('J' . $row_number, $row[$i]->bde)
-            ->setCellValue('K' . $row_number, $row[$i]->sponsor)
-            ->setCellValue('L' . $row_number, $row[$i]->reward)
-            ->setCellValue('M' . $row_number, $row[$i]->offer)
-            ->setCellValue('N' . $row_number, $row[$i]->income_fund)
-            ->setCellValue('O' . $row_number, $row[$i]->tds)
-            ->setCellValue('P' . $row_number, $row[$i]->processing_fee)
-            ->setCellValue('Q' . $row_number, $row[$i]->other_charges)
-            ->setCellValue('R' . $row_number, $row[$i]->payout_amount)
-            ->setCellValue('S' . $row_number, $row[$i]->payee_name)
-            ->setCellValue('T' . $row_number, $row[$i]->bank_name)
-            ->setCellValue('U' . $row_number, chunk_split($row[$i]->account_number,4,' '))
-            ->setCellValue('V' . $row_number, $row[$i]->branch)
-            ->setCellValue('W' . $row_number, $row[$i]->ifsc_code)
-            ->setCellValue('X' . $row_number, $row[$i]->adhar)
-            ->setCellValue('Y' . $row_number, $row[$i]->pan_number)
-            ->setCellValue('Z' . $row_number, $row[$i]->mobile_no)
-            ->setCellValue('AA' . $row_number, $row[$i]->email);
+            ->setCellValue('C' . $row_number, $row[$i]->introducer_display_name)
+            ->setCellValue('D' . $row_number, $row[$i]->display_name)
+            ->setCellValue('E' . $row_number, $row[$i]->total_left_business)
+            ->setCellValue('F' . $row_number, $row[$i]->total_right_business)
+            ->setCellValue('G' . $row_number, $row[$i]->remaining_left_business)
+            ->setCellValue('H' . $row_number, $row[$i]->remaining_right_business)
+            ->setCellValue('I' . $row_number, $row[$i]->matching_amount)
+            ->setCellValue('J' . $row_number, $row[$i]->commission)
+            ->setCellValue('K' . $row_number, $row[$i]->bde)
+            ->setCellValue('L' . $row_number, $row[$i]->sponsor)
+            ->setCellValue('M' . $row_number, $row[$i]->reward)
+            ->setCellValue('N' . $row_number, $row[$i]->offer)
+            ->setCellValue('O' . $row_number, $row[$i]->income_fund)
+            ->setCellValue('P' . $row_number, $row[$i]->tds)
+            ->setCellValue('Q' . $row_number, $row[$i]->processing_fee)
+            ->setCellValue('R' . $row_number, $row[$i]->other_charges)
+            ->setCellValue('S' . $row_number, $row[$i]->payout_amount)
+            ->setCellValue('T' . $row_number, $row[$i]->payee_name)
+            ->setCellValue('U' . $row_number, $row[$i]->bank_name)
+            ->setCellValue('V' . $row_number, chunk_split($row[$i]->account_number,4,' '))
+            ->setCellValue('W' . $row_number, $row[$i]->branch)
+            ->setCellValue('X' . $row_number, $row[$i]->ifsc_code)
+            ->setCellValue('Y' . $row_number, $row[$i]->adhar)
+            ->setCellValue('Z' . $row_number, $row[$i]->pan_number)
+            ->setCellValue('AA' . $row_number, $row[$i]->mobile_no)
+            ->setCellValue('AB' . $row_number, $row[$i]->email);
 
     //$excel->getActiveSheet()->getStyle('U' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
-    $excel->getActiveSheet()->getStyle('X' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
-    $excel->getActiveSheet()->getStyle('Z' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
+    $excel->getActiveSheet()->getStyle('Y' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
+    $excel->getActiveSheet()->getStyle('AA' . $row_number)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
 
     $row_number++;
 }
@@ -142,9 +146,10 @@ for ($i = 0; $i < $row_count; $i++) {
   $excel->getActiveSheet()->getStyle($borderindex)->applyFromArray($styleThinBlackBorderOutline); */
 
 
-$excel->getActiveSheet()->getStyle('A1:AA1')->getFont()->setBold(true);
+$excel->getActiveSheet()->getStyle('A1:AB1')->getFont()->setBold(true);
 $excel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
 $excel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+$excel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
 $excel->getActiveSheet()->getColumnDimension('S')->setAutoSize(true);
 $excel->getActiveSheet()->getColumnDimension('T')->setAutoSize(true);
 $excel->getActiveSheet()->getColumnDimension('U')->setAutoSize(true);
@@ -154,8 +159,9 @@ $excel->getActiveSheet()->getColumnDimension('X')->setAutoSize(true);
 $excel->getActiveSheet()->getColumnDimension('Y')->setAutoSize(true);
 $excel->getActiveSheet()->getColumnDimension('Z')->setAutoSize(true);
 $excel->getActiveSheet()->getColumnDimension('AA')->setAutoSize(true);
+$excel->getActiveSheet()->getColumnDimension('AB')->setAutoSize(true);
 //$excel->getActiveSheet()->getStyle('A1:AA1')->getFont()->setSize(12);
-$excel->getActiveSheet()->getStyle('A1:AA' . $row_number)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+$excel->getActiveSheet()->getStyle('A1:AB' . $row_number)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
 //$excel->getActiveSheet()->getStyle('A1:AA' . $row_number)->applyFromArray($styleThinBlackBorderOutline);
 
 

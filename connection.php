@@ -1,4 +1,4 @@
 <?php
 
-$db = new PDO('mysql:host=myobedient.com;dbname=obedient_db', 'obedient_dbuser', '6tJSMedq*ie8');
+$db = new PDO('mysql:host=localhost;dbname=obedient_db', 'root', '');
 ?>

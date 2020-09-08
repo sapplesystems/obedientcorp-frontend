@@ -275,7 +275,7 @@ if ($user_type != 'ADMIN') {
                                     <td>' + value.coupon_code + '</td>\n\
                                     <td>' + value.coupon_amount + '</td>\n\
                                     <td>' + value.date + '</td>\n\
-                                    <td>Rs. ' + value.comments + '</td>\n\
+                                    <td>' + value.comments + '</td>\n\
                                 </tr>';
                         });
                         table_html += '</tbody>';

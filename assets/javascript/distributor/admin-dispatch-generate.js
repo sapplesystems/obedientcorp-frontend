@@ -104,40 +104,37 @@ $(document).ready(function () {
 });//document ready
 
 function SubValue(id) {
-  var qty = $('#qty_' + id).val();
-  qty = Number(qty);
-  qty--;
-  if (qty > 0) {
-    $('#qty_' + id).val(qty);
-    var total = Number($('#org_tot_' + id).val()) * Number(qty);
-    var dp = Number($('#org_dp_' + id).val()) * Number(qty);
-    var cgst = Number($('#org_cgst_' + id).val()) * Number(qty);
-    var sgst = Number($('#org_sgst_' + id).val()) * Number(qty);
-    var igst = Number($('#org_igst_' + id).val()) * Number(qty);
-    $('#dp_' + id).val(dp);
-    //$('#dealer_price_' + id).html(dp);
-    $('#tot_' + id).html(total);
-    $('#cgst_' + id).val(cgst);
-    $('#sgst_' + id).val(sgst);
-    $('#igst_' + id).val(igst);
-    SubTotal();
-  }
+    var qty = document.getElementById('qty_' + id).value;
+    qty = Number(qty);
+    qty--;
+    if (qty > 0) {
+        document.getElementById('qty_' + id).value = qty;
+        var total = Number(document.getElementById('org_tot_' + id).value) * Number(qty);
+        var dp = Number(document.getElementById('org_dp_' + id).value) * Number(qty);
+        var cgst = Number(document.getElementById('org_cgst_' + id).value) * Number(qty);
+        var sgst = Number(document.getElementById('org_sgst_' + id).value) * Number(qty);
+        var igst = Number(document.getElementById('org_igst_' + id).value) * Number(qty);
+        document.getElementById('dp_' + id).value = dp;
+        //$('#dealer_price_' + id).html(dp);
+        document.getElementById('tot_' + id).innerHTML = total.toFixed(2);
+        document.getElementById('cgst_' + id).value = cgst;
+        document.getElementById('sgst_' + id).value = sgst;
+        document.getElementById('igst_' + id).value = igst;
+        SubTotal();
+    }
 
 }
 function AddValue(id) {
-  var qty = $('#qty_' + id).val();
-  var inv_item_qty = $('#inv_item_qty_' + id).val();
-  qty = Number(qty);
-  inv_item_qty = Number(inv_item_qty);
-  console.log(qty);
-  console.log(inv_item_qty);
-  console.log((qty - inv_item_qty));
-  if (qty == inv_item_qty && (qty - inv_item_qty) == 0) {
-    $('#id_add_qty').val(id);
-    $('#items_qty_popup_add_qty').addClass('is-visible');
-    return false;
-  }
-  AddValueAfterChequeQty(id);
+    var qty = document.getElementById('qty_' + id).value;
+    var inv_item_qty = document.getElementById('inv_item_qty_' + id).value;
+    qty = Number(qty);
+    inv_item_qty = Number(inv_item_qty);
+    if (qty == inv_item_qty && (qty - inv_item_qty) == 0) {
+        $('#id_add_qty').val(id);
+        $('#items_qty_popup_add_qty').addClass('is-visible');
+        return false;
+    }
+    AddValueAfterChequeQty(id);
 }
 
 function addItemQty(status) {
@@ -150,22 +147,22 @@ function addItemQty(status) {
 }
 
 function AddValueAfterChequeQty(id) {
-  var qty = $('#qty_' + id).val();
-  qty = Number(qty);
-  qty++;
-  $('#qty_' + id).val(qty);
-  var total = Number($('#org_tot_' + id).val()) * Number(qty);
-  var dp = Number($('#org_dp_' + id).val()) * Number(qty);
-  var cgst = Number($('#org_cgst_' + id).val()) * Number(qty);
-  var sgst = Number($('#org_sgst_' + id).val()) * Number(qty);
-  var igst = Number($('#org_igst_' + id).val()) * Number(qty);
-  $('#dp_' + id).val(dp);
-  //$('#dealer_price_' + id).html(dp);
-  $('#tot_' + id).html(total.toFixed(2));
-  $('#cgst_' + id).val(cgst);
-  $('#sgst_' + id).val(sgst);
-  $('#igst_' + id).val(igst);
-  SubTotal();
+    var qty = document.getElementById('qty_' + id).value;
+    qty = Number(qty);
+    qty++;
+    document.getElementById('qty_' + id).value = qty;
+    var total = Number(document.getElementById('org_tot_' + id).value) * Number(qty);
+    var dp = Number(document.getElementById('org_dp_' + id).value) * Number(qty);
+    var cgst = Number(document.getElementById('org_cgst_' + id).value) * Number(qty);
+    var sgst = Number(document.getElementById('org_sgst_' + id).value) * Number(qty);
+    var igst = Number(document.getElementById('org_igst_' + id).value) * Number(qty);
+    document.getElementById('dp_' + id).value = dp;
+    //document.getElementById('dealer_price_' + id).html(dp);
+    document.getElementById('tot_' + id).innerHTML = total.toFixed(2);
+    document.getElementById('cgst_' + id).value = cgst;
+    document.getElementById('sgst_' + id).value = sgst;
+    document.getElementById('igst_' + id).value = igst;
+    SubTotal();
 }
 
 function getProductList() {
@@ -196,15 +193,15 @@ function SubTotal() {
   var total = 0;
   $('.items').each(function () {
     var id = $(this).val();
-    sub_total = (sub_total + Number($('#dp_' + id).val()));
-    tax = (tax + Number($('#cgst_' + id).val()) + Number($('#sgst_' + id).val()));// + Number($('#igst_' + id).val())
-    total = (total + Number($('#tot_' + id).html()));
+    sub_total = (sub_total + Number(document.getElementById('dp_' + id).value));
+    tax = (tax + Number(document.getElementById('cgst_' + id).value) + Number(document.getElementById('sgst_' + id).value));// + Number($('#igst_' + id).val())
+    total = (total + Number(document.getElementById('tot_' + id).innerHTML));
   });
   total_tax = tax;
-  $('#subTotal-amount').html(sub_total.toFixed(2));
-  $('#total-tax').html(tax.toFixed(2));
-  $('#total-amount').html(total.toFixed(2));
-  $('#totalPayment').html(total.toFixed(2));
+  document.getElementById('subTotal-amount').innerHTML = sub_total.toFixed(2);
+  document.getElementById('total-tax').innerHTML = tax.toFixed(2);
+  document.getElementById('total-amount').innerHTML = total.toFixed(2);
+  document.getElementById('totalPayment').innerHTML = total.toFixed(2);
 
 }
 
@@ -221,18 +218,18 @@ function generationDispatch() {
     $('.items').each(function () {
       var items_ids = $(this).val();
       if (items_ids && items_ids != '') {
-        var item_qty = $('#qty_' + items_ids).val();
-        var item_id = $('#item_id_' + items_ids).val();
-        total_cgst = (total_cgst + Number($('#cgst_' + items_ids).val()));
-        total_sgst = (total_sgst + Number($('#sgst_' + items_ids).val()));
-        total_igst = (total_igst + Number($('#igst_' + items_ids).val()));
+        var item_qty = document.getElementById('qty_' + items_ids).value;
+        var item_id = document.getElementById('item_id_' + items_ids).value;
+        total_cgst = (total_cgst + Number(document.getElementById('cgst_' + items_ids).value));
+        total_sgst = (total_sgst + Number(document.getElementById('sgst_' + items_ids).value));
+        total_igst = (total_igst + Number(document.getElementById('igst_' + items_ids).value));
         items.push({
           item_id: item_id,
           qty: item_qty,
-          cgst: $('#cgst_' + items_ids).val(),
-          sgst: $('#sgst_' + items_ids).val(),
-          igst: $('#igst_' + items_ids).val(),
-          lot_no: $('#lotNo_' + items_ids).val(),
+          cgst: document.getElementById('cgst_' + items_ids).value,
+          sgst: document.getElementById('sgst_' + items_ids).value,
+          igst: document.getElementById('igst_' + items_ids).value,
+          lot_no: document.getElementById('lotNo_' + items_ids).value,
         });
       }
     });
@@ -370,7 +367,7 @@ function removeProduct(id) {
     $('#item-list').html('');
 
   }
-  $('#tr_' + id).remove();
+  document.getElementById('tr_' + id).remove();
   SubTotal();
 
 }

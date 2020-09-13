@@ -134,9 +134,9 @@ function getDispatchReceivedItems() {
 function SubtractValue(id,e) {
     e.preventDefault();
     var val = '';
-    if ($('#receive-item-qty_' + id).val() != 0) {
-        val = parseInt($('#receive-item-qty_' + id).val()) - 1;
-        $('#receive-item-qty_' + id).val(val);
+    if (document.getElementById('receive-item-qty_' + id).value != 0) {
+        val = parseInt(document.getElementById('receive-item-qty_' + id).value) - 1;
+        document.getElementById('receive-item-qty_' + id).value = val;
 
     }
     setItemStatus(id);
@@ -144,9 +144,9 @@ function SubtractValue(id,e) {
 function AddValue(id,e) {
     e.preventDefault();
     var val = '';
-    if ($('#receive-item-qty_' + id).val()) {
-        val = parseInt($('#receive-item-qty_' + id).val()) + 1;
-        $('#receive-item-qty_' + id).val(val);
+    if (document.getElementById('receive-item-qty_' + id).value) {
+        val = parseInt(document.getElementById('receive-item-qty_' + id).value) + 1;
+        document.getElementById('receive-item-qty_' + id).value = val;
     }
     setItemStatus(id);
 }
@@ -175,15 +175,15 @@ function updateDispatchItems() {
         var comment = '';
         id = $(this).val();
         var dispatch_item_id = $(this).val();
-        var dispatched_items_quantity = $('#dispatch-qty_' + id).html();
-        var received_items_quantity = $('#receive-item-qty_' + id).val();
-        var product_id = $('#product_id_' + id).val();
-        var lot_no = $('#lot_no_' + id).val();
-        if ($('#status_' + id).val()) {
-            status = $('#status_' + id).val();
+        var dispatched_items_quantity = document.getElementById('dispatch-qty_' + id).innerHTML;
+        var received_items_quantity = document.getElementById('receive-item-qty_' + id).value;
+        var product_id = document.getElementById('product_id_' + id).value;
+        var lot_no = document.getElementById('lot_no_' + id).value;
+        if (document.getElementById('status_' + id).value) {
+            status = document.getElementById('status_' + id).value;
         }
-        if ($('#comment_' + id).val()) {
-            comment = $('#comment_' + id).val();
+        if (document.getElementById('comment_' + id).value) {
+            comment = document.getElementById('comment_' + id).value;
         }
         recieve_item.push({
             id: dispatch_item_id,
@@ -232,11 +232,11 @@ function setItemStatus(f) {
     var dispatched_qty = Number(dispatched_qty_elm.innerHTML);
     var received_qty = received_qty_elm.value;
     if (dispatched_qty == received_qty) {
-        $('#status_' + f).val('OK');
+        document.getElementById('status_' + f).value = 'OK';
     } else if (dispatched_qty > received_qty) {
-        $('#status_' + f).val('Less Items Received');
+        document.getElementById('status_' + f).value = 'Less Items Received';
     } else if (dispatched_qty < received_qty) {
-        $('#status_' + f).val('More Items Received');
+        document.getElementById('status_' + f).value = 'More Items Received';
     }
 }
 
@@ -247,7 +247,7 @@ function searchLotNumber(id)
         $("#lot_no_" + id).autocomplete({
             source: lot_number,
             select: function (event, ui) {
-                $('#lot_no_' + id).val(ui.item.value);
+                document.getElementById('lot_no_' + id).value = ui.item.value;
                 return false;
             }
 

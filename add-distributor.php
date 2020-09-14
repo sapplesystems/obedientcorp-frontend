@@ -121,13 +121,13 @@ if (isset($_REQUEST['distributor_id'])) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">GST Number :<span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">GST Number :<span class="text-danger"></span></label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control required" id="gst_number" name="gst_number" placeholder="Enter GST Number">
+                                        <input type="text" class="form-control" id="gst_number" name="gst_number" placeholder="Enter GST Number">
                                     </div>
-                                    <label class="col-sm-2 col-form-label">GST Image <span class="text-danger">*</span></label>
+                                    <label class="col-sm-2 col-form-label">GST Image <span class="text-danger"></span></label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="gst_image" class="file-upload-default required" id="gst_image">
+                                        <input type="file" name="gst_image" class="file-upload-default" id="gst_image">
                                         <div class="input-group">
                                             <input type="text" class="form-control file-upload-info" disabled placeholder="Upload GST Image">
                                             <span class="input-group-append">

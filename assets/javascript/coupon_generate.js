@@ -369,6 +369,7 @@ function extendCouponAvailabilitySubmit(e, coupon_id) {
             if (response.status == 'success') {
                 showSwal('success', 'Shopping Card Extended ', response.data);
                 $('#print_coupon_updated_date_' + coupon_id).html(response.updated_date);
+                $('#coupon_status_' + coupon_id).html('Active');
                 extendCouponAvailabilityCancel(e, coupon_id);
             }
             else {

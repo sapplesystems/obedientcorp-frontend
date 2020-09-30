@@ -101,14 +101,16 @@ function activeMenu($key) {
                             $stock_flow = activeMenu('stock-flow');
                             $sales_report = activeMenu('sales-report');
                             $invoice_detail = activeMenu('invoice-detail');
+                            $coupons_report = activeMenu('coupons-report');
                             ?>
-                            <li class="nav-item dropdown <?php echo $current_stock . $stock_flow . $sales_report . $invoice_detail; ?>">
+                            <li class="nav-item dropdown <?php echo $current_stock . $stock_flow . $sales_report . $invoice_detail . $coupons_report; ?>">
                                 <a href="javascript:void(0);" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Reports</span></a>
                                 <ul class="dropdown-menu">
                                     <li class="<?php echo $current_stock; ?>"><a class="nav-link" href="current-stock">Current Stock</a></li>
                                     <li class="<?php echo $stock_flow; ?>"><a class="nav-link" href="stock-flow">Stock Flow</a></li>
                                     <li class="<?php echo $sales_report; ?>"><a class="nav-link" href="sales-report">Invoice Report</a></li>
                                     <li class="<?php echo $invoice_detail; ?>"><a class="nav-link" href="invoice-detail">Invoice Detail</a></li>
+                                    <li class="<?php echo $coupons_report; ?>"><a class="nav-link" href="coupons-report">Coupons Report</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item <?php echo activeMenu('profile-update'); ?>">

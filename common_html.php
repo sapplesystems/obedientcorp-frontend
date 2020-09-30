@@ -16,6 +16,7 @@ $common = array(
                                                             <li id="about" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'about">About Us</a></li>
                                                             <li id="legal" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'legal">Legal</a></li>
                                                             <li id="bankers" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'bankers">Bankers</a></li>
+                                                            <li id="franchise" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'our-franchise">Our Franchise</a></li>
                                                             <li id="products" style="opacity:0"><a class="add-opacity" href="' . $home_url . 'products">Products</a></li>
                                                             <li id="realestate" style="opacity:0"><a class="add-opacity posR" href="javascript:void(0);">Real Estate <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                                                 <ul class="subMenu">
@@ -60,6 +61,7 @@ $common = array(
                                     <li><a href="' . $home_url . 'about"><span>About Us</span></a></li>
                                     <li><a href="' . $home_url . 'legal"><span>Legal</span></a></li>
                                     <li><a href="' . $home_url . 'bankers"><span>Bankers</span></a></li>
+                                    <li><a href="' . $home_url . 'our-franchise"><span>Our Franchise</span></a></li>
                                     <li><a href="' . $home_url . 'products"><span>Products</span></a></li>
                                     <li><a href="javascript:void(0);"><span>Real Estate</span></a></li>
                                     <ul class="subMenu_dotted">

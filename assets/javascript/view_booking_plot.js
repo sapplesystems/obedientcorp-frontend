@@ -94,6 +94,7 @@ function deleteBooking(e, booking_id) {
         url: base_url + 'delete-customer-booking',
         type: 'post',
         data: {
+            user_id: user_id,
             booking_id: booking_id,
         },
         success: function (response) {

@@ -296,7 +296,7 @@ function deleteCustomerBookings(plot_id) {
     $.ajax({
         url: base_url + 'delete-customer-bookings',
         type: 'post',
-        data: {plot_id: plot_id},
+        data: {plot_id: plot_id, user_id: user_id},
         success: function (response) {
             if (response.status == "success") {
                 updatePlotAvailability(plot_id)

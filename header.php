@@ -217,6 +217,12 @@ include_once 'common_html.php';
                                 <i class="mdi mdi-settings menu-icon"></i>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="repurchase-offers">
+                                <span class="menu-title">Repurchase Offers</span>
+                                <i class="mdi mdi-wallet menu-icon"></i>
+                            </a>
+                        </li>
                         <?php if ($user_type == 'ADMIN') { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="associate-list">

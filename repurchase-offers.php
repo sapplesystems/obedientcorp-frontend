@@ -41,9 +41,7 @@ include_once 'header.php';
                 type: 'post',
                 data: params,
                 success: function (response) {
-                    if (response.status == "success") {
-                        var counter = 0;
-                        var table_data = '<thead>\n\
+                    var table_data = '<thead>\n\
                                             <tr>\n\
                                                 <th>Sr.No</th>\n\
                                                 <th>Associate Name</th>\n\
@@ -54,6 +52,8 @@ include_once 'header.php';
                                             </tr>\n\
                                         </thead>\n\
                                         <tbody>';
+                    if (response.status == "success") {
+                        var counter = 0;
                         $.each(response.data, function (key, value) {
                             counter = counter + 1;
                             table_data += '<tr id="tr_' + key + '">\n\
@@ -71,7 +71,9 @@ include_once 'header.php';
                         hideLoader();
                     }
                     else {
-                        $("#repurchase_offer_listing").html('');
+                        table_data += '</tbody>';
+                        $("#repurchase_offer_listing").html(table_data);
+                        generateDataTable('repurchase_offer_listing');
                         hideLoader();
                     }
 

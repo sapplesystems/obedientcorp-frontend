@@ -198,7 +198,7 @@ include_once 'header_frontend.php';
             <div class="container mt-70 qdr-controls">
 			<div class="row">
                 <!-- Member -->
-                <div class="member col-md-4">
+                <div class="member col-md-3">
                     <!-- Container for details -->
                     <div class="member-body">
                         <img src="images/cmd.jpg" alt="Chairman">
@@ -223,11 +223,51 @@ include_once 'header_frontend.php';
                     </div>
                     <!-- End Container for details -->
                     <!-- Member Name -->
-                    <h2 class="light">Anuj Kumar</h2>
+                    
                 </div>
 
                 <!-- Member -->
-                <div class="member col-md-4 mt50-m">
+				<div class="col-md-9">
+                    <!-- Container for details -->
+                    <div class="text-left">
+					<h4 class="mb-1 marginTop20-m">Chairman & Founder of Obedient Group- </h4>
+					<div class="divider-4 divider-left h3 no-pm mb-4 bold">
+						<span>Anuj Kumar</span>
+					</div>
+                       <p>Under his visionary leadership Obedient Group is growing at a phenomenal rate every year and heading towards becoming one of the top direct selling companies of India and world.<br><br>
+							After playing key roles in various direct selling and housing companies for more than two decades, Mr Anuj Kumar laid the foundation stone of Obedient Grpup; he is successfully leading as a Chairman and founder with his unmatched domain expertise and business acumen.<br><br>
+							Values of Obedient Group are core and real mantra for success to Mr. Anuj Kumar.<br><br>
+							His fearless approach towards any complex situations and believing such situations can only give better profit margins and invaluable experience to customers and investors makes him a true visionary a leader of modern era, he has Faith that every situation has a definitive solution.<br><br>
+							In his words journey of Obedient is never ending, he is confident that Obedient will continue to scale milestones of excellence for the years to come
+						</p>
+                    </div>
+                    <!-- End Container for details -->
+                    <!-- Member Name -->
+                </div>
+				</div>
+				<div class="row mt50-m mt-5">
+
+
+                <!-- Member -->
+                <div class="col-md-9 abountNone-m">
+                    <!-- Container for details -->
+                    <div class="text-left">
+					<h4 class="mb-1 marginTop20-m">Managing Director- </h4>
+					<div class="divider-4 divider-left h3 no-pm mb-4 bold">
+						<span>Poonam Anuj Kumar</span>
+					</div>
+                       <p>Poonam Anuj Kumar is a first female director executive of Obedient Group, she has grown from grounds of organization, within a very short span of time with her critical thinking and great leadership traits she has contributed a great deal of success to organization and continued to serve as Managing Director of Obedient Group.<br></br>
+						Along with her key role in organization she has been looking into corporate social responsibilities of Obedient Group, Poonam Anuj Kumar is actively involved in the entire key decision making and taking Obedient to the right direction with her customer centric initiatives.<br></br>
+						She has great experience in FMCG and Housing industry, Poonam Anuj Kumar is renowned social worker and philanthropist, giving back to society is always in the heart of the Obedient Group and she is taking care of this with our CSR initiatives.<br></br>
+						Poonam Anuj Kumar is instrumental in Obedient Group’s growth and continuous expansion in market, in her words our professionalism coupled with strong personal touch enhances the probability of success at every step, her goal is to create long lasting client and business partner’s relation which will translate into long term winning strategies and exponential growth.
+						</p>
+                    </div>
+                    <!-- End Container for details -->
+                    <!-- Member Name -->
+                </div>
+				
+                <!-- Member -->
+                <div class="member col-md-3">
                     <!-- Container for details -->
                     <div class="member-body">
                         <img src="images/md.jpg" alt="Managing Director">
@@ -252,11 +292,30 @@ include_once 'header_frontend.php';
                     </div>
                     <!-- End Container for details -->
                     <!-- Member Name -->
-                    <h2 class="light">Poonam Anuj Kr.</h2>
                 </div>
+				
+				<div class="col-md-9 abountNone">
+                    <!-- Container for details -->
+                    <div class="text-left">
+					<h4 class="mb-1 marginTop20-m">Managing Director- </h4>
+					<div class="divider-4 divider-left h3 no-pm mb-4 bold">
+						<span>Poonam Anuj Kumar</span>
+					</div>
+                       <p>Poonam Anuj Kumar is a first female director executive of Obedient Group, she has grown from grounds of organization, within a very short span of time with her critical thinking and great leadership traits she has contributed a great deal of success to organization and continued to serve as Managing Director of Obedient Group.<br></br>
+						Along with her key role in organization she has been looking into corporate social responsibilities of Obedient Group, Poonam Anuj Kumar is actively involved in the entire key decision making and taking Obedient to the right direction with her customer centric initiatives.<br></br>
+						She has great experience in FMCG and Housing industry, Poonam Anuj Kumar is renowned social worker and philanthropist, giving back to society is always in the heart of the Obedient Group and she is taking care of this with our CSR initiatives.<br></br>
+						Poonam Anuj Kumar is instrumental in Obedient Group’s growth and continuous expansion in market, in her words our professionalism coupled with strong personal touch enhances the probability of success at every step, her goal is to create long lasting client and business partner’s relation which will translate into long term winning strategies and exponential growth.
+						</p>
+                    </div>
+                    <!-- End Container for details -->
+                    <!-- Member Name -->
+                </div>
+				</div>
+				<div class="row mt50-m mt-5">
+              
 
                 <!-- Member -->
-                <div class="member col-md-4 mt50-m">
+                <div class="member col-md-3">
                     <!-- Container for details -->
                     <div class="member-body">
                         <img src="images/founder.jpg" alt="Founder">
@@ -281,7 +340,22 @@ include_once 'header_frontend.php';
                     </div>
                     <!-- End Container for details -->
                     <!-- Member Name -->
-                    <h2 class="light">Abhishek Kumar Singh</h2>
+                </div>
+				<div class="col-md-9">
+                    <!-- Container for details -->
+                    <div class="text-left">
+					<h4 class="mb-1 marginTop20-m">Co-Founder and CEO- </h4>
+					<div class="divider-4 divider-left h3 no-pm mb-4 bold">
+						<span>Abhishek Singh</span>
+					</div>
+                       <p>More than a decade of direct selling, network marketing experience Abhishek Singh is taking Obedient Group to a new milestone every day, he is actively involved in building human relationships within the company and outside; Abhishek is motivating the team to aspire and achieve the best and identifying new business possibilities to establish successful ventures.<br><br>
+						Through his resilient leadership skills, he is continuously leading Obedient Group in bringing new practices on board and is training thousands of people through his specially crafted training programmes for direct selling professionals.<br><br>
+						His strategic thinking and market research in order to identify opportunities and making business decisions that ensure long-term success and growth is paving new ways for organization and taking it to next level.<br><br>
+						He has been instigating and manifested great confidence amongst all the stakeholders with amazing product development, marketing & promotion skills, Abhishek’s personnel management and financial planning is giving fruit to Obedient Group with happy and satisfied stakeholders, under his leadership Obedient is bound to achieve the pinnacle of success.
+						</p>
+                    </div>
+                    <!-- End Container for details -->
+                    <!-- Member Name -->
                 </div>
 				</div>
             </div>

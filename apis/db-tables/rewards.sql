@@ -1,0 +1,57 @@
+/*
+SQLyog Ultimate v13.1.1 (64 bit)
+MySQL - 5.6.47 : Database - obedient_stage
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`obedient_stage` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `obedient_stage`;
+
+/*Table structure for table `rewards` */
+
+DROP TABLE IF EXISTS `rewards`;
+
+CREATE TABLE `rewards` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Pic for display',
+  `amount` double NOT NULL DEFAULT '0' COMMENT 'Reward cash amount',
+  `business` double NOT NULL DEFAULT '0' COMMENT 'Associated business value',
+  `duration` int(11) NOT NULL DEFAULT '0' COMMENT 'Eligibility duration in months',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `rewards` */
+
+insert  into `rewards`(`id`,`photo`,`amount`,`business`,`duration`,`created_at`,`updated_at`,`deleted_at`) values 
+(1,NULL,25000,385000,3,NULL,NULL,NULL),
+(2,NULL,70000,924000,6,NULL,NULL,NULL),
+(3,NULL,220000,2850000,12,NULL,NULL,NULL),
+(4,NULL,300000,7700000,0,NULL,NULL,NULL),
+(5,NULL,600000,15400000,0,NULL,NULL,NULL),
+(6,NULL,1000000,27000000,0,NULL,NULL,NULL),
+(7,NULL,1500000,38500000,0,NULL,NULL,NULL),
+(8,NULL,2400000,61600000,0,NULL,NULL,NULL),
+(9,NULL,3200000,81900000,0,NULL,NULL,NULL),
+(10,NULL,6000000,154000000,0,NULL,NULL,NULL),
+(11,NULL,10000000,254100000,0,NULL,NULL,NULL),
+(12,NULL,15000000,385000000,0,NULL,NULL,NULL),
+(13,NULL,22500000,616000000,0,NULL,NULL,NULL),
+(14,NULL,32500000,924000000,0,NULL,NULL,NULL),
+(15,NULL,45000000,1155000000,0,NULL,NULL,NULL);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

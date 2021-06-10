@@ -1,0 +1,90 @@
+.nav-bar {
+	position:absolute;
+	top:40px;
+	right:6.3%;
+	width: 25px;
+	height: 22.5px;
+	z-index: 1;
+}
+.nav-bar1 {
+	width: 19px;
+	height: 3px;
+	background-color: #ffffff;
+}
+.nav-bar2 {
+	width: 19px;
+	height: 3px;
+	background-color: #ffffff;
+	margin-top: 6px;
+	margin-left: 6px;
+}
+.nav-bar3 {
+	width: 19px;
+	height: 3px;
+	background-color: #ffffff;
+	margin-top:6px;
+}
+
+
+.iconCancel {
+	width: 17px;
+	height: 17px;
+	display: block;
+	float: right;
+}
+.iconCancel:before, .iconCancel:after {
+	position: absolute;
+	right: 7px;
+	top: 20px;
+	content: ' ';
+	height: 21.3px;
+	width: 2.7px;
+	background-color: #ffffff;
+}
+.iconCancel:before {
+	transform: rotate(45deg);
+}
+.iconCancel:after {
+	transform: rotate(-45deg);
+}
+
+.topBar {
+	width: 100%;
+	/*max-width: 1332px;*/ 
+	height: 100px;
+	padding: 5px 0px 5px 0px;
+	background: rgba(0,0,0,0.7);
+	position: absolute;
+	z-index: 1;
+}
+ul.topMenu {
+	margin: 25px 0px 0px 0px;
+	/*overflow:hidden;*/
+	padding: 0px;
+	padding-top: 10px;
+}
+ul.topMenu li {
+	display: inline-block;
+	padding: 0 8px;
+	color:#fff;
+	transition:0.5s;
+}
+
+
+ul.topMenu li:hover{
+	color:#b66dff;
+}
+ul.topMenu li ul {
+	display: none;
+}
+
+#burgernavbar{cursor:pointer;}
+
+@media only screen and (max-width: 991px){
+		.custom_btn_overlap{visibility:hidden!important;}
+	.topBar{height: 260px;}
+	ul.topMenu{margin-top:70px;}
+	ul.topMenu li{margin:5px 0;width: 32%; text-align: center;}
+	.topBar .text-right.paddLeftNone{text-align:center !important;}
+	.topHeader .hbalogo{height:80px !important;}
+}
